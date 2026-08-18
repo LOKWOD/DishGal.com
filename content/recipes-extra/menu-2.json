@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "crispy-honey-lime-chicken-rice-bowls",
+    "title": "Crispy Honey-Lime Chicken Rice Bowls",
+    "dek": "Crisp chicken bites in a tangy honey-lime glaze with peppers, cucumber, and rice.",
+    "image": "https://images.unsplash.com/photo-1775039983749-aa6003c8ecf9?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Glazed crispy chicken and vegetables over rice",
+    "collection": "30-minute",
+    "tags": ["chicken","rice-bowl","restaurant-inspired","sweet-savory","quick"],
+    "prep_minutes": 15,
+    "cook_minutes": 18,
+    "servings": 4,
+    "calories": 612,
+    "cost_per_serving": "$3.75",
+    "difficulty": "Easy",
+    "ingredients": ["1 1/2 lb boneless skinless chicken thighs, cut into 1-inch pieces","1/3 cup cornstarch","1 tsp kosher salt","2 tbsp neutral oil","1 red bell pepper, chopped","1 green bell pepper, chopped","1/4 cup honey","3 tbsp low-sodium soy sauce","2 tbsp lime juice","1 tbsp rice vinegar","1 tsp grated ginger","3 cups cooked rice","1/2 cucumber, sliced","Sesame seeds and scallions"],
+    "instructions": [
+      {"name":"Coat the chicken","text":"Pat chicken dry and toss with cornstarch and salt until lightly coated."},
+      {"name":"Crisp","text":"Heat oil in a large skillet over medium-high. Cook chicken in one layer until browned and cooked through, 8 to 10 minutes total."},
+      {"name":"Cook the peppers","text":"Transfer chicken out. Add peppers to the same pan and cook 3 minutes so they stay crisp."},
+      {"name":"Glaze","text":"Whisk honey, soy sauce, lime juice, rice vinegar, and ginger. Return chicken and toss until the glaze bubbles and clings."},
+      {"name":"Serve","text":"Spoon over rice with cucumber, sesame seeds, and scallions."}
+    ],
+    "why_it_works": ["Cornstarch creates crisp edges without deep-frying.","Lime and vinegar keep the honey glaze bright instead of sticky-sweet.","Cucumber adds fresh crunch after the hot glaze."],
+    "swaps": ["Use shrimp and shorten the cook time.","Swap honey for maple syrup.","Add steamed broccoli instead of peppers."],
+    "storage": "Refrigerate up to 4 days. Reheat in a skillet for the best texture.",
+    "notes": ["Give chicken space in the pan or it will steam.","The glaze thickens fast once it boils; toss constantly."],
+    "faqs": [
+      {"q":"Can I bake the chicken?","a":"Yes. Spray lightly with oil and bake at 450°F for about 18 minutes, then glaze."},
+      {"q":"Is it very sweet?","a":"No. Lime and vinegar balance the honey."},
+      {"q":"Can I make it gluten-free?","a":"Use tamari instead of soy sauce."}
+    ],
+    "pantry": ["chicken","honey","lime","rice","bell peppers"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  },
+  {
+    "slug": "garlic-scallion-steak-rice-bowls",
+    "title": "Garlic-Scallion Steak Rice Bowls",
+    "dek": "Seared steak, jammy egg, cucumber, and garlicky soy glaze over rice with enough sauce for every bite.",
+    "image": "https://images.unsplash.com/photo-1682566509605-b5bb1ef7eac2?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Sliced steak rice bowl with egg cucumber and scallions",
+    "collection": "high-protein",
+    "tags": ["steak","rice-bowl","restaurant-inspired","high-protein","garlic"],
+    "prep_minutes": 15,
+    "cook_minutes": 14,
+    "servings": 4,
+    "calories": 648,
+    "cost_per_serving": "$5.60",
+    "difficulty": "Easy",
+    "ingredients": ["1 1/2 lb flank steak","1 tsp kosher salt","1/2 tsp black pepper","1 tbsp neutral oil","3 tbsp low-sodium soy sauce","1 tbsp brown sugar","1 tbsp rice vinegar","3 garlic cloves, grated","1 tsp toasted sesame oil","3 cups cooked rice","4 soft-boiled eggs","1 cucumber, sliced","4 scallions, sliced","1 sheet nori, cut into thin strips"],
+    "instructions": [
+      {"name":"Season the steak","text":"Pat steak dry and season with salt and pepper. Let it sit while the skillet heats."},
+      {"name":"Sear","text":"Heat oil in a cast-iron skillet until shimmering. Sear steak 3 to 5 minutes per side depending on thickness. Rest 8 minutes."},
+      {"name":"Make the glaze","text":"In the same skillet, add soy sauce, brown sugar, rice vinegar, garlic, and sesame oil. Simmer 60 seconds."},
+      {"name":"Slice","text":"Cut steak thinly across the grain and toss lightly with a spoonful of glaze."},
+      {"name":"Build","text":"Divide rice among bowls and top with steak, egg, cucumber, scallions, nori, and remaining glaze."}
+    ],
+    "why_it_works": ["High heat gives flank steak deep browning before the center overcooks.","Resting before slicing preserves juices.","The pan glaze captures the steak fond instead of leaving it behind."],
+    "swaps": ["Use sirloin or skirt steak.","Swap egg for edamame.","Use brown rice or noodles."],
+    "storage": "Refrigerate steak and rice up to 4 days. Keep cucumber and egg separate until serving.",
+    "notes": ["Slice across the grain for tenderness.","Flank steak can go from medium to well-done quickly; use an instant-read thermometer if needed."],
+    "faqs": [
+      {"q":"Can I grill the steak?","a":"Yes. Grill over high heat, then make the glaze in a small saucepan."},
+      {"q":"Can I use pre-cooked rice?","a":"Absolutely. Day-old rice reheats well for bowls."},
+      {"q":"How do I make it spicy?","a":"Add gochujang, chili crisp, or sliced jalapeño."}
+    ],
+    "pantry": ["steak","rice","eggs","cucumber","scallions"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  },
+  {
+    "slug": "roasted-garlic-chicken-mushroom-pasta",
+    "title": "Roasted Garlic Chicken & Mushroom Pasta",
+    "dek": "Grilled chicken, mushrooms, cherry tomatoes, and Parmesan in a glossy roasted-garlic cream sauce.",
+    "image": "https://images.unsplash.com/photo-1773756606644-bbbb1bd16b87?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Grilled chicken pasta with mushrooms tomatoes and Parmesan",
+    "collection": "30-minute",
+    "tags": ["chicken","pasta","restaurant-inspired","mushrooms","comfort-food"],
+    "prep_minutes": 15,
+    "cook_minutes": 24,
+    "servings": 4,
+    "calories": 692,
+    "cost_per_serving": "$4.15",
+    "difficulty": "Easy",
+    "ingredients": ["12 oz fettuccine or linguine","1 1/4 lb boneless skinless chicken breasts","1 tsp kosher salt","1/2 tsp black pepper","1 tbsp olive oil","8 oz cremini mushrooms, sliced","1 cup cherry tomatoes, halved","6 roasted garlic cloves, mashed","3/4 cup chicken broth","1/2 cup heavy cream","3/4 cup grated Parmesan","2 tbsp chopped parsley"],
+    "instructions": [
+      {"name":"Cook the pasta","text":"Boil pasta until just shy of al dente. Reserve 1 cup pasta water."},
+      {"name":"Sear the chicken","text":"Season chicken and cook in olive oil 4 to 6 minutes per side until 165°F. Rest, then slice."},
+      {"name":"Brown the vegetables","text":"Add mushrooms to the skillet and brown well. Add tomatoes for the final 2 minutes."},
+      {"name":"Make the sauce","text":"Stir in roasted garlic, broth, and cream. Simmer 3 minutes, then add Parmesan."},
+      {"name":"Toss","text":"Add pasta and enough pasta water to make the sauce glossy. Top with sliced chicken and parsley."}
+    ],
+    "why_it_works": ["Roasted garlic gives sweetness without harsh raw-garlic bite.","Mushrooms brown in the chicken pan and absorb savory fond.","Pasta water keeps the cream sauce fluid and clingy."],
+    "swaps": ["Use shrimp instead of chicken.","Use half-and-half for a lighter sauce.","Add spinach during the final toss."],
+    "storage": "Refrigerate up to 3 days. Reheat over low heat with a splash of broth.",
+    "notes": ["Brown mushrooms before salting so they do not release water too early.","Do not boil hard after adding Parmesan."],
+    "faqs": [
+      {"q":"How do I roast garlic quickly?","a":"Wrap peeled cloves with a drizzle of oil in foil and roast at 400°F for about 25 minutes."},
+      {"q":"Can I use jarred roasted garlic?","a":"Yes. Drain it well before mashing."},
+      {"q":"Can I make it without cream?","a":"Use 1 extra cup broth and finish with 2 tablespoons butter."}
+    ],
+    "pantry": ["chicken","pasta","mushrooms","garlic","parmesan"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  },
+  {
+    "slug": "harissa-lamb-meatballs-herbed-couscous",
+    "title": "Harissa Lamb Meatballs with Herbed Couscous",
+    "dek": "Spiced lamb meatballs, lemony couscous, tomato-cucumber salad, and cool feta yogurt.",
+    "image": "https://images.unsplash.com/photo-1678684274579-01bb82b92367?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Lamb meatballs with couscous tomatoes and yogurt sauce",
+    "collection": "high-protein",
+    "tags": ["lamb","meatballs","restaurant-inspired","mediterranean","meal-prep"],
+    "prep_minutes": 20,
+    "cook_minutes": 18,
+    "servings": 4,
+    "calories": 641,
+    "cost_per_serving": "$5.05",
+    "difficulty": "Easy",
+    "ingredients": ["1 lb ground lamb","1/2 lb lean ground beef","2 tbsp harissa paste","2 garlic cloves, grated","1 tsp ground cumin","1/2 tsp coriander","1 tsp kosher salt","1 cup couscous","1 1/4 cups chicken broth","1 cucumber, chopped","2 tomatoes, chopped","1/4 red onion, finely sliced","3/4 cup Greek yogurt","1/3 cup crumbled feta","1 lemon","1/2 cup chopped parsley and mint"],
+    "instructions": [
+      {"name":"Mix the meatballs","text":"Combine lamb, beef, harissa, garlic, cumin, coriander, and salt. Form 16 small meatballs."},
+      {"name":"Roast","text":"Bake at 450°F for 12 to 15 minutes until browned and 160°F."},
+      {"name":"Make couscous","text":"Bring broth to a boil, stir in couscous, cover, and remove from heat for 5 minutes. Fluff with lemon zest and half the herbs."},
+      {"name":"Mix the yogurt","text":"Stir yogurt, feta, 1 tablespoon lemon juice, and a pinch of salt."},
+      {"name":"Plate","text":"Serve meatballs over couscous with cucumber, tomato, onion, feta yogurt, and remaining herbs."}
+    ],
+    "why_it_works": ["Small meatballs brown quickly without drying out.","Harissa seasons the meat from the inside instead of acting only as a topping.","Cool yogurt balances lamb richness and chile heat."],
+    "swaps": ["Use all beef or ground turkey.","Swap couscous for rice or quinoa.","Use a mild roasted-red-pepper paste instead of harissa for kids."],
+    "storage": "Refrigerate meatballs and couscous up to 4 days. Keep salad and yogurt separate.",
+    "notes": ["Do not overwork the meat mixture.","Wet your hands lightly before shaping to prevent sticking."],
+    "faqs": [
+      {"q":"Is harissa very hot?","a":"It varies by brand. Start with 1 tablespoon if yours is aggressive."},
+      {"q":"Can I grill the meatballs?","a":"Yes. Thread onto skewers or use a grill basket."},
+      {"q":"Can I freeze them?","a":"Freeze cooked meatballs up to 3 months."}
+    ],
+    "pantry": ["ground lamb","couscous","harissa","yogurt","cucumber"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  }
+]

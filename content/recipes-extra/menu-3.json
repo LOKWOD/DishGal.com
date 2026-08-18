@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "miso-sesame-tofu-broccoli-bowls",
+    "title": "Miso-Sesame Tofu & Broccoli Bowls",
+    "dek": "Crisp tofu, broccoli, corn, cucumber, and carrots with a savory-sweet miso sesame dressing.",
+    "image": "https://images.unsplash.com/photo-1764674963000-0d113663bc0d?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Tofu broccoli corn and vegetable bowl with sesame dressing",
+    "collection": "budget",
+    "tags": ["tofu","vegan","restaurant-inspired","rice-bowl","meal-prep"],
+    "prep_minutes": 15,
+    "cook_minutes": 22,
+    "servings": 4,
+    "calories": 486,
+    "cost_per_serving": "$2.35",
+    "difficulty": "Easy",
+    "ingredients": ["14 oz extra-firm tofu, pressed and cubed","1 tbsp cornstarch","1 tbsp neutral oil","4 cups broccoli florets","1 cup corn","1 cucumber, chopped","1 carrot, shredded","3 cups cooked brown rice","2 tbsp white miso","1 tbsp soy sauce","1 tbsp rice vinegar","1 tbsp maple syrup","2 tsp sesame oil","1 tsp grated ginger","Sesame seeds"],
+    "instructions": [
+      {"name":"Crisp the tofu","text":"Toss pressed tofu with cornstarch and oil. Bake at 425°F for 20 to 22 minutes, turning once."},
+      {"name":"Roast the broccoli","text":"Add broccoli to a second pan or alongside tofu for the final 14 minutes, lightly oiled and salted."},
+      {"name":"Whisk the dressing","text":"Mix miso, soy sauce, rice vinegar, maple syrup, sesame oil, ginger, and 2 tablespoons warm water."},
+      {"name":"Prep the toppings","text":"Warm corn and chop cucumber and carrot."},
+      {"name":"Build","text":"Layer rice, tofu, broccoli, corn, cucumber, and carrot. Drizzle generously with miso dressing and sesame seeds."}
+    ],
+    "why_it_works": ["Cornstarch gives baked tofu a crisp shell.","Miso dressing supplies enough umami that the bowl does not miss meat.","Hot roasted vegetables and cool cucumber create contrast."],
+    "swaps": ["Use tempeh instead of tofu.","Swap rice for noodles.","Add avocado for extra richness."],
+    "storage": "Refrigerate tofu, rice, and broccoli up to 4 days. Store dressing separately.",
+    "notes": ["Press tofu at least 15 minutes for better browning.","Thin dressing with warm water, not extra oil, so it stays punchy."],
+    "faqs": [
+      {"q":"Can I air fry the tofu?","a":"Yes. Air fry at 400°F for 12 to 15 minutes, shaking twice."},
+      {"q":"Is it gluten-free?","a":"Use tamari and verify your miso is gluten-free."},
+      {"q":"Can I use frozen broccoli?","a":"Yes, roast from frozen and allow a few extra minutes."}
+    ],
+    "pantry": ["tofu","broccoli","rice","miso","corn"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  },
+  {
+    "slug": "cajun-crispy-chicken-pepper-pasta",
+    "title": "Cajun Crispy Chicken & Pepper Pasta",
+    "dek": "Crispy chicken cutlets over creamy Cajun pasta with peppers, onions, and Parmesan.",
+    "image": "https://images.unsplash.com/photo-1770164678216-560f59ac7ea7?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Crispy chicken served with creamy pasta and vegetables",
+    "collection": "30-minute",
+    "tags": ["chicken","pasta","restaurant-inspired","cajun","comfort-food"],
+    "prep_minutes": 20,
+    "cook_minutes": 25,
+    "servings": 4,
+    "calories": 774,
+    "cost_per_serving": "$4.25",
+    "difficulty": "Moderate",
+    "ingredients": ["4 thin chicken cutlets","1/2 cup flour","1 large egg","3/4 cup panko","2 tbsp Cajun seasoning, divided","2 tbsp neutral oil","12 oz linguine","1 red bell pepper, sliced","1 yellow bell pepper, sliced","1/2 onion, sliced","3 garlic cloves, minced","1 cup chicken broth","1/2 cup heavy cream","1/2 cup grated Parmesan","2 scallions, sliced"],
+    "instructions": [
+      {"name":"Bread the chicken","text":"Season chicken with 1 tablespoon Cajun seasoning. Dredge in flour, egg, then panko."},
+      {"name":"Crisp","text":"Shallow-fry chicken in oil over medium-high until golden and 165°F, about 3 to 4 minutes per side. Rest on a rack."},
+      {"name":"Cook pasta","text":"Boil linguine until al dente and reserve 1 cup pasta water."},
+      {"name":"Build the sauce","text":"Sauté peppers and onion until crisp-tender. Add garlic and remaining Cajun seasoning, then broth and cream. Simmer 3 minutes."},
+      {"name":"Finish","text":"Toss pasta with Parmesan and enough pasta water to coat. Slice chicken over top and finish with scallions."}
+    ],
+    "why_it_works": ["A rack keeps the chicken crust crisp while the sauce finishes.","Cajun seasoning is split between chicken and sauce for layered flavor.","Peppers stay slightly firm so the pasta has texture."],
+    "swaps": ["Use shrimp instead of chicken.","Use smoked paprika plus oregano if you do not have Cajun seasoning.","Half-and-half can replace cream."],
+    "storage": "Refrigerate chicken and pasta separately up to 3 days. Re-crisp chicken in an air fryer or oven.",
+    "notes": ["Taste Cajun seasoning before adding extra salt.","Do not put fried chicken directly into the sauce or the crust will soften."],
+    "faqs": [
+      {"q":"Can I air fry the chicken?","a":"Yes. Spray well and air fry at 390°F until crisp and cooked through."},
+      {"q":"How spicy is this?","a":"Usually medium. Cajun blends vary, so adjust to your brand."},
+      {"q":"Can I add mushrooms?","a":"Yes. Brown sliced mushrooms before the peppers."}
+    ],
+    "pantry": ["chicken","pasta","bell peppers","cajun seasoning","parmesan"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  },
+  {
+    "slug": "thai-chili-turkey-meatball-noodle-bowls",
+    "title": "Thai Chili Turkey Meatball Noodle Bowls",
+    "dek": "Tender turkey meatballs, rice noodles, herbs, and vegetables in a sweet-spicy chile-lime sauce.",
+    "image": "https://images.unsplash.com/photo-1774370793603-3c00fd215bb8?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Meatball noodle bowl with herbs and chili sauce",
+    "collection": "30-minute",
+    "tags": ["turkey","meatballs","noodles","restaurant-inspired","thai-inspired"],
+    "prep_minutes": 20,
+    "cook_minutes": 18,
+    "servings": 4,
+    "calories": 522,
+    "cost_per_serving": "$3.65",
+    "difficulty": "Easy",
+    "ingredients": ["1 lb ground turkey","1 egg","1/3 cup panko","2 scallions, minced","1 tbsp grated ginger","2 garlic cloves, grated","1 tsp soy sauce","8 oz rice noodles","1 red bell pepper, thinly sliced","1 cucumber, sliced","1/2 cup cilantro and mint","3 tbsp sweet chili sauce","2 tbsp lime juice","1 tbsp soy sauce","1 tbsp rice vinegar","1 tsp sesame oil","Crushed peanuts, optional"],
+    "instructions": [
+      {"name":"Shape the meatballs","text":"Mix turkey, egg, panko, scallions, ginger, garlic, and soy sauce. Form about 20 small meatballs."},
+      {"name":"Cook","text":"Bake at 425°F for 12 to 15 minutes until browned and 165°F."},
+      {"name":"Cook noodles","text":"Prepare rice noodles according to package directions, rinse briefly, and drain well."},
+      {"name":"Make the sauce","text":"Whisk sweet chili sauce, lime juice, soy sauce, rice vinegar, sesame oil, and 2 tablespoons water."},
+      {"name":"Build","text":"Toss noodles with half the sauce. Add meatballs, pepper, cucumber, herbs, remaining sauce, and peanuts."}
+    ],
+    "why_it_works": ["Small turkey meatballs stay tender because they cook quickly.","Rice vinegar and lime sharpen the sweet chile sauce.","Fresh herbs make the bowl taste lighter than a typical noodle takeout dish."],
+    "swaps": ["Use ground chicken or pork.","Use soba noodles instead of rice noodles.","Replace peanuts with sesame seeds."],
+    "storage": "Refrigerate meatballs and noodles up to 4 days. Store herbs and sauce separately.",
+    "notes": ["Do not compress the meat mixture while shaping.","Rinse rice noodles only briefly so they do not become cold and waterlogged."],
+    "faqs": [
+      {"q":"Can I make the meatballs ahead?","a":"Yes. Shape them up to a day ahead or freeze raw meatballs on a tray."},
+      {"q":"Is this very spicy?","a":"It is mild to medium. Add sambal or sriracha for more heat."},
+      {"q":"Can I serve it cold?","a":"Yes. It works well as a chilled noodle bowl."}
+    ],
+    "pantry": ["ground turkey","rice noodles","sweet chili sauce","lime","cucumber"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  },
+  {
+    "slug": "coconut-curry-tofu-ramen",
+    "title": "Coconut Curry Tofu Ramen",
+    "dek": "Golden tofu and ramen noodles in a creamy red-curry coconut broth with greens and lime.",
+    "image": "https://images.unsplash.com/photo-1769031240699-e15f4818224a?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Tofu ramen in spicy coconut curry broth",
+    "collection": "budget",
+    "tags": ["tofu","ramen","vegan","restaurant-inspired","one-pot"],
+    "prep_minutes": 15,
+    "cook_minutes": 24,
+    "servings": 4,
+    "calories": 548,
+    "cost_per_serving": "$2.85",
+    "difficulty": "Easy",
+    "ingredients": ["14 oz extra-firm tofu, pressed and cubed","1 tbsp neutral oil","2 tbsp red curry paste","1 tbsp grated ginger","2 garlic cloves, minced","4 cups vegetable broth","1 can (13.5 oz) coconut milk","2 tbsp soy sauce","1 tsp brown sugar","8 oz ramen noodles, seasoning packets discarded","2 cups baby bok choy or spinach","1 lime","2 scallions, sliced","Cilantro and chili oil, optional"],
+    "instructions": [
+      {"name":"Brown the tofu","text":"Sear tofu in oil in a Dutch oven until golden on several sides. Transfer out."},
+      {"name":"Bloom the curry","text":"Add curry paste, ginger, and garlic to the pot. Cook 45 seconds."},
+      {"name":"Build the broth","text":"Add vegetable broth, coconut milk, soy sauce, and brown sugar. Simmer 8 minutes."},
+      {"name":"Cook noodles","text":"Add ramen noodles and greens. Cook just until noodles are tender."},
+      {"name":"Finish","text":"Return tofu, add lime juice, and serve with scallions, cilantro, and chili oil."}
+    ],
+    "why_it_works": ["Browning tofu first gives it a chewy edge that survives the broth.","Curry paste is fried briefly to deepen its aromatics.","Lime at the end keeps coconut broth from tasting flat."],
+    "swaps": ["Use udon or rice noodles.","Add mushrooms with the curry paste.","Use chicken broth if the dish does not need to stay vegan."],
+    "storage": "Broth and tofu keep 4 days. Store noodles separately when meal-prepping so they do not absorb all the liquid.",
+    "notes": ["Curry pastes vary in salt and heat; season after simmering.","Do not overcook ramen noodles—they soften quickly in hot broth."],
+    "faqs": [
+      {"q":"Can I use light coconut milk?","a":"Yes, but the broth will be thinner."},
+      {"q":"What tofu works best?","a":"Extra-firm tofu holds shape best."},
+      {"q":"Can I add an egg?","a":"A jammy egg is excellent if you do not need the recipe to stay vegan."}
+    ],
+    "pantry": ["tofu","ramen","coconut milk","curry paste","greens"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  }
+]

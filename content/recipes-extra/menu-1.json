@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "sesame-ginger-chicken-cucumber-rice-bowls",
+    "title": "Sesame-Ginger Chicken Cucumber Rice Bowls",
+    "dek": "Juicy sliced chicken, cool cucumber, jammy eggs, and a glossy sesame-ginger sauce over hot rice.",
+    "image": "https://images.unsplash.com/photo-1744444202869-54debf97b285?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Sliced sesame chicken rice bowl with cucumber and egg",
+    "collection": "30-minute",
+    "tags": ["chicken","rice-bowl","restaurant-inspired","high-protein","sesame"],
+    "prep_minutes": 12,
+    "cook_minutes": 18,
+    "servings": 4,
+    "calories": 548,
+    "cost_per_serving": "$3.55",
+    "difficulty": "Easy",
+    "ingredients": ["1 1/2 lb boneless skinless chicken breasts, sliced into thin cutlets","3 tbsp low-sodium soy sauce","1 tbsp honey","1 tbsp rice vinegar","2 tsp toasted sesame oil","1 tbsp finely grated ginger","2 garlic cloves, grated","3 cups cooked jasmine rice","1 English cucumber, diced or thinly sliced","4 soft-boiled eggs, halved","3 scallions, sliced","1 tbsp sesame seeds"],
+    "instructions": [
+      {"name":"Make the sauce","text":"Whisk soy sauce, honey, rice vinegar, sesame oil, ginger, and garlic."},
+      {"name":"Sear the chicken","text":"Pat chicken dry. Sear in a lightly oiled skillet over medium-high heat for 3 to 4 minutes per side until browned and 165°F."},
+      {"name":"Glaze","text":"Lower heat and add half the sauce. Turn the chicken until glossy, then rest 5 minutes and slice."},
+      {"name":"Season the cucumber","text":"Toss cucumber with 1 tablespoon of the remaining sauce and a pinch of salt."},
+      {"name":"Build the bowls","text":"Divide rice among bowls and add chicken, cucumber, egg, scallions, sesame seeds, and the remaining sauce."}
+    ],
+    "why_it_works": ["Thin cutlets brown before they dry out.","A separate cucumber seasoning keeps the bowl fresh instead of uniformly sweet.","Warm rice and cool toppings give the bowl restaurant-style contrast."],
+    "swaps": ["Use boneless thighs for extra richness.","Swap rice for soba noodles or quinoa.","Use edamame instead of eggs for a dairy-free, egg-free variation."],
+    "storage": "Refrigerate chicken, rice, and cucumber separately up to 4 days. Reheat chicken and rice before adding cold toppings.",
+    "notes": ["Do not pour all the sauce into the skillet; the clean reserved portion is for serving.","Toast sesame seeds briefly in a dry skillet for stronger flavor."],
+    "faqs": [
+      {"q":"Can I meal-prep this?","a":"Yes. Keep cucumber and eggs separate from the hot components until serving."},
+      {"q":"Can I use ground chicken?","a":"Yes. Brown it well, then stir in half the sauce and serve it over rice."},
+      {"q":"How spicy is it?","a":"It is not spicy. Add chili crisp or sriracha at the table if you want heat."}
+    ],
+    "pantry": ["chicken","rice","cucumber","eggs","soy sauce"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  },
+  {
+    "slug": "spicy-pancetta-vodka-rigatoni",
+    "title": "Spicy Pancetta Vodka Rigatoni",
+    "dek": "Silky tomato-cream rigatoni with crisp pancetta, chile heat, Parmesan, and basil—the weeknight pasta that feels like going out.",
+    "image": "https://images.unsplash.com/photo-1678774055677-f61466b1cd5d?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Spicy tomato rigatoni with pancetta and herbs",
+    "collection": "30-minute",
+    "tags": ["pasta","pancetta","restaurant-inspired","date-night","comfort-food"],
+    "prep_minutes": 12,
+    "cook_minutes": 24,
+    "servings": 4,
+    "calories": 684,
+    "cost_per_serving": "$3.60",
+    "difficulty": "Easy",
+    "ingredients": ["12 oz rigatoni","4 oz diced pancetta","1 tbsp olive oil","3 garlic cloves, sliced","1/2 tsp red pepper flakes","3 tbsp tomato paste","1/3 cup vodka or chicken broth","1 can (14.5 oz) crushed tomatoes","1/2 cup heavy cream","3/4 cup grated Parmesan","1/2 cup torn basil","Kosher salt and black pepper"],
+    "instructions": [
+      {"name":"Boil the pasta","text":"Cook rigatoni in salted water until 1 minute shy of al dente. Reserve 1 1/2 cups pasta water."},
+      {"name":"Crisp the pancetta","text":"Cook pancetta in a wide skillet until browned. Transfer half to a paper towel and leave the rendered fat in the pan."},
+      {"name":"Build the sauce","text":"Add garlic, red pepper flakes, and tomato paste. Cook until the paste turns brick red, then add vodka and simmer 1 minute."},
+      {"name":"Make it silky","text":"Add crushed tomatoes and simmer 6 minutes. Lower heat and stir in cream, Parmesan, and 1/2 cup pasta water."},
+      {"name":"Finish","text":"Add rigatoni and toss until glossy. Fold in basil and top with the reserved crisp pancetta."}
+    ],
+    "why_it_works": ["Browning tomato paste removes raw acidity and deepens flavor.","Pasta water binds tomato, cream, and cheese into one sauce.","Holding back some pancetta preserves crisp texture."],
+    "swaps": ["Use bacon if pancetta is unavailable.","Replace vodka with chicken broth plus 1 teaspoon lemon juice at the end.","Use penne or mezzi rigatoni."],
+    "storage": "Refrigerate up to 4 days. Reheat gently with a splash of water or milk.",
+    "notes": ["Keep the sauce below a hard boil after adding cream.","Grate Parmesan finely so it melts without clumping."],
+    "faqs": [
+      {"q":"Does the vodka taste alcoholic?","a":"No. It cooks down and mainly helps carry aromatic tomato flavor."},
+      {"q":"Can I make it vegetarian?","a":"Yes. Omit pancetta and start with 2 tablespoons olive oil plus a pinch of smoked paprika."},
+      {"q":"Can I make it less spicy?","a":"Cut the red pepper flakes to a pinch or omit them entirely."}
+    ],
+    "pantry": ["rigatoni","tomato paste","cream","parmesan","pancetta"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  },
+  {
+    "slug": "miso-maple-salmon-rice-bowls",
+    "title": "Miso-Maple Salmon Rice Bowls",
+    "dek": "Caramelized miso-maple salmon with avocado, cucumber, edamame, and a sharp sesame-lime drizzle.",
+    "image": "https://images.unsplash.com/photo-1768326119213-e0ad875083a3?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Miso salmon rice bowl with avocado cucumber and edamame",
+    "collection": "high-protein",
+    "tags": ["salmon","rice-bowl","restaurant-inspired","miso","meal-prep"],
+    "prep_minutes": 15,
+    "cook_minutes": 14,
+    "servings": 4,
+    "calories": 636,
+    "cost_per_serving": "$5.10",
+    "difficulty": "Easy",
+    "ingredients": ["1 1/2 lb salmon fillet, cut into 4 portions","2 tbsp white miso","1 1/2 tbsp maple syrup","1 tbsp soy sauce","1 tsp rice vinegar","1 tsp sesame oil","3 cups cooked rice","1 avocado, diced","1 English cucumber, chopped","1 cup shelled edamame","2 scallions, sliced","1 lime","1 tbsp sesame seeds"],
+    "instructions": [
+      {"name":"Mix the glaze","text":"Whisk miso, maple syrup, soy sauce, rice vinegar, and sesame oil until smooth."},
+      {"name":"Glaze the salmon","text":"Pat salmon dry and brush generously with two-thirds of the glaze."},
+      {"name":"Roast","text":"Roast at 425°F for 10 to 14 minutes, brushing once more near the end, until the center flakes easily."},
+      {"name":"Make the drizzle","text":"Stir remaining glaze with 1 tablespoon lime juice and 1 tablespoon warm water."},
+      {"name":"Assemble","text":"Divide rice, avocado, cucumber, and edamame among bowls. Add salmon and finish with drizzle, scallions, sesame seeds, and lime."}
+    ],
+    "why_it_works": ["Miso adds savory depth that balances maple sweetness.","High oven heat caramelizes the glaze without a long marinade.","Cool cucumber and avocado offset the rich salmon."],
+    "swaps": ["Use steelhead trout or cod.","Swap rice for quinoa or cauliflower rice.","Add shredded cabbage for extra crunch."],
+    "storage": "Refrigerate components separately up to 3 days. Reheat salmon gently or serve it cold.",
+    "notes": ["Miso and soy sauce are salty; taste before adding extra salt.","Do not overcook salmon—the glaze will continue darkening after the fish is done."],
+    "faqs": [
+      {"q":"Can I air fry the salmon?","a":"Yes. Air fry at 400°F for about 8 to 10 minutes depending on thickness."},
+      {"q":"Can I marinate it overnight?","a":"No need. Thirty minutes is plenty; long miso marinades can make the surface overly salty."},
+      {"q":"Is this spicy?","a":"No. Add chili crisp if you want heat."}
+    ],
+    "pantry": ["salmon","miso","rice","avocado","edamame"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  },
+  {
+    "slug": "roasted-sweet-potato-ginger-soup",
+    "title": "Roasted Sweet Potato Ginger Soup",
+    "dek": "Velvety roasted sweet potato soup with ginger, warm spices, lime, and crunchy pepitas.",
+    "image": "https://images.unsplash.com/photo-1510431198580-7727c9fa1e3a?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Creamy orange sweet potato soup with herbs and pepitas",
+    "collection": "budget",
+    "tags": ["vegetarian","soup","sweet-potato","budget","freezer-friendly"],
+    "prep_minutes": 15,
+    "cook_minutes": 40,
+    "servings": 6,
+    "calories": 284,
+    "cost_per_serving": "$1.35",
+    "difficulty": "Easy",
+    "ingredients": ["2 lb sweet potatoes, peeled and cubed","1 large carrot, chopped","1 onion, chopped","2 tbsp olive oil","1 tbsp grated fresh ginger","2 garlic cloves","1 tsp ground cumin","1/2 tsp smoked paprika","4 cups vegetable broth","1/2 cup coconut milk","1 lime","1/3 cup roasted pepitas","Cilantro or parsley"],
+    "instructions": [
+      {"name":"Roast the vegetables","text":"Heat oven to 425°F. Toss sweet potatoes, carrot, and onion with oil and a pinch of salt. Roast 25 to 30 minutes until deeply browned."},
+      {"name":"Bloom aromatics","text":"Add ginger, garlic, cumin, and paprika to a soup pot with a teaspoon of oil and cook 45 seconds."},
+      {"name":"Simmer","text":"Add roasted vegetables and broth. Simmer 8 minutes."},
+      {"name":"Blend","text":"Blend until completely smooth, then stir in coconut milk."},
+      {"name":"Balance","text":"Add lime juice, salt, and pepper. Serve with pepitas and herbs."}
+    ],
+    "why_it_works": ["Roasting gives the soup sweetness and depth that boiling alone cannot.","Ginger and lime keep the sweet potato from tasting heavy.","Pepitas add the texture a puréed soup needs."],
+    "swaps": ["Use butternut squash for half the sweet potato.","Heavy cream can replace coconut milk.","Add a pinch of cayenne for heat."],
+    "storage": "Refrigerate 5 days or freeze up to 3 months. Reheat gently and thin with broth if needed.",
+    "notes": ["Blend in batches if using a countertop blender and vent the lid.","Roast until the edges are dark; that browning matters."],
+    "faqs": [
+      {"q":"Can I make it vegan?","a":"It already is when made with vegetable broth and coconut milk."},
+      {"q":"Can I skip roasting?","a":"Yes, but the flavor will be lighter. Simmer the vegetables until very tender."},
+      {"q":"What goes with it?","a":"Grilled cheese, a crisp salad, or toasted naan all work."}
+    ],
+    "pantry": ["sweet potatoes","carrots","ginger","vegetable broth","coconut milk"],
+    "date_published": "2026-08-18",
+    "date_modified": "2026-08-18"
+  }
+]
