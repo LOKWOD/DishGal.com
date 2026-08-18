@@ -3,6 +3,7 @@ name: Build and deploy DishGal
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -11,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -39,7 +40,14 @@ jobs:
               mkdir -p "$(dirname "$target")"
               cat "${archive}".part*.b64 | base64 --decode | xz -dc > "$target"
             done < <(find .bootstrap -type f -name '*.xz.part00.b64' -print | sort)
+          fi
 
+      - name: Persist expanded source on main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        shell: bash
+        run: |
+          if [ -d .bootstrap ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets build.py content scripts
@@ -68,14 +76,17 @@ jobs:
         run: python scripts/audit.py
 
       - name: Configure GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v4
         with:
           path: public
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
