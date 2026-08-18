@@ -85,6 +85,7 @@ jobs:
 
       - name: Build static site
         env:
+          SITE_BASE: /
           FORM_EMAIL: ${{ vars.FORM_EMAIL }}
           AMAZON_TAG: ${{ vars.AMAZON_TAG }}
           ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
