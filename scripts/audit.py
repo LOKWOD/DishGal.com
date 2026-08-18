@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-import re
+import os
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -11,6 +11,9 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
+BASE = (os.environ.get("SITE_BASE") or "").rstrip("/")
+if BASE == "/":
+    BASE = ""
 
 
 class Parser(HTMLParser):
@@ -64,6 +67,8 @@ def target_for(href: str) -> Path | None:
     path = parsed.path
     if not path.startswith("/"):
         return None
+    if BASE and (path == BASE or path.startswith(BASE + "/")):
+        path = path[len(BASE):] or "/"
     if path == "/":
         return PUBLIC / "index.html"
     candidate = PUBLIC / path.lstrip("/")
@@ -108,10 +113,10 @@ def main() -> int:
                 errors.append(f"{rel}: image missing src")
             if image.get("alt") is None:
                 errors.append(f"{rel}: image missing alt")
-        for href in parser.links:
-            target = target_for(href)
+        for link in parser.links:
+            target = target_for(link)
             if target is not None and not target.exists():
-                errors.append(f"{rel}: broken internal link {href} -> {target.relative_to(PUBLIC)}")
+                errors.append(f"{rel}: broken internal link {link} -> {target.relative_to(PUBLIC)}")
         found_recipe = False
         for raw in parser.json_ld:
             if not raw:
