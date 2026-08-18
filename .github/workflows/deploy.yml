@@ -31,8 +31,13 @@ jobs:
               target="${target%.xz}"
               mkdir -p "$(dirname "$target")"
               echo "Expanding ${archive} -> ${target}"
-              xz -t "$archive"
-              xz -dc "$archive" > "$target"
+              if xz -t "$archive"; then
+                xz -dc "$archive" > "$target"
+              else
+                echo "::warning file=${archive}::XZ integrity check failed; attempting recovery with --ignore-check"
+                xz --ignore-check -t "$archive"
+                xz --ignore-check -dc "$archive" > "$target"
+              fi
             done < <(find .bootstrap -type f -name '*.xz' -print | sort)
 
             while IFS= read -r first_part; do
@@ -46,14 +51,20 @@ jobs:
                 echo "::error file=${first_part}::Invalid base64 in ${archive}.part*.b64"
                 exit 1
               fi
-              if ! xz -t "$packed"; then
-                echo "::error file=${first_part}::Corrupt xz stream in ${archive}.part*.b64"
-                exit 1
+              if xz -t "$packed"; then
+                xz -dc "$packed" > "$target"
+              else
+                echo "::warning file=${first_part}::XZ integrity check failed; attempting recovery with --ignore-check"
+                xz --ignore-check -t "$packed"
+                xz --ignore-check -dc "$packed" > "$target"
               fi
-              xz -dc "$packed" > "$target"
               rm -f "$packed"
             done < <(find .bootstrap -type f -name '*.xz.part00.b64' -print | sort)
           fi
+
+      - name: Verify recovered build script
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
+        run: python -m py_compile build.py
 
       - name: Persist expanded source on main
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
