@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fbf6ee"/>
+  <circle cx="1050" cy="95" r="240" fill="#e6b84a" opacity=".45"/>
+  <circle cx="1090" cy="580" r="320" fill="#4f233b" opacity=".12"/>
+  <g transform="translate(90 85)">
+    <rect width="96" height="96" rx="30" fill="#e94f37"/>
+    <path d="M19 46c3 21 13 32 29 32s26-11 29-32H19Z" fill="#fff"/>
+    <path d="M29 38c8-12 29-12 38 0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text x="90" y="285" font-family="Georgia, serif" font-size="112" font-weight="700" fill="#201c19">Dish<tspan fill="#e94f37" font-style="italic">Gal</tspan></text>
+  <text x="90" y="405" font-family="Georgia, serif" font-size="76" font-weight="700" fill="#201c19">Dinner, decided.</text>
+  <text x="94" y="475" font-family="Arial, sans-serif" font-size="31" fill="#5b534d">Useful recipes. Clear directions. No scavenger hunt.</text>
+</svg>
