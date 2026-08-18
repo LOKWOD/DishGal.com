@@ -45,6 +45,8 @@ The workflow in `.github/workflows/deploy.yml` builds and deploys `public/` from
 
 If Pages is not already enabled, set **Settings → Pages → Source** to **GitHub Actions** once. Point the domain DNS to GitHub Pages separately.
 
+The launch source library and publishing workflow were initialized in August 2026.
+
 ## Editorial posture
 
 DishGal is intentionally direct: useful information is placed early, social proof is not fabricated, commercial relationships are disclosed, and category buying guides do not pretend products were personally tested.
