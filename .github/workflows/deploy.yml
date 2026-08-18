@@ -30,6 +30,8 @@ jobs:
               target="${archive#.bootstrap/}"
               target="${target%.xz}"
               mkdir -p "$(dirname "$target")"
+              echo "Expanding ${archive} -> ${target}"
+              xz -t "$archive"
               xz -dc "$archive" > "$target"
             done < <(find .bootstrap -type f -name '*.xz' -print | sort)
 
@@ -37,8 +39,19 @@ jobs:
               archive="${first_part%.part00.b64}"
               target="${archive#.bootstrap/}"
               target="${target%.xz}"
+              packed="$(mktemp)"
               mkdir -p "$(dirname "$target")"
-              cat "${archive}".part*.b64 | base64 --decode | xz -dc > "$target"
+              echo "Reassembling ${archive}.part*.b64 -> ${target}"
+              if ! cat "${archive}".part*.b64 | base64 --decode > "$packed"; then
+                echo "::error file=${first_part}::Invalid base64 in ${archive}.part*.b64"
+                exit 1
+              fi
+              if ! xz -t "$packed"; then
+                echo "::error file=${first_part}::Corrupt xz stream in ${archive}.part*.b64"
+                exit 1
+              fi
+              xz -dc "$packed" > "$target"
+              rm -f "$packed"
             done < <(find .bootstrap -type f -name '*.xz.part00.b64' -print | sort)
           fi
 
