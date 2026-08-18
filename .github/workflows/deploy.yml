@@ -75,6 +75,9 @@ jobs:
             git push
           fi
 
+      - name: Merge and validate recipe expansion
+        run: python scripts/merge_recipe_expansion.py
+
       - name: Verify recovered build script
         run: python -m py_compile build.py
 
