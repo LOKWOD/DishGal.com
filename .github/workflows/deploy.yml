@@ -96,6 +96,9 @@ jobs:
           CLOUDFLARE_TOKEN: ${{ vars.CLOUDFLARE_TOKEN }}
         run: python build.py
 
+      - name: Inject Website Visitor Light beacon
+        run: node scripts/inject-visitor-light.mjs public
+
       - name: Audit generated site
         run: python scripts/audit.py
 
