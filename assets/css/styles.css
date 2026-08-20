@@ -402,6 +402,15 @@ p { margin: 0 0 1rem; }
 .article-hero-image { width: min(100%, 1080px); max-height: 620px; margin: 1rem auto 3rem; object-fit: cover; border-radius: 32px; box-shadow: var(--shadow); }
 .disclosure-box { margin: 1.5rem 0; padding: 1rem 1.15rem; border-left: 4px solid var(--mustard); background: #fff7dd; border-radius: 0 12px 12px 0; font-size: .88rem; }
 .shop-box { margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--line); background: #f7f0e7; border-radius: 20px; }
+.recipe-shop>p:not(.eyebrow){color:var(--ink-soft)}
+.shop-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin-top:1.1rem}
+.shop-card{display:flex;min-height:205px;flex-direction:column;padding:1.1rem;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:16px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s}
+.shop-card:hover{transform:translateY(-3px);border-color:var(--tomato);box-shadow:var(--shadow-sm)}
+.shop-card small{color:var(--tomato-dark);font-size:.68rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+.shop-card strong{margin:.65rem 0 .45rem;font-family:Georgia,serif;font-size:1.2rem;line-height:1.08}
+.shop-card span{color:var(--ink-soft);font-size:.82rem}
+.shop-card b{margin-top:auto;padding-top:1rem;color:var(--tomato-dark);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
+@media(max-width:760px){.shop-grid{grid-template-columns:1fr}.shop-card{min-height:auto}}
 
 .contact-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 3rem; align-items: start; }
 .contact-form { display: grid; gap: 1rem; }

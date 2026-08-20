@@ -20,7 +20,7 @@ BASE = os.environ.get("SITE_BASE", "/DishGal.com").rstrip("/")
 if BASE == "/":
     BASE = ""
 FORM_EMAIL = os.environ.get("FORM_EMAIL") or "hello@dishgal.com"
-AMAZON_TAG = (os.environ.get("AMAZON_TAG") or "").strip()
+AMAZON_TAG = (os.environ.get("AMAZON_TAG") or "dishgal-20").strip()
 ADSENSE_CLIENT = (os.environ.get("ADSENSE_CLIENT") or "").strip()
 ADSENSE_PUBLISHER_ID = (os.environ.get("ADSENSE_PUBLISHER_ID") or "").strip()
 CLOUDFLARE_TOKEN = (os.environ.get("CLOUDFLARE_TOKEN") or "").strip()
@@ -214,6 +214,60 @@ def article_card(article) -> str:
       </div>
     </article>'''
 
+def amazon_link(query: str, label: str, note: str = "") -> str:
+    url = f"https://www.amazon.com/s?k={quote_plus(query)}&amp;tag={quote_plus(AMAZON_TAG)}"
+    return f'''<a class="shop-card" href="{url}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-commercial-link="true" data-affiliate-active="true" data-affiliate-network="amazon" data-affiliate-tag="{esc(AMAZON_TAG)}">
+      <small>Compare on Amazon</small><strong>{esc(label)}</strong>{f'<span>{esc(note)}</span>' if note else ''}<b>See current options →</b>
+    </a>'''
+
+def recipe_shop(recipe) -> str:
+    haystack = " ".join([
+        recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
+        " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
+    ]).lower()
+    if any(term in haystack for term in ["soup", "chili", "stew"]):
+        products = [
+            ("enameled dutch oven 6 quart", "Dutch oven", "A wide, heavy pot for browning and steady simmering."),
+            ("immersion blender stainless steel", "Immersion blender", "Blend soups in the pot with less transfer and cleanup."),
+            ("instant read meat thermometer digital", "Instant-read thermometer", "Verify doneness instead of guessing."),
+        ]
+    elif any(term in haystack for term in ["pasta", "orzo", "noodle"]):
+        products = [
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "Choose stable handles and a size that fits the dinners you actually cook."),
+            ("microplane zester grater stainless", "Fine grater", "Useful for citrus, hard cheese, garlic and finishing details."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "A dependable tool for tossing, turning and serving."),
+        ]
+    elif any(term in haystack for term in ["sheet pan", "roast", "baked", "oven"]):
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
+            ("instant read meat thermometer digital", "Instant-read thermometer", "Check food safely without cutting into every piece."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
+        ]
+    elif any(term in haystack for term in ["rice", "bowl", "meal prep"]):
+        products = [
+            ("rice cooker family stainless inner pot", "Rice cooker", "Compare capacity, cleanup and a simple keep-warm function."),
+            ("glass meal prep containers locking lids", "Glass storage containers", "A small matching system stacks better than forty mystery lids."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Fast, repeatable portions and better baking accuracy."),
+        ]
+    elif any(term in haystack for term in ["skillet", "frittata", "egg", "breakfast"]):
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A versatile size for browning, baking and family portions."),
+            ("silicone fish spatula turner", "Thin flexible spatula", "Slides under eggs and delicate food without a wrestling match."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "One sturdy set handles prep without multiplying cabinet clutter."),
+        ]
+    else:
+        products = [
+            ("instant read meat thermometer digital", "Instant-read thermometer", "The quickest way to replace doneness guesses with a real number."),
+            ("8 inch chef knife kitchen", "8-inch chef's knife", "Prioritize comfortable grip, controllable weight and easy maintenance."),
+            ("large nonslip cutting board", "Large cutting board", "Enough stable workspace makes prep faster and safer."),
+        ]
+    cards = "".join(amazon_link(*product) for product in products)
+    return f'''<div class="recipe-panel recipe-shop"><p class="eyebrow">Useful kitchen gear</p><h2>Tools that make this easier.</h2>
+      <p>Compare the function and specifications first; skip anything your kitchen already handles well.</p>
+      <div class="disclosure-box"><strong>Paid links:</strong> As an Amazon Associate I earn from qualifying purchases. You pay no additional cost.</div>
+      <div class="shop-grid">{cards}</div>
+    </div>'''
+
 def newsletter_block() -> str:
     return f'''<section class="section-tight">
       <div class="wrap">
@@ -376,6 +430,7 @@ def build_recipe_pages():
           <div>
             <div class="recipe-panel"><h2>Directions</h2><ol class="step-list">{steps}</ol></div>
             <div class="recipe-panel"><h2>Why this works</h2><div class="tip-grid">{tips}</div></div>
+            {recipe_shop(recipe)}
             <div class="recipe-panel"><h2>Swaps & notes</h2><h3>Easy swaps</h3><ul class="dot-list">{swaps}</ul><h3>Cook notes</h3><ul class="dot-list">{notes}</ul><h3>Storage</h3><p>{esc(recipe.get('storage','Store covered in the refrigerator and reheat until hot.'))}</p></div>
             <div class="recipe-panel"><h2>Questions</h2><div class="faq-list">{faqs}</div></div>
           </div>
@@ -442,12 +497,10 @@ def build_guides():
     write_page("/guides/", page("Kitchen & Meal Planning Guides", "Practical DishGal guides for meal planning, weeknight dinner systems, air fryers, sheet pans, and meal-prep containers.", "/guides/", body))
     for article in ARTICLES:
         sections = "".join(f"<h2>{esc(sec[0])}</h2><p>{esc(sec[1])}</p>" for sec in article.get("sections",[]))
-        disclosure = '<div class="disclosure-box">This guide may contain affiliate links. DishGal may earn a commission if you purchase through a qualifying link, at no extra cost to you.</div>' if article.get("affiliate") else ""
+        disclosure = '<div class="disclosure-box"><strong>Paid links:</strong> As an Amazon Associate I earn from qualifying purchases. You pay no additional cost.</div>' if article.get("affiliate") else ""
         shop = ""
         if article.get("affiliate") and article.get("shop_query"):
-            q = quote_plus(article["shop_query"])
-            tag = f"&tag={quote_plus(AMAZON_TAG)}" if AMAZON_TAG else ""
-            shop = f'''<div class="shop-box"><h3>Shop the category</h3><p>Use the criteria above first, then compare current options.</p><a class="btn btn-primary" rel="sponsored nofollow" href="https://www.amazon.com/s?k={q}{tag}">See current options</a></div>'''
+            shop = f'''<div class="shop-box"><h3>Shop the category</h3><p>Use the criteria above first, then compare current options.</p>{amazon_link(article["shop_query"], "Compare current options")}</div>'''
         body = f'''<section class="page-hero"><div class="narrow">{breadcrumbs([("Guides","/guides/"),(article.get("title","Guide"),None)])}<p class="eyebrow">{esc(article.get("category","Guide"))}</p><h1>{esc(article.get("title","Guide"))}</h1><p class="lede">{esc(article.get("dek",""))}</p><p class="muted">{int(article.get("read_minutes",5))} minute read</p></div></section>
         <div class="wrap"><img class="article-hero-image" src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}"></div>
         <section class="section-tight"><article class="narrow prose">{disclosure}<p>{esc(article.get("dek",""))}</p>{sections}{shop}</article></section>
@@ -482,7 +535,7 @@ def build_utility_pages():
         ("Corrections","Material errors are corrected when found. Dates may be updated when a page is substantially revised."),
         ("Commercial content","Affiliate relationships do not determine editorial conclusions. Buying guides explain criteria and tradeoffs.")
     ])
-    simple_page("/affiliate-disclosure/","Affiliate Disclosure","Commercial transparency","DishGal may earn commissions from qualifying purchases made through some outbound product links.",[
+    simple_page("/affiliate-disclosure/","Affiliate Disclosure","Commercial transparency","As an Amazon Associate I earn from qualifying purchases. DishGal may earn commissions from qualifying purchases made through clearly labeled outbound product links.",[
         ("No extra cost","Affiliate commissions do not increase the price you pay."),
         ("No invented testing","A commercial link does not mean DishGal personally tested a product unless a page explicitly and truthfully says so."),
         ("Editorial separation","Product recommendations should be grounded in the criteria discussed on the page, not commission rate.")
