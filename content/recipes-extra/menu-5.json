@@ -1,0 +1,301 @@
+[
+  {
+    "slug": "brown-butter-sage-gnocchi-kale-walnuts",
+    "title": "Brown Butter Sage Gnocchi with Crispy Kale & Walnuts",
+    "dek": "Pillowy gnocchi with nutty brown butter, crisp-edged kale, toasted walnuts, Parmesan, lemon, and plenty of sage.",
+    "image": "https://images.unsplash.com/photo-1579349443343-73da56a71a20?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Brown butter gnocchi with kale walnuts Parmesan and sage",
+    "collection": "30-minute",
+    "tags": [
+      "vegetarian",
+      "gnocchi",
+      "30-minute",
+      "restaurant-inspired",
+      "date-night"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 18,
+    "servings": 4,
+    "calories": 548,
+    "cost_per_serving": "$3.35",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 lb shelf-stable potato gnocchi",
+      "5 oz lacinato kale, stems removed and leaves torn",
+      "1/2 cup walnut halves, roughly chopped",
+      "5 tbsp unsalted butter, divided",
+      "1 tbsp olive oil",
+      "10 fresh sage leaves",
+      "2 garlic cloves, thinly sliced",
+      "1/2 tsp kosher salt, plus more for the cooking water",
+      "1/2 tsp freshly ground black pepper",
+      "1 lemon",
+      "1/2 cup finely grated Parmesan, plus more to serve",
+      "1/3 cup reserved gnocchi cooking water"
+    ],
+    "instructions": [
+      {
+        "name": "Toast the walnuts",
+        "text": "Toast the walnuts in a wide dry skillet over medium heat for 3 to 4 minutes, stirring often, until fragrant. Transfer to a plate so they do not scorch."
+      },
+      {
+        "name": "Cook the gnocchi",
+        "text": "Boil the gnocchi in well-salted water until they float, then cook 30 seconds more. Reserve 1/3 cup cooking water and drain thoroughly."
+      },
+      {
+        "name": "Crisp the kale",
+        "text": "Heat olive oil and 1 tablespoon butter in the skillet over medium-high. Add kale, season with half the salt, and cook 3 to 4 minutes until tender with crisp edges. Transfer to the walnut plate."
+      },
+      {
+        "name": "Brown the butter",
+        "text": "Melt the remaining 4 tablespoons butter in the skillet. Add sage and cook until the milk solids turn amber and smell nutty, 2 to 3 minutes. Stir in garlic for the final 30 seconds."
+      },
+      {
+        "name": "Crisp and sauce",
+        "text": "Add drained gnocchi and cook undisturbed for 2 minutes, then toss until lightly golden. Lower the heat and add 1/4 cup cooking water, Parmesan, black pepper, 1 teaspoon lemon zest, and 1 tablespoon lemon juice. Toss until glossy, adding the remaining water only if needed."
+      },
+      {
+        "name": "Finish",
+        "text": "Fold in the kale and walnuts. Taste for salt and lemon, then serve immediately with extra Parmesan and the crisp sage leaves."
+      }
+    ],
+    "why_it_works": [
+      "Boiling first keeps the centers pillowy; a quick skillet finish creates crisp golden edges.",
+      "Sage goes into the butter early enough to perfume it and becomes a crunchy garnish.",
+      "Starchy cooking water and Parmesan turn brown butter into a glossy sauce instead of a greasy coating."
+    ],
+    "swaps": [
+      "Use baby spinach and fold it in at the end instead of crisping kale.",
+      "Swap walnuts for hazelnuts, pecans, or toasted pumpkin seeds.",
+      "For extra protein, add white beans or sliced roasted chicken."
+    ],
+    "storage": "Refrigerate up to 3 days. Reheat in a skillet over medium heat with a splash of water; the microwave softens the crisp edges.",
+    "notes": [
+      "Brown butter can move from amber to burned quickly, so have the garlic and drained gnocchi ready.",
+      "Grate Parmesan finely so it melts smoothly off the heat.",
+      "If using refrigerated gnocchi, follow the package timing and drain as soon as they float."
+    ],
+    "faqs": [
+      {
+        "q": "Can I pan-fry the gnocchi without boiling?",
+        "a": "Some shelf-stable brands allow it, but boiling briefly gives the most reliable tender center. Check the package before skipping that step."
+      },
+      {
+        "q": "How do I know the butter is browned?",
+        "a": "The foam subsides, the milk solids on the bottom turn amber, and the butter smells like toasted nuts. Pull the heat before those specks become dark brown."
+      },
+      {
+        "q": "Can I make this nut-free?",
+        "a": "Yes. Use toasted pumpkin seeds or simply omit the walnuts and add a little extra crisp kale."
+      }
+    ],
+    "pantry": [
+      "gnocchi",
+      "kale",
+      "walnuts",
+      "butter",
+      "sage"
+    ],
+    "date_published": "2026-08-20",
+    "date_modified": "2026-08-20"
+  },
+  {
+    "slug": "gochujang-pork-chop-rice-plates-sesame-slaw",
+    "title": "Sticky Gochujang Pork Chop Rice Plates with Sesame Crunch Slaw",
+    "dek": "Juicy glazed pork chops, warm rice, and a cold sesame cabbage slaw—sweet, spicy, crunchy, and weeknight-fast.",
+    "image": "https://images.unsplash.com/photo-1764458696438-f3b5933e671b?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Glazed pork chops served with rice and a crisp cabbage salad",
+    "collection": "30-minute",
+    "tags": [
+      "pork",
+      "rice",
+      "gochujang",
+      "30-minute",
+      "high-protein",
+      "restaurant-inspired"
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 18,
+    "servings": 4,
+    "calories": 638,
+    "cost_per_serving": "$4.45",
+    "difficulty": "Easy",
+    "ingredients": [
+      "4 boneless center-cut pork chops, 3/4 inch thick (about 1 1/2 lb total)",
+      "1 tsp kosher salt",
+      "1 tbsp neutral oil",
+      "2 tbsp gochujang",
+      "2 tbsp honey",
+      "1 tbsp low-sodium soy sauce",
+      "1 tbsp rice vinegar, divided",
+      "1 tsp toasted sesame oil, divided",
+      "1 tsp grated fresh ginger",
+      "1 garlic clove, grated",
+      "4 cups shredded green cabbage or coleslaw mix",
+      "1 small carrot, shredded",
+      "1/2 English cucumber, thinly sliced",
+      "2 scallions, thinly sliced",
+      "1 tsp sesame seeds",
+      "3 cups hot cooked rice"
+    ],
+    "instructions": [
+      {
+        "name": "Make the glaze",
+        "text": "Whisk gochujang, honey, soy sauce, 2 teaspoons rice vinegar, 1/2 teaspoon sesame oil, ginger, garlic, and 1 tablespoon water until smooth. Set aside 2 tablespoons in a clean bowl for finishing."
+      },
+      {
+        "name": "Build the slaw",
+        "text": "Toss cabbage, carrot, cucumber, and half the scallions with the remaining 1 teaspoon rice vinegar, remaining 1/2 teaspoon sesame oil, sesame seeds, and a pinch of salt. Refrigerate while the pork cooks."
+      },
+      {
+        "name": "Sear the pork",
+        "text": "Pat pork chops dry and season with kosher salt. Heat neutral oil in a large skillet over medium-high. Sear until deeply browned, about 3 minutes on the first side and 2 minutes on the second."
+      },
+      {
+        "name": "Glaze safely",
+        "text": "Lower heat to medium-low. Brush the glaze from the original bowl over both sides of the chops and cook, turning often, until lacquered and the centers reach 145°F, about 3 to 6 minutes more depending on thickness."
+      },
+      {
+        "name": "Rest and plate",
+        "text": "Rest the pork for 5 minutes. Brush with the reserved clean glaze, then serve with hot rice and cold slaw. Finish with the remaining scallions."
+      }
+    ],
+    "why_it_works": [
+      "Searing before adding the sugary glaze builds a crust without burning the honey.",
+      "A clean portion of glaze is reserved before it touches raw pork, making the glossy finish safe.",
+      "Cold vinegary slaw balances the rich pork and sticky sauce while adding real texture."
+    ],
+    "swaps": [
+      "Use boneless chicken thighs and cook to 165°F.",
+      "Replace gochujang with 1 tablespoon sriracha plus 1 tablespoon tomato paste for a different but useful spicy glaze.",
+      "Serve over brown rice or cauliflower rice, or tuck the sliced pork and slaw into warm tortillas."
+    ],
+    "storage": "Refrigerate pork, rice, and slaw in separate containers for up to 4 days. Reheat pork gently to avoid drying it out.",
+    "notes": [
+      "Pork chop thickness matters more than the clock; use an instant-read thermometer and stop at 145°F.",
+      "Gochujang brands vary in heat and sweetness. Taste the glaze and adjust with honey or vinegar.",
+      "Do not reuse any glaze that contacted raw pork unless it is boiled thoroughly."
+    ],
+    "faqs": [
+      {
+        "q": "Is gochujang very spicy?",
+        "a": "It is usually medium-spicy with fermented sweetness. Start with 1 tablespoon if your family prefers mild food."
+      },
+      {
+        "q": "Can I grill the pork chops?",
+        "a": "Yes. Grill over medium-high heat, then brush on the glaze only during the final few minutes so it does not burn."
+      },
+      {
+        "q": "Can I meal-prep this?",
+        "a": "Yes. Pack the slaw separately and add it cold after reheating the pork and rice."
+      }
+    ],
+    "pantry": [
+      "pork chops",
+      "gochujang",
+      "rice",
+      "cabbage",
+      "cucumber"
+    ],
+    "date_published": "2026-08-20",
+    "date_modified": "2026-08-20"
+  },
+  {
+    "slug": "lemon-ricotta-dutch-baby-macerated-berries",
+    "title": "Lemon-Ricotta Dutch Baby with Macerated Berries",
+    "dek": "A dramatic, crisp-edged skillet pancake with a custardy center, lemony ricotta, and juicy berries—special enough for brunch, easy enough for Saturday.",
+    "image": "https://images.unsplash.com/photo-1772826489099-783d1668226e?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Puffed Dutch baby pancake in a skillet topped with fresh berries",
+    "collection": "family",
+    "tags": [
+      "breakfast",
+      "brunch",
+      "vegetarian",
+      "berries",
+      "family",
+      "weekend"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 22,
+    "servings": 6,
+    "calories": 318,
+    "cost_per_serving": "$2.15",
+    "difficulty": "Easy",
+    "ingredients": [
+      "3 large eggs, at room temperature",
+      "2/3 cup whole milk, at room temperature",
+      "2/3 cup all-purpose flour",
+      "1/3 cup whole-milk ricotta",
+      "2 tbsp granulated sugar, divided",
+      "1 tsp vanilla extract",
+      "1/4 tsp kosher salt",
+      "1 lemon",
+      "3 tbsp unsalted butter",
+      "2 cups mixed strawberries, raspberries, and blueberries",
+      "1 tsp fresh lemon juice",
+      "Powdered sugar, for serving",
+      "Maple syrup, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Heat the skillet",
+        "text": "Place a 10-inch cast-iron or oven-safe skillet on the center rack and heat the oven to 425°F. Let the skillet preheat for at least 10 minutes after the oven reaches temperature."
+      },
+      {
+        "name": "Macerate the berries",
+        "text": "Toss berries with 1 tablespoon granulated sugar and 1 teaspoon lemon juice. Let stand at room temperature while the pancake bakes."
+      },
+      {
+        "name": "Blend the batter",
+        "text": "Blend eggs, milk, flour, ricotta, remaining 1 tablespoon sugar, vanilla, salt, and 1 teaspoon finely grated lemon zest for 20 seconds. Scrape the sides and blend 10 seconds more, then rest 5 minutes."
+      },
+      {
+        "name": "Bake",
+        "text": "Carefully remove the hot skillet, add butter, and swirl to coat the bottom and sides. Immediately pour in the batter and return to the oven. Bake 18 to 22 minutes without opening the door, until deeply golden and dramatically puffed."
+      },
+      {
+        "name": "Finish",
+        "text": "Spoon the berries and their juices into the center just before serving. Dust with powdered sugar and add maple syrup only if desired. Slice at the table while the edges are crisp."
+      }
+    ],
+    "why_it_works": [
+      "A fully preheated skillet creates steam on contact, which drives the dramatic rise.",
+      "Room-temperature ingredients blend smoothly and help the pancake puff evenly.",
+      "A small amount of ricotta makes the center tender without weighing down the crisp edges."
+    ],
+    "swaps": [
+      "Use peaches, cherries, or sliced apples when berries are out of season.",
+      "Swap orange zest for lemon and add a pinch of cardamom.",
+      "Use a 12-inch skillet for a thinner, crisper Dutch baby; begin checking at 16 minutes."
+    ],
+    "storage": "Best served immediately. Refrigerate leftovers up to 2 days and re-crisp in a 375°F oven for 5 to 7 minutes.",
+    "notes": [
+      "Do not open the oven while it bakes; the sudden temperature drop can collapse the rise.",
+      "The Dutch baby will naturally deflate after it leaves the oven. That is expected, not a failure.",
+      "Add berries at the last moment so their juices do not soften the crisp rim."
+    ],
+    "faqs": [
+      {
+        "q": "Why did my Dutch baby not puff?",
+        "a": "The usual causes are a skillet that was not hot enough, cold batter, or opening the oven early."
+      },
+      {
+        "q": "Can I mix the batter ahead?",
+        "a": "Blend it up to 12 hours ahead and refrigerate, then bring it close to room temperature and blend briefly before baking."
+      },
+      {
+        "q": "Can I make it without a cast-iron skillet?",
+        "a": "Yes. Use any 10-inch oven-safe skillet or a preheated metal cake pan with sides at least 2 inches high."
+      }
+    ],
+    "pantry": [
+      "eggs",
+      "milk",
+      "flour",
+      "ricotta",
+      "berries"
+    ],
+    "date_published": "2026-08-20",
+    "date_modified": "2026-08-20"
+  }
+]
