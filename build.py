@@ -160,7 +160,7 @@ def page(title: str, description: str, path: str, body: str, *, schema=None, noi
   <meta property="og:url" content="{esc(canonical(path))}">
   <meta property="og:image" content="{SITE_URL}/assets/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="{href('/assets/css/styles.css?v=20260821-product-cards')}">
+  <link rel="stylesheet" href="{href('/assets/css/styles.css?v=20260821-product-cards-v2')}">
   <link rel="manifest" href="{href('/site.webmanifest')}">
   {adsense}
   {schema_html}
