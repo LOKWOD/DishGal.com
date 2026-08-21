@@ -1,0 +1,327 @@
+[
+  {
+    "slug": "crispy-coconut-lime-fish-tacos-pineapple-slaw",
+    "title": "Crispy Sheet-Pan Coconut-Lime Fish Tacos with Pineapple Slaw",
+    "dek": "Coconut-panko fish baked until crisp, tucked into warm tortillas with juicy pineapple slaw and a bright lime crema.",
+    "image": "https://images.unsplash.com/photo-1696935191484-7677e929b0dc?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Three crisp fish tacos with pineapple slaw and lime on a serving board",
+    "collection": "sheet-pan",
+    "tags": [
+      "seafood",
+      "fish-tacos",
+      "sheet-pan",
+      "coconut",
+      "pineapple",
+      "family"
+    ],
+    "prep_minutes": 22,
+    "cook_minutes": 15,
+    "servings": 4,
+    "calories": 565,
+    "cost_per_serving": "$4.85",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 1/4 lb skinless cod or tilapia fillets, cut into twelve 1-by-3-inch strips",
+      "1/2 cup all-purpose flour",
+      "1 large egg",
+      "2 tbsp water",
+      "3/4 cup panko breadcrumbs",
+      "1/2 cup unsweetened shredded coconut",
+      "1 tsp smoked paprika",
+      "1 tsp garlic powder",
+      "1 tsp kosher salt, divided",
+      "2 tbsp neutral oil, plus more for the rack",
+      "2 cups finely shredded red or green cabbage",
+      "1 cup fresh pineapple, cut into small dice",
+      "1/3 cup chopped cilantro",
+      "1 small jalapeño, seeded and finely chopped",
+      "2 limes",
+      "1/3 cup plain Greek yogurt",
+      "1 tbsp mayonnaise",
+      "12 small corn or flour tortillas",
+      "Sliced avocado and hot sauce, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Heat the oven",
+        "text": "Heat the oven to 425°F. Set a wire rack inside a rimmed half-sheet pan and brush the rack lightly with oil. Pat the fish very dry and season it with 1/2 teaspoon kosher salt."
+      },
+      {
+        "name": "Build the coating station",
+        "text": "Place flour in one shallow bowl. Whisk the egg with 2 tablespoons water in a second. In a third, mix panko, coconut, smoked paprika, garlic powder, and 1/4 teaspoon salt."
+      },
+      {
+        "name": "Coat the fish",
+        "text": "Working one strip at a time, coat fish in flour and shake off the excess, dip in egg, then press firmly into the coconut-panko mixture. Arrange on the rack with space between pieces and drizzle or spray with the neutral oil."
+      },
+      {
+        "name": "Bake until crisp",
+        "text": "Bake 12 to 15 minutes, rotating the pan once, until the coating is golden and the thickest pieces reach 145°F. If more color is needed, broil for 30 to 60 seconds while watching closely because coconut browns quickly."
+      },
+      {
+        "name": "Make the pineapple slaw",
+        "text": "While the fish bakes, toss cabbage, pineapple, cilantro, jalapeño, the zest and juice of 1 lime, and the remaining 1/4 teaspoon salt. Let it stand 10 minutes, then drain any excess liquid."
+      },
+      {
+        "name": "Mix the crema",
+        "text": "Stir Greek yogurt, mayonnaise, and 1 tablespoon juice from the remaining lime. Add 1 to 2 teaspoons water until easily drizzleable."
+      },
+      {
+        "name": "Assemble",
+        "text": "Warm tortillas in a dry skillet or wrapped in foil in the oven. Fill each with one piece of fish, pineapple slaw, and lime crema. Serve immediately with avocado, hot sauce, and remaining lime wedges if desired."
+      }
+    ],
+    "why_it_works": [
+      "A wire rack lets hot air circulate under the fish, keeping the underside from steaming against the pan.",
+      "Unsweetened coconut adds toastiness without making the coating candy-sweet; panko supplies the brittle crunch.",
+      "Draining the rested slaw prevents pineapple and lime juices from soaking the tortillas."
+    ],
+    "swaps": [
+      "Use haddock, pollock, or another firm white fish of similar thickness.",
+      "For a nut-free and coconut-free version, replace the shredded coconut with an equal amount of panko.",
+      "Make it dairy-free with an unsweetened plant-based yogurt or use a simple lime-mayo drizzle."
+    ],
+    "storage": "Store fish, slaw, crema, and tortillas separately. Refrigerate the cooked fish up to 3 days and the slaw up to 2 days. Re-crisp fish in a 400°F oven or air fryer until hot; reheat leftovers to 165°F.",
+    "notes": [
+      "Insert an instant-read thermometer sideways into the center of the thickest fish strip for an accurate reading.",
+      "Cut the fish into evenly sized strips so every piece reaches 145°F at about the same time.",
+      "Do not add the slaw to tacos until serving; its juice will soften both the coating and tortillas."
+    ],
+    "faqs": [
+      {
+        "q": "Can I use frozen fish?",
+        "a": "Yes. Thaw it completely in the refrigerator, then press it very dry with paper towels before seasoning and breading."
+      },
+      {
+        "q": "Can I make these in an air fryer?",
+        "a": "Yes. Cook in a single layer at 400°F for 8 to 11 minutes, turning once, until crisp and 145°F in the center. Work in batches so the air can circulate."
+      },
+      {
+        "q": "How spicy are the tacos?",
+        "a": "They are mild when the jalapeño is seeded. Omit it for no heat or keep the seeds and add hot sauce for a stronger kick."
+      }
+    ],
+    "pantry": [
+      "white fish",
+      "tortillas",
+      "coconut",
+      "panko",
+      "pineapple"
+    ],
+    "date_published": "2026-08-21",
+    "date_modified": "2026-08-21"
+  },
+  {
+    "slug": "smoky-roasted-pepper-shakshuka-feta",
+    "title": "Smoky Roasted Pepper Shakshuka with Feta",
+    "dek": "Eggs gently cooked in a smoky tomato and roasted-pepper sauce with cumin, feta, herbs, and warm pita for dipping.",
+    "image": "https://images.unsplash.com/photo-1614570218825-c2a3be79b0fd?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Shakshuka with eggs simmered in tomato pepper sauce in a black skillet",
+    "collection": "vegetarian",
+    "tags": [
+      "vegetarian",
+      "skillet",
+      "eggs",
+      "shakshuka",
+      "brunch",
+      "one-pan"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 25,
+    "servings": 4,
+    "calories": 398,
+    "cost_per_serving": "$2.90",
+    "difficulty": "Easy",
+    "ingredients": [
+      "2 tbsp extra-virgin olive oil",
+      "1 medium yellow onion, finely chopped",
+      "1 red bell pepper, diced",
+      "3 garlic cloves, minced",
+      "1 tsp ground cumin",
+      "1 tsp smoked paprika",
+      "1/2 tsp ground coriander",
+      "1/4 tsp crushed red pepper flakes, plus more to taste",
+      "1 can (28 oz) crushed tomatoes",
+      "1 cup drained jarred roasted red peppers, chopped",
+      "3/4 tsp kosher salt",
+      "1/2 tsp black pepper",
+      "6 large eggs",
+      "1/2 cup crumbled feta",
+      "1/3 cup chopped parsley or cilantro",
+      "4 whole-wheat pitas, warmed",
+      "Lemon wedges, for serving"
+    ],
+    "instructions": [
+      {
+        "name": "Soften the vegetables",
+        "text": "Heat olive oil in a 12-inch lidded skillet over medium heat. Add onion and fresh bell pepper and cook 7 to 8 minutes, stirring occasionally, until soft and beginning to brown."
+      },
+      {
+        "name": "Bloom the spices",
+        "text": "Stir in garlic, cumin, smoked paprika, coriander, and red pepper flakes. Cook for 45 seconds, just until fragrant."
+      },
+      {
+        "name": "Reduce the sauce",
+        "text": "Add crushed tomatoes, roasted red peppers, kosher salt, and black pepper. Simmer uncovered for 8 to 10 minutes, stirring occasionally, until thick enough that a spoon dragged through the sauce leaves a trail for a moment."
+      },
+      {
+        "name": "Add the eggs",
+        "text": "Use the back of a spoon to make six wells in the sauce. Crack one egg into each well, season the eggs lightly, and cover the skillet."
+      },
+      {
+        "name": "Cook to doneness",
+        "text": "Reduce heat to medium-low and cook 6 to 9 minutes. For fully cooked egg safety, the whites and yolks should reach 160°F; cook longer for firm yolks or use pasteurized eggs if intentionally serving the yolks softer."
+      },
+      {
+        "name": "Finish and serve",
+        "text": "Remove from heat and scatter feta and herbs over the skillet. Rest 2 minutes, then serve with warm pita and lemon wedges."
+      }
+    ],
+    "why_it_works": [
+      "Fresh bell pepper builds sweetness while jarred roasted pepper adds concentrated smoky depth without an hour of roasting.",
+      "Reducing the tomato base before adding eggs keeps the whites from turning watery.",
+      "Covering the skillet traps gentle steam so the egg tops set without scorching the sauce underneath."
+    ],
+    "swaps": [
+      "Use goat cheese or dollops of labneh instead of feta.",
+      "Add a drained can of chickpeas with the tomatoes for a heartier dinner.",
+      "Replace roasted red peppers with drained fire-roasted diced tomatoes and increase the fresh bell pepper to two."
+    ],
+    "storage": "The tomato-pepper sauce can be refrigerated up to 4 days or frozen up to 3 months. For best results, reheat the sauce to a simmer and cook fresh eggs in it. Refrigerate fully cooked leftovers up to 3 days and reheat to 165°F.",
+    "notes": [
+      "A wide skillet gives the eggs enough room and helps the sauce reduce efficiently.",
+      "If the sauce spits while reducing, lower the heat rather than covering it; trapped moisture will slow thickening.",
+      "Crack each egg into a small cup before sliding it into the sauce so shells are easier to catch."
+    ],
+    "faqs": [
+      {
+        "q": "Can I make shakshuka ahead?",
+        "a": "Yes. Make the sauce through the reduction step, refrigerate it, then return it to a simmer and add eggs just before serving."
+      },
+      {
+        "q": "Why are my egg whites still translucent?",
+        "a": "The sauce may be simmering too gently. Keep the skillet covered and raise the heat slightly until the whites set; verify 160°F for fully cooked eggs."
+      },
+      {
+        "q": "What can I serve besides pita?",
+        "a": "Crusty bread, toasted naan, roasted potatoes, or a simple cucumber salad all work well."
+      }
+    ],
+    "pantry": [
+      "eggs",
+      "crushed tomatoes",
+      "roasted red peppers",
+      "feta",
+      "pita"
+    ],
+    "date_published": "2026-08-21",
+    "date_modified": "2026-08-21"
+  },
+  {
+    "slug": "brown-sugar-peach-upside-down-skillet-cake",
+    "title": "Brown Sugar Peach Upside-Down Skillet Cake",
+    "dek": "Juicy summer peaches caramelize beneath a tender vanilla-yogurt cake, then flip into a glossy cast-iron showpiece.",
+    "image": "https://images.unsplash.com/photo-1534520238782-00b1a4650596?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Slices of golden summer peach cake served on a white plate",
+    "collection": "family",
+    "tags": [
+      "dessert",
+      "peach",
+      "skillet",
+      "summer",
+      "baking",
+      "vegetarian"
+    ],
+    "prep_minutes": 20,
+    "cook_minutes": 40,
+    "servings": 8,
+    "calories": 382,
+    "cost_per_serving": "$1.65",
+    "difficulty": "Moderate",
+    "ingredients": [
+      "3 medium ripe but firm peaches (about 1 1/4 lb), pitted and cut into 1/2-inch wedges",
+      "10 tbsp unsalted butter, softened and divided",
+      "1/2 cup packed light brown sugar",
+      "1 1/2 cups all-purpose flour",
+      "1 1/2 tsp baking powder",
+      "1/4 tsp baking soda",
+      "1/2 tsp kosher salt",
+      "1/2 tsp ground cinnamon",
+      "1/2 cup granulated sugar",
+      "2 large eggs, at room temperature",
+      "1 tsp vanilla extract",
+      "1/2 cup plain whole-milk Greek yogurt, at room temperature",
+      "1/4 cup whole milk, at room temperature",
+      "Whipped cream or vanilla ice cream, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Prepare the skillet",
+        "text": "Heat the oven to 350°F. Melt 4 tablespoons butter in a 10-inch cast-iron skillet over medium-low heat. Add brown sugar and stir for 1 minute until glossy. Remove from heat and arrange peach wedges in a snug single layer over the sugar mixture."
+      },
+      {
+        "name": "Mix the dry ingredients",
+        "text": "Whisk flour, baking powder, baking soda, kosher salt, and cinnamon in a medium bowl until evenly combined."
+      },
+      {
+        "name": "Cream the batter",
+        "text": "Beat the remaining 6 tablespoons softened butter with granulated sugar for 2 to 3 minutes until pale and fluffy. Beat in eggs one at a time, then mix in vanilla."
+      },
+      {
+        "name": "Finish the batter",
+        "text": "Whisk yogurt and milk together. Add the dry ingredients to the butter mixture in three additions, alternating with the yogurt mixture in two additions. Mix only until the last streaks of flour disappear."
+      },
+      {
+        "name": "Bake",
+        "text": "Spoon batter over the peaches and gently spread it to the skillet edges without disturbing the fruit. Bake 35 to 42 minutes, until deeply golden and a tester in the center comes out with a few moist crumbs; the center should be about 200°F if checked with a thermometer."
+      },
+      {
+        "name": "Rest and flip",
+        "text": "Cool in the skillet exactly 10 minutes. Run a thin knife around the edge, place a large heat-safe serving plate over the skillet, and invert both together using oven mitts. Leave the skillet in place for 1 minute, then lift it away and replace any peach slices that stick."
+      },
+      {
+        "name": "Serve",
+        "text": "Let the cake cool at least 20 minutes more before slicing. Serve warm or at room temperature with whipped cream or vanilla ice cream if desired."
+      }
+    ],
+    "why_it_works": [
+      "Firm-ripe peaches hold their shape while releasing enough juice to make the brown-sugar layer glossy.",
+      "Greek yogurt tenderizes the crumb and balances the caramel topping with light tang.",
+      "A 10-minute rest lets the caramel settle but keeps it warm enough to release cleanly from cast iron."
+    ],
+    "swaps": [
+      "Use peeled nectarines, plums, or firm pears in the same quantity.",
+      "Replace cinnamon with 1/4 teaspoon ground cardamom for a more floral flavor.",
+      "Use sour cream in place of Greek yogurt and thin it with the same amount of milk."
+    ],
+    "storage": "Cover and keep at cool room temperature for up to 2 days or refrigerate up to 5 days. Warm individual slices for 10 to 15 seconds in the microwave or 5 minutes in a 300°F oven.",
+    "notes": [
+      "Choose peaches that yield slightly at the stem but are firm enough to slice cleanly.",
+      "Use a plate wider than the skillet and protect both hands and forearms during the inversion.",
+      "Do not let the baked cake sit in the skillet longer than 15 minutes before flipping or the caramel may begin to stick."
+    ],
+    "faqs": [
+      {
+        "q": "Do I need to peel the peaches?",
+        "a": "No. The skins soften during baking and help the wedges keep their shape, but you can peel them if you prefer a smoother topping."
+      },
+      {
+        "q": "Can I use frozen peaches?",
+        "a": "Yes. Thaw and drain them thoroughly, then pat dry. Excess water can thin the caramel and make the cake soggy."
+      },
+      {
+        "q": "Why did some fruit stay in the skillet?",
+        "a": "The cake may have cooled too long or the skillet edge was not loosened. Place any stuck pieces back onto the cake while the caramel is still warm."
+      }
+    ],
+    "pantry": [
+      "peaches",
+      "brown sugar",
+      "flour",
+      "eggs",
+      "Greek yogurt"
+    ],
+    "date_published": "2026-08-21",
+    "date_modified": "2026-08-21"
+  }
+]
