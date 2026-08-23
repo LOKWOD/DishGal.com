@@ -1,0 +1,310 @@
+[
+  {
+    "slug": "caramel-pork-banh-mi-quick-pickles",
+    "title": "Caramel Pork Bánh Mì with Quick Pickles",
+    "dek": "Savory-sweet caramelized pork, punchy carrot-daikon pickles, cool cucumber, and cilantro packed into crisp baguettes.",
+    "image": "https://images.unsplash.com/photo-1599719455360-ff0be7c4dd06?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Caramel pork bánh mì sandwich in a crisp baguette with pickled carrot and daikon, cucumber, cilantro, and chile mayonnaise",
+    "collection": "budget",
+    "tags": [
+      "sandwich",
+      "Vietnamese-inspired",
+      "pork",
+      "weeknight"
+    ],
+    "prep_minutes": 25,
+    "cook_minutes": 15,
+    "servings": 4,
+    "calories": 612,
+    "cost_per_serving": "$4.18",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 cup carrot matchsticks",
+      "1 cup daikon radish matchsticks",
+      "1/2 cup unseasoned rice vinegar",
+      "1/2 cup warm water",
+      "2 tbsp granulated sugar",
+      "1 1/4 tsp kosher salt, divided",
+      "1 tbsp neutral oil",
+      "1 large shallot, finely chopped",
+      "3 garlic cloves, minced",
+      "1 1/4 lb pork tenderloin, sliced 1/4 inch thick across the grain",
+      "3 tbsp packed light brown sugar",
+      "2 tbsp fish sauce",
+      "1 tbsp low-sodium soy sauce",
+      "2 tbsp water",
+      "1/2 tsp freshly ground black pepper",
+      "4 demi baguettes or sturdy sandwich rolls (5 to 6 inches each)",
+      "1/3 cup mayonnaise",
+      "1 tbsp sriracha, plus more to taste",
+      "1/2 English cucumber, thinly sliced",
+      "1 packed cup cilantro sprigs",
+      "1 jalapeño, thinly sliced (optional)"
+    ],
+    "instructions": [
+      {
+        "name": "Quick-pickle the vegetables",
+        "text": "Stir rice vinegar, warm water, granulated sugar, and 3/4 teaspoon salt in a medium bowl until dissolved. Add carrot and daikon, press them below the liquid, and leave at room temperature for at least 20 minutes while you cook."
+      },
+      {
+        "name": "Build the aromatic base",
+        "text": "Heat neutral oil in a large skillet over medium-high. Add shallot and cook for 2 minutes. Add garlic and stir for 30 seconds, just until fragrant."
+      },
+      {
+        "name": "Sear the pork in batches",
+        "text": "Add half the pork in one layer and cook undisturbed for 90 seconds, then turn and cook 1 to 2 minutes more. Transfer to a plate and repeat with the remaining pork, adding 1 teaspoon oil only if the skillet is dry."
+      },
+      {
+        "name": "Make the caramel glaze",
+        "text": "Lower the heat to medium. Stir brown sugar, fish sauce, soy sauce, 2 tablespoons water, the remaining 1/2 teaspoon salt, and black pepper in the skillet for 1 minute. Return the pork and its juices; toss for 1 to 2 minutes until glossy. Verify the pork reaches 145°F, then rest it off the heat for 3 minutes."
+      },
+      {
+        "name": "Toast and dress the bread",
+        "text": "Split the baguettes without cutting all the way through. Toast cut-side up under a broiler for 1 to 2 minutes, watching constantly. Mix mayonnaise with sriracha and spread it over both cut sides."
+      },
+      {
+        "name": "Assemble for crunch",
+        "text": "Drain the pickles thoroughly. Fill each baguette with cucumber, hot caramel pork, pickles, cilantro, and jalapeño. Serve immediately so the bread stays crisp."
+      }
+    ],
+    "why_it_works": [
+      "A short room-temperature pickle softens raw carrot and daikon while preserving the snap that defines the sandwich.",
+      "Searing thin pork slices in two uncrowded batches creates browned edges instead of steaming the meat.",
+      "Reducing the seasonings with brown sugar creates a concentrated glaze that stays inside the bread."
+    ],
+    "swaps": [
+      "Use thinly sliced boneless chicken thighs and cook them to 165°F; add 1 extra teaspoon oil if the skillet looks dry.",
+      "No daikon? Use thinly sliced radishes or double the carrot.",
+      "For a fish-sauce-free version, replace it with 1 1/2 tablespoons additional soy sauce plus 1 teaspoon lime juice."
+    ],
+    "storage": "Refrigerate pork and drained pickles in separate airtight containers for up to 4 days. Reheat pork in a skillet over medium with 1 tablespoon water until steaming and 165°F; assemble only when ready to eat. Do not store filled sandwiches because the bread softens.",
+    "notes": [
+      "Choose baguettes with a thin, crackly crust rather than very dense artisan loaves.",
+      "Drain the pickles well before assembly; excess brine makes the bottom crust soggy.",
+      "The pork glaze contains fish sauce and soy sauce, so season only with the measured salt before tasting."
+    ],
+    "faqs": [
+      {
+        "q": "Can I make the pickles ahead?",
+        "a": "Yes. Refrigerate them in their brine for up to 1 week. Their flavor gets sharper and the vegetables soften slightly after the first day."
+      },
+      {
+        "q": "Is this bánh mì very spicy?",
+        "a": "With 1 tablespoon sriracha in the mayonnaise it is gently spicy. Omit the jalapeño and start with 1 teaspoon sriracha for a mild sandwich."
+      },
+      {
+        "q": "Can I use ground pork instead of sliced pork?",
+        "a": "Yes. Brown 1 1/4 pounds ground pork until it reaches 160°F, drain excess fat if needed, then add the glaze and simmer until glossy."
+      }
+    ],
+    "pantry": [
+      "pork tenderloin",
+      "baguette",
+      "carrot",
+      "daikon",
+      "cucumber",
+      "cilantro",
+      "fish sauce"
+    ],
+    "date_published": "2026-08-23",
+    "date_modified": "2026-08-23"
+  },
+  {
+    "slug": "spinach-onion-cheddar-quiche-flaky-crust",
+    "title": "Spinach-Onion Cheddar Quiche with Flaky Crust",
+    "dek": "A deeply savory, sliceable brunch quiche with jammy onion, plenty of spinach, sharp cheddar, and a crisp bottom crust.",
+    "image": "https://cdn.pixabay.com/photo/2017/07/03/20/01/quiche-2468840_1280.jpg",
+    "image_alt": "Golden baked spinach, onion, and cheddar quiche in a fluted pie dish with a browned flaky pastry crust",
+    "collection": "vegetarian",
+    "tags": [
+      "breakfast",
+      "brunch",
+      "vegetarian",
+      "make-ahead"
+    ],
+    "prep_minutes": 20,
+    "cook_minutes": 70,
+    "servings": 8,
+    "calories": 386,
+    "cost_per_serving": "$1.78",
+    "difficulty": "Moderate",
+    "ingredients": [
+      "1 refrigerated 9-inch deep-dish pie crust",
+      "1 tbsp olive oil",
+      "1 medium yellow onion, thinly sliced",
+      "1/2 tsp kosher salt, divided",
+      "8 oz baby spinach",
+      "5 large eggs",
+      "1 cup whole milk",
+      "1/2 cup heavy cream",
+      "1 tsp Dijon mustard",
+      "1/4 tsp ground nutmeg",
+      "1/4 tsp black pepper",
+      "6 oz sharp cheddar, coarsely grated (about 1 1/2 cups), divided",
+      "1 tbsp all-purpose flour"
+    ],
+    "instructions": [
+      {
+        "name": "Blind-bake the crust",
+        "text": "Heat the oven to 400°F with a rack in the lower third. Fit the crust into a 9-inch deep-dish pie plate, prick the base lightly, line with parchment, and fill with pie weights or dried beans. Bake 15 minutes; remove the parchment and weights, then bake 5 minutes more. Reduce the oven to 350°F."
+      },
+      {
+        "name": "Concentrate the onion",
+        "text": "Meanwhile, warm olive oil in a large skillet over medium. Add onion and 1/4 teaspoon salt. Cook for 8 to 10 minutes, stirring often, until soft and golden at the edges."
+      },
+      {
+        "name": "Dry the spinach",
+        "text": "Add spinach by handfuls and cook until wilted, 2 to 3 minutes. Transfer to a plate to cool slightly, then squeeze firmly in a clean towel. Chop; you should have about 1 packed cup. Removing water prevents a loose custard and soggy crust."
+      },
+      {
+        "name": "Mix the custard",
+        "text": "Whisk eggs, milk, cream, Dijon, nutmeg, black pepper, and the remaining 1/4 teaspoon salt until no streaks remain. Toss 1 1/4 cups cheddar with the flour, then scatter it, the onion, and spinach evenly in the warm crust."
+      },
+      {
+        "name": "Fill without flooding",
+        "text": "Set the pie plate on a rimmed sheet pan. Slowly pour in the custard, pausing so it settles around the filling. Sprinkle the remaining 1/4 cup cheddar over the top."
+      },
+      {
+        "name": "Bake and cool",
+        "text": "Bake at 350°F for 38 to 45 minutes, until the edges are set and the center moves as one gentle wobble. The center must reach 160°F. Cool on a rack for at least 20 minutes before slicing so the custard finishes setting."
+      }
+    ],
+    "why_it_works": [
+      "Blind-baking sets the pastry before the liquid filling arrives, keeping the bottom flaky.",
+      "Squeezing the cooked spinach removes the water that otherwise dilutes the egg custard.",
+      "A small amount of flour on the cheese helps suspend the filling and gives clean, tender slices."
+    ],
+    "swaps": [
+      "Replace cheddar with Gruyère, Swiss, or a half-and-half blend.",
+      "Use 10 ounces thawed frozen spinach; squeeze it very dry and skip the wilting step.",
+      "For a lighter filling, replace the cream with more whole milk; the texture will be slightly less plush."
+    ],
+    "storage": "Cool completely, cover, and refrigerate for up to 4 days. Reheat individual slices on a sheet pan at 325°F for 12 to 15 minutes, until hot throughout; avoid high heat, which can toughen the eggs. Freeze cooled slices tightly wrapped for up to 2 months and thaw overnight before reheating.",
+    "notes": [
+      "A standard shallow pie plate may not hold all the custard; stop 1/4 inch below the rim and bake any extra in a greased ramekin.",
+      "Put the sheet pan under the pie plate before filling so you do not carry a sloshing quiche across the kitchen.",
+      "If the crust rim browns too quickly, shield only the rim with strips of foil for the final 15 minutes."
+    ],
+    "faqs": [
+      {
+        "q": "Can I bake the quiche the night before?",
+        "a": "Yes. Cool it completely, refrigerate, and reheat uncovered at 325°F for about 20 minutes. A whole chilled quiche needs longer than individual slices."
+      },
+      {
+        "q": "Why is my quiche watery?",
+        "a": "The usual causes are damp spinach, underbaking, or slicing while hot. Squeeze the greens hard, confirm 160°F in the center, and cool for 20 minutes."
+      },
+      {
+        "q": "Can I make it crustless?",
+        "a": "Yes. Grease a 9-inch deep pie plate, omit the crust and blind-bake step, and begin checking the filling after 30 minutes at 350°F."
+      }
+    ],
+    "pantry": [
+      "eggs",
+      "spinach",
+      "onion",
+      "cheddar",
+      "pie crust",
+      "milk"
+    ],
+    "date_published": "2026-08-23",
+    "date_modified": "2026-08-23"
+  },
+  {
+    "slug": "skillet-toasted-tomato-apricot-panzanella-burrata",
+    "title": "Skillet-Toasted Tomato-Apricot Panzanella with Burrata",
+    "dek": "Juicy peak-season tomatoes and apricots, crisp olive-oil bread, briny capers, basil, and creamy burrata in a no-oven summer salad.",
+    "image": "https://images.unsplash.com/photo-1624286372434-2581e8f44334?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Tomato and apricot panzanella with toasted bread cubes, burrata, red onion, capers, basil, olive oil, and black pepper",
+    "collection": "30-minute",
+    "tags": [
+      "skillet",
+      "salad",
+      "vegetarian",
+      "summer"
+    ],
+    "prep_minutes": 18,
+    "cook_minutes": 7,
+    "servings": 4,
+    "calories": 462,
+    "cost_per_serving": "$3.42",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 1/2 lb ripe tomatoes, cut into 1-inch chunks",
+      "3 ripe but firm apricots, pitted and cut into wedges",
+      "1/3 small red onion, very thinly sliced",
+      "1 tsp kosher salt, divided",
+      "8 oz day-old rustic bread, cut into 1-inch cubes",
+      "5 tbsp extra-virgin olive oil, divided",
+      "2 tbsp red wine vinegar",
+      "1 tsp honey",
+      "1 small garlic clove, finely grated",
+      "2 tbsp drained capers",
+      "1/2 tsp black pepper",
+      "8 oz burrata",
+      "1 packed cup basil leaves, large leaves torn"
+    ],
+    "instructions": [
+      {
+        "name": "Draw out the tomato juices",
+        "text": "Combine tomatoes, apricots, red onion, and 1/2 teaspoon salt in a large bowl. Leave for 10 minutes. The released juice becomes part of the dressing instead of making the salad watery."
+      },
+      {
+        "name": "Skillet-toast the bread",
+        "text": "Heat 2 tablespoons olive oil in a large skillet over medium. Add bread and cook for 5 to 7 minutes, turning frequently, until crisp and golden on several sides. Transfer to a plate to cool for 3 minutes."
+      },
+      {
+        "name": "Whisk the sharp dressing",
+        "text": "Whisk the remaining 3 tablespoons olive oil with red wine vinegar, honey, garlic, capers, black pepper, and the remaining 1/2 teaspoon salt."
+      },
+      {
+        "name": "Give the bread a short soak",
+        "text": "Pour the dressing over the tomato mixture, add the toasted bread, and toss thoroughly. Rest for 5 minutes—long enough for the bread to absorb flavor while keeping a crisp core."
+      },
+      {
+        "name": "Finish with burrata",
+        "text": "Fold in half the basil. Spoon the salad onto a platter, tear the burrata over the top, and finish with the remaining basil, the juices from the bowl, and an extra grind of black pepper."
+      }
+    ],
+    "why_it_works": [
+      "Salting the fruit first creates a savory tomato-apricot liquor that seasons the bread from within.",
+      "Skillet-toasting gives day-old bread browned edges without heating the oven.",
+      "Capers and vinegar balance the sweet fruit and rich burrata, so the salad eats like a complete light meal."
+    ],
+    "swaps": [
+      "Replace apricots with two ripe peaches or nectarines cut into bite-size wedges.",
+      "Use fresh mozzarella if burrata is unavailable; tear it small and add 1 extra tablespoon olive oil.",
+      "For a dairy-free salad, omit burrata and add one 15-ounce can of drained, rinsed cannellini beans."
+    ],
+    "storage": "For the best texture, store toasted bread, dressed tomato-apricot mixture, burrata, and basil separately for up to 2 days. Bring the fruit mixture to room temperature and re-crisp the bread in a dry skillet over medium for 2 to 3 minutes before assembling. Fully assembled panzanella is safe refrigerated for 1 day but will be soft.",
+    "notes": [
+      "Day-old bread is ideal because it absorbs dressing without collapsing; if your bread is fresh, toast it 1 to 2 minutes longer.",
+      "Use ripe but firm apricots so the wedges hold their shape when tossed.",
+      "Burrata is best added at the last moment; its creamy center should coat the salad, not disappear into storage."
+    ],
+    "faqs": [
+      {
+        "q": "Can I make panzanella without stale bread?",
+        "a": "Yes. Fresh bread works after thorough skillet-toasting. Let the cubes cool before tossing so steam does not soften them."
+      },
+      {
+        "q": "Why add apricots to a tomato salad?",
+        "a": "Their tart sweetness echoes peak-season tomatoes while the vinegar, capers, and black pepper keep the finished salad distinctly savory."
+      },
+      {
+        "q": "Can this be a full dinner?",
+        "a": "Yes. It serves four as a light main. For more protein, add cannellini beans, grilled chicken, or prosciutto at the table."
+      }
+    ],
+    "pantry": [
+      "tomatoes",
+      "apricots",
+      "rustic bread",
+      "burrata",
+      "basil",
+      "capers"
+    ],
+    "date_published": "2026-08-23",
+    "date_modified": "2026-08-23"
+  }
+]
