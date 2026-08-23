@@ -1,0 +1,500 @@
+[
+  {
+    "slug": "one-pot-cheesy-ground-beef-rice",
+    "title": "One-Pot Cheesy Ground Beef & Rice",
+    "dek": "Savory seasoned beef, tender rice, sharp cheddar, and fresh scallions in one skillet—built for the night when dinner needs to be easy and filling.",
+    "image": "https://images.pexels.com/photos/30635695/pexels-photo-30635695/free-photo-of-delicious-ground-beef-dish-with-garnish.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    "image_alt": "A bowl of seasoned ground beef and rice topped with melted shredded cheese and sliced scallions",
+    "collection": "one-pot",
+    "tags": [
+      "ground-beef",
+      "one-pot",
+      "rice",
+      "family"
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 30,
+    "servings": 4,
+    "calories": 664,
+    "cost_per_serving": "$3.28",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 tbsp olive oil",
+      "1 1/4 lb 90% lean ground beef",
+      "1 medium yellow onion, finely chopped",
+      "3 garlic cloves, minced",
+      "1 1/2 tsp smoked paprika",
+      "1 tsp Worcestershire sauce",
+      "1/2 tsp dried oregano",
+      "1 cup long-grain white rice, rinsed and drained",
+      "2 cups low-sodium beef broth",
+      "1/2 tsp kosher salt, plus more to taste",
+      "1/4 tsp black pepper",
+      "1 cup shredded sharp cheddar",
+      "4 scallions, thinly sliced",
+      "Hot sauce, for serving (optional)"
+    ],
+    "instructions": [
+      {
+        "name": "Brown the beef",
+        "text": "Heat olive oil in a large deep skillet with a tight-fitting lid over medium-high. Add ground beef and cook for 6 to 8 minutes, breaking it into small crumbles, until browned and 160°F. Spoon off excess grease, leaving about 1 tablespoon in the skillet."
+      },
+      {
+        "name": "Cook the aromatics",
+        "text": "Add onion and cook for 4 minutes until softened. Stir in garlic, smoked paprika, Worcestershire, oregano, salt, and pepper; cook for 30 seconds until fragrant."
+      },
+      {
+        "name": "Toast the rice",
+        "text": "Stir in the rinsed rice and cook for 1 minute so every grain is coated with the seasoned beef mixture. Pour in the broth and scrape up the browned bits from the bottom."
+      },
+      {
+        "name": "Simmer covered",
+        "text": "Bring to a boil, then reduce the heat to low and cover. Simmer for 18 minutes without lifting the lid. Remove from the heat and let stand, still covered, for 5 minutes."
+      },
+      {
+        "name": "Make it cheesy",
+        "text": "Fluff the rice and check that it is tender. Fold in three-quarters of the cheddar, then sprinkle the rest over the top. Cover for 2 minutes to melt and finish with scallions and hot sauce."
+      }
+    ],
+    "why_it_works": [
+      "Browning the beef before the rice goes in develops flavor and lets you remove excess grease.",
+      "Rinsed long-grain rice cooks into separate, tender grains instead of turning gummy.",
+      "Melting the cheese off the heat keeps it creamy instead of oily."
+    ],
+    "swaps": [
+      "Use ground turkey and add 1 extra tablespoon olive oil while browning.",
+      "Pepper Jack can replace cheddar for a spicier finish.",
+      "Stir in 1 cup thawed frozen peas after the covered rest for an easy vegetable."
+    ],
+    "storage": "Refrigerate in a shallow airtight container for up to 4 days. Reheat individual portions with 1 tablespoon water, covered, until steaming and 165°F. Freeze cooled portions for up to 2 months; thaw overnight before reheating.",
+    "notes": [
+      "Use regular long-grain white rice; instant, brown, and converted rice need different liquid and timing.",
+      "Do not stir during the covered simmer or the rice can release too much starch.",
+      "If the rice is still firm after resting, add 2 tablespoons broth, cover, and cook over low for 3 to 5 minutes."
+    ],
+    "faqs": [
+      {
+        "q": "Can I use brown rice?",
+        "a": "Not as a direct swap. Brown rice needs more liquid and roughly twice the covered cooking time, which can make the beef dry."
+      },
+      {
+        "q": "Why is my rice crunchy?",
+        "a": "The heat may have been too low, the lid may have leaked, or the skillet may have lost steam when opened. Add a splash of broth and cook covered a few minutes longer."
+      },
+      {
+        "q": "Can I add vegetables?",
+        "a": "Yes. Cook 1 diced bell pepper with the onion, or fold in thawed peas or baby spinach after the rice rests."
+      }
+    ],
+    "pantry": [
+      "ground beef",
+      "rice",
+      "cheddar",
+      "onion",
+      "scallions",
+      "beef broth"
+    ],
+    "date_published": "2026-08-23",
+    "date_modified": "2026-08-23"
+  },
+  {
+    "slug": "weeknight-chili-con-carne-corn-beans",
+    "title": "Weeknight Chili Con Carne with Corn & Beans",
+    "dek": "A thick, beefy red chili with two kinds of beans, sweet corn, and a properly bloomed spice base—ready in under an hour.",
+    "image": "https://images.pexels.com/photos/15881322/pexels-photo-15881322/free-photo-of-chili-con-carne-stew.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    "image_alt": "A bowl of red chili con carne with ground beef, beans, corn, sour cream, and sliced scallions",
+    "collection": "budget",
+    "tags": [
+      "ground-beef",
+      "chili",
+      "beans",
+      "family"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 40,
+    "servings": 6,
+    "calories": 512,
+    "cost_per_serving": "$2.74",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 tbsp neutral oil",
+      "1 1/2 lb 90% lean ground beef",
+      "1 large yellow onion, diced",
+      "1 red bell pepper, diced",
+      "4 garlic cloves, minced",
+      "3 tbsp chili powder",
+      "2 tsp ground cumin",
+      "1 tsp smoked paprika",
+      "1/2 tsp dried oregano",
+      "2 tbsp tomato paste",
+      "1 can (28 oz) crushed tomatoes",
+      "1 can (15 oz) kidney beans, rinsed and drained",
+      "1 can (15 oz) black beans, rinsed and drained",
+      "1 1/2 cups frozen corn",
+      "1 cup low-sodium beef broth",
+      "1 1/2 tsp kosher salt",
+      "1/2 tsp black pepper",
+      "1 tbsp lime juice",
+      "Sour cream and sliced scallions, for serving"
+    ],
+    "instructions": [
+      {
+        "name": "Brown the beef",
+        "text": "Heat oil in a Dutch oven over medium-high. Add ground beef and cook for 7 to 9 minutes, breaking it up, until deeply browned and 160°F. Drain excess grease if needed."
+      },
+      {
+        "name": "Soften the vegetables",
+        "text": "Add onion and bell pepper. Cook for 5 minutes, stirring occasionally, until the onion turns translucent and the pepper begins to soften. Add garlic and cook for 30 seconds."
+      },
+      {
+        "name": "Bloom the spices",
+        "text": "Add chili powder, cumin, smoked paprika, oregano, tomato paste, salt, and pepper. Stir constantly for 1 minute, until the tomato paste darkens and the spices smell toasted."
+      },
+      {
+        "name": "Simmer until thick",
+        "text": "Stir in crushed tomatoes, kidney beans, black beans, corn, and broth. Bring to a boil, reduce to a steady simmer, and cook uncovered for 25 minutes, stirring every 5 minutes so the bottom does not scorch."
+      },
+      {
+        "name": "Finish bright",
+        "text": "Stir in lime juice. Taste and adjust salt. Ladle into bowls and top with sour cream and scallions."
+      }
+    ],
+    "why_it_works": [
+      "Cooking tomato paste and spices in the beef fat removes their raw edge and wakes up their flavor.",
+      "An uncovered simmer concentrates the tomatoes into chili rather than soup.",
+      "Lime juice added at the end balances the richness without making the chili taste citrusy."
+    ],
+    "swaps": [
+      "Use all kidney beans or all black beans if that is what you have.",
+      "Replace frozen corn with a drained 15-ounce can of corn.",
+      "For more heat, add 1 minced jalapeño with the bell pepper or 1/4 teaspoon cayenne with the spices."
+    ],
+    "storage": "Cool promptly and refrigerate for up to 4 days. Reheat on the stove, stirring often, until steaming and 165°F. Freeze in meal-size containers for up to 3 months, leaving room for expansion.",
+    "notes": [
+      "Chili powder means the mild American spice blend, not pure ground chile.",
+      "A wide pot reduces the chili faster than a narrow saucepan.",
+      "The chili thickens further as it rests, making leftovers especially good."
+    ],
+    "faqs": [
+      {
+        "q": "Can I make this in a slow cooker?",
+        "a": "Yes. Brown the beef and bloom the spices first, then cook everything except lime juice on low for 5 to 6 hours. Stir in lime before serving."
+      },
+      {
+        "q": "How do I make it less spicy?",
+        "a": "Use a mild chili powder, skip cayenne or jalapeño, and serve with sour cream. The recipe is moderately seasoned, not aggressively hot."
+      },
+      {
+        "q": "Why is my chili watery?",
+        "a": "Keep simmering uncovered over medium-low heat. A broad Dutch oven usually needs about 25 minutes, while a narrow pot may need 10 minutes longer."
+      }
+    ],
+    "pantry": [
+      "ground beef",
+      "kidney beans",
+      "black beans",
+      "corn",
+      "tomatoes",
+      "bell pepper"
+    ],
+    "date_published": "2026-08-23",
+    "date_modified": "2026-08-23"
+  },
+  {
+    "slug": "creamy-ground-beef-stroganoff-egg-noodles",
+    "title": "Creamy Ground Beef Stroganoff with Egg Noodles",
+    "dek": "Browned mushrooms, crumbled beef, and a tangy sour-cream gravy cling to wide egg noodles in this 40-minute comfort-food dinner.",
+    "image": "https://images.unsplash.com/photo-1644592219048-5c070fd3c91c?auto=format&fit=crop&fm=jpg&q=82&w=1400",
+    "image_alt": "Creamy beef stroganoff served over wide egg noodles and garnished with fresh parsley",
+    "collection": "30-minute",
+    "tags": [
+      "ground-beef",
+      "pasta",
+      "mushrooms",
+      "comfort-food"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 28,
+    "servings": 4,
+    "calories": 678,
+    "cost_per_serving": "$3.62",
+    "difficulty": "Easy",
+    "ingredients": [
+      "12 oz wide egg noodles",
+      "1 tbsp olive oil",
+      "12 oz cremini mushrooms, sliced",
+      "1 1/4 lb 90% lean ground beef",
+      "1 small yellow onion, finely chopped",
+      "3 garlic cloves, minced",
+      "2 tbsp all-purpose flour",
+      "2 cups low-sodium beef broth",
+      "1 tbsp Worcestershire sauce",
+      "2 tsp Dijon mustard",
+      "3/4 tsp kosher salt, divided",
+      "1/2 tsp black pepper",
+      "3/4 cup full-fat sour cream",
+      "2 tbsp chopped flat-leaf parsley"
+    ],
+    "instructions": [
+      {
+        "name": "Cook the noodles",
+        "text": "Bring a large pot of salted water to a boil. Cook egg noodles until just tender according to the package. Reserve 1 cup noodle water, drain, and keep the noodles warm."
+      },
+      {
+        "name": "Brown the mushrooms",
+        "text": "Meanwhile, heat olive oil in a large skillet over medium-high. Spread mushrooms in one layer, season with 1/4 teaspoon salt, and cook without stirring for 3 minutes. Stir and cook 3 minutes more until browned; transfer to a plate."
+      },
+      {
+        "name": "Brown the beef",
+        "text": "Add ground beef and onion to the skillet. Cook for 7 to 9 minutes, breaking the beef into small pieces, until browned and 160°F. Spoon off excess grease. Add garlic and cook for 30 seconds."
+      },
+      {
+        "name": "Build the gravy",
+        "text": "Sprinkle flour over the beef and stir for 1 minute. Gradually add broth while scraping the skillet. Stir in Worcestershire, Dijon, remaining salt, and pepper. Simmer for 4 to 5 minutes until the gravy coats a spoon."
+      },
+      {
+        "name": "Finish without curdling",
+        "text": "Remove the skillet from the heat. Stir 1/2 cup hot gravy into the sour cream in a small bowl, then fold that mixture back into the skillet. Return the mushrooms and toss with the noodles, loosening with reserved noodle water as needed. Finish with parsley."
+      }
+    ],
+    "why_it_works": [
+      "Browning mushrooms separately gives them color instead of letting them steam beside the beef.",
+      "Flour cooked briefly in the skillet thickens the broth into a gravy that clings to noodles.",
+      "Tempering the sour cream off the heat prevents a grainy or split sauce."
+    ],
+    "swaps": [
+      "Use white button mushrooms if cremini are unavailable.",
+      "Greek yogurt can replace sour cream, but temper it carefully and do not boil the finished sauce.",
+      "Serve the stroganoff over mashed potatoes instead of noodles for a gluten-free option when using gluten-free flour."
+    ],
+    "storage": "Refrigerate for up to 4 days. Reheat gently over medium-low with a splash of broth, stirring often, until 165°F. Avoid boiling after the sour cream is added. Freezing is not recommended because the sauce may separate and the noodles soften.",
+    "notes": [
+      "A hot, uncrowded skillet is the difference between browned and rubbery mushrooms.",
+      "Full-fat sour cream is more stable in hot sauce than low-fat sour cream.",
+      "Keep the noodles slightly firm because they continue softening in the gravy."
+    ],
+    "faqs": [
+      {
+        "q": "Can I make stroganoff without mushrooms?",
+        "a": "Yes. Skip them and cook 1 extra diced onion with the beef; the gravy will still work."
+      },
+      {
+        "q": "Why did my sauce split?",
+        "a": "The sour cream was likely added to boiling liquid. Remove the skillet from heat, temper the sour cream with gravy, and keep the finished sauce below a simmer."
+      },
+      {
+        "q": "Can I make it ahead?",
+        "a": "Make the beef gravy up to 2 days ahead without sour cream. Reheat gently, then temper and add sour cream before serving over freshly cooked noodles."
+      }
+    ],
+    "pantry": [
+      "ground beef",
+      "egg noodles",
+      "mushrooms",
+      "sour cream",
+      "beef broth",
+      "onion"
+    ],
+    "date_published": "2026-08-23",
+    "date_modified": "2026-08-23"
+  },
+  {
+    "slug": "classic-glazed-meatloaf-garlic-mash",
+    "title": "Classic Glazed Meatloaf with Garlic Mash",
+    "dek": "A sliceable, juicy ground-beef meatloaf with a sticky tomato glaze and creamy garlic mashed potatoes—the full comfort-food plate.",
+    "image": "https://images.pexels.com/photos/2397401/pexels-photo-2397401.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    "image_alt": "Slices of glazed beef meatloaf served with creamy mashed potatoes, brown gravy, and parsley",
+    "collection": "family",
+    "tags": [
+      "ground-beef",
+      "meatloaf",
+      "mashed-potatoes",
+      "family"
+    ],
+    "prep_minutes": 25,
+    "cook_minutes": 60,
+    "servings": 6,
+    "calories": 748,
+    "cost_per_serving": "$3.84",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 tbsp olive oil",
+      "1 medium yellow onion, finely chopped",
+      "3 garlic cloves, minced, divided",
+      "3/4 cup plain breadcrumbs",
+      "1/2 cup whole milk",
+      "2 large eggs",
+      "2 tbsp Worcestershire sauce",
+      "1 1/2 tsp kosher salt, divided",
+      "3/4 tsp black pepper, divided",
+      "2 lb 85% lean ground beef",
+      "1/2 cup ketchup",
+      "2 tbsp packed brown sugar",
+      "1 tbsp Dijon mustard",
+      "2 lb Yukon Gold potatoes, cut into 1-inch chunks",
+      "5 tbsp unsalted butter",
+      "3/4 cup warm milk",
+      "2 tbsp chopped parsley"
+    ],
+    "instructions": [
+      {
+        "name": "Cook the aromatics",
+        "text": "Heat the oven to 375°F. Warm olive oil in a skillet over medium. Cook onion for 5 minutes until soft, then add half the garlic for 30 seconds. Spread on a plate and cool for 5 minutes."
+      },
+      {
+        "name": "Mix gently",
+        "text": "In a large bowl, stir breadcrumbs and 1/2 cup milk; rest for 3 minutes. Add eggs, Worcestershire, 1 teaspoon salt, 1/2 teaspoon pepper, and the cooled onion mixture. Add beef and combine with your hands only until evenly mixed."
+      },
+      {
+        "name": "Shape and glaze",
+        "text": "Shape the mixture into a 9-by-5-inch loaf on a foil-lined rimmed sheet pan. Mix ketchup, brown sugar, and Dijon; spread half over the loaf. Bake for 35 minutes, add the remaining glaze, then bake 15 to 25 minutes more until the center reaches 160°F."
+      },
+      {
+        "name": "Make the garlic mash",
+        "text": "While the meatloaf bakes, cover potatoes with cold salted water. Boil for 15 to 18 minutes until very tender. Drain and return to the hot pot for 1 minute. Melt butter with the remaining garlic over low heat for 1 minute, then mash it into the potatoes with warm milk, remaining salt, and pepper."
+      },
+      {
+        "name": "Rest before slicing",
+        "text": "Rest the meatloaf for 10 minutes so the juices settle and the slices hold together. Cut into 1-inch slices and serve with garlic mash and parsley."
+      }
+    ],
+    "why_it_works": [
+      "Soaking breadcrumbs in milk creates a panade that keeps the meatloaf tender.",
+      "A free-form loaf exposes more surface for glaze and prevents the beef from stewing in grease.",
+      "Resting for 10 minutes is essential for clean slices and a juicy center."
+    ],
+    "swaps": [
+      "Replace up to half the beef with ground pork for a richer loaf; cook to 160°F.",
+      "Use russet potatoes for a fluffier mash or Yukon Golds for a creamier one.",
+      "Gluten-free breadcrumbs work one-for-one."
+    ],
+    "storage": "Refrigerate meatloaf and potatoes in separate airtight containers for up to 4 days. Reheat covered at 325°F with a spoonful of water or gravy until 165°F. Freeze sliced meatloaf for up to 3 months; mashed potatoes are best fresh or refrigerated.",
+    "notes": [
+      "Do not knead or compress the beef mixture; overmixing makes meatloaf dense.",
+      "An instant-read thermometer removes the guesswork and prevents overcooking.",
+      "Warm milk blends into potatoes more smoothly than cold milk."
+    ],
+    "faqs": [
+      {
+        "q": "Why does my meatloaf fall apart?",
+        "a": "It may need more binder or more resting time. Measure the breadcrumbs and eggs, mix evenly, and wait a full 10 minutes before slicing."
+      },
+      {
+        "q": "Can I prepare it earlier in the day?",
+        "a": "Yes. Shape the loaf, cover, and refrigerate for up to 12 hours. Add about 5 minutes to the baking time and verify 160°F in the center."
+      },
+      {
+        "q": "Can I bake it in a loaf pan?",
+        "a": "Yes, but the sides will be softer and the loaf may sit in rendered fat. Drain carefully and still verify 160°F."
+      }
+    ],
+    "pantry": [
+      "ground beef",
+      "potatoes",
+      "breadcrumbs",
+      "milk",
+      "eggs",
+      "ketchup"
+    ],
+    "date_published": "2026-08-23",
+    "date_modified": "2026-08-23"
+  },
+  {
+    "slug": "saucy-ground-beef-rice-stuffed-peppers",
+    "title": "Saucy Ground Beef & Rice Stuffed Peppers",
+    "dek": "Tender bell peppers packed with garlicky beef, rice, tomatoes, and herbs, then baked in a bright tomato sauce until bubbling.",
+    "image": "https://images.pexels.com/photos/22698511/pexels-photo-22698511/free-photo-of-meal-on-plate-and-tray.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    "image_alt": "Ground beef and rice stuffed bell peppers baked and served with rich tomato sauce and fresh herbs",
+    "collection": "family",
+    "tags": [
+      "ground-beef",
+      "stuffed-peppers",
+      "rice",
+      "family"
+    ],
+    "prep_minutes": 25,
+    "cook_minutes": 45,
+    "servings": 4,
+    "calories": 586,
+    "cost_per_serving": "$4.08",
+    "difficulty": "Easy",
+    "ingredients": [
+      "4 large bell peppers",
+      "1 tbsp olive oil",
+      "1 1/4 lb 90% lean ground beef",
+      "1 medium yellow onion, finely chopped",
+      "3 garlic cloves, minced",
+      "2 tbsp tomato paste",
+      "1 tsp Italian seasoning",
+      "3/4 tsp kosher salt",
+      "1/2 tsp black pepper",
+      "1 1/2 cups cooked long-grain rice",
+      "1 can (14.5 oz) diced tomatoes, drained",
+      "1 1/2 cups marinara sauce, divided",
+      "1 cup shredded low-moisture mozzarella",
+      "2 tbsp chopped parsley"
+    ],
+    "instructions": [
+      {
+        "name": "Soften the pepper shells",
+        "text": "Heat the oven to 400°F. Halve the peppers lengthwise through the stem and remove seeds and membranes. Arrange cut-side up in a 9-by-13-inch baking dish, add 1/4 cup water, cover tightly with foil, and bake for 15 minutes."
+      },
+      {
+        "name": "Brown the beef",
+        "text": "Meanwhile, heat olive oil in a large skillet over medium-high. Add ground beef and onion; cook for 7 to 9 minutes, breaking up the beef, until browned and 160°F. Drain excess grease."
+      },
+      {
+        "name": "Build the filling",
+        "text": "Add garlic, tomato paste, Italian seasoning, salt, and pepper. Cook for 1 minute. Remove from heat and fold in cooked rice, drained tomatoes, 1/2 cup marinara, and half the mozzarella."
+      },
+      {
+        "name": "Stuff and sauce",
+        "text": "Carefully pour the water out of the baking dish. Spread 3/4 cup marinara in the bottom. Divide filling among the pepper halves, spoon the remaining sauce around them, and top with the remaining mozzarella."
+      },
+      {
+        "name": "Bake until bubbling",
+        "text": "Cover and bake for 20 minutes. Uncover and bake for 10 minutes more, until the peppers are tender and the filling reaches 165°F. Rest 5 minutes and finish with parsley."
+      }
+    ],
+    "why_it_works": [
+      "Prebaking the peppers guarantees tender shells without overcooking the filling.",
+      "Draining the tomatoes prevents waterlogged rice.",
+      "Sauce beneath and around the peppers keeps the exposed edges moist while they bake."
+    ],
+    "swaps": [
+      "Use ground turkey and cook it to 165°F before filling the peppers.",
+      "Brown rice or cooked quinoa can replace white rice one-for-one.",
+      "Use provolone or Monterey Jack instead of mozzarella."
+    ],
+    "storage": "Refrigerate cooled stuffed peppers with their sauce for up to 4 days. Reheat covered at 350°F until the center reaches 165°F, about 20 minutes, or microwave individual portions covered. Freeze baked peppers for up to 2 months; thaw overnight before reheating.",
+    "notes": [
+      "Choose peppers that feel heavy and sit steadily when halved.",
+      "Cook and cool the rice ahead to cut active prep time.",
+      "Pack the filling lightly so it heats evenly instead of becoming dense."
+    ],
+    "faqs": [
+      {
+        "q": "Do I have to cook the rice first?",
+        "a": "Yes for this recipe. Uncooked rice needs more liquid and time than the peppers, so it can stay crunchy or dry out the filling."
+      },
+      {
+        "q": "Can I assemble stuffed peppers ahead?",
+        "a": "Yes. Assemble, cover, and refrigerate up to 24 hours. Add 5 to 10 minutes to the covered bake time and verify the center reaches 165°F."
+      },
+      {
+        "q": "Which color pepper is best?",
+        "a": "Red, orange, and yellow peppers are sweeter; green peppers have a sharper flavor and stay slightly firmer. A mix works well."
+      }
+    ],
+    "pantry": [
+      "ground beef",
+      "bell peppers",
+      "rice",
+      "tomatoes",
+      "marinara",
+      "mozzarella"
+    ],
+    "date_published": "2026-08-23",
+    "date_modified": "2026-08-23"
+  }
+]
