@@ -419,6 +419,11 @@ def build_home():
     write_page("/", page("Dinner, Decided", "Practical weeknight recipes, dinner-planning tools, and useful kitchen guides built to answer the question: what are we eating tonight?", "/", body, schema=schema))
 
 def build_recipe_index():
+    display_recipes = sorted(
+        RECIPES,
+        key=lambda recipe: (recipe.get("date_published",""), recipe.get("date_modified","")),
+        reverse=True,
+    )
     collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
     options = "".join(f'<option value="{esc(c)}">{esc(COLLECTION_META.get(c,(pretty_slug(c),"",""))[0])}</option>' for c in collections)
     body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Recipe library</p><h1>Find tonight’s dinner.</h1><p class="lede">Filter by time, collection, or diet. Every recipe includes full directions, substitutions, storage notes, FAQs, and realistic timing.</p></div></section>
@@ -432,8 +437,8 @@ def build_recipe_index():
           <button class="btn btn-outline" type="button" data-reset-filters>Reset</button>
         </div>
       </form>
-      <p class="result-count" data-result-count>{len(RECIPES)} recipes</p>
-      <div class="recipe-grid">{''.join(recipe_card(r) for r in RECIPES)}</div>
+      <p class="result-count" data-result-count>{len(display_recipes)} recipes</p>
+      <div class="recipe-grid">{''.join(recipe_card(r) for r in display_recipes)}</div>
       <div class="empty-state" data-empty-state><h3>No matching dinners</h3><p>Try fewer filters or a broader search.</p></div>
     </div></section>'''
     write_page("/recipes/", page("Recipes", "Browse DishGal's complete recipe library with filters for time, dinner collection, and dietary preferences.", "/recipes/", body))
