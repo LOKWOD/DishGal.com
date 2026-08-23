@@ -1,22 +1,22 @@
 [
   {
-    "slug": "one-pot-cheesy-ground-beef-rice",
-    "title": "One-Pot Cheesy Ground Beef & Rice",
-    "dek": "Savory seasoned beef, tender rice, sharp cheddar, and fresh scallions in one skillet—built for the night when dinner needs to be easy and filling.",
+    "slug": "cheesy-scallion-ground-beef",
+    "title": "20-Minute Cheesy Scallion Ground Beef",
+    "dek": "Deeply browned ground beef folded with smoky seasonings, sharp cheddar, and plenty of fresh scallions—a fast, flexible dinner for hectic nights.",
     "image": "https://images.pexels.com/photos/30635695/pexels-photo-30635695/free-photo-of-delicious-ground-beef-dish-with-garnish.jpeg?auto=compress&dpr=1&h=750&w=1260",
-    "image_alt": "A bowl of seasoned ground beef and rice topped with melted shredded cheese and sliced scallions",
-    "collection": "one-pot",
+    "image_alt": "A bowl of seasoned ground beef mixed with shredded cheese and topped with sliced scallions",
+    "collection": "30-minute",
     "tags": [
       "ground-beef",
-      "one-pot",
-      "rice",
+      "skillet",
+      "quick",
       "family"
     ],
-    "prep_minutes": 10,
-    "cook_minutes": 30,
+    "prep_minutes": 8,
+    "cook_minutes": 12,
     "servings": 4,
-    "calories": 664,
-    "cost_per_serving": "$3.28",
+    "calories": 438,
+    "cost_per_serving": "$2.86",
     "difficulty": "Easy",
     "ingredients": [
       "1 tbsp olive oil",
@@ -26,73 +26,71 @@
       "1 1/2 tsp smoked paprika",
       "1 tsp Worcestershire sauce",
       "1/2 tsp dried oregano",
-      "1 cup long-grain white rice, rinsed and drained",
-      "2 cups low-sodium beef broth",
       "1/2 tsp kosher salt, plus more to taste",
       "1/4 tsp black pepper",
       "1 cup shredded sharp cheddar",
       "4 scallions, thinly sliced",
-      "Hot sauce, for serving (optional)"
+      "Hot sauce, for serving (optional)",
+      "Warm tortillas, toast, baked potatoes, or cooked rice, for serving (optional)"
     ],
     "instructions": [
       {
+        "name": "Soften the onion",
+        "text": "Heat olive oil in a large skillet over medium-high. Add onion and cook for 3 to 4 minutes until softened at the edges."
+      },
+      {
         "name": "Brown the beef",
-        "text": "Heat olive oil in a large deep skillet with a tight-fitting lid over medium-high. Add ground beef and cook for 6 to 8 minutes, breaking it into small crumbles, until browned and 160°F. Spoon off excess grease, leaving about 1 tablespoon in the skillet."
+        "text": "Add ground beef and spread it across the skillet. Leave it undisturbed for 2 minutes, then break it into small crumbles and cook for 5 to 7 minutes more until browned and 160°F. Spoon off excess grease."
       },
       {
-        "name": "Cook the aromatics",
-        "text": "Add onion and cook for 4 minutes until softened. Stir in garlic, smoked paprika, Worcestershire, oregano, salt, and pepper; cook for 30 seconds until fragrant."
+        "name": "Season the skillet",
+        "text": "Stir in garlic, smoked paprika, Worcestershire, oregano, salt, and pepper. Cook for 1 minute, scraping up the browned bits so the seasonings coat every crumble."
       },
       {
-        "name": "Toast the rice",
-        "text": "Stir in the rinsed rice and cook for 1 minute so every grain is coated with the seasoned beef mixture. Pour in the broth and scrape up the browned bits from the bottom."
+        "name": "Fold in the cheese",
+        "text": "Remove the skillet from the heat. Fold in three-quarters of the cheddar and half the scallions until the cheese melts into the hot beef."
       },
       {
-        "name": "Simmer covered",
-        "text": "Bring to a boil, then reduce the heat to low and cover. Simmer for 18 minutes without lifting the lid. Remove from the heat and let stand, still covered, for 5 minutes."
-      },
-      {
-        "name": "Make it cheesy",
-        "text": "Fluff the rice and check that it is tender. Fold in three-quarters of the cheddar, then sprinkle the rest over the top. Cover for 2 minutes to melt and finish with scallions and hot sauce."
+        "name": "Finish and serve",
+        "text": "Transfer to a serving bowl and top with the remaining cheddar and scallions. Add hot sauce if you like and serve as-is or spoon over tortillas, toast, baked potatoes, or rice."
       }
     ],
     "why_it_works": [
-      "Browning the beef before the rice goes in develops flavor and lets you remove excess grease.",
-      "Rinsed long-grain rice cooks into separate, tender grains instead of turning gummy.",
+      "Leaving the beef alone for the first 2 minutes creates browned flavor before it is crumbled.",
+      "Worcestershire and smoked paprika make a short ingredient list taste slow-cooked.",
       "Melting the cheese off the heat keeps it creamy instead of oily."
     ],
     "swaps": [
       "Use ground turkey and add 1 extra tablespoon olive oil while browning.",
       "Pepper Jack can replace cheddar for a spicier finish.",
-      "Stir in 1 cup thawed frozen peas after the covered rest for an easy vegetable."
+      "Stir in 1 cup thawed peas or chopped baby spinach before adding the cheese."
     ],
-    "storage": "Refrigerate in a shallow airtight container for up to 4 days. Reheat individual portions with 1 tablespoon water, covered, until steaming and 165°F. Freeze cooled portions for up to 2 months; thaw overnight before reheating.",
+    "storage": "Refrigerate in a shallow airtight container for up to 4 days. Reheat individual portions with 1 tablespoon water, covered, until steaming and 165°F. Freeze cooled beef for up to 2 months; thaw overnight before reheating.",
     "notes": [
-      "Use regular long-grain white rice; instant, brown, and converted rice need different liquid and timing.",
-      "Do not stir during the covered simmer or the rice can release too much starch.",
-      "If the rice is still firm after resting, add 2 tablespoons broth, cover, and cook over low for 3 to 5 minutes."
+      "A wide skillet gives moisture room to evaporate so the beef browns instead of steaming.",
+      "Drain only the excess grease; a little fat helps the seasonings coat the beef.",
+      "Add the cheese off the heat so it melts smoothly rather than separating."
     ],
     "faqs": [
       {
-        "q": "Can I use brown rice?",
-        "a": "Not as a direct swap. Brown rice needs more liquid and roughly twice the covered cooking time, which can make the beef dry."
+        "q": "What should I serve with it?",
+        "a": "It works in warm tortillas, over toast, baked potatoes, or rice, or beside a simple salad or steamed vegetable."
       },
       {
-        "q": "Why is my rice crunchy?",
-        "a": "The heat may have been too low, the lid may have leaked, or the skillet may have lost steam when opened. Add a splash of broth and cook covered a few minutes longer."
+        "q": "Can I make it less rich?",
+        "a": "Use 93% lean beef, reduce the cheddar to 3/4 cup, and add a diced bell pepper with the onion."
       },
       {
         "q": "Can I add vegetables?",
-        "a": "Yes. Cook 1 diced bell pepper with the onion, or fold in thawed peas or baby spinach after the rice rests."
+        "a": "Yes. Cook 1 diced bell pepper with the onion, or fold in thawed peas or baby spinach just before the cheese."
       }
     ],
     "pantry": [
       "ground beef",
-      "rice",
       "cheddar",
       "onion",
       "scallions",
-      "beef broth"
+      "Worcestershire sauce"
     ],
     "date_published": "2026-08-23",
     "date_modified": "2026-08-23"
