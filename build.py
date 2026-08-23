@@ -235,7 +235,7 @@ def article_card(article) -> str:
 SHOP_IMAGES = {
     "enameled dutch oven 6 quart": ("https://unsplash.com/photos/9kmlCF7J2rU/download?force=true&w=900&q=80", "Red enameled Dutch oven on a kitchen work surface"),
     "immersion blender stainless steel": ("https://unsplash.com/photos/DgQq-wu0YRo/download?force=true&w=900&q=80", "Hand blender mixing ingredients in a kitchen"),
-    "instant read meat thermometer digital": ("https://unsplash.com/photos/wr7lfO1yIX0/download?force=true&w=900&q=80", "Digital cooking thermometer beside prepared ingredients"),
+    "instant read meat thermometer digital": ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Digital cooking thermometer beside prepared ingredients"),
     "stainless steel pasta pot colander": ("https://unsplash.com/photos/W10GCxD6YaQ/download?force=true&w=900&q=80", "Pasta cooking in a stainless-steel pot"),
     "microplane zester grater stainless": ("https://unsplash.com/photos/OZyFaNBVa34/download?force=true&w=900&q=80", "Close-up of a stainless-steel kitchen grater"),
     "stainless steel kitchen tongs silicone tip": ("https://unsplash.com/photos/jeiqzOgwwKU/download?force=true&w=900&q=80", "Metal kitchen tongs turning food over heat"),
@@ -244,18 +244,18 @@ SHOP_IMAGES = {
     "rice cooker family stainless inner pot": ("https://unsplash.com/photos/VNBUJ6imfGs/download?force=true&w=900&q=80", "Countertop rice cooker in a home kitchen"),
     "glass meal prep containers locking lids": ("https://unsplash.com/photos/mV_fzXhwiOg/download?force=true&w=900&q=80", "Prepared meals arranged in clear glass containers"),
     "digital kitchen scale grams ounces": ("https://unsplash.com/photos/I47ysEXSU-k/download?force=true&w=900&q=80", "Digital kitchen scale ready for precise weighing"),
-    "12 inch cast iron skillet": ("https://unsplash.com/photos/ieLq0awjIw8/download?force=true&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
-    "silicone fish spatula turner": ("https://unsplash.com/photos/-VAK8I9HxOM/download?force=true&w=900&q=80", "Flexible kitchen spatula being used during cooking"),
-    "stainless steel mixing bowls nesting": ("https://unsplash.com/photos/neu4T59mTcY/download?force=true&w=900&q=80", "Mixing bowl with baking ingredients and a whisk"),
-    "8 inch chef knife kitchen": ("https://unsplash.com/photos/Nx5oBQ5F7BU/download?force=true&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
-    "large nonslip cutting board": ("https://unsplash.com/photos/Te24lXdBhxc/download?force=true&w=900&q=80", "Large cutting board with a chef's knife and vegetables"),
+    "12 inch cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
+    "silicone fish spatula turner": ("https://images.unsplash.com/photo-1673155225557-bee5d2540158?auto=format&fit=crop&w=900&q=80", "Flexible kitchen spatula being used during cooking"),
+    "stainless steel mixing bowls nesting": ("https://images.unsplash.com/photo-1540660290370-8aa90e451e8a?auto=format&fit=crop&w=900&q=80", "Mixing bowl with baking ingredients and a whisk"),
+    "8 inch chef knife kitchen": ("https://images.unsplash.com/photo-1711065060638-675df8e8c358?auto=format&fit=crop&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
+    "large nonslip cutting board": ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Large cutting board with a chef's knife and vegetables"),
     "family size air fryer wide basket": ("https://cdn.pixabay.com/photo/2017/09/20/11/26/fryer-2768201_1280.jpg", "Countertop fryer appliance in a commercial kitchen"),
     "heavy gauge aluminum half sheet pan wire rack": ("https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=900&q=80", "Rimmed sheet pan holding roasted chicken and vegetables"),
     "glass meal prep containers locking lids stackable": ("https://unsplash.com/photos/mV_fzXhwiOg/download?force=true&w=900&q=80", "Stackable glass meal-prep containers filled with food"),
 }
 
 DEFAULT_SHOP_IMAGE = (
-    "https://unsplash.com/photos/Te24lXdBhxc/download?force=true&w=900&q=80",
+    "https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80",
     "Useful kitchen tools arranged on a food-prep surface",
 )
 
