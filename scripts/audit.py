@@ -93,6 +93,7 @@ def main() -> int:
         text = file.read_text(encoding="utf-8")
         parser.feed(text)
         rel = file.relative_to(PUBLIC)
+        rel_posix = rel.as_posix()
         title = "".join(parser.title).strip()
         if not title:
             errors.append(f"{rel}: missing title")
@@ -129,7 +130,7 @@ def main() -> int:
             objects = data if isinstance(data, list) else [data]
             if any(isinstance(obj, dict) and obj.get("@type") == "Recipe" for obj in objects):
                 found_recipe = True
-        if str(rel).startswith("recipes/") and rel.name == "index.html" and rel.parts[-2] != "recipes":
+        if rel_posix.startswith("recipes/") and rel.name == "index.html" and rel.parts[-2] != "recipes":
             if not found_recipe:
                 errors.append(f"{rel}: recipe page missing Recipe structured data")
             else:
@@ -159,3 +160,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
