@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import quote_plus
 
 ROOT = Path(__file__).resolve().parent
-PUBLIC = ROOT / "public"
+PUBLIC = ROOT / os.environ.get("PUBLIC_DIR", "public")
 RECIPES = json.loads((ROOT / "content" / "recipes.json").read_text(encoding="utf-8"))
 ARTICLES = json.loads((ROOT / "content" / "articles.json").read_text(encoding="utf-8"))
 
@@ -33,6 +33,12 @@ COLLECTION_META = {
     "budget": ("Budget Dinners", "Good dinners built around useful, repeatable groceries.", "💸"),
     "vegetarian": ("Vegetarian Dinners", "Meatless meals that still eat like dinner.", "🥬"),
     "family": ("Family Favorites", "Low-drama dinners designed for the whole table.", "🍽"),
+}
+
+GUIDE_CATEGORY_META = {
+    "meal-planning": ("Meal Planning", "Smarter weekly plans with less waste and fewer one-use groceries.", "🗓"),
+    "kitchen-systems": ("Kitchen Systems", "Practical routines that reduce weeknight decision fatigue.", "✓"),
+    "kitchen-gear": ("Kitchen Gear", "Honest buying guidance based on function, fit, and tradeoffs.", "🍳"),
 }
 
 SHOP_CARD_CSS = """<style>
@@ -106,7 +112,7 @@ def header() -> str:
           <a href="{href('/recipes/')}">Recipes</a>
           <a href="{href('/dinner-decider/')}">Dinner Decider</a>
           <a href="{href('/meal-planner/')}">Meal Planner</a>
-          <a href="{href('/guides/')}">Guides</a>
+          <a href="{href('/guides/')}">Kitchen Picks</a>
           <a href="{href('/saved/')}">Saved</a>
         </nav>
         <div class="header-actions">
@@ -133,7 +139,7 @@ def footer() -> str:
           <div class="footer-column"><h3>Plan</h3>
             <a href="{href('/meal-planner/')}">5-night planner</a>
             <a href="{href('/saved/')}">Saved recipes</a>
-            <a href="{href('/guides/')}">Kitchen guides</a>
+            <a href="{href('/guides/')}">Kitchen picks</a>
             <a href="{href('/newsletter/')}">Newsletter</a>
           </div>
           <div class="footer-column"><h3>DishGal</h3>
@@ -228,7 +234,7 @@ def article_card(article) -> str:
         <small>{esc(article.get('category','Guide'))}</small>
         <h3><a href="{href('/guides/' + article['slug'] + '/')}">{esc(article.get('title','Guide'))}</a></h3>
         <p>{esc(article.get('dek',''))}</p>
-        <a class="read-link" href="{href('/guides/' + article['slug'] + '/')}">Read the guide →</a>
+        <a class="read-link" href="{href('/guides/' + article['slug'] + '/')}">See the guide →</a>
       </div>
     </article>'''
 
@@ -260,9 +266,32 @@ DEFAULT_SHOP_IMAGE = (
     "Useful kitchen tools arranged on a food-prep surface",
 )
 
+SHOP_IMAGE_RULES = [
+    (("knife", "cutting board", "mandoline", "utensil", "spatula", "tongs"), ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Kitchen prep tools on a cutting board")),
+    (("skillet", "dutch oven", "cookware", "saucepan", "baking", "casserole"), ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Sturdy cookware ready for a family meal")),
+    (("blender", "food processor", "stand mixer", "mixing bowl"), ("https://images.unsplash.com/photo-1540660290370-8aa90e451e8a?auto=format&fit=crop&w=900&q=80", "Mixing equipment and ingredients on a kitchen counter")),
+    (("rice cooker",), ("https://unsplash.com/photos/VNBUJ6imfGs/download?force=true&w=900&q=80", "Countertop rice cooker in a home kitchen")),
+    (("slow cooker",), ("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80", "Slow-cooked dinner ready to serve")),
+    (("air fryer", "toaster oven"), ("https://cdn.pixabay.com/photo/2017/09/20/11/26/fryer-2768201_1280.jpg", "Countertop hot-air cooking appliance")),
+    (("thermometer",), ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Digital cooking thermometer beside prepared ingredients")),
+    (("scale",), ("https://unsplash.com/photos/I47ysEXSU-k/download?force=true&w=900&q=80", "Digital kitchen scale ready for precise weighing")),
+    (("container", "storage", "refrigerator", "labels"), ("https://unsplash.com/photos/mV_fzXhwiOg/download?force=true&w=900&q=80", "Organized food in clear storage containers")),
+    (("colander", "strainer", "pasta"), ("https://unsplash.com/photos/W10GCxD6YaQ/download?force=true&w=900&q=80", "Pasta and a stainless-steel straining tool")),
+    (("grater", "microplane"), ("https://unsplash.com/photos/OZyFaNBVa34/download?force=true&w=900&q=80", "Stainless-steel kitchen grater")),
+]
+
+def shop_image(query: str):
+    normalized = clean_text(query).lower()
+    if normalized in SHOP_IMAGES:
+        return SHOP_IMAGES[normalized]
+    for terms, image in SHOP_IMAGE_RULES:
+        if any(term in normalized for term in terms):
+            return image
+    return DEFAULT_SHOP_IMAGE
+
 def amazon_link(query: str, label: str, note: str = "") -> str:
     url = f"https://www.amazon.com/s?k={quote_plus(query)}&amp;tag={quote_plus(AMAZON_TAG)}"
-    image_url, image_alt = SHOP_IMAGES.get(clean_text(query).lower(), DEFAULT_SHOP_IMAGE)
+    image_url, image_alt = shop_image(query)
     return f"""<a class="shop-card" href="{url}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-commercial-link="true" data-affiliate-active="true" data-affiliate-network="amazon" data-affiliate-tag="{esc(AMAZON_TAG)}">
       <span class="shop-card-media"><img src="{esc(image_url)}" alt="{esc(image_alt)}" loading="lazy" width="900" height="600"></span>
       <span class="shop-card-copy"><small>Compare on Amazon</small><strong>{esc(label)}</strong>{f'<span>{esc(note)}</span>' if note else ''}<b>See current options →</b></span>
@@ -416,8 +445,8 @@ def build_home():
     </section>
     <section class="section section-paper">
       <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow">Kitchen brain</p><h2>Useful guides</h2></div><a class="btn btn-outline" href="{href('/guides/')}">All guides</a></div>
-        <div class="article-grid">{''.join(article_card(a) for a in ARTICLES)}</div>
+        <div class="section-heading"><div><p class="eyebrow">Kitchen brain</p><h2>Kitchen picks</h2></div><a class="btn btn-outline" href="{href('/guides/')}">All {len(ARTICLES)} guides</a></div>
+        <div class="article-grid">{''.join(article_card(a) for a in ARTICLES[:6])}</div>
       </div>
     </section>
     {newsletter_block()}
@@ -557,28 +586,65 @@ def build_planner():
     write_page("/meal-planner/", page("5-Night Meal Planner", "Build a five-night DishGal dinner plan based on your available cooking time, then generate a practical grocery checklist.", "/meal-planner/", body))
 
 def build_guides():
-    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Kitchen brain</p><h1>Guides that make dinner easier.</h1><p class="lede">Meal-planning systems and kitchen gear advice written to solve a problem, not stretch a keyword.</p></div></section>
-    <section class="section-tight"><div class="wrap"><div class="article-grid">{''.join(article_card(a) for a in ARTICLES)}</div></div></section>'''
-    write_page("/guides/", page("Kitchen & Meal Planning Guides", "Practical DishGal guides for meal planning, weeknight dinner systems, air fryers, sheet pans, and meal-prep containers.", "/guides/", body))
+    category_cards = []
+    for slug, (name, desc, icon) in GUIDE_CATEGORY_META.items():
+        count = sum(1 for article in ARTICLES if article.get("category", "").lower().replace(" ", "-") == slug)
+        if count:
+            category_cards.append(f'''<a class="collection-pill" href="{href('/guides/category/' + slug + '/')}"><span class="collection-icon">{icon}</span><strong>{esc(name)}</strong><small>{count} guides</small></a>''')
+    affiliate_count = sum(1 for article in ARTICLES if article.get("affiliate"))
+    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">DishGal Kitchen Picks</p><h1>Buy less. Choose better. Cook more.</h1><p class="lede">{len(ARTICLES)} practical guides—including {affiliate_count} product-focused picks—built around capacity, materials, cleanup, storage, and the jobs your kitchen actually needs done.</p></div></section>
+    <section class="section-tight section-paper"><div class="wrap"><div class="collection-grid">{''.join(category_cards)}</div></div></section>
+    <section class="section-tight"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">The complete library</p><h2>Kitchen picks & planning guides</h2></div><p>No invented tests, star ratings, or universal winners—just clear criteria and tradeoffs.</p></div><div class="article-grid">{''.join(article_card(a) for a in ARTICLES)}</div></div></section>'''
+    hub_schema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "DishGal Kitchen Picks",
+        "description": "Practical kitchen gear and meal-planning guides based on function, capacity, materials, cleanup, and storage.",
+        "url": canonical("/guides/"),
+        "mainEntity": {"@type": "ItemList", "numberOfItems": len(ARTICLES), "itemListElement": [
+            {"@type": "ListItem", "position": index + 1, "url": canonical('/guides/' + article['slug'] + '/'), "name": article.get("title", "Guide")}
+            for index, article in enumerate(ARTICLES)
+        ]},
+    }
+    write_page("/guides/", page("Kitchen Picks & Buying Guides", "Practical DishGal kitchen buying guides covering cookware, appliances, prep tools, storage, and meal-planning systems.", "/guides/", body, schema=hub_schema))
     for article in ARTICLES:
         sections = "".join(f"<h2>{esc(sec[0])}</h2><p>{esc(sec[1])}</p>" for sec in article.get("sections",[]))
         disclosure = '<div class="disclosure-box"><strong>Paid links:</strong> As an Amazon Associate I earn from qualifying purchases. You pay no additional cost.</div>' if article.get("affiliate") else ""
         shop = ""
-        if article.get("affiliate") and article.get("shop_query"):
-            shop = f'''<div class="shop-box"><h3>Shop the category</h3><p>Use the criteria above first, then compare current options.</p>{amazon_link(article["shop_query"], "Compare current options")}</div>'''
-        body = f'''<section class="page-hero"><div class="narrow">{breadcrumbs([("Guides","/guides/"),(article.get("title","Guide"),None)])}<p class="eyebrow">{esc(article.get("category","Guide"))}</p><h1>{esc(article.get("title","Guide"))}</h1><p class="lede">{esc(article.get("dek",""))}</p><p class="muted">{int(article.get("read_minutes",5))} minute read</p></div></section>
+        if article.get("affiliate"):
+            shop_items = article.get("shop_items", [])
+            if not shop_items and article.get("shop_query"):
+                shop_items = [[article["shop_query"], "Compare current options", "Use the guide criteria before choosing."]]
+            if shop_items:
+                cards = "".join(amazon_link(*item) for item in shop_items)
+                shop = f'''<div class="shop-box"><h3>Compare the useful options</h3><p>Use the criteria above first. These links open current Amazon category results, so you can compare specifications, availability, and price.</p><div class="shop-grid">{cards}</div></div>'''
+        related = [candidate for candidate in ARTICLES if candidate["slug"] != article["slug"] and candidate.get("category") == article.get("category")][:3]
+        if len(related) < 3:
+            related_slugs = {candidate["slug"] for candidate in related}
+            related.extend(candidate for candidate in ARTICLES if candidate["slug"] != article["slug"] and candidate["slug"] not in related_slugs) 
+            related = related[:3]
+        related_html = f'''<section class="section section-paper"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Keep choosing well</p><h2>Related kitchen guides</h2></div><a class="btn btn-outline" href="{href('/guides/')}">All Kitchen Picks</a></div><div class="article-grid">{''.join(article_card(candidate) for candidate in related)}</div></div></section>'''
+        body = f'''<section class="page-hero"><div class="narrow">{breadcrumbs([("Kitchen Picks","/guides/"),(article.get("title","Guide"),None)])}<p class="eyebrow">{esc(article.get("category","Guide"))}</p><h1>{esc(article.get("title","Guide"))}</h1><p class="lede">{esc(article.get("dek",""))}</p><p class="muted">{int(article.get("read_minutes",5))} minute read · Updated August 24, 2026</p></div></section>
         <div class="wrap"><img class="article-hero-image" src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}"></div>
         <section class="section-tight"><article class="narrow prose">{disclosure}<p>{esc(article.get("dek",""))}</p>{sections}{shop}</article></section>
+        {related_html}
         {newsletter_block()}'''
-        write_page(f"/guides/{article['slug']}/", page(article.get("title","Guide"), article.get("dek","Practical kitchen and meal-planning guidance from DishGal."), f"/guides/{article['slug']}/", body))
+        article_schema = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": article.get("title", "Guide"),
+            "description": article.get("dek", ""),
+            "image": [article.get("image", "")],
+            "datePublished": "2026-08-24",
+            "dateModified": "2026-08-24",
+            "author": {"@type": "Organization", "name": "DishGal"},
+            "publisher": {"@type": "Organization", "name": "DishGal"},
+            "mainEntityOfPage": canonical('/guides/' + article['slug'] + '/'),
+        }
+        write_page(f"/guides/{article['slug']}/", page(article.get("title","Guide"), article.get("dek","Practical kitchen and meal-planning guidance from DishGal."), f"/guides/{article['slug']}/", body, schema=article_schema))
 
 def build_category_indexes():
-    categories = {
-        "meal-planning": ("Meal Planning", "Plan fewer ingredients, reduce waste, and make the week easier."),
-        "kitchen-systems": ("Kitchen Systems", "Practical routines that reduce weeknight decision fatigue."),
-        "kitchen-gear": ("Kitchen Gear", "Buying guidance based on useful capacity and function, not hype."),
-    }
-    for slug, (name, desc) in categories.items():
+    for slug, (name, desc, _) in GUIDE_CATEGORY_META.items():
         matches = [a for a in ARTICLES if a.get("category","").lower().replace(" ","-") == slug]
         body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">DishGal guides</p><h1>{esc(name)}</h1><p class="lede">{esc(desc)}</p></div></section>
         <section class="section-tight"><div class="wrap"><div class="article-grid">{''.join(article_card(a) for a in matches) if matches else '<div class="empty-state is-visible"><h3>More guides coming</h3><p>Browse all current guides while this section grows.</p></div>'}</div></div></section>'''
@@ -687,7 +753,7 @@ def build_machine_files():
     (PUBLIC / "site.webmanifest").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
 def main():
-    if PUBLIC.exists():
+    if PUBLIC.exists() and os.environ.get("DISHGAL_NO_CLEAN") != "1":
         shutil.rmtree(PUBLIC)
     ensure_dir(PUBLIC)
     copy_assets()
@@ -709,3 +775,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
