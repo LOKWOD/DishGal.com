@@ -301,7 +301,7 @@ p { margin: 0 0 1rem; }
 .breadcrumbs span::before { margin-right: .45rem; content: "/"; opacity: .5; }
 
 .filter-panel { position: sticky; top: calc(var(--header-height) + 10px); z-index: 20; margin-bottom: 2rem; padding: 1rem; border: 1px solid var(--line); background: rgba(255,253,249,.94); backdrop-filter: blur(15px); border-radius: 20px; box-shadow: var(--shadow-sm); }
-.filter-row { display: grid; grid-template-columns: 1.5fr repeat(3, .7fr) auto; gap: .7rem; }
+.filter-row { display: grid; grid-template-columns: 1.5fr repeat(4, .7fr) auto; gap: .7rem; }
 .field { display: grid; gap: .35rem; }
 .field label { font-size: .72rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
 .field input, .field select, .field textarea {

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+import hashlib
 import json
 import os
 import re
@@ -33,6 +34,17 @@ COLLECTION_META = {
     "budget": ("Budget Dinners", "Good dinners built around useful, repeatable groceries.", "💸"),
     "vegetarian": ("Vegetarian Dinners", "Meatless meals that still eat like dinner.", "🥬"),
     "family": ("Family Favorites", "Low-drama dinners designed for the whole table.", "🍽"),
+}
+
+PROTEIN_META = {
+    "beef": "Beef",
+    "chicken": "Chicken",
+    "pork": "Pork",
+    "turkey": "Turkey",
+    "lamb": "Lamb",
+    "sausage": "Sausage",
+    "seafood": "Seafood",
+    "meatless": "Meatless",
 }
 
 GUIDE_CATEGORY_META = {
@@ -67,6 +79,43 @@ def clean_text(value) -> str:
 
 def pretty_slug(slug: str) -> str:
     return slug.replace("-", " ").title()
+
+def recipe_proteins(recipe) -> list[str]:
+    explicit = recipe.get("protein", [])
+    if isinstance(explicit, str):
+        explicit = [explicit]
+    cleaned = [str(value).strip().lower() for value in explicit if str(value).strip()]
+    if cleaned:
+        return list(dict.fromkeys(cleaned))
+
+    haystack = " ".join([
+        recipe.get("title", ""),
+        recipe.get("dek", ""),
+        " ".join(recipe.get("tags", [])),
+        " ".join(recipe.get("ingredients", [])),
+        " ".join(recipe.get("pantry", [])),
+    ]).lower()
+    rules = {
+        "beef": ("beef", "steak", "ribeye", "brisket", "chuck roast", "ground chuck"),
+        "chicken": ("chicken",),
+        "pork": ("pork", "bacon", "ham", "prosciutto"),
+        "turkey": ("turkey",),
+        "lamb": ("lamb",),
+        "sausage": ("sausage", "kielbasa", "chorizo"),
+        "seafood": ("seafood", "fish", "salmon", "tuna", "shrimp", "cod", "tilapia"),
+    }
+    matches = [protein for protein, terms in rules.items() if any(term in haystack for term in terms)]
+    tags = {str(tag).lower() for tag in recipe.get("tags", [])}
+    if not matches and tags.intersection({"vegetarian", "vegan"}):
+        matches.append("meatless")
+    return matches
+
+def stable_recipe_mix(recipes):
+    """Keep browsing varied without changing the order on every page load."""
+    return sorted(
+        recipes,
+        key=lambda recipe: hashlib.sha256(recipe.get("slug", "").encode("utf-8")).hexdigest(),
+    )
 
 def href(path: str = "/") -> str:
     if not path.startswith("/"):
@@ -213,8 +262,16 @@ def breadcrumbs(items) -> str:
 def recipe_card(recipe) -> str:
     minutes = int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))
     tags = " ".join(recipe.get("tags", []))
-    search = f'{recipe.get("title","")} {recipe.get("dek","")} {tags}'.lower()
-    return f'''<article class="recipe-card" data-recipe-card data-search="{esc(search)}" data-tags="{esc(tags)}" data-collection="{esc(recipe.get('collection',''))}" data-minutes="{minutes}">
+    proteins = " ".join(recipe_proteins(recipe))
+    search = " ".join([
+        recipe.get("title", ""),
+        recipe.get("dek", ""),
+        tags,
+        proteins,
+        " ".join(recipe.get("ingredients", [])),
+        " ".join(recipe.get("pantry", [])),
+    ]).lower()
+    return f'''<article class="recipe-card" data-recipe-card data-search="{esc(search)}" data-tags="{esc(tags)}" data-proteins="{esc(proteins)}" data-collection="{esc(recipe.get('collection',''))}" data-minutes="{minutes}">
       <button class="icon-button recipe-card-save" data-save-recipe="{esc(recipe['slug'])}" aria-label="Save recipe">♡</button>
       <a class="recipe-card-media" href="{href('/recipes/' + recipe['slug'] + '/')}">
         <img src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" loading="lazy">
@@ -400,8 +457,9 @@ def recipe_schema(recipe) -> dict:
     }
 
 def build_home():
-    featured = RECIPES[:8]
-    hero = RECIPES[0]
+    mixed_recipes = stable_recipe_mix(RECIPES)
+    featured = mixed_recipes[:8]
+    hero = mixed_recipes[0]
     collections = sorted({r.get("collection", "") for r in RECIPES if r.get("collection")})
     collection_html = []
     for slug in collections:
@@ -461,19 +519,18 @@ def build_home():
     write_page("/", page("Dinner, Decided", "Practical weeknight recipes, dinner-planning tools, and useful kitchen guides built to answer the question: what are we eating tonight?", "/", body, schema=schema))
 
 def build_recipe_index():
-    display_recipes = sorted(
-        RECIPES,
-        key=lambda recipe: (recipe.get("date_published",""), recipe.get("date_modified","")),
-        reverse=True,
-    )
+    display_recipes = stable_recipe_mix(RECIPES)
     collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
     options = "".join(f'<option value="{esc(c)}">{esc(COLLECTION_META.get(c,(pretty_slug(c),"",""))[0])}</option>' for c in collections)
-    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Recipe library</p><h1>Find tonight’s dinner.</h1><p class="lede">Filter by time, collection, or diet. Every recipe includes full directions, substitutions, storage notes, FAQs, and realistic timing.</p></div></section>
+    proteins = sorted({protein for recipe in RECIPES for protein in recipe_proteins(recipe)}, key=lambda item: PROTEIN_META.get(item, pretty_slug(item)))
+    protein_options = "".join(f'<option value="{esc(protein)}">{esc(PROTEIN_META.get(protein, pretty_slug(protein)))}</option>' for protein in proteins)
+    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Recipe library</p><h1>Find tonight’s dinner.</h1><p class="lede">Filter by time, meat or protein, collection, or diet. Every recipe includes full directions, substitutions, storage notes, FAQs, and realistic timing.</p></div></section>
     <section class="section-tight"><div class="wrap">
       <form class="filter-panel" data-recipe-filters>
         <div class="filter-row">
-          <div class="field"><label for="q">Search</label><input id="q" name="q" placeholder="chicken, pasta, sheet pan…"></div>
+          <div class="field"><label for="q">Search</label><input id="q" name="q" placeholder="chicken, ribeye, pasta…"></div>
           <div class="field"><label for="time">Max time</label><select id="time" name="time"><option value="">Any</option><option value="25">25 min</option><option value="30">30 min</option><option value="45">45 min</option><option value="60">60 min</option></select></div>
+          <div class="field"><label for="protein">Meat / protein</label><select id="protein" name="protein"><option value="">All</option>{protein_options}</select></div>
           <div class="field"><label for="collection">Collection</label><select id="collection" name="collection"><option value="">All</option>{options}</select></div>
           <div class="field"><label for="diet">Diet</label><select id="diet" name="diet"><option value="">Any</option><option value="vegetarian">Vegetarian</option><option value="vegan">Vegan</option><option value="gluten-free">Gluten-free</option></select></div>
           <button class="btn btn-outline" type="button" data-reset-filters>Reset</button>
@@ -483,7 +540,7 @@ def build_recipe_index():
       <div class="recipe-grid">{''.join(recipe_card(r) for r in display_recipes)}</div>
       <div class="empty-state" data-empty-state><h3>No matching dinners</h3><p>Try fewer filters or a broader search.</p></div>
     </div></section>'''
-    write_page("/recipes/", page("Recipes", "Browse DishGal's complete recipe library with filters for time, dinner collection, and dietary preferences.", "/recipes/", body))
+    write_page("/recipes/", page("Recipes", "Browse DishGal's complete recipe library with filters for time, meat or protein, dinner collection, and dietary preferences.", "/recipes/", body))
 
 def build_recipe_pages():
     for recipe in RECIPES:
@@ -535,7 +592,7 @@ def build_recipe_pages():
 def build_collections():
     collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
     for slug in collections:
-        recipes = [r for r in RECIPES if r.get("collection") == slug]
+        recipes = stable_recipe_mix([r for r in RECIPES if r.get("collection") == slug])
         title, desc, _ = COLLECTION_META.get(slug, (pretty_slug(slug), f"Browse DishGal's {pretty_slug(slug).lower()} recipes.", "🍴"))
         body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(title,None)])}<p class="eyebrow">Dinner collection</p><h1>{esc(title)}</h1><p class="lede">{esc(desc)} Browse {len(recipes)} complete recipes with timing, cost, substitutions, and storage notes.</p></div></section>
         <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(r) for r in recipes)}</div></div></section>'''

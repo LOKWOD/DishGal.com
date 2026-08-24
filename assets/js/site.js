@@ -50,15 +50,18 @@
     const run = () => {
       const query = (filterForm.querySelector('[name="q"]')?.value || '').trim().toLowerCase();
       const time = filterForm.querySelector('[name="time"]')?.value || '';
+      const protein = filterForm.querySelector('[name="protein"]')?.value || '';
       const collection = filterForm.querySelector('[name="collection"]')?.value || '';
       const diet = filterForm.querySelector('[name="diet"]')?.value || '';
       let shown = 0;
       cards.forEach(card => {
         const search = card.dataset.search || '';
         const tags = card.dataset.tags || '';
+        const proteins = (card.dataset.proteins || '').split(/\s+/).filter(Boolean);
         const minutes = Number(card.dataset.minutes || 999);
         const matches = (!query || search.includes(query)) &&
           (!time || minutes <= Number(time)) &&
+          (!protein || proteins.includes(protein)) &&
           (!collection || card.dataset.collection === collection) &&
           (!diet || tags.includes(diet));
         card.hidden = !matches;
@@ -69,12 +72,13 @@
       const params = new URLSearchParams();
       if (query) params.set('q', query);
       if (time) params.set('time', time);
+      if (protein) params.set('protein', protein);
       if (collection) params.set('collection', collection);
       if (diet) params.set('diet', diet);
       history.replaceState(null, '', `${location.pathname}${params.toString() ? '?' + params : ''}`);
     };
     const params = new URLSearchParams(location.search);
-    ['q', 'time', 'collection', 'diet'].forEach(name => {
+    ['q', 'time', 'protein', 'collection', 'diet'].forEach(name => {
       const field = filterForm.querySelector(`[name="${name}"]`);
       if (field && params.get(name)) field.value = params.get(name);
     });
@@ -155,7 +159,9 @@
 
   function recipeCard(recipe) {
     const tags = (recipe.tags || []).join(' ');
-    return `<article class="recipe-card" data-recipe-card data-search="${escapeHtml((recipe.title + ' ' + recipe.dek + ' ' + tags).toLowerCase())}" data-tags="${escapeHtml(tags)}" data-collection="${recipe.collection}" data-minutes="${recipe.prep_minutes + recipe.cook_minutes}">
+    const proteins = (Array.isArray(recipe.protein) ? recipe.protein : [recipe.protein || '']).join(' ');
+    const search = [recipe.title, recipe.dek, tags, proteins, ...(recipe.ingredients || []), ...(recipe.pantry || [])].join(' ').toLowerCase();
+    return `<article class="recipe-card" data-recipe-card data-search="${escapeHtml(search)}" data-tags="${escapeHtml(tags)}" data-proteins="${escapeHtml(proteins)}" data-collection="${recipe.collection}" data-minutes="${recipe.prep_minutes + recipe.cook_minutes}">
       <button class="icon-button recipe-card-save" data-save-recipe="${recipe.slug}" aria-label="Save recipe">♡</button>
       <a class="recipe-card-media" href="/recipes/${recipe.slug}/"><img src="${recipe.image}" alt="${escapeHtml(recipe.image_alt)}" loading="lazy"><span class="recipe-card-badge">${recipe.prep_minutes + recipe.cook_minutes} min</span></a>
       <div class="recipe-card-body"><h3><a href="/recipes/${recipe.slug}/">${escapeHtml(recipe.title)}</a></h3><p>${escapeHtml(recipe.dek)}</p><div class="recipe-card-meta"><span>⏱ ${recipe.prep_minutes + recipe.cook_minutes} min</span><span>${recipe.cost_per_serving}/serving</span></div></div>

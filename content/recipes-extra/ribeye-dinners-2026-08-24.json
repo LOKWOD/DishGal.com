@@ -1,0 +1,709 @@
+[
+  {
+    "slug": "garlic-butter-cast-iron-ribeye-steakhouse-mash",
+    "title": "Garlic-Butter Cast-Iron Ribeye with Steakhouse Mash",
+    "dek": "Deeply seared ribeyes basted with garlicky herb butter, served with creamy mashed potatoes and snappy green beans.",
+    "image": "https://images.pexels.com/photos/19579546/pexels-photo-19579546/free-photo-of-steak-served-for-dinner.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    "image_alt": "Seared ribeye with creamy mashed potatoes, green beans, carrots, and herb sauce",
+    "collection": "family",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak", "cast iron", "steakhouse", "gluten-free"],
+    "prep_minutes": 20,
+    "cook_minutes": 30,
+    "servings": 4,
+    "calories": 812,
+    "cost_per_serving": "$9.40",
+    "difficulty": "Moderate",
+    "ingredients": [
+      "2 boneless ribeye steaks, 12 to 14 oz each and about 1 1/4 inches thick",
+      "2 tsp kosher salt, divided",
+      "1 tsp freshly ground black pepper, divided",
+      "2 lb Yukon Gold potatoes, peeled and cut into 1-inch pieces",
+      "6 tbsp unsalted butter, divided",
+      "1/2 cup whole milk, warmed",
+      "1 lb green beans, trimmed",
+      "1 tbsp neutral high-heat oil",
+      "4 garlic cloves, lightly crushed",
+      "4 thyme sprigs",
+      "1 tsp Dijon mustard"
+    ],
+    "instructions": [
+      {"name": "Temper and season the steaks", "text": "Pat the ribeyes very dry. Season all over with 1 1/4 teaspoons salt and 3/4 teaspoon pepper, then leave at room temperature for 20 minutes while you start the potatoes."},
+      {"name": "Make the steakhouse mash", "text": "Cover the potatoes with cold salted water, bring to a simmer, and cook for 14 to 16 minutes until completely tender. Drain well, return to the warm pot for 1 minute, then mash with 3 tablespoons butter, warm milk, Dijon, and the remaining salt and pepper."},
+      {"name": "Blister the green beans", "text": "Heat a large cast-iron skillet over medium-high. Add 1 tablespoon butter and the green beans; cook for 6 to 8 minutes, turning occasionally, until bright green and blistered. Add 2 tablespoons water, cover for 2 minutes, then transfer to a plate."},
+      {"name": "Sear the ribeyes", "text": "Wipe the skillet dry and heat until very hot. Add oil, then the steaks. Sear without moving for 3 to 4 minutes. Turn and cook 2 minutes more. Reduce the heat to medium and add the remaining 2 tablespoons butter, garlic, and thyme."},
+      {"name": "Baste, rest, and serve", "text": "Tilt the pan and spoon the foaming garlic butter over the steaks for 1 to 3 minutes, checking the center with an instant-read thermometer. Transfer to a board and rest for at least 5 minutes before slicing. Serve with the mash, green beans, and pan butter."}
+    ],
+    "why_it_works": [
+      "A dry steak and a ripping-hot skillet create a dark crust before the center overcooks.",
+      "Adding butter after the initial sear keeps the milk solids from burning while still flavoring the beef.",
+      "Letting drained potatoes steam dry prevents watery mashed potatoes."
+    ],
+    "swaps": [
+      "Use strip steaks of similar thickness and rely on temperature rather than the clock.",
+      "Replace green beans with asparagus; cook it uncovered for 4 to 6 minutes.",
+      "For dairy-free plates, use olive oil in the skillet and unsweetened oat milk plus plant butter in the mash."
+    ],
+    "storage": "Refrigerate sliced steak, potatoes, and beans in separate airtight containers for up to 4 days. Reheat steak gently in a covered skillet with a spoonful of water; warm the mash with a splash of milk. Heat leftovers to 165°F.",
+    "notes": [
+      "Steak carryover temperature rises several degrees while resting, so pull it just before your target doneness.",
+      "USDA guidance for whole beef steaks is a minimum 145°F followed by a 3-minute rest.",
+      "Do not crowd both steaks into a small skillet; sear in batches if they cannot lie flat."
+    ],
+    "faqs": [
+      {"q": "Can I use bone-in ribeyes?", "a": "Yes. Choose steaks of similar thickness and allow a few extra minutes near the bone, checking the coolest part with a thermometer."},
+      {"q": "Why did the skillet smoke so much?", "a": "A little smoke is normal during a hard sear. Use a high-heat oil, turn on the hood, and add butter only after lowering the heat."},
+      {"q": "Can I make the potatoes ahead?", "a": "Yes. Make them up to 2 days ahead, refrigerate, and reheat slowly with extra milk and butter until smooth and steaming."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "potatoes", "green beans", "garlic", "butter", "thyme", "milk"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "provolone-ribeye-sandwiches-caramelized-onions",
+    "title": "Provolone Ribeye Sandwiches with Caramelized Onions",
+    "dek": "Thin-sliced ribeye, jammy onions, melty provolone, and sharp horseradish mayo piled into toasted rolls.",
+    "image": "https://images.unsplash.com/photo-1778449736460-9a8f2117571a?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Toasted steak sandwich filled with sliced beef, melted cheese, peppers, and onions",
+    "collection": "30-minute",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak", "sandwich", "provolone", "30-minute"],
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "servings": 4,
+    "calories": 746,
+    "cost_per_serving": "$7.85",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 1/2 lb boneless ribeye steak",
+      "1 1/2 tsp kosher salt, divided",
+      "3/4 tsp freshly ground black pepper",
+      "1 tbsp neutral oil",
+      "2 medium yellow onions, thinly sliced",
+      "1 tsp Worcestershire sauce",
+      "4 sturdy sub rolls, split",
+      "8 slices provolone cheese",
+      "1/3 cup mayonnaise",
+      "1 tbsp prepared horseradish",
+      "1 tsp Dijon mustard",
+      "2 tbsp softened butter"
+    ],
+    "instructions": [
+      {"name": "Chill and slice the ribeye", "text": "Place the steak in the freezer for 15 minutes to firm it slightly, then slice very thinly across the grain. Toss with 1 teaspoon salt and the pepper."},
+      {"name": "Cook the onions", "text": "Heat oil in a wide skillet over medium-high. Add the onions and remaining 1/2 teaspoon salt. Cook for 10 to 12 minutes, stirring often and adding a splash of water when the browned bits threaten to burn, until soft and deep golden. Stir in Worcestershire and transfer to a bowl."},
+      {"name": "Sear the steak", "text": "Raise the heat to high. Spread half the beef in one layer and cook for about 60 seconds per side. Transfer to the onions and repeat with the remaining beef; avoid crowding so it sears rather than steams."},
+      {"name": "Toast and sauce the rolls", "text": "Mix mayonnaise, horseradish, and Dijon. Butter the cut sides of the rolls and toast them under the broiler for 1 to 2 minutes. Spread with the horseradish mayo."},
+      {"name": "Melt and serve", "text": "Divide the steak and onions among the rolls and top each with 2 provolone slices. Broil just until the cheese bubbles, 1 to 2 minutes. Close the sandwiches and serve immediately."
+      }
+    ],
+    "why_it_works": [
+      "A short freezer rest makes rich ribeye easy to slice paper-thin.",
+      "Cooking the onions first lets the steak pick up their browned fond without overcooking.",
+      "Horseradish and Dijon cut through the richness of beef and provolone."
+    ],
+    "swaps": [
+      "Use mozzarella or white American cheese for a milder melt.",
+      "Add a thinly sliced bell pepper with the onions for a pepper-and-onion version.",
+      "Replace prepared horseradish with chopped pickled jalapeños for a different kind of heat."
+    ],
+    "storage": "Refrigerate cooked steak and onions together for up to 4 days; store rolls and sauce separately. Reheat the filling in a skillet until it reaches 165°F, then assemble and broil fresh sandwiches.",
+    "notes": [
+      "Slice across the visible muscle fibers for the most tender bite.",
+      "Keep the broiler door cracked only if your appliance manual directs it; broilers vary.",
+      "For whole beef steak, USDA guidance is 145°F followed by a 3-minute rest before slicing."
+    ],
+    "faqs": [
+      {"q": "Can I use leftover cooked ribeye?", "a": "Yes. Slice it thin while cold and add it to the finished onions only long enough to warm through so it stays tender."},
+      {"q": "How do I keep the bread from getting soggy?", "a": "Toast the cut sides well and let excess skillet juices drain from the filling before piling it into the rolls."},
+      {"q": "Is the horseradish mayo very spicy?", "a": "One tablespoon gives it a bright kick. Start with 1 teaspoon for a mild sauce and add more to taste."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "onion", "provolone", "rolls", "horseradish", "mayonnaise"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "sizzling-ribeye-fajitas-charred-peppers",
+    "title": "Sizzling Ribeye Fajitas with Charred Peppers",
+    "dek": "Smoky spice-rubbed ribeye, blistered peppers, and limey onions wrapped in warm tortillas with all the good toppings.",
+    "image": "https://images.unsplash.com/photo-1779414518295-b03b6c60921b?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Sliced grilled beef fajitas with charred onions, salsa, lime, and warm tortillas",
+    "collection": "30-minute",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak", "fajitas", "Tex-Mex", "30-minute"],
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "servings": 4,
+    "calories": 624,
+    "cost_per_serving": "$7.20",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 1/2 lb boneless ribeye steak, about 1 inch thick",
+      "2 tsp chili powder",
+      "1 tsp ground cumin",
+      "1 tsp smoked paprika",
+      "1 1/2 tsp kosher salt, divided",
+      "1/2 tsp freshly ground black pepper",
+      "2 tbsp neutral oil, divided",
+      "3 bell peppers in mixed colors, sliced",
+      "1 large red onion, sliced",
+      "2 limes, divided",
+      "12 small flour or corn tortillas, warmed",
+      "1 avocado, sliced",
+      "1/2 cup salsa",
+      "1/2 cup sour cream",
+      "1 cup shredded Monterey Jack cheese"
+    ],
+    "instructions": [
+      {"name": "Season the steak", "text": "Pat the ribeye dry. Combine chili powder, cumin, smoked paprika, 1 teaspoon salt, and black pepper, then rub the mixture over both sides of the steak."},
+      {"name": "Char the vegetables", "text": "Heat 1 tablespoon oil in a large cast-iron skillet over high. Add peppers and onion with the remaining salt. Cook for 7 to 9 minutes, stirring only occasionally, until tender-crisp and charred at the edges. Transfer to a platter."},
+      {"name": "Sear the ribeye", "text": "Add the remaining oil to the hot skillet. Cook the steak for 3 to 5 minutes per side, depending on thickness and preferred doneness. Check the center with a thermometer rather than relying only on time."},
+      {"name": "Rest and slice", "text": "Transfer the steak to a board, squeeze over half a lime, and rest for at least 5 minutes. Slice thinly across the grain, then toss the slices in the skillet juices."},
+      {"name": "Build the fajitas", "text": "Return the vegetables to the hot skillet for the table, or arrange them with the beef on a platter. Serve with warm tortillas, avocado, salsa, sour cream, cheese, and lime wedges."
+      }
+    ],
+    "why_it_works": [
+      "A dry spice rub creates a savory crust without a long marinade.",
+      "High heat and minimal stirring blister the vegetables instead of making them watery.",
+      "Resting and slicing across the grain keep ribeye tender in every tortilla."
+    ],
+    "swaps": [
+      "Use poblano peppers for a deeper roasted flavor and gentle heat.",
+      "Choose corn tortillas and confirm the spice labels to keep the meal gluten-free.",
+      "Swap sour cream for plain Greek yogurt or a dairy-free cultured alternative."
+    ],
+    "storage": "Refrigerate steak and vegetables in an airtight container for up to 4 days; keep tortillas and toppings separate. Reheat the filling in a hot skillet until it reaches 165°F.",
+    "notes": [
+      "Ventilate the kitchen before the skillet gets hot; a true fajita sear can create smoke.",
+      "USDA guidance for whole beef steaks is a minimum 145°F followed by a 3-minute rest.",
+      "Warm tortillas in a dry skillet or wrapped in a damp towel in the microwave so they fold without cracking."
+    ],
+    "faqs": [
+      {"q": "Can I grill the ribeye instead?", "a": "Yes. Grill over high heat, turning once, and use the same thermometer and resting guidance. Cook the vegetables in a grill basket."},
+      {"q": "Can I prep anything ahead?", "a": "Slice the vegetables and mix the spice rub up to 2 days ahead. Season the steak shortly before cooking."},
+      {"q": "How can I make these less spicy for kids?", "a": "The recipe is mild, but you can reduce chili powder to 1 teaspoon and put salsa on the table instead of in the filling."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "bell peppers", "onion", "tortillas", "avocado", "salsa", "lime"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "creamy-garlic-parmesan-ribeye-rigatoni",
+    "title": "Creamy Garlic-Parmesan Ribeye Rigatoni",
+    "dek": "Juicy slices of seared ribeye and mushrooms folded through rigatoni in a silky garlic-Parmesan pan sauce.",
+    "image": "https://images.pexels.com/photos/19193027/pexels-photo-19193027/free-photo-of-pasta-with-creamy-sauce-and-meat.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    "image_alt": "Creamy rigatoni topped with slices of deeply seared beef and fresh herbs",
+    "collection": "family",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak", "pasta", "Parmesan", "mushrooms"],
+    "prep_minutes": 15,
+    "cook_minutes": 30,
+    "servings": 6,
+    "calories": 768,
+    "cost_per_serving": "$6.95",
+    "difficulty": "Moderate",
+    "ingredients": [
+      "1 1/4 lb boneless ribeye steak",
+      "1 1/2 tsp kosher salt, divided",
+      "3/4 tsp freshly ground black pepper, divided",
+      "12 oz rigatoni or penne",
+      "1 tbsp olive oil",
+      "8 oz cremini mushrooms, sliced",
+      "3 tbsp unsalted butter, divided",
+      "4 garlic cloves, minced",
+      "1 cup low-sodium beef broth",
+      "1 cup heavy cream",
+      "1 cup finely grated Parmesan, plus more for serving",
+      "1 tsp Dijon mustard",
+      "2 tbsp chopped parsley"
+    ],
+    "instructions": [
+      {"name": "Cook the pasta", "text": "Bring a large pot of well-salted water to a boil. Cook rigatoni until 1 minute shy of al dente. Reserve 1 cup pasta water, then drain."},
+      {"name": "Sear and rest the ribeye", "text": "Pat the steak dry and season with 1 teaspoon salt and 1/2 teaspoon pepper. Heat oil in a wide skillet over medium-high. Sear for 3 to 5 minutes per side, checking the center with a thermometer. Transfer to a board and rest for at least 5 minutes."},
+      {"name": "Brown the mushrooms", "text": "Add 1 tablespoon butter and the mushrooms to the same skillet. Cook over medium-high for 5 to 7 minutes until browned. Season with the remaining salt and pepper, then add garlic and stir for 30 seconds."},
+      {"name": "Build the cream sauce", "text": "Pour in beef broth and scrape up the browned bits. Simmer until reduced by about half, 3 to 4 minutes. Lower the heat and stir in cream and Dijon. Simmer gently for 2 minutes; do not hard-boil."},
+      {"name": "Toss and finish", "text": "Add rigatoni and the remaining butter. Remove from the heat and stir in Parmesan, loosening with reserved pasta water until glossy. Slice the ribeye across the grain and fold in with its juices. Finish with parsley."
+      }
+    ],
+    "why_it_works": [
+      "The steak fond and mushroom browning give the cream sauce real savory depth.",
+      "Finishing off heat keeps Parmesan smooth instead of grainy.",
+      "Starchy pasta water emulsifies the sauce so it clings to every tube."
+    ],
+    "swaps": [
+      "Use fettuccine, penne, or another pasta with enough surface area to hold the sauce.",
+      "Replace mushrooms with baby spinach, stirring it in just before the Parmesan.",
+      "Use half-and-half for a lighter sauce, but simmer it very gently to reduce the chance of splitting."
+    ],
+    "storage": "Refrigerate in an airtight container for up to 3 days. Reheat gently with a splash of broth or milk, stirring often, until the beef and pasta reach 165°F. The cream sauce is not ideal for freezing.",
+    "notes": [
+      "Finely grated Parmesan melts more evenly than pre-shredded cheese.",
+      "USDA guidance for whole beef steaks is a minimum 145°F followed by a 3-minute rest.",
+      "If the sauce looks tight, add pasta water 1 tablespoon at a time rather than more cream."
+    ],
+    "faqs": [
+      {"q": "Can I use leftover ribeye?", "a": "Yes. Make the sauce first, then fold thinly sliced cooked steak in at the very end just long enough to heat through."},
+      {"q": "Why did my sauce turn grainy?", "a": "The heat was probably too high when the cheese went in. Remove the skillet from the burner, add finely grated cheese gradually, and loosen with pasta water."},
+      {"q": "Can I leave out the mushrooms?", "a": "Absolutely. Skip them and begin the sauce with butter and garlic; the seared-steak fond still provides plenty of flavor."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "rigatoni", "pasta", "mushrooms", "garlic", "Parmesan", "cream"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "loaded-southwest-ribeye-rice-bowls",
+    "title": "Loaded Southwest Ribeye Rice Bowls",
+    "dek": "Chile-lime ribeye over rice with corn, black beans, avocado, salsa, cheese, and smoky chipotle ranch.",
+    "image": "https://images.unsplash.com/photo-1757190991704-3e612bbe0911?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Rice bowl topped with browned beef, peppers, scallions, and fresh herbs",
+    "collection": "family",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak", "rice bowl", "Southwest", "gluten-free"],
+    "prep_minutes": 20,
+    "cook_minutes": 25,
+    "servings": 4,
+    "calories": 856,
+    "cost_per_serving": "$7.60",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 1/4 lb boneless ribeye steak",
+      "1 1/2 tsp kosher salt, divided",
+      "1 tsp chili powder",
+      "1/2 tsp ground cumin",
+      "1 tbsp neutral oil",
+      "3 cups hot cooked rice",
+      "1 cup frozen corn, thawed",
+      "1 15-oz can black beans, rinsed and drained",
+      "1 avocado, diced",
+      "1 cup fresh salsa",
+      "1 cup shredded pepper Jack or cheddar cheese",
+      "1/3 cup ranch dressing",
+      "1 tbsp adobo sauce from canned chipotles",
+      "2 limes",
+      "1/4 cup chopped cilantro"
+    ],
+    "instructions": [
+      {"name": "Season the ribeye", "text": "Pat the steak dry. Mix 1 teaspoon salt, chili powder, and cumin, then rub over both sides. Let stand while you prepare the toppings."},
+      {"name": "Mix the chipotle ranch", "text": "Stir ranch dressing, adobo sauce, and the juice of half a lime together. Add more adobo only after tasting; its heat varies by brand."},
+      {"name": "Warm the beans and corn", "text": "Combine black beans, corn, 1/4 cup water, and the remaining salt in a small saucepan. Cover and cook over medium for 4 to 5 minutes until steaming, then squeeze in half a lime."},
+      {"name": "Sear and rest the steak", "text": "Heat oil in a heavy skillet over medium-high. Sear the ribeye for 3 to 5 minutes per side, depending on thickness. Check with a thermometer, transfer to a board, and rest at least 5 minutes before slicing across the grain."},
+      {"name": "Build the bowls", "text": "Divide rice among four bowls. Add the warm bean-corn mixture, sliced steak, avocado, salsa, and cheese. Drizzle with chipotle ranch and finish with cilantro and remaining lime wedges."
+      }
+    ],
+    "why_it_works": [
+      "Warm beans and corn turn a topping-heavy bowl into a cohesive hot dinner.",
+      "Acid from fresh lime balances marbled ribeye, cheese, and creamy dressing.",
+      "Keeping every topping separate lets each person build a bowl that fits."
+    ],
+    "swaps": [
+      "Use quinoa, cauliflower rice, or chopped romaine instead of white rice.",
+      "Replace black beans with pinto beans.",
+      "For a mild sauce, stir ranch with lime juice and smoked paprika instead of adobo."
+    ],
+    "storage": "Refrigerate rice, beans, corn, and steak in airtight containers for up to 4 days; keep avocado, salsa, and dressing separate. Reheat the hot components to 165°F before assembling.",
+    "notes": [
+      "USDA guidance for whole beef steaks is a minimum 145°F followed by a 3-minute rest.",
+      "Rinse canned beans well so their liquid does not muddy the bowl.",
+      "If meal-prepping, toss diced avocado with lime and use it within 1 day."
+    ],
+    "faqs": [
+      {"q": "Can I make these bowls with leftover rice?", "a": "Yes. Add 1 tablespoon water per cup, cover, and reheat until the rice reaches 165°F and is steaming throughout."},
+      {"q": "How spicy is chipotle ranch?", "a": "One tablespoon adobo makes it smoky with moderate warmth. Start with 1 teaspoon for sensitive eaters."},
+      {"q": "Can I serve this buffet-style?", "a": "Yes. Keep the rice, beans, and steak warm and place cold toppings in separate bowls so everyone can assemble their own."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "rice", "corn", "black beans", "avocado", "salsa", "cheese"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "garlic-butter-sheet-pan-ribeye-potatoes-broccoli",
+    "title": "Garlic-Butter Sheet-Pan Ribeye, Potatoes & Broccoli",
+    "dek": "Crisp potato wedges and roasted broccoli meet quick-broiled ribeye and a glossy garlic-herb butter finish.",
+    "image": "https://images.unsplash.com/photo-1732185664072-845537e75558?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Sliced steak with roasted potato wedges, vegetables, and a savory pan sauce",
+    "collection": "sheet-pan",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak", "sheet pan", "potatoes", "broccoli", "gluten-free"],
+    "prep_minutes": 15,
+    "cook_minutes": 35,
+    "servings": 4,
+    "calories": 702,
+    "cost_per_serving": "$7.90",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 1/2 lb baby Yukon Gold potatoes, cut into wedges",
+      "3 tbsp olive oil, divided",
+      "1 3/4 tsp kosher salt, divided",
+      "1 tsp freshly ground black pepper, divided",
+      "1 tsp smoked paprika",
+      "12 oz broccoli florets",
+      "2 boneless ribeye steaks, 10 to 12 oz each and about 1 inch thick",
+      "4 tbsp unsalted butter, softened",
+      "3 garlic cloves, finely grated",
+      "1 tbsp chopped parsley",
+      "1 tsp lemon zest"
+    ],
+    "instructions": [
+      {"name": "Start the potatoes", "text": "Heat the oven to 450°F with a rack 6 inches below the broiler. Toss potatoes with 2 tablespoons oil, 3/4 teaspoon salt, 1/2 teaspoon pepper, and paprika on a large rimmed pan. Roast cut-side down for 18 minutes."},
+      {"name": "Add the broccoli", "text": "Toss broccoli with the remaining oil and 1/2 teaspoon salt. Turn the potatoes, add broccoli to the open spaces, and roast for 8 to 10 minutes until the vegetables are nearly tender."},
+      {"name": "Mix the garlic butter", "text": "Stir softened butter, garlic, parsley, lemon zest, and 1/4 teaspoon pepper together. Pat the ribeyes dry and season with the remaining 1/2 teaspoon salt and 1/4 teaspoon pepper."},
+      {"name": "Broil the ribeyes", "text": "Push the vegetables to the edges of the pan and place the steaks in the center. Switch the oven to high broil. Broil for 4 to 5 minutes, turn, and broil for 3 to 5 minutes more, checking the center with a thermometer."},
+      {"name": "Rest and finish", "text": "Transfer the steaks to a board, spread with half the garlic butter, and rest for at least 5 minutes. Toss the hot potatoes and broccoli with the remaining butter, then slice the beef and return it to the pan for serving."
+      }
+    ],
+    "why_it_works": [
+      "Starting dense potatoes first gives every component time to finish together.",
+      "The broiler browns steak fast while the vegetables crisp at the pan edges.",
+      "Dividing the garlic butter seasons both the resting beef and the vegetables."
+    ],
+    "swaps": [
+      "Use asparagus instead of broccoli and add it only for the broiling stage.",
+      "Replace baby potatoes with 3/4-inch sweet potato cubes and roast them for the same initial time.",
+      "Use strip steaks of similar thickness, adjusting time by temperature."
+    ],
+    "storage": "Refrigerate in an airtight container for up to 4 days. Reheat the vegetables in a 400°F oven and add sliced steak for the final few minutes, or heat all leftovers to 165°F in a covered skillet.",
+    "notes": [
+      "Use a sturdy uncoated metal pan that is approved for broiler heat.",
+      "Broilers vary dramatically; stay nearby and begin checking early.",
+      "USDA guidance for whole beef steaks is a minimum 145°F followed by a 3-minute rest."
+    ],
+    "faqs": [
+      {"q": "Will the steak juices make the potatoes soggy?", "a": "The potatoes are already crisp before the steak goes on. Keep them at the pan edges and slice the rested steak only when ready to serve."},
+      {"q": "Can I use frozen broccoli?", "a": "Fresh works best here. Frozen broccoli releases more water; roast it on a separate preheated pan if that is what you have."},
+      {"q": "Can I double the recipe?", "a": "Use two sheet pans and rotate their oven positions before broiling. Overcrowding one pan will steam the vegetables."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "potatoes", "broccoli", "garlic", "butter", "parsley"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "sticky-sesame-ginger-ribeye-bites",
+    "title": "Sticky Sesame-Ginger Ribeye Bites",
+    "dek": "Fast-seared ribeye bites lacquered in a garlicky honey-soy glaze with ginger, sesame, and scallions.",
+    "image": "https://images.unsplash.com/photo-1738999353105-a19fcffefad2?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Glossy ginger beef stir-fry with peppers, onions, scallions, and sesame seeds",
+    "collection": "30-minute",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak bites", "Asian-inspired", "sesame", "30-minute"],
+    "prep_minutes": 15,
+    "cook_minutes": 15,
+    "servings": 4,
+    "calories": 584,
+    "cost_per_serving": "$7.25",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 1/2 lb boneless ribeye steak, cut into 1-inch pieces",
+      "1/2 tsp kosher salt",
+      "1/2 tsp freshly ground black pepper",
+      "1 tbsp neutral oil",
+      "1/4 cup low-sodium soy sauce",
+      "2 tbsp honey or packed brown sugar",
+      "1 tbsp rice vinegar",
+      "2 tsp toasted sesame oil",
+      "1 tbsp finely grated fresh ginger",
+      "3 garlic cloves, minced",
+      "1 tsp cornstarch",
+      "3 cups hot cooked rice",
+      "3 scallions, thinly sliced",
+      "2 tsp sesame seeds"
+    ],
+    "instructions": [
+      {"name": "Mix the glaze", "text": "Whisk soy sauce, honey, rice vinegar, sesame oil, ginger, garlic, cornstarch, and 2 tablespoons water until the cornstarch is fully dissolved."},
+      {"name": "Dry and season the beef", "text": "Pat the ribeye pieces very dry and season with salt and pepper. A dry surface is essential because small pieces can steam quickly."},
+      {"name": "Sear in two batches", "text": "Heat a large skillet over high until very hot. Add half the oil and half the beef in one layer. Sear for about 60 seconds per side until browned, then transfer to a plate. Repeat with the remaining oil and beef."},
+      {"name": "Glaze the bites", "text": "Lower the heat to medium. Whisk the sauce again, pour it into the skillet, and simmer for 60 to 90 seconds until glossy and thick enough to coat a spoon. Return the beef and any juices; toss for 30 seconds."},
+      {"name": "Serve immediately", "text": "Remove from the heat so the ribeye stays tender. Spoon over rice and finish with scallions and sesame seeds."
+      }
+    ],
+    "why_it_works": [
+      "Two small batches let the ribeye brown instead of releasing a pool of liquid.",
+      "Cornstarch thickens the glaze quickly, limiting the beef's time in the pan.",
+      "Rice vinegar keeps the sweet soy sauce lively rather than heavy."
+    ],
+    "swaps": [
+      "Use tamari and verify every sauce label for a gluten-free version.",
+      "Serve with steamed broccoli or snap peas in place of rice.",
+      "Replace honey with maple syrup; the glaze will be slightly less sticky."
+    ],
+    "storage": "Refrigerate beef and rice separately for up to 4 days. Reheat with a spoonful of water in a covered skillet or microwave until both reach 165°F. Freeze the glazed beef for up to 2 months.",
+    "notes": [
+      "Cut the pieces uniformly so they cook at the same pace.",
+      "Use a splatter screen if needed; marbled ribeye can spit in a very hot skillet.",
+      "USDA guidance for whole beef steak pieces is a minimum 145°F followed by a 3-minute rest."
+    ],
+    "faqs": [
+      {"q": "Can I add vegetables?", "a": "Yes. Stir-fry 3 cups of quick-cooking vegetables first, transfer them out, and return them with the beef after the sauce thickens."},
+      {"q": "Why did my beef turn gray?", "a": "The skillet was not hot enough or the pan was crowded. Pat the beef dry and cook no more than half at once."},
+      {"q": "Can I make the sauce ahead?", "a": "Yes. Whisk it up to 3 days ahead and refrigerate. Stir very well before adding because the cornstarch settles."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "soy sauce", "honey", "ginger", "garlic", "sesame oil", "rice"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "korean-bbq-ribeye-bowls-crunchy-cucumber",
+    "title": "Korean BBQ Ribeye Bowls with Crunchy Cucumber",
+    "dek": "Quick-marinated bulgogi-style ribeye over rice with sesame carrots, crisp cucumbers, and spicy mayo.",
+    "image": "https://images.pexels.com/photos/5774000/pexels-photo-5774000.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    "image_alt": "Korean bulgogi beef bowl with rice, shredded carrots, spinach, scallions, and sesame seeds",
+    "collection": "30-minute",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "bulgogi", "Korean-inspired", "rice bowl", "30-minute"],
+    "prep_minutes": 20,
+    "cook_minutes": 15,
+    "servings": 4,
+    "calories": 712,
+    "cost_per_serving": "$7.45",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 1/2 lb boneless ribeye steak, thinly sliced across the grain",
+      "1/4 cup low-sodium soy sauce",
+      "2 tbsp packed brown sugar",
+      "1 tbsp toasted sesame oil",
+      "1 tbsp rice vinegar",
+      "1 tbsp finely grated fresh ginger",
+      "3 garlic cloves, grated",
+      "1 small Asian pear or crisp apple, finely grated",
+      "1 tbsp neutral oil",
+      "3 cups hot cooked short-grain or jasmine rice",
+      "1 English cucumber, thinly sliced",
+      "1 cup shredded carrots",
+      "1/3 cup mayonnaise",
+      "1 to 2 tsp gochujang",
+      "3 scallions, thinly sliced",
+      "2 tsp sesame seeds"
+    ],
+    "instructions": [
+      {"name": "Marinate the ribeye", "text": "Whisk soy sauce, brown sugar, sesame oil, vinegar, ginger, garlic, and grated pear. Toss with the thinly sliced ribeye and let stand for 15 minutes while you prepare the toppings."},
+      {"name": "Make the crunchy toppings", "text": "Toss cucumber with 1 teaspoon of the marinade from before it touched raw beef, or simply season with a splash of rice vinegar and a pinch of salt. Keep the carrots separate for easy bowl assembly."},
+      {"name": "Stir the spicy mayo", "text": "Mix mayonnaise with 1 teaspoon gochujang and 1 teaspoon water. Taste, then add the second teaspoon gochujang if you want more heat."},
+      {"name": "Sear in batches", "text": "Heat a wide skillet over high and add oil. Lift half the beef from the marinade, letting excess drip off, and spread it in one layer. Cook for 2 to 3 minutes until browned and cooked through. Transfer out and repeat."},
+      {"name": "Assemble the bowls", "text": "Divide rice among bowls and top with hot beef, cucumber, carrots, scallions, and sesame seeds. Drizzle with spicy mayo and serve immediately."
+      }
+    ],
+    "why_it_works": [
+      "Grated pear sweetens the marinade and helps tenderize thin slices without a long wait.",
+      "Draining excess marinade gives the beef a chance to caramelize in the skillet.",
+      "Cool cucumbers and carrots contrast the rich, savory ribeye."
+    ],
+    "swaps": [
+      "Use a crisp apple if Asian pear is unavailable.",
+      "Swap gochujang for sriracha; the sauce will be brighter and less fermented.",
+      "Serve over cauliflower rice or shredded cabbage for a lighter bowl."
+    ],
+    "storage": "Refrigerate cooked beef and rice in separate airtight containers for up to 4 days; keep vegetables and mayo cold and separate. Reheat beef and rice to 165°F before assembling.",
+    "notes": [
+      "Never use marinade that contacted raw beef as a dressing unless it is boiled first.",
+      "Partially freezing the ribeye for 15 minutes makes thin slicing easier.",
+      "Gochujang contains different ingredients by brand, so check labels for gluten or other dietary needs."
+    ],
+    "faqs": [
+      {"q": "Can the beef marinate longer?", "a": "Yes, but keep it refrigerated and limit the marinade to about 8 hours so the surface does not become mushy."},
+      {"q": "What if I do not have gochujang?", "a": "Use sriracha for heat or leave the mayo plain. The soy-ginger beef still carries the bowl."},
+      {"q": "Can I cook this on a grill?", "a": "Thin slices can fall through grates. Use a grill-safe plancha or perforated grill pan over high heat and cook in batches."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "soy sauce", "ginger", "garlic", "rice", "cucumber", "carrots", "gochujang"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "cowboy-butter-ribeye-bites-crispy-smashed-potatoes",
+    "title": "Cowboy-Butter Ribeye Bites with Crispy Smashed Potatoes",
+    "dek": "Crunchy smashed potatoes and seared ribeye bites drenched in zippy garlic-herb cowboy butter.",
+    "image": "https://images.unsplash.com/photo-1778855400007-37cbd89592ef?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Sliced seared ribeye topped with green herb butter beside crisp potatoes and salad",
+    "collection": "family",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak bites", "smashed potatoes", "cowboy butter", "gluten-free"],
+    "prep_minutes": 20,
+    "cook_minutes": 40,
+    "servings": 4,
+    "calories": 784,
+    "cost_per_serving": "$8.10",
+    "difficulty": "Moderate",
+    "ingredients": [
+      "1 1/2 lb baby potatoes",
+      "3 tbsp olive oil, divided",
+      "1 3/4 tsp kosher salt, divided",
+      "1 tsp freshly ground black pepper, divided",
+      "1 1/2 lb boneless ribeye steak, cut into 1-inch pieces",
+      "6 tbsp unsalted butter, softened",
+      "3 garlic cloves, finely grated",
+      "1 tbsp Dijon mustard",
+      "1 tbsp fresh lemon juice",
+      "1/2 tsp smoked paprika",
+      "1/4 tsp red-pepper flakes",
+      "2 tbsp chopped parsley",
+      "1 tbsp chopped chives"
+    ],
+    "instructions": [
+      {"name": "Boil the potatoes", "text": "Heat the oven to 450°F. Cover potatoes with cold salted water, bring to a boil, and cook for 15 to 18 minutes until easily pierced. Drain and let them steam dry for 5 minutes."},
+      {"name": "Smash and roast", "text": "Arrange potatoes on a rimmed pan and flatten each to about 1/2 inch with the bottom of a glass. Drizzle with 2 tablespoons oil and season with 1/2 teaspoon salt and 1/4 teaspoon pepper. Roast for 22 to 28 minutes until deeply crisp."},
+      {"name": "Mix the cowboy butter", "text": "Stir butter, garlic, Dijon, lemon juice, paprika, red-pepper flakes, parsley, chives, 1/4 teaspoon salt, and 1/4 teaspoon pepper until evenly combined."},
+      {"name": "Sear the ribeye bites", "text": "Pat the beef dry and season with the remaining salt and pepper. Heat the remaining oil in a large skillet over high. Sear the beef in two batches, about 60 to 90 seconds per side, until browned and at your preferred doneness."},
+      {"name": "Butter and serve", "text": "Return all beef to the skillet over low heat. Add half the cowboy butter and toss for 20 seconds. Spoon the steak bites beside the crispy potatoes and serve the remaining cowboy butter on top."
+      }
+    ],
+    "why_it_works": [
+      "Boiling before roasting makes potato centers fluffy while the rough smashed edges turn crisp.",
+      "Searing ribeye in batches preserves browning and tenderness.",
+      "Adding cowboy butter over low heat keeps its garlic and herbs fresh instead of scorched."
+    ],
+    "swaps": [
+      "Use fingerling potatoes, halved after boiling if they are large.",
+      "Replace parsley and chives with cilantro and scallions for a brighter variation.",
+      "Omit red-pepper flakes for a completely mild butter."
+    ],
+    "storage": "Refrigerate steak, potatoes, and extra butter separately for up to 4 days. Re-crisp potatoes in a 425°F oven; gently reheat steak to 165°F and finish with fresh cowboy butter.",
+    "notes": [
+      "Let potatoes steam dry before smashing so their surfaces crisp rather than steam.",
+      "Use two skillets or two batches; crowding is the enemy of browned steak bites.",
+      "USDA guidance for whole beef steak pieces is a minimum 145°F followed by a 3-minute rest."
+    ],
+    "faqs": [
+      {"q": "Can I make the cowboy butter ahead?", "a": "Yes. Refrigerate it for up to 5 days, then soften at room temperature before using."},
+      {"q": "Why did my potatoes fall apart?", "a": "They were likely overboiled. Cook only until a knife slides in with little resistance, then smash gently while still whole."},
+      {"q": "Can I air-fry the potatoes?", "a": "Yes. Air-fry the smashed potatoes at 400°F in a single layer for 12 to 16 minutes, turning once."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "potatoes", "butter", "garlic", "Dijon", "lemon", "parsley"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "blackened-ribeye-tortellini-cajun-cream",
+    "title": "Blackened Ribeye Tortellini in Cajun Cream",
+    "dek": "Cheese tortellini and blackened ribeye in a creamy pepper-and-Parmesan sauce with adjustable Cajun warmth.",
+    "image": "https://images.unsplash.com/photo-1758524151891-f99ca8c660fd?auto=format&fit=crop&w=1400&q=82",
+    "image_alt": "Cheese tortellini in a creamy herb sauce with browned meat and grated cheese",
+    "collection": "one-pot",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak", "tortellini", "Cajun-inspired", "one-pot"],
+    "prep_minutes": 15,
+    "cook_minutes": 25,
+    "servings": 6,
+    "calories": 738,
+    "cost_per_serving": "$6.65",
+    "difficulty": "Easy",
+    "ingredients": [
+      "1 1/4 lb boneless ribeye steak",
+      "1 to 2 tbsp salt-free Cajun seasoning, divided",
+      "1 tsp kosher salt, divided",
+      "1 tbsp neutral oil",
+      "20 oz refrigerated cheese tortellini",
+      "1 red bell pepper, thinly sliced",
+      "1 tbsp unsalted butter",
+      "3 garlic cloves, minced",
+      "1 cup low-sodium beef broth",
+      "1 cup heavy cream",
+      "3/4 cup finely grated Parmesan",
+      "2 scallions, thinly sliced"
+    ],
+    "instructions": [
+      {"name": "Season the ribeye", "text": "Pat the steak dry. For mild flavor, use 2 teaspoons Cajun seasoning; for bolder flavor, use 1 tablespoon. Rub it over the steak with 1/2 teaspoon salt."},
+      {"name": "Sear and rest", "text": "Heat oil in a deep, wide skillet over medium-high. Sear the ribeye for 3 to 5 minutes per side, checking the center with a thermometer. Transfer to a board and rest for at least 5 minutes."},
+      {"name": "Cook the pepper and tortellini", "text": "Reduce the heat to medium. Add bell pepper and butter; cook for 4 minutes. Add garlic for 30 seconds, then pour in broth and 1 cup water. Bring to a simmer, add tortellini, cover, and cook according to package timing, stirring once."},
+      {"name": "Make it creamy", "text": "Uncover and stir in cream. Simmer gently for 2 to 3 minutes until slightly thickened. Remove from the heat and stir in Parmesan. Taste and add the remaining Cajun seasoning and salt only as needed."},
+      {"name": "Add the ribeye", "text": "Slice the rested steak across the grain, then fold it and its juices into the tortellini. Warm for 30 seconds without boiling and finish with scallions."
+      }
+    ],
+    "why_it_works": [
+      "Cooking refrigerated tortellini directly in broth seasons the pasta and saves a pot.",
+      "Salt-free Cajun seasoning gives you control because Parmesan and broth already contribute salt.",
+      "Folding rested steak in at the end protects it from overcooking in the cream sauce."
+    ],
+    "swaps": [
+      "Use spinach-and-cheese tortellini or shelf-stable tortellini, following its package timing.",
+      "Replace heavy cream with half-and-half and keep the simmer especially gentle.",
+      "Add baby spinach after the cream and let it wilt before adding Parmesan."
+    ],
+    "storage": "Refrigerate in an airtight container for up to 3 days. Reheat gently with a splash of broth until the pasta and beef reach 165°F. Freezing is not recommended because tortellini and cream sauce can separate.",
+    "notes": [
+      "Cajun blends range from mild to very hot and salty; salt-free seasoning is easiest to control.",
+      "Finely grated Parmesan melts smoothly when the skillet is off direct heat.",
+      "USDA guidance for whole beef steaks is a minimum 145°F followed by a 3-minute rest."
+    ],
+    "faqs": [
+      {"q": "How do I make it kid-friendly?", "a": "Use only 2 teaspoons mild Cajun seasoning, omit extra seasoning at the end, and serve hot sauce at the table."},
+      {"q": "Can I use leftover steak?", "a": "Yes. Skip the searing step and fold cold, thinly sliced steak into the finished sauce just until heated through."},
+      {"q": "What if the sauce gets too thick?", "a": "Stir in warm broth 1 tablespoon at a time. Tortellini continues absorbing sauce as it sits."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "tortellini", "bell pepper", "garlic", "cream", "Parmesan", "Cajun seasoning"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  },
+  {
+    "slug": "french-onion-ribeye-gnocchi-skillet",
+    "title": "French-Onion Ribeye Gnocchi Skillet",
+    "dek": "Pillowy gnocchi, ribbons of ribeye, deeply browned onions, and bubbling Gruyère in a beefy cream sauce.",
+    "image": "https://images.pexels.com/photos/20862558/pexels-photo-20862558/free-photo-of-meat-on-gnocchi-with-sauce-on-plate.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    "image_alt": "Seared steak served over gnocchi with a rich brown sauce and fresh herbs",
+    "collection": "one-pot",
+    "protein": ["beef"],
+    "tags": ["beef", "ribeye", "steak", "gnocchi", "French onion", "one-pot"],
+    "prep_minutes": 15,
+    "cook_minutes": 40,
+    "servings": 6,
+    "calories": 752,
+    "cost_per_serving": "$6.90",
+    "difficulty": "Moderate",
+    "ingredients": [
+      "1 1/4 lb boneless ribeye steak",
+      "1 1/2 tsp kosher salt, divided",
+      "3/4 tsp freshly ground black pepper, divided",
+      "1 tbsp neutral oil",
+      "2 tbsp unsalted butter",
+      "3 large yellow onions, thinly sliced",
+      "1 tsp granulated sugar",
+      "2 garlic cloves, minced",
+      "1 tsp fresh thyme leaves",
+      "1 tbsp all-purpose flour",
+      "1 1/2 cups low-sodium beef broth",
+      "1/2 cup heavy cream",
+      "17.6 oz shelf-stable potato gnocchi",
+      "1 tsp Worcestershire sauce",
+      "1 1/2 cups shredded Gruyère or provolone cheese"
+    ],
+    "instructions": [
+      {"name": "Sear and rest the ribeye", "text": "Pat the steak dry and season with 1 teaspoon salt and 1/2 teaspoon pepper. Heat oil in a broiler-safe skillet over medium-high. Sear for 3 to 5 minutes per side, checking the center with a thermometer. Transfer to a board and rest."},
+      {"name": "Caramelize the onions", "text": "Reduce the heat to medium-low and add butter, onions, sugar, and the remaining salt. Cook for 22 to 26 minutes, stirring often and adding a tablespoon of water when needed, until the onions are soft and deep amber."},
+      {"name": "Build the sauce", "text": "Add garlic, thyme, and remaining pepper; stir for 30 seconds. Sprinkle in flour and cook for 1 minute. Slowly stir in beef broth, scraping the skillet, then add cream and Worcestershire."},
+      {"name": "Simmer the gnocchi", "text": "Bring the sauce to a gentle simmer. Add gnocchi, cover, and cook for 4 to 6 minutes, stirring once, until tender and the sauce coats them. Add a splash of broth if the skillet becomes dry."},
+      {"name": "Broil the cheese", "text": "Slice the ribeye thinly across the grain and arrange it over the gnocchi. Sprinkle with cheese and broil for 1 to 3 minutes until bubbling and browned in spots. Rest for 3 minutes before serving."
+      }
+    ],
+    "why_it_works": [
+      "Slow onion caramelization creates the signature French-onion sweetness without shortcuts.",
+      "Gnocchi cooks directly in the sauce, releasing starch that gives it body.",
+      "Broiling melts and browns the cheese without simmering the rested ribeye again."
+    ],
+    "swaps": [
+      "Use provolone for a milder, stretchier cheese layer.",
+      "Replace shelf-stable gnocchi with refrigerated gnocchi and begin checking 2 minutes earlier.",
+      "For deeper onion flavor, replace 1/2 cup broth with a dry red wine and simmer it for 2 minutes before adding the remaining broth."
+    ],
+    "storage": "Refrigerate in an airtight container for up to 3 days. Reheat covered over low heat with a splash of broth until the gnocchi and beef reach 165°F. Freezing is not recommended because gnocchi can become soft.",
+    "notes": [
+      "Use a stainless-steel or cast-iron skillet that the manufacturer approves for broiling.",
+      "Keep onion heat moderate; dark edges before the onions soften mean the pan is too hot.",
+      "USDA guidance for whole beef steaks is a minimum 145°F followed by a 3-minute rest."
+    ],
+    "faqs": [
+      {"q": "Can I caramelize the onions ahead?", "a": "Yes. Refrigerate them for up to 4 days, then warm in the skillet before continuing with garlic and flour."},
+      {"q": "Can I use leftover ribeye?", "a": "Yes. Make the gnocchi and sauce, arrange thin cooked slices over the top, add cheese, and broil only until everything is hot."},
+      {"q": "Why is my sauce too thick?", "a": "Gnocchi absorbs liquid as it stands. Stir in warm broth a little at a time until the sauce is creamy again."
+      }
+    ],
+    "pantry": ["ribeye", "beef", "gnocchi", "onion", "Gruyère", "beef broth", "cream", "thyme"],
+    "date_published": "2026-08-24",
+    "date_modified": "2026-08-24"
+  }
+]
