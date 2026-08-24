@@ -30,6 +30,10 @@ jobs:
               target="${archive#.bootstrap/}"
               target="${target%.xz}"
               mkdir -p "$(dirname "$target")"
+              if [ -s "$target" ]; then
+                echo "Keeping checked-in ${target}; bootstrap is recovery-only"
+                continue
+              fi
               echo "Expanding ${archive} -> ${target}"
               if ! xz -dc "$archive" > "$target"; then
                 echo "::warning file=${archive}::XZ reported an integrity error; keeping recovered output for validation"
@@ -46,6 +50,11 @@ jobs:
               target="${target%.xz}"
               packed="$(mktemp)"
               mkdir -p "$(dirname "$target")"
+              if [ -s "$target" ]; then
+                echo "Keeping checked-in ${target}; bootstrap is recovery-only"
+                rm -f "$packed"
+                continue
+              fi
               echo "Reassembling ${archive}.part*.b64 -> ${target}"
               if ! cat "${archive}".part*.b64 | base64 --decode > "$packed"; then
                 echo "::error file=${first_part}::Invalid base64 in ${archive}.part*.b64"
@@ -123,3 +132,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
