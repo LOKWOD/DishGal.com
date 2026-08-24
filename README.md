@@ -7,7 +7,7 @@ A fast, dependency-free recipe publishing site built for GitHub Pages. The launc
 - 27 complete recipes with ingredients, directions, substitutions, storage notes, FAQs, cost-per-serving estimates, nutrition estimates, and valid Recipe JSON-LD
 - seven SEO-ready recipe collections with ItemList structured data
 - Dinner Decider, Pantry Rescue, five-night meal planner, printable grocery lists, browser-based saved recipes, serving scaling, print layouts, and screen-awake cook mode
-- five original planning and kitchen guides
+- 29 original planning and kitchen buying guides, including 27 monetized product-focused pages with clear tradeoffs and disclosures
 - privacy, terms, editorial policy, affiliate disclosure, contact, newsletter, image credits, sitemap, RSS, robots.txt, manifest, 404 page, and ads.txt
 - automatic GitHub Pages build, validation, and deployment
 
@@ -50,3 +50,4 @@ The launch source library and publishing workflow were initialized in August 202
 ## Editorial posture
 
 DishGal is intentionally direct: useful information is placed early, social proof is not fabricated, commercial relationships are disclosed, and category buying guides do not pretend products were personally tested.
+
