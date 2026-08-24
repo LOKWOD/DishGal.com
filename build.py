@@ -296,26 +296,26 @@ def article_card(article) -> str:
     </article>'''
 
 SHOP_IMAGES = {
-    "enameled dutch oven 6 quart": ("https://unsplash.com/photos/9kmlCF7J2rU/download?force=true&w=900&q=80", "Red enameled Dutch oven on a kitchen work surface"),
-    "immersion blender stainless steel": ("https://unsplash.com/photos/DgQq-wu0YRo/download?force=true&w=900&q=80", "Hand blender mixing ingredients in a kitchen"),
+    "enameled dutch oven 6 quart": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled Dutch oven on a kitchen work surface"),
+    "immersion blender stainless steel": ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup"),
     "instant read meat thermometer digital": ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Digital cooking thermometer beside prepared ingredients"),
-    "stainless steel pasta pot colander": ("https://unsplash.com/photos/W10GCxD6YaQ/download?force=true&w=900&q=80", "Pasta cooking in a stainless-steel pot"),
-    "microplane zester grater stainless": ("https://unsplash.com/photos/OZyFaNBVa34/download?force=true&w=900&q=80", "Close-up of a stainless-steel kitchen grater"),
-    "stainless steel kitchen tongs silicone tip": ("https://unsplash.com/photos/jeiqzOgwwKU/download?force=true&w=900&q=80", "Metal kitchen tongs turning food over heat"),
-    "heavy gauge aluminum half sheet pan": ("https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=900&q=80", "Rimmed sheet pan holding roasted chicken and vegetables"),
+    "stainless steel pasta pot colander": ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta draining through a stainless-steel colander"),
+    "microplane zester grater stainless": ("https://images.pexels.com/photos/6287524/pexels-photo-6287524.jpeg?auto=compress&dpr=1&h=750&w=1260", "Cheese being grated on a stainless-steel grater"),
+    "stainless steel kitchen tongs silicone tip": ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Kitchen tongs turning food over a grill"),
+    "heavy gauge aluminum half sheet pan": ("https://images.pexels.com/photos/7059458/pexels-photo-7059458.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed sheet pan holding roasted potatoes and asparagus"),
     "silicone oven mitts heat resistant": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-safe oven mitts hanging above kitchen pots and pans"),
-    "rice cooker family stainless inner pot": ("https://unsplash.com/photos/VNBUJ6imfGs/download?force=true&w=900&q=80", "Countertop rice cooker in a home kitchen"),
-    "glass meal prep containers locking lids": ("https://unsplash.com/photos/mV_fzXhwiOg/download?force=true&w=900&q=80", "Prepared meals arranged in clear glass containers"),
-    "digital kitchen scale grams ounces": ("https://unsplash.com/photos/I47ysEXSU-k/download?force=true&w=900&q=80", "Digital kitchen scale ready for precise weighing"),
+    "rice cooker family stainless inner pot": ("https://images.pexels.com/photos/11770362/pexels-photo-11770362.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop rice cooker in a home kitchen"),
+    "glass meal prep containers locking lids": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Prepared meals arranged in clear lidded containers"),
+    "digital kitchen scale grams ounces": ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg?auto=compress&dpr=1&h=750&w=1260", "Bowl of vegetables resting on a digital kitchen scale"),
     "12 inch cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
     "silicone fish spatula turner": ("https://images.unsplash.com/photo-1673155225557-bee5d2540158?auto=format&fit=crop&w=900&q=80", "Flexible kitchen spatula being used during cooking"),
     "stainless steel mixing bowls nesting": ("https://images.unsplash.com/photo-1540660290370-8aa90e451e8a?auto=format&fit=crop&w=900&h=600&crop=entropy&q=80", "Mixing bowl with baking ingredients and a whisk"),
-    "stainless steel measuring scoops set": ("https://images.unsplash.com/photo-1781082580025-407abed1d50f?auto=format&fit=crop&w=900&h=600&crop=entropy&q=80", "Stainless-steel measuring scoops arranged as a nested set"),
+    "stainless steel measuring scoops set": ("https://images.pexels.com/photos/8478060/pexels-photo-8478060.jpeg?auto=compress&dpr=1&h=750&w=1260", "Measuring spoons arranged with baking ingredients"),
     "8 inch chef knife kitchen": ("https://images.unsplash.com/photo-1711065060638-675df8e8c358?auto=format&fit=crop&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
     "large nonslip cutting board": ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Large cutting board with a chef's knife and vegetables"),
-    "family size air fryer wide basket": ("https://cdn.pixabay.com/photo/2017/09/20/11/26/fryer-2768201_1280.jpg", "Countertop fryer appliance in a commercial kitchen"),
-    "heavy gauge aluminum half sheet pan wire rack": ("https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=900&q=80", "Rimmed sheet pan holding roasted chicken and vegetables"),
-    "glass meal prep containers locking lids stackable": ("https://unsplash.com/photos/mV_fzXhwiOg/download?force=true&w=900&q=80", "Stackable glass meal-prep containers filled with food"),
+    "family size air fryer wide basket": ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer in a home kitchen"),
+    "heavy gauge aluminum half sheet pan wire rack": ("https://images.pexels.com/photos/7059458/pexels-photo-7059458.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed sheet pan holding roasted potatoes and asparagus"),
+    "glass meal prep containers locking lids stackable": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stackable clear meal-prep containers filled with food"),
 }
 
 DEFAULT_SHOP_IMAGE = (
@@ -324,17 +324,32 @@ DEFAULT_SHOP_IMAGE = (
 )
 
 SHOP_IMAGE_RULES = [
-    (("knife", "cutting board", "mandoline", "utensil", "spatula", "tongs"), ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Kitchen prep tools on a cutting board")),
-    (("skillet", "dutch oven", "cookware", "saucepan", "baking", "casserole"), ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Sturdy cookware ready for a family meal")),
-    (("blender", "food processor", "stand mixer", "mixing bowl"), ("https://images.unsplash.com/photo-1540660290370-8aa90e451e8a?auto=format&fit=crop&w=900&q=80", "Mixing equipment and ingredients on a kitchen counter")),
-    (("rice cooker",), ("https://unsplash.com/photos/VNBUJ6imfGs/download?force=true&w=900&q=80", "Countertop rice cooker in a home kitchen")),
-    (("slow cooker",), ("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80", "Slow-cooked dinner ready to serve")),
-    (("air fryer", "toaster oven"), ("https://cdn.pixabay.com/photo/2017/09/20/11/26/fryer-2768201_1280.jpg", "Countertop hot-air cooking appliance")),
+    (("cut-resistant", "cut resistant"), ("https://images.pexels.com/photos/8093920/pexels-photo-8093920.jpeg?auto=compress&dpr=1&h=750&w=1260", "Gloved hands using kitchen knives on a cutting board")),
+    (("immersion blender",), ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup")),
+    (("baking dish", "casserole dish", "baking pan"), ("https://images.unsplash.com/photo-1533777324565-a040eb52facd?auto=format&fit=crop&w=900&q=80", "Oven-safe baking dishes holding finished food")),
+    (("sheet pan",), ("https://images.pexels.com/photos/7059458/pexels-photo-7059458.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed sheet pan holding roasted vegetables")),
+    (("pantry",), ("https://images.pexels.com/photos/8580727/pexels-photo-8580727.jpeg?auto=compress&dpr=1&h=750&w=1260", "Clear pantry jars arranged on shelves")),
+    (("handle cover", "scraper"), ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron cookware ready for a family meal")),
+    (("lid knob",), ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Enameled Dutch oven with a fitted lid knob")),
+    (("mandoline",), ("https://images.pexels.com/photos/11369848/pexels-photo-11369848.jpeg?auto=compress&dpr=1&h=750&w=1260", "Mandoline slicer beside onions and cabbage")),
+    (("tongs",), ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Kitchen tongs turning food over a grill")),
+    (("utensil", "measuring spoon", "measuring cup"), ("https://images.pexels.com/photos/38848778/pexels-photo-38848778.jpeg?auto=compress&dpr=1&h=750&w=1260", "Assorted measuring tools and kitchen utensils")),
+    (("knife", "cutting board", "spatula"), ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Kitchen prep tools on a cutting board")),
+    (("cookware set", "pot set", "pans set", "saucepan", "saute pan", "sauté pan"), ("https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=80", "Pots and pans in use in a home kitchen")),
+    (("skillet", "dutch oven", "cookware"), ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Sturdy cookware ready for a family meal")),
+    (("food processor",), ("https://images.pexels.com/photos/5847235/pexels-photo-5847235.jpeg?auto=compress&dpr=1&h=750&w=1260", "Food processor bowl with ingredients around the center blade")),
+    (("stand mixer",), ("https://images.pexels.com/photos/1450907/pexels-photo-1450907.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stand mixer with a stainless-steel bowl")),
+    (("blender",), ("https://images.pexels.com/photos/6802635/pexels-photo-6802635.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop blender mixing ingredients")),
+    (("mixing bowl",), ("https://images.unsplash.com/photo-1540660290370-8aa90e451e8a?auto=format&fit=crop&w=900&q=80", "Mixing bowl and ingredients on a kitchen counter")),
+    (("rice cooker",), ("https://images.pexels.com/photos/11770362/pexels-photo-11770362.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop rice cooker in a home kitchen")),
+    (("slow cooker",), ("https://upload.wikimedia.org/wikipedia/commons/6/65/6_quart_Crock_Pot_slow_cooker.jpg", "Six-quart oval slow cooker with its glass lid closed")),
+    (("air fryer", "toaster oven"), ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer and toaster oven")),
     (("thermometer",), ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Digital cooking thermometer beside prepared ingredients")),
-    (("scale",), ("https://unsplash.com/photos/I47ysEXSU-k/download?force=true&w=900&q=80", "Digital kitchen scale ready for precise weighing")),
-    (("container", "storage", "refrigerator", "labels"), ("https://unsplash.com/photos/mV_fzXhwiOg/download?force=true&w=900&q=80", "Organized food in clear storage containers")),
-    (("colander", "strainer", "pasta"), ("https://unsplash.com/photos/W10GCxD6YaQ/download?force=true&w=900&q=80", "Pasta and a stainless-steel straining tool")),
-    (("grater", "microplane"), ("https://unsplash.com/photos/OZyFaNBVa34/download?force=true&w=900&q=80", "Stainless-steel kitchen grater")),
+    (("scale",), ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg?auto=compress&dpr=1&h=750&w=1260", "Bowl resting on a digital kitchen scale")),
+    (("refrigerator",), ("https://images.pexels.com/photos/5418583/pexels-photo-5418583.jpeg?auto=compress&dpr=1&h=750&w=1260", "Food and containers organized on refrigerator shelves")),
+    (("container", "storage", "labels"), ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Organized food in clear storage containers")),
+    (("colander", "strainer", "pasta"), ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta draining through a stainless-steel colander")),
+    (("grater", "microplane"), ("https://images.pexels.com/photos/6287524/pexels-photo-6287524.jpeg?auto=compress&dpr=1&h=750&w=1260", "Cheese being grated on a stainless-steel grater")),
 ]
 
 def shop_image(query: str):
@@ -739,8 +754,8 @@ def build_utility_pages():
         ("Content use","DishGal content may not be republished wholesale without permission.")
     ])
     simple_page("/image-credits/","Image Credits","Visual sourcing","DishGal uses properly sourced editorial photography and original site design assets.",[
-        ("Editorial images","Current launch recipe and guide images are sourced from Unsplash image URLs included with each content record."),
-        ("Attribution","Photographers retain rights under the applicable source license and platform terms."),
+        ("Editorial images","Current recipe and guide images are sourced from Unsplash, Pexels, and Pixabay under their applicable platform licenses."),
+        ("Attribution","Photographers retain rights under the applicable source license and platform terms. The slow-cooker image is by Your Best Digs via Wikimedia Commons, licensed CC BY 2.0."),
         ("Future images","DishGal may replace launch imagery with original photography or licensed assets over time.")
     ])
     body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Say hello</p><h1>Contact DishGal</h1><p class="lede">Corrections, recipe questions, partnerships, and useful feedback can all come through here.</p></div></section>
