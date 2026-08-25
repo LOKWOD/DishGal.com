@@ -298,19 +298,19 @@ def article_card(article) -> str:
 SHOP_IMAGES = {
     "enameled dutch oven 6 quart": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled Dutch oven on a kitchen work surface"),
     "immersion blender stainless steel": ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup"),
-    "instant read meat thermometer digital": ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Digital cooking thermometer beside prepared ingredients"),
+    "digital probe meat thermometer": ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Two digital probe cooking thermometers beside prepared ingredients"),
     "stainless steel pasta pot colander": ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta draining through a stainless-steel colander"),
     "microplane zester grater stainless": ("https://images.pexels.com/photos/6287524/pexels-photo-6287524.jpeg?auto=compress&dpr=1&h=750&w=1260", "Cheese being grated on a stainless-steel grater"),
     "stainless steel kitchen tongs silicone tip": ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Kitchen tongs turning food over a grill"),
-    "heavy gauge aluminum half sheet pan": ("https://images.pexels.com/photos/7059458/pexels-photo-7059458.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed sheet pan holding roasted potatoes and asparagus"),
+    "heavy gauge aluminum half sheet pan": ("https://images.pexels.com/photos/13156063/pexels-photo-13156063.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed metal baking sheet lined with parchment"),
     "silicone oven mitts heat resistant": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-safe oven mitts hanging above kitchen pots and pans"),
     "rice cooker family stainless inner pot": ("https://images.pexels.com/photos/11770362/pexels-photo-11770362.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop rice cooker in a home kitchen"),
     "glass meal prep containers locking lids": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Prepared meals arranged in clear lidded containers"),
     "digital kitchen scale grams ounces": ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg?auto=compress&dpr=1&h=750&w=1260", "Bowl of vegetables resting on a digital kitchen scale"),
     "12 inch cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
     "silicone fish spatula turner": ("https://images.unsplash.com/photo-1673155225557-bee5d2540158?auto=format&fit=crop&w=900&q=80", "Flexible kitchen spatula being used during cooking"),
-    "stainless steel mixing bowls nesting": ("https://images.unsplash.com/photo-1540660290370-8aa90e451e8a?auto=format&fit=crop&w=900&h=600&crop=entropy&q=80", "Mixing bowl with baking ingredients and a whisk"),
-    "stainless steel measuring scoops set": ("https://images.pexels.com/photos/8478060/pexels-photo-8478060.jpeg?auto=compress&dpr=1&h=750&w=1260", "Measuring spoons arranged with baking ingredients"),
+    "stainless steel mixing bowls nesting": ("https://images.pexels.com/photos/31109993/pexels-photo-31109993.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stainless-steel mixing bowl and matching strainer bowl"),
+    "stainless steel measuring scoops set": ("https://images.unsplash.com/photo-1781082580025-407abed1d50f?auto=format&fit=crop&w=900&h=600&crop=entropy&q=80", "Stainless-steel measuring scoops arranged on a work surface"),
     "8 inch chef knife kitchen": ("https://images.unsplash.com/photo-1711065060638-675df8e8c358?auto=format&fit=crop&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
     "large nonslip cutting board": ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Large cutting board with a chef's knife and vegetables"),
     "family size air fryer wide basket": ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer in a home kitchen"),
@@ -344,7 +344,7 @@ SHOP_IMAGE_RULES = [
     (("rice cooker",), ("https://images.pexels.com/photos/11770362/pexels-photo-11770362.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop rice cooker in a home kitchen")),
     (("slow cooker",), ("https://upload.wikimedia.org/wikipedia/commons/6/65/6_quart_Crock_Pot_slow_cooker.jpg", "Six-quart oval slow cooker with its glass lid closed")),
     (("air fryer", "toaster oven"), ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer and toaster oven")),
-    (("thermometer",), ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Digital cooking thermometer beside prepared ingredients")),
+    (("thermometer",), ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Two digital probe cooking thermometers beside prepared ingredients")),
     (("scale",), ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg?auto=compress&dpr=1&h=750&w=1260", "Bowl resting on a digital kitchen scale")),
     (("refrigerator",), ("https://images.pexels.com/photos/5418583/pexels-photo-5418583.jpeg?auto=compress&dpr=1&h=750&w=1260", "Food and containers organized on refrigerator shelves")),
     (("container", "storage", "labels"), ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Organized food in clear storage containers")),
@@ -378,13 +378,19 @@ def recipe_shop(recipe) -> str:
         products = [
             ("enameled dutch oven 6 quart", "Dutch oven", "A wide, heavy pot for browning and steady simmering."),
             ("immersion blender stainless steel", "Immersion blender", "Blend soups in the pot with less transfer and cleanup."),
-            ("instant read meat thermometer digital", "Instant-read thermometer", "Verify doneness instead of guessing."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Verify doneness instead of guessing."),
         ]
     elif any(term in haystack for term in ["pasta", "orzo", "noodle"]):
         products = [
             ("stainless steel pasta pot colander", "Pasta pot and colander", "Choose stable handles and a size that fits the dinners you actually cook."),
             ("microplane zester grater stainless", "Fine grater", "Useful for citrus, hard cheese, garlic and finishing details."),
             ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "A dependable tool for tossing, turning and serving."),
+        ]
+    elif any(term in haystack for term in ["eggplant", "aubergine"]):
+        products = [
+            ("8 inch chef knife kitchen", "Chef’s knife", "A sharp, comfortable knife makes scoring eggplant and chopping herbs easier."),
+            ("large nonslip cutting board", "Nonslip cutting board", "A roomy, stable prep surface keeps large vegetables under control."),
+            ("stainless steel mixing bowls nesting", "Mixing bowls", "Useful for salting vegetables, whisking glaze, and holding toppings."),
         ]
     elif any(term in haystack for term in ["salad", "slaw"]):
         products = [
@@ -401,7 +407,7 @@ def recipe_shop(recipe) -> str:
     elif any(term in haystack for term in ["sheet pan", "roast", "baked", "oven"]):
         products = [
             ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
-            ("instant read meat thermometer digital", "Instant-read thermometer", "Check food safely without cutting into every piece."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
         ]
     elif any(term in haystack for term in ["rice", "bowl", "meal prep"]):
@@ -418,7 +424,7 @@ def recipe_shop(recipe) -> str:
         ]
     else:
         products = [
-            ("instant read meat thermometer digital", "Instant-read thermometer", "The quickest way to replace doneness guesses with a real number."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Replace doneness guesses with a clear temperature reading."),
             ("8 inch chef knife kitchen", "8-inch chef's knife", "Prioritize comfortable grip, controllable weight and easy maintenance."),
             ("large nonslip cutting board", "Large cutting board", "Enough stable workspace makes prep faster and safer."),
         ]
