@@ -374,7 +374,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if any(term in haystack for term in ["soup", "chili", "stew"]):
+    if "sheet pan" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
+        ]
+    elif any(term in haystack for term in ["soup", "chili", "stew"]):
         products = [
             ("enameled dutch oven 6 quart", "Dutch oven", "A wide, heavy pot for browning and steady simmering."),
             ("immersion blender stainless steel", "Immersion blender", "Blend soups in the pot with less transfer and cleanup."),
@@ -404,7 +410,7 @@ def recipe_shop(recipe) -> str:
             ("stainless steel mixing bowls nesting", "Mixing bowls", "Use separate bowls for fillings and pastry or cobbler topping."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when moving hot bakeware."),
         ]
-    elif any(term in haystack for term in ["sheet pan", "roast", "baked", "oven"]):
+    elif any(term in haystack for term in ["roast", "baked", "oven"]):
         products = [
             ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
             ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
