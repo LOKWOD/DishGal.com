@@ -374,7 +374,19 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "sheet pan" in haystack:
+    if "katsu" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A heavy skillet holds steady heat for crisp, even shallow-frying."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Verify the chicken reaches 165°F without cutting through the crust."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn breaded cutlets with control while keeping hands clear of hot oil."),
+        ]
+    elif "red lentil soup" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "Dutch oven", "A wide, heavy pot gives vegetables room to soften and lentils a steady simmer."),
+            ("immersion blender stainless steel", "Immersion blender", "Purée the soup in its pot with less transfer and cleanup."),
+            ("8 inch chef knife kitchen", "Chef’s knife", "A sharp, comfortable knife makes quick work of the onion, carrot, and potato."),
+        ]
+    elif "sheet pan" in haystack:
         products = [
             ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
             ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
