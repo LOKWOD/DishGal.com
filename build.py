@@ -386,6 +386,24 @@ def recipe_shop(recipe) -> str:
             ("immersion blender stainless steel", "Immersion blender", "Purée the soup in its pot with less transfer and cleanup."),
             ("8 inch chef knife kitchen", "Chef’s knife", "A sharp, comfortable knife makes quick work of the onion, carrot, and potato."),
         ]
+    elif "pad thai-style" in haystack:
+        products = [
+            ("stainless steel pasta pot colander", "Stainless colander", "Drain soaked rice noodles completely so the sauce clings instead of turning watery."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Lift and turn delicate rice noodles without chopping or crushing them."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify shrimp reach 145°F and the egg reaches 160°F without overcooking the seafood."),
+        ]
+    elif "butter beans" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide cooking surface reduces the tomato sauce quickly while giving large beans room to stay whole."),
+            ("8 inch chef knife kitchen", "Chef’s knife", "A sharp, controllable knife handles the fine onion dice and thin garlic slices cleanly."),
+            ("large nonslip cutting board", "Large cutting board", "A stable prep surface keeps the onion, garlic, and toasted bread organized."),
+        ]
+    elif "carrot snacking cake" in haystack:
+        products = [
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "Measure flour, spices, sugar, vanilla, and lemon consistently for a reliable crumb and frosting."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "Extra room makes it easier to fold in finely grated carrots without overmixing the batter."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when turning out a hot 9-inch cake pan."),
+        ]
     elif "sheet pan" in haystack:
         products = [
             ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
