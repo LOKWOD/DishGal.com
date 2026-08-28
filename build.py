@@ -260,7 +260,7 @@ def breadcrumbs(items) -> str:
     return f'<nav class="breadcrumbs" aria-label="Breadcrumb">{"".join(parts)}</nav>'
 
 def recipe_card(recipe) -> str:
-    minutes = int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))
+    minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
     tags = " ".join(recipe.get("tags", []))
     proteins = " ".join(recipe_proteins(recipe))
     search = " ".join([
@@ -511,7 +511,7 @@ def recipe_schema(recipe) -> dict:
         {"@type": "HowToStep", "name": step.get("name", f"Step {i+1}"), "text": step.get("text", "")}
         for i, step in enumerate(recipe.get("instructions", []))
     ]
-    total = int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))
+    total = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
     return {
         "@context": "https://schema.org",
         "@type": "Recipe",
@@ -620,7 +620,7 @@ def build_recipe_index():
 def build_recipe_pages():
     for recipe in RECIPES:
         slug = recipe["slug"]
-        minutes = int(recipe.get("prep_minutes",0)) + int(recipe.get("cook_minutes",0))
+        minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes",0)) + int(recipe.get("cook_minutes",0))))
         ingredients = "".join(f'''<li><label><input type="checkbox"><span data-ingredient data-original="{esc(item)}">{esc(item)}</span></label></li>''' for item in recipe.get("ingredients",[]))
         steps = "".join(f'''<li><div><h3>{esc(step.get("name", f"Step {i+1}"))}</h3><p>{esc(step.get("text",""))}</p></div></li>''' for i, step in enumerate(recipe.get("instructions",[])))
         tips = "".join(f'<div class="tip-card"><strong>Why it works</strong>{esc(t)}</div>' for t in recipe.get("why_it_works",[]))

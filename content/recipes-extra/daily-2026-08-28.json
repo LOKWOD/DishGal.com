@@ -1,28 +1,29 @@
 [
   {
-    "slug": "smoky-tomato-shrimp-cheddar-grits",
-    "title": "Smoky Tomato Shrimp & Cheddar Grits",
+    "calories": 548,
+    "collection": "30-minute",
+    "cook_minutes": 30,
+    "cost_per_serving": "$4.60",
+    "date_modified": "2026-08-28",
+    "date_published": "2026-08-28",
     "dek": "Plump paprika shrimp sit over buttery sharp-cheddar grits with a quick garlicky tomato pan sauce—Southern comfort with enough acidity to stay lively.",
+    "difficulty": "Moderate",
+    "faqs": [
+      {
+        "a": "The grits were likely added too quickly or not whisked during the first minute. Bring the liquid to a full boil, rain in the grits slowly while whisking, then whisk firmly; small lumps can usually be pressed against the pan and dispersed.",
+        "q": "Why are my grits lumpy?"
+      },
+      {
+        "a": "Yes. Thaw them overnight in the refrigerator or under cold running water, then drain and pat completely dry. Wet shrimp steam, dilute the paprika seasoning, and leave the pan sauce thin.",
+        "q": "Can I use frozen shrimp?"
+      },
+      {
+        "a": "Use 2% milk, reduce cheddar to 3 ounces, and omit the finishing butter in the grits. Keep the lemon and tomatoes at full strength so the bowl remains balanced.",
+        "q": "How can I make the dish less rich?"
+      }
+    ],
     "image": "https://images.unsplash.com/photo-1768249731607-2b3ecaf27071?auto=format&fit=crop&q=85&w=1600&h=1000",
     "image_alt": "Seared shrimp over creamy cheddar grits with a chunky red tomato sauce, black pepper, and tender microgreens in a white bowl",
-    "collection": "30-minute",
-    "protein": [
-      "seafood"
-    ],
-    "tags": [
-      "shrimp",
-      "Southern-inspired",
-      "grits",
-      "comfort food",
-      "weeknight",
-      "gluten-free"
-    ],
-    "prep_minutes": 15,
-    "cook_minutes": 30,
-    "servings": 4,
-    "calories": 548,
-    "cost_per_serving": "$4.60",
-    "difficulty": "Moderate",
     "ingredients": [
       "1 lb large raw shrimp (21 to 25 count), peeled and deveined, tails optional",
       "1 tsp smoked paprika",
@@ -67,35 +68,10 @@
         "text": "Return the shrimp and any juices to the sauce for 30 seconds, just to rewarm. Remove from the heat and stir in lemon juice. Spoon the cheddar grits into warm bowls, add the tomato shrimp, and finish with scallions, microgreens if using, black pepper, and lemon wedges."
       }
     ],
-    "why_it_works": [
-      "Whisking grits into fully boiling broth prevents clumps, while low heat and periodic scraping hydrate the grain without scorching it.",
-      "Searing the shrimp separately concentrates the smoky seasoning and lets you remove them at 145°F before the tomato sauce reduces.",
-      "Sharp cheddar supplies savory depth, while fire-roasted tomatoes and lemon cut through the richness of the butter, milk, and cheese."
-    ],
-    "swaps": [
-      "Use regular old-fashioned grits and follow their package timing; do not substitute instant grits, which need far less liquid and cook too quickly for this method.",
-      "For pescatarian cooking, use low-sodium vegetable or seafood broth and replace Worcestershire with a vegetarian Worcestershire sauce.",
-      "Replace shrimp with 1 lb dry-packed sea scallops; sear in two batches and cook to 145°F without simmering them in the sauce."
-    ],
-    "storage": "Refrigerate the shrimp sauce and grits in separate shallow airtight containers for up to 3 days. Reheat grits over low heat with 2 to 4 tablespoons broth or milk per serving, stirring until steaming. Reheat the shrimp sauce gently to 165°F only once; hard boiling will toughen the shrimp. Freezing is not recommended.",
     "notes": [
       "The full recipe takes about 45 minutes: 15 minutes prep and 30 minutes cooking. Stone-ground grits vary, so use texture—not only the clock—as the endpoint.",
       "Finely grated cheese melts smoothly. Pre-shredded cheese often contains anti-caking starch that can make the grits slightly grainy.",
       "The calorie and cost estimates include the optional greens but not toast or other side dishes."
-    ],
-    "faqs": [
-      {
-        "q": "Why are my grits lumpy?",
-        "a": "The grits were likely added too quickly or not whisked during the first minute. Bring the liquid to a full boil, rain in the grits slowly while whisking, then whisk firmly; small lumps can usually be pressed against the pan and dispersed."
-      },
-      {
-        "q": "Can I use frozen shrimp?",
-        "a": "Yes. Thaw them overnight in the refrigerator or under cold running water, then drain and pat completely dry. Wet shrimp steam, dilute the paprika seasoning, and leave the pan sauce thin."
-      },
-      {
-        "q": "How can I make the dish less rich?",
-        "a": "Use 2% milk, reduce cheddar to 3 ounces, and omit the finishing butter in the grits. Keep the lemon and tomatoes at full strength so the bowl remains balanced."
-      }
     ],
     "pantry": [
       "shrimp",
@@ -107,33 +83,59 @@
       "lemon",
       "scallions"
     ],
-    "date_published": "2026-08-28",
-    "date_modified": "2026-08-28"
-  },
-  {
-    "slug": "creamy-mushroom-risotto-parmesan-parsley",
-    "title": "Creamy Mushroom Risotto with Parmesan & Parsley",
-    "dek": "Deeply browned mushrooms crown glossy Arborio rice finished with Parmesan, butter, parsley, and lemon—an attainable vegetarian dinner with restaurant-level texture.",
-    "image": "https://images.unsplash.com/photo-1572424075298-e17403e6f3bf?auto=format&fit=crop&q=85&w=1600&h=1000",
-    "image_alt": "Creamy mushroom risotto topped with browned sliced mushrooms, finely shredded Parmesan, chopped parsley, and black pepper on a white plate",
-    "collection": "family",
+    "prep_minutes": 15,
     "protein": [
-      "vegetarian"
+      "seafood"
+    ],
+    "servings": 4,
+    "slug": "smoky-tomato-shrimp-cheddar-grits",
+    "storage": "Refrigerate the shrimp sauce and grits in separate shallow airtight containers for up to 3 days. Reheat grits over low heat with 2 to 4 tablespoons broth or milk per serving, stirring until steaming. Reheat the shrimp sauce gently to 165°F only once; hard boiling will toughen the shrimp. Freezing is not recommended.",
+    "swaps": [
+      "Use regular old-fashioned grits and follow their package timing; do not substitute instant grits, which need far less liquid and cook too quickly for this method.",
+      "For pescatarian cooking, use low-sodium vegetable or seafood broth and replace Worcestershire with a vegetarian Worcestershire sauce.",
+      "Replace shrimp with 1 lb dry-packed sea scallops; sear in two batches and cook to 145°F without simmering them in the sauce."
     ],
     "tags": [
-      "vegetarian",
-      "Italian-inspired",
-      "risotto",
-      "mushrooms",
-      "date night",
-      "one-pot"
+      "shrimp",
+      "Southern-inspired",
+      "grits",
+      "comfort food",
+      "weeknight",
+      "gluten-free"
     ],
-    "prep_minutes": 15,
-    "cook_minutes": 40,
-    "servings": 4,
+    "title": "Smoky Tomato Shrimp & Cheddar Grits",
+    "why_it_works": [
+      "Whisking grits into fully boiling broth prevents clumps, while low heat and periodic scraping hydrate the grain without scorching it.",
+      "Searing the shrimp separately concentrates the smoky seasoning and lets you remove them at 145°F before the tomato sauce reduces.",
+      "Sharp cheddar supplies savory depth, while fire-roasted tomatoes and lemon cut through the richness of the butter, milk, and cheese."
+    ],
+    "total_minutes": 45
+  },
+  {
     "calories": 571,
+    "collection": "family",
+    "cook_minutes": 40,
     "cost_per_serving": "$3.55",
+    "date_modified": "2026-08-28",
+    "date_published": "2026-08-28",
+    "dek": "Deeply browned mushrooms crown glossy Arborio rice finished with Parmesan, butter, parsley, and lemon—an attainable vegetarian dinner with restaurant-level texture.",
     "difficulty": "Moderate",
+    "faqs": [
+      {
+        "a": "It was probably cooked too hard, stirred constantly, or held too long after finishing. Maintain a gentle simmer, stir at short intervals rather than nonstop, stop when the center is barely firm, and serve immediately.",
+        "q": "Why did my risotto turn gluey?"
+      },
+      {
+        "a": "You can par-cook it for about 13 minutes using roughly half the broth, spread it on a sheet pan to cool quickly, and refrigerate for up to 1 day. Finish with hot broth, then add butter, cheese, lemon, and mushrooms just before serving.",
+        "q": "Can I make risotto ahead for guests?"
+      },
+      {
+        "a": "Switch to hot water in 1/2-cup additions. The rice already holds plenty of seasoning, and using water is better than forcing undercooked grains or adding cold liquid.",
+        "q": "What if I run out of broth before the rice is tender?"
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1572424075298-e17403e6f3bf?auto=format&fit=crop&q=85&w=1600&h=1000",
+    "image_alt": "Creamy mushroom risotto topped with browned sliced mushrooms, finely shredded Parmesan, chopped parsley, and black pepper on a white plate",
     "ingredients": [
       "6 cups low-sodium vegetable broth",
       "1 lb cremini mushrooms, wiped clean and sliced 1/4 inch thick",
@@ -181,35 +183,10 @@
         "text": "Divide immediately among four warm shallow bowls. Top with the reserved browned mushrooms, remaining parsley, extra finely grated Parmesan, and black pepper. Risotto should be served promptly; it continues absorbing liquid as it waits."
       }
     ],
-    "why_it_works": [
-      "Browning mushrooms in uncrowded batches drives off their water and builds caramelized flavor instead of steaming them into the rice.",
-      "Gradual additions of hot broth plus frequent—not frantic—stirring release enough Arborio starch for creaminess while preserving distinct grains.",
-      "Finishing with cold butter and Parmesan away from direct heat emulsifies the liquid and fat into the signature glossy, flowing texture."
-    ],
-    "swaps": [
-      "Use a mix of cremini, shiitake, and oyster mushrooms, keeping the total weight at 1 lb and slicing dense stems thinly.",
-      "Omit wine and deglaze with 1/2 cup hot broth plus 1 teaspoon lemon juice; the finished risotto will still have balancing acidity.",
-      "For a dairy-free version, use 3 tablespoons extra-virgin olive oil in place of the butter and a dairy-free Parmesan alternative; adjust salt after adding it."
-    ],
-    "storage": "Cool leftovers quickly in a shallow container and refrigerate for up to 3 days. Reheat over medium-low heat with 1/4 cup broth per serving, stirring until it reaches 165°F. The rice will be softer than freshly made. Do not leave cooked rice at room temperature longer than 2 hours; freezing noticeably changes the texture.",
     "notes": [
       "The realistic total is about 55 minutes: 15 minutes prep and 40 minutes cooking. Broth absorption varies with pan width, heat, and rice brand.",
       "Do not rinse Arborio rice; its surface starch is essential to the creamy sauce.",
       "Use a microplane-style grater for Parmesan so it melts quickly without forming stringy clumps."
-    ],
-    "faqs": [
-      {
-        "q": "Why did my risotto turn gluey?",
-        "a": "It was probably cooked too hard, stirred constantly, or held too long after finishing. Maintain a gentle simmer, stir at short intervals rather than nonstop, stop when the center is barely firm, and serve immediately."
-      },
-      {
-        "q": "Can I make risotto ahead for guests?",
-        "a": "You can par-cook it for about 13 minutes using roughly half the broth, spread it on a sheet pan to cool quickly, and refrigerate for up to 1 day. Finish with hot broth, then add butter, cheese, lemon, and mushrooms just before serving."
-      },
-      {
-        "q": "What if I run out of broth before the rice is tender?",
-        "a": "Switch to hot water in 1/2-cup additions. The rice already holds plenty of seasoning, and using water is better than forcing undercooked grains or adding cold liquid."
-      }
     ],
     "pantry": [
       "Arborio rice",
@@ -221,33 +198,59 @@
       "thyme",
       "lemon"
     ],
-    "date_published": "2026-08-28",
-    "date_modified": "2026-08-28"
-  },
-  {
-    "slug": "burnt-basque-cheesecake-vanilla-lemon",
-    "title": "Burnt Basque Cheesecake with Vanilla & Lemon",
-    "dek": "A deeply bronzed, parchment-crinkled top gives way to a custardy vanilla-lemon center—dramatic enough for company and deliberately free of a fussy crust.",
-    "image": "https://images.unsplash.com/photo-1759303380841-55c09244fd2b?auto=format&fit=crop&q=85&w=1600&h=1000",
-    "image_alt": "Thick slice of crustless burnt Basque cheesecake with a deeply caramelized dark top and creamy pale center on a wooden board",
-    "collection": "dessert",
+    "prep_minutes": 15,
     "protein": [
       "vegetarian"
     ],
-    "tags": [
-      "dessert",
-      "Basque-inspired",
-      "cheesecake",
-      "make-ahead",
-      "baking",
-      "special occasion"
+    "servings": 4,
+    "slug": "creamy-mushroom-risotto-parmesan-parsley",
+    "storage": "Cool leftovers quickly in a shallow container and refrigerate for up to 3 days. Reheat over medium-low heat with 1/4 cup broth per serving, stirring until it reaches 165°F. The rice will be softer than freshly made. Do not leave cooked rice at room temperature longer than 2 hours; freezing noticeably changes the texture.",
+    "swaps": [
+      "Use a mix of cremini, shiitake, and oyster mushrooms, keeping the total weight at 1 lb and slicing dense stems thinly.",
+      "Omit wine and deglaze with 1/2 cup hot broth plus 1 teaspoon lemon juice; the finished risotto will still have balancing acidity.",
+      "For a dairy-free version, use 3 tablespoons extra-virgin olive oil in place of the butter and a dairy-free Parmesan alternative; adjust salt after adding it."
     ],
-    "prep_minutes": 25,
-    "cook_minutes": 55,
-    "servings": 12,
+    "tags": [
+      "vegetarian",
+      "Italian-inspired",
+      "risotto",
+      "mushrooms",
+      "date night",
+      "one-pot"
+    ],
+    "title": "Creamy Mushroom Risotto with Parmesan & Parsley",
+    "why_it_works": [
+      "Browning mushrooms in uncrowded batches drives off their water and builds caramelized flavor instead of steaming them into the rice.",
+      "Gradual additions of hot broth plus frequent—not frantic—stirring release enough Arborio starch for creaminess while preserving distinct grains.",
+      "Finishing with cold butter and Parmesan away from direct heat emulsifies the liquid and fat into the signature glossy, flowing texture."
+    ],
+    "total_minutes": 55
+  },
+  {
     "calories": 523,
+    "collection": "dessert",
+    "cook_minutes": 55,
     "cost_per_serving": "$2.15",
+    "date_modified": "2026-08-28",
+    "date_published": "2026-08-28",
+    "dek": "A deeply bronzed, parchment-crinkled top gives way to a custardy vanilla-lemon center—dramatic enough for company and deliberately free of a fussy crust.",
     "difficulty": "Moderate",
+    "faqs": [
+      {
+        "a": "Both are normal for Basque cheesecake. The batter puffs in the hot oven and settles as steam escapes, creating the rustic folds. Avoiding excess mixer speed limits very large fissures, but a flat New York-style surface is not the goal.",
+        "q": "Why did my cheesecake crack and sink?"
+      },
+      {
+        "a": "Aim for deep mahogany with a few nearly black patches, not an evenly charcoal surface. Begin checking at 48 minutes and use the center temperature and wobble—rather than color alone—to decide when it is done.",
+        "q": "How dark should the top really be?"
+      },
+      {
+        "a": "Yes, if it is 9 inches wide and at least 3 inches deep. Line it generously with overlapping parchment and chill the cake fully before using the paper as a sling; a springform is easier and safer for unmolding.",
+        "q": "Can I bake it in a regular cake pan?"
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1759303380841-55c09244fd2b?auto=format&fit=crop&q=85&w=1600&h=1000",
+    "image_alt": "Thick slice of crustless burnt Basque cheesecake with a deeply caramelized dark top and creamy pale center on a wooden board",
     "ingredients": [
       "Unsalted butter, softened, for the pan",
       "32 oz full-fat brick cream cheese, at room temperature",
@@ -289,35 +292,10 @@
         "text": "Release the springform ring, peel the parchment down from the sides, and let the cake stand at room temperature for 20 minutes. Cut with a long thin knife dipped in hot water and wiped dry between slices. Serve plain so the caramelized top and vanilla-lemon custard stay the focus."
       }
     ],
-    "why_it_works": [
-      "Room-temperature dairy blends before too much air is incorporated, producing a custardy interior instead of visible cream-cheese pellets.",
-      "High heat rapidly caramelizes the exposed top while the tall parchment collar protects the tender, crustless sides.",
-      "A staged room-temperature cool followed by a full chill lets the loose center set cleanly without sacrificing its soft texture."
-    ],
-    "swaps": [
-      "Use orange zest instead of lemon for a warmer citrus note, keeping the quantity at 2 teaspoons so the custard is not overwhelmed.",
-      "For a gluten-free cake, replace the flour with 30 g cornstarch; sift it carefully because cornstarch clumps easily.",
-      "Do not substitute tub-style spreadable cream cheese, light cream cheese, or half-and-half; their water and stabilizer levels change both browning and set."
-    ],
-    "storage": "Refrigerate tightly covered for up to 5 days. For the cleanest slices, cut only what you need and return the cake promptly to the refrigerator. Freeze individual slices, double-wrapped, for up to 1 month; thaw overnight in the refrigerator. Basque cheesecake is best served cool or after 20 minutes at room temperature and should not be reheated.",
     "notes": [
       "The full timeline is about 7 hours, but active preparation is only 25 minutes. Overnight chilling gives the most reliable slices.",
       "A pale top means the oven ran cool or the cake was removed early; the dark caramelized surface is intentional, but it should smell toasted rather than acrid.",
       "Place the springform pan on a rimmed sheet pan to catch butter or batter seepage; the sheet pan also makes the tall parchment-lined pan easier to move."
-    ],
-    "faqs": [
-      {
-        "q": "Why did my cheesecake crack and sink?",
-        "a": "Both are normal for Basque cheesecake. The batter puffs in the hot oven and settles as steam escapes, creating the rustic folds. Avoiding excess mixer speed limits very large fissures, but a flat New York-style surface is not the goal."
-      },
-      {
-        "q": "How dark should the top really be?",
-        "a": "Aim for deep mahogany with a few nearly black patches, not an evenly charcoal surface. Begin checking at 48 minutes and use the center temperature and wobble—rather than color alone—to decide when it is done."
-      },
-      {
-        "q": "Can I bake it in a regular cake pan?",
-        "a": "Yes, if it is 9 inches wide and at least 3 inches deep. Line it generously with overlapping parchment and chill the cake fully before using the paper as a sling; a springform is easier and safer for unmolding."
-      }
     ],
     "pantry": [
       "cream cheese",
@@ -328,7 +306,32 @@
       "lemon",
       "flour"
     ],
-    "date_published": "2026-08-28",
-    "date_modified": "2026-08-28"
+    "prep_minutes": 25,
+    "protein": [
+      "vegetarian"
+    ],
+    "servings": 12,
+    "slug": "burnt-basque-cheesecake-vanilla-lemon",
+    "storage": "Refrigerate tightly covered for up to 5 days. For the cleanest slices, cut only what you need and return the cake promptly to the refrigerator. Freeze individual slices, double-wrapped, for up to 1 month; thaw overnight in the refrigerator. Basque cheesecake is best served cool or after 20 minutes at room temperature and should not be reheated.",
+    "swaps": [
+      "Use orange zest instead of lemon for a warmer citrus note, keeping the quantity at 2 teaspoons so the custard is not overwhelmed.",
+      "For a gluten-free cake, replace the flour with 30 g cornstarch; sift it carefully because cornstarch clumps easily.",
+      "Do not substitute tub-style spreadable cream cheese, light cream cheese, or half-and-half; their water and stabilizer levels change both browning and set."
+    ],
+    "tags": [
+      "dessert",
+      "Basque-inspired",
+      "cheesecake",
+      "make-ahead",
+      "baking",
+      "special occasion"
+    ],
+    "title": "Burnt Basque Cheesecake with Vanilla & Lemon",
+    "why_it_works": [
+      "Room-temperature dairy blends before too much air is incorporated, producing a custardy interior instead of visible cream-cheese pellets.",
+      "High heat rapidly caramelizes the exposed top while the tall parchment collar protects the tender, crustless sides.",
+      "A staged room-temperature cool followed by a full chill lets the loose center set cleanly without sacrificing its soft texture."
+    ],
+    "total_minutes": 420
   }
 ]
