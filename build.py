@@ -404,6 +404,24 @@ def recipe_shop(recipe) -> str:
             ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "Extra room makes it easier to fold in finely grated carrots without overmixing the batter."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when turning out a hot 9-inch cake pan."),
         ]
+    elif "shrimp" in haystack and "grits" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide, heat-steady skillet sears the shrimp quickly and reduces the smoky tomato sauce without crowding."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the shrimp reach 145°F before they turn firm and rubbery."),
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "Keep the grits-to-liquid ratio and small seasoning quantities consistent."),
+        ]
+    elif "mushroom risotto" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "Wide Dutch oven", "A heavy, broad pot gives mushrooms room to brown and Arborio rice a steady simmer."),
+            ("microplane zester grater stainless", "Fine grater", "Finely grated Parmesan melts smoothly into the risotto instead of clumping."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn and transfer browned mushroom slices without crushing them."),
+        ]
+    elif "basque cheesecake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the sugar and flour ratio precise for a custardy set."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "A large, stable bowl gives the dairy and eggs space to blend smoothly without splashing."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip matters when moving a tall parchment-lined pan on a hot sheet pan."),
+        ]
     elif "sheet pan" in haystack:
         products = [
             ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
