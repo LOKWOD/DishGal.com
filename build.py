@@ -404,6 +404,24 @@ def recipe_shop(recipe) -> str:
             ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "Extra room makes it easier to fold in finely grated carrots without overmixing the batter."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when turning out a hot 9-inch cake pan."),
         ]
+    elif "palak paneer" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide, heat-steady skillet browns paneer without crowding and gives the tomato masala room to reduce."),
+            ("immersion blender stainless steel", "Immersion blender", "Purée the cooled spinach in a tall container with less transfer and cleanup."),
+            ("8 inch chef knife kitchen", "Chef’s knife", "A sharp, controllable knife handles the fine aromatics and uniform paneer cubes cleanly."),
+        ]
+    elif "shish tawook" in haystack:
+        products = [
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the largest chicken pieces reach 165°F without cutting every skewer open."),
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Turn hot skewers and oil the grill grate while keeping hands clear of direct heat."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Use separate bowls for raw-chicken marinade and the finished garlic yogurt to avoid cross-contamination."),
+        ]
+    elif "cinnamon-apple tart" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the shortcrust flour and sugar ratio precise and repeatable."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "A broad bowl makes cutting cold butter into flour and tossing delicate apple slices easier."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip helps when moving the hot removable-bottom tart pan on its supporting sheet pan."),
+        ]
     elif "shrimp" in haystack and "grits" in haystack:
         products = [
             ("12 inch cast iron skillet", "12-inch skillet", "A wide, heat-steady skillet sears the shrimp quickly and reduces the smoky tomato sauce without crowding."),
