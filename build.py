@@ -374,7 +374,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "katsu" in haystack:
+    if "seafood paella" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "Wide 12-inch skillet", "A broad, heat-steady cooking surface keeps the rice shallow enough to cook evenly and form socarrat."),
+            ("stainless steel kitchen tongs", "Stainless-steel kitchen tongs", "Lift and place hot shellfish without crushing shells or disturbing the rice bed."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip matters when rotating and carrying a heavy skillet filled with hot rice and seafood."),
+        ]
+    elif "croque madame" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad, heat-steady skillet crisps two sandwiches at a time and then fries the eggs evenly."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp, controllable knife handles the shallot, trims bread, and halves crisp sandwiches cleanly."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep grated cheese, salad greens, and vinaigrette organized for fast assembly."),
+        ]
+    elif "chocolate-walnut layer cake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the cocoa batter even and divide it accurately among three pans."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowls", "Use separate heat-safe bowls for the batter, ganache, and whipped walnut filling."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when rotating three hot cake pans."),
+        ]
+    elif "katsu" in haystack:
         products = [
             ("12 inch cast iron skillet", "12-inch skillet", "A heavy skillet holds steady heat for crisp, even shallow-frying."),
             ("digital probe meat thermometer", "Digital probe thermometer", "Verify the chicken reaches 165°F without cutting through the crust."),
