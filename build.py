@@ -58,7 +58,7 @@ SHOP_CARD_CSS = """<style>
 .shop-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
 .shop-card:hover{transform:translateY(-3px);border-color:var(--tomato);box-shadow:0 15px 34px rgba(61,38,26,.14)}
 .shop-card:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
-.shop-card-media{display:block;position:relative;overflow:hidden;aspect-ratio:3/2;background:#eee7dd}
+.shop-card-media{display:block;position:relative;overflow:hidden;aspect-ratio:3/2;background-color:#eee7dd;background-position:center;background-repeat:no-repeat;background-size:cover}
 .shop-card-media::after{content:"Kitchen pick";position:absolute;right:.7rem;bottom:.7rem;padding:.28rem .55rem;color:#fff;background:rgba(32,28,25,.78);border-radius:999px;font-size:.69rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .shop-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
 .shop-card:hover .shop-card-media img{transform:scale(1.035)}
@@ -365,7 +365,7 @@ def amazon_link(query: str, label: str, note: str = "") -> str:
     url = f"https://www.amazon.com/s?k={quote_plus(query)}&amp;tag={quote_plus(AMAZON_TAG)}"
     image_url, image_alt = shop_image(query)
     return f"""<a class="shop-card" href="{url}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-commercial-link="true" data-affiliate-active="true" data-affiliate-network="amazon" data-affiliate-tag="{esc(AMAZON_TAG)}">
-      <span class="shop-card-media"><img src="{esc(image_url)}" alt="{esc(image_alt)}" loading="eager" decoding="async" width="900" height="600"></span>
+      <span class="shop-card-media" style="background-image:url('{esc(image_url)}')"><img src="{esc(image_url)}" alt="{esc(image_alt)}" loading="eager" decoding="async" width="900" height="600"></span>
       <span class="shop-card-copy"><small>Compare on Amazon</small><strong>{esc(label)}</strong>{f'<span>{esc(note)}</span>' if note else ''}<b>See current options →</b></span>
     </a>"""
 
