@@ -365,7 +365,7 @@ def amazon_link(query: str, label: str, note: str = "") -> str:
     url = f"https://www.amazon.com/s?k={quote_plus(query)}&amp;tag={quote_plus(AMAZON_TAG)}"
     image_url, image_alt = shop_image(query)
     return f"""<a class="shop-card" href="{url}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-commercial-link="true" data-affiliate-active="true" data-affiliate-network="amazon" data-affiliate-tag="{esc(AMAZON_TAG)}">
-      <span class="shop-card-media"><img src="{esc(image_url)}" alt="{esc(image_alt)}" loading="lazy" width="900" height="600"></span>
+      <span class="shop-card-media"><img src="{esc(image_url)}" alt="{esc(image_alt)}" loading="eager" decoding="async" width="900" height="600"></span>
       <span class="shop-card-copy"><small>Compare on Amazon</small><strong>{esc(label)}</strong>{f'<span>{esc(note)}</span>' if note else ''}<b>See current options →</b></span>
     </a>"""
 
