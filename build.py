@@ -374,7 +374,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "seafood paella" in haystack:
+    if "lamb tagine" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot maintains the gentle, even simmer that turns lamb shoulder fork-tender."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check that the largest lamb pieces reach the collagen-melting braising range without repeatedly cutting them."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn and transfer browned lamb cleanly while keeping hands clear of hot oil."),
+        ]
+    elif "shrimp summer rolls" in haystack:
+        products = [
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp, controllable blade makes even vegetable matchsticks and cleanly halves poached shrimp."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface keeps herbs, vegetables, noodles, and cooked shrimp organized for rolling."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls simplify cooling shrimp, holding noodles, and mixing the peanut-hoisin sauce."),
+        ]
+    elif "tiramisu cups" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the yolk, sugar, mascarpone, and ladyfinger ratios precise."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "Separate bowls are useful for the cooked yolk base, mascarpone, and whipped cream."),
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "Consistent small measures keep the espresso, vanilla, and cocoa balanced across six cups."),
+        ]
+    elif "seafood paella" in haystack:
         products = [
             ("12 inch cast iron skillet", "Wide 12-inch skillet", "A broad, heat-steady cooking surface keeps the rice shallow enough to cook evenly and form socarrat."),
             ("stainless steel kitchen tongs", "Stainless-steel kitchen tongs", "Lift and place hot shellfish without crushing shells or disturbing the rice bed."),
