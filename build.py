@@ -374,7 +374,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "lamb tagine" in haystack:
+    if "pork adobo" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot browns the pork evenly and holds the gentle simmer needed for tender shoulder and belly."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "Reliable steamed rice can finish hands-off while the adobo braises and its sauce reduces."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn browned pork and glaze the braised pieces without crushing the tender meat."),
+        ]
+    elif "herb falafel" in haystack:
+        products = [
+            ("food processor 12 cup", "12-cup food processor", "Short pulses create the coarse chickpea-and-herb texture that holds together without becoming dense."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep the soaked chickpeas, falafel mixture, and lemon-tahini sauce organized."),
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "A long, secure grip helps manage pita and the draining rack while keeping hands clear of hot oil."),
+        ]
+    elif "cinnamon rolls" in haystack:
+        products = [
+            ("stand mixer tilt head", "Stand mixer", "A mixer fitted with its dough hook provides steady kneading while the butter is added gradually."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the high-hydration dough soft instead of accidentally flour-heavy."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip matters when rotating and lifting the hot 9-by-13-inch pan."),
+        ]
+    elif "lamb tagine" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot maintains the gentle, even simmer that turns lamb shoulder fork-tender."),
             ("digital probe meat thermometer", "Digital probe thermometer", "Check that the largest lamb pieces reach the collagen-melting braising range without repeatedly cutting them."),
