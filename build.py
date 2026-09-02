@@ -303,6 +303,7 @@ SHOP_IMAGES = {
     "microplane zester grater stainless": ("https://images.pexels.com/photos/6287524/pexels-photo-6287524.jpeg?auto=compress&dpr=1&h=750&w=1260", "Cheese being grated on a stainless-steel grater"),
     "stainless steel kitchen tongs silicone tip": ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Kitchen tongs turning food over a grill"),
     "heavy gauge aluminum half sheet pan": ("https://images.pexels.com/photos/13156063/pexels-photo-13156063.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed metal baking sheet lined with parchment"),
+    "9 by 13 baking dish casserole": ("https://images.pexels.com/photos/19145679/pexels-photo-19145679/free-photo-of-meal-in-glass-box.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rectangular glass baking dish filled with a browned eggplant casserole"),
     "silicone oven mitts heat resistant": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-safe oven mitts hanging above kitchen pots and pans"),
     "rice cooker family stainless inner pot": ("https://images.pexels.com/photos/11770362/pexels-photo-11770362.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop rice cooker in a home kitchen"),
     "glass meal prep containers locking lids": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Prepared meals arranged in clear lidded containers"),
@@ -383,7 +384,7 @@ def recipe_shop(recipe) -> str:
     elif "eggplant parmesan" in haystack:
         products = [
             ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pans", "Two broad rimmed pans let the breaded eggplant bake in one uncrowded layer for a crisper crust."),
-            ("9 by 13 ceramic baking dish", "9-by-13-inch baking dish", "Straight sides hold the layered eggplant, tomato sauce, and cheese neatly for clean square portions."),
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Straight sides hold the layered eggplant, tomato sauce, and cheese neatly for clean square portions."),
             ("microplane zester grater stainless", "Fine cheese grater", "Finely grated Parmesan distributes evenly through the breading and over the finished casserole."),
         ]
     elif "orange-almond cake" in haystack:
