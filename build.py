@@ -374,7 +374,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "pork adobo" in haystack:
+    if "thai basil beef" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A wide, heat-steady skillet browns the beef quickly and leaves room to fry crisp-edged eggs."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "Hands-off jasmine rice can cook while the sauce is mixed and the basil beef comes together."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the ground beef reaches 160°F without cooking away all of its moisture."),
+        ]
+    elif "eggplant parmesan" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pans", "Two broad rimmed pans let the breaded eggplant bake in one uncrowded layer for a crisper crust."),
+            ("9 by 13 ceramic baking dish", "9-by-13-inch baking dish", "Straight sides hold the layered eggplant, tomato sauce, and cheese neatly for clean square portions."),
+            ("microplane zester grater stainless", "Fine cheese grater", "Finely grated Parmesan distributes evenly through the breading and over the finished casserole."),
+        ]
+    elif "orange-almond cake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weights keep the almond-flour and orange-purée ratios precise in this flourless batter."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls make it easy to whisk the dry ingredients, eggs, and citrus syrup without crowding."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip helps when moving the hot springform pan and its supporting sheet pan."),
+        ]
+    elif "pork adobo" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot browns the pork evenly and holds the gentle simmer needed for tender shoulder and belly."),
             ("rice cooker family stainless inner pot", "Family-size rice cooker", "Reliable steamed rice can finish hands-off while the adobo braises and its sauce reduces."),
