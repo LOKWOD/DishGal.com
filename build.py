@@ -389,7 +389,7 @@ def recipe_shop(recipe) -> str:
         ]
     elif "pear frangipane tart" in haystack:
         products = [
-            ("food processor 12 cup", "12-cup food processor", "Short pulses cut cold butter into the almond shortcrust quickly without warming it."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip helps when lifting the hot tart pan without pressing against its removable base."),
             ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep both flours and the frangipane ratio precise for a crisp shell and tender filling."),
             ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep the frangipane, sliced pears and warm glaze organized without crowding the counter."),
         ]
