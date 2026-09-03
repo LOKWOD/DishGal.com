@@ -305,7 +305,7 @@ SHOP_IMAGES = {
     "heavy gauge aluminum half sheet pan": ("https://images.pexels.com/photos/13156063/pexels-photo-13156063.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed metal baking sheet lined with parchment"),
     "9 by 13 baking dish casserole": ("https://images.pexels.com/photos/19145679/pexels-photo-19145679/free-photo-of-meal-in-glass-box.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rectangular glass baking dish filled with a browned eggplant casserole"),
     "silicone oven mitts heat resistant": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-safe oven mitts hanging above kitchen pots and pans"),
-    "rice cooker family stainless inner pot": ("https://images.pexels.com/photos/11770362/pexels-photo-11770362.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop rice cooker in a home kitchen"),
+    "rice cooker family stainless inner pot": ("https://images.unsplash.com/photo-1599182345361-9542815e73f6?auto=format&fit=crop&w=900&h=600&q=80", "White-and-black countertop rice cooker with a glass lid and removable inner pot"),
     "glass meal prep containers locking lids": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Prepared meals arranged in clear lidded containers"),
     "digital kitchen scale grams ounces": ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg?auto=compress&dpr=1&h=750&w=1260", "Bowl of vegetables resting on a digital kitchen scale"),
     "12 inch cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
