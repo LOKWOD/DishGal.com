@@ -375,7 +375,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "thai basil beef" in haystack:
+    if "margherita pizza" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "Preheating a sturdy inverted pan gives the pizza a broad, intensely hot surface for a crisper underside."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when transferring the pizza around a sheet pan held at 500°F."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing the dough and cheese keeps the topping ratio balanced and the center from becoming overloaded."),
+        ]
+    elif "kimchi fried rice" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface lets cold rice fry in a thin layer instead of steaming into clumps."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "Cook and cool the rice ahead, then use the cooker again when doubling the batch for meal prep."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable board contains kimchi brine while leaving room to separate scallion whites from their green garnish."),
+        ]
+    elif "pear frangipane tart" in haystack:
+        products = [
+            ("food processor 12 cup", "12-cup food processor", "Short pulses cut cold butter into the almond shortcrust quickly without warming it."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep both flours and the frangipane ratio precise for a crisp shell and tender filling."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep the frangipane, sliced pears and warm glaze organized without crowding the counter."),
+        ]
+    elif "thai basil beef" in haystack:
         products = [
             ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A wide, heat-steady skillet browns the beef quickly and leaves room to fry crisp-edged eggs."),
             ("rice cooker family stainless inner pot", "Family-size rice cooker", "Hands-off jasmine rice can cook while the sauce is mixed and the basil beef comes together."),
