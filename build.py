@@ -7,6 +7,8 @@ import json
 import os
 import re
 import shutil
+from datetime import datetime, timezone
+from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import quote_plus
 
@@ -34,6 +36,39 @@ COLLECTION_META = {
     "budget": ("Budget Dinners", "Good dinners built around useful, repeatable groceries.", "💸"),
     "vegetarian": ("Vegetarian Dinners", "Meatless meals that still eat like dinner.", "🥬"),
     "family": ("Family Favorites", "Low-drama dinners designed for the whole table.", "🍽"),
+}
+
+INGREDIENT_HUBS = {
+    "chicken": {
+        "title": "Easy Chicken Recipes",
+        "description": "Practical chicken dinners for busy nights, from fast skillets and rice bowls to sheet-pan meals and family casseroles.",
+        "terms": {"chicken"},
+    },
+    "beef": {
+        "title": "Easy Beef Recipes",
+        "description": "Weeknight beef recipes with clear timing, useful swaps, and options ranging from ground-beef dinners to steak-night favorites.",
+        "terms": {"beef", "steak", "ribeye", "brisket", "ground-beef"},
+    },
+    "ground-beef": {
+        "title": "Easy Ground Beef Recipes",
+        "description": "Reliable ground beef dinners for tacos, skillets, casseroles, pasta, and other family-friendly meals that earn a repeat.",
+        "terms": {"ground-beef", "ground beef", "ground chuck"},
+    },
+    "ribeye": {
+        "title": "Ribeye Steak Recipes",
+        "description": "Ribeye recipes for skillets, grills, sandwiches, tacos, and steakhouse-style dinners, with practical doneness and slicing notes.",
+        "terms": {"ribeye"},
+    },
+    "pork": {
+        "title": "Easy Pork Recipes",
+        "description": "Straightforward pork dinners built around chops, tenderloin, sausage, and other weeknight-friendly cuts and flavors.",
+        "terms": {"pork", "bacon", "ham", "prosciutto", "sausage", "kielbasa", "chorizo"},
+    },
+    "seafood": {
+        "title": "Easy Seafood Recipes",
+        "description": "Approachable seafood dinners featuring shrimp, salmon, fish, tuna, and more, with realistic cook times and no guesswork.",
+        "terms": {"seafood", "fish", "salmon", "shrimp", "tuna", "trout", "cod", "tilapia", "calamari"},
+    },
 }
 
 PROTEIN_META = {
@@ -110,6 +145,62 @@ def recipe_proteins(recipe) -> list[str]:
         matches.append("meatless")
     return matches
 
+def recipe_search_text(recipe) -> str:
+    return " ".join([
+        recipe.get("title", ""),
+        recipe.get("dek", ""),
+        " ".join(recipe.get("tags", [])),
+        " ".join(recipe.get("ingredients", [])),
+        " ".join(recipe.get("pantry", [])),
+        " ".join(recipe_proteins(recipe)),
+    ]).lower()
+
+def recipes_for_ingredient(slug: str):
+    terms = INGREDIENT_HUBS[slug]["terms"]
+    matches = []
+    for recipe in RECIPES:
+        tags = {str(tag).lower() for tag in recipe.get("tags", [])}
+        proteins = set(recipe_proteins(recipe))
+        haystack = " ".join([
+            recipe.get("title", ""),
+            " ".join(recipe.get("tags", [])),
+            " ".join(recipe.get("pantry", [])),
+            " ".join(recipe_proteins(recipe)),
+        ]).lower()
+        if tags.intersection(terms) or proteins.intersection(terms) or any(term in haystack for term in terms):
+            matches.append(recipe)
+    return stable_recipe_mix(matches)
+
+def ingredient_hubs_for_recipe(recipe):
+    active_slugs = {slug for slug, _ in active_ingredient_hubs()}
+    return [slug for slug in INGREDIENT_HUBS if slug in active_slugs and recipe in recipes_for_ingredient(slug)]
+
+def active_ingredient_hubs():
+    return [(slug, meta) for slug, meta in INGREDIENT_HUBS.items() if len(recipes_for_ingredient(slug)) >= 3]
+
+def recipe_seo_title(recipe) -> str:
+    title = clean_text(recipe.get("title", "Recipe"))
+    if len(title) > 49 and " with " in title.lower():
+        title = re.split(r"\s+with\s+", title, maxsplit=1, flags=re.IGNORECASE)[0]
+    if "recipe" not in title.lower():
+        title += " Recipe"
+    return title
+
+def truncate_description(value: str, limit: int = 158) -> str:
+    value = clean_text(value)
+    if len(value) <= limit:
+        return value
+    shortened = value[:limit - 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return shortened + "…"
+
+def rss_date(value: str) -> str:
+    parsed = datetime.strptime(value, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    return format_datetime(parsed)
+
+def recipe_meta_description(recipe) -> str:
+    minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
+    return truncate_description(f"Make {recipe.get('title', 'this recipe')} in {minutes} minutes. {recipe.get('dek', '')}")
+
 def stable_recipe_mix(recipes):
     """Keep browsing varied without changing the order on every page load."""
     return sorted(
@@ -182,6 +273,7 @@ def footer() -> str:
           <div class="footer-column"><h3>Cook</h3>
             <a href="{href('/recipes/')}">All recipes</a>
             <a href="{href('/collections/30-minute/')}">30-minute dinners</a>
+            {''.join(f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])}</a>' for slug, meta in active_ingredient_hubs()[:3])}
             <a href="{href('/dinner-decider/')}">Dinner Decider</a>
             <a href="{href('/pantry-rescue/')}">Pantry Rescue</a>
           </div>
@@ -205,7 +297,8 @@ def footer() -> str:
       </div>
     </footer>'''
 
-def page(title: str, description: str, path: str, body: str, *, schema=None, noindex=False) -> str:
+def page(title: str, description: str, path: str, body: str, *, schema=None, noindex=False,
+         image=None, page_type="website", published=None, modified=None, needs_recipe_data=False) -> str:
     title_full = title if title.endswith("DishGal") else f"{title} | DishGal"
     desc = clean_text(description)
     schema_html = ""
@@ -218,6 +311,14 @@ def page(title: str, description: str, path: str, body: str, *, schema=None, noi
         if CLOUDFLARE_TOKEN else ""
     )
     robots = '<meta name="robots" content="noindex,follow">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">'
+    social_image = image or f"{SITE_URL}/assets/social-card.png"
+    article_meta = ""
+    if page_type == "article":
+        if published:
+            article_meta += f'\n  <meta property="article:published_time" content="{esc(published)}">'
+        if modified:
+            article_meta += f'\n  <meta property="article:modified_time" content="{esc(modified)}">'
+    recipe_data_script = f'<script defer src="{href("/assets/js/recipes.js")}"></script>' if needs_recipe_data else ""
     return f'''<!doctype html>
 <html lang="en" data-base="{esc(BASE)}">
 <head>
@@ -225,14 +326,24 @@ def page(title: str, description: str, path: str, body: str, *, schema=None, noi
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{esc(title_full)}</title>
   <meta name="description" content="{esc(desc)}">
+  <meta name="theme-color" content="#e94f37">
   {robots}
   <link rel="canonical" href="{esc(canonical(path))}">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{esc(page_type)}">
+  <meta property="og:site_name" content="DishGal">
   <meta property="og:title" content="{esc(title_full)}">
   <meta property="og:description" content="{esc(desc)}">
   <meta property="og:url" content="{esc(canonical(path))}">
-  <meta property="og:image" content="{SITE_URL}/assets/social-card.png">
+  <meta property="og:image" content="{esc(social_image)}">
+  <meta property="og:image:alt" content="{esc(title)}">
+  {article_meta}
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{esc(title_full)}">
+  <meta name="twitter:description" content="{esc(desc)}">
+  <meta name="twitter:image" content="{esc(social_image)}">
+  <link rel="alternate" type="application/rss+xml" title="DishGal recipes and guides" href="{href('/feed.xml')}">
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <link rel="stylesheet" href="{href('/assets/css/styles.css')}">\n  {SHOP_CARD_CSS}
   <link rel="manifest" href="{href('/site.webmanifest')}">
   {adsense}
@@ -244,8 +355,8 @@ def page(title: str, description: str, path: str, body: str, *, schema=None, noi
   <main id="main">{body}</main>
   {footer()}
   <script>window.DISHGAL_BASE={json.dumps(BASE)};</script>
-  <script src="{href('/assets/js/recipes.js')}"></script>
-  <script src="{href('/assets/js/site.js')}"></script>
+  {recipe_data_script}
+  <script defer src="{href('/assets/js/site.js')}"></script>
   {cloudflare}
 </body>
 </html>'''
@@ -259,22 +370,31 @@ def breadcrumbs(items) -> str:
             parts.append(f'<span>{esc(label)}</span>')
     return f'<nav class="breadcrumbs" aria-label="Breadcrumb">{"".join(parts)}</nav>'
 
+def breadcrumb_schema(items) -> dict:
+    entries = [("Home", "/")] + [(label, path) for label, path in items]
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": position,
+                "name": label,
+                **({"item": canonical(path)} if path else {}),
+            }
+            for position, (label, path) in enumerate(entries, start=1)
+        ],
+    }
+
 def recipe_card(recipe) -> str:
     minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
     tags = " ".join(recipe.get("tags", []))
     proteins = " ".join(recipe_proteins(recipe))
-    search = " ".join([
-        recipe.get("title", ""),
-        recipe.get("dek", ""),
-        tags,
-        proteins,
-        " ".join(recipe.get("ingredients", [])),
-        " ".join(recipe.get("pantry", [])),
-    ]).lower()
+    search = recipe_search_text(recipe)
     return f'''<article class="recipe-card" data-recipe-card data-search="{esc(search)}" data-tags="{esc(tags)}" data-proteins="{esc(proteins)}" data-collection="{esc(recipe.get('collection',''))}" data-minutes="{minutes}">
       <button class="icon-button recipe-card-save" data-save-recipe="{esc(recipe['slug'])}" aria-label="Save recipe">♡</button>
       <a class="recipe-card-media" href="{href('/recipes/' + recipe['slug'] + '/')}">
-        <img src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" loading="lazy">
+        <img src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" loading="lazy" decoding="async" width="800" height="600">
         <span class="recipe-card-badge">{minutes} min</span>
       </a>
       <div class="recipe-card-body">
@@ -286,7 +406,7 @@ def recipe_card(recipe) -> str:
 
 def article_card(article) -> str:
     return f'''<article class="article-card">
-      <img src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}" loading="lazy">
+      <img src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}" loading="lazy" decoding="async" width="800" height="500">
       <div class="article-card-body">
         <small>{esc(article.get('category','Guide'))}</small>
         <h3><a href="{href('/guides/' + article['slug'] + '/')}">{esc(article.get('title','Guide'))}</a></h3>
@@ -366,7 +486,7 @@ def amazon_link(query: str, label: str, note: str = "") -> str:
     url = f"https://www.amazon.com/s?k={quote_plus(query)}&amp;tag={quote_plus(AMAZON_TAG)}"
     image_url, image_alt = shop_image(query)
     return f"""<a class="shop-card" href="{url}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-commercial-link="true" data-affiliate-active="true" data-affiliate-network="amazon" data-affiliate-tag="{esc(AMAZON_TAG)}">
-      <span class="shop-card-media" style="background-image:url('{esc(image_url)}')"><img src="{esc(image_url)}" alt="{esc(image_alt)}" loading="eager" decoding="async" width="900" height="600"></span>
+      <span class="shop-card-media" style="background-image:url('{esc(image_url)}')"><img src="{esc(image_url)}" alt="{esc(image_alt)}" loading="lazy" decoding="async" width="900" height="600"></span>
       <span class="shop-card-copy"><small>Compare on Amazon</small><strong>{esc(label)}</strong>{f'<span>{esc(note)}</span>' if note else ''}<b>See current options →</b></span>
     </a>"""
 
@@ -639,7 +759,14 @@ def recipe_schema(recipe) -> dict:
         for i, step in enumerate(recipe.get("instructions", []))
     ]
     total = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
-    return {
+    tags = [str(tag) for tag in recipe.get("tags", [])]
+    diet_map = {
+        "vegetarian": "https://schema.org/VegetarianDiet",
+        "vegan": "https://schema.org/VeganDiet",
+        "gluten-free": "https://schema.org/GlutenFreeDiet",
+    }
+    suitable_diets = [diet_map[tag] for tag in tags if tag in diet_map]
+    schema = {
         "@context": "https://schema.org",
         "@type": "Recipe",
         "name": recipe.get("title", ""),
@@ -652,11 +779,60 @@ def recipe_schema(recipe) -> dict:
         "cookTime": f"PT{int(recipe.get('cook_minutes',0))}M",
         "totalTime": f"PT{total}M",
         "recipeYield": f"{recipe.get('servings',4)} servings",
+        "recipeCategory": COLLECTION_META.get(
+            recipe.get("collection", ""),
+            (pretty_slug(recipe.get("collection", "recipe")), "", ""),
+        )[0],
+        "keywords": ", ".join(tags),
         "recipeIngredient": recipe.get("ingredients", []),
         "recipeInstructions": instructions,
         "nutrition": {"@type": "NutritionInformation", "calories": f"{recipe.get('calories','')} calories"},
         "url": canonical("/recipes/" + recipe["slug"] + "/"),
+        "mainEntityOfPage": canonical("/recipes/" + recipe["slug"] + "/"),
+        "isPartOf": {"@type": "WebSite", "name": "DishGal", "url": SITE_URL},
     }
+    if suitable_diets:
+        schema["suitableForDiet"] = suitable_diets
+    return schema
+
+def collection_schema(title: str, description: str, path: str, recipes) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": title,
+        "description": description,
+        "url": canonical(path),
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": len(recipes),
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "url": canonical("/recipes/" + recipe["slug"] + "/"),
+                    "name": recipe.get("title", "Recipe"),
+                }
+                for index, recipe in enumerate(recipes)
+            ],
+        },
+    }
+
+def related_recipes(recipe, limit=4):
+    recipe_tags = {str(tag).lower() for tag in recipe.get("tags", [])}
+    recipe_protein_set = set(recipe_proteins(recipe))
+    scored = []
+    for candidate in RECIPES:
+        if candidate["slug"] == recipe["slug"]:
+            continue
+        candidate_tags = {str(tag).lower() for tag in candidate.get("tags", [])}
+        score = 0
+        if candidate.get("collection") == recipe.get("collection"):
+            score += 5
+        score += 2 * len(recipe_tags.intersection(candidate_tags))
+        score += 3 * len(recipe_protein_set.intersection(recipe_proteins(candidate)))
+        tie_break = hashlib.sha256(candidate["slug"].encode("utf-8")).hexdigest()
+        scored.append((-score, tie_break, candidate))
+    return [candidate for _, _, candidate in sorted(scored)[:limit]]
 
 def build_home():
     mixed_recipes = stable_recipe_mix(RECIPES)
@@ -678,13 +854,17 @@ def build_home():
           <div class="button-row"><a class="btn btn-primary" href="{href('/dinner-decider/')}">Decide dinner</a><a class="btn btn-outline" href="{href('/recipes/')}">Browse recipes</a></div>
           <div class="hero-proof"><span>{len(RECIPES)} complete recipes</span><span>Real prep + cook times</span><span>Cost per serving</span></div>
         </div>
-        <div class="hero-media"><img class="hero-image" src="{esc(hero.get('image',''))}" alt="{esc(hero.get('image_alt','Weeknight dinner'))}"><div class="hero-sticker">No-scroll-before-the-recipe energy.</div></div>
+        <div class="hero-media"><img class="hero-image" src="{esc(hero.get('image',''))}" alt="{esc(hero.get('image_alt','Weeknight dinner'))}" width="800" height="1000" fetchpriority="high" decoding="async"><div class="hero-sticker">No-scroll-before-the-recipe energy.</div></div>
       </div>
     </section>
     <section class="section section-paper">
       <div class="wrap">
         <div class="section-heading"><div><p class="eyebrow">Pick your lane</p><h2>Dinner collections</h2></div><p>Start with the kind of night you are having, not a 2,000-word food memoir.</p></div>
         <div class="collection-grid">{''.join(collection_html)}</div>
+        <div class="topic-links" aria-label="Browse recipes by main ingredient">
+          <strong>Cook by ingredient:</strong>
+          {''.join(f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])}</a>' for slug, meta in active_ingredient_hubs())}
+        </div>
       </div>
     </section>
     <section class="section">
@@ -726,7 +906,12 @@ def build_recipe_index():
     options = "".join(f'<option value="{esc(c)}">{esc(COLLECTION_META.get(c,(pretty_slug(c),"",""))[0])}</option>' for c in collections)
     proteins = sorted({protein for recipe in RECIPES for protein in recipe_proteins(recipe)}, key=lambda item: PROTEIN_META.get(item, pretty_slug(item)))
     protein_options = "".join(f'<option value="{esc(protein)}">{esc(PROTEIN_META.get(protein, pretty_slug(protein)))}</option>' for protein in proteins)
+    ingredient_links = "".join(
+        f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])} <span>{len(recipes_for_ingredient(slug))}</span></a>'
+        for slug, meta in active_ingredient_hubs()
+    )
     body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Recipe library</p><h1>Find tonight’s dinner.</h1><p class="lede">Filter by time, meat or protein, collection, or diet. Every recipe includes full directions, substitutions, storage notes, FAQs, and realistic timing.</p></div></section>
+    <section class="ingredient-nav"><div class="wrap"><p class="eyebrow">Browse by ingredient</p><div class="ingredient-links">{ingredient_links}</div></div></section>
     <section class="section-tight"><div class="wrap">
       <form class="filter-panel" data-recipe-filters>
         <div class="filter-row">
@@ -742,7 +927,13 @@ def build_recipe_index():
       <div class="recipe-grid">{''.join(recipe_card(r) for r in display_recipes)}</div>
       <div class="empty-state" data-empty-state><h3>No matching dinners</h3><p>Try fewer filters or a broader search.</p></div>
     </div></section>'''
-    write_page("/recipes/", page("Recipes", "Browse DishGal's complete recipe library with filters for time, meat or protein, dinner collection, and dietary preferences.", "/recipes/", body))
+    schema = collection_schema(
+        "DishGal Recipe Library",
+        "Practical recipes with complete ingredients, directions, timing, substitutions, and storage notes.",
+        "/recipes/",
+        display_recipes,
+    )
+    write_page("/recipes/", page("Easy Dinner Recipes", "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps.", "/recipes/", body, schema=schema))
 
 def build_recipe_pages():
     for recipe in RECIPES:
@@ -755,13 +946,26 @@ def build_recipe_pages():
         notes = "".join(f"<li>{esc(x)}</li>" for x in recipe.get("notes",[]))
         faqs = "".join(f'''<details><summary>{esc(x.get("q","Question"))}</summary><p>{esc(x.get("a",""))}</p></details>''' for x in recipe.get("faqs",[]))
         cook_steps = "".join(f'''<div class="cook-step"><strong>{i+1}. {esc(step.get("name", "Step"))}</strong>{esc(step.get("text",""))}</div>''' for i, step in enumerate(recipe.get("instructions",[])))
+        collection_slug = recipe.get("collection", "")
+        collection_title = COLLECTION_META.get(collection_slug, (pretty_slug(collection_slug or "recipe"), "", ""))[0]
+        topic_links = []
+        if collection_slug:
+            topic_links.append(f'<a href="{href("/collections/" + collection_slug + "/")}">{esc(collection_title)}</a>')
+        for hub_slug in ingredient_hubs_for_recipe(recipe)[:2]:
+            topic_links.append(f'<a href="{href("/ingredients/" + hub_slug + "/")}">{esc(INGREDIENT_HUBS[hub_slug]["title"])}</a>')
+        related = related_recipes(recipe)
+        related_html = f'''<section class="section-tight section-paper related-section"><div class="wrap">
+          <div class="section-heading"><div><p class="eyebrow">Cook next</p><h2>More recipes you’ll like</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">All recipes</a></div>
+          <div class="recipe-grid">{''.join(recipe_card(candidate) for candidate in related)}</div>
+        </div></section>'''
         body = f'''<section class="recipe-hero" data-recipe-page data-servings="{int(recipe.get('servings',4))}">
           <div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(recipe.get("title","Recipe"),None)])}
           <div class="recipe-hero-grid">
-            <img class="recipe-hero-image" src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}">
-            <div><p class="eyebrow">{esc(COLLECTION_META.get(recipe.get('collection',''),(pretty_slug(recipe.get('collection','recipe')),"",""))[0])}</p>
+            <img class="recipe-hero-image" src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" width="900" height="968" fetchpriority="high" decoding="async">
+            <div><p class="eyebrow">{esc(collection_title)}</p>
               <h1>{esc(recipe.get('title','Recipe'))}</h1><p class="lede">{esc(recipe.get('dek',''))}</p>
               <p class="recipe-byline">Developed for DishGal · Updated {esc(recipe.get('date_modified','2026-08-17'))}</p>
+              <div class="recipe-topic-links" aria-label="Recipe topics">{''.join(topic_links)}</div>
               <div class="recipe-meta-grid">
                 <div class="recipe-meta-item"><small>Prep</small><strong>{int(recipe.get('prep_minutes',0))} min</strong></div>
                 <div class="recipe-meta-item"><small>Cook</small><strong>{int(recipe.get('cook_minutes',0))} min</strong></div>
@@ -788,22 +992,60 @@ def build_recipe_pages():
             <div class="recipe-panel"><h2>Questions</h2><div class="faq-list">{faqs}</div></div>
           </div>
         </div></section>
+        {related_html}
         <div class="cook-mode" data-cook-mode><div class="cook-mode-inner"><div class="cook-mode-head"><div><strong>{esc(recipe.get('title','Recipe'))}</strong><div class="muted">Screen stays awake when supported.</div></div><button class="btn btn-dark" type="button" data-close-cook>Exit cook mode</button></div>{cook_steps}</div></div>'''
-        write_page(f"/recipes/{slug}/", page(recipe.get("title","Recipe"), recipe.get("dek","Complete recipe with ingredients, directions, substitutions, storage notes, and FAQs."), f"/recipes/{slug}/", body, schema=recipe_schema(recipe)))
+        schema = [
+            recipe_schema(recipe),
+            breadcrumb_schema([("Recipes", "/recipes/"), (recipe.get("title", "Recipe"), None)]),
+        ]
+        write_page(f"/recipes/{slug}/", page(
+            recipe_seo_title(recipe),
+            recipe_meta_description(recipe),
+            f"/recipes/{slug}/",
+            body,
+            schema=schema,
+            image=recipe.get("image"),
+            page_type="article",
+            published=recipe.get("date_published"),
+            modified=recipe.get("date_modified", recipe.get("date_published")),
+        ))
 
 def build_collections():
     collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
     for slug in collections:
         recipes = stable_recipe_mix([r for r in RECIPES if r.get("collection") == slug])
         title, desc, _ = COLLECTION_META.get(slug, (pretty_slug(slug), f"Browse DishGal's {pretty_slug(slug).lower()} recipes.", "🍴"))
-        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(title,None)])}<p class="eyebrow">Dinner collection</p><h1>{esc(title)}</h1><p class="lede">{esc(desc)} Browse {len(recipes)} complete recipes with timing, cost, substitutions, and storage notes.</p></div></section>
+        seo_title = title if "recipe" in title.lower() else f"{title} Recipes"
+        full_description = f"{desc} Browse {len(recipes)} complete recipes with timing, cost, substitutions, and storage notes."
+        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(title,None)])}<p class="eyebrow">Dinner collection</p><h1>{esc(seo_title)}</h1><p class="lede">{esc(full_description)}</p></div></section>
         <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(r) for r in recipes)}</div></div></section>'''
-        write_page(f"/collections/{slug}/", page(title, f"{desc} Browse complete DishGal recipes with realistic timing, substitutions, and storage notes.", f"/collections/{slug}/", body))
+        path = f"/collections/{slug}/"
+        schema = [
+            collection_schema(seo_title, full_description, path, recipes),
+            breadcrumb_schema([("Recipes", "/recipes/"), (title, None)]),
+        ]
+        write_page(path, page(seo_title, truncate_description(full_description), path, body, schema=schema))
+
+def build_ingredient_hubs():
+    for slug, meta in INGREDIENT_HUBS.items():
+        recipes = recipes_for_ingredient(slug)
+        if len(recipes) < 3:
+            continue
+        title = meta["title"]
+        description = f'{meta["description"]} Browse {len(recipes)} complete DishGal recipes with realistic timing, substitutions, and storage notes.'
+        path = f"/ingredients/{slug}/"
+        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes", "/recipes/"), (title, None)])}<p class="eyebrow">Recipes by ingredient</p><h1>{esc(title)}</h1><p class="lede">{esc(description)}</p></div></section>
+        <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(recipe) for recipe in recipes)}</div></div></section>'''
+        schema = [
+            collection_schema(title, description, path, recipes),
+            breadcrumb_schema([("Recipes", "/recipes/"), (title, None)]),
+        ]
+        write_page(path, page(title, truncate_description(description), path, body, schema=schema))
 
 def build_saved():
     body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Your shortlist</p><h1>Saved recipes</h1><p class="lede">Recipes you heart are stored in this browser on this device. No account required.</p></div></section>
     <section class="section-tight"><div class="wrap"><div class="recipe-grid" data-saved-grid></div></div></section>'''
-    write_page("/saved/", page("Saved Recipes", "Keep a browser-based shortlist of DishGal recipes without creating an account or sharing personal information.", "/saved/", body))
+    write_page("/saved/", page("Saved Recipes", "Keep a browser-based shortlist of DishGal recipes without creating an account or sharing personal information.", "/saved/", body, noindex=True, needs_recipe_data=True))
 
 def build_decider():
     collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
@@ -816,7 +1058,7 @@ def build_decider():
       <button class="btn btn-primary" type="button" data-decide>Decide dinner</button>
       <div class="tool-results" data-decider-result></div>
     </div></div></section>'''
-    write_page("/dinner-decider/", page("Dinner Decider", "Choose your available time and dinner preferences, then let DishGal pick one practical recipe for tonight.", "/dinner-decider/", body))
+    write_page("/dinner-decider/", page("Dinner Decider", "Choose your available time and dinner preferences, then let DishGal pick one practical recipe for tonight.", "/dinner-decider/", body, needs_recipe_data=True))
 
 def build_pantry():
     pantry_terms = ["chicken","beef","pork","eggs","pasta","rice","potatoes","beans","tomatoes","broccoli","spinach","cheese","tortillas","lemon","onion"]
@@ -828,7 +1070,7 @@ def build_pantry():
       <div class="button-row" style="margin-top:1rem"><button class="btn btn-primary" type="button" data-match-pantry>Find matches</button></div>
       <div class="tool-results" data-pantry-results></div>
     </div></div></section>'''
-    write_page("/pantry-rescue/", page("Pantry Rescue", "Select ingredients you already have and DishGal will rank recipes by ingredient overlap to help reduce waste and dinner indecision.", "/pantry-rescue/", body))
+    write_page("/pantry-rescue/", page("Pantry Rescue", "Select ingredients you already have and DishGal will rank recipes by ingredient overlap to help reduce waste and dinner indecision.", "/pantry-rescue/", body, needs_recipe_data=True))
 
 def build_planner():
     body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Five nights, handled</p><h1>Weeknight meal planner</h1><p class="lede">Build five varied dinners, then turn them into a checkable grocery list. Reroll until the week feels right.</p></div></section>
@@ -842,7 +1084,7 @@ def build_planner():
       <div class="button-row" style="margin-top:1.25rem"><button class="btn btn-outline" type="button" data-build-plan>Reroll week</button><button class="btn btn-dark" type="button" data-build-list>Make grocery list</button></div>
       <div data-shopping-wrap hidden style="margin-top:2rem"><h2>Grocery checklist</h2><ul class="shopping-list" data-shopping-list></ul></div>
     </div></div></section>'''
-    write_page("/meal-planner/", page("5-Night Meal Planner", "Build a five-night DishGal dinner plan based on your available cooking time, then generate a practical grocery checklist.", "/meal-planner/", body))
+    write_page("/meal-planner/", page("5-Night Meal Planner", "Build a five-night DishGal dinner plan based on your available cooking time, then generate a practical grocery checklist.", "/meal-planner/", body, needs_recipe_data=True))
 
 def build_guides():
     category_cards = []
@@ -884,7 +1126,7 @@ def build_guides():
             related = related[:3]
         related_html = f'''<section class="section section-paper"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Keep choosing well</p><h2>Related kitchen guides</h2></div><a class="btn btn-outline" href="{href('/guides/')}">All Kitchen Picks</a></div><div class="article-grid">{''.join(article_card(candidate) for candidate in related)}</div></div></section>'''
         body = f'''<section class="page-hero"><div class="narrow">{breadcrumbs([("Kitchen Picks","/guides/"),(article.get("title","Guide"),None)])}<p class="eyebrow">{esc(article.get("category","Guide"))}</p><h1>{esc(article.get("title","Guide"))}</h1><p class="lede">{esc(article.get("dek",""))}</p><p class="muted">{int(article.get("read_minutes",5))} minute read · Updated August 24, 2026</p></div></section>
-        <div class="wrap"><img class="article-hero-image" src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}"></div>
+        <div class="wrap"><img class="article-hero-image" src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}" width="1080" height="675" fetchpriority="high" decoding="async"></div>
         <section class="section-tight"><article class="narrow prose">{disclosure}<p>{esc(article.get("dek",""))}</p>{sections}{shop}</article></section>
         {related_html}
         {newsletter_block()}'''
@@ -900,14 +1142,48 @@ def build_guides():
             "publisher": {"@type": "Organization", "name": "DishGal"},
             "mainEntityOfPage": canonical('/guides/' + article['slug'] + '/'),
         }
-        write_page(f"/guides/{article['slug']}/", page(article.get("title","Guide"), article.get("dek","Practical kitchen and meal-planning guidance from DishGal."), f"/guides/{article['slug']}/", body, schema=article_schema))
+        path = f"/guides/{article['slug']}/"
+        schema = [
+            article_schema,
+            breadcrumb_schema([("Kitchen Picks", "/guides/"), (article.get("title", "Guide"), None)]),
+        ]
+        write_page(path, page(
+            article.get("title", "Guide"),
+            article.get("dek", "Practical kitchen and meal-planning guidance from DishGal."),
+            path,
+            body,
+            schema=schema,
+            image=article.get("image"),
+            page_type="article",
+            published="2026-08-24",
+            modified="2026-08-24",
+        ))
 
 def build_category_indexes():
     for slug, (name, desc, _) in GUIDE_CATEGORY_META.items():
         matches = [a for a in ARTICLES if a.get("category","").lower().replace(" ","-") == slug]
-        body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">DishGal guides</p><h1>{esc(name)}</h1><p class="lede">{esc(desc)}</p></div></section>
+        path = f"/guides/category/{slug}/"
+        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Kitchen Picks", "/guides/"), (name, None)])}<p class="eyebrow">DishGal guides</p><h1>{esc(name)}</h1><p class="lede">{esc(desc)}</p></div></section>
         <section class="section-tight"><div class="wrap"><div class="article-grid">{''.join(article_card(a) for a in matches) if matches else '<div class="empty-state is-visible"><h3>More guides coming</h3><p>Browse all current guides while this section grows.</p></div>'}</div></div></section>'''
-        write_page(f"/guides/category/{slug}/", page(name, f"{desc} Browse DishGal's current {name.lower()} guides.", f"/guides/category/{slug}/", body))
+        schema = [
+            {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": name,
+                "description": desc,
+                "url": canonical(path),
+                "mainEntity": {
+                    "@type": "ItemList",
+                    "numberOfItems": len(matches),
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": index + 1, "url": canonical('/guides/' + article['slug'] + '/'), "name": article.get("title", "Guide")}
+                        for index, article in enumerate(matches)
+                    ],
+                },
+            },
+            breadcrumb_schema([("Kitchen Picks", "/guides/"), (name, None)]),
+        ]
+        write_page(path, page(name, f"{desc} Browse DishGal's current {name.lower()} guides.", path, body, schema=schema))
 
 def simple_page(path, title, eyebrow, lede, sections):
     content = "".join(f"<h2>{esc(h)}</h2><p>{esc(p)}</p>" for h,p in sections)
@@ -979,6 +1255,8 @@ def build_machine_files():
         rel = file.relative_to(PUBLIC).as_posix()
         if rel == "404.html":
             continue
+        if '<meta name="robots" content="noindex' in file.read_text(encoding="utf-8"):
+            continue
         if rel == "index.html":
             url_path = "/"
         elif rel.endswith("/index.html"):
@@ -986,15 +1264,29 @@ def build_machine_files():
         else:
             url_path = "/" + rel
         html_paths.append(url_path)
+    recipe_dates = {f"/recipes/{recipe['slug']}/": recipe.get("date_modified", recipe.get("date_published", "2026-08-17")) for recipe in RECIPES}
+    latest_recipe_date = max(recipe_dates.values(), default="2026-08-17")
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for path in html_paths:
-        sitemap.append(f"  <url><loc>{esc(canonical(path))}</loc></url>")
+        if path in recipe_dates:
+            lastmod = recipe_dates[path]
+        elif path.startswith("/guides/"):
+            lastmod = "2026-08-24"
+        else:
+            lastmod = latest_recipe_date
+        sitemap.append(f"  <url><loc>{esc(canonical(path))}</loc><lastmod>{esc(lastmod)}</lastmod></url>")
     sitemap.append("</urlset>")
     (PUBLIC / "sitemap.xml").write_text("\n".join(sitemap), encoding="utf-8")
     (PUBLIC / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
     feed_items = []
-    for article in ARTICLES:
-        feed_items.append(f"<item><title>{esc(article.get('title','Guide'))}</title><link>{esc(canonical('/guides/' + article['slug'] + '/'))}</link><description>{esc(article.get('dek',''))}</description></item>")
+    newest_recipes = sorted(RECIPES, key=lambda recipe: recipe.get("date_published", ""), reverse=True)[:30]
+    for recipe in newest_recipes:
+        recipe_url = canonical('/recipes/' + recipe['slug'] + '/')
+        published = recipe.get("date_published", "2026-08-17")
+        feed_items.append(f"<item><title>{esc(recipe.get('title','Recipe'))}</title><link>{esc(recipe_url)}</link><guid>{esc(recipe_url)}</guid><pubDate>{esc(rss_date(published))}</pubDate><description>{esc(recipe.get('dek',''))}</description></item>")
+    for article in ARTICLES[:10]:
+        article_url = canonical('/guides/' + article['slug'] + '/')
+        feed_items.append(f"<item><title>{esc(article.get('title','Guide'))}</title><link>{esc(article_url)}</link><guid>{esc(article_url)}</guid><description>{esc(article.get('dek',''))}</description></item>")
     (PUBLIC / "feed.xml").write_text(f'''<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>DishGal</title><link>{SITE_URL}</link><description>Dinner, decided.</description>{''.join(feed_items)}</channel></rss>''', encoding="utf-8")
     ads = f"google.com, {ADSENSE_PUBLISHER_ID}, DIRECT, f08c47fec0942fa0\n" if ADSENSE_PUBLISHER_ID else "# DishGal.com advertising inventory is not yet configured.\n"
     (PUBLIC / "ads.txt").write_text(ads, encoding="utf-8")
@@ -1020,6 +1312,7 @@ def main():
     build_recipe_index()
     build_recipe_pages()
     build_collections()
+    build_ingredient_hubs()
     build_saved()
     build_decider()
     build_pantry()
