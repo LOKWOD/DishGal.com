@@ -375,7 +375,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "margherita pizza" in haystack:
+    if "chicken pho" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy pot holds the chicken and aromatics comfortably while maintaining the gentle simmer needed for clear broth."),
+            ("stainless steel pasta pot colander", "Stainless-steel colander", "Drain rice noodles thoroughly and keep their excess starch out of the finished broth."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp blade handles ginger, onions, herbs and chile cleanly without bruising the garnishes."),
+        ]
+    elif "french onion soup" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide heavy pot gives three pounds of onions room to caramelize evenly and holds the finished broth."),
+            ("microplane zester grater stainless", "Fine cheese grater", "Finely grated Gruyère and Parmesan melt into an even bubbling cap instead of heavy clumps."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection is essential when moving a sheet pan loaded with extremely hot soup crocks."),
+        ]
+    elif "coconut-lemon meringue pie" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate crumb and coconut weights keep the crust cohesive without becoming greasy."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "A clean heat-safe bowl is necessary for warming and whipping the Swiss meringue over simmering water."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip helps when handling the hot crust, toasted coconut and saucepan during assembly."),
+        ]
+    elif "margherita pizza" in haystack:
         products = [
             ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "Preheating a sturdy inverted pan gives the pizza a broad, intensely hot surface for a crisper underside."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when transferring the pizza around a sheet pan held at 500°F."),
