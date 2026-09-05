@@ -495,7 +495,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "chicken pho" in haystack:
+    if "salmon piccata" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad, heat-steady surface browns four salmon portions cleanly and leaves room to emulsify the lemon-caper sauce."),
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "Drain linguine quickly while reserving the starchy water needed to bind the pan sauce."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest part of each salmon fillet reaches 145°F without cutting open its golden surface."),
+        ]
+    elif "sweet potato" in haystack and "mushroom" in haystack and "fajita" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pans", "Two preheated rimmed pans give sweet potatoes and mushrooms enough hot surface to brown instead of steam."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp, controllable blade makes even sweet-potato sticks, mushroom slices and pepper strips that roast at the same rate."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage matter when loading and rotating sheet pans preheated to 450°F."),
+        ]
+    elif "pumpkin mini muffins" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and sugar accurate for a tender mini-muffin crumb."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "Separate bowls keep the dry mix, pumpkin batter, melted butter and cinnamon sugar organized."),
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "A small scoop portions 24 wells evenly so the mini muffins bake and brown together."),
+        ]
+    elif "chicken pho" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy pot holds the chicken and aromatics comfortably while maintaining the gentle simmer needed for clear broth."),
             ("stainless steel pasta pot colander", "Stainless-steel colander", "Drain rice noodles thoroughly and keep their excess starch out of the finished broth."),
