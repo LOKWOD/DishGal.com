@@ -495,7 +495,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "salmon piccata" in haystack:
+    if "butter chicken" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed pan carries the yogurt-marinated chicken safely beneath the broiler without warping or spilling hot drips."),
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot softens the onion evenly and keeps the tomato-cream sauce at a gentle, steady simmer."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the thickest chicken pieces reach 165°F without cutting through the browned yogurt coating."),
+        ]
+    elif "spinach" in haystack and "feta lattice pie" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate spinach, feta and pastry weights keep the filling substantial without overwhelming the crisp lattice crust."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A roomy bowl makes it easier to distribute feta, herbs and eggs through four packed cups of dry spinach without crushing the cheese."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection helps when rotating and lifting the hot, deep pan without damaging its crisp lattice top."),
+        ]
+    elif "sticky toffee pudding" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing the sticky dates and flour keeps eight individual puddings moist and consistent."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "Separate bowls keep the date soak and dry ingredients organized before the quick batter is folded together."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip matters when moving a sheet pan filled with eight hot ramekins and turning out the warm puddings."),
+        ]
+    elif "salmon piccata" in haystack:
         products = [
             ("12 inch cast iron skillet", "12-inch skillet", "A broad, heat-steady surface browns four salmon portions cleanly and leaves room to emulsify the lemon-caper sauce."),
             ("stainless steel pasta pot colander", "Pasta pot and colander", "Drain linguine quickly while reserving the starchy water needed to bind the pan sauce."),
