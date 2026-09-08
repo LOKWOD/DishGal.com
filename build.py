@@ -495,7 +495,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "butter chicken" in haystack:
+    if "beef stew" in haystack and "mushroom" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot holds steady heat through the long 325°F braise and gives two pounds of beef room to brown in batches."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade makes consistent beef, potato, carrot, celery and mushroom pieces that become tender at the same rate."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check that the chuck is safely above 145°F and near the 195 to 205°F range where collagen-rich cubes become fork-tender."),
+        ]
+    elif "halloumi" in haystack and "crispy chickpea" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "Direct contact with a rigid preheated surface dries and browns two cans of chickpeas without crowding."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A broad bowl leaves enough room to dress delicate greens and tomatoes without crushing them beneath the warm toppings."),
+            ("stainless steel kitchen tongs silicone tip", "Silicone-tip kitchen tongs", "Tongs turn the halloumi cubes neatly so multiple sides brown before the cheese firms."),
+        ]
+    elif "chia pudding" in haystack and "almond butter" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing chia seeds and toppings keeps four meal-prep portions equally creamy and satisfying."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A medium bowl gives the chia mixture enough surface area for the essential second whisk that prevents clumps."),
+            ("glass meal prep containers locking lids", "Lidded meal-prep containers", "Individual covered containers keep the pudding safely chilled and make the four breakfasts genuinely grab-and-go."),
+        ]
+    elif "butter chicken" in haystack:
         products = [
             ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed pan carries the yogurt-marinated chicken safely beneath the broiler without warping or spilling hot drips."),
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot softens the onion evenly and keeps the tomato-cream sauce at a gentle, steady simmer."),
