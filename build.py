@@ -425,7 +425,7 @@ SHOP_IMAGES = {
     "heavy gauge aluminum half sheet pan": ("https://images.pexels.com/photos/13156063/pexels-photo-13156063.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed metal baking sheet lined with parchment"),
     "9 by 13 baking dish casserole": ("https://images.pexels.com/photos/19145679/pexels-photo-19145679/free-photo-of-meal-in-glass-box.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rectangular glass baking dish filled with a browned eggplant casserole"),
     "silicone oven mitts heat resistant": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-safe oven mitts hanging above kitchen pots and pans"),
-    "rice cooker family stainless inner pot": ("https://images.unsplash.com/photo-1599182345361-9542815e73f6?auto=format&fit=crop&w=900&h=600&q=80", "White-and-black countertop rice cooker with a glass lid and removable inner pot"),
+    "rice cooker family stainless inner pot": ("https://images.unsplash.com/photo-1599182345361-9542815e73f6?auto=format&fit=crop&w=900&h=600&q=80", "Round countertop rice cooker with a metal lid and removable inner pot"),
     "glass meal prep containers locking lids": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Prepared meals arranged in clear lidded containers"),
     "digital kitchen scale grams ounces": ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg?auto=compress&dpr=1&h=750&w=1260", "Bowl of vegetables resting on a digital kitchen scale"),
     "12 inch cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
@@ -495,7 +495,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "beef stew" in haystack and "mushroom" in haystack:
+    if "shrimp étouffée" in haystack or "shrimp etouffee" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot cooks the roux and Cajun trinity evenly, then holds the shrimp in a shallow layer for gentle, even poaching."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "A rice cooker can handle the long-grain and wild-rice pilaf hands-off while the étouffée gravy develops."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest shrimp reach 145°F, then stop cooking before their texture turns firm and rubbery."),
+        ]
+    elif "okonomiyaki" in haystack and "pork" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad, heat-steady surface builds crisp golden bases on two cabbage pancakes without crowding."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A broad bowl gives five packed cups of cabbage room to fold into the light batter without crushing the shreds."),
+            ("stainless steel mandoline slicer hand guard", "Mandoline slicer with guard", "Uniform fine cabbage shreds steam tender on schedule while the guarded carriage keeps hands away from the blade."),
+        ]
+    elif "panna cotta" in haystack and "vanilla" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Precise dairy, sugar and gelatin measurements protect the delicate balance between a clean unmold and a tender wobble."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "A quick temperature check makes it easy to stop heating the vanilla dairy at 170 to 180°F, safely below a boil."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "A medium bowl gives the gelatin room to bloom evenly before the hot vanilla cream is whisked in."),
+        ]
+    elif "beef stew" in haystack and "mushroom" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot holds steady heat through the long 325°F braise and gives two pounds of beef room to brown in batches."),
             ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade makes consistent beef, potato, carrot, celery and mushroom pieces that become tender at the same rate."),
