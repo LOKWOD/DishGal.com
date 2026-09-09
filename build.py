@@ -505,7 +505,7 @@ def recipe_shop(recipe) -> str:
         products = [
             ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad, heat-steady surface builds crisp golden bases on two cabbage pancakes without crowding."),
             ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A broad bowl gives five packed cups of cabbage room to fold into the light batter without crushing the shreds."),
-            ("stainless steel mandoline slicer hand guard", "Mandoline slicer with guard", "Uniform fine cabbage shreds steam tender on schedule while the guarded carriage keeps hands away from the blade."),
+            ("stainless steel mandoline slicer", "Mandoline slicer", "Uniform fine cabbage shreds steam tender on schedule; always use the slicer's included hand guard near the blade."),
         ]
     elif "panna cotta" in haystack and "vanilla" in haystack:
         products = [
