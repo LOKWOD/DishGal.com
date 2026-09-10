@@ -495,7 +495,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "shrimp étouffée" in haystack or "shrimp etouffee" in haystack:
+    if "green chicken pozole" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot holds the chicken, hominy and green broth comfortably while maintaining a gentle, even simmer."),
+            ("immersion blender stainless steel", "Immersion blender", "Blend the roasted tomatillos, chiles, herbs and pepitas into a cohesive green sauce with less transfer and cleanup."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest chicken pieces reach 165°F before shredding without cutting every piece open."),
+        ]
+    elif "adjarian khachapuri" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A sturdy inverted pan preheated to 500°F gives both cheese-filled bread boats a strongly browned, crisp underside."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the supple dough and two equal cheese fillings consistent without adding excess flour."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand and forearm protection matters when working around a preheated metal pan at 500°F."),
+        ]
+    elif "lemon posset" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate cream, sugar and lemon measurements protect the acid-to-dairy balance that lets posset set without gelatin."),
+            ("microplane zester grater stainless", "Fine citrus zester", "A fine zester removes fragrant yellow peel while leaving the bitter white pith behind."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "A stable bowl makes straining and portioning the hot lemon cream into six ramekins cleaner and safer."),
+        ]
+    elif "shrimp étouffée" in haystack or "shrimp etouffee" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot cooks the roux and Cajun trinity evenly, then holds the shrimp in a shallow layer for gentle, even poaching."),
             ("rice cooker family stainless inner pot", "Family-size rice cooker", "A rice cooker can handle the long-grain and wild-rice pilaf hands-off while the étouffée gravy develops."),
