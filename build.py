@@ -1062,6 +1062,9 @@ def build_recipe_pages():
         for hub_slug in ingredient_hubs_for_recipe(recipe)[:2]:
             topic_links.append(f'<a href="{href("/ingredients/" + hub_slug + "/")}">{esc(INGREDIENT_HUBS[hub_slug]["title"])}</a>')
         related = related_recipes(recipe)
+        photo_credit = ""
+        if recipe.get("image_credit") and recipe.get("image_credit_url") and recipe.get("image_license") and recipe.get("image_license_url"):
+            photo_credit = f'''<p class="recipe-photo-credit" style="margin:.55rem .15rem 0;font-size:.75rem;color:var(--ink-soft)">Photo: <a href="{esc(recipe['image_credit_url'])}" target="_blank" rel="noopener noreferrer">{esc(recipe['image_credit'])}</a> · <a href="{esc(recipe['image_license_url'])}" target="_blank" rel="noopener noreferrer">{esc(recipe['image_license'])}</a></p>'''
         related_html = f'''<section class="section-tight section-paper related-section"><div class="wrap">
           <div class="section-heading"><div><p class="eyebrow">Cook next</p><h2>More recipes you’ll like</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">All recipes</a></div>
           <div class="recipe-grid">{''.join(recipe_card(candidate) for candidate in related)}</div>
@@ -1069,7 +1072,7 @@ def build_recipe_pages():
         body = f'''<section class="recipe-hero" data-recipe-page data-servings="{int(recipe.get('servings',4))}">
           <div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(recipe.get("title","Recipe"),None)])}
           <div class="recipe-hero-grid">
-            <img class="recipe-hero-image" src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" width="900" height="968" fetchpriority="high" decoding="async">
+            <div><img class="recipe-hero-image" src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" width="900" height="968" fetchpriority="high" decoding="async">{photo_credit}</div>
             <div><p class="eyebrow">{esc(collection_title)}</p>
               <h1>{esc(recipe.get('title','Recipe'))}</h1><p class="lede">{esc(recipe.get('dek',''))}</p>
               <p class="recipe-byline">Developed for DishGal · Updated {esc(recipe.get('date_modified','2026-08-17'))}</p>
