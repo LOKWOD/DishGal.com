@@ -495,7 +495,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "green chicken pozole" in haystack:
+    if "taiwanese-style red-braised beef noodle soup" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot browns the beef evenly and holds a steady low simmer while the chuck becomes fork-tender."),
+            ("stainless steel pasta pot colander", "Pasta pot with colander", "Cooking and draining the wheat noodles separately keeps the red-braised broth clear and prevents leftover noodles from swelling."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the beef is safely above 145°F and near the 195 to 205°F range where collagen-rich chuck turns tender."),
+        ]
+    elif "greek spanakorizo" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot gives the spinach room to wilt and keeps the rice at a gentle, even simmer."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose knife makes quick work of the onion, scallions, spinach and generous handful of fresh dill."),
+            ("microplane zester grater stainless", "Fine citrus zester", "A fine zester captures fragrant lemon peel without the bitter white pith before the juice brightens the finished rice."),
+        ]
+    elif "pastéis de nata" in haystack or "pasteis de nata" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour slurry, sugar syrup and twelve portions of puff pastry consistent."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "Heat-safe bowls make it easier to temper and strain the warm custard without spills or scrambled yolk."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when rotating and removing a metal muffin pan from a fully preheated 500°F oven."),
+        ]
+    elif "green chicken pozole" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot holds the chicken, hominy and green broth comfortably while maintaining a gentle, even simmer."),
             ("immersion blender stainless steel", "Immersion blender", "Blend the roasted tomatillos, chiles, herbs and pepitas into a cohesive green sauce with less transfer and cleanup."),
