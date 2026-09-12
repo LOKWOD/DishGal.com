@@ -427,7 +427,7 @@ SHOP_IMAGES = {
     "silicone oven mitts heat resistant": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-safe oven mitts hanging above kitchen pots and pans"),
     "rice cooker family stainless inner pot": ("https://images.unsplash.com/photo-1599182345361-9542815e73f6?auto=format&fit=crop&w=900&h=600&q=80", "Round countertop rice cooker with a metal lid and removable inner pot"),
     "glass meal prep containers locking lids": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Prepared meals arranged in clear lidded containers"),
-    "digital kitchen scale grams ounces": ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg?auto=compress&dpr=1&h=750&w=1260", "Bowl of vegetables resting on a digital kitchen scale"),
+    "digital kitchen scale grams ounces": ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg", "Bowl of vegetables resting on a digital kitchen scale"),
     "12 inch cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
     "silicone fish spatula turner": ("https://images.unsplash.com/photo-1673155225557-bee5d2540158?auto=format&fit=crop&w=900&q=80", "Flexible kitchen spatula being used during cooking"),
     "stainless steel mixing bowls nesting": ("https://images.pexels.com/photos/31109993/pexels-photo-31109993.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stainless-steel mixing bowl and matching strainer bowl"),
@@ -466,7 +466,7 @@ SHOP_IMAGE_RULES = [
     (("slow cooker",), ("https://upload.wikimedia.org/wikipedia/commons/6/65/6_quart_Crock_Pot_slow_cooker.jpg", "Six-quart oval slow cooker with its glass lid closed")),
     (("air fryer", "toaster oven"), ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer and toaster oven")),
     (("thermometer",), ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Two digital probe cooking thermometers beside prepared ingredients")),
-    (("scale",), ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg?auto=compress&dpr=1&h=750&w=1260", "Bowl resting on a digital kitchen scale")),
+    (("scale",), ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg", "Bowl resting on a digital kitchen scale")),
     (("refrigerator",), ("https://images.pexels.com/photos/5418583/pexels-photo-5418583.jpeg?auto=compress&dpr=1&h=750&w=1260", "Food and containers organized on refrigerator shelves")),
     (("container", "storage", "labels"), ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Organized food in clear storage containers")),
     (("colander", "strainer", "pasta"), ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta draining through a stainless-steel colander")),
@@ -495,7 +495,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "taiwanese-style red-braised beef noodle soup" in haystack:
+    if "san francisco-style cioppino" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot gives the tomato broth room to simmer and the shellfish space to open without crowding."),
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Use a secure grip to turn crab clusters, transfer opened shellfish and keep hands clear of the steaming broth."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest fish and shrimp reach 145°F before the seafood becomes dry or rubbery."),
+        ]
+    elif "provençal ratatouille" in haystack or "provencal ratatouille" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot reduces the tomatoes evenly and holds all the vegetables without crushing their distinct pieces."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade makes consistent eggplant, zucchini, pepper and onion pieces that finish at the same rate."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface keeps four kinds of chopped vegetables organized and makes batch prep safer."),
+        ]
+    elif "molten dark chocolate cakes" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the chocolate, butter and small flour quantity precise so the cakes set outside while staying molten inside."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "Separate bowls simplify melting chocolate, whipping the batter and tempering the vanilla custard without cross-contamination."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when removing four small, very hot ramekins from a 425°F oven and turning out the cakes."),
+        ]
+    elif "taiwanese-style red-braised beef noodle soup" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot browns the beef evenly and holds a steady low simmer while the chuck becomes fork-tender."),
             ("stainless steel pasta pot colander", "Pasta pot with colander", "Cooking and draining the wheat noodles separately keeps the red-braised broth clear and prevents leftover noodles from swelling."),
