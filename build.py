@@ -495,7 +495,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "san francisco-style cioppino" in haystack:
+    if "polish gołąbki" in haystack or "polish golabki" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Close-fitting rows keep the cabbage rolls seam-side down while the covered dish traps the steam that tenderizes every leaf."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp blade cores the cabbage, shaves the thick leaf ribs and makes the fine, even onion pieces needed for the filling and sauce."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check a roll in the middle of the dish and confirm the ground-beef filling reaches 160°F without guessing from color."),
+        ]
+    elif "vietnamese bánh xèo" in haystack or "vietnamese banh xeo" in haystack:
+        products = [
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Tongs move the thin pork and shrimp safely between the hot pan and clean plates without piercing or tearing either filling."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep the rested rice batter, raw seafood and clean cooked filling organized without cross-contamination."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the pork reaches 145°F and the shrimp 145°F before either filling goes into the fast-cooking crêpes."),
+        ]
+    elif "bakery-style lemon bars" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour-to-butter ratio and thick lemon filling consistent for clean, sturdy layers."),
+            ("microplane zester grater stainless", "Fine citrus zester", "A fine zester removes the fragrant yellow peel while leaving the bitter white pith on the lemon."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when pouring filling into a hot metal pan and moving it from a 350°F oven."),
+        ]
+    elif "san francisco-style cioppino" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot gives the tomato broth room to simmer and the shellfish space to open without crowding."),
             ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Use a secure grip to turn crab clusters, transfer opened shellfish and keep hands clear of the steaming broth."),
