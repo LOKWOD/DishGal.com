@@ -495,7 +495,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "polish gołąbki" in haystack or "polish golabki" in haystack:
+    if "jamaican-style whole jerk chicken" in haystack:
+        products = [
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "A secure grip lets you rotate and brown the whole bird while keeping your hands clear of direct heat and flare-ups."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several spots and confirm the breast reaches 165°F and the inner thigh at least 165°F without touching bone."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A nonreactive bowl contains the citrus-and-chile marinade and keeps raw poultry separate from clean carving and serving tools."),
+        ]
+    elif "egyptian koshari" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide, heavy pot holds a steady 350°F for crisp onion batches and provides room to combine the finished pantry components."),
+            ("stainless steel pasta pot colander", "Pasta pot with colander", "A fitted colander makes draining the macaroni and parcooked lentils fast and thorough, which protects the layered dish from excess water."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade turns three onions into even thin slices that fry at the same rate instead of burning at the edges."),
+        ]
+    elif "classic black forest cake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Equal gram weights produce level chocolate layers, while precise flour and cocoa measurements keep the sponge moist enough for cherry syrup."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate heat-safe bowls keep the cocoa batter, cold stabilized cream and thick cherry filling organized for clean assembly."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when rotating and removing three hot metal cake pans from a 350°F oven."),
+        ]
+    elif "polish gołąbki" in haystack or "polish golabki" in haystack:
         products = [
             ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Close-fitting rows keep the cabbage rolls seam-side down while the covered dish traps the steam that tenderizes every leaf."),
             ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp blade cores the cabbage, shaves the thick leaf ribs and makes the fine, even onion pieces needed for the filling and sauce."),
