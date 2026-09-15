@@ -420,19 +420,26 @@ SHOP_IMAGES = {
     "immersion blender stainless steel": ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup"),
     "digital probe meat thermometer": ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Two digital probe cooking thermometers beside prepared ingredients"),
     "stainless steel pasta pot colander": ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta draining through a stainless-steel colander"),
+    "stainless steel mesh colander strainer": ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta being lifted from a stainless-steel mesh colander"),
     "microplane zester grater stainless": ("https://images.pexels.com/photos/6287524/pexels-photo-6287524.jpeg?auto=compress&dpr=1&h=750&w=1260", "Cheese being grated on a stainless-steel grater"),
     "stainless steel kitchen tongs silicone tip": ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Kitchen tongs turning food over a grill"),
+    "long stainless steel kitchen tongs": ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Long stainless-steel kitchen tongs turning food over a grill"),
     "heavy gauge aluminum half sheet pan": ("https://images.pexels.com/photos/13156063/pexels-photo-13156063.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed metal baking sheet lined with parchment"),
     "9 by 13 baking dish casserole": ("https://images.pexels.com/photos/19145679/pexels-photo-19145679/free-photo-of-meal-in-glass-box.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rectangular glass baking dish filled with a browned eggplant casserole"),
+    "oven safe baking dish": ("https://images.unsplash.com/photo-1533777324565-a040eb52facd?auto=format&fit=crop&w=900&q=80", "Oven-safe rectangular baking dish holding a finished baked meal"),
     "silicone oven mitts heat resistant": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-safe oven mitts hanging above kitchen pots and pans"),
+    "heat resistant oven mitts": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-resistant oven mitts hanging above kitchen pots and pans"),
     "rice cooker family stainless inner pot": ("https://images.unsplash.com/photo-1599182345361-9542815e73f6?auto=format&fit=crop&w=900&h=600&q=80", "Round countertop rice cooker with a metal lid and removable inner pot"),
     "glass meal prep containers locking lids": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Prepared meals arranged in clear lidded containers"),
     "digital kitchen scale grams ounces": ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg", "Bowl of vegetables resting on a digital kitchen scale"),
     "12 inch cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
+    "cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
     "silicone fish spatula turner": ("https://images.unsplash.com/photo-1673155225557-bee5d2540158?auto=format&fit=crop&w=900&q=80", "Flexible kitchen spatula being used during cooking"),
     "stainless steel mixing bowls nesting": ("https://images.pexels.com/photos/31109993/pexels-photo-31109993.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stainless-steel mixing bowl and matching strainer bowl"),
+    "stainless steel bowl colander set": ("https://images.pexels.com/photos/31109993/pexels-photo-31109993.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stainless-steel bowl and matching colander set"),
     "stainless steel measuring scoops set": ("https://images.unsplash.com/photo-1781082580025-407abed1d50f?auto=format&fit=crop&w=900&h=600&crop=entropy&q=80", "Stainless-steel measuring scoops arranged on a work surface"),
     "8 inch chef knife kitchen": ("https://images.unsplash.com/photo-1711065060638-675df8e8c358?auto=format&fit=crop&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
+    "chef knife kitchen": ("https://images.unsplash.com/photo-1711065060638-675df8e8c358?auto=format&fit=crop&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
     "large nonslip cutting board": ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Large cutting board with a chef's knife and vegetables"),
     "family size air fryer wide basket": ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer in a home kitchen"),
     "heavy gauge aluminum half sheet pan wire rack": ("https://images.pexels.com/photos/7059458/pexels-photo-7059458.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed sheet pan holding roasted potatoes and asparagus"),
@@ -495,7 +502,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "jamaican-style whole jerk chicken" in haystack:
+    if "british beer-battered fish & chips" in haystack:
+        products = [
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check that the thickest fish reaches 145°F and monitor the frying oil between batches so the coating stays crisp instead of greasy."),
+            ("stainless steel bowl colander set", "Stainless bowl-and-colander set", "The bowl mixes cold beer batter while the fitted colander rinses potatoes and helps drain them thoroughly before frying."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface makes it easier to cut the potatoes into even chips; sanitize it before using it for cooked food."),
+        ]
+    elif "korean beef japchae" in haystack:
+        products = [
+            ("stainless steel mesh colander strainer", "Stainless mesh colander", "A roomy mesh colander drains the slippery sweet-potato noodles quickly so they stay springy and do not dilute the sesame dressing."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "Tongs toss the noodles, beef and separately cooked vegetables evenly without chopping the long glass noodles."),
+            ("chef knife kitchen", "Chef’s knife", "A sharp all-purpose blade makes uniform carrot, onion, mushroom and beef strips that cook quickly and evenly."),
+        ]
+    elif "french cherry clafoutis" in haystack:
+        products = [
+            ("oven safe baking dish", "Oven-safe baking dish", "A shallow three-quart dish gives the custard room to brown at the rim while keeping the cherries visible across the surface."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and cherries precise so the batter sets softly instead of turning cakey or watery."),
+            ("heat resistant oven mitts", "Heat-resistant oven mitts", "Secure hand protection is essential when moving a heavy cast-iron skillet into and out of a 350°F oven."),
+        ]
+    elif "jamaican-style whole jerk chicken" in haystack:
         products = [
             ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "A secure grip lets you rotate and brown the whole bird while keeping your hands clear of direct heat and flare-ups."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check several spots and confirm the breast reaches 165°F and the inner thigh at least 165°F without touching bone."),
