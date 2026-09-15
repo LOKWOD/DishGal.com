@@ -518,7 +518,7 @@ def recipe_shop(recipe) -> str:
         products = [
             ("oven safe baking dish", "Oven-safe baking dish", "A shallow three-quart dish gives the custard room to brown at the rim while keeping the cherries visible across the surface."),
             ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and cherries precise so the batter sets softly instead of turning cakey or watery."),
-            ("heat resistant oven mitts", "Heat-resistant oven mitts", "Secure hand protection is essential when moving a heavy cast-iron skillet into and out of a 350°F oven."),
+            ("heat resistant oven mitts", "Heat-resistant oven mitts", "Secure hand protection is essential when moving a heavy ceramic baking dish and its sheet pan into and out of a 350°F oven."),
         ]
     elif "jamaican-style whole jerk chicken" in haystack:
         products = [
