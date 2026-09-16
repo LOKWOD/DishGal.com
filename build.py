@@ -1140,6 +1140,40 @@ def build_recipe_index():
     )
     write_page("/recipes/", page("Easy Dinner Recipes", "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps.", "/recipes/", body, schema=schema))
 
+CURATED_RECIPE_CLUSTERS = {
+    "cottage-cheese-protein-pancakes": {
+        "slugs": ["freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a make-ahead breakfast rotation",
+        "copy": "Compare a hot protein-forward pancake, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+    },
+    "freezer-breakfast-burritos": {
+        "slugs": ["cottage-cheese-protein-pancakes", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a make-ahead breakfast rotation",
+        "copy": "Compare a hot protein-forward pancake, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+    },
+    "berry-almond-chia-pudding-toasted-seeds": {
+        "slugs": ["cottage-cheese-protein-pancakes", "freezer-breakfast-burritos"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a make-ahead breakfast rotation",
+        "copy": "Compare a hot protein-forward pancake, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+    },
+}
+
+def recipe_topic_cluster(recipe) -> str:
+    cluster = CURATED_RECIPE_CLUSTERS.get(recipe.get("slug", ""))
+    if not cluster:
+        return ""
+    recipes_by_slug = {candidate["slug"]: candidate for candidate in RECIPES}
+    linked = [recipes_by_slug[slug] for slug in cluster["slugs"] if slug in recipes_by_slug]
+    if not linked:
+        return ""
+    return f'''<section class="section-tight section-paper related-section" aria-labelledby="breakfast-cluster-heading"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow">{esc(cluster["eyebrow"])}</p><h2 id="breakfast-cluster-heading">{esc(cluster["title"])}</h2></div><p>{esc(cluster["copy"])}</p></div>
+      <div class="recipe-grid">{''.join(recipe_card(candidate) for candidate in linked)}</div>
+    </div></section>'''
+
 def build_recipe_pages():
     for recipe in RECIPES:
         slug = recipe["slug"]
@@ -1166,6 +1200,7 @@ def build_recipe_pages():
           <div class="section-heading"><div><p class="eyebrow">Cook next</p><h2>More recipes you’ll like</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">All recipes</a></div>
           <div class="recipe-grid">{''.join(recipe_card(candidate) for candidate in related)}</div>
         </div></section>'''
+        cluster_html = recipe_topic_cluster(recipe)
         body = f'''<section class="recipe-hero" data-recipe-page data-servings="{int(recipe.get('servings',4))}">
           <div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(recipe.get("title","Recipe"),None)])}
           <div class="recipe-hero-grid">
@@ -1200,6 +1235,7 @@ def build_recipe_pages():
             <div class="recipe-panel"><h2>Questions</h2><div class="faq-list">{faqs}</div></div>
           </div>
         </div></section>
+        {cluster_html}
         {related_html}
         <div class="cook-mode" data-cook-mode><div class="cook-mode-inner"><div class="cook-mode-head"><div><strong>{esc(recipe.get('title','Recipe'))}</strong><div class="muted">Screen stays awake when supported.</div></div><button class="btn btn-dark" type="button" data-close-cook>Exit cook mode</button></div>{cook_steps}</div></div>'''
         schema = [
