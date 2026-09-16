@@ -502,7 +502,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "british beer-battered fish & chips" in haystack:
+    if "hungarian chicken paprikash" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide heavy pot browns the chicken in batches and holds a gentle, even braise without crowding the bone-in pieces."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check the thickest chicken away from bone and confirm every piece reaches at least 165°F before it returns to the finished sauce."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach makes it easier to turn browned chicken and move cooked pieces without piercing the meat or splashing hot sauce."),
+        ]
+    elif "sicilian pasta alla norma" in haystack:
+        products = [
+            ("stainless steel mesh colander strainer", "Stainless mesh colander", "A roomy mesh colander drains the rigatoni quickly while you preserve the starchy cooking water that gives the sauce its cling."),
+            ("chef knife kitchen", "Chef’s knife", "A sharp all-purpose blade makes even eggplant half-moons and thin garlic slices that brown and soften at the same rate."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface keeps the broad eggplant slices organized and gives you space to chop the roasted pieces safely."),
+        ]
+    elif "honey-pistachio baklava" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Straight sides support thirty delicate phyllo layers, while a clear glass dish makes it easy to monitor browning at the edges."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate pistachio, butter and syrup weights keep the filling generous without making the finished diamonds greasy or heavy."),
+            ("heat resistant oven mitts", "Heat-resistant oven mitts", "Secure hand protection is essential when moving a hot glass dish and pouring syrup around a freshly baked 350°F pastry."),
+        ]
+    elif "british beer-battered fish & chips" in haystack:
         products = [
             ("digital probe meat thermometer", "Digital probe thermometer", "Check that the thickest fish reaches 145°F and monitor the frying oil between batches so the coating stays crisp instead of greasy."),
             ("stainless steel bowl colander set", "Stainless bowl-and-colander set", "The bowl mixes cold beer batter while the fitted colander rinses potatoes and helps drain them thoroughly before frying."),
@@ -1517,4 +1535,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
