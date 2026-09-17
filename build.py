@@ -502,7 +502,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "hungarian chicken paprikash" in haystack:
+    if "cottage cheese frittata" in haystack:
+        products = [
+            ("cast iron skillet", "Oven-safe cast-iron skillet", "A well-seasoned oven-safe skillet softens the vegetables, sets the egg edges and moves directly into a 375°F oven."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check the center for 160°F so the eggs are safely set while the cottage-cheese frittata remains tender."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A roomy nonreactive bowl makes it easy to whisk ten eggs and cottage cheese without splashing."),
+        ]
+    elif "moroccan-style vegetarian harira" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot gives lentils room to simmer and keeps the flour-thickened tomato broth at steady heat."),
+            ("stainless steel mesh colander strainer", "Stainless mesh colander", "Fine mesh keeps small lentils contained while you rinse away dust and inspect them before cooking."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade makes the fine onion, celery and herb cuts that melt evenly into the soup."),
+        ]
+    elif "nepali-style spinach vegetable momos" in haystack:
+        products = [
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep the green wrapper dough, cooled vegetable filling and tomato-sesame achar organized."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp blade makes the finely shredded cabbage and tiny mushroom pieces that fit without puncturing thin wrappers."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable roomy surface supports vegetable prep, dough portioning and pleating twenty-four dumplings."),
+        ]
+    elif "hungarian chicken paprikash" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide heavy pot browns the chicken in batches and holds a gentle, even braise without crowding the bone-in pieces."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check the thickest chicken away from bone and confirm every piece reaches at least 165°F before it returns to the finished sauce."),
@@ -1142,22 +1160,28 @@ def build_recipe_index():
 
 CURATED_RECIPE_CLUSTERS = {
     "cottage-cheese-protein-pancakes": {
-        "slugs": ["freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
         "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare a hot protein-forward pancake, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+    },
+    "cottage-cheese-frittata-tomatoes-green-peppers": {
+        "slugs": ["cottage-cheese-protein-pancakes", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a make-ahead breakfast rotation",
+        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
     },
     "freezer-breakfast-burritos": {
-        "slugs": ["cottage-cheese-protein-pancakes", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
         "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare a hot protein-forward pancake, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
     },
     "berry-almond-chia-pudding-toasted-seeds": {
-        "slugs": ["cottage-cheese-protein-pancakes", "freezer-breakfast-burritos"],
+        "slugs": ["cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos"],
         "eyebrow": "Breakfast planning",
         "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare a hot protein-forward pancake, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
     },
 }
 

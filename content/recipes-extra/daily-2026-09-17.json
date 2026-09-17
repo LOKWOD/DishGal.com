@@ -1,0 +1,369 @@
+[
+  {
+    "calories": 245,
+    "collection": "vegetarian",
+    "cook_minutes": 28,
+    "cost_per_serving": "$1.80",
+    "date_modified": "2026-09-17",
+    "date_published": "2026-09-17",
+    "dek": "Creamy cottage cheese disappears into tender eggs while sweet tomatoes and sautéed green pepper make this skillet breakfast colorful, savory and meal-prep friendly.",
+    "difficulty": "Easy",
+    "faqs": [
+      {
+        "a": "Small soft curds may remain, but they melt into the egg matrix as it bakes. Whisk thoroughly and use small-curd cottage cheese if you prefer the most uniform texture.",
+        "q": "Will cottage cheese make the frittata lumpy?"
+      },
+      {
+        "a": "Yes. Sauté the vegetables in a regular skillet, transfer them to a greased 9-inch pie plate, add the egg mixture and bake for 20 to 24 minutes, checking for a 160°F center.",
+        "q": "Can I make this frittata without a cast-iron skillet?"
+      },
+      {
+        "a": "The vegetables may have been undercooked, the cottage cheese may have contained excess whey, or the eggs may have been baked too hot. Soften the vegetables fully, drain pooled whey and stop baking at 160°F.",
+        "q": "Why did my frittata release water?"
+      }
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Frittata_-_Bam%27s_Kitchen_2024-04-02.jpg",
+    "image_alt": "Slice of golden frittata with roasted tomato wedges and green pepper pieces on a gray plate",
+    "image_credit": "Andy Li / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Frittata_-_Bam%27s_Kitchen_2024-04-02.jpg",
+    "image_license": "CC0 1.0",
+    "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "ingredients": [
+      "10 large eggs",
+      "1 cup full-fat cottage cheese, 225 g",
+      "1/2 cup finely grated sharp cheddar, 2 oz",
+      "1 tbsp extra-virgin olive oil",
+      "1 small yellow onion, finely diced, about 1 cup",
+      "1 medium green bell pepper, seeded and cut into 1/2-inch pieces",
+      "1/2 tsp kosher salt, divided",
+      "1/4 tsp freshly ground black pepper",
+      "1/4 tsp smoked paprika",
+      "1 cup cherry tomatoes, halved, about 6 oz",
+      "2 tbsp chopped flat-leaf parsley, divided"
+    ],
+    "instructions": [
+      {
+        "name": "Heat the oven and whisk the base",
+        "text": "Place a rack in the center and heat the oven to 375°F. Whisk the eggs, cottage cheese, cheddar, 1/4 teaspoon salt, black pepper and smoked paprika in a large bowl until the yolks are fully blended; small cottage-cheese curds are expected."
+      },
+      {
+        "name": "Soften the vegetables",
+        "text": "Heat the olive oil in a well-seasoned 10-inch cast-iron or oven-safe nonstick skillet over medium. Add the onion, green pepper and remaining 1/4 teaspoon salt. Cook for 6 to 8 minutes, stirring occasionally, until the onion is translucent and the pepper is tender with a few browned edges."
+      },
+      {
+        "name": "Arrange the tomatoes",
+        "text": "Reduce the heat to medium-low. Stir in half the parsley, then spread the vegetables evenly across the skillet. Arrange the tomato halves cut-side up so they remain visible in the finished frittata."
+      },
+      {
+        "name": "Set the edges gently",
+        "text": "Pour in the egg mixture and stir once from the center to distribute the vegetables without scraping the pan. Cook undisturbed for 2 minutes, just until a narrow ring begins to set around the edge; the center should still be liquid."
+      },
+      {
+        "name": "Bake to a tender set",
+        "text": "Transfer the skillet to the oven and bake for 14 to 18 minutes, until the center no longer ripples and an instant-read thermometer inserted in the middle reaches 160°F. Avoid baking beyond 170°F, which can squeeze moisture from the cottage cheese and toughen the eggs."
+      },
+      {
+        "name": "Rest, slice and serve",
+        "text": "Set the hot skillet on a heatproof surface and rest for 5 minutes; keep the handle covered because it remains hot. Run a thin spatula around the edge, cut into six wedges and finish with the remaining parsley."
+      }
+    ],
+    "notes": [
+      "Full-fat small-curd cottage cheese gives the smoothest, least watery result. If liquid has pooled in the container, spoon off the excess before measuring.",
+      "The total time includes the 5-minute rest, which makes cleaner wedges and lets carryover heat finish the center.",
+      "The licensed photograph clearly shows a golden frittata wedge with tomato and green pepper embedded on top; the recipe matches that finished form, visible vegetables and simple plated presentation."
+    ],
+    "pantry": [
+      "eggs",
+      "cottage cheese",
+      "cheddar",
+      "olive oil",
+      "smoked paprika",
+      "kosher salt",
+      "black pepper"
+    ],
+    "prep_minutes": 12,
+    "protein": [
+      "vegetarian"
+    ],
+    "servings": 6,
+    "slug": "cottage-cheese-frittata-tomatoes-green-peppers",
+    "storage": "Cool within 2 hours, cut into wedges and refrigerate in a shallow airtight container for up to 4 days. Reheat one wedge covered in the microwave at 50% power for 60 to 90 seconds, or in a 325°F oven for 8 to 10 minutes, until it reaches 165°F. Freeze individually wrapped wedges for up to 2 months; thaw overnight before reheating.",
+    "swaps": [
+      "Use red or yellow bell pepper in place of green pepper. Keep the quantity to one medium pepper so the vegetables do not overwhelm the egg structure.",
+      "Replace cheddar with crumbled feta, Monterey Jack or a low-moisture mozzarella. Avoid fresh mozzarella unless it is thoroughly drained and patted dry.",
+      "For a dairy-free version, omit cottage cheese and cheddar and whisk in 1/2 cup unsweetened soy milk; the frittata will be lighter and provide less protein."
+    ],
+    "tags": [
+      "cottage cheese frittata",
+      "high protein breakfast",
+      "tomato frittata",
+      "green pepper eggs",
+      "meal prep breakfast",
+      "vegetarian brunch",
+      "skillet eggs",
+      "gluten free breakfast"
+    ],
+    "title": "Cottage Cheese Frittata with Tomatoes & Green Peppers",
+    "total_minutes": 45,
+    "why_it_works": [
+      "Cottage cheese adds protein and moisture without leaving a heavy layer; whisking it directly into the eggs distributes its curds through every slice.",
+      "Cooking the onion and green pepper before adding eggs drives off water and prevents a wet center, while tomatoes stay on top where their juice can evaporate.",
+      "A brief stovetop set followed by moderate oven heat cooks the center evenly without scorching the bottom or turning the outer eggs rubbery."
+    ]
+  },
+  {
+    "calories": 365,
+    "collection": "one-pot",
+    "cook_minutes": 65,
+    "cost_per_serving": "$2.20",
+    "date_modified": "2026-09-17",
+    "date_published": "2026-09-17",
+    "dek": "Tomato, brown lentils, chickpeas and fine vermicelli simmer with warm spices and fresh herbs for a substantial meatless soup finished with lemon.",
+    "difficulty": "Easy",
+    "faqs": [
+      {
+        "a": "Both flour and vermicelli keep absorbing liquid. Whisk in broth or water a little at a time during reheating until the soup returns to a spoonable, loose-stew consistency.",
+        "q": "Why is my harira much thicker after it cools?"
+      },
+      {
+        "a": "Yes, but the broth will be thinner. For a naturally thicker gluten-free alternative, blend 1 cup of the cooked soup until smooth and stir it back in before adding the noodles.",
+        "q": "Can I skip the flour slurry?"
+      },
+      {
+        "a": "Yes, and the spice flavor deepens overnight. For the best noodle texture, complete the soup through the thickening step, chill it, then add vermicelli while reheating before serving.",
+        "q": "Can I prepare harira a day ahead?"
+      }
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/Harira_fyldig_marrokansk_suppe.jpg",
+    "image_alt": "Thick red tomato harira with chickpeas, fine vermicelli and fresh mint in a white bowl",
+    "image_credit": "Interstates / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Harira_fyldig_marrokansk_suppe.jpg",
+    "image_license": "CC BY 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "ingredients": [
+      "2 tbsp extra-virgin olive oil",
+      "1 large yellow onion, finely diced, about 2 cups",
+      "2 celery ribs, finely diced",
+      "3 garlic cloves, finely grated",
+      "1 1/2 tsp ground ginger",
+      "1 tsp ground turmeric",
+      "1 tsp ground cinnamon",
+      "1 tsp ground cumin",
+      "1/4 tsp cayenne pepper, optional",
+      "1 can whole peeled tomatoes, 28 oz, crushed by hand with juices",
+      "1 cup dried brown or green lentils, rinsed and picked over",
+      "1 can chickpeas, 15 oz, drained and rinsed",
+      "6 cups low-sodium vegetable broth, plus more as needed",
+      "1 1/4 tsp kosher salt, divided",
+      "1/2 tsp freshly ground black pepper",
+      "1/2 cup chopped fresh cilantro, divided",
+      "1/2 cup chopped flat-leaf parsley, divided",
+      "1/3 cup all-purpose flour, 40 g",
+      "3/4 cup cool water",
+      "3 oz fine vermicelli, broken into 1-inch pieces",
+      "1 tbsp fresh lemon juice, plus wedges for serving",
+      "2 tbsp fresh mint leaves, torn, for serving"
+    ],
+    "instructions": [
+      {
+        "name": "Build the aromatic base",
+        "text": "Warm the olive oil in a 6-quart Dutch oven over medium. Add the onion, celery and 1/2 teaspoon salt. Cook for 8 to 10 minutes, stirring often, until soft but not browned. Add the garlic, ginger, turmeric, cinnamon, cumin and cayenne; stir for 45 seconds until fragrant."
+      },
+      {
+        "name": "Simmer the lentils",
+        "text": "Add the crushed tomatoes, lentils, chickpeas, broth, remaining 3/4 teaspoon salt, black pepper, half the cilantro and half the parsley. Bring to a boil, then reduce to a steady gentle simmer. Partially cover and cook for 32 to 38 minutes, stirring twice, until the lentils are tender but still hold their shape."
+      },
+      {
+        "name": "Whisk the thickener smooth",
+        "text": "While the lentils cook, whisk the flour and cool water in a bowl until completely smooth and pourable. Let it stand for 5 minutes, then whisk again; this slurry gives harira its characteristic lightly silky body without cream."
+      },
+      {
+        "name": "Temper and add the slurry",
+        "text": "Ladle 1 cup hot soup into the flour mixture in a thin stream while whisking. Slowly pour the tempered slurry back into the simmering pot, stirring constantly so it disperses without lumps. Simmer uncovered for 8 minutes, stirring frequently, until the broth lightly coats a spoon."
+      },
+      {
+        "name": "Cook the vermicelli",
+        "text": "Stir in the broken vermicelli and simmer for 5 to 7 minutes, or according to its package, until just tender. Stir often near the bottom because the flour and noodles can catch. Add up to 1 cup extra broth if the soup becomes thicker than a loose stew."
+      },
+      {
+        "name": "Brighten and finish",
+        "text": "Remove the pot from the heat. Stir in the remaining cilantro, remaining parsley and lemon juice. Taste for salt and acidity. Ladle into warm bowls, scatter with torn mint and serve with lemon wedges; the visible finish should remain tomato-red with chickpeas and noodles at the surface."
+      }
+    ],
+    "notes": [
+      "Brown or green lentils keep their shape better than red lentils, which would produce a much softer soup than the visible chickpea-and-noodle texture.",
+      "Harira varies by household and region; this is explicitly a meatless, home-kitchen interpretation rather than a claim that one formula represents every Moroccan version.",
+      "The licensed photograph visibly shows a thick red tomato soup with whole chickpeas, fine noodles and mint; the recipe matches those major components, consistency and garnish."
+    ],
+    "pantry": [
+      "brown lentils",
+      "canned chickpeas",
+      "canned tomatoes",
+      "vegetable broth",
+      "vermicelli",
+      "ground ginger",
+      "turmeric",
+      "cinnamon",
+      "cumin"
+    ],
+    "prep_minutes": 20,
+    "protein": [
+      "vegetarian"
+    ],
+    "servings": 6,
+    "slug": "moroccan-style-vegetarian-harira-lentils-chickpeas",
+    "storage": "Cool promptly in shallow containers and refrigerate within 2 hours for up to 4 days. The noodles continue absorbing broth, so loosen each portion with vegetable broth while reheating to a full simmer or 165°F. Freeze for up to 3 months preferably before adding vermicelli; thaw overnight, reheat, then cook fresh noodles in the soup.",
+    "swaps": [
+      "Use 1 cup cooked chickpeas from scratch in place of canned. Add them with the lentils only if they are already tender; firm chickpeas need a separate longer cook.",
+      "Gluten-free thin rice noodles can replace vermicelli. Thicken with 3 tablespoons cornstarch whisked into cool water and add the noodles for only their package cooking time.",
+      "For a meat version, brown 12 ounces diced lamb shoulder before the onions, then simmer until both lamb and lentils are tender. Reheat leftovers to 165°F."
+    ],
+    "tags": [
+      "vegetarian harira",
+      "Moroccan soup",
+      "lentil chickpea soup",
+      "tomato vermicelli soup",
+      "one pot dinner",
+      "meatless soup",
+      "Ramadan soup",
+      "make ahead soup"
+    ],
+    "title": "Moroccan-Style Vegetarian Harira with Lentils & Chickpeas",
+    "total_minutes": 85,
+    "why_it_works": [
+      "Blooming the dry spices in oil before liquid wakes up their aromas, while a gentle lentil simmer prevents the legumes from breaking down into paste.",
+      "Tempering a cool flour slurry with hot soup eliminates raw-flour pockets and thickens the tomato broth evenly without dairy.",
+      "Adding vermicelli only after the lentils are tender keeps the noodles distinct, and the final lemon and fresh herbs balance the soup's deep tomato and spice notes."
+    ]
+  },
+  {
+    "calories": 305,
+    "collection": "vegetarian",
+    "cook_minutes": 35,
+    "cost_per_serving": "$2.35",
+    "date_modified": "2026-09-17",
+    "date_published": "2026-09-17",
+    "dek": "Naturally green spinach wrappers hold a juicy cabbage, carrot and mushroom filling, with a roasted tomato-sesame dipping sauce alongside.",
+    "difficulty": "Moderate",
+    "faqs": [
+      {
+        "a": "The dough was probably too dry or insufficiently rested. Knead in water a teaspoon at a time if it will not become smooth, rest it covered for 30 minutes and keep every unused portion covered.",
+        "q": "Why did my momo wrappers crack while rolling?"
+      },
+      {
+        "a": "Brush the basket lightly with neutral oil, leave space between dumplings and let them stand for 1 minute after steaming before lifting them with a thin spatula.",
+        "q": "How do I keep momos from sticking to the steamer?"
+      },
+      {
+        "a": "Yes. Refrigerate the shaped uncooked momos on a covered, lightly floured tray for up to 4 hours, or freeze them immediately. Longer refrigeration softens the wrapper where it touches the filling.",
+        "q": "Can I shape the momos ahead of time?"
+      }
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Nepali_Veg_Momo_-_Worthing_Indian_Cafe_%26_Bar_2026-04-27.jpg",
+    "image_alt": "Six green steamed vegetable momos arranged around a small cup of red tomato dipping sauce on a blue plate",
+    "image_credit": "Andy Li / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Nepali_Veg_Momo_-_Worthing_Indian_Cafe_%26_Bar_2026-04-27.jpg",
+    "image_license": "CC0 1.0",
+    "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "ingredients": [
+      "5 oz baby spinach, about 5 packed cups",
+      "1/2 cup water, divided, plus more as needed",
+      "3 cups all-purpose flour, 360 g, plus more for dusting",
+      "3/4 tsp fine sea salt, divided",
+      "2 tsp neutral oil, plus more for the steamer",
+      "3 cups finely shredded green cabbage, 8 oz",
+      "1 medium carrot, coarsely grated, about 1 cup",
+      "5 oz cremini mushrooms, very finely chopped",
+      "4 scallions, thinly sliced",
+      "2 tsp finely grated fresh ginger",
+      "2 garlic cloves, finely grated",
+      "1 tbsp low-sodium soy sauce",
+      "1 tsp toasted sesame oil",
+      "1/2 tsp ground cumin",
+      "1/4 tsp freshly ground black pepper",
+      "4 medium plum tomatoes, halved lengthwise",
+      "2 fresh red chiles, stemmed, or 1/2 tsp red pepper flakes",
+      "2 tbsp sesame seeds",
+      "1 tbsp fresh lime juice",
+      "1 tsp packed light brown sugar",
+      "2 tbsp chopped fresh cilantro"
+    ],
+    "instructions": [
+      {
+        "name": "Make the spinach purée",
+        "text": "Bring a small saucepan of water to a boil. Add the spinach for 30 seconds, then drain and cool under cold water. Squeeze very dry. Blend the spinach with 1/4 cup water until completely smooth; measure 2/3 cup purée, adding a spoonful of water only if needed."
+      },
+      {
+        "name": "Mix and rest the green dough",
+        "text": "Combine the flour and 1/2 teaspoon salt in a bowl. Add the spinach purée and neutral oil, mixing until shaggy. Knead for 8 to 10 minutes, adding the remaining water 1 tablespoon at a time only until a firm, smooth dough forms. Cover and rest at room temperature for 30 minutes."
+      },
+      {
+        "name": "Dry-cook the filling",
+        "text": "Heat a wide skillet over medium-high. Add the cabbage, carrot, mushrooms, scallions, ginger, garlic, soy sauce, sesame oil, cumin, black pepper and remaining 1/4 teaspoon salt. Cook for 7 to 9 minutes, stirring often, until the vegetables are tender and the pan is dry. Spread on a plate and cool completely."
+      },
+      {
+        "name": "Roast and blend the achar",
+        "text": "Heat the broiler with a rack 6 inches from the element. Put tomatoes and chiles cut-side down on a foil-lined pan and broil for 8 to 12 minutes until blistered and soft. Toast sesame seeds in a dry skillet for 2 minutes. Blend tomatoes, chiles, sesame, lime juice, brown sugar and cilantro until spoonable but not perfectly smooth; season to taste."
+      },
+      {
+        "name": "Portion and roll the wrappers",
+        "text": "Roll the rested dough into a 16-inch rope and cut into 24 equal pieces, about 20 grams each. Keep them covered. Flatten one piece and roll it into a 3 1/2-inch round, turning often so the edge is thinner than the center. Dust lightly, not heavily, to keep the pleats tacky."
+      },
+      {
+        "name": "Fill and pleat the momos",
+        "text": "Place 1 packed tablespoon cooled filling in the center of a wrapper. Lift and pinch one side into 6 to 8 pleats against the other edge, sealing firmly into a crescent. Keep finished momos covered on a lightly floured tray and repeat; discard filling that has stood at room temperature longer than 2 hours."
+      },
+      {
+        "name": "Steam in uncrowded batches",
+        "text": "Lightly oil a steamer basket and arrange momos at least 1/2 inch apart. Set over 1 inch of steadily simmering water without letting the basket touch it. Cover and steam for 10 to 12 minutes, until the green wrappers look glossy, feel set rather than tacky and the vegetable centers are steaming hot. Repeat with the remaining batch, replenishing boiling water as needed."
+      },
+      {
+        "name": "Serve around the achar",
+        "text": "Spoon the red tomato-sesame achar into a small bowl. Arrange warm green momos around it so the contrasting wrappers and sauce remain visible, and serve immediately."
+      }
+    ],
+    "notes": [
+      "Finely chop the filling so sharp cabbage or mushroom pieces do not puncture the thin wrappers. A dry, completely cool filling is the most important sealing safeguard.",
+      "Keep both dough portions and shaped momos covered; exposed wrapper edges dry quickly and become difficult to pleat.",
+      "The licensed photograph clearly shows six green crescent-shaped steamed momos arranged around red sauce; the recipe matches their spinach-colored wrappers, vegetable preparation and plated presentation."
+    ],
+    "pantry": [
+      "all-purpose flour",
+      "soy sauce",
+      "toasted sesame oil",
+      "sesame seeds",
+      "ground cumin",
+      "brown sugar",
+      "fine sea salt"
+    ],
+    "prep_minutes": 55,
+    "protein": [
+      "vegetarian"
+    ],
+    "servings": 6,
+    "slug": "nepali-style-spinach-vegetable-momos-tomato-sesame-achar",
+    "storage": "Refrigerate cooled steamed momos and achar separately within 2 hours for up to 3 days. Re-steam momos for 5 to 7 minutes or microwave under a damp towel until the centers reach 165°F. Freeze uncooked momos in one layer until solid, bag for up to 2 months and steam directly from frozen for 14 to 16 minutes. Do not freeze the fresh achar.",
+    "swaps": [
+      "Replace mushrooms with 5 ounces crumbled extra-firm tofu pressed very dry. Cook it with the vegetables until no visible moisture remains.",
+      "For plain wrappers, omit spinach and knead the flour with about 3/4 cup warm water, adding it gradually until the same firm dough forms.",
+      "If fresh red chiles are unavailable, broil only the tomatoes and blend with 1/2 teaspoon red pepper flakes. Adjust heat after tasting."
+    ],
+    "tags": [
+      "vegetable momos",
+      "Nepali dumplings",
+      "spinach dumpling wrappers",
+      "tomato sesame achar",
+      "steamed dumplings",
+      "vegetarian appetizer",
+      "cabbage mushroom filling",
+      "weekend cooking project"
+    ],
+    "title": "Nepali-Style Spinach Vegetable Momos with Tomato-Sesame Achar",
+    "total_minutes": 125,
+    "why_it_works": [
+      "Blanched, thoroughly squeezed spinach colors the dough without flooding it; a firm knead and full rest create wrappers that roll thin without tearing.",
+      "Cooking the filling until the skillet is dry concentrates flavor and prevents steam from turning the sealed dumplings soggy or causing their seams to burst.",
+      "An oiled, uncrowded basket exposes each momo to circulating steam, while blistered tomato and toasted sesame give the uncooked dipping sauce body and depth."
+    ]
+  }
+]
