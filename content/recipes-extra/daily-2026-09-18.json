@@ -1,0 +1,356 @@
+[
+  {
+    "calories": 485,
+    "collection": "seafood",
+    "cook_minutes": 42,
+    "cost_per_serving": "$3.65",
+    "date_modified": "2026-09-18",
+    "date_published": "2026-09-18",
+    "dek": "Tender clams and Yukon Gold potatoes simmer in a creamy, thyme-scented chowder finished with crisp bacon, parsley and salty crackers.",
+    "difficulty": "Intermediate",
+    "faqs": [
+      {
+        "a": "Yes. Three 6.5-ounce cans supply enough clams and reserved juice for a flavorful weeknight chowder. Drain them over a measuring cup, add bottled clam juice to reach 3 cups total liquid, and stir the clams in only at the end so they stay tender.",
+        "q": "Can I make clam chowder with canned clams?"
+      },
+      {
+        "a": "Keep the dairy below a boil and add it after the potatoes are tender. A hard boil can separate the cream, while gentle heat keeps the broth smooth. If it still looks thin, mash about 1 cup of potatoes against the side of the pot and stir them back in.",
+        "q": "How do I keep the chowder creamy instead of grainy?"
+      },
+      {
+        "a": "The base can be cooked through the potato step up to 2 days ahead. Reheat it gently, then add milk, cream and clams shortly before serving. This prevents the clams from becoming rubbery and the potatoes from absorbing too much liquid.",
+        "q": "Can I prepare New England clam chowder ahead?"
+      }
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/41/Cup_of_clam_chowder%2C_with_saltines.jpg",
+    "image_alt": "Creamy New England clam chowder sprinkled with parsley in a small bowl beside packaged saltine crackers",
+    "image_credit": "Ser Amantio di Nicolao / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Cup_of_clam_chowder,_with_saltines.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "ingredients": [
+      "4 thick-cut bacon slices, about 4 oz, cut into 1/2-inch pieces",
+      "1 tbsp unsalted butter",
+      "1 large yellow onion, finely diced, about 1 1/2 cups",
+      "2 celery ribs, finely diced, about 3/4 cup",
+      "3 garlic cloves, minced",
+      "1/3 cup all-purpose flour, 42 g",
+      "3 cans chopped clams, 6.5 oz each, drained with juice reserved",
+      "2 bottles clam juice, 8 oz each, plus enough water to make 3 cups with the reserved canned juice",
+      "1 1/2 lb Yukon Gold potatoes, cut into 1/2-inch cubes, about 4 cups",
+      "1 tsp fresh thyme leaves, plus more for serving",
+      "1 bay leaf",
+      "1/2 tsp freshly ground black pepper",
+      "2 cups whole milk",
+      "1 cup heavy cream",
+      "1/2 tsp kosher salt, plus more only after tasting",
+      "2 tbsp chopped flat-leaf parsley",
+      "12 saltine crackers, for serving"
+    ],
+    "instructions": [
+      {
+        "name": "Render the bacon",
+        "text": "Set a 5- to 6-quart Dutch oven over medium heat. Add the bacon and cook for 6 to 8 minutes, stirring occasionally, until crisp and the fat has rendered. Transfer the bacon to a paper-towel-lined plate, leaving 2 tablespoons fat in the pot; spoon off any excess."
+      },
+      {
+        "name": "Build the aromatic base",
+        "text": "Add the butter, onion and celery to the bacon fat. Cook over medium for 6 to 7 minutes, stirring often, until softened but not browned. Add the garlic and cook for 30 seconds. Sprinkle in the flour and stir constantly for 2 minutes so the raw flour taste cooks out without coloring the roux."
+      },
+      {
+        "name": "Measure the clam broth",
+        "text": "Pour the reserved canned-clam juice into a 3-cup measure, leaving any grit in the cans. Add both bottles of clam juice, then enough cool water to equal 3 cups. Whisk this liquid into the pot gradually, scraping the bottom until the mixture is smooth."
+      },
+      {
+        "name": "Simmer the potatoes",
+        "text": "Add the potatoes, thyme, bay leaf and black pepper. Bring to a gentle simmer over medium-high, then reduce to medium-low, partially cover and cook for 14 to 18 minutes. Stir twice and stop when a potato cube crushes easily with a fork. Do not let the broth boil hard."
+      },
+      {
+        "name": "Finish with dairy and clams",
+        "text": "Discard the bay leaf. For a naturally thicker chowder, mash about 1 cup of potatoes against the side of the pot and stir them back in. Add the milk and cream and heat gently for 4 to 5 minutes. Stir in the drained clams and half the bacon; cook for 2 to 3 minutes, until steaming and the center of the chowder reaches 165°F. Do not boil."
+      },
+      {
+        "name": "Season and serve",
+        "text": "Remove the pot from the heat. Taste before adding the measured salt because clam juice and bacon vary in salinity. Rest for 5 minutes, then ladle into six bowls and finish with parsley, thyme and the remaining bacon. Serve two saltines with each bowl."
+      }
+    ],
+    "notes": [
+      "Yukon Gold potatoes hold neat pieces while releasing enough starch to support the broth. Russets work, but they will break down more and make a thicker chowder.",
+      "Clam juice is naturally salty. Season only after the bacon, canned clams and bottled juice are combined.",
+      "The licensed photograph clearly shows a pale, creamy clam chowder finished with green herbs and served beside saltine crackers; the recipe matches that finished form and presentation."
+    ],
+    "pantry": [
+      "canned clams",
+      "clam juice",
+      "flour",
+      "bay leaf",
+      "thyme",
+      "black pepper",
+      "kosher salt",
+      "saltines"
+    ],
+    "prep_minutes": 18,
+    "protein": [
+      "seafood",
+      "pork"
+    ],
+    "servings": 6,
+    "slug": "classic-new-england-clam-chowder-potatoes-saltines",
+    "storage": "Cool in shallow containers within 2 hours and refrigerate for up to 3 days. Reheat over low heat, stirring frequently, until the center reaches 165°F; avoid boiling, which can split the dairy and toughen the clams. Freezing is not recommended because potatoes become mealy and the cream may separate.",
+    "swaps": [
+      "For a bacon-free chowder, omit the bacon, begin with 3 tablespoons butter and add 1/4 teaspoon smoked paprika with the garlic for a subtle smoky note.",
+      "Half-and-half can replace the milk and cream in equal total volume. Keep it below a simmer to prevent separation.",
+      "Use oyster crackers instead of saltines, or serve toasted sourdough alongside. Keep crackers separate until serving so they stay crisp."
+    ],
+    "tags": [
+      "New England clam chowder",
+      "creamy clam chowder",
+      "canned clam recipe",
+      "seafood soup",
+      "potato chowder",
+      "Dutch oven soup",
+      "cold weather dinner",
+      "make ahead soup"
+    ],
+    "title": "Classic New England Clam Chowder with Potatoes & Saltines",
+    "total_minutes": 65,
+    "why_it_works": [
+      "Rendering bacon first supplies smoky fat for the vegetables, while a small butter-and-flour roux gives the chowder body without turning it into paste.",
+      "Cooking the potatoes in concentrated clam broth seasons them from within; mashing only a portion thickens the soup while preserving visible tender cubes.",
+      "Adding milk, cream and already-cooked canned clams at the end protects the dairy from splitting and keeps the clams from becoming chewy."
+    ]
+  },
+  {
+    "calories": 735,
+    "collection": "beef",
+    "cook_minutes": 35,
+    "cost_per_serving": "$5.80",
+    "date_modified": "2026-09-18",
+    "date_published": "2026-09-18",
+    "dek": "Juicy seared sirloin, red onion and tomatoes meet a savory soy-vinegar pan sauce, with crisp fries and fluffy rice completing this Peruvian favorite.",
+    "difficulty": "Intermediate",
+    "faqs": [
+      {
+        "a": "Top sirloin offers a good balance of tenderness, beef flavor and price. Tenderloin is more luxurious, while flank or skirt steak also works if sliced thinly across the grain and cooked in small batches.",
+        "q": "What cut of beef is best for lomo saltado?"
+      },
+      {
+        "a": "Keep them beside the stir-fry, as shown here, and let each diner combine them at the table. If you prefer the classic saucy style, fold half the fries into the skillet for only 20 seconds and serve the rest crisp on the side.",
+        "q": "Should the fries be mixed into lomo saltado?"
+      },
+      {
+        "a": "Aji amarillo has a fruity, medium chile flavor. Substitute 2 teaspoons mild yellow chile paste plus 1 teaspoon lime juice, or use 1 teaspoon hot sauce and an extra teaspoon of vinegar. The flavor changes, but the sweet-hot acidity remains balanced.",
+        "q": "What can replace aji amarillo paste?"
+      }
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Lomo-saltado-perudelights.jpg",
+    "image_alt": "Peruvian lomo saltado with saucy sirloin strips, red onion and tomato beside crisp fries and a mound of white rice",
+    "image_credit": "WikiHes / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Lomo-saltado-perudelights.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "ingredients": [
+      "1 1/2 lb russet potatoes, scrubbed and cut into 3/8-inch fries",
+      "3 tbsp neutral oil, divided",
+      "1 tsp kosher salt, divided",
+      "1 cup long-grain white rice, rinsed until the water is nearly clear",
+      "1 1/2 cups water",
+      "1 1/4 lb top sirloin steak, trimmed and sliced across the grain into 1/2-inch strips",
+      "3 tbsp low-sodium soy sauce, divided",
+      "2 tbsp red wine vinegar, divided",
+      "3 garlic cloves, finely grated",
+      "1/2 tsp ground cumin",
+      "1/2 tsp freshly ground black pepper",
+      "1/4 cup low-sodium beef broth",
+      "1 tbsp aji amarillo paste",
+      "1 tsp cornstarch",
+      "1 large red onion, cut into 1/2-inch wedges",
+      "2 Roma tomatoes, seeded and cut into thick wedges",
+      "1/3 cup roughly chopped cilantro, plus more for serving"
+    ],
+    "instructions": [
+      {
+        "name": "Roast the fries",
+        "text": "Place racks in the upper and lower thirds of the oven and heat to 450°F. Toss the potatoes with 1 1/2 tablespoons oil and 1/2 teaspoon salt on a heavy sheet pan. Spread in one layer and roast for 30 to 35 minutes, turning after 20 minutes, until deeply golden with crisp edges."
+      },
+      {
+        "name": "Cook the rice",
+        "text": "While the fries roast, combine the rinsed rice, water and 1/4 teaspoon salt in a small saucepan. Bring to a boil, cover, reduce to low and cook for 15 minutes. Remove from the heat and rest covered for 10 minutes, then fluff with a fork."
+      },
+      {
+        "name": "Season the beef and mix the sauce",
+        "text": "Pat the steak very dry. Toss it with 1 tablespoon soy sauce, 1 tablespoon vinegar, garlic, cumin and black pepper; rest for 10 minutes. In a separate cup, whisk the remaining 2 tablespoons soy sauce, remaining 1 tablespoon vinegar, beef broth, aji amarillo paste and cornstarch until smooth."
+      },
+      {
+        "name": "Sear in two batches",
+        "text": "Heat a 12-inch cast-iron skillet or wok over high until a drop of water evaporates immediately. Add 2 teaspoons of the remaining oil and half the beef in one layer. Sear for 60 to 90 seconds per side, until browned and the thickest strip reaches 145°F. Transfer to a clean plate and repeat with 2 teaspoons oil and the remaining beef. Rest the cooked beef for at least 3 minutes."
+      },
+      {
+        "name": "Char the vegetables",
+        "text": "Add the remaining oil to the hot skillet. Cook the onion wedges for 2 minutes, tossing twice, until charred at the edges but still crisp. Add the tomato wedges and cook for 60 to 90 seconds; they should blister without collapsing."
+      },
+      {
+        "name": "Sauce and serve",
+        "text": "Whisk the sauce again and pour it into the skillet. Boil for 30 to 45 seconds until glossy. Return the beef and any juices, add the cilantro and toss for no more than 30 seconds. Divide rice, fries and lomo saltado among four plates, keeping the fries mostly separate so they remain crisp."
+      }
+    ],
+    "notes": [
+      "Dry beef, a very hot pan and two uncrowded batches create browning instead of gray, watery meat.",
+      "Seed the tomatoes so their wedges can char without flooding the skillet. Roma tomatoes are firm enough to hold their shape.",
+      "The licensed photograph clearly shows browned beef strips with red onion and tomato, presented beside golden fries and white rice; the recipe matches every major visible component."
+    ],
+    "pantry": [
+      "long-grain rice",
+      "soy sauce",
+      "red wine vinegar",
+      "cornstarch",
+      "neutral oil",
+      "cumin",
+      "black pepper",
+      "kosher salt"
+    ],
+    "prep_minutes": 25,
+    "protein": [
+      "beef"
+    ],
+    "servings": 4,
+    "slug": "peruvian-lomo-saltado-crispy-fries-rice",
+    "storage": "Cool the beef mixture, rice and fries in separate shallow containers within 2 hours and refrigerate for up to 3 days. Reheat beef and sauce in a skillet until 165°F, adding a spoonful of water if needed. Reheat rice covered with 1 tablespoon water per cup until 165°F, and crisp fries on a 425°F sheet pan for 6 to 8 minutes. Do not reheat leftovers more than once.",
+    "swaps": [
+      "Use flank or skirt steak in place of sirloin. Slice it very thinly across the grain and shorten the sear to prevent toughness.",
+      "Frozen straight-cut fries may replace fresh potatoes; bake them according to the package while you prepare the rice and stir-fry.",
+      "For a lighter plate, replace half the fries with roasted green beans. Keep the rice and soy-vinegar sauce so the dish retains its defining balance."
+    ],
+    "tags": [
+      "lomo saltado",
+      "Peruvian beef stir fry",
+      "steak and fries",
+      "sirloin dinner",
+      "aji amarillo recipe",
+      "beef and rice",
+      "cast iron dinner",
+      "Peruvian recipe"
+    ],
+    "title": "Peruvian Lomo Saltado with Crispy Fries & Rice",
+    "total_minutes": 60,
+    "why_it_works": [
+      "Roasting the potatoes at high heat frees the cook to make rice and stir-fry while still producing crisp, deeply browned fries.",
+      "A brief soy-vinegar marinade seasons the sirloin, and a separate cornstarch-thickened sauce turns glossy without forcing the beef to overcook.",
+      "Red onion and seeded tomato cook for only minutes, preserving the crisp, charred vegetables that distinguish lomo saltado from a slow braise."
+    ]
+  },
+  {
+    "calories": 205,
+    "collection": "vegetarian",
+    "cook_minutes": 45,
+    "cost_per_serving": "$0.48",
+    "date_modified": "2026-09-18",
+    "date_published": "2026-09-18",
+    "dek": "Whole-wheat flour, bran and oats make a hearty loaf with a tender buttermilk crumb—no yeast, kneading or rise time required.",
+    "difficulty": "Easy",
+    "faqs": [
+      {
+        "a": "Soda bread depends on the reaction between acidic buttermilk and baking soda. Plain milk does not provide enough acid. In a pinch, combine 1 2/3 cups whole milk with 2 tablespoons lemon juice, rest 10 minutes, then measure the amount specified.",
+        "q": "Can I make Irish soda bread without buttermilk?"
+      },
+      {
+        "a": "The dough was likely mixed too long or packed into the cup when measuring flour. Stir only until no dry pockets remain and use the gram weights when possible. The finished crumb is hearty, but it should still slice cleanly without crumbling.",
+        "q": "Why is my brown soda bread dense?"
+      },
+      {
+        "a": "Yes. Cool it completely, slice it and freeze the slices in an airtight bag for up to 2 months. Toast slices directly from frozen, or thaw the wrapped loaf at room temperature to limit moisture loss.",
+        "q": "Can I freeze brown soda bread?"
+      }
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Irish_brown_soda_bread.JPG",
+    "image_alt": "Oat-topped rectangular loaf of Irish brown soda bread with one slice showing its coarse whole-grain crumb",
+    "image_credit": "O'Dea / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Irish_brown_soda_bread.JPG",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "ingredients": [
+      "2 cups whole-wheat flour, 240 g",
+      "1 1/2 cups all-purpose flour, 180 g",
+      "1/2 cup wheat bran, 30 g",
+      "1/4 cup old-fashioned rolled oats, 25 g, plus 1 tbsp for the top",
+      "2 tbsp sunflower seeds, 18 g",
+      "1 tbsp sesame seeds, 9 g",
+      "1 tbsp packed light brown sugar, 13 g",
+      "1 tsp baking soda, 5 g",
+      "1 tsp fine sea salt, 6 g",
+      "1 3/4 cups well-shaken buttermilk, 420 g",
+      "1 large egg",
+      "2 tbsp unsalted butter, melted and cooled, plus softened butter for the pan"
+    ],
+    "instructions": [
+      {
+        "name": "Heat the oven and prepare the pan",
+        "text": "Place a rack in the center and heat the oven to 425°F. Butter a 9-by-5-inch metal loaf pan and line the long sides with a parchment sling. Set the pan on a rimmed sheet pan for easier handling."
+      },
+      {
+        "name": "Combine the dry ingredients",
+        "text": "Whisk the whole-wheat flour, all-purpose flour, bran, 1/4 cup oats, sunflower seeds, sesame seeds, brown sugar, baking soda and salt in a large bowl. Break up every lump of baking soda so the loaf has no bitter pockets."
+      },
+      {
+        "name": "Mix the buttermilk",
+        "text": "In a separate bowl, whisk the buttermilk, egg and melted butter until uniform. Pour the wet mixture over the dry ingredients and fold with a sturdy spatula for 20 to 30 seconds, just until no dry flour remains. The dough should be thick, sticky and spoonable, not kneadable."
+      },
+      {
+        "name": "Fill and score the loaf",
+        "text": "Scrape the dough into the prepared pan without compressing it. Smooth the top with a damp spatula, sprinkle with the remaining tablespoon oats and cut a 1/2-inch-deep line lengthwise down the center to control expansion. Transfer immediately to the oven; the soda reaction begins as soon as wet and dry ingredients meet."
+      },
+      {
+        "name": "Bake at two temperatures",
+        "text": "Bake at 425°F for 15 minutes. Without opening the door, reduce the oven to 375°F and continue baking for 27 to 32 minutes, until the loaf is deeply brown, pulls slightly from the pan and registers 200 to 205°F in the center. If the top darkens too quickly, tent loosely with foil for the final 10 minutes."
+      },
+      {
+        "name": "Cool before slicing",
+        "text": "Rest the loaf in the pan for 10 minutes, then use the parchment to move it to a rack. Cool for at least 20 more minutes before cutting with a serrated knife. For the neatest crumb, let it cool completely; serve plain or with salted butter."
+      }
+    ],
+    "notes": [
+      "Once buttermilk meets baking soda, work promptly. Preheat the oven and prepare the pan before combining wet and dry ingredients.",
+      "A metal loaf pan conducts enough heat to brown the sides. A glass pan may need 5 additional minutes; rely on the 200 to 205°F internal-temperature cue.",
+      "The licensed photograph clearly shows an oat-topped rectangular brown soda-bread loaf with a sliced, coarse whole-grain crumb; the recipe matches that form, topping and texture."
+    ],
+    "pantry": [
+      "whole-wheat flour",
+      "all-purpose flour",
+      "wheat bran",
+      "rolled oats",
+      "sunflower seeds",
+      "sesame seeds",
+      "baking soda",
+      "brown sugar",
+      "sea salt"
+    ],
+    "prep_minutes": 15,
+    "protein": [
+      "vegetarian"
+    ],
+    "servings": 10,
+    "slug": "irish-brown-soda-bread-buttermilk-oats",
+    "storage": "Cool completely before storing. Keep tightly wrapped at room temperature for up to 3 days, or refrigerate for up to 5 days and toast before serving. Freeze the whole loaf or separated slices for up to 2 months. Thaw wrapped at room temperature, then refresh in a 325°F oven for 8 to 10 minutes.",
+    "swaps": [
+      "Replace wheat bran with the same weight of wheat germ or additional whole-wheat flour. Additional flour makes a slightly tighter crumb, so add 1 tablespoon buttermilk if the dough looks dry.",
+      "Pumpkin seeds or chopped walnuts can replace sunflower seeds by weight. Keep the sesame seeds or omit them without changing the liquid.",
+      "For a seed-free loaf, omit both seed varieties and add 3 tablespoons extra rolled oats to preserve the hearty texture."
+    ],
+    "tags": [
+      "Irish brown soda bread",
+      "buttermilk bread",
+      "no yeast bread",
+      "whole wheat bread",
+      "oat bread",
+      "quick bread",
+      "easy homemade bread",
+      "loaf pan bread"
+    ],
+    "title": "Irish Brown Soda Bread with Buttermilk & Oats",
+    "total_minutes": 90,
+    "why_it_works": [
+      "Buttermilk supplies the acid that activates baking soda immediately, giving the loaf lift without yeast, kneading or proofing.",
+      "Whole-wheat flour and bran provide hearty flavor, while all-purpose flour and egg keep the crumb cohesive enough for clean slices.",
+      "An initial hot bake encourages expansion and crust color; lowering the temperature finishes the center before the oat-topped surface becomes too dark."
+    ]
+  }
+]

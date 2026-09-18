@@ -502,7 +502,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "cottage cheese frittata" in haystack:
+    if "classic new england clam chowder" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot renders the bacon evenly and keeps the flour-thickened dairy chowder at a gentle, steady heat."),
+            ("immersion blender stainless steel", "Stainless immersion blender", "A few short pulses can thicken the chowder by breaking down part of the cooked potatoes without puréeing every clam and vegetable."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade makes uniform potato, onion, celery and bacon pieces that cook at the same rate."),
+        ]
+    elif "peruvian lomo saltado" in haystack:
+        products = [
+            ("cast iron skillet", "12-inch cast-iron skillet", "A wide, thoroughly heated skillet sears the sirloin in uncrowded batches and chars the onion and tomato without steaming them."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "A rice cooker handles the fluffy white rice while the fries roast and the fast beef stir-fry comes together."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach makes it easy to turn the steak strips quickly and toss the vegetables through the glossy sauce."),
+        ]
+    elif "irish brown soda bread" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the whole-wheat flour, bran and buttermilk balanced so the quick loaf is hearty without becoming dry."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate roomy bowls keep the dry mixture and buttermilk mixture organized before the brief final fold."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when reducing the oven temperature and removing a hot metal loaf pan and sheet pan."),
+        ]
+    elif "cottage cheese frittata" in haystack:
         products = [
             ("cast iron skillet", "Oven-safe cast-iron skillet", "A well-seasoned oven-safe skillet softens the vegetables, sets the egg edges and moves directly into a 375°F oven."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check the center for 160°F so the eggs are safely set while the cottage-cheese frittata remains tender."),
@@ -1159,6 +1177,30 @@ def build_recipe_index():
     write_page("/recipes/", page("Easy Dinner Recipes", "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps.", "/recipes/", body, schema=schema))
 
 CURATED_RECIPE_CLUSTERS = {
+    "classic-new-england-clam-chowder-potatoes-saltines": {
+        "slugs": ["moroccan-style-vegetarian-harira-lentils-chickpeas", "classic-french-onion-soup-gruyere-toasts", "turkish-red-lentil-soup-aleppo-butter"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "moroccan-style-vegetarian-harira-lentils-chickpeas": {
+        "slugs": ["classic-new-england-clam-chowder-potatoes-saltines", "classic-french-onion-soup-gruyere-toasts", "turkish-red-lentil-soup-aleppo-butter"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "classic-french-onion-soup-gruyere-toasts": {
+        "slugs": ["classic-new-england-clam-chowder-potatoes-saltines", "moroccan-style-vegetarian-harira-lentils-chickpeas", "turkish-red-lentil-soup-aleppo-butter"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "turkish-red-lentil-soup-aleppo-butter": {
+        "slugs": ["classic-new-england-clam-chowder-potatoes-saltines", "moroccan-style-vegetarian-harira-lentils-chickpeas", "classic-french-onion-soup-gruyere-toasts"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
     "cottage-cheese-protein-pancakes": {
         "slugs": ["cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
@@ -1193,8 +1235,8 @@ def recipe_topic_cluster(recipe) -> str:
     linked = [recipes_by_slug[slug] for slug in cluster["slugs"] if slug in recipes_by_slug]
     if not linked:
         return ""
-    return f'''<section class="section-tight section-paper related-section" aria-labelledby="breakfast-cluster-heading"><div class="wrap">
-      <div class="section-heading"><div><p class="eyebrow">{esc(cluster["eyebrow"])}</p><h2 id="breakfast-cluster-heading">{esc(cluster["title"])}</h2></div><p>{esc(cluster["copy"])}</p></div>
+    return f'''<section class="section-tight section-paper related-section" aria-labelledby="recipe-cluster-heading"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow">{esc(cluster["eyebrow"])}</p><h2 id="recipe-cluster-heading">{esc(cluster["title"])}</h2></div><p>{esc(cluster["copy"])}</p></div>
       <div class="recipe-grid">{''.join(recipe_card(candidate) for candidate in linked)}</div>
     </div></section>'''
 
