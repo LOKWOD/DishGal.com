@@ -416,6 +416,7 @@ def article_card(article) -> str:
     </article>'''
 
 SHOP_IMAGES = {
+    "enameled cooking pot with lid": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled cooking pot with a fitted lid and two side handles"),
     "enameled dutch oven 6 quart": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled Dutch oven on a kitchen work surface"),
     "immersion blender stainless steel": ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup"),
     "digital probe meat thermometer": ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Two digital probe cooking thermometers beside prepared ingredients"),
@@ -502,7 +503,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "classic new england clam chowder" in haystack:
+    if "indonesian beef rendang" in haystack:
+        products = [
+            ("enameled cooking pot with lid", "Enameled cooking pot", "A broad heavy pot holds a gentle uncovered braise, then gives the coconut sauce room to reduce and fry without spilling."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade handles the chuck, shallots, chiles, ginger, galangal and garnishes with consistent, controllable cuts."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the chuck has reached the 195 to 205°F range where collagen-rich cubes become fork-tender."),
+        ]
+    elif "crispy sicilian arancini" in haystack:
+        products = [
+            ("enameled cooking pot with lid", "Enameled cooking pot", "High sides contain three inches of frying oil and help its temperature recover steadily between batches."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Track the oil near 350°F and verify a test arancino reaches 165°F at its molten center."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "Separate bowls keep the flour, egg wash and panko breading station orderly and complete."),
+        ]
+    elif "austrian kaiserschmarrn" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady skillet browns one tall pancake evenly and provides room to tear and caramelize the pieces."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "Separate clean bowls make it easier to whisk the yolk batter and whip stable egg-white peaks."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and fruit balanced so the pancake stays fluffy and the compote remains spoonable."),
+        ]
+    elif "classic new england clam chowder" in haystack:
         products = [
             ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot renders the bacon evenly and keeps the flour-thickened dairy chowder at a gentle, steady heat."),
             ("immersion blender stainless steel", "Stainless immersion blender", "A few short pulses can thicken the chowder by breaking down part of the cooked potatoes without puréeing every clam and vegetable."),
@@ -1177,6 +1196,30 @@ def build_recipe_index():
     write_page("/recipes/", page("Easy Dinner Recipes", "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps.", "/recipes/", body, schema=schema))
 
 CURATED_RECIPE_CLUSTERS = {
+    "indonesian-beef-rendang-coconut-toasted-spices": {
+        "slugs": ["moroccan-lamb-tagine-prunes-almonds-quail-eggs", "filipino-style-pork-adobo-eggs-steamed-rice", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "moroccan-lamb-tagine-prunes-almonds-quail-eggs": {
+        "slugs": ["indonesian-beef-rendang-coconut-toasted-spices", "filipino-style-pork-adobo-eggs-steamed-rice", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "filipino-style-pork-adobo-eggs-steamed-rice": {
+        "slugs": ["indonesian-beef-rendang-coconut-toasted-spices", "moroccan-lamb-tagine-prunes-almonds-quail-eggs", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "oven-braised-beef-stew-potatoes-mushrooms-peas": {
+        "slugs": ["indonesian-beef-rendang-coconut-toasted-spices", "moroccan-lamb-tagine-prunes-almonds-quail-eggs", "filipino-style-pork-adobo-eggs-steamed-rice"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
     "classic-new-england-clam-chowder-potatoes-saltines": {
         "slugs": ["moroccan-style-vegetarian-harira-lentils-chickpeas", "classic-french-onion-soup-gruyere-toasts", "turkish-red-lentil-soup-aleppo-butter"],
         "eyebrow": "Soup technique",
