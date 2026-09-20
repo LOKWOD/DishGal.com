@@ -1,0 +1,2304 @@
+[
+  {
+    "slug": "instant-pot-salsa-verde-chicken-tacos",
+    "title": "Instant Pot Salsa Verde Chicken Tacos",
+    "dek": "Tender lime-scented chicken and a bright salsa verde sauce turn into a mild family taco bar with almost no hands-on cooking.",
+    "protein": [
+      "chicken"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 23,
+    "total_minutes": 35,
+    "servings": 6,
+    "calories": 430,
+    "cost_per_serving": "$2.25",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/01_Chicken_Tacos_-_Acapulco_Deli_%26_Restaurant.jpg",
+    "image_alt": "Chicken tacos in soft tortillas with green salsa, onion, cilantro, lime, rice and black beans",
+    "image_credit": "jasonlam / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:01_Chicken_Tacos_-_Acapulco_Deli_%26_Restaurant.jpg",
+    "image_license": "CC BY-SA 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "chicken tacos",
+      "salsa verde",
+      "gluten-free"
+    ],
+    "ingredients": [
+      "2 lb boneless, skinless chicken thighs, trimmed",
+      "1 tsp ground cumin",
+      "1 tsp garlic powder",
+      "3/4 tsp fine salt",
+      "3/4 cup low-sodium chicken broth",
+      "1 medium yellow onion, thinly sliced",
+      "1 1/2 cups mild salsa verde, divided",
+      "1 lime, zested and juiced",
+      "12 small corn or flour tortillas, warmed",
+      "2 cups shredded lettuce",
+      "1 cup shredded Monterey Jack cheese",
+      "1/2 cup chopped cilantro, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Season and layer",
+        "text": "Pat the chicken dry and season with cumin, garlic powder and salt. Pour the broth into a 6-quart electric pressure cooker, add the onion, then arrange the chicken in one layer. Spoon 1 cup salsa verde over the chicken without stirring it into the bottom liquid."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 8 minutes. The pot will need about 10 minutes to reach pressure. Let the pressure release naturally for 10 minutes, then carefully release the remaining pressure. Wait for the float valve to drop before opening."
+      },
+      {
+        "name": "Check and shred",
+        "text": "Transfer the chicken to a bowl and confirm the thickest pieces have reached 165°F. Shred with two forks. If any piece is below 165°F, return it to the simmering sauce on Sauté until fully cooked."
+      },
+      {
+        "name": "Concentrate the sauce",
+        "text": "Set the cooker to Sauté and simmer the liquid for 4 to 6 minutes, stirring occasionally, until it lightly coats a spoon. Turn off the cooker and stir in the remaining 1/2 cup salsa verde, lime zest and 1 tablespoon lime juice."
+      },
+      {
+        "name": "Finish the filling",
+        "text": "Return the shredded chicken to the pot and toss until glossy. Taste before adding more salt because salsa sodium varies. Add another squeeze of lime if the sauce needs brightness."
+      },
+      {
+        "name": "Build a mild-first taco bar",
+        "text": "Fill warm tortillas with chicken and set out lettuce, cheese, cilantro and extra salsa separately so each person can control heat and toppings."
+      }
+    ],
+    "why_it_works": [
+      "Thin broth on the bottom supplies the steam the cooker needs while thick salsa stays above it, reducing the chance of a burn warning.",
+      "Chicken thighs remain juicy through the natural release and shred more reliably than very lean breasts.",
+      "Finishing with fresh salsa and lime restores the bright flavor that long, sealed cooking can soften."
+    ],
+    "swaps": [
+      "Use 2 lb chicken breasts and the same timing; split very thick breasts lengthwise and verify 165°F before shredding.",
+      "For dairy-free tacos, omit the cheese and add avocado at the table.",
+      "Use flour tortillas for softer kid-friendly tacos or corn tortillas for a gluten-free meal."
+    ],
+    "storage": "Refrigerate the cooled chicken and sauce airtight for up to 4 days. Reheat gently with a splash of broth until steaming hot. Freeze the filling, without tortillas or toppings, for up to 3 months.",
+    "notes": [
+      "Choose mild salsa verde for the shared pot and serve hotter salsa or sliced jalapeños separately.",
+      "Do not reduce the broth below 3/4 cup unless your cooker manual specifically permits less liquid.",
+      "Warm tortillas in a dry skillet or wrapped in a damp towel in the microwave just before serving.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I start with frozen chicken?",
+        "a": "Yes, if the pieces are individually frozen rather than one solid block. Increase High Pressure time to 12 minutes, keep the 10-minute natural release and verify every piece reaches 165°F."
+      },
+      {
+        "q": "Why is the taco filling watery?",
+        "a": "Chicken and onions release liquid under pressure. Shred the chicken outside the pot and reduce the uncovered sauce on Sauté before returning the meat."
+      },
+      {
+        "q": "Can I make it less tangy for kids?",
+        "a": "Use a mild roasted tomatillo salsa, skip the lime juice in the pot and offer lime wedges only at the table."
+      }
+    ],
+    "pantry": [
+      "ground cumin",
+      "garlic powder",
+      "fine salt",
+      "low-sodium chicken broth",
+      "salsa verde",
+      "tortillas"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-mild-curry-chicken-rice-peppers",
+    "title": "Instant Pot Mild Curry Chicken and Rice with Sweet Peppers",
+    "dek": "One pot turns chicken thighs, basmati rice, sweet peppers and peas into a gently spiced family dinner with fluffy grains instead of mush.",
+    "protein": [
+      "chicken"
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 27,
+    "total_minutes": 42,
+    "servings": 6,
+    "calories": 510,
+    "cost_per_serving": "$2.15",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Friday_dinner_-_Curry_chicken_with_bell_peppers_and_rice_-_02.jpg/960px-Friday_dinner_-_Curry_chicken_with_bell_peppers_and_rice_-_02.jpg",
+    "image_alt": "Mild curry chicken with green and red sweet peppers served beside white rice",
+    "image_credit": "Infrogmation of New Orleans / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Friday_dinner_-_Curry_chicken_with_bell_peppers_and_rice_-_02.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "chicken and rice",
+      "mild curry",
+      "one pot",
+      "gluten-free"
+    ],
+    "ingredients": [
+      "1 1/2 cups basmati rice",
+      "1 1/2 lb boneless, skinless chicken thighs, cut into 1 1/2-inch pieces",
+      "1 tsp fine salt, divided",
+      "1 tbsp neutral oil",
+      "1 red bell pepper, cut into thin strips",
+      "1 green bell pepper, cut into thin strips",
+      "1 small yellow onion, diced",
+      "3 garlic cloves, minced",
+      "1 tbsp mild curry powder",
+      "1/2 tsp ground turmeric",
+      "1 1/2 cups low-sodium chicken broth",
+      "1 cup frozen peas, thawed",
+      "1 tbsp lemon juice",
+      "Plain yogurt and chopped cilantro, optional for serving"
+    ],
+    "instructions": [
+      {
+        "name": "Rinse and season",
+        "text": "Rinse the basmati rice in a fine-mesh strainer until the water is nearly clear, then drain very well. Season the chicken with 1/2 teaspoon salt."
+      },
+      {
+        "name": "Soften the peppers",
+        "text": "Select Sauté, add the oil and cook both peppers for 3 minutes until bright and barely tender. Transfer them to a plate; adding them back after pressure cooking keeps them from disappearing into the rice."
+      },
+      {
+        "name": "Build the flavor",
+        "text": "Add the onion and cook 2 minutes. Stir in garlic, curry powder and turmeric for 30 seconds. Pour in the broth and scrape the bottom completely clean with a wooden spoon. Cancel Sauté."
+      },
+      {
+        "name": "Layer without stirring",
+        "text": "Spread the drained rice evenly through the broth. Arrange the chicken over the rice and sprinkle with the remaining 1/2 teaspoon salt. Do not stir after the rice goes in."
+      },
+      {
+        "name": "Pressure cook and rest",
+        "text": "Lock the lid and cook on High Pressure for 5 minutes. Allow a 10-minute natural release, then carefully release the remaining pressure. Wait for the float valve to drop and open the lid away from your face."
+      },
+      {
+        "name": "Fluff and finish",
+        "text": "Confirm the chicken reaches 165°F. Fluff from the edges inward with a fork, then fold in the reserved peppers, peas and lemon juice. Rest uncovered for 3 minutes before serving with yogurt or cilantro if desired."
+      }
+    ],
+    "why_it_works": [
+      "Rinsing removes loose starch, while an equal volume of well-drained rice and broth keeps the grains distinct.",
+      "Peppers are sautéed first and folded back later, so they stay colorful and lightly crisp.",
+      "Chicken thigh pieces cook through in the same short cycle as basmati rice without drying out."
+    ],
+    "swaps": [
+      "Use long-grain white rice with the same timing; do not substitute brown or instant rice because their liquid and timing needs differ.",
+      "Replace peas with thawed frozen green beans cut into bite-size pieces.",
+      "For more heat, add cayenne or chili crisp only to adult portions at the table."
+    ],
+    "storage": "Cool promptly and refrigerate airtight for up to 4 days. Reheat to 165°F with 1 to 2 tablespoons broth per portion. Freeze for up to 2 months; the peppers will soften slightly.",
+    "notes": [
+      "Measure rice and broth with the same cup for the most dependable ratio.",
+      "Scrape up every browned bit before adding rice; residue on the base can trigger the burn warning.",
+      "Total time includes roughly 10 minutes for the pot to reach pressure and the full natural-release period.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I use chicken breast?",
+        "a": "Yes. Cut it into 1 1/2-inch pieces, use the same timing and check for 165°F. Breast meat is leaner, so avoid smaller pieces."
+      },
+      {
+        "q": "Why did my rice turn gummy?",
+        "a": "It may not have been rinsed or drained well, too much liquid may have been added, or the rice was stirred after layering. Fluff gently rather than vigorously mixing."
+      },
+      {
+        "q": "Can I double the recipe?",
+        "a": "Do not double it in a 6-quart pot. A fuller grain recipe expands and can foam; make a second batch instead and stay below the half-full line for expanding foods."
+      }
+    ],
+    "pantry": [
+      "basmati rice",
+      "neutral oil",
+      "mild curry powder",
+      "ground turmeric",
+      "low-sodium chicken broth",
+      "fine salt"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-beef-broccoli",
+    "title": "Instant Pot Beef and Broccoli",
+    "dek": "Tender beef, crisp-tender broccoli and a glossy ginger-soy sauce deliver takeout comfort while keeping the vegetables out of the pressure cycle.",
+    "protein": [
+      "beef"
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 22,
+    "total_minutes": 37,
+    "servings": 6,
+    "calories": 420,
+    "cost_per_serving": "$3.10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Beef_with_broccoli.JPG/960px-Beef_with_broccoli.JPG",
+    "image_alt": "Tender sliced beef and bright broccoli coated in a glossy brown sauce",
+    "image_credit": "BrokenSphere / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Beef_with_broccoli.JPG",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "beef and broccoli",
+      "takeout style",
+      "gluten-free option"
+    ],
+    "ingredients": [
+      "1 3/4 lb boneless beef chuck, cut across the grain into 1/2-inch strips",
+      "1 tbsp neutral oil",
+      "1 cup low-sodium beef broth",
+      "1/3 cup low-sodium soy sauce",
+      "2 tbsp packed brown sugar",
+      "4 garlic cloves, minced",
+      "1 tbsp finely grated fresh ginger",
+      "1/4 tsp black pepper",
+      "5 cups small broccoli florets",
+      "2 tbsp cornstarch",
+      "2 tbsp cold water",
+      "1 tsp toasted sesame oil",
+      "Cooked rice and sliced scallions, optional for serving"
+    ],
+    "instructions": [
+      {
+        "name": "Brown in batches",
+        "text": "Pat the beef dry. Select Sauté, add the oil and brown the beef in two batches for about 2 minutes per batch; it does not need to cook through. Transfer to a plate."
+      },
+      {
+        "name": "Deglaze completely",
+        "text": "Pour in the broth and scrape the bottom until no browned spots remain. Stir in soy sauce, brown sugar, garlic, ginger and pepper, then return the beef and any juices."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 12 minutes. Let pressure release naturally for 5 minutes, then use a controlled quick release in short bursts to release the remainder."
+      },
+      {
+        "name": "Steam the broccoli after pressure",
+        "text": "Open the lid only after the float valve drops. Confirm the beef is tender. Add the broccoli, select Sauté and cover loosely with the lid without locking it for 3 to 5 minutes, stirring once, until crisp-tender."
+      },
+      {
+        "name": "Thicken the sauce",
+        "text": "Stir cornstarch and cold water until smooth. Move the broccoli and beef aside, stir the slurry into the bubbling sauce and cook 1 to 2 minutes until glossy. Cancel Sauté."
+      },
+      {
+        "name": "Finish and serve",
+        "text": "Stir in sesame oil. Taste before adding salt, then spoon over rice and finish with scallions. Put chili crisp on the table rather than in the family-size pot."
+      }
+    ],
+    "why_it_works": [
+      "Chuck becomes tender under pressure without the cost of tenderloin or the dryness of very thin lean steak.",
+      "Broccoli cooks after pressure, protecting its color and bite.",
+      "A cold-water slurry thickens only after pressure cooking, so starch cannot scorch on the cooker base."
+    ],
+    "swaps": [
+      "Use tamari in place of soy sauce for a gluten-free version.",
+      "Substitute snow peas or thin bell-pepper strips and sauté only until crisp-tender.",
+      "For a lower-sugar sauce, reduce brown sugar to 1 tablespoon; do not replace it with a thick syrup before pressure cooking."
+    ],
+    "storage": "Refrigerate airtight for up to 4 days. Reheat gently to 165°F; microwave broccoli in short intervals so it does not turn soft. Freeze the beef and sauce for up to 3 months, ideally without broccoli.",
+    "notes": [
+      "Cut beef across the visible grain so the finished strips bite cleanly.",
+      "Controlled quick release means venting in short bursts if sauce threatens to spit from the valve.",
+      "Keep the steam-release area clear and follow the release method in your cooker's manual.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Why is my beef chewy?",
+        "a": "The strips may be cut with the grain, the chuck pieces may be unusually thick, or they may need 3 to 5 more minutes under pressure. Simmering will not tenderize them as quickly."
+      },
+      {
+        "q": "Can frozen broccoli work?",
+        "a": "Yes. Thaw and drain it first, then fold it into the hot sauce for 1 to 2 minutes on Sauté. Pressure cooking frozen florets will make them mushy."
+      },
+      {
+        "q": "Can I use flank steak?",
+        "a": "You can, but cut it across the grain and reduce High Pressure time to 8 minutes with a 5-minute natural release."
+      }
+    ],
+    "pantry": [
+      "neutral oil",
+      "low-sodium beef broth",
+      "low-sodium soy sauce",
+      "brown sugar",
+      "cornstarch",
+      "toasted sesame oil",
+      "black pepper"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-weeknight-beef-chili",
+    "title": "Instant Pot Weeknight Beef Chili",
+    "dek": "Ground beef, two kinds of beans, corn and tomatoes become a thick, scoopable chili with a mild shared-pot base and toppings for everyone.",
+    "protein": [
+      "beef"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 33,
+    "total_minutes": 45,
+    "servings": 6,
+    "calories": 480,
+    "cost_per_serving": "$2.20",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Bowl_of_chili.jpg/960px-Bowl_of_chili.jpg",
+    "image_alt": "Thick beef and bean chili in a white bowl with a wedge of cornbread",
+    "image_credit": "Carstor / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Bowl_of_chili.jpg",
+    "image_license": "CC BY-SA 2.5",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "beef chili",
+      "beans",
+      "freezer meal",
+      "gluten-free"
+    ],
+    "ingredients": [
+      "1 1/2 lb 85% lean ground beef",
+      "1 medium yellow onion, diced",
+      "1 red bell pepper, diced",
+      "3 garlic cloves, minced",
+      "2 tbsp mild chili powder",
+      "2 tsp ground cumin",
+      "1 tsp smoked paprika",
+      "1 tsp fine salt",
+      "1 cup low-sodium beef broth",
+      "1 tbsp Worcestershire sauce",
+      "1 can (15 oz) kidney beans, rinsed and drained",
+      "1 can (15 oz) black beans, rinsed and drained",
+      "1 cup frozen corn",
+      "1 can (28 oz) crushed tomatoes",
+      "Shredded cheddar, sour cream and tortilla chips, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Brown the beef",
+        "text": "Select Sauté and cook the beef, onion and bell pepper for 6 to 8 minutes, breaking the meat into small crumbles, until no pink remains. Spoon off excess fat if needed."
+      },
+      {
+        "name": "Bloom and deglaze",
+        "text": "Stir in garlic, chili powder, cumin, paprika and salt for 30 seconds. Pour in the broth and Worcestershire, then scrape the base completely clean. Cancel Sauté."
+      },
+      {
+        "name": "Layer the chili",
+        "text": "Stir in both beans and the corn. Pour the crushed tomatoes over the top in an even layer and do not stir them down into the bottom."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 10 minutes. Allow a 10-minute natural release, then carefully release the remaining pressure."
+      },
+      {
+        "name": "Thicken uncovered",
+        "text": "When the float valve drops, open the lid and stir well. Select Sauté and simmer 3 to 6 minutes until the chili is as thick as your family likes, remembering it thickens a little as it cools."
+      },
+      {
+        "name": "Serve by preference",
+        "text": "Taste and adjust salt. Ladle into bowls and let everyone add cheese, sour cream, chips or hot sauce individually."
+      }
+    ],
+    "why_it_works": [
+      "Browning meat and spices first supplies the roasted flavor a sealed pressure cycle cannot create.",
+      "Tomatoes remain on top so their natural sugars are less likely to scorch.",
+      "A short uncovered simmer gives control over thickness without adding unnecessary starch."
+    ],
+    "swaps": [
+      "Replace beef with ground turkey and add 1 extra tablespoon oil during browning.",
+      "Use any two 15-ounce cans of beans you already have.",
+      "For extra vegetables, fold in 2 cups baby spinach after pressure cooking and simmer until wilted."
+    ],
+    "storage": "Refrigerate for up to 4 days or freeze in meal-size containers for up to 3 months. Reheat to 165°F on the stove, in the microwave or on the cooker's Sauté-Low setting.",
+    "notes": [
+      "This is intentionally mild; cayenne, jalapeños and hot sauce belong at the table for a mixed-age family.",
+      "Do not stir the crushed tomatoes into the base before pressure cooking.",
+      "Beans and corn are already cooked; the pressure cycle blends flavor rather than tenderizing them.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I use dried beans?",
+        "a": "Not as a direct swap. Dried beans require different liquid, timing and fill-level planning. Use rinsed canned beans for this fast recipe."
+      },
+      {
+        "q": "What if the chili is too thick?",
+        "a": "Stir in warm broth 1/4 cup at a time after pressure cooking. If it is too thin, simmer uncovered on Sauté."
+      },
+      {
+        "q": "Can I make it ahead?",
+        "a": "Yes. Chili usually tastes even better the next day. Cool it promptly, refrigerate and reheat to 165°F before serving."
+      }
+    ],
+    "pantry": [
+      "mild chili powder",
+      "ground cumin",
+      "smoked paprika",
+      "fine salt",
+      "low-sodium beef broth",
+      "Worcestershire sauce",
+      "canned beans",
+      "crushed tomatoes"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-chicken-noodle-soup",
+    "title": "Instant Pot Chicken Noodle Soup",
+    "dek": "A clear, savory broth, tender chicken, vegetables and egg noodles come together without sacrificing the noodles to the pressure cycle.",
+    "protein": [
+      "chicken"
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 30,
+    "total_minutes": 45,
+    "servings": 6,
+    "calories": 360,
+    "cost_per_serving": "$1.95",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/86/Chicken_Noodle_Soup_US.jpg",
+    "image_alt": "Homestyle chicken noodle soup with broad noodles, carrots, celery and shredded chicken",
+    "image_credit": "Nichijyou123 / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Chicken_Noodle_Soup_US.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "chicken noodle soup",
+      "comfort food",
+      "freezer friendly"
+    ],
+    "ingredients": [
+      "1 1/2 lb boneless, skinless chicken thighs",
+      "1 tbsp olive oil",
+      "1 medium yellow onion, diced",
+      "3 carrots, sliced 1/4 inch thick",
+      "3 celery stalks, sliced",
+      "3 garlic cloves, minced",
+      "7 cups low-sodium chicken broth",
+      "1 tsp dried thyme",
+      "1 bay leaf",
+      "1 tsp fine salt, plus more to taste",
+      "8 oz wide egg noodles",
+      "1 tbsp lemon juice",
+      "1/4 cup chopped parsley, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Soften the vegetables",
+        "text": "Select Sauté, add olive oil, onion, carrots and celery, and cook for 4 minutes. Add garlic and cook 30 seconds."
+      },
+      {
+        "name": "Deglaze and add chicken",
+        "text": "Pour in 1 cup broth and scrape the base clean. Add the remaining broth, thyme, bay leaf, salt and chicken. Cancel Sauté."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 8 minutes. Allow a 10-minute natural release, then carefully vent the remaining pressure."
+      },
+      {
+        "name": "Shred safely",
+        "text": "After the float valve drops, remove the bay leaf and transfer chicken to a clean board. Confirm it reaches 165°F, then shred or chop it."
+      },
+      {
+        "name": "Cook noodles uncovered",
+        "text": "Select Sauté and bring the soup to a lively simmer. Add egg noodles and cook uncovered according to package timing, usually 6 to 8 minutes, stirring often. Cancel Sauté as soon as they are tender."
+      },
+      {
+        "name": "Finish the soup",
+        "text": "Return chicken to the pot, stir in lemon juice and parsley, and taste for salt. Let stand 2 minutes before serving."
+      }
+    ],
+    "why_it_works": [
+      "Pressure extracts flavor from chicken and aromatics quickly, while cooking noodles afterward keeps them springy.",
+      "Thighs tolerate the pressure-and-release cycle and remain juicy when shredded.",
+      "A small amount of lemon brightens the broth without making it taste lemony."
+    ],
+    "swaps": [
+      "Use 3 cups shredded rotisserie chicken: pressure-cook only the broth and vegetables for 3 minutes, quick release, then add chicken with the noodles.",
+      "Substitute small pasta shapes, following their package timing on Sauté.",
+      "For gluten-free soup, use gluten-free noodles and add them after pressure cooking as directed."
+    ],
+    "storage": "For best texture, refrigerate noodles separately from broth for up to 4 days. Freeze the chicken-and-vegetable broth without noodles for up to 3 months, then cook fresh noodles when reheating.",
+    "notes": [
+      "Do not pressure-cook egg noodles; they foam, overcook and continue absorbing broth in storage.",
+      "Keep the total pot contents below the maximum-fill line.",
+      "If using salted broth, wait until the end before adding additional salt.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I use chicken breasts?",
+        "a": "Yes. Use the same timing for average-size breasts and verify 165°F. Very large breasts can be halved lengthwise."
+      },
+      {
+        "q": "Why did the noodles absorb all the broth?",
+        "a": "They continue drinking liquid as they sit. Store noodles separately or add 1 to 2 cups broth when reheating leftovers."
+      },
+      {
+        "q": "Can I quick-release immediately?",
+        "a": "A 10-minute natural release keeps the chicken tender and reduces vigorous sputtering from a full pot of hot broth."
+      }
+    ],
+    "pantry": [
+      "olive oil",
+      "low-sodium chicken broth",
+      "dried thyme",
+      "bay leaf",
+      "fine salt",
+      "egg noodles"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-turkey-meatballs-penne",
+    "title": "Instant Pot Turkey Meatballs and Penne",
+    "dek": "Tender turkey meatballs and penne cook together under a no-stir layer of marinara for a complete family pasta night in one cooker.",
+    "protein": [
+      "turkey"
+    ],
+    "prep_minutes": 18,
+    "cook_minutes": 22,
+    "total_minutes": 40,
+    "servings": 6,
+    "calories": 520,
+    "cost_per_serving": "$2.30",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Penne_and_turkey_meatballs_-_Jan_2022_-_Sarah_Stierch.jpg/960px-Penne_and_turkey_meatballs_-_Jan_2022_-_Sarah_Stierch.jpg",
+    "image_alt": "Penne pasta in tomato sauce topped with turkey meatballs and grated cheese",
+    "image_credit": "Missvain / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Penne_and_turkey_meatballs_-_Jan_2022_-_Sarah_Stierch.jpg",
+    "image_license": "CC BY 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "turkey meatballs",
+      "penne",
+      "one pot pasta"
+    ],
+    "ingredients": [
+      "1 1/4 lb ground turkey, 93% lean",
+      "1 large egg",
+      "1/2 cup panko breadcrumbs",
+      "1/3 cup finely grated Parmesan",
+      "1 tsp Italian seasoning",
+      "1/2 tsp garlic powder",
+      "3/4 tsp fine salt, divided",
+      "3 cups water",
+      "1 cup low-sodium chicken broth",
+      "12 oz dry penne",
+      "1 jar (24 oz) smooth marinara sauce, divided",
+      "1 cup shredded mozzarella, optional",
+      "Chopped basil or parsley, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Shape small meatballs",
+        "text": "Mix turkey, egg, panko, Parmesan, Italian seasoning, garlic powder and 1/2 teaspoon salt just until combined. Shape into 24 compact meatballs, about 1 1/2 inches each; overmixing makes them firm."
+      },
+      {
+        "name": "Build the liquid base",
+        "text": "Pour water and broth into a 6-quart cooker. Stir in 1 cup marinara and the remaining 1/4 teaspoon salt."
+      },
+      {
+        "name": "Layer meatballs, pasta and sauce",
+        "text": "Arrange meatballs in the liquid. Scatter penne over them in an even layer, pressing just enough to moisten most pieces. Spoon the remaining marinara over the pasta. Do not stir."
+      },
+      {
+        "name": "Pressure cook and release carefully",
+        "text": "Lock the lid and cook on High Pressure for 5 minutes. Let pressure release naturally for 5 minutes, then vent in short controlled bursts. If starchy liquid sputters, close the valve, wait 30 seconds and continue slowly."
+      },
+      {
+        "name": "Verify and loosen",
+        "text": "Open only after the float valve drops. Check a center meatball for 165°F. Stir gently from the bottom; the sauce will look loose at first. Rest uncovered for 4 minutes so pasta absorbs the excess."
+      },
+      {
+        "name": "Finish with cheese",
+        "text": "Fold in mozzarella if using, or sprinkle cheese over individual bowls. If pasta is firmer than desired, simmer on Sauté-Low with 1/4 cup water for 1 to 2 minutes."
+      }
+    ],
+    "why_it_works": [
+      "Small, evenly sized meatballs reach a safe temperature in the same short cycle as penne.",
+      "Thin liquid sits on the base while marinara stays mostly above the pasta, limiting scorching.",
+      "A brief rest after opening lets the pasta finish absorbing sauce without an extra pressure cycle."
+    ],
+    "swaps": [
+      "Use ground chicken with the same method and verify 165°F.",
+      "Replace penne with ziti or rigatoni of similar thickness; very small pasta needs less time.",
+      "Use gluten-free pressure-cooker-safe pasta, but consult its package because some varieties become soft quickly."
+    ],
+    "storage": "Refrigerate airtight for up to 4 days. Reheat to 165°F with a splash of water or broth. Freeze meatballs and sauce for up to 3 months; cooked pasta is best fresh.",
+    "notes": [
+      "Do not use oversized meatballs because the pasta may finish before the centers reach 165°F.",
+      "Never stir thick marinara to the bottom before pressure cooking.",
+      "Pasta can foam, so use the stated 5-minute natural release and a controlled vent.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "What if a meatball is under 165°F?",
+        "a": "Select Sauté-Low, cover loosely without locking and simmer the meatballs in sauce until every center reaches 165°F."
+      },
+      {
+        "q": "Why is some pasta above the liquid?",
+        "a": "Pressure creates steam throughout the pot. Press the pasta down lightly when layering, but do not stir the marinara into the base."
+      },
+      {
+        "q": "Can I prepare the meatballs ahead?",
+        "a": "Yes. Shape and refrigerate them covered for up to 24 hours, then assemble and cook the recipe as written."
+      }
+    ],
+    "pantry": [
+      "panko breadcrumbs",
+      "Italian seasoning",
+      "garlic powder",
+      "fine salt",
+      "low-sodium chicken broth",
+      "penne",
+      "marinara sauce"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-sausage-peppers-pasta",
+    "title": "Instant Pot Sausage and Peppers Pasta",
+    "dek": "Mild Italian sausage, penne, tomato sauce and sweet roasted peppers make a one-pot pasta built for nights when cleanup matters.",
+    "protein": [
+      "sausage",
+      "pork"
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 25,
+    "total_minutes": 35,
+    "servings": 6,
+    "calories": 590,
+    "cost_per_serving": "$2.35",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Naporitan_by_zenjiro.jpg/960px-Naporitan_by_zenjiro.jpg",
+    "image_alt": "Tomato-coated spaghetti with sliced sausage, sweet peppers and herbs",
+    "image_credit": "zenjiro / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Naporitan_by_zenjiro.jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "sausage pasta",
+      "sweet peppers",
+      "one pot pasta"
+    ],
+    "ingredients": [
+      "1 lb mild Italian sausage, casings removed",
+      "1 small yellow onion, diced",
+      "3 garlic cloves, minced",
+      "3 cups low-sodium chicken broth",
+      "12 oz dry penne",
+      "1 jar (24 oz) marinara sauce",
+      "1 jar (12 oz) roasted red peppers, drained and cut into strips",
+      "1 tsp Italian seasoning",
+      "1/2 cup grated Parmesan",
+      "2 cups baby spinach, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Brown the sausage",
+        "text": "Select Sauté and cook sausage and onion for 5 to 6 minutes, breaking the meat into bite-size crumbles, until no pink remains. Stir in garlic for 30 seconds."
+      },
+      {
+        "name": "Deglaze",
+        "text": "Pour in 1 cup broth and scrape the base until completely smooth. Add the remaining broth and cancel Sauté."
+      },
+      {
+        "name": "Layer pasta and sauce",
+        "text": "Scatter penne evenly over the liquid and press gently so most pieces are wet. Spoon marinara over the pasta and sprinkle with Italian seasoning. Do not stir."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 5 minutes. Allow a 5-minute natural release, then vent the remaining pressure in controlled bursts, pausing if starchy foam appears."
+      },
+      {
+        "name": "Fold in peppers",
+        "text": "Open when the float valve drops. Stir thoroughly from the bottom, then fold in roasted peppers and spinach. Rest uncovered 3 to 5 minutes until the sauce clings to the pasta and spinach wilts."
+      },
+      {
+        "name": "Finish",
+        "text": "Stir in half the Parmesan and serve the rest at the table. Taste before adding salt because sausage, sauce and cheese are already seasoned."
+      }
+    ],
+    "why_it_works": [
+      "Jarred roasted peppers add sweet pepper flavor after pressure cooking without becoming watery or mushy.",
+      "Deglazing after browning sausage prevents stuck proteins from triggering the burn warning.",
+      "The sauce thickens during a short rest as the pasta releases and reabsorbs starch."
+    ],
+    "swaps": [
+      "Use fully cooked chicken sausage sliced into coins; sauté only long enough to brown it.",
+      "Substitute rigatoni or ziti with similar package cook time.",
+      "For a creamy finish, stir in 1/3 cup half-and-half only after pressure cooking."
+    ],
+    "storage": "Refrigerate for up to 4 days and reheat to 165°F with a small splash of broth. Freeze for up to 2 months; pasta will soften slightly after thawing.",
+    "notes": [
+      "This recipe uses mild sausage; serve red-pepper flakes separately.",
+      "Roasted peppers go in after the pressure cycle for better texture.",
+      "Do not fill above the half-full line when cooking foaming or expanding pasta.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I use fresh bell peppers?",
+        "a": "Yes. Sauté strips for 3 minutes before browning the sausage, remove them and fold them back in after pressure cooking."
+      },
+      {
+        "q": "Why is the sauce thin when I open the lid?",
+        "a": "Stir and wait 3 to 5 minutes. Pasta continues absorbing liquid; use Sauté-Low for 1 minute only if it remains too loose."
+      },
+      {
+        "q": "Can I add cheese before pressure cooking?",
+        "a": "No. Dairy can separate or scorch. Add Parmesan, mozzarella, cream or ricotta only after the lid is open."
+      }
+    ],
+    "pantry": [
+      "Italian seasoning",
+      "low-sodium chicken broth",
+      "penne",
+      "marinara sauce",
+      "roasted red peppers"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-bbq-pulled-chicken-sandwiches",
+    "title": "Instant Pot BBQ Pulled Chicken Sandwiches",
+    "dek": "Juicy shredded chicken in a thick barbecue glaze piles onto soft buns with an optional crunchy slaw for an easy family sandwich night.",
+    "protein": [
+      "chicken"
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 30,
+    "total_minutes": 40,
+    "servings": 6,
+    "calories": 480,
+    "cost_per_serving": "$2.10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/2015-04-06_Pulled_Chicken_Burger_anagoria.JPG/960px-2015-04-06_Pulled_Chicken_Burger_anagoria.JPG",
+    "image_alt": "Pulled barbecue chicken piled on a soft round sandwich bun",
+    "image_credit": "Anagoria / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:2015-04-06_Pulled_Chicken_Burger_anagoria.JPG",
+    "image_license": "CC BY 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/3.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "bbq chicken",
+      "pulled chicken",
+      "sandwiches"
+    ],
+    "ingredients": [
+      "2 lb boneless, skinless chicken thighs or breasts",
+      "1 tsp smoked paprika",
+      "1/2 tsp garlic powder",
+      "3/4 tsp fine salt",
+      "1 cup low-sodium chicken broth",
+      "1 small yellow onion, thinly sliced",
+      "1 1/2 cups barbecue sauce, divided",
+      "1 tbsp apple cider vinegar",
+      "6 soft sandwich buns",
+      "2 cups prepared coleslaw, optional",
+      "Pickles, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Season and layer",
+        "text": "Season chicken with paprika, garlic powder and salt. Pour broth into the cooker, add onion, then arrange chicken over it. Spoon 1 cup barbecue sauce on top without stirring."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 10 minutes. Let pressure release naturally for 10 minutes, then carefully vent the remainder."
+      },
+      {
+        "name": "Check and shred",
+        "text": "When the float valve drops, move chicken to a bowl and verify 165°F. Shred with two forks."
+      },
+      {
+        "name": "Reduce the sauce",
+        "text": "Select Sauté and simmer the pot liquid for 5 to 8 minutes, stirring often, until reduced by roughly one third. Skim excess fat if using thighs."
+      },
+      {
+        "name": "Glaze the chicken",
+        "text": "Cancel Sauté and stir in the remaining 1/2 cup barbecue sauce and vinegar. Return chicken and toss until thickly coated. Let stand 2 minutes."
+      },
+      {
+        "name": "Build sandwiches",
+        "text": "Pile chicken on buns and add slaw or pickles if desired. Keep extra barbecue sauce at the table for anyone who wants a sweeter sandwich."
+      }
+    ],
+    "why_it_works": [
+      "Broth provides dependable steam while barbecue sauce stays above the heating surface.",
+      "Reducing natural chicken juices before adding the final sauce creates a glaze instead of a watery sandwich filling.",
+      "A splash of vinegar balances sweet bottled sauce and keeps the finished chicken lively."
+    ],
+    "swaps": [
+      "Use a mix of thighs and breasts for a balance of juiciness and lean meat.",
+      "Serve over baked potatoes or rice instead of buns for a gluten-free option.",
+      "Use a mustard-forward or lower-sugar barbecue sauce without changing the cooking method."
+    ],
+    "storage": "Refrigerate filling airtight for up to 4 days and reheat to 165°F. Freeze chicken in sauce for up to 3 months. Store buns and slaw separately.",
+    "notes": [
+      "Barbecue sauce thickness and sweetness vary, so taste before adding the entire reserved amount.",
+      "Never stir sugary sauce against the cooker base before pressure cooking.",
+      "Toast buns cut-side down for 1 to 2 minutes to keep them from becoming soggy.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I use frozen chicken?",
+        "a": "Use individually frozen pieces and increase High Pressure time to 14 minutes, followed by a 10-minute natural release. Verify 165°F throughout."
+      },
+      {
+        "q": "Why is the filling watery?",
+        "a": "Chicken releases liquid under pressure. Remove the chicken and reduce the sauce uncovered before shredding it back in."
+      },
+      {
+        "q": "Can I keep this warm for a party?",
+        "a": "Yes, on Keep Warm for up to 2 hours. Stir occasionally and add a splash of broth if the sauce becomes too tight."
+      }
+    ],
+    "pantry": [
+      "smoked paprika",
+      "garlic powder",
+      "fine salt",
+      "low-sodium chicken broth",
+      "barbecue sauce",
+      "apple cider vinegar"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-cheeseburger-macaroni",
+    "title": "Instant Pot Cheeseburger Macaroni",
+    "dek": "Ground beef, tender elbows and real cheddar create a creamy homemade answer to boxed cheeseburger pasta in about half an hour.",
+    "protein": [
+      "beef"
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 20,
+    "total_minutes": 30,
+    "servings": 6,
+    "calories": 610,
+    "cost_per_serving": "$2.15",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Sydney_Adamu_beef_bowl_-_Cheeseburger_Macaroni_Hamburger_Helper.jpg/960px-Sydney_Adamu_beef_bowl_-_Cheeseburger_Macaroni_Hamburger_Helper.jpg",
+    "image_alt": "Creamy cheeseburger macaroni topped with toasted crumbs and chopped parsley",
+    "image_credit": "Jengod / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Sydney_Adamu_beef_bowl_-_Cheeseburger_Macaroni_Hamburger_Helper.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "cheeseburger macaroni",
+      "ground beef",
+      "one pot pasta"
+    ],
+    "ingredients": [
+      "1 1/4 lb 85% lean ground beef",
+      "1 small yellow onion, diced",
+      "1 tsp garlic powder",
+      "1 tsp smoked paprika",
+      "1/2 tsp fine salt",
+      "1 tbsp Worcestershire sauce",
+      "3 1/4 cups low-sodium beef broth",
+      "12 oz elbow macaroni",
+      "1 can (14.5 oz) petite diced tomatoes",
+      "1 tbsp yellow mustard",
+      "3/4 cup evaporated milk",
+      "2 cups freshly shredded sharp cheddar",
+      "Chopped pickles or scallions, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Brown the beef",
+        "text": "Select Sauté and cook beef and onion for 5 to 6 minutes, breaking the meat into small crumbles, until no pink remains. Drain excessive fat if needed."
+      },
+      {
+        "name": "Season and deglaze",
+        "text": "Stir in garlic powder, paprika, salt and Worcestershire. Add 1 cup broth and scrape the base completely clean. Pour in the remaining broth and cancel Sauté."
+      },
+      {
+        "name": "Layer the pasta",
+        "text": "Spread macaroni evenly over the liquid and press it down gently. Pour diced tomatoes over the top. Do not stir."
+      },
+      {
+        "name": "Pressure cook and vent",
+        "text": "Lock the lid and cook on High Pressure for 4 minutes. Immediately use a controlled quick release in short bursts; if foam appears, close the valve for 30 seconds and resume slowly."
+      },
+      {
+        "name": "Make it creamy",
+        "text": "Stir from the bottom, then add mustard and evaporated milk. Add cheddar in three handfuls, stirring each until melted before adding the next. Do not use Sauté while adding cheese."
+      },
+      {
+        "name": "Rest and serve",
+        "text": "Let stand uncovered for 3 minutes to thicken. Taste for salt and serve with pickles or scallions for the adults while keeping the base familiar for kids."
+      }
+    ],
+    "why_it_works": [
+      "Evaporated milk resists curdling and creates a smooth sauce without a flour roux.",
+      "Freshly shredded cheddar melts more smoothly than pre-shredded cheese coated with anti-caking starch.",
+      "Tomatoes stay on top during pressure cooking, protecting the base from scorching."
+    ],
+    "swaps": [
+      "Use ground turkey and 1 tablespoon oil in place of beef.",
+      "Use Monterey Jack for a milder, stretchier sauce or a half-cheddar blend.",
+      "Omit tomatoes and add an extra 1/2 cup broth for a plainer cheeseburger-style macaroni."
+    ],
+    "storage": "Refrigerate airtight for up to 4 days. Reheat to 165°F over low heat with a splash of milk. Freeze up to 2 months, although the sauce may be slightly less smooth after thawing.",
+    "notes": [
+      "Do not add milk or cheese before pressure cooking.",
+      "Pasta releases foam, so never walk away during the controlled quick release.",
+      "The sauce thickens quickly as it rests; loosen with warm milk if needed.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Why did the cheese sauce turn grainy?",
+        "a": "The pot may have been too hot or cheese was added all at once. Cancel heat, add cheese gradually and use freshly shredded blocks."
+      },
+      {
+        "q": "Can I use a different pasta?",
+        "a": "Choose a shape with a similar package time. Set pressure time to roughly half the lowest listed stovetop time, rounding down."
+      },
+      {
+        "q": "Can I double it?",
+        "a": "Not in a 6-quart cooker. Pasta foams and expands, so keep the pot below the half-full line and make a second batch."
+      }
+    ],
+    "pantry": [
+      "garlic powder",
+      "smoked paprika",
+      "fine salt",
+      "Worcestershire sauce",
+      "low-sodium beef broth",
+      "elbow macaroni",
+      "evaporated milk"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-lemon-chicken-orzo-soup",
+    "title": "Instant Pot Lemon Chicken Orzo Soup",
+    "dek": "Chicken, vegetables and tender orzo meet plenty of fresh lemon in a bright soup whose pasta stays intact because it cooks after pressure.",
+    "protein": [
+      "chicken"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 33,
+    "total_minutes": 45,
+    "servings": 6,
+    "calories": 390,
+    "cost_per_serving": "$1.90",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Lemon_chicken_orzo_soup.jpg/960px-Lemon_chicken_orzo_soup.jpg",
+    "image_alt": "Lemon chicken orzo soup with vegetables and herbs in a white bowl",
+    "image_credit": "Karen and Brad Emerson / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Lemon_chicken_orzo_soup.jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "chicken soup",
+      "orzo",
+      "lemon"
+    ],
+    "ingredients": [
+      "1 1/2 lb boneless, skinless chicken thighs",
+      "1 tbsp olive oil",
+      "1 medium yellow onion, diced",
+      "2 carrots, diced",
+      "2 celery stalks, diced",
+      "3 garlic cloves, minced",
+      "6 cups low-sodium chicken broth",
+      "1 tsp dried oregano",
+      "1 bay leaf",
+      "3/4 cup dry orzo",
+      "1 large lemon, zested and juiced",
+      "2 cups baby spinach",
+      "1/4 cup chopped dill or parsley, optional",
+      "Fine salt and black pepper"
+    ],
+    "instructions": [
+      {
+        "name": "Sauté the vegetables",
+        "text": "Select Sauté, add oil, onion, carrots and celery, and cook 4 minutes. Add garlic and oregano for 30 seconds."
+      },
+      {
+        "name": "Deglaze and load",
+        "text": "Pour in 1 cup broth and scrape the base clean. Add remaining broth, bay leaf, chicken, 3/4 teaspoon salt and 1/4 teaspoon pepper. Cancel Sauté."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 8 minutes. Let pressure release naturally for 10 minutes, then vent the remainder."
+      },
+      {
+        "name": "Shred the chicken",
+        "text": "Open after the float valve drops. Discard the bay leaf. Transfer chicken to a board, verify 165°F and shred."
+      },
+      {
+        "name": "Cook orzo uncovered",
+        "text": "Select Sauté and bring the broth to a simmer. Stir in orzo and cook 7 to 9 minutes, stirring frequently, until just tender. Cancel Sauté."
+      },
+      {
+        "name": "Brighten at the end",
+        "text": "Return chicken and stir in lemon zest, 3 tablespoons lemon juice, spinach and herbs. Rest 2 minutes until spinach wilts, then adjust salt, pepper and lemon."
+      }
+    ],
+    "why_it_works": [
+      "Orzo cooks after pressure, preventing foam at the valve and soft, swollen pasta.",
+      "Lemon zest and juice enter at the end so their aroma stays fresh.",
+      "Spinach wilts from residual heat and keeps its color."
+    ],
+    "swaps": [
+      "Use 3 cups cooked shredded chicken: pressure-cook the broth and vegetables for 3 minutes, then add chicken with the orzo.",
+      "Use small ditalini or pastina and follow package timing on Sauté.",
+      "Replace spinach with chopped kale and simmer it with the orzo for the final 4 minutes."
+    ],
+    "storage": "Refrigerate up to 4 days, preferably with orzo stored separately. Add broth when reheating to 165°F. Freeze the soup base without orzo, spinach or lemon for up to 3 months.",
+    "notes": [
+      "The soup may thicken overnight because orzo continues absorbing broth.",
+      "Add lemon gradually; different fruit yields and acidity vary.",
+      "Do not pressure-cook the orzo in this full pot of broth.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I make it creamy?",
+        "a": "Yes. Stir in 1/2 cup half-and-half after canceling Sauté; do not pressure-cook dairy."
+      },
+      {
+        "q": "Can I use chicken breast?",
+        "a": "Yes. Use the same timing and confirm 165°F before shredding."
+      },
+      {
+        "q": "Why wait to add lemon?",
+        "a": "Pressure cooking dulls fresh citrus aroma and can emphasize bitterness from zest, so both go in after the lid opens."
+      }
+    ],
+    "pantry": [
+      "olive oil",
+      "low-sodium chicken broth",
+      "dried oregano",
+      "bay leaf",
+      "orzo",
+      "fine salt",
+      "black pepper"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-pork-carnitas",
+    "title": "Instant Pot Pork Carnitas",
+    "dek": "Citrus, cumin and oregano turn pork shoulder into shreddable carnitas, then a fast broil creates the crisp edges pressure cooking cannot.",
+    "protein": [
+      "pork"
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 60,
+    "total_minutes": 75,
+    "servings": 8,
+    "calories": 520,
+    "cost_per_serving": "$2.45",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/960px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg",
+    "image_alt": "Three carnitas tacos topped with chopped onion, cilantro and lime",
+    "image_credit": "Larry Miller / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:001_Tacos_de_carnitas,_carne_asada_y_al_pastor.jpg",
+    "image_license": "CC BY-SA 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "meal prep",
+      "pork carnitas",
+      "tacos",
+      "gluten-free"
+    ],
+    "ingredients": [
+      "3 lb boneless pork shoulder, cut into 2-inch chunks",
+      "2 tsp fine salt",
+      "2 tsp ground cumin",
+      "1 tsp dried oregano",
+      "1/2 tsp black pepper",
+      "1 tbsp neutral oil",
+      "3/4 cup low-sodium chicken broth",
+      "1/2 cup orange juice",
+      "1 medium yellow onion, quartered",
+      "5 garlic cloves, smashed",
+      "2 tbsp lime juice",
+      "Warm tortillas, diced onion, cilantro and lime wedges, for serving"
+    ],
+    "instructions": [
+      {
+        "name": "Season and brown",
+        "text": "Toss pork with salt, cumin, oregano and pepper. Select Sauté, add oil and brown pork in three batches for 2 to 3 minutes per batch. Transfer to a plate."
+      },
+      {
+        "name": "Deglaze thoroughly",
+        "text": "Pour in broth and scrape up every browned bit. Add orange juice, onion and garlic, then return pork and accumulated juices. Cancel Sauté."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 35 minutes. Let pressure release naturally for 15 minutes, then carefully vent the remainder."
+      },
+      {
+        "name": "Shred and reduce",
+        "text": "Open after the float valve drops. Transfer pork to a rimmed sheet pan and shred, discarding large fat pieces. Select Sauté and reduce the pot liquid for 8 to 10 minutes."
+      },
+      {
+        "name": "Crisp the edges",
+        "text": "Spoon 3/4 cup reduced liquid over the pork, spread it in one layer and broil 4 to 7 minutes, turning once, until many edges are browned and crisp. Watch closely."
+      },
+      {
+        "name": "Finish and serve",
+        "text": "Toss carnitas with lime juice and enough additional cooking liquid to stay juicy. Serve with tortillas and mild toppings; add hot salsa separately."
+      }
+    ],
+    "why_it_works": [
+      "Pork shoulder's collagen melts under pressure, making it shreddable without drying out.",
+      "Citrus and aromatics perfume the meat while broth supplies dependable thin liquid.",
+      "Broiling after pressure adds the browned, crisp texture associated with carnitas."
+    ],
+    "swaps": [
+      "Use bone-in shoulder of similar meat weight; remove the bone after cooking.",
+      "Serve in rice bowls or over baked sweet potatoes instead of tortillas.",
+      "Use pineapple juice in place of orange juice for a sweeter variation."
+    ],
+    "storage": "Refrigerate with a little cooking liquid for up to 4 days or freeze up to 3 months. Reheat on a sheet pan at 425°F until 165°F and crisp at the edges.",
+    "notes": [
+      "Cut pork into consistent 2-inch pieces so it tenderizes evenly.",
+      "Do not discard the cooking liquid before reducing it; it carries the seasoning and gelatin.",
+      "This longer recipe is mostly hands-off and makes enough for a second meal.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Why will my pork not shred?",
+        "a": "It needs more time. Return it to the cooker with liquid and pressure-cook 8 additional minutes, then use a 10-minute natural release."
+      },
+      {
+        "q": "Can I skip browning?",
+        "a": "Yes, but the flavor will be lighter. Broiling at the end becomes especially important if you skip the initial sear."
+      },
+      {
+        "q": "Can I make carnitas ahead?",
+        "a": "Yes. Chill shredded pork in its liquid, then crisp only the amount you need just before serving."
+      }
+    ],
+    "pantry": [
+      "fine salt",
+      "ground cumin",
+      "dried oregano",
+      "black pepper",
+      "neutral oil",
+      "low-sodium chicken broth",
+      "tortillas"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-teriyaki-chicken-rice-bowls",
+    "title": "Instant Pot Teriyaki Chicken Rice Bowls",
+    "dek": "Chicken and jasmine rice cook together using a pot-in-pot setup, while honey and broccoli finish afterward for a glossy, not-burned teriyaki bowl.",
+    "protein": [
+      "chicken"
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 25,
+    "total_minutes": 40,
+    "servings": 6,
+    "calories": 560,
+    "cost_per_serving": "$2.20",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Chicken_teriyaki_with_rice_by_abex_in_Akasaka%2C_Tokyo.jpg",
+    "image_alt": "Glazed teriyaki chicken served with white rice and vegetables",
+    "image_credit": "abex / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Chicken_teriyaki_with_rice_by_abex_in_Akasaka,_Tokyo.jpg",
+    "image_license": "CC BY-SA 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "teriyaki chicken",
+      "rice bowls",
+      "pot in pot"
+    ],
+    "ingredients": [
+      "1 3/4 lb boneless, skinless chicken thighs, cut into 2-inch pieces",
+      "1 cup low-sodium chicken broth",
+      "1/3 cup low-sodium soy sauce",
+      "3 garlic cloves, minced",
+      "1 tbsp finely grated ginger",
+      "1 1/2 cups jasmine rice, rinsed and drained",
+      "1 1/2 cups water",
+      "4 cups small broccoli florets",
+      "1/3 cup honey",
+      "2 tbsp rice vinegar",
+      "2 tbsp cornstarch",
+      "2 tbsp cold water",
+      "1 tsp toasted sesame oil",
+      "Sliced scallions and sesame seeds, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Build the chicken base",
+        "text": "Pour broth and soy sauce into a 6-quart cooker and stir in garlic and ginger. Add chicken in an even layer."
+      },
+      {
+        "name": "Set up pot-in-pot rice",
+        "text": "Place a tall trivet over the chicken. In a 7-inch stainless bowl, combine rinsed rice and 1 1/2 cups water. Set the uncovered bowl on the trivet, checking that the cooker lid can close without contact."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 6 minutes. Allow a 10-minute natural release, then carefully vent the remainder."
+      },
+      {
+        "name": "Remove and check",
+        "text": "After the float valve drops, use oven mitts to lift out the hot rice bowl and trivet. Fluff rice and cover. Confirm chicken reaches 165°F."
+      },
+      {
+        "name": "Finish sauce and broccoli",
+        "text": "Select Sauté. Stir honey and vinegar into the chicken. Add broccoli, cover loosely without locking and cook 3 to 4 minutes. Stir cornstarch with cold water, add it and simmer 1 minute until glossy."
+      },
+      {
+        "name": "Assemble bowls",
+        "text": "Cancel Sauté, stir in sesame oil and serve chicken, broccoli and sauce over rice. Add scallions, sesame seeds or chili sauce individually."
+      }
+    ],
+    "why_it_works": [
+      "A separate raised bowl keeps rice out of the salty sauce and lets both components cook in one cycle.",
+      "Honey goes in after pressure so concentrated sugar cannot scorch.",
+      "Broccoli steams in the finished sauce, preserving color and texture."
+    ],
+    "swaps": [
+      "Use tamari for a gluten-free sauce.",
+      "Replace broccoli with thawed shelled edamame and thin carrot ribbons, adding both after pressure.",
+      "Use brown rice only with a separately tested timing; its longer cook cycle will overcook the chicken."
+    ],
+    "storage": "Refrigerate chicken, broccoli and rice in shallow containers for up to 4 days. Reheat to 165°F. Freeze chicken and sauce for up to 3 months; make fresh rice and broccoli.",
+    "notes": [
+      "Use only a heat-safe stainless pot-in-pot bowl that fits your cooker with clearance around it.",
+      "Fresh ginger gives the cleanest flavor, but 1 teaspoon ground ginger works in a pinch.",
+      "The trivet and rice bowl are extremely hot; lift them with dry oven mitts.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I put honey in before pressure cooking?",
+        "a": "It is safer to add it afterward. Thick, sugary sauces can settle on the hot base and trigger a burn warning."
+      },
+      {
+        "q": "What if the chicken is below 165°F?",
+        "a": "Remove the rice, select Sauté and simmer the chicken in sauce until every piece reaches 165°F."
+      },
+      {
+        "q": "Can I cook rice directly in the sauce?",
+        "a": "That changes liquid absorption and salt concentration. Use the pot-in-pot method for separate fluffy rice."
+      }
+    ],
+    "pantry": [
+      "low-sodium chicken broth",
+      "low-sodium soy sauce",
+      "jasmine rice",
+      "honey",
+      "rice vinegar",
+      "cornstarch",
+      "toasted sesame oil"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-broccoli-cheddar-soup",
+    "title": "Instant Pot Broccoli Cheddar Soup",
+    "dek": "Broccoli, carrots and potato pressure-cook into a velvety base, then real cheddar and half-and-half go in off pressure for a smooth family soup.",
+    "protein": [
+      "vegetarian"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 23,
+    "total_minutes": 35,
+    "servings": 6,
+    "calories": 410,
+    "cost_per_serving": "$1.55",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Brocoli_and_cheddar_soup_with_focaccia.jpg/960px-Brocoli_and_cheddar_soup_with_focaccia.jpg",
+    "image_alt": "Creamy broccoli cheddar soup in a white bowl with toasted focaccia",
+    "image_credit": "Ken Hawkins / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Brocoli_and_cheddar_soup_with_focaccia.jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "broccoli cheddar soup",
+      "vegetarian",
+      "comfort food"
+    ],
+    "ingredients": [
+      "2 tbsp unsalted butter",
+      "1 medium yellow onion, diced",
+      "2 carrots, finely diced",
+      "1 small russet potato, peeled and cut into 1/2-inch cubes",
+      "1 1/2 lb broccoli, stems peeled and diced, florets kept separate",
+      "4 cups low-sodium vegetable broth",
+      "1 tsp Dijon mustard",
+      "1/2 tsp fine salt",
+      "1 cup half-and-half, at room temperature",
+      "2 1/2 cups freshly shredded sharp cheddar",
+      "1/4 tsp black pepper"
+    ],
+    "instructions": [
+      {
+        "name": "Sauté the aromatics",
+        "text": "Select Sauté, melt butter and cook onion and carrots for 4 minutes. Add potato and diced broccoli stems."
+      },
+      {
+        "name": "Deglaze and pressure cook",
+        "text": "Pour in broth and scrape the base clean. Stir in Dijon and salt, then scatter florets on top. Lock the lid and cook on High Pressure for 1 minute."
+      },
+      {
+        "name": "Quick-release carefully",
+        "text": "When the cycle ends, use a controlled quick release in short bursts. Keep hands and face away from steam; if liquid sputters, close the valve briefly and resume."
+      },
+      {
+        "name": "Blend to preferred texture",
+        "text": "Open after the float valve drops. Use an immersion blender for 3 to 5 short pulses, leaving plenty of small broccoli pieces. Do not fully purée unless your family prefers it smooth."
+      },
+      {
+        "name": "Add dairy off pressure",
+        "text": "Cancel heat. Stir in half-and-half, then add cheddar one handful at a time, stirring until each melts. Do not boil after adding cheese."
+      },
+      {
+        "name": "Adjust and serve",
+        "text": "Add pepper and taste for salt. If too thick, stir in warm broth; if too thin, rest uncovered 5 minutes. Serve with bread or crackers."
+      }
+    ],
+    "why_it_works": [
+      "Potato supplies body without a heavy flour roux.",
+      "A one-minute pressure cycle softens broccoli quickly while limiting sulfurous overcooked flavor.",
+      "Dairy and cheese enter after pressure and away from a boil, which protects their smooth texture."
+    ],
+    "swaps": [
+      "Use whole milk for a lighter soup; it will be slightly thinner.",
+      "Use mild cheddar for a gentler kid-friendly flavor or a cheddar-Jack blend.",
+      "For gluten-free soup, confirm broth and Dijon labels; no flour is used."
+    ],
+    "storage": "Refrigerate airtight for up to 4 days. Reheat gently below a boil, stirring often. Freezing can make dairy soup grainy, so fresh or refrigerated is best.",
+    "notes": [
+      "Shred cheese from a block; pre-shredded coatings can make the soup less smooth.",
+      "Do not use Sauté after adding cheese unless set to Low and watched constantly.",
+      "The pressure time is only 1 minute, but the pot still needs time to heat and release.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Why is my soup grainy?",
+        "a": "The cheese may have boiled, been added too quickly or been pre-shredded. Remove from heat and whisk in small handfuls of block-shredded cheese."
+      },
+      {
+        "q": "Can I use frozen broccoli?",
+        "a": "Yes. Add it frozen and keep the 1-minute timing; the pot may take slightly longer to reach pressure."
+      },
+      {
+        "q": "Can I make it without an immersion blender?",
+        "a": "Mash some potato and broccoli against the side with a potato masher, leaving the rest chunky."
+      }
+    ],
+    "pantry": [
+      "unsalted butter",
+      "low-sodium vegetable broth",
+      "Dijon mustard",
+      "fine salt",
+      "black pepper"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-red-lentil-coconut-curry",
+    "title": "Instant Pot Red Lentil Coconut Curry",
+    "dek": "Red lentils, tomatoes, mild spices, coconut milk and spinach make a creamy meatless curry from inexpensive pantry staples.",
+    "protein": [
+      "meatless"
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 25,
+    "total_minutes": 35,
+    "servings": 6,
+    "calories": 430,
+    "cost_per_serving": "$1.35",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Lal_Masoor_Dal_and_Palak.JPG/960px-Lal_Masoor_Dal_and_Palak.JPG",
+    "image_alt": "Red lentil and spinach dal in a red bowl with a green chile",
+    "image_credit": "Miansari66 / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Lal_Masoor_Dal_and_Palak.JPG",
+    "image_license": "CC0",
+    "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "red lentil curry",
+      "vegetarian",
+      "vegan",
+      "gluten-free",
+      "budget"
+    ],
+    "ingredients": [
+      "1 tbsp neutral oil",
+      "1 medium yellow onion, diced",
+      "3 garlic cloves, minced",
+      "1 tbsp finely grated ginger",
+      "1 tbsp mild curry powder",
+      "1 tsp ground cumin",
+      "1/2 tsp ground turmeric",
+      "1 1/2 cups red lentils, rinsed until water is mostly clear",
+      "3 cups low-sodium vegetable broth",
+      "1 can (14.5 oz) diced tomatoes",
+      "1 can (13.5 oz) full-fat coconut milk",
+      "4 cups baby spinach",
+      "1 tbsp lime juice",
+      "1 tsp fine salt, plus more to taste",
+      "Cooked rice or naan, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Bloom the spices",
+        "text": "Select Sauté, add oil and onion, and cook 4 minutes. Add garlic, ginger, curry powder, cumin and turmeric; stir for 30 seconds."
+      },
+      {
+        "name": "Deglaze and layer",
+        "text": "Pour in 1 cup broth and scrape the base clean. Stir in rinsed lentils, remaining broth and salt. Pour tomatoes over the top and do not stir."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 4 minutes. Allow a 10-minute natural release, then carefully vent the remaining pressure."
+      },
+      {
+        "name": "Stir smooth",
+        "text": "Open only after the float valve drops. Stir firmly from the bottom; the lentils will continue thickening as they stand."
+      },
+      {
+        "name": "Add coconut milk and spinach",
+        "text": "Select Sauté-Low, stir in coconut milk and spinach, and cook 2 to 3 minutes until hot and wilted. Do not bring to a hard boil."
+      },
+      {
+        "name": "Finish",
+        "text": "Cancel heat, add lime juice and adjust salt. Serve with rice or naan and put chile flakes or hot sauce on the table."
+      }
+    ],
+    "why_it_works": [
+      "Red lentils break down naturally, creating a creamy curry without blending.",
+      "Tomatoes sit above the lentils so their solids cannot settle and scorch.",
+      "Coconut milk goes in after pressure, preserving flavor and reducing burn risk."
+    ],
+    "swaps": [
+      "Use light coconut milk for a thinner, lower-fat curry.",
+      "Replace spinach with chopped kale and simmer 3 to 5 minutes after pressure.",
+      "Add a drained can of chickpeas with the coconut milk for extra texture."
+    ],
+    "storage": "Refrigerate up to 5 days or freeze up to 3 months. Lentils thicken in storage; add water or broth while reheating until steaming hot.",
+    "notes": [
+      "Red lentils foam and expand, so keep the pot below the half-full line.",
+      "Rinse until the water is mostly clear to reduce excess foam.",
+      "The curry should look slightly loose when first opened; it thickens within minutes.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Why did I get a burn warning?",
+        "a": "The base may not have been fully deglazed or tomatoes were stirred to the bottom. Add thin broth first and keep tomatoes on top."
+      },
+      {
+        "q": "Can I use green or brown lentils?",
+        "a": "Not with this timing. They hold their shape and need a longer pressure cycle and different liquid ratio."
+      },
+      {
+        "q": "Is this spicy?",
+        "a": "Mild curry powder makes a gentle family base. Add fresh chile, cayenne or chili oil only to individual portions."
+      }
+    ],
+    "pantry": [
+      "neutral oil",
+      "mild curry powder",
+      "ground cumin",
+      "ground turmeric",
+      "red lentils",
+      "low-sodium vegetable broth",
+      "diced tomatoes",
+      "coconut milk"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-creamy-white-chicken-chili",
+    "title": "Instant Pot Creamy White Chicken Chili",
+    "dek": "Chicken, white beans, corn and mild green chiles become a cozy chili finished with cream cheese only after pressure cooking.",
+    "protein": [
+      "chicken"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 33,
+    "total_minutes": 45,
+    "servings": 6,
+    "calories": 470,
+    "cost_per_serving": "$2.10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Southwestern_Chicken_and_White_Bean_Soup.jpg/960px-Southwestern_Chicken_and_White_Bean_Soup.jpg",
+    "image_alt": "Southwestern chicken and white bean soup with corn, tomatoes and green herbs",
+    "image_credit": "Alabama Extension / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Southwestern_Chicken_and_White_Bean_Soup.jpg",
+    "image_license": "CC0",
+    "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "white chicken chili",
+      "white beans",
+      "gluten-free"
+    ],
+    "ingredients": [
+      "1 1/2 lb boneless, skinless chicken breasts or thighs",
+      "3 cups low-sodium chicken broth",
+      "1 medium yellow onion, diced",
+      "2 cans (4 oz each) mild diced green chiles",
+      "2 tsp ground cumin",
+      "1 tsp dried oregano",
+      "1/2 tsp garlic powder",
+      "3/4 tsp fine salt",
+      "3 cans (15 oz each) cannellini or great northern beans, rinsed and drained",
+      "1 1/2 cups frozen corn",
+      "4 oz cream cheese, softened and cubed",
+      "1 tbsp lime juice",
+      "Cilantro, shredded cheese and tortilla chips, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Layer the pot",
+        "text": "Pour broth into the cooker. Add onion, green chiles, cumin, oregano, garlic powder and salt. Arrange chicken in the liquid, then add beans and corn on top."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 10 minutes. Allow a 10-minute natural release, then carefully vent the remaining pressure."
+      },
+      {
+        "name": "Shred the chicken",
+        "text": "After the float valve drops, transfer chicken to a clean board, confirm it reaches 165°F and shred."
+      },
+      {
+        "name": "Create body",
+        "text": "Scoop 1 1/2 cups beans and broth into a bowl and mash with a fork or briefly blend. Return the mixture to the pot to thicken the chili without flour."
+      },
+      {
+        "name": "Finish creamy",
+        "text": "Select Sauté-Low. Add cream cheese a few cubes at a time and stir until smooth, then return chicken. Heat gently for 2 to 3 minutes without boiling."
+      },
+      {
+        "name": "Brighten and serve",
+        "text": "Cancel heat, stir in lime juice and adjust salt. Serve mild, with cilantro, cheese, chips and hot sauce offered separately."
+      }
+    ],
+    "why_it_works": [
+      "Mashed beans thicken the broth naturally while leaving plenty whole.",
+      "A natural release protects lean chicken and limits sputtering from beans.",
+      "Cream cheese is added only after pressure, preventing separation or scorching."
+    ],
+    "swaps": [
+      "Use Neufchâtel cheese for a lighter finish.",
+      "Replace one can of beans with drained chickpeas for more texture.",
+      "For dairy-free chili, omit cream cheese and mash 2 cups of beans instead."
+    ],
+    "storage": "Refrigerate airtight for up to 4 days and reheat gently to 165°F without boiling. Freeze before adding cream cheese for up to 3 months; add dairy after thawing.",
+    "notes": [
+      "Choose mild green chiles for the family pot; chopped jalapeños can stay at the table.",
+      "Do not pressure-cook the cream cheese.",
+      "If the chili becomes too thick, loosen it with warm broth 1/4 cup at a time.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I use frozen chicken?",
+        "a": "Yes, if pieces are separate. Cook on High Pressure for 14 minutes with a 10-minute natural release and verify 165°F."
+      },
+      {
+        "q": "Why did the cream cheese stay lumpy?",
+        "a": "It was probably cold or added too quickly. Soften it, whisk with a ladle of hot broth, then stir that smooth mixture into the pot."
+      },
+      {
+        "q": "Can I use dried beans?",
+        "a": "Not as a direct substitution. Dried beans require separate soaking or a longer tested cycle with more liquid."
+      }
+    ],
+    "pantry": [
+      "low-sodium chicken broth",
+      "mild green chiles",
+      "ground cumin",
+      "dried oregano",
+      "garlic powder",
+      "canned white beans",
+      "frozen corn"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-pot-roast-vegetables",
+    "title": "Instant Pot Pot Roast with Carrots and Potatoes",
+    "dek": "Chuck roast becomes fork-tender in a savory gravy, then carrots and potatoes cook in a short second cycle so they stay intact.",
+    "protein": [
+      "beef"
+    ],
+    "prep_minutes": 20,
+    "cook_minutes": 75,
+    "total_minutes": 95,
+    "servings": 6,
+    "calories": 590,
+    "cost_per_serving": "$3.75",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Potroast.JPG",
+    "image_alt": "Beef pot roast in a black pot surrounded by potatoes and carrots",
+    "image_credit": "FiveRings / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Potroast.JPG",
+    "image_license": "CC BY 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/3.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "hands off",
+      "pot roast",
+      "beef chuck",
+      "gluten-free option"
+    ],
+    "ingredients": [
+      "3 lb boneless beef chuck roast, cut into 4 equal chunks",
+      "2 tsp fine salt",
+      "1 tsp black pepper",
+      "1 tbsp neutral oil",
+      "1 medium yellow onion, cut into wedges",
+      "3 garlic cloves, smashed",
+      "1 1/2 cups low-sodium beef broth",
+      "1 tbsp tomato paste",
+      "1 tbsp Worcestershire sauce",
+      "1 tsp dried thyme",
+      "1 1/2 lb baby potatoes",
+      "5 large carrots, cut into 2-inch pieces",
+      "2 tbsp cornstarch",
+      "2 tbsp cold water"
+    ],
+    "instructions": [
+      {
+        "name": "Season and sear",
+        "text": "Pat beef dry and season with salt and pepper. Select Sauté, add oil and brown the chunks in two batches for 3 to 4 minutes per side. Transfer to a plate."
+      },
+      {
+        "name": "Deglaze",
+        "text": "Add onion and garlic for 1 minute. Pour in broth and scrape every browned bit from the base. Stir in tomato paste, Worcestershire and thyme; return beef and juices."
+      },
+      {
+        "name": "Pressure cook the beef",
+        "text": "Lock the lid and cook on High Pressure for 50 minutes. Allow a 15-minute natural release, then carefully vent the remainder."
+      },
+      {
+        "name": "Test tenderness",
+        "text": "Open after the float valve drops. Beef should yield easily to a fork. If still firm, cook 8 minutes more with a 10-minute natural release."
+      },
+      {
+        "name": "Cook vegetables separately",
+        "text": "Transfer beef to a platter and tent with foil. Add potatoes and carrots to the liquid. Lock the lid, cook on High Pressure for 4 minutes and quick-release immediately when the cycle ends."
+      },
+      {
+        "name": "Make gravy and serve",
+        "text": "Move vegetables to the platter. Select Sauté, stir cornstarch with cold water and whisk into the liquid. Simmer 1 to 2 minutes until gravy coats a spoon. Slice or pull beef and serve with vegetables and gravy."
+      }
+    ],
+    "why_it_works": [
+      "Cutting chuck into four pieces shortens tenderizing time while preserving pot-roast texture.",
+      "Vegetables use a separate short cycle so they do not collapse during the beef's long cook.",
+      "The fond from searing becomes the base of a deeply flavored gravy."
+    ],
+    "swaps": [
+      "Use Yukon Gold chunks instead of baby potatoes.",
+      "Replace Worcestershire with tamari for a gluten-free version.",
+      "Add mushrooms with the vegetables; keep larger ones whole so they hold their shape."
+    ],
+    "storage": "Refrigerate beef, vegetables and gravy for up to 4 days. Reheat covered to 165°F with a splash of broth. Freeze beef and gravy for up to 3 months; potatoes freeze less well.",
+    "notes": [
+      "This is the longest recipe in the collection, but active work is about 20 minutes.",
+      "Chuck tenderness varies; use the fork test rather than relying only on the clock.",
+      "Do not cut carrots smaller than 2 inches for the second pressure cycle.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Why is my roast tough?",
+        "a": "Tough chuck is usually undercooked, not overcooked. Give it another 8 minutes at High Pressure followed by a 10-minute natural release."
+      },
+      {
+        "q": "Can I leave the roast whole?",
+        "a": "Yes, but a thick 3-pound roast may need 60 to 70 minutes at High Pressure. Cutting it gives more consistent timing."
+      },
+      {
+        "q": "Can I cook vegetables with the beef from the start?",
+        "a": "They will become very soft during a 50-minute cycle. The second short cycle preserves recognizable carrots and potatoes."
+      }
+    ],
+    "pantry": [
+      "fine salt",
+      "black pepper",
+      "neutral oil",
+      "low-sodium beef broth",
+      "tomato paste",
+      "Worcestershire sauce",
+      "dried thyme",
+      "cornstarch"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-family-taco-soup",
+    "title": "Instant Pot Family Taco Soup",
+    "dek": "Ground turkey, beans, corn and tomatoes make a spoonable taco-night soup with crunchy toppings and heat added only at the table.",
+    "protein": [
+      "turkey"
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 25,
+    "total_minutes": 35,
+    "servings": 6,
+    "calories": 450,
+    "cost_per_serving": "$1.85",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/2014-365-354_Mmmmm_Tortilla_Soup_%2816068977505%29.jpg/960px-2014-365-354_Mmmmm_Tortilla_Soup_%2816068977505%29.jpg",
+    "image_alt": "Tomato-based tortilla soup topped with avocado, shredded chicken, tortilla strips and herbs",
+    "image_credit": "cogdogblog / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:2014-365-354_Mmmmm_Tortilla_Soup_(16068977505).jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "taco soup",
+      "ground turkey",
+      "beans",
+      "gluten-free"
+    ],
+    "ingredients": [
+      "1 1/4 lb ground turkey",
+      "1 tbsp olive oil",
+      "1 medium yellow onion, diced",
+      "2 tbsp mild taco seasoning",
+      "2 cups low-sodium chicken broth",
+      "1 can (15 oz) black beans, rinsed and drained",
+      "1 can (15 oz) pinto beans, rinsed and drained",
+      "1 1/2 cups frozen corn",
+      "1 can (14.5 oz) petite diced tomatoes",
+      "1 can (10 oz) mild diced tomatoes with green chiles",
+      "1 tbsp lime juice",
+      "Avocado, shredded cheese, sour cream and tortilla chips, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Brown the turkey",
+        "text": "Select Sauté, add oil, turkey and onion, and cook 5 to 6 minutes, breaking up the meat, until no pink remains."
+      },
+      {
+        "name": "Season and deglaze",
+        "text": "Stir in taco seasoning for 30 seconds. Pour in broth and scrape the cooker base until completely clean. Cancel Sauté."
+      },
+      {
+        "name": "Layer the soup",
+        "text": "Stir in both beans and corn. Pour both cans of tomatoes over the top without stirring them into the base."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 5 minutes. Allow a 10-minute natural release, then carefully vent the remaining pressure."
+      },
+      {
+        "name": "Adjust the bowl",
+        "text": "Open when the float valve drops. Stir in lime juice. For a thicker soup, mash some beans against the side; for a thinner soup, add warm broth."
+      },
+      {
+        "name": "Serve taco-bar style",
+        "text": "Ladle into bowls and let each person add avocado, cheese, sour cream, crushed chips and hot sauce."
+      }
+    ],
+    "why_it_works": [
+      "Browning turkey prevents large steamed clumps and builds flavor.",
+      "Tomatoes stay on top to reduce burn risk.",
+      "Beans provide enough body that the soup needs no flour or cream."
+    ],
+    "swaps": [
+      "Use lean ground beef and drain excess fat after browning.",
+      "Use any two cans of beans you have on hand.",
+      "For a vegetarian version, omit turkey, add a third can of beans and use vegetable broth."
+    ],
+    "storage": "Refrigerate up to 4 days or freeze up to 3 months. Reheat to 165°F and store crunchy and dairy toppings separately.",
+    "notes": [
+      "Check taco-seasoning sodium before adding extra salt.",
+      "The base is mild; adults can add chipotle hot sauce or jalapeños individually.",
+      "Do not stir tomato products to the heating surface before pressure cooking.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Can I skip browning the turkey?",
+        "a": "It is not recommended. Browning breaks it into even crumbles and ensures it is fully separated before pressure cooking."
+      },
+      {
+        "q": "Can I add rice?",
+        "a": "Not without changing liquid and timing. Serve the finished soup over cooked rice instead."
+      },
+      {
+        "q": "How do I make it thicker?",
+        "a": "Mash one cup of beans and soup, stir it back in and let the pot stand uncovered for 3 minutes."
+      }
+    ],
+    "pantry": [
+      "olive oil",
+      "mild taco seasoning",
+      "low-sodium chicken broth",
+      "canned beans",
+      "frozen corn",
+      "canned tomatoes"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-honey-garlic-pork-tenderloin",
+    "title": "Instant Pot Honey-Garlic Pork Tenderloin",
+    "dek": "Quick-seared pork tenderloin cooks to juicy slices while honey, garlic and soy become a glossy sauce only after the pressure cycle.",
+    "protein": [
+      "pork"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 23,
+    "total_minutes": 35,
+    "servings": 6,
+    "calories": 390,
+    "cost_per_serving": "$2.70",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Pork_roast_dinner.jpeg/960px-Pork_roast_dinner.jpeg",
+    "image_alt": "Sliced pork roast with mushrooms, onions, carrots, zucchini and strawberries",
+    "image_credit": "Warren Dew / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Pork_roast_dinner.jpeg",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "pork tenderloin",
+      "honey garlic",
+      "gluten-free option"
+    ],
+    "ingredients": [
+      "2 pork tenderloins, about 1 lb each, silverskin removed",
+      "1 tsp fine salt",
+      "1/2 tsp black pepper",
+      "1 tbsp neutral oil",
+      "1 cup low-sodium chicken broth",
+      "1/4 cup low-sodium soy sauce",
+      "1 tbsp apple cider vinegar",
+      "4 garlic cloves, minced",
+      "1/3 cup honey",
+      "2 tbsp cornstarch",
+      "2 tbsp cold water",
+      "1 tbsp unsalted butter, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Season and sear",
+        "text": "Pat tenderloins dry and season with salt and pepper. Select Sauté, add oil and brown pork for about 2 minutes per side. Transfer to a plate."
+      },
+      {
+        "name": "Deglaze and load",
+        "text": "Pour in broth, soy sauce and vinegar, scraping the base completely clean. Stir in garlic, then return pork. Keep honey out for now. Cancel Sauté."
+      },
+      {
+        "name": "Pressure cook",
+        "text": "Lock the lid and cook on High Pressure for 3 minutes. Allow a 10-minute natural release, then carefully vent the remainder."
+      },
+      {
+        "name": "Check temperature",
+        "text": "Open after the float valve drops. Transfer pork to a board and check the thickest center. It should be at least 145°F after resting; if below 140°F, return it to simmering liquid briefly."
+      },
+      {
+        "name": "Make the glaze",
+        "text": "Tent pork loosely. Select Sauté, stir honey into the liquid and simmer 2 minutes. Stir cornstarch with cold water, whisk it in and cook 1 minute until glossy. Stir in butter if desired."
+      },
+      {
+        "name": "Slice and sauce",
+        "text": "Rest pork a total of 5 minutes, then slice across the grain. Spoon honey-garlic sauce over the slices and serve extra at the table."
+      }
+    ],
+    "why_it_works": [
+      "A very short pressure cycle plus natural release cooks lean tenderloin without treating it like tough shoulder.",
+      "Honey is added after pressure to protect the cooker base from concentrated sugar.",
+      "Resting before slicing retains juices and allows carryover heat to finish the center."
+    ],
+    "swaps": [
+      "Use tamari for a gluten-free sauce.",
+      "Replace honey with maple syrup after pressure cooking.",
+      "Add steamed green beans or broccoli to the finished sauce, rather than pressure-cooking them with the pork."
+    ],
+    "storage": "Refrigerate sliced pork and sauce separately or together for up to 4 days. Reheat gently to 165°F with extra sauce to prevent drying. Freeze up to 2 months.",
+    "notes": [
+      "Tenderloin is the narrow, lean cut—not pork loin roast; the larger roast needs different timing.",
+      "Thickness matters more than exact weight, so use an instant-read thermometer.",
+      "Do not pressure-cook the honey.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "What if the pork is above 145°F?",
+        "a": "Slice it thinly and serve with plenty of sauce. Next time use the same 3-minute cycle but release after only 7 minutes naturally."
+      },
+      {
+        "q": "Can I cook one tenderloin?",
+        "a": "Yes. Keep the liquid and timing the same because minimum liquid and thickness—not total weight—control pressure cooking."
+      },
+      {
+        "q": "Is slightly pink pork safe?",
+        "a": "Whole-muscle pork is safe at 145°F followed by a 3-minute rest. Always verify with a thermometer in the thickest center."
+      }
+    ],
+    "pantry": [
+      "fine salt",
+      "black pepper",
+      "neutral oil",
+      "low-sodium chicken broth",
+      "low-sodium soy sauce",
+      "apple cider vinegar",
+      "honey",
+      "cornstarch"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-meatloaf-mashed-potatoes",
+    "title": "Instant Pot Meatloaf and Mashed Potatoes",
+    "dek": "A glazed beef meatloaf cooks above the potatoes in one pressure cycle, turning a classic comfort dinner into a manageable weeknight meal.",
+    "protein": [
+      "beef"
+    ],
+    "prep_minutes": 20,
+    "cook_minutes": 35,
+    "total_minutes": 55,
+    "servings": 6,
+    "calories": 650,
+    "cost_per_serving": "$2.65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Meatloaf_on_white_plate.jpg/960px-Meatloaf_on_white_plate.jpg",
+    "image_alt": "Sliced glazed meatloaf on a clean white plate",
+    "image_credit": "Roundhere44 / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Meatloaf_on_white_plate.jpg",
+    "image_license": "CC0",
+    "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "meatloaf",
+      "mashed potatoes",
+      "comfort food"
+    ],
+    "ingredients": [
+      "2 lb Yukon Gold potatoes, peeled and cut into 1 1/2-inch chunks",
+      "1 cup low-sodium beef broth",
+      "1 1/2 lb 85% lean ground beef",
+      "1 large egg",
+      "3/4 cup panko breadcrumbs",
+      "1/2 cup milk, divided",
+      "1/2 small yellow onion, finely grated",
+      "1 tbsp Worcestershire sauce",
+      "1 tsp garlic powder",
+      "1 tsp fine salt, divided",
+      "1/2 tsp black pepper",
+      "1/3 cup ketchup",
+      "1 tbsp brown sugar",
+      "1 tsp Dijon mustard",
+      "3 tbsp unsalted butter"
+    ],
+    "instructions": [
+      {
+        "name": "Set the potato base",
+        "text": "Put potatoes, broth and 1/2 teaspoon salt in a 6-quart cooker. Place a sturdy trivet over the potatoes."
+      },
+      {
+        "name": "Mix and shape meatloaf",
+        "text": "Combine beef, egg, panko, 1/4 cup milk, onion, Worcestershire, garlic powder, remaining salt and pepper just until mixed. Shape into a compact 7-by-4-inch loaf on a double-thickness foil sling with the sides raised to catch juices."
+      },
+      {
+        "name": "Stack and pressure cook",
+        "text": "Set the foil-supported loaf on the trivet. Lock the lid and cook on High Pressure for 25 minutes. Allow a 10-minute natural release, then carefully vent the remainder."
+      },
+      {
+        "name": "Check meatloaf",
+        "text": "Open after the float valve drops. Lift out meatloaf with the sling and check the center for 160°F. If under, return it to the cooker on Sauté with the lid loosely covering until safe."
+      },
+      {
+        "name": "Glaze and mash",
+        "text": "Mix ketchup, brown sugar and Dijon; spread over meatloaf and broil 3 to 5 minutes if a caramelized top is desired. Remove trivet, drain excess potato liquid if any, then mash with butter and remaining 1/4 cup milk."
+      },
+      {
+        "name": "Rest and serve",
+        "text": "Rest meatloaf 8 minutes before slicing so it holds together. Serve with mashed potatoes and any glaze juices."
+      }
+    ],
+    "why_it_works": [
+      "Potatoes supply the cooker's steam liquid while the meatloaf cooks above them on a trivet.",
+      "A foil sling supports the soft hot loaf and keeps rendered fat from flooding the potatoes.",
+      "Resting lets proteins set so slices remain intact."
+    ],
+    "swaps": [
+      "Use half ground beef and half ground turkey, checking for 165°F because poultry is included.",
+      "Use russet potatoes for fluffier mash, cutting them into the same size.",
+      "Replace panko with certified gluten-free crumbs and verify Worcestershire for a gluten-free meal."
+    ],
+    "storage": "Refrigerate meatloaf and potatoes for up to 4 days. Reheat to 165°F. Freeze sliced meatloaf for up to 3 months; mashed potatoes are best refrigerated.",
+    "notes": [
+      "Use enough foil to make handles, but do not block steam circulation around the loaf.",
+      "Do not pack the meat mixture tightly or overmix it.",
+      "The optional broil provides the browned top pressure cooking cannot.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Why did my meatloaf fall apart?",
+        "a": "It may have been overmixed, sliced too soon or lacked enough binder. Measure egg and panko and rest the loaf before cutting."
+      },
+      {
+        "q": "What if the center is under 160°F?",
+        "a": "Return it to the hot cooker on Sauté-Low with broth below and the lid loosely set, or finish under a moderate broiler while checking frequently."
+      },
+      {
+        "q": "Can I add vegetables?",
+        "a": "Serve quick-steamed green beans or peas on the side. Crowding vegetables into this stacked setup can interfere with steam flow."
+      }
+    ],
+    "pantry": [
+      "low-sodium beef broth",
+      "panko breadcrumbs",
+      "Worcestershire sauce",
+      "garlic powder",
+      "fine salt",
+      "black pepper",
+      "ketchup",
+      "brown sugar",
+      "Dijon mustard"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  },
+  {
+    "slug": "instant-pot-lasagna-soup",
+    "title": "Instant Pot Lasagna Soup",
+    "dek": "Italian sausage, broken lasagna noodles and tomato broth deliver the comfort of lasagna with a ricotta-mozzarella finish and one pot to wash.",
+    "protein": [
+      "sausage",
+      "pork"
+    ],
+    "prep_minutes": 12,
+    "cook_minutes": 23,
+    "total_minutes": 35,
+    "servings": 6,
+    "calories": 560,
+    "cost_per_serving": "$2.30",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/02026_Tomato_soup_with_Italian_pasta_on_a_bone_broth_base.jpg/960px-02026_Tomato_soup_with_Italian_pasta_on_a_bone_broth_base.jpg",
+    "image_alt": "Tomato broth soup with broad ribbons of pasta and diced vegetables",
+    "image_credit": "Marsilar / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:02026_Tomato_soup_with_Italian_pasta_on_a_bone_broth_base.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "tags": [
+      "instant pot",
+      "electric pressure cooker",
+      "family dinner",
+      "busy night",
+      "lasagna soup",
+      "Italian sausage",
+      "one pot pasta"
+    ],
+    "ingredients": [
+      "1 lb mild Italian sausage, casings removed",
+      "1 medium yellow onion, diced",
+      "3 garlic cloves, minced",
+      "1 tsp Italian seasoning",
+      "4 cups low-sodium chicken broth",
+      "2 cups water",
+      "10 oz dry lasagna noodles, broken into 2-inch pieces",
+      "1 jar (24 oz) marinara sauce",
+      "1 can (14.5 oz) petite diced tomatoes",
+      "3 cups baby spinach",
+      "1 cup ricotta",
+      "1 cup shredded mozzarella",
+      "1/3 cup grated Parmesan",
+      "Chopped basil, optional"
+    ],
+    "instructions": [
+      {
+        "name": "Brown the sausage",
+        "text": "Select Sauté and cook sausage and onion for 5 to 6 minutes, breaking the sausage into small crumbles, until no pink remains. Stir in garlic and Italian seasoning for 30 seconds."
+      },
+      {
+        "name": "Deglaze",
+        "text": "Pour in 1 cup broth and scrape the base completely clean. Add remaining broth and water, then cancel Sauté."
+      },
+      {
+        "name": "Layer noodles and tomatoes",
+        "text": "Scatter broken noodles in crossing layers so they do not form one stack. Press them into the liquid. Spoon marinara and diced tomatoes over the top without stirring."
+      },
+      {
+        "name": "Pressure cook and vent",
+        "text": "Lock the lid and cook on High Pressure for 4 minutes. Use a controlled quick release in short bursts. If starchy foam sputters, close the valve for 30 seconds and resume."
+      },
+      {
+        "name": "Finish the soup",
+        "text": "Open after the float valve drops and stir from the bottom, separating any noodles. Fold in spinach and rest uncovered 4 minutes; the broth thickens as the pasta settles."
+      },
+      {
+        "name": "Add the lasagna finish",
+        "text": "Mix ricotta, mozzarella and Parmesan in a bowl. Ladle soup into bowls and top each with a spoonful of cheese mixture and basil. Keep cheese out of the pressure cycle."
+      }
+    ],
+    "why_it_works": [
+      "Crossing broken noodle pieces and plenty of thin liquid reduce clumping.",
+      "Tomato products stay on top, away from the hottest surface.",
+      "A cool ricotta topping melts into each bowl and provides classic lasagna creaminess without risking scorched dairy."
+    ],
+    "swaps": [
+      "Use lean ground beef instead of sausage and add 1 tablespoon olive oil while browning.",
+      "Use mafaldine or another broad pasta broken into short lengths, adjusting time to roughly half its package minimum.",
+      "For a lighter finish, use part-skim ricotta and mozzarella."
+    ],
+    "storage": "Refrigerate soup and cheese topping separately for up to 4 days. Reheat soup to 165°F with extra broth because noodles absorb liquid. Freeze the meat-and-tomato base without noodles or cheese for up to 3 months.",
+    "notes": [
+      "Keep the pot below the half-full line for foaming pasta.",
+      "Do not stir marinara into the base before pressure cooking.",
+      "If noodles are slightly firm, rest covered without locking for 3 additional minutes rather than repressurizing.",
+      "Written for a 6-quart electric pressure cooker; follow the minimum-liquid, fill-limit and release instructions for your exact model.",
+      "Never force the lid. Open only after pressure is fully released and the float valve has dropped."
+    ],
+    "faqs": [
+      {
+        "q": "Why are the noodles clumped?",
+        "a": "They were likely stacked in one direction. Break them smaller, alternate directions and press into liquid without stirring the tomato layer down."
+      },
+      {
+        "q": "Can I add ricotta before pressure cooking?",
+        "a": "No. Dairy can scorch or separate. Add the cheese mixture to individual hot bowls."
+      },
+      {
+        "q": "Why did leftovers become thick?",
+        "a": "Lasagna noodles continue absorbing broth. Add warm broth while reheating until the soup returns to your preferred consistency."
+      }
+    ],
+    "pantry": [
+      "Italian seasoning",
+      "low-sodium chicken broth",
+      "lasagna noodles",
+      "marinara sauce",
+      "diced tomatoes"
+    ],
+    "collection": "instant-pot",
+    "difficulty": "Easy",
+    "date_published": "2026-09-20",
+    "date_modified": "2026-09-20"
+  }
+]

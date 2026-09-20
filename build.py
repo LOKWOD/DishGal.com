@@ -30,6 +30,7 @@ CLOUDFLARE_TOKEN = (os.environ.get("CLOUDFLARE_TOKEN") or "").strip()
 
 COLLECTION_META = {
     "30-minute": ("30-Minute Dinners", "Fast dinners with enough structure to feel like a real meal.", "⏱"),
+    "instant-pot": ("Instant Pot Family Dinners", "Pressure-cooker dinners with realistic total times, mild-first seasoning, and fewer dishes for busy family nights.", "⚡"),
     "one-pot": ("One-Pot Dinners", "Less cleanup, full dinner energy, one main pot.", "🍲"),
     "sheet-pan": ("Sheet-Pan Dinners", "Hands-off roasting, browned edges, fewer dishes.", "🥘"),
     "slow-cooker": ("Slow-Cooker Dinners", "Set-it-up meals for days when dinner needs to wait for you.", "♨"),
@@ -250,6 +251,7 @@ def header() -> str:
         {brand()}
         <nav class="main-nav" aria-label="Primary">
           <a href="{href('/recipes/')}">Recipes</a>
+          <a href="{href('/collections/instant-pot/')}">Instant Pot</a>
           <a href="{href('/dinner-decider/')}">Dinner Decider</a>
           <a href="{href('/meal-planner/')}">Meal Planner</a>
           <a href="{href('/guides/')}">Kitchen Picks</a>
@@ -272,6 +274,7 @@ def footer() -> str:
           </div>
           <div class="footer-column"><h3>Cook</h3>
             <a href="{href('/recipes/')}">All recipes</a>
+            <a href="{href('/collections/instant-pot/')}">Instant Pot dinners</a>
             <a href="{href('/collections/30-minute/')}">30-minute dinners</a>
             {''.join(f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])}</a>' for slug, meta in active_ingredient_hubs()[:3])}
             <a href="{href('/dinner-decider/')}">Dinner Decider</a>
@@ -416,6 +419,7 @@ def article_card(article) -> str:
     </article>'''
 
 SHOP_IMAGES = {
+    "6 quart electric pressure cooker": ("https://upload.wikimedia.org/wikipedia/commons/7/70/%D0%9C%D1%83%D0%BB%D1%8C%D1%82%D0%B8%D0%B2%D0%B0%D1%80%D0%BA%D0%B0_Moulinex_Simply_Cook.jpg", "Stainless electric multi-cooker with a locking lid and digital controls"),
     "enameled cooking pot with lid": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled cooking pot with a fitted lid and two side handles"),
     "enameled dutch oven 6 quart": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled Dutch oven on a kitchen work surface"),
     "immersion blender stainless steel": ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup"),
@@ -503,7 +507,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "palestinian-style musakhan" in haystack:
+    if recipe.get("collection") == "instant-pot":
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The recipe timing, minimum liquid, and family-size yield are written around this common capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken, pork, meatballs, and meatloaf safely instead of relying only on programmed pressure time."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Dry, secure grip matters when lifting a hot pot-in-pot bowl, trivet, or foil sling."),
+        ]
+    elif "palestinian-style musakhan" in haystack:
         products = [
             ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A sturdy rimmed pan gives six chicken pieces room to brown while containing the sumac-spiced juices used to finish the flatbread."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check every thigh and drumstick away from bone for at least 165°F; dark meat is most tender around 175 to 185°F."),
@@ -1412,8 +1422,27 @@ def build_collections():
         title, desc, _ = COLLECTION_META.get(slug, (pretty_slug(slug), f"Browse DishGal's {pretty_slug(slug).lower()} recipes.", "🍴"))
         seo_title = title if "recipe" in title.lower() else f"{title} Recipes"
         full_description = f"{desc} Browse {len(recipes)} complete recipes with timing, cost, substitutions, and storage notes."
+        collection_intro = ""
+        collection_faq = ""
+        if slug == "instant-pot":
+            collection_intro = f'''<section class="section-tight section-paper"><div class="wrap">
+              <div class="section-heading"><div><p class="eyebrow">Built for the 6-quart pot</p><h2>Pressure-cooker recipes that tell the whole truth about time.</h2></div><p>Every total includes a realistic allowance for coming to pressure and releasing pressure—not just the programmed cook time on the display.</p></div>
+              <div class="tip-grid">
+                <div class="tip-card"><strong>Protect against the burn warning</strong>Thin liquid goes in first. Tomato sauce, salsa, and other thick ingredients stay on top unless the directions specifically say to stir.</div>
+                <div class="tip-card"><strong>Keep family dinner mild</strong>The base recipes are kid-manageable. Hot sauce, jalapeños, and crushed pepper are finishing options for the adults who want them.</div>
+                <div class="tip-card"><strong>Use the right release</strong>Each recipe states natural, quick, or controlled release. Never force the lid; wait until the float valve drops completely.</div>
+              </div>
+              <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
+            </div></section>'''
+            collection_faq = f'''<section class="section-tight"><div class="narrow recipe-panel"><p class="eyebrow">Before you start</p><h2>Three rules for safer, better pressure cooking</h2><div class="faq-list">
+              <details><summary>Can I double these recipes?</summary><p>Do not automatically double the liquid or exceed your cooker's maximum-fill line. Beans, grains, pasta, and other expanding foods should remain below the half-full line. Keep the programmed cook time the same only when piece size stays the same, and allow more time for the fuller pot to reach pressure.</p></details>
+              <details><summary>Why does the total time exceed the pressure-cook time?</summary><p>The display countdown begins only after the cooker reaches pressure. A full family meal commonly needs 10 to 20 minutes to pressurize, plus the stated release time, so DishGal includes those stages in the total.</p></details>
+              <details><summary>Which Instant Pot size are these written for?</summary><p>These recipes are developed around a 6-quart electric pressure cooker. An 8-quart model may need additional thin liquid according to its manual. Always follow the minimum-liquid, fill-limit, and release instructions for your exact model.</p></details>
+            </div></div></section>'''
         body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(title,None)])}<p class="eyebrow">Dinner collection</p><h1>{esc(seo_title)}</h1><p class="lede">{esc(full_description)}</p></div></section>
-        <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(r) for r in recipes)}</div></div></section>'''
+        {collection_intro}
+        <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(r) for r in recipes)}</div></div></section>
+        {collection_faq}'''
         path = f"/collections/{slug}/"
         schema = [
             collection_schema(seo_title, full_description, path, recipes),
@@ -1612,8 +1641,8 @@ def build_utility_pages():
         ("Content use","DishGal content may not be republished wholesale without permission.")
     ])
     simple_page("/image-credits/","Image Credits","Visual sourcing","DishGal uses properly sourced editorial photography and original site design assets.",[
-        ("Editorial images","Current recipe and guide images are sourced from Unsplash, Pexels, and Pixabay under their applicable platform licenses."),
-        ("Attribution","Photographers retain rights under the applicable source license and platform terms. The slow-cooker image is by Your Best Digs via Wikimedia Commons, licensed CC BY 2.0."),
+        ("Editorial images","Recipe and guide images are sourced from Unsplash, Pexels, Pixabay, and Wikimedia Commons under their applicable licenses."),
+        ("Attribution","Photographers retain rights under the applicable source license and platform terms. Wikimedia recipe pages display the creator and license beside the photograph."),
         ("Future images","DishGal may replace launch imagery with original photography or licensed assets over time.")
     ])
     body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Say hello</p><h1>Contact DishGal</h1><p class="lede">Corrections, recipe questions, partnerships, and useful feedback can all come through here.</p></div></section>
