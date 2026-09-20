@@ -503,7 +503,25 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "indonesian beef rendang" in haystack:
+    if "palestinian-style musakhan" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A sturdy rimmed pan gives six chicken pieces room to brown while containing the sumac-spiced juices used to finish the flatbread."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check every thigh and drumstick away from bone for at least 165°F; dark meat is most tender around 175 to 185°F."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach moves hot chicken between the roasting pan and flatbread platter without piercing the crisp skin."),
+        ]
+    elif "flaky chinese scallion pancakes" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface browns each eight-inch pancake evenly while leaving enough room to turn it cleanly."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "A heat-safe bowl handles the boiling-water dough, with enough room to stir safely as the hot water meets the flour."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and water ratio consistent so the dough rolls thin without becoming sticky or stiff."),
+        ]
+    elif "classic canadian butter tarts" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Precise pastry and filling weights keep twelve shells flaky and prevent the fluid brown-sugar custard from overflowing."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "A broad bowl gives the cold pastry mixture space for cutting in butter and later holds the gently whisked maple filling."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when moving a hot metal muffin pan on its supporting sheet pan at 400°F."),
+        ]
+    elif "indonesian beef rendang" in haystack:
         products = [
             ("enameled cooking pot with lid", "Enameled cooking pot", "A broad heavy pot holds a gentle uncovered braise, then gives the coconut sauce room to reduce and fry without spilling."),
             ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade handles the chuck, shallots, chiles, ginger, galangal and garnishes with consistent, controllable cuts."),
@@ -1196,6 +1214,30 @@ def build_recipe_index():
     write_page("/recipes/", page("Easy Dinner Recipes", "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps.", "/recipes/", body, schema=schema))
 
 CURATED_RECIPE_CLUSTERS = {
+    "palestinian-style-musakhan-sumac-chicken-onion-flatbread": {
+        "slugs": ["lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "crispy-herb-falafel-pita-lemon-tahini-sauce", "creamy-stovetop-butter-chicken-garlic-naan"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "lebanese-style-chicken-shish-tawook-pita-garlic-yogurt": {
+        "slugs": ["palestinian-style-musakhan-sumac-chicken-onion-flatbread", "crispy-herb-falafel-pita-lemon-tahini-sauce", "creamy-stovetop-butter-chicken-garlic-naan"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "crispy-herb-falafel-pita-lemon-tahini-sauce": {
+        "slugs": ["palestinian-style-musakhan-sumac-chicken-onion-flatbread", "lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "creamy-stovetop-butter-chicken-garlic-naan"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "creamy-stovetop-butter-chicken-garlic-naan": {
+        "slugs": ["palestinian-style-musakhan-sumac-chicken-onion-flatbread", "lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "crispy-herb-falafel-pita-lemon-tahini-sauce"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
     "indonesian-beef-rendang-coconut-toasted-spices": {
         "slugs": ["moroccan-lamb-tagine-prunes-almonds-quail-eggs", "filipino-style-pork-adobo-eggs-steamed-rice", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
         "eyebrow": "Braising technique",
