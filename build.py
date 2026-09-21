@@ -419,7 +419,7 @@ def article_card(article) -> str:
     </article>'''
 
 SHOP_IMAGES = {
-    "6 quart electric pressure cooker": ("https://upload.wikimedia.org/wikipedia/commons/7/70/%D0%9C%D1%83%D0%BB%D1%8C%D1%82%D0%B8%D0%B2%D0%B0%D1%80%D0%BA%D0%B0_Moulinex_Simply_Cook.jpg", "Stainless electric multi-cooker with a locking lid and digital controls"),
+    "6 quart electric pressure cooker": ("https://upload.wikimedia.org/wikipedia/commons/3/31/Instant_Pot_DUO60_pressure_cooker.jpg", "Stainless six-quart electric pressure cooker with a locking lid and digital controls"),
     "enameled cooking pot with lid": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled cooking pot with a fitted lid and two side handles"),
     "enameled dutch oven 6 quart": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled Dutch oven on a kitchen work surface"),
     "immersion blender stainless steel": ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup"),
@@ -507,11 +507,41 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if recipe.get("collection") == "instant-pot":
+    if "instant pot québec-style yellow split pea soup" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The liquid, half-full limit, pressurizing allowance and natural release are written for this common family size."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh contains small split peas while you rinse away dust and sort out any debris before pressure cooking."),
+            ("glass meal prep containers locking lids", "Glass meal-prep containers", "Shallow lidded containers help the thick soup cool promptly and make portioned refrigerator or freezer storage practical."),
+        ]
+    elif "instant pot saffron shrimp risotto" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four-cup thin-liquid ratio, five-minute cycle and controlled release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several shrimp for 145°F during the brief Sauté finish instead of pressure-cooking them until rubbery."),
+            ("microplane zester grater stainless", "Fine zester and grater", "One fine tool handles the lemon zest and Parmesan that brighten and finish the creamy rice."),
+        ]
+    elif recipe.get("collection") == "instant-pot":
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The recipe timing, minimum liquid, and family-size yield are written around this common capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken, pork, meatballs, and meatloaf safely instead of relying only on programmed pressure time."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Dry, secure grip matters when lifting a hot pot-in-pot bowl, trivet, or foil sling."),
+        ]
+    elif "south african-style lamb bobotie" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "The broad dish keeps the lamb layer even so the egg custard sets into a distinct golden cap."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the ground lamb and the finished custard reach 160°F without guessing from color alone."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "It frees the stovetop and keeps the turmeric-raisin rice warm while the bobotie rests after baking."),
+        ]
+    elif "jamaican ackee & saltfish" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide cooking surface softens the peppers and lets saltfish heat evenly before delicate ackee is folded in."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Drain tender canned ackee without losing small pieces, and rinse the slaw vegetables cleanly."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp controllable blade makes even pepper, cabbage, scallion and tomato cuts for the composed platter."),
+        ]
+    elif "classic passionfruit & berry pavlova" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Exact egg-white and sugar weights give the meringue a repeatable structure and balanced sweetness."),
+            ("stand mixer balloon whisk", "Stand mixer with whisk", "Steady medium-high whipping builds a glossy foam while the sugar is added gradually over several minutes."),
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A flat, rigid pan supports the nine-inch meringue through its long low bake and gentle oven cooling."),
         ]
     elif "palestinian-style musakhan" in haystack:
         products = [
@@ -1431,6 +1461,16 @@ def build_collections():
                 <div class="tip-card"><strong>Protect against the burn warning</strong>Thin liquid goes in first. Tomato sauce, salsa, and other thick ingredients stay on top unless the directions specifically say to stir.</div>
                 <div class="tip-card"><strong>Keep family dinner mild</strong>The base recipes are kid-manageable. Hot sauce, jalapeños, and crushed pepper are finishing options for the adults who want them.</div>
                 <div class="tip-card"><strong>Use the right release</strong>Each recipe states natural, quick, or controlled release. Never force the lid; wait until the float valve drops completely.</div>
+              </div>
+              <div class="recipe-panel" style="margin-top:1.5rem">
+                <p class="eyebrow">DishGal quick reference</p><h3>Match the pressure release to the food—not the clock.</h3>
+                <div class="tip-grid">
+                  <div class="tip-card"><strong>Natural release</strong>Best for beans, split peas, large roasts and other foods that foam or keep cooking as pressure falls. Wait the recipe's full time; do not force the lid.</div>
+                  <div class="tip-card"><strong>Controlled release</strong>Use short venting pulses for rice, pasta and starchy dishes. Pause immediately if liquid or foam sputters, and resume only when the vent is quiet.</div>
+                  <div class="tip-card"><strong>Quick release</strong>Useful for delicate vegetables and seafood when the recipe calls for it. Keep hands and face away from steam and never cover the valve with a towel.</div>
+                  <div class="tip-card"><strong>Fill-limit check</strong>Stay below the half-full line for beans, grains, pasta and foods that expand or foam. Other foods must remain below the model's maximum-fill line.</div>
+                </div>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Updated September 21, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
