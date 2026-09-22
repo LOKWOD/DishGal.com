@@ -155,7 +155,7 @@ p { margin: 0 0 1rem; }
   background: radial-gradient(circle at center, rgba(230,184,74,.38), rgba(230,184,74,0) 68%);
   pointer-events: none;
 }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(340px, .8fr); align-items: center; gap: clamp(2.5rem, 7vw, 7rem); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(340px, .8fr); align-items: start; gap: clamp(2.5rem, 7vw, 7rem); }
 .hero-copy h1 span { color: var(--tomato); font-style: italic; }
 .hero-copy .lede { margin: 1.5rem 0 1.8rem; }
 .hero-proof { display: flex; flex-wrap: wrap; gap: 1.1rem; margin-top: 1.7rem; color: var(--ink-soft); font-size: .87rem; font-weight: 700; }
