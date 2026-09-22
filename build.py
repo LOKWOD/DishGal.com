@@ -1193,6 +1193,9 @@ def build_home():
         count = sum(1 for r in RECIPES if r.get("collection") == slug)
         collection_html.append(f'''<a class="collection-pill" href="{href('/collections/' + slug + '/')}"><span class="collection-icon">{icon}</span><strong>{esc(title)}</strong><small>{count} recipes</small></a>''')
     body = f'''
+    <div class="home-brand" aria-label="DishGal — Dinner, decided">
+      <img src="{href('/assets/dishgal-brand.webp')}" alt="DishGal.com — Dinner, decided." width="1536" height="1024" fetchpriority="high" decoding="async">
+    </div>
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
@@ -1750,6 +1753,7 @@ def copy_assets():
     ensure_dir(PUBLIC / "assets" / "css")
     ensure_dir(PUBLIC / "assets" / "js")
     shutil.copy2(ROOT / "assets" / "css" / "styles.css", PUBLIC / "assets" / "css" / "styles.css")
+    shutil.copy2(ROOT / "assets" / "dishgal-brand.webp", PUBLIC / "assets" / "dishgal-brand.webp")
     source_js = (ROOT / "assets" / "js" / "site.js").read_text(encoding="utf-8")
     source_js = source_js.replace('href="/recipes/', 'href="${window.DISHGAL_BASE || ""}/recipes/')
     (PUBLIC / "assets" / "js" / "site.js").write_text(source_js, encoding="utf-8")

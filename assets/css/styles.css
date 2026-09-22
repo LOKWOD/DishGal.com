@@ -154,7 +154,9 @@ p { margin: 0 0 1rem; }
 .btn.is-saved { color: #fff; background: var(--plum); border-color: var(--plum); }
 .button-row { display: flex; flex-wrap: wrap; gap: .7rem; }
 
-.hero { position: relative; overflow: hidden; padding: clamp(3.2rem, 7vw, 6.7rem) 0 clamp(4.3rem, 8vw, 7.5rem); }
+.home-brand { max-width: 1280px; margin: 0 auto; }
+.home-brand img { display: block; width: 100%; height: auto; }
+.hero { position: relative; overflow: hidden; padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(4.3rem, 8vw, 7.5rem); }
 .hero::before {
   position: absolute;
   inset: auto -11rem -15rem auto;
