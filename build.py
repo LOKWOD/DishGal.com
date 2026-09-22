@@ -344,7 +344,7 @@ def page(title: str, description: str, path: str, body: str, *, schema=None, noi
   <link rel="alternate" type="application/rss+xml" title="DishGal recipes and guides" href="{href('/feed.xml')}">
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <link rel="stylesheet" href="{href('/assets/css/styles.css')}">\n  {SHOP_CARD_CSS}
+  <link rel="stylesheet" href="{href('/assets/css/styles.css')}?v=20260922b">\n  {SHOP_CARD_CSS}
   <link rel="manifest" href="{href('/site.webmanifest')}">
   {adsense}
   {schema_html}
