@@ -239,9 +239,6 @@ def json_script(data) -> str:
 
 def brand() -> str:
     return f'''<a class="brand" href="{href('/')}">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M5 7.5c3-4 11-4 14 0-1 2-2.5 3.4-4.5 4.2 2.2.7 3.7 2.2 4.5 4.8-3.4 3.3-10.6 3.3-14 0 .8-2.6 2.3-4.1 4.5-4.8C7.5 10.9 6 9.5 5 7.5Z" fill="currentColor"/></svg>
-      </span>
       <span class="brand-name">Dish<em>Gal</em></span>
     </a>'''
 
