@@ -1,0 +1,363 @@
+[
+  {
+    "slug": "instant-pot-smoky-black-bean-soup-lime-crema",
+    "title": "Instant Pot Smoky Black Bean Soup with Lime Crema",
+    "dek": "Dry black beans, sweet pepper and warm spices become a velvety family soup with no soaking, finished with bright lime crema and crisp toast.",
+    "collection": "instant-pot",
+    "protein": ["vegetarian"],
+    "difficulty": "Easy",
+    "prep_minutes": 15,
+    "cook_minutes": 75,
+    "total_minutes": 90,
+    "servings": 6,
+    "calories": 430,
+    "cost_per_serving": "$1.55",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Black_bean_soup.jpg",
+    "image_alt": "Dark, smooth black bean soup with a white lime-crema dollop in a bowl beside a slice of toasted bread",
+    "image_credit": "Glane23 / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Black_bean_soup.jpg",
+    "image_license": "CC BY-SA 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "tags": ["instant pot", "electric pressure cooker", "black bean soup", "no soak beans", "vegetarian dinner", "family dinner", "budget meal", "meal prep"],
+    "ingredients": [
+      "1 lb dried black beans, sorted and rinsed",
+      "1 tbsp olive oil",
+      "1 medium yellow onion, diced",
+      "1 red bell pepper, diced",
+      "4 garlic cloves, minced",
+      "2 tsp ground cumin",
+      "1 tsp dried oregano",
+      "1 tsp smoked paprika",
+      "6 cups low-sodium vegetable broth, divided",
+      "2 bay leaves",
+      "1 1/2 tsp kosher salt, plus more to taste",
+      "1/2 cup sour cream or plain Greek yogurt",
+      "2 limes, divided",
+      "1/4 cup chopped cilantro",
+      "6 slices crusty bread, toasted",
+      "Hot sauce, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Check and rinse the beans", "text": "Spread the dry beans on a tray, discard any stones or damaged beans, then rinse in a fine-mesh colander. Do not soak them; the liquid and timing are calibrated for dry beans."},
+      {"name": "Sauté the aromatics", "text": "Select Sauté on a 6-quart electric pressure cooker. Add the oil, onion and bell pepper and cook for 5 minutes, stirring often. Add the garlic, cumin, oregano and smoked paprika and stir for 30 seconds. Cancel Sauté."},
+      {"name": "Deglaze and layer", "text": "Pour in 1 cup broth and scrape the base until no browned bits remain. Add the remaining 5 cups broth, rinsed beans, bay leaves and salt. Stir once. Keep the contents below the half-full line because beans expand and foam; do not double this recipe in a 6-quart cooker."},
+      {"name": "Pressure cook and release naturally", "text": "Lock the lid and cook on High Pressure for 35 minutes. Allow about 15 minutes to reach pressure, then let pressure release naturally for at least 20 minutes. If the valve remains raised, vent in short controlled pulses only when no foam appears. Stop if liquid sputters, wait, and never force the lid."},
+      {"name": "Blend to a spoonable texture", "text": "Open the lid away from your face and remove the bay leaves. Scoop out 2 cups beans with some liquid and blend until smooth, then stir back into the pot. Alternatively, pulse an immersion blender directly in the pot 5 or 6 times, leaving plenty of whole beans."},
+      {"name": "Make lime crema and serve", "text": "Whisk the sour cream with 1 tablespoon lime juice and 1 tablespoon water. Stir the juice of the remaining lime and half the cilantro into the soup. If needed, loosen with hot water 1/4 cup at a time and adjust salt. Ladle into bowls, add lime crema and cilantro, and serve with toast; keep hot sauce at the table."}
+    ],
+    "why_it_works": [
+      "Six cups of thin broth sit against a thoroughly deglazed base, creating dependable steam before the expanding beans begin to thicken the soup.",
+      "A full natural release protects the valve from starchy foam and gives the bean centers time to become creamy without a soak.",
+      "Blending only a portion provides body while preserving visible beans, and lime plus cool crema balance the earthy, smoky flavor."
+    ],
+    "swaps": [
+      "Use low-sodium chicken broth if the soup does not need to be vegetarian.",
+      "Replace sour cream with unsweetened dairy-free yogurt for a vegan finish; check that it is pleasantly tangy before serving.",
+      "For a chunkier soup, skip blending and mash 1 cup beans against the side of the pot with a wooden spoon."
+    ],
+    "storage": "Cool in shallow containers within 2 hours and refrigerate for up to 4 days. Reheat on the stove, in the microwave or on Sauté with a splash of water until the center reaches 165°F. Freeze without crema for up to 3 months; thaw overnight in the refrigerator.",
+    "notes": [
+      "Older beans may remain firm longer. If they are not creamy after the stated cycle, add 1 cup hot water and pressure-cook 5 minutes more with a 10-minute natural release.",
+      "Keep the shared pot mild and offer hot sauce, minced jalapeño or crushed red pepper only at the table.",
+      "Total time includes approximately 15 minutes to pressurize and the full 20-minute natural release.",
+      "Written for a 6-quart electric pressure cooker. Follow the minimum-liquid, fill-limit and venting instructions for your exact model.",
+      "Beans and their liquid must stay below the half-full line; never cover the steam valve with a towel."
+    ],
+    "faqs": [
+      {"q": "Do I really need to skip soaking the beans?", "a": "Yes for this version. Soaked beans need less liquid and a shorter pressure cycle, so using them unchanged would make the soup thin and the beans overly soft."},
+      {"q": "Why are my black beans still firm?", "a": "Bean age and hard water are the usual causes. Add hot water if the pot looks dry, pressure-cook 5 minutes more and allow another 10-minute natural release; add extra acid only after the beans soften."},
+      {"q": "Can I quick-release black beans?", "a": "Do not immediately quick-release them. Foamy bean liquid can surge through the valve. Use the stated 20-minute natural release and controlled pulses only after the vent stays quiet."}
+    ],
+    "pantry": ["dried black beans", "vegetable broth", "ground cumin", "dried oregano", "smoked paprika", "olive oil", "kosher salt"],
+    "date_published": "2026-09-22",
+    "date_modified": "2026-09-22"
+  },
+  {
+    "slug": "instant-pot-chicken-cacciatore-mushrooms-egg-noodles",
+    "title": "Instant Pot Chicken Cacciatore with Mushrooms & Egg Noodles",
+    "dek": "Browned bone-in chicken pressure-cooks in tomato-wine sauce with mushrooms and onions, then lands over broad egg noodles for a complete family supper.",
+    "collection": "instant-pot",
+    "protein": ["chicken"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 20,
+    "cook_minutes": 45,
+    "total_minutes": 65,
+    "servings": 6,
+    "calories": 650,
+    "cost_per_serving": "$3.35",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/82/Chicken_cacciatore_%28cropped%29.jpg",
+    "image_alt": "Browned bone-in chicken cacciatore with mushrooms, onions, tomato sauce and parsley served over broad pasta noodles",
+    "image_credit": "Evan Joshua Swigart / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Chicken_cacciatore_(cropped).jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "tags": ["instant pot", "electric pressure cooker", "chicken cacciatore", "bone-in chicken", "mushroom chicken", "egg noodles", "family dinner", "Italian-style dinner"],
+    "ingredients": [
+      "3 lb bone-in, skin-on chicken thighs and drumsticks, 6 to 8 pieces",
+      "1 1/2 tsp kosher salt",
+      "1/2 tsp ground black pepper",
+      "1 tbsp olive oil",
+      "1 large yellow onion, sliced 1/4 inch thick",
+      "12 oz cremini mushrooms, quartered",
+      "4 garlic cloves, minced",
+      "1 tsp dried oregano",
+      "1/2 tsp dried rosemary, crushed",
+      "1/2 cup dry red wine or low-sodium chicken broth",
+      "1 cup low-sodium chicken broth",
+      "1 can crushed tomatoes, 28 oz",
+      "2 tbsp tomato paste",
+      "1 bay leaf",
+      "12 oz broad egg noodles",
+      "2 tbsp chopped flat-leaf parsley",
+      "Grated Parmesan and crushed red pepper, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Season and brown the chicken", "text": "Pat the chicken very dry and season with 1 teaspoon salt and the pepper. Select Sauté on High on a 6-quart electric pressure cooker. Add the oil and brown the chicken skin-side down in two batches for 4 minutes, then 1 minute on the second side. Transfer to a plate; it will not yet be cooked through."},
+      {"name": "Cook the vegetables", "text": "Pour off all but 1 tablespoon fat. Add the onion and mushrooms and cook for 5 minutes, stirring, until the mushrooms give up moisture. Add garlic, oregano and rosemary and stir for 30 seconds. Cancel Sauté."},
+      {"name": "Deglaze and layer the sauce", "text": "Add the wine and scrape every browned bit from the base; stir in the broth. Nestle the chicken in one layer, skin-side up. Spoon the crushed tomatoes and tomato paste over the chicken without stirring them into the thin liquid, then add the bay leaf. Keep everything below the model's maximum-fill line."},
+      {"name": "Pressure cook and release", "text": "Lock the lid and cook on High Pressure for 10 minutes; allow about 12 minutes to pressurize. Let pressure release naturally for 10 minutes, then carefully quick-release the rest with hands and face away from steam. Open only after the float valve drops."},
+      {"name": "Boil the noodles", "text": "While the cooker releases, boil the egg noodles in salted water according to the package until just tender. Reserve 1/2 cup pasta water, drain, and keep warm."},
+      {"name": "Verify doneness and finish", "text": "Check the thickest chicken pieces away from bone; every piece must reach at least 165°F, and dark meat is most tender around 175°F. If needed, simmer on Sauté until safe. Transfer chicken to a platter. Discard the bay leaf, skim excess fat, and simmer the sauce on Sauté for 5 minutes. Adjust salt and loosen with pasta water only if needed. Spoon noodles into bowls, add chicken and sauce, and finish with parsley; offer Parmesan and crushed pepper separately."}
+    ],
+    "why_it_works": [
+      "Browning develops flavor while keeping the pressure cycle short enough for juicy bone-in chicken.",
+      "Wine and broth fully deglaze the base, while thick tomato products stay on top to reduce burn-warning risk.",
+      "Cooking egg noodles separately preserves their texture and lets each diner control the sauce-to-pasta ratio shown in the finished dish."
+    ],
+    "swaps": [
+      "Use all bone-in thighs of similar size for the most even doneness; do not substitute very small boneless pieces without changing the timing.",
+      "Replace the red wine with additional broth plus 2 teaspoons red wine vinegar stirred into the finished sauce.",
+      "Serve over soft polenta or mashed potatoes instead of noodles, keeping the same chicken and sauce method."
+    ],
+    "storage": "Cool chicken, sauce and noodles within 2 hours and refrigerate in separate airtight containers for up to 4 days. Reheat chicken in sauce on the stove or with Sauté until it reaches 165°F; warm noodles with a spoonful of water. Freeze chicken and sauce for up to 3 months, but cook fresh noodles after thawing.",
+    "notes": [
+      "The skin softens under pressure; for crisp edges, broil the cooked chicken on a foil-lined pan for 2 to 3 minutes before serving.",
+      "Keep the base mild for children and place crushed red pepper at the table.",
+      "Total time includes browning, approximately 12 minutes to pressurize and the 10-minute natural release.",
+      "Written for a 6-quart electric pressure cooker. Confirm minimum liquid, fill limits and release directions in your model manual.",
+      "Never rely on pressure time alone for poultry; verify every piece with an instant-read thermometer."
+    ],
+    "faqs": [
+      {"q": "Why shouldn't I stir the tomatoes into the pot?", "a": "Crushed tomatoes and tomato paste are thick and can scorch against the hot base. Keeping them above the deglazed wine-and-broth layer supplies steam first and lowers burn-warning risk."},
+      {"q": "Can I pressure-cook the noodles with the chicken?", "a": "Not reliably in this recipe. The bone-in chicken needs a longer cycle than egg noodles, which would become soft and release excess starch into the sauce."},
+      {"q": "What if one chicken piece is below 165°F?", "a": "Return all under-temperature pieces to the simmering sauce on Sauté, turn them once and check again after 3 to 5 minutes. Serve only after each piece reaches at least 165°F away from bone."}
+    ],
+    "pantry": ["crushed tomatoes", "tomato paste", "chicken broth", "dry red wine", "dried oregano", "dried rosemary", "egg noodles"],
+    "date_published": "2026-09-22",
+    "date_modified": "2026-09-22"
+  },
+  {
+    "slug": "novi-pazar-style-cevapi-somun-onions-kajmak",
+    "title": "Novi Pazar-Style Ćevapi with Somun, Onions & Kajmak",
+    "dek": "Juicy beef-and-lamb sausages cook over high heat and arrive with warm Balkan flatbread, raw onion and rich kajmak for a hands-on family platter.",
+    "collection": "family",
+    "protein": ["beef", "lamb"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 25,
+    "cook_minutes": 15,
+    "total_minutes": 70,
+    "servings": 6,
+    "calories": 690,
+    "cost_per_serving": "$4.05",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/52/Pazarski_%C4%87evapi_-_cevapcici_from_Novi_Pazar_%28Serbia%29_03.jpg",
+    "image_alt": "Rows of browned ćevapi topped with chopped raw onion beside round somun flatbreads and a bowl of creamy kajmak",
+    "image_credit": "Miomir Magdevski / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Pazarski_%C4%87evapi_-_cevapcici_from_Novi_Pazar_(Serbia)_03.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["cevapi recipe", "Novi Pazar-style", "Balkan grilled meat", "beef and lamb", "somun flatbread", "kajmak", "family platter", "grill pan dinner"],
+    "ingredients": [
+      "1 lb 80% lean ground beef, very cold",
+      "1 lb ground lamb, very cold",
+      "4 garlic cloves, finely grated",
+      "1/4 cup cold sparkling water",
+      "2 tsp kosher salt",
+      "1 tsp ground black pepper",
+      "3/4 tsp baking soda",
+      "1 tbsp neutral oil, for the grill or skillet",
+      "6 small somun or lepinja flatbreads",
+      "1 large white onion, finely chopped",
+      "1 cup kajmak",
+      "2 tbsp chopped flat-leaf parsley, optional"
+    ],
+    "instructions": [
+      {"name": "Mix the garlic water", "text": "Stir the grated garlic into the sparkling water with the salt, pepper and baking soda. Let stand for 5 minutes so the garlic seasons the liquid evenly."},
+      {"name": "Work the meat until tacky", "text": "Combine the cold beef and lamb in a chilled bowl. Pour in the garlic mixture and knead firmly by hand for 3 to 4 minutes, until the meat looks uniform and sticks lightly to the bowl. Cover and refrigerate for 30 minutes."},
+      {"name": "Shape even sausages", "text": "With damp hands, divide the mixture into 24 portions, about 1 1/3 oz each. Roll into compact 3 1/2-inch logs about 3/4 inch thick, smoothing cracks so they cook evenly."},
+      {"name": "Preheat the cooking surface", "text": "Heat an outdoor grill to 450°F or a cast-iron grill pan over medium-high for 5 minutes. Brush the grates or pan lightly with oil. Warm the flatbreads during the last few minutes of cooking."},
+      {"name": "Cook to a safe center", "text": "Cook the ćevapi in two batches without crowding, turning every 2 minutes, until deeply browned on all sides and the centers reach 160°F, 7 to 9 minutes total. Transfer to a clean platter; do not return cooked meat to the raw-meat plate."},
+      {"name": "Build the platter", "text": "Arrange the hot ćevapi in rows, scatter with chopped onion and parsley, and serve immediately with warm somun and kajmak. Let diners tear bread, spread it with kajmak and tuck in the meat and onion."}
+    ],
+    "why_it_works": [
+      "Kneading the cold meat with salted sparkling water extracts proteins that hold the short sausages together without eggs or breadcrumbs.",
+      "A small amount of baking soda raises the surface pH, encouraging browning while the frequent turns keep the compact logs evenly cooked.",
+      "Rich kajmak, sharp raw onion and warm flatbread match the visible Novi Pazar-style presentation and balance the simply seasoned meat."
+    ],
+    "swaps": [
+      "Use 2 lb 80% lean ground beef for an all-beef version; very lean meat will be noticeably drier.",
+      "If kajmak is unavailable, blend 4 oz softened cream cheese with 1/2 cup sour cream and 2 tablespoons heavy cream for a practical, clearly labeled substitute.",
+      "Warm sturdy pita if somun or lepinja is unavailable; choose bread thick enough to absorb the meat juices."
+    ],
+    "storage": "Refrigerate cooked ćevapi within 2 hours for up to 4 days. Reheat covered in a 350°F oven with 1 tablespoon water until the centers reach 165°F. Freeze shaped uncooked ćevapi on a tray, then bag for up to 2 months; thaw in the refrigerator before cooking to 160°F.",
+    "notes": [
+      "Keep the meat and bowl cold; warm fat smears and makes the cooked texture greasy rather than springy.",
+      "Shape one test piece first, cook it to 160°F and taste for salt before forming the remaining batch.",
+      "The 70-minute total includes the 30-minute refrigerator rest.",
+      "A grill pan works year-round, but ventilate the kitchen well because the high heat creates smoke."
+    ],
+    "faqs": [
+      {"q": "Why did my ćevapi split on the grill?", "a": "The mixture was probably not kneaded until tacky or the logs had surface cracks. Work the cold meat for the full 3 to 4 minutes and smooth each portion with damp hands."},
+      {"q": "Can I make the mixture ahead?", "a": "Yes. Mix and refrigerate it for up to 24 hours, then shape just before cooking. Keep it at 40°F or below and never leave raw ground meat at room temperature."},
+      {"q": "Are ćevapi supposed to be spicy?", "a": "This mild Novi Pazar-style version emphasizes meat, garlic, salt and pepper rather than chile heat. Serve hot paprika or chile flakes separately if desired."}
+    ],
+    "pantry": ["kosher salt", "black pepper", "baking soda", "neutral oil", "sparkling water"],
+    "date_published": "2026-09-22",
+    "date_modified": "2026-09-22"
+  },
+  {
+    "slug": "georgian-beet-pkhali-mchadi-pomegranate",
+    "title": "Georgian Beet Pkhali with Skillet Mchadi & Pomegranate",
+    "dek": "Earthy roasted beets and walnuts become a tangy herb-flecked spread, shaped over crisp corn cakes and finished with pomegranate for a striking meatless plate.",
+    "collection": "vegetarian",
+    "protein": ["vegetarian"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 30,
+    "cook_minutes": 60,
+    "total_minutes": 90,
+    "servings": 6,
+    "calories": 390,
+    "cost_per_serving": "$1.80",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/52/Mchadi_with_Beetroot_pkhali%2C_pomegranate_seeds_and_herbs.jpg",
+    "image_alt": "Deep-red beet pkhali mounds on two golden mchadi corn cakes with pomegranate seeds, cilantro and dill",
+    "image_credit": "Eka Samkharadze / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Mchadi_with_Beetroot_pkhali,_pomegranate_seeds_and_herbs.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["beet pkhali", "Georgian-style appetizer", "walnut spread", "mchadi", "corn cakes", "vegetarian recipe", "vegan entertaining", "pomegranate"],
+    "ingredients": [
+      "1 1/2 lb medium beets, scrubbed and trimmed",
+      "1 tbsp olive oil",
+      "1 1/2 cups walnut halves, toasted and cooled",
+      "2 garlic cloves",
+      "1 tsp ground coriander",
+      "1/2 tsp ground fenugreek",
+      "1/4 tsp cayenne, optional",
+      "1 tsp kosher salt, divided",
+      "1/2 cup packed cilantro leaves and tender stems, plus more for serving",
+      "2 tbsp chopped fresh dill, plus more for serving",
+      "2 tbsp red wine vinegar, plus more to taste",
+      "1 1/2 cups fine white or yellow cornmeal",
+      "1 cup warm water, plus up to 1/4 cup as needed",
+      "2 tbsp neutral oil, for the skillet",
+      "1/3 cup pomegranate seeds"
+    ],
+    "instructions": [
+      {"name": "Roast the beets", "text": "Heat the oven to 425°F. Rub the beets with olive oil, wrap them together in foil and place on a small sheet pan. Roast for 45 to 60 minutes, until a paring knife slides through the centers. Open the packet carefully, cool for 10 minutes and slip off the skins."},
+      {"name": "Grind the walnut base", "text": "In a food processor, pulse the walnuts, garlic, coriander, fenugreek, optional cayenne and 3/4 teaspoon salt until finely ground but not oily. Add cilantro and dill and pulse 4 or 5 times."},
+      {"name": "Finish and chill the pkhali", "text": "Cut the warm beets into chunks and add them with the vinegar. Pulse until the mixture holds together but retains fine texture; do not purée it smooth. Taste for vinegar and salt. Cover and chill for 30 minutes while you make the mchadi."},
+      {"name": "Mix the mchadi dough", "text": "Combine the cornmeal and remaining 1/4 teaspoon salt. Stir in 1 cup warm water and knead briefly. Add more water 1 tablespoon at a time until the mixture holds when squeezed without becoming wet. Divide into 6 balls and flatten into 3-inch patties about 1/2 inch thick."},
+      {"name": "Cook the corn cakes", "text": "Heat a 12-inch cast-iron skillet over medium and add the neutral oil. Cook the mchadi in two batches for 4 to 5 minutes per side, until golden and firm; reduce the heat if the crust darkens before the centers set. Keep the first batch warm in a 200°F oven."},
+      {"name": "Shape the finished plate", "text": "Spoon or shape chilled beet pkhali onto each warm corn cake, matching the finished-dish presentation. Scatter with pomegranate seeds, cilantro and dill. Serve warm or at room temperature as a starter or light meal."}
+    ],
+    "why_it_works": [
+      "Roasting concentrates the beets without adding water, so the walnut mixture stays shapeable rather than loose.",
+      "Pulsing walnuts before adding beets distributes their oil and creates a fine binder while preserving visible herb and nut texture.",
+      "Crisp, plain corn cakes contrast the cool tangy pkhali, while pomegranate supplies acidity and the jewel-like finish visible in the photograph."
+    ],
+    "swaps": [
+      "Use vacuum-packed plain cooked beets for speed, but pat them very dry and avoid pickled beets.",
+      "For a gluten-free dish, use certified gluten-free cornmeal and confirm that all ground spices were processed without cross-contact.",
+      "Serve the pkhali with toasted bread or cucumber rounds if you do not want to make mchadi."
+    ],
+    "storage": "Refrigerate pkhali and mchadi separately in airtight containers for up to 4 days. Rewarm corn cakes in a 350°F oven for 8 minutes and serve the pkhali cool or at room temperature. Freeze pkhali for up to 1 month; thaw overnight and stir before shaping.",
+    "notes": [
+      "Wear gloves or use paper towels when peeling beets to limit staining.",
+      "Do not run the processor continuously after adding walnuts; overprocessing turns them into paste and makes the pkhali greasy.",
+      "Ground blue fenugreek is traditional in Georgian seasoning; regular ground fenugreek is more available and should be used lightly because it is stronger.",
+      "For a mild shared plate, omit cayenne and offer chile alongside."
+    ],
+    "faqs": [
+      {"q": "Why is my beet pkhali too loose to shape?", "a": "The beets likely carried excess water. Pulse in 2 tablespoons additional toasted walnuts, chill for 30 minutes and shape only when the mixture is cold."},
+      {"q": "Can I make pkhali a day ahead?", "a": "Yes. Its flavor improves after several hours. Refrigerate it airtight, then let it stand 20 minutes before serving and add the pomegranate and herbs at the last moment."},
+      {"q": "Why are my mchadi cracking?", "a": "Cornmeal has no gluten, so a few edge cracks are normal. If patties split apart, knead in warm water 1 tablespoon at a time and compress them firmly before frying."}
+    ],
+    "pantry": ["walnuts", "cornmeal", "ground coriander", "ground fenugreek", "red wine vinegar", "olive oil", "kosher salt"],
+    "date_published": "2026-09-22",
+    "date_modified": "2026-09-22"
+  },
+  {
+    "slug": "norwegian-kvaefjordkake-vanilla-cream-almond-meringue",
+    "title": "Norwegian Kvæfjordkake with Vanilla Cream & Almond Meringue",
+    "dek": "A tender vanilla sponge bakes beneath crackly almond meringue, then two slabs sandwich a light vanilla cream for a dramatic make-ahead cake.",
+    "collection": "family",
+    "protein": ["vegetarian"],
+    "difficulty": "Advanced",
+    "prep_minutes": 45,
+    "cook_minutes": 30,
+    "total_minutes": 210,
+    "servings": 12,
+    "calories": 460,
+    "cost_per_serving": "$1.35",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Kv%C3%A6fjordkake.jpg",
+    "image_alt": "Cut Norwegian Kvæfjordkake showing yellow vanilla sponge, a thick vanilla-cream center and crackly almond meringue layers",
+    "image_credit": "Kjetil r / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Kv%C3%A6fjordkake.jpg",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "tags": ["kvaefjordkake", "Norwegian cake", "almond meringue cake", "vanilla cream cake", "layer cake", "celebration dessert", "make ahead cake"],
+    "ingredients": [
+      "10 tbsp unsalted butter, 140 g, softened, plus more for the pan",
+      "3/4 cup granulated sugar, 150 g",
+      "5 large egg yolks, room temperature",
+      "1 tsp vanilla extract",
+      "1 1/4 cups all-purpose flour, 150 g",
+      "1 1/2 tsp baking powder",
+      "1/4 tsp fine salt",
+      "1/2 cup whole milk, room temperature",
+      "5 large egg whites, room temperature",
+      "1/4 tsp cream of tartar",
+      "1 cup superfine sugar, 200 g",
+      "2/3 cup sliced almonds, 60 g",
+      "2 cups whole milk, for the vanilla cream",
+      "1/2 cup granulated sugar, 100 g, for the vanilla cream",
+      "1/4 cup cornstarch, 32 g",
+      "1/4 tsp fine salt, for the vanilla cream",
+      "2 tsp vanilla extract, for the vanilla cream",
+      "2 tbsp unsalted butter, for the vanilla cream",
+      "1 cup cold heavy cream"
+    ],
+    "instructions": [
+      {"name": "Cook the vanilla base", "text": "Whisk 1 1/2 cups milk, sugar and salt in a saucepan and bring to a steaming simmer. Whisk the remaining 1/2 cup milk with cornstarch, then stream it into the pan. Cook, whisking, until thick and bubbling; continue for 2 full minutes. Remove from heat, whisk in vanilla and butter, transfer to a shallow bowl and press parchment directly on the surface. Refrigerate until cold, about 1 hour."},
+      {"name": "Prepare the pan and sponge", "text": "Heat the oven to 350°F. Butter a 13-by-18-inch rimmed half-sheet pan and line the base with parchment. Beat 10 tablespoons butter and 3/4 cup sugar for 3 minutes until pale. Beat in the yolks one at a time and add vanilla. Whisk flour, baking powder and salt separately; mix them into the butter in three additions alternating with the milk. Spread the thick batter evenly to the corners."},
+      {"name": "Whip the meringue", "text": "In a spotless bowl, beat the egg whites and cream of tartar on medium until foamy. Increase to medium-high and add superfine sugar 1 tablespoon at a time over 4 minutes. Beat until glossy stiff peaks form and rubbed meringue feels smooth, not gritty."},
+      {"name": "Layer and bake", "text": "Spread meringue gently over the unbaked sponge and scatter with almonds. Bake for 25 to 30 minutes, rotating once, until the almonds are toasted, the meringue is dry and lightly golden, and a skewer through the sponge returns without wet batter. Cool completely in the pan, about 45 minutes."},
+      {"name": "Finish the vanilla cream", "text": "Whip the cold heavy cream to medium peaks. Whisk the chilled vanilla base until smooth, then fold in one-third of the whipped cream to lighten it. Fold in the remainder just until uniform. Keep cold."},
+      {"name": "Assemble and chill", "text": "Run a thin knife around the cake and cut it crosswise into two equal rectangles. Lift one half carefully onto a platter, sponge-side down. Spread with all the vanilla cream, then place the second half on top with meringue facing up. Refrigerate for 1 hour before cutting with a serrated knife into 12 pieces."}
+    ],
+    "why_it_works": [
+      "Sponge and meringue bake together, bonding the crisp almond cap to a tender base without a fragile transfer step.",
+      "Cooking the cornstarch-thickened vanilla base for two minutes removes its raw taste and gives the folded whipped cream enough structure to support the upper layer.",
+      "A full cooling period and one-hour assembled chill keep the cream distinct and produce the layered cut surface shown in the licensed photograph."
+    ],
+    "swaps": [
+      "Use lactose-free whole milk and cream if tolerated; the same quantities and chilling method apply.",
+      "Replace sliced almonds with chopped toasted hazelnuts for a nontraditional variation, clearly noting the allergen change.",
+      "For stronger vanilla flavor, scrape in 1 vanilla bean while heating the milk, then remove the pod before thickening."
+    ],
+    "storage": "Refrigerate the assembled cake promptly and keep it covered for up to 3 days. Serve cool, returning leftovers to the refrigerator within 2 hours. Freezing is not recommended because the vanilla cream can weep and the meringue loses its crisp surface.",
+    "notes": [
+      "Separate eggs while cold, then let them stand covered for 30 minutes; even a trace of yolk can prevent the whites from whipping.",
+      "Superfine sugar dissolves more readily in meringue. Pulse regular granulated sugar briefly in a clean blender if needed, but do not turn it into powder.",
+      "The 210-minute total includes about 45 minutes cooling, 60 minutes chilling the vanilla base and 60 minutes chilling the assembled cake; several stages overlap.",
+      "Use a clean serrated knife and a gentle sawing motion so the almond meringue does not shatter."
+    ],
+    "faqs": [
+      {"q": "Why did the meringue shrink or bead?", "a": "Sugar was likely added too quickly or the foam was under-whipped. Add it gradually, beat until the granules dissolve and spread the meringue all the way to the pan edges before baking."},
+      {"q": "Can I assemble Kvæfjordkake the day before?", "a": "Yes. Assemble, cover without touching the top and refrigerate overnight. The meringue softens slightly but the cake slices especially cleanly the next day."},
+      {"q": "How do I move the cake layers without breaking them?", "a": "Cool completely, cut in the pan and slide each half onto a flat rimless sheet or two wide spatulas. Move slowly and support the full length rather than lifting from one corner."}
+    ],
+    "pantry": ["all-purpose flour", "granulated sugar", "cornstarch", "baking powder", "cream of tartar", "vanilla extract", "sliced almonds"],
+    "date_published": "2026-09-22",
+    "date_modified": "2026-09-22"
+  }
+]
