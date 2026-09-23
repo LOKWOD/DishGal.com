@@ -562,7 +562,7 @@ def recipe_shop(recipe) -> str:
         products = [
             ("heavy bottom 2 quart saucepan", "Heavy 2-quart saucepan", "Even heat and visible corners make it easier to scrape condensed milk continuously and spot the clean-path stage."),
             ("digital kitchen scale grams ounces", "Digital kitchen scale", "Portioning about 18 grams per candy produces 24 even brigadeiros with consistent chilling and serving estimates."),
-            ("stainless steel measuring scoops set", "Measuring scoops", "A small two-teaspoon measure portions the sticky chilled mixture quickly before rolling and coating."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "The 220 to 225°F reference gives a second doneness check while the visual clean-path cue remains primary."),
         ]
     elif "novi pazar-style ćevapi" in haystack:
         products = [
