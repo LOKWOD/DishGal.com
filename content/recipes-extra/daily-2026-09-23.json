@@ -1,0 +1,357 @@
+[
+  {
+    "slug": "instant-pot-korean-galbijjim-pear-chestnuts",
+    "title": "Instant Pot Korean Galbijjim with Pear & Chestnuts",
+    "dek": "Beef short ribs turn spoon-tender in a mild pear-soy braising sauce, with shiitakes and chestnuts for a special-feeling pressure-cooker dinner.",
+    "collection": "instant-pot",
+    "protein": ["beef"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 25,
+    "cook_minutes": 75,
+    "total_minutes": 100,
+    "servings": 6,
+    "calories": 690,
+    "cost_per_serving": "$6.85",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Korean_braised_beef_short_ribs-Galbijjim.jpg",
+    "image_alt": "Glossy Korean braised beef short ribs with chestnuts, mushrooms, sesame seeds and sliced scallions in a brass bowl",
+    "image_credit": "Junho Jung / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Korean_braised_beef_short_ribs-Galbijjim.jpg",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "tags": ["instant pot", "electric pressure cooker", "galbijjim", "Korean short ribs", "pear soy sauce", "chestnuts", "family dinner", "special occasion"],
+    "ingredients": [
+      "3 1/2 lb English-cut bone-in beef short ribs, each 2 to 3 inches long",
+      "1 1/2 tsp kosher salt, divided",
+      "1 tbsp neutral oil",
+      "1 1/2 cups unsalted beef broth, divided",
+      "1 small Asian pear, peeled, cored and finely grated (about 1 cup)",
+      "1/2 cup low-sodium soy sauce",
+      "2 tbsp packed brown sugar",
+      "1 tbsp rice vinegar",
+      "5 garlic cloves, finely grated",
+      "1 tbsp finely grated fresh ginger",
+      "8 oz fresh shiitake mushrooms, stems removed and caps halved",
+      "8 oz peeled cooked chestnuts",
+      "2 medium carrots, cut into 1-inch chunks",
+      "1 tbsp toasted sesame oil",
+      "3 scallions, thinly sliced",
+      "2 tsp toasted sesame seeds",
+      "Cooked short-grain rice, for serving",
+      "Gochugaru or chile crisp, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Trim and season the ribs", "text": "Pat the short ribs dry and trim only large exterior fat pockets, leaving the meat attached to the bones. Season with 1 teaspoon salt. If the ribs have visible bone fragments, rinse them briefly under cold water and dry very thoroughly."},
+      {"name": "Brown in batches", "text": "Select Sauté on High on a 6-quart electric pressure cooker. Add the oil, then brown the ribs in two batches for about 3 minutes on each broad side. Transfer to a plate. Cancel Sauté and let the pot cool for 1 minute."},
+      {"name": "Deglaze and layer", "text": "Pour 1 cup broth into the pot and scrape the base until absolutely no browned bits remain. Whisk the pear, soy sauce, brown sugar, vinegar, garlic, ginger and remaining 1/2 cup broth in a bowl. Return the ribs to the thin broth, keeping the contents below the maximum-fill line. Add the shiitakes and chestnuts, then pour the pear mixture over the top without stirring it into the base."},
+      {"name": "Pressure cook and release", "text": "Lock the lid and cook on High Pressure for 35 minutes; allow about 15 minutes for the cooker to reach pressure. Let pressure release naturally for 15 minutes, then vent the remainder in short controlled pulses with hands and face away from the steam. Stop if liquid sputters, wait, and open only after the float valve drops."},
+      {"name": "Cook the carrots and reduce the sauce", "text": "Transfer the ribs, mushrooms and chestnuts to a rimmed platter. Skim the fat from the liquid. Add the carrots, select Sauté on High and simmer uncovered for 8 to 10 minutes, until the carrots are tender and the sauce lightly coats a spoon. Stir often near the end so the pear sugars do not scorch."},
+      {"name": "Verify, glaze and serve", "text": "Check the thickest meat away from bone: beef is safe at 145°F with a 3-minute rest, but short ribs should reach roughly 195 to 205°F and feel easily pierced for the intended tenderness. Return the ribs, mushrooms and chestnuts to the pot and turn them in the sauce. Cancel Sauté, stir in sesame oil, and adjust salt. Top with scallions and sesame seeds and serve with rice; offer gochugaru or chile crisp at the table."}
+    ],
+    "why_it_works": [
+      "Thin broth sits directly against a fully deglazed base, while the pear-soy mixture stays above the ribs, reducing the risk that its natural sugars trigger a burn warning.",
+      "A 15-minute natural release continues tenderizing the collagen-rich ribs and keeps the hot braising liquid from surging through the valve.",
+      "Adding carrots after pressure protects their shape, and reducing the defatted sauce at the end creates a glossy glaze instead of a greasy broth."
+    ],
+    "swaps": [
+      "Use 3 lb boneless short ribs cut into 3-inch pieces; begin checking tenderness after a 30-minute High Pressure cycle and the same 15-minute natural release.",
+      "A ripe Bosc pear can replace the Asian pear. If neither is available, use 3/4 cup unsweetened applesauce and reduce the brown sugar to 1 tablespoon.",
+      "Replace chestnuts with 8 oz peeled Korean radish or daikon chunks, adding them with the carrots for the final uncovered simmer."
+    ],
+    "storage": "Cool the ribs and sauce in shallow containers within 2 hours and refrigerate for up to 4 days. The chilled fat lifts off easily. Reheat covered over low heat or in the microwave with a splash of broth until the center reaches 165°F. Freeze the ribs in sauce for up to 2 months; thaw overnight in the refrigerator.",
+    "notes": [
+      "Total time includes about 15 minutes to pressurize, a 35-minute pressure cycle, the 15-minute natural release and the final sauce reduction.",
+      "Keep the shared dish mild; add gochugaru, chile crisp or sliced fresh chile only to individual bowls.",
+      "Do not use flanken-cut ribs for this timing; their thin cross-cut strips cook much faster than thick English-cut ribs.",
+      "Written for a 6-quart electric pressure cooker. Follow the minimum-liquid, maximum-fill and venting directions for your exact model, and never force the lid.",
+      "For the cleanest sauce, chill the finished braise overnight, remove the solid fat and reheat gently the next day."
+    ],
+    "faqs": [
+      {"q": "Do I need to soak the short ribs first?", "a": "No. A brief rinse removes any visible bone dust, while browning builds flavor. Long soaking can wash away savory juices and is not required for safe cooking."},
+      {"q": "Why are my short ribs still chewy?", "a": "Short ribs can exceed the safe minimum temperature before their connective tissue softens. Return them to the cooker with at least 1 cup thin liquid and pressure-cook 5 minutes more, followed by a 10-minute natural release."},
+      {"q": "Can I make galbijjim a day ahead?", "a": "Yes. It improves after an overnight rest, and the hardened fat is easy to remove. Reheat the ribs slowly in their sauce to 165°F and add the scallions and sesame only before serving."}
+    ],
+    "pantry": ["low-sodium soy sauce", "brown sugar", "rice vinegar", "beef broth", "neutral oil", "toasted sesame oil", "sesame seeds", "kosher salt"],
+    "date_published": "2026-09-23",
+    "date_modified": "2026-09-23"
+  },
+  {
+    "slug": "instant-pot-lowcountry-shrimp-boil-corn-potatoes",
+    "title": "Instant Pot Lowcountry Shrimp Boil with Corn, Potatoes & Sausage",
+    "dek": "Tender potatoes, sweet corn and smoked sausage pressure-cook first, then shrimp finish gently in the seasoned broth for a fast, family-style supper.",
+    "collection": "instant-pot",
+    "protein": ["seafood", "pork"],
+    "difficulty": "Easy",
+    "prep_minutes": 15,
+    "cook_minutes": 25,
+    "total_minutes": 40,
+    "servings": 6,
+    "calories": 540,
+    "cost_per_serving": "$5.40",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/56/Low_country_boil.jpg",
+    "image_alt": "Lowcountry shrimp boil with pink shrimp, red potatoes, yellow corn and sliced smoked sausage",
+    "image_credit": "Joy / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Low_country_boil.jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "tags": ["instant pot", "electric pressure cooker", "Lowcountry boil", "shrimp boil", "corn and potatoes", "smoked sausage", "family dinner", "summer dinner"],
+    "ingredients": [
+      "1 1/2 cups low-sodium chicken broth or water",
+      "1 lemon, halved",
+      "4 garlic cloves, lightly crushed",
+      "2 bay leaves",
+      "1 1/2 tbsp mild seafood seasoning, plus more to taste",
+      "1 1/2 lb baby red potatoes, halved if larger than 1 1/2 inches",
+      "12 oz fully cooked smoked sausage, cut into 1-inch pieces",
+      "4 ears corn, shucked and each cut into 3 pieces",
+      "1 1/2 lb jumbo raw shrimp, peeled and deveined, tails left on",
+      "3 tbsp unsalted butter, melted",
+      "2 tbsp chopped flat-leaf parsley",
+      "1/2 tsp kosher salt, only if needed",
+      "Hot sauce, lemon wedges and crusty bread, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Build the thin broth", "text": "Pour the broth into a 6-quart electric pressure cooker. Squeeze in the lemon juice, then add the squeezed halves, garlic, bay leaves and seafood seasoning. Scrape the base to confirm that nothing is stuck to it."},
+      {"name": "Layer the sturdy ingredients", "text": "Add the potatoes to the liquid in an even layer. Scatter the sausage over them and place the corn on top. Do not add the shrimp yet. Keep everything below the model's maximum-fill line and do not pack ingredients into the lid area."},
+      {"name": "Pressure cook and release", "text": "Lock the lid and cook on High Pressure for 4 minutes; allow about 10 to 12 minutes to reach pressure. Immediately use a controlled quick release, venting in short pulses with hands and face away from steam. Pause if liquid sputters, then resume when the valve is quiet. Open only after the float valve drops."},
+      {"name": "Cook the shrimp after pressure", "text": "Remove and discard the lemon halves and bay leaves. Select Sauté on Low. Fold the shrimp into the hot liquid, keeping them as submerged as possible, and cook for 3 to 5 minutes, stirring once, until opaque and curled into loose C shapes."},
+      {"name": "Check doneness", "text": "Check several shrimp with an instant-read thermometer; they must reach 145°F. Pierce a large potato with a knife to confirm it is tender. If the shrimp are ready first, lift them out immediately rather than letting them overcook."},
+      {"name": "Butter and serve", "text": "Cancel Sauté. Use a slotted spoon to move the shrimp, sausage, corn and potatoes to a warm platter. Toss with melted butter and parsley, then taste before adding salt because the sausage and seasoning may already be salty. Spoon a little broth over the platter and serve with hot sauce, lemon wedges and bread at the table."}
+    ],
+    "why_it_works": [
+      "Potatoes sit closest to the thin seasoned liquid, while corn and precooked sausage stay above them, so the sturdy ingredients finish together without a burn-prone sauce.",
+      "A controlled quick release stops the potatoes from continuing to soften and protects the cook from a sudden blast of seasoned liquid.",
+      "Shrimp cook only after pressure in the residual broth, making their 145°F endpoint easy to check and avoiding the rubbery texture common after a full pressure cycle."
+    ],
+    "swaps": [
+      "Use fully cooked chicken or turkey sausage for a pork-free version; verify its ingredient label and keep the same pressure timing.",
+      "Replace up to half the shrimp with scrubbed littleneck clams. Add them with the shrimp and discard any clam that does not open after 6 minutes of simmering.",
+      "Frozen corn-on-the-cob pieces can replace fresh corn without changing the programmed pressure time."
+    ],
+    "storage": "Remove shrimp from the remaining ingredients before chilling so they do not overcook during reheating. Refrigerate everything in shallow covered containers within 2 hours for up to 3 days. Reheat potatoes, corn and sausage with a splash of broth to 165°F, then add shrimp just long enough to reach 165°F. Freezing is not recommended for the potatoes or shrimp.",
+    "notes": [
+      "Total time includes approximately 10 to 12 minutes to pressurize, the 4-minute cook, controlled release and 3 to 5 minutes for the shrimp.",
+      "Choose a mild seafood seasoning for the shared pot and offer cayenne-forward seasoning or hot sauce at the table.",
+      "Cut only potatoes larger than 1 1/2 inches; tiny potatoes can stay whole so they do not break apart.",
+      "Written for a 6-quart electric pressure cooker. Observe the minimum-liquid and maximum-fill guidance in your model manual, keep the vent clear and never force the lid.",
+      "Do not double this recipe in a 6-quart cooker; crowded shrimp cook unevenly and the pot may exceed its safe fill line."
+    ],
+    "faqs": [
+      {"q": "Can I pressure-cook the shrimp with the potatoes?", "a": "Do not do that for this recipe. Four minutes at pressure plus the release would overcook jumbo shrimp. Adding them afterward keeps the texture tender and lets you verify 145°F directly."},
+      {"q": "Why did my potatoes turn mushy?", "a": "They were probably cut too small or left under pressure too long. Keep 1- to 1 1/2-inch potatoes whole, halve only larger ones and begin the controlled quick release as soon as the 4-minute cycle ends."},
+      {"q": "Can I prepare the ingredients ahead?", "a": "Yes. Cut the sausage and corn and mix the dry seasoning up to 2 days ahead. Keep peeled raw shrimp covered at 40°F or below and use within the package's safe window; cut potatoes just before cooking to prevent discoloration."}
+    ],
+    "pantry": ["low-sodium chicken broth", "mild seafood seasoning", "bay leaves", "unsalted butter", "kosher salt", "hot sauce"],
+    "date_published": "2026-09-23",
+    "date_modified": "2026-09-23"
+  },
+  {
+    "slug": "senegalese-style-chicken-yassa-onion-sauce-rice",
+    "title": "Senegalese-Style Chicken Yassa with Onion Sauce & Rice",
+    "dek": "Lemon-mustard chicken roasts until deeply browned, then meets a generous slow-cooked onion sauce and turmeric rice for a bright family platter.",
+    "collection": "family",
+    "protein": ["chicken"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 25,
+    "cook_minutes": 65,
+    "total_minutes": 330,
+    "servings": 6,
+    "calories": 670,
+    "cost_per_serving": "$3.70",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/45/Poulet_Yassa_Chicken_rice_with_onion_sauce.jpg",
+    "image_alt": "Browned chicken pieces on yellow rice with lemony onion sauce served in a bowl alongside",
+    "image_credit": "T.K. Naliaka / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Poulet_Yassa_Chicken_rice_with_onion_sauce.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["chicken yassa", "Senegalese-style", "lemon mustard chicken", "onion sauce", "chicken and rice", "family dinner", "make ahead marinade", "West African-inspired"],
+    "ingredients": [
+      "3 lb bone-in, skin-on chicken thighs and drumsticks, 6 to 8 pieces",
+      "4 large yellow onions, thinly sliced",
+      "3 lemons, zested and juiced (about 1/2 cup juice)",
+      "1/4 cup Dijon mustard",
+      "5 garlic cloves, minced",
+      "2 tbsp neutral oil, divided",
+      "2 tsp kosher salt, divided",
+      "1 tsp ground black pepper",
+      "2 bay leaves",
+      "1 cup low-sodium chicken broth",
+      "1 cup pitted green olives, optional",
+      "2 cups long-grain white rice, rinsed until the water runs nearly clear",
+      "3 cups water",
+      "1/2 tsp ground turmeric",
+      "2 scallions, thinly sliced",
+      "Hot sauce or sliced fresh chile, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Marinate the chicken and onions", "text": "Whisk the lemon zest and juice, mustard, garlic, 1 tablespoon oil, 1 1/2 teaspoons salt and pepper in a nonreactive bowl. Add the chicken, onions and bay leaves and turn thoroughly to coat. Cover and refrigerate for 4 hours, turning once; do not marinate longer than 12 hours."},
+      {"name": "Separate and dry", "text": "Heat the oven to 425°F. Lift the chicken from the marinade, letting the onions fall back into the bowl. Place chicken skin-side up on a rimmed sheet pan and pat the exposed skin dry. Use clean utensils and discard any marinade that cannot be cooked immediately."},
+      {"name": "Roast the chicken", "text": "Roast for 35 to 45 minutes, rotating the pan once, until deeply browned and every piece reaches at least 165°F away from bone; thighs and drumsticks are most tender around 175 to 185°F. Rest for 5 minutes."},
+      {"name": "Build the onion sauce", "text": "While the chicken roasts, heat the remaining 1 tablespoon oil in a wide Dutch oven over medium heat. Add all the marinated onions, bay leaves and liquid. Cook for 15 minutes, stirring often, until the onions soften and begin to color. Add the broth, bring to a lively simmer and cook uncovered for 15 to 20 minutes until jammy but still spoonable. Stir in olives if using and remove the bay leaves."},
+      {"name": "Cook the turmeric rice", "text": "Combine the rinsed rice, 3 cups water, turmeric and remaining 1/2 teaspoon salt in a medium saucepan. Bring to a boil, cover, reduce to low and cook for 15 minutes. Remove from the heat, rest covered for 10 minutes, then fluff."},
+      {"name": "Finish the platter", "text": "Taste the onion sauce and adjust with salt, mustard or a squeeze of lemon only after it has reduced. Spread rice on a warm platter, arrange chicken over it and spoon some onion sauce around the pieces, serving the rest alongside. Add scallions and offer hot sauce or fresh chile at the table."}
+    ],
+    "why_it_works": [
+      "Lemon and mustard season both the chicken and the large quantity of onions, giving the final sauce brightness without requiring a heavy spice blend.",
+      "Roasting the chicken separately keeps the skin deeply browned while the onions cook down at their own pace into a silky sauce.",
+      "Cooking the used marinade and onions at a sustained simmer makes them safe, while a thermometer confirms every bone-in chicken piece reaches at least 165°F."
+    ],
+    "swaps": [
+      "Use 2 1/2 lb bone-in chicken thighs only for more even cooking; begin checking them at 35 minutes.",
+      "For a boneless version, use 2 lb chicken thighs and roast at 425°F for about 22 to 28 minutes, checking for 165°F.",
+      "Brown rice can replace white rice, but cook it separately according to its package because it needs substantially more time and water."
+    ],
+    "storage": "Cool chicken, sauce and rice in separate shallow containers within 2 hours and refrigerate for up to 4 days. Reheat chicken and sauce covered at 325°F or in the microwave and rice with a spoonful of water until every component reaches 165°F. Freeze chicken and onion sauce for up to 2 months; make fresh rice after thawing.",
+    "notes": [
+      "The 5 1/2-hour total includes a 4-hour hands-off marinade, 25 minutes of preparation, 65 minutes of cooking and resting time.",
+      "Keep the communal sauce mild and offer chile at the table so each diner controls the heat.",
+      "A mandoline makes quick work of four onions, but always use its hand guard and stop before the onion becomes too small to hold safely.",
+      "Because the marinade touches raw poultry, it must be brought to a full simmer and cooked as directed; never use it as an uncooked finishing sauce.",
+      "Olives add salinity, so taste the reduced sauce before adding any extra salt."
+    ],
+    "faqs": [
+      {"q": "Can I marinate chicken yassa overnight?", "a": "Yes, but cap the marinade at about 12 hours. Longer exposure to lemon can make the outer meat soft and the skin harder to brown."},
+      {"q": "Why are the onions not browning?", "a": "Four onions release a great deal of water. Keep the pan wide, cook uncovered and stir often; they will soften first and color as the liquid evaporates. Do not raise the heat so high that the mustard scorches."},
+      {"q": "Can I cook the chicken directly in the onion sauce?", "a": "You can simmer fully browned chicken in the sauce, but the skin will soften. The separate roasting method preserves browned skin and makes the chicken's safe internal temperature easier to verify."}
+    ],
+    "pantry": ["Dijon mustard", "neutral oil", "chicken broth", "long-grain rice", "ground turmeric", "bay leaves", "kosher salt", "black pepper"],
+    "date_published": "2026-09-23",
+    "date_modified": "2026-09-23"
+  },
+  {
+    "slug": "turkish-imam-bayildi-tomato-onion-rice-yogurt",
+    "title": "Turkish İmam Bayıldı with Tomato-Onion Filling, Rice & Yogurt",
+    "dek": "Whole eggplants collapse around a sweet tomato-onion filling, then pair with lemony rice and cool yogurt for a generous meatless dinner.",
+    "collection": "vegetarian",
+    "protein": ["vegetarian"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 30,
+    "cook_minutes": 75,
+    "total_minutes": 105,
+    "servings": 4,
+    "calories": 590,
+    "cost_per_serving": "$2.65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/%C4%B0mam_bay%C4%B1ld%C4%B1_AvL.JPG",
+    "image_alt": "Baked whole eggplant filled with tomato and onion, served with white rice and yogurt",
+    "image_credit": "AlexanderVanLoon / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:%C4%B0mam_bay%C4%B1ld%C4%B1_AvL.JPG",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["imam bayildi", "Turkish-style eggplant", "stuffed eggplant", "vegetarian dinner", "tomato onion filling", "eggplant and rice", "Mediterranean dinner", "make ahead"],
+    "ingredients": [
+      "4 small Italian eggplants, 8 to 10 oz each",
+      "1 1/2 tsp kosher salt, divided",
+      "6 tbsp extra-virgin olive oil, divided",
+      "3 large yellow onions, thinly sliced",
+      "6 garlic cloves, thinly sliced",
+      "1 can whole peeled tomatoes, 14.5 oz, drained and crushed by hand",
+      "1 tbsp tomato paste",
+      "1 tsp granulated sugar",
+      "1/2 tsp ground black pepper",
+      "1/2 cup water",
+      "1/2 cup chopped flat-leaf parsley, divided",
+      "1 tbsp fresh lemon juice",
+      "1 1/2 cups long-grain white rice, rinsed",
+      "2 1/4 cups water, for the rice",
+      "1 cup plain whole-milk yogurt",
+      "1 lemon, cut into wedges"
+    ],
+    "instructions": [
+      {"name": "Stripe and salt the eggplants", "text": "Heat the oven to 425°F. Leaving the stems attached, peel four lengthwise 1-inch strips from each eggplant to make a striped pattern. Cut one shallow lengthwise slit in a peeled strip without cutting through. Rub with 1/2 teaspoon salt and let stand for 15 minutes, then blot very dry."},
+      {"name": "Roast until flexible", "text": "Rub the eggplants with 2 tablespoons olive oil and place in a snug baking dish. Roast for 25 to 30 minutes, turning once, until browned and flexible but still holding their shape. Reduce the oven to 375°F."},
+      {"name": "Cook the tomato-onion filling", "text": "While the eggplants roast, heat 3 tablespoons oil in a wide skillet over medium-low. Add onions and cook for 15 minutes, stirring often, until very soft and lightly golden. Add garlic for 1 minute. Stir in tomatoes, tomato paste, sugar, pepper and 1/2 teaspoon salt; cook for 8 minutes until thick. Fold in half the parsley and the lemon juice."},
+      {"name": "Fill and braise", "text": "Gently widen each eggplant slit with two spoons and mound in the filling. Spoon any extra filling around the eggplants. Pour 1/2 cup water into the side of the dish, drizzle with the final 1 tablespoon oil, cover tightly and bake at 375°F for 25 minutes. Uncover and bake 10 minutes more, until a knife slides through the thickest eggplant flesh without resistance."},
+      {"name": "Cook the rice", "text": "Meanwhile, combine the rinsed rice, 2 1/4 cups water and remaining 1/2 teaspoon salt in a saucepan. Bring to a boil, cover, reduce to low and cook for 15 minutes. Remove from the heat, rest covered for 10 minutes and fluff with the remaining parsley."},
+      {"name": "Rest and serve", "text": "Let the eggplants rest for 10 minutes so they absorb the braising juices. Serve one warm or room-temperature eggplant per person with parsley rice, yogurt and lemon wedges. Taste the pan juices before adding any extra salt."}
+    ],
+    "why_it_works": [
+      "Striping the peel preserves enough skin to hold each eggplant together while exposing flesh that readily absorbs olive oil and tomato juices.",
+      "Roasting before filling softens the eggplant without the large oil uptake of deep-frying, and the covered braise finishes the dense center gently.",
+      "Slow-cooked onions provide sweetness, tomatoes and lemon provide acidity, and cool yogurt balances the rich olive-oil braise."
+    ],
+    "swaps": [
+      "Use four similarly sized Japanese eggplants, reducing the first roast by about 5 minutes and checking early in the final braise.",
+      "For a vegan plate, replace dairy yogurt with a thick unsweetened plant-based yogurt or serve with lemony tahini thinned with water.",
+      "Brown rice works well alongside, but cook it according to its package rather than using the white-rice timing and liquid here."
+    ],
+    "storage": "Cool eggplants and rice in separate shallow containers within 2 hours. Refrigerate eggplants for up to 4 days and rice for up to 3 days. Reheat covered at 325°F or in the microwave with a splash of water until 165°F, or serve the eggplant at room temperature after no more than 2 hours out of refrigeration. Keep yogurt chilled.",
+    "notes": [
+      "Choose straight, evenly sized eggplants so all four soften on the same schedule and sit steadily in the baking dish.",
+      "The dish is traditionally generous with olive oil; this baked method uses a measured amount while preserving a silky texture.",
+      "Do not cut through the bottom of the eggplant when making the slit or the filling and juices will escape.",
+      "The filled eggplants are excellent made a day ahead; their flavor deepens as they rest in the tomato-onion juices.",
+      "Use separate clean spoons for yogurt and the hot eggplant so the remaining yogurt stays safe for storage."
+    ],
+    "faqs": [
+      {"q": "Do I need to peel the eggplants completely?", "a": "No. Alternating peeled and unpeeled strips gives the flesh room to soften while leaving a skin framework strong enough to contain the filling."},
+      {"q": "Why is my eggplant still firm after baking?", "a": "Eggplant size and age vary. Add 1/4 cup hot water to the dish, cover and bake 10 to 15 minutes more. It is ready only when a knife slides through the thickest flesh without resistance."},
+      {"q": "Is İmam Bayıldı served hot or cold?", "a": "It is delicious warm or at room temperature. If made ahead, refrigerate promptly, then let it lose its chill for 30 minutes before serving; do not leave it out longer than 2 hours."}
+    ],
+    "pantry": ["extra-virgin olive oil", "canned tomatoes", "tomato paste", "long-grain rice", "granulated sugar", "kosher salt", "black pepper"],
+    "date_published": "2026-09-23",
+    "date_modified": "2026-09-23"
+  },
+  {
+    "slug": "brazilian-brigadeiros-cocoa-chocolate-sprinkles",
+    "title": "Brazilian Brigadeiros with Cocoa & Chocolate Sprinkles",
+    "dek": "Condensed milk, cocoa and butter cook into glossy chocolate truffles with a precise pan-clearing cue and a generous coat of crisp sprinkles.",
+    "collection": "dessert",
+    "protein": ["vegetarian"],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 15,
+    "total_minutes": 105,
+    "servings": 24,
+    "calories": 105,
+    "cost_per_serving": "$0.35",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Brigadeiro.jpg",
+    "image_alt": "Round Brazilian chocolate brigadeiros coated in chocolate sprinkles and arranged in gold paper cups",
+    "image_credit": "Mayra (Maych) / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Brigadeiro.jpg",
+    "image_license": "CC BY-SA 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "tags": ["brigadeiros", "Brazilian dessert", "chocolate truffles", "condensed milk candy", "no bake dessert", "party dessert", "make ahead candy", "chocolate sprinkles"],
+    "ingredients": [
+      "1 can sweetened condensed milk, 14 oz",
+      "3 tbsp natural unsweetened cocoa powder, sifted",
+      "2 tbsp unsalted butter, divided",
+      "1/8 tsp fine salt",
+      "1 tsp pure vanilla extract",
+      "3/4 cup chocolate sprinkles",
+      "24 small paper candy cups"
+    ],
+    "instructions": [
+      {"name": "Prepare the cooling pan", "text": "Grease a shallow plate or 8-inch square pan with 1 teaspoon of the butter. Pour the sprinkles into a wide shallow bowl and arrange the paper cups on a tray."},
+      {"name": "Whisk the cold mixture", "text": "Off the heat, whisk the condensed milk, sifted cocoa, salt and 1 tablespoon plus 2 teaspoons butter in a heavy 2-quart saucepan until no dry cocoa pockets remain."},
+      {"name": "Cook to the pan-clearing stage", "text": "Set the pan over medium-low heat and cook for 10 to 14 minutes, scraping the bottom and corners continuously with a flexible spatula. The mixture is ready when it gathers into a soft mass, a spatula drawn across the base leaves a clean path for 2 to 3 seconds, and the mixture registers about 220 to 225°F."},
+      {"name": "Flavor and chill", "text": "Remove from the heat and stir in vanilla. Scrape onto the greased plate, press parchment directly on the surface and cool for 20 minutes. Refrigerate for 40 to 60 minutes, until firm enough to scoop without flowing."},
+      {"name": "Portion and roll", "text": "Lightly butter clean hands. Scoop level 2-teaspoon portions, about 18 grams each, and roll quickly into 24 smooth balls. If the mixture sticks heavily, chill it for 15 minutes more rather than adding dry ingredients."},
+      {"name": "Coat and serve", "text": "Roll each ball in chocolate sprinkles, pressing gently so the coating adheres, and place in a paper cup. Let the brigadeiros stand at cool room temperature for 15 minutes for the creamiest bite, or cover and refrigerate until needed."}
+    ],
+    "why_it_works": [
+      "Whisking cocoa into condensed milk before heating disperses it smoothly, while a heavy pan and constant scraping prevent concentrated milk sugars from scorching.",
+      "The clean-path test and temperature range give two complementary doneness cues, avoiding both loose candies and overcooked, chewy ones.",
+      "A full chill sets the butter and concentrated milk mixture so equal portions roll neatly and hold a complete sprinkle coating."
+    ],
+    "swaps": [
+      "Use Dutch-process cocoa for a darker, less sharp chocolate flavor; the quantity and cooking method stay the same.",
+      "Replace chocolate sprinkles with finely chopped toasted pistachios, desiccated coconut or cocoa nibs, checking allergen needs before serving.",
+      "For coffee brigadeiros, dissolve 1 teaspoon instant espresso powder in the condensed milk before adding the cocoa."
+    ],
+    "storage": "Store in a single layer in an airtight container at cool room temperature for 1 day or refrigerate for up to 5 days. Let chilled brigadeiros stand for 15 minutes before serving. Freeze in a rigid container for up to 1 month, thawing overnight in the refrigerator so condensation forms gradually.",
+    "notes": [
+      "The total time includes about 60 minutes of cooling and chilling before rolling.",
+      "Use sweetened condensed milk, not evaporated milk; they are not interchangeable in this candy.",
+      "A pale or stainless saucepan makes it easier to spot any scorching on the base while you stir.",
+      "If serving children, avoid hard dragees and choose soft chocolate sprinkles appropriate for their age.",
+      "Approximate nutrition and cost are per one 18-gram brigadeiro; the batch makes 24."
+    ],
+    "faqs": [
+      {"q": "Why are my brigadeiros too soft to roll?", "a": "The mixture was probably undercooked or insufficiently chilled. First chill it 30 minutes more. If it still flows, return it to a clean saucepan and cook over low heat until the spatula path stays open for 2 to 3 seconds."},
+      {"q": "Why did the chocolate mixture turn grainy?", "a": "Heat that is too high can scorch milk solids and seize cocoa. Cook over medium-low, scrape continuously and remove the pan as soon as both doneness cues are reached."},
+      {"q": "Can I make brigadeiros without a thermometer?", "a": "Yes. The traditional visual cue is reliable: tilt the pan and look for the entire mixture to slide as one soft mass, with a spatula path across the bottom staying clear for 2 to 3 seconds."}
+    ],
+    "pantry": ["sweetened condensed milk", "unsweetened cocoa powder", "unsalted butter", "vanilla extract", "fine salt", "chocolate sprinkles"],
+    "date_published": "2026-09-23",
+    "date_modified": "2026-09-23"
+  }
+]

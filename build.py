@@ -504,7 +504,19 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot québec-style yellow split pea soup" in haystack:
+    if "instant pot korean galbijjim" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The thin-broth base, 35-minute cycle and staged release are written for this common family size."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Short ribs become safe before they become tender; temperature plus an easy-piercing texture confirms the intended finish."),
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "A fine strainer catches bone fragments during a quick rinse and helps skim the finished pear-soy braising sauce cleanly."),
+        ]
+    elif "instant pot lowcountry shrimp boil" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-liquid base and four-minute potato cycle are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several shrimp for 145°F during their brief post-pressure finish instead of guessing from color alone."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach moves hot corn, sausage and shrimp from the seasoned broth without crowding the platter."),
+        ]
+    elif "instant pot québec-style yellow split pea soup" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The liquid, half-full limit, pressurizing allowance and natural release are written for this common family size."),
             ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh contains small split peas while you rinse away dust and sort out any debris before pressure cooking."),
@@ -533,6 +545,24 @@ def recipe_shop(recipe) -> str:
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The recipe timing, minimum liquid, and family-size yield are written around this common capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken, pork, meatballs, and meatloaf safely instead of relying only on programmed pressure time."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Dry, secure grip matters when lifting a hot pot-in-pot bowl, trivet, or foil sling."),
+        ]
+    elif "senegalese-style chicken yassa" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed pan gives bone-in chicken room to brown while containing its lemon-mustard juices."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check every thigh and drumstick away from bone for at least 165°F before arranging the family platter."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A nonreactive bowl safely holds the citrus marinade and sliced onions without absorbing flavors."),
+        ]
+    elif "turkish imam bayildi" in haystack or "turkish i̇mam bayıldı" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "A snug, deep-sided dish holds four filled eggplants upright and contains their olive-oil tomato braising juices."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp controllable blade stripes and slits the eggplants while handling onions, tomatoes and herbs cleanly."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "It frees the stovetop and keeps the parsley rice warm while the filled eggplants finish braising and rest."),
+        ]
+    elif "brazilian brigadeiros" in haystack:
+        products = [
+            ("heavy bottom 2 quart saucepan", "Heavy 2-quart saucepan", "Even heat and visible corners make it easier to scrape condensed milk continuously and spot the clean-path stage."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Portioning about 18 grams per candy produces 24 even brigadeiros with consistent chilling and serving estimates."),
+            ("stainless steel measuring scoops set", "Measuring scoops", "A small two-teaspoon measure portions the sticky chilled mixture quickly before rolling and coating."),
         ]
     elif "novi pazar-style ćevapi" in haystack:
         products = [
@@ -1504,18 +1534,20 @@ def build_collections():
                 <p>Compare total time, release style and the work left after pressure falls. The programmed cycle is only one part of the clock.</p>
                 <div style="overflow-x:auto">
                   <table style="width:100%;border-collapse:collapse;text-align:left">
-                    <thead><tr><th style="padding:.65rem;border-bottom:2px solid var(--line)">Recipe</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Total</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Release</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Best fit</th></tr></thead>
+                    <thead><tr><th style="padding:.65rem;border-bottom:2px solid var(--line)">Recipe</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Total</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Release</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">After pressure</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Best fit</th></tr></thead>
                     <tbody>
-                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-smoky-black-bean-soup-lime-crema/')}">Smoky black bean soup</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">90 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Vegetarian meal prep</td></tr>
-                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-chicken-cacciatore-mushrooms-egg-noodles/')}">Chicken cacciatore</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Saucy family dinner</td></tr>
-                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-quebec-yellow-split-pea-soup-ham/')}">Yellow split pea soup</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget freezer meal</td></tr>
-                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-saffron-shrimp-risotto-lemon-chives/')}">Saffron shrimp risotto</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fast seafood dinner</td></tr>
-                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-teriyaki-chicken-rice-bowls/')}">Teriyaki chicken rice bowls</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">All-in-one rice bowl</td></tr>
-                      <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-lowcountry-shrimp-boil-corn-potatoes/')}">Lowcountry shrimp boil</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Sauté shrimp 3–5 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fast shareable seafood</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-korean-galbijjim-pear-chestnuts/')}">Korean galbijjim</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Defat and reduce 8–10 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Special family braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-smoky-black-bean-soup-lime-crema/')}">Smoky black bean soup</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">90 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Partially blend</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Vegetarian meal prep</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-chicken-cacciatore-mushrooms-egg-noodles/')}">Chicken cacciatore</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Reduce sauce; add noodles</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Saucy family dinner</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-quebec-yellow-split-pea-soup-ham/')}">Yellow split pea soup</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred ham; adjust body</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget freezer meal</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-saffron-shrimp-risotto-lemon-chives/')}">Saffron shrimp risotto</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Sauté shrimp; enrich rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fast seafood dinner</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-teriyaki-chicken-rice-bowls/')}">Teriyaki chicken rice bowls</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Glaze chicken; fluff rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">All-in-one rice bowl</td></tr>
+                      <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed September 22, 2026.</p>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed September 23, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
