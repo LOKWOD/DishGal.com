@@ -504,7 +504,19 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot korean galbijjim" in haystack:
+    if "instant pot cuban-style ropa vieja" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, 50-minute cycle and staged release are written for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Chuck becomes safe before it becomes shreddable; temperature plus an easy-pulling texture confirms the intended finish."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach makes browning large pieces and lifting hot pressure-braised beef safer and more controlled."),
+        ]
+    elif "instant pot ukrainian-style beet borscht" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The six-cup thin-liquid base, vegetable load and staged release are calibrated for this common capacity."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp controllable blade makes the beet, potato, carrot and cabbage prep faster and more even."),
+            ("glass meal prep containers locking lids", "Glass meal-prep containers", "Shallow lidded containers help the soup cool promptly and make refrigerator or freezer portions practical."),
+        ]
+    elif "instant pot korean galbijjim" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The thin-broth base, 35-minute cycle and staged release are written for this common family size."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Short ribs become safe before they become tender; temperature plus an easy-piercing texture confirms the intended finish."),
@@ -545,6 +557,24 @@ def recipe_shop(recipe) -> str:
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The recipe timing, minimum liquid, and family-size yield are written around this common capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken, pork, meatballs, and meatloaf safely instead of relying only on programmed pressure time."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Dry, secure grip matters when lifting a hot pot-in-pot bowl, trivet, or foil sling."),
+        ]
+    elif "mexican chiles en nogada" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed surface contains poblano juices while the skins blister evenly under the broiler."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the ground pork at 160°F and the reheated stuffed chiles at 165°F instead of judging only by color."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep the walnut soak, roasted poblanos and cooling picadillo organized without absorbing odors."),
+        ]
+    elif "burmese-style tea leaf salad" in haystack:
+        products = [
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A wide nonreactive bowl gives cabbage, fermented tea dressing and crunchy toppings room to combine without bruising."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp blade produces the very fine cabbage, onion and garlic slices that make the salad easy to toss and eat."),
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "Fine mesh catches the garlic chips cleanly while preserving the aromatic oil used in the dressing."),
+        ]
+    elif "dutch stroopwafels" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Equal dough portions press to a consistent thickness, cook evenly and match the recipe's yield."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "A 225 to 230°F syrup target helps the cinnamon caramel stay chewy instead of becoming brittle."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Sturdy bowls handle the yeasted dough, proofing and small-batch ingredient prep without retaining aromas."),
         ]
     elif "senegalese-style chicken yassa" in haystack:
         products = [
@@ -1536,6 +1566,8 @@ def build_collections():
                   <table style="width:100%;border-collapse:collapse;text-align:left">
                     <thead><tr><th style="padding:.65rem;border-bottom:2px solid var(--line)">Recipe</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Total</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Release</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">After pressure</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Best fit</th></tr></thead>
                     <tbody>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-cuban-ropa-vieja-yellow-rice-plantains/')}">Cuban-style ropa vieja</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred and reduce; finish sides</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Complete family platter</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ukrainian-beet-borscht-white-beans-dill/')}">Beet borscht with white beans</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Simmer cabbage and beans</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget meatless meal prep</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-lowcountry-shrimp-boil-corn-potatoes/')}">Lowcountry shrimp boil</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Sauté shrimp 3–5 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fast shareable seafood</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-korean-galbijjim-pear-chestnuts/')}">Korean galbijjim</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Defat and reduce 8–10 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Special family braise</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-smoky-black-bean-soup-lime-crema/')}">Smoky black bean soup</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">90 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Partially blend</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Vegetarian meal prep</td></tr>
@@ -1547,7 +1579,7 @@ def build_collections():
                     </tbody>
                   </table>
                 </div>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed September 23, 2026.</p>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed September 25, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
