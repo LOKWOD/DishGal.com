@@ -98,7 +98,7 @@ SHOP_CARD_CSS = """<style>
 .shop-card-media::after{content:"Kitchen pick";position:absolute;right:.7rem;bottom:.7rem;padding:.28rem .55rem;color:#fff;background:rgba(32,28,25,.78);border-radius:999px;font-size:.69rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .shop-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
 .shop-card:hover .shop-card-media img{transform:scale(1.035)}
-.shop-card-copy{display:flex;flex:1;min-width:0;flex-direction:column;align-items:flex-start;padding:1rem 1.05rem 1.1rem}
+.shop-card-copy{display:flex;flex:1;min-width:0;flex-direction:column;align-items:flex-start;padding:1rem 1.05rem 1.1rem}\n.shop-card--text-only .shop-card-copy{min-height:190px;justify-content:flex-start}
 .shop-card-copy small{margin-bottom:.28rem;color:var(--tomato-dark);font-size:.71rem;font-weight:850;letter-spacing:.065em;text-transform:uppercase}
 .shop-card-copy strong{font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;line-height:1.2}
 .shop-card-copy span{margin-top:.45rem;color:var(--ink-soft);font-size:.9rem;line-height:1.45}
@@ -492,10 +492,17 @@ def shop_image(query: str):
     return DEFAULT_SHOP_IMAGE
 
 def amazon_link(query: str, label: str, note: str = "") -> str:
+    """Render a compliant text-first Amazon category card.
+
+    DishGal intentionally does not attach editorial/stock photography to an
+    Amazon shopping link. A product image belongs on a commercial card only
+    when the exact linked product/category image has been independently
+    verified through an approved Amazon mechanism. Until that verification is
+    available, the text-first card is more accurate than a decorative photo
+    that could imply the wrong product.
+    """
     url = f"https://www.amazon.com/s?k={quote_plus(query)}&amp;tag={quote_plus(AMAZON_TAG)}"
-    image_url, image_alt = shop_image(query)
-    return f"""<a class="shop-card" href="{url}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-commercial-link="true" data-affiliate-active="true" data-affiliate-network="amazon" data-affiliate-tag="{esc(AMAZON_TAG)}">
-      <span class="shop-card-media" style="background-image:url('{esc(image_url)}')"><img src="{esc(image_url)}" alt="{esc(image_alt)}" loading="lazy" decoding="async" width="900" height="600"></span>
+    return f"""<a class="shop-card shop-card--text-only" href="{url}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-commercial-link="true" data-affiliate-active="true" data-affiliate-network="amazon" data-affiliate-tag="{esc(AMAZON_TAG)}">
       <span class="shop-card-copy"><small>Compare on Amazon</small><strong>{esc(label)}</strong>{f'<span>{esc(note)}</span>' if note else ''}<b>See current options →</b></span>
     </a>"""
 
