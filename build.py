@@ -1,1 +1,1935 @@
-Y™Áäx-ÆÈ‹j◊ù¢Îi∫⁄+äßj[hëÈ‹¢ÈÌÁ≠¯Â:-jZ.∂õ≠ñ)ﬁ≥R2˜W7"ˆ&ñ‚ˆVÁbóFÜˆ„0¶g&ˆ“ıˆgWGW&UıÚñ◊˜'BÊÊ˜FFñˆÁ0†¶ñ◊˜'BáF÷¿¶ñ◊˜'BÜ6Ü∆ñ ¶ñ◊˜'Bß6ˆ‡¶ñ◊˜'B˜0¶ñ◊˜'B&P¶ñ◊˜'B6áWFñ¿¶g&ˆ“FFWFñ÷Rñ◊˛z€ém¢Gß≤⁄Óù∆≠y÷ñÁBÜb$'Vñ«BFó6Ñv√¢∂6˜VÁG“ÖD‘¬vW2¬∂∆V‚Ö$T4ïU2ó“&V6óW2¬∂∆V‚Ñ%Dî4ƒU2ó“wVñFW2¬&6S◊¥$4R˜"rÚw“"ê†¶ñbıˆÊ÷UıÚ”“%ıˆ÷ñÂıÚ#†¢÷ñ‚Çê
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import html
+import hashlib
+import json
+import os
+import re
+import shutil
+from datetime import datetime, timezone
+from email.utils import format_datetime
+from pathlib import Path
+from urllib.parse import quote_plus
+
+ROOT = Path(__file__).resolve().parent
+PUBLIC = ROOT / os.environ.get("PUBLIC_DIR", "public")
+RECIPES = json.loads((ROOT / "content" / "recipes.json").read_text(encoding="utf-8"))
+ARTICLES = json.loads((ROOT / "content" / "articles.json").read_text(encoding="utf-8"))
+
+SITE_NAME = "DishGal"
+SITE_URL = "https://dishgal.com"
+BASE = os.environ.get("SITE_BASE", "/DishGal.com").rstrip("/")
+if BASE == "/":
+    BASE = ""
+FORM_EMAIL = os.environ.get("FORM_EMAIL") or "hello@dishgal.com"
+AMAZON_TAG = (os.environ.get("AMAZON_TAG") or "dishgal-20").strip()
+ADSENSE_CLIENT = (os.environ.get("ADSENSE_CLIENT") or "").strip()
+ADSENSE_PUBLISHER_ID = (os.environ.get("ADSENSE_PUBLISHER_ID") or "").strip()
+CLOUDFLARE_TOKEN = (os.environ.get("CLOUDFLARE_TOKEN") or "").strip()
+
+COLLECTION_META = {
+    "30-minute": ("30-Minute Dinners", "Fast dinners with enough structure to feel like a real meal.", "‚è±"),
+    "instant-pot": ("Instant Pot Family Dinners", "Pressure-cooker dinners with realistic total times, mild-first seasoning, and fewer dishes for busy family nights.", "‚ö°"),
+    "one-pot": ("One-Pot Dinners", "Less cleanup, full dinner energy, one main pot.", "üç≤"),
+    "sheet-pan": ("Sheet-Pan Dinners", "Hands-off roasting, browned edges, fewer dishes.", "ü•ò"),
+    "slow-cooker": ("Slow-Cooker Dinners", "Set-it-up meals for days when dinner needs to wait for you.", "‚ô®"),
+    "budget": ("Budget Dinners", "Good dinners built around useful, repeatable groceries.", "üí∏"),
+    "vegetarian": ("Vegetarian Dinners", "Meatless meals that still eat like dinner.", "ü•¨"),
+    "family": ("Family Favorites", "Low-drama dinners designed for the whole table.", "üçΩ"),
+}
+
+INGREDIENT_HUBS = {
+    "chicken": {
+        "title": "Easy Chicken Recipes",
+        "description": "Practical chicken dinners for busy nights, from fast skillets and rice bowls to sheet-pan meals and family casseroles.",
+        "terms": {"chicken"},
+    },
+    "beef": {
+        "title": "Easy Beef Recipes",
+        "description": "Weeknight beef recipes with clear timing, useful swaps, and options ranging from ground-beef dinners to steak-night favorites.",
+        "terms": {"beef", "steak", "ribeye", "brisket", "ground-beef"},
+    },
+    "ground-beef": {
+        "title": "Easy Ground Beef Recipes",
+        "description": "Reliable ground beef dinners for tacos, skillets, casseroles, pasta, and other family-friendly meals that earn a repeat.",
+        "terms": {"ground-beef", "ground beef", "ground chuck"},
+    },
+    "ribeye": {
+        "title": "Ribeye Steak Recipes",
+        "description": "Ribeye recipes for skillets, grills, sandwiches, tacos, and steakhouse-style dinners, with practical doneness and slicing notes.",
+        "terms": {"ribeye"},
+    },
+    "pork": {
+        "title": "Easy Pork Recipes",
+        "description": "Straightforward pork dinners built around chops, tenderloin, sausage, and other weeknight-friendly cuts and flavors.",
+        "terms": {"pork", "bacon", "ham", "prosciutto", "sausage", "kielbasa", "chorizo"},
+    },
+    "seafood": {
+        "title": "Easy Seafood Recipes",
+        "description": "Approachable seafood dinners featuring shrimp, salmon, fish, tuna, and more, with realistic cook times and no guesswork.",
+        "terms": {"seafood", "fish", "salmon", "shrimp", "tuna", "trout", "cod", "tilapia", "calamari"},
+    },
+}
+
+PROTEIN_META = {
+    "beef": "Beef",
+    "chicken": "Chicken",
+    "pork": "Pork",
+    "turkey": "Turkey",
+    "lamb": "Lamb",
+    "sausage": "Sausage",
+    "seafood": "Seafood",
+    "meatless": "Meatless",
+}
+
+GUIDE_CATEGORY_META = {
+    "meal-planning": ("Meal Planning", "Smarter weekly plans with less waste and fewer one-use groceries.", "üóì"),
+    "kitchen-systems": ("Kitchen Systems", "Practical routines that reduce weeknight decision fatigue.", "‚úì"),
+    "kitchen-gear": ("Kitchen Gear", "Honest buying guidance based on function, fit, and tradeoffs.", "üç≥"),
+}
+
+SHOP_CARD_CSS = """<style>
+.shop-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.25rem}
+.shop-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.shop-card:hover{transform:translateY(-3px);border-color:var(--tomato);box-shadow:0 15px 34px rgba(61,38,26,.14)}
+.shop-card:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+.shop-card-media{display:block;position:relative;overflow:hidden;aspect-ratio:3/2;background-color:#eee7dd;background-position:center;background-repeat:no-repeat;background-size:cover}
+.shop-card-media::after{content:"Kitchen pick";position:absolute;right:.7rem;bottom:.7rem;padding:.28rem .55rem;color:#fff;background:rgba(32,28,25,.78);border-radius:999px;font-size:.69rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.shop-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.shop-card:hover .shop-card-media img{transform:scale(1.035)}
+.shop-card-copy{display:flex;flex:1;min-width:0;flex-direction:column;align-items:flex-start;padding:1rem 1.05rem 1.1rem}
+.shop-card-copy small{margin-bottom:.28rem;color:var(--tomato-dark);font-size:.71rem;font-weight:850;letter-spacing:.065em;text-transform:uppercase}
+.shop-card-copy strong{font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;line-height:1.2}
+.shop-card-copy span{margin-top:.45rem;color:var(--ink-soft);font-size:.9rem;line-height:1.45}
+.shop-card-copy b{margin-top:auto;padding-top:.8rem;color:var(--plum);font-size:.84rem}
+@media(max-width:860px){.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.shop-grid{grid-template-columns:1fr}.shop-card{display:grid;grid-template-columns:124px minmax(0,1fr)}.shop-card-media{height:100%;min-height:168px;aspect-ratio:auto}.shop-card-copy{padding:.9rem}.shop-card-media::after{display:none}}
+</style>"""
+
+def esc(value) -> str:
+    return html.escape(str(value), quote=True)
+
+def clean_text(value) -> str:
+    return re.sub(r"\s+", " ", str(value)).strip()
+
+def pretty_slug(slug: str) -> str:
+    return slug.replace("-", " ").title()
+
+def recipe_proteins(recipe) -> list[str]:
+    explicit = recipe.get("protein", [])
+    if isinstance(explicit, str):
+        explicit = [explicit]
+    cleaned = [str(value).strip().lower() for value in explicit if str(value).strip()]
+    if cleaned:
+        return list(dict.fromkeys(cleaned))
+
+    haystack = " ".join([
+        recipe.get("title", ""),
+        recipe.get("dek", ""),
+        " ".join(recipe.get("tags", [])),
+        " ".join(recipe.get("ingredients", [])),
+        " ".join(recipe.get("pantry", [])),
+    ]).lower()
+    rules = {
+        "beef": ("beef", "steak", "ribeye", "brisket", "chuck roast", "ground chuck"),
+        "chicken": ("chicken",),
+        "pork": ("pork", "bacon", "ham", "prosciutto"),
+        "turkey": ("turkey",),
+        "lamb": ("lamb",),
+        "sausage": ("sausage", "kielbasa", "chorizo"),
+        "seafood": ("seafood", "fish", "salmon", "tuna", "shrimp", "cod", "tilapia"),
+    }
+    matches = [protein for protein, terms in rules.items() if any(term in haystack for term in terms)]
+    tags = {str(tag).lower() for tag in recipe.get("tags", [])}
+    if not matches and tags.intersection({"vegetarian", "vegan"}):
+        matches.append("meatless")
+    return matches
+
+def recipe_search_text(recipe) -> str:
+    return " ".join([
+        recipe.get("title", ""),
+        recipe.get("dek", ""),
+        " ".join(recipe.get("tags", [])),
+        " ".join(recipe.get("ingredients", [])),
+        " ".join(recipe.get("pantry", [])),
+        " ".join(recipe_proteins(recipe)),
+    ]).lower()
+
+def recipes_for_ingredient(slug: str):
+    terms = INGREDIENT_HUBS[slug]["terms"]
+    matches = []
+    for recipe in RECIPES:
+        tags = {str(tag).lower() for tag in recipe.get("tags", [])}
+        proteins = set(recipe_proteins(recipe))
+        haystack = " ".join([
+            recipe.get("title", ""),
+            " ".join(recipe.get("tags", [])),
+            " ".join(recipe.get("pantry", [])),
+            " ".join(recipe_proteins(recipe)),
+        ]).lower()
+        if tags.intersection(terms) or proteins.intersection(terms) or any(term in haystack for term in terms):
+            matches.append(recipe)
+    return stable_recipe_mix(matches)
+
+def ingredient_hubs_for_recipe(recipe):
+    active_slugs = {slug for slug, _ in active_ingredient_hubs()}
+    return [slug for slug in INGREDIENT_HUBS if slug in active_slugs and recipe in recipes_for_ingredient(slug)]
+
+def active_ingredient_hubs():
+    return [(slug, meta) for slug, meta in INGREDIENT_HUBS.items() if len(recipes_for_ingredient(slug)) >= 3]
+
+def recipe_seo_title(recipe) -> str:
+    title = clean_text(recipe.get("title", "Recipe"))
+    if len(title) > 49 and " with " in title.lower():
+        title = re.split(r"\s+with\s+", title, maxsplit=1, flags=re.IGNORECASE)[0]
+    if "recipe" not in title.lower():
+        title += " Recipe"
+    return title
+
+def truncate_description(value: str, limit: int = 158) -> str:
+    value = clean_text(value)
+    if len(value) <= limit:
+        return value
+    shortened = value[:limit - 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return shortened + "‚Ä¶"
+
+def rss_date(value: str) -> str:
+    parsed = datetime.strptime(value, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    return format_datetime(parsed)
+
+def recipe_meta_description(recipe) -> str:
+    minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
+    return truncate_description(f"Make {recipe.get('title', 'this recipe')} in {minutes} minutes. {recipe.get('dek', '')}")
+
+def stable_recipe_mix(recipes):
+    """Keep browsing varied without changing the order on every page load."""
+    return sorted(
+        recipes,
+        key=lambda recipe: hashlib.sha256(recipe.get("slug", "").encode("utf-8")).hexdigest(),
+    )
+
+def href(path: str = "/") -> str:
+    if not path.startswith("/"):
+        path = "/" + path
+    if path == "/":
+        return f"{BASE}/" if BASE else "/"
+    return f"{BASE}{path}" if BASE else path
+
+def canonical(path: str = "/") -> str:
+    if not path.startswith("/"):
+        path = "/" + path
+    return SITE_URL.rstrip("/") + path
+
+def ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+def write_page(path: str, content: str) -> None:
+    if path == "/":
+        target = PUBLIC / "index.html"
+    elif path == "/404.html":
+        target = PUBLIC / "404.html"
+    else:
+        target = PUBLIC / path.strip("/") / "index.html"
+    ensure_dir(target.parent)
+    target.write_text(content, encoding="utf-8")
+
+def json_script(data) -> str:
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+def brand() -> str:
+    return f'''<a class="brand" href="{href('/')}">
+      <span class="brand-name">Dish<em>Gal</em></span>
+    </a>'''
+
+def header() -> str:
+    return f'''<header class="site-header">
+      <div class="wrap header-inner">
+        {brand()}
+        <nav class="main-nav" aria-label="Primary">
+          <a href="{href('/recipes/')}">Recipes</a>
+          <a href="{href('/collections/instant-pot/')}">Instant Pot</a>
+          <a href="{href('/dinner-decider/')}">Dinner Decider</a>
+          <a href="{href('/meal-planner/')}">Meal Planner</a>
+          <a href="{href('/guides/')}">Kitchen Picks</a>
+          <a href="{href('/saved/')}">Saved</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-sm btn-primary" href="{href('/recipes/')}">Find dinner</a>
+          <button class="icon-button menu-button" type="button" data-menu-button aria-expanded="false" aria-label="Open menu">‚ò∞</button>
+        </div>
+      </div>
+    </header>'''
+
+def footer() -> str:
+    return f'''<footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            {brand()}
+            <p>Dinner help for real nights: practical recipes, useful planning tools, and kitchen advice without the performance.</p>
+          </div>
+          <div class="footer-column"><h3>Cook</h3>
+            <a href="{href('/recipes/')}">All recipes</a>
+            <a href="{href('/collections/instant-pot/')}">Instant Pot dinners</a>
+            <a href="{href('/collections/30-minute/')}">30-minute dinners</a>
+            {''.join(f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])}</a>' for slug, meta in active_ingredient_hubs()[:3])}
+            <a href="{href('/dinner-decider/')}">Dinner Decider</a>
+            <a href="{href('/pantry-rescue/')}">Pantry Rescue</a>
+          </div>
+          <div class="footer-column"><h3>Plan</h3>
+            <a href="{href('/meal-planner/')}">5-night planner</a>
+            <a href="{href('/saved/')}">Saved recipes</a>
+            <a href="{href('/guides/')}">Kitchen picks</a>
+            <a href="{href('/newsletter/')}">Newsletter</a>
+          </div>
+          <div class="footer-column"><h3>DishGal</h3>
+            <a href="{href('/about/')}">About</a>
+            <a href="{href('/editorial-policy/')}">Editorial policy</a>
+            <a href="{href('/affiliate-disclosure/')}">Affiliate disclosure</a>
+            <a href="{href('/contact/')}">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>¬© <span data-current-year></span> DishGal.com</span>
+          <span><a href="{href('/privacy/')}">Privacy</a> ¬∑ <a href="{href('/terms/')}">Terms</a></span>
+        </div>
+      </div>
+    </footer>'''
+
+def page(title: str, description: str, path: str, body: str, *, schema=None, noindex=False,
+         image=None, page_type="website", published=None, modified=None, needs_recipe_data=False) -> str:
+    title_full = title if title.endswith("DishGal") else f"{title} | DishGal"
+    desc = clean_text(description)
+    schema_html = ""
+    if schema is not None:
+        schema_html = f'<script type="application/ld+json">{json_script(schema)}</script>'
+    adsense = f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={esc(ADSENSE_CLIENT)}" crossorigin="anonymous"></script>' if ADSENSE_CLIENT else ""
+    cloudflare = (
+        '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+        f'data-cf-beacon=\'{{"token":"{esc(CLOUDFLARE_TOKEN)}"}}\'></script>'
+        if CLOUDFLARE_TOKEN else ""
+    )
+    robots = '<meta name="robots" content="noindex,follow">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">'
+    social_image = image or f"{SITE_URL}/assets/social-card.png"
+    article_meta = ""
+    if page_type == "article":
+        if published:
+            article_meta += f'\n  <meta property="article:published_time" content="{esc(published)}">'
+        if modified:
+            article_meta += f'\n  <meta property="article:modified_time" content="{esc(modified)}">'
+    recipe_data_script = f'<script defer src="{href("/assets/js/recipes.js")}"></script>' if needs_recipe_data else ""
+    return f'''<!doctype html>
+<html lang="en" data-base="{esc(BASE)}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{esc(title_full)}</title>
+  <meta name="description" content="{esc(desc)}">
+  <meta name="theme-color" content="#e94f37">
+  {robots}
+  <link rel="canonical" href="{esc(canonical(path))}">
+  <meta property="og:type" content="{esc(page_type)}">
+  <meta property="og:site_name" content="DishGal">
+  <meta property="og:title" content="{esc(title_full)}">
+  <meta property="og:description" content="{esc(desc)}">
+  <meta property="og:url" content="{esc(canonical(path))}">
+  <meta property="og:image" content="{esc(social_image)}">
+  <meta property="og:image:alt" content="{esc(title)}">
+  {article_meta}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{esc(title_full)}">
+  <meta name="twitter:description" content="{esc(desc)}">
+  <meta name="twitter:image" content="{esc(social_image)}">
+  <link rel="alternate" type="application/rss+xml" title="DishGal recipes and guides" href="{href('/feed.xml')}">
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="stylesheet" href="{href('/assets/css/styles.css')}?v=20260922b">\n  {SHOP_CARD_CSS}
+  <link rel="manifest" href="{href('/site.webmanifest')}">
+  {adsense}
+  {schema_html}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {header()}
+  <main id="main">{body}</main>
+  {footer()}
+  <script>window.DISHGAL_BASE={json.dumps(BASE)};</script>
+  {recipe_data_script}
+  <script defer src="{href('/assets/js/site.js')}"></script>
+  {cloudflare}
+</body>
+</html>'''
+
+def breadcrumbs(items) -> str:
+    parts = [f'<a href="{href("/")}">Home</a>']
+    for label, path in items:
+        if path:
+            parts.append(f'<span><a href="{href(path)}">{esc(label)}</a></span>')
+        else:
+            parts.append(f'<span>{esc(label)}</span>')
+    return f'<nav class="breadcrumbs" aria-label="Breadcrumb">{"".join(parts)}</nav>'
+
+def breadcrumb_schema(items) -> dict:
+    entries = [("Home", "/")] + [(label, path) for label, path in items]
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": position,
+                "name": label,
+                **({"item": canonical(path)} if path else {}),
+            }
+            for position, (label, path) in enumerate(entries, start=1)
+        ],
+    }
+
+def recipe_card(recipe) -> str:
+    minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
+    tags = " ".join(recipe.get("tags", []))
+    proteins = " ".join(recipe_proteins(recipe))
+    search = recipe_search_text(recipe)
+    return f'''<article class="recipe-card" data-recipe-card data-search="{esc(search)}" data-tags="{esc(tags)}" data-proteins="{esc(proteins)}" data-collection="{esc(recipe.get('collection',''))}" data-minutes="{minutes}">
+      <button class="icon-button recipe-card-save" data-save-recipe="{esc(recipe['slug'])}" aria-label="Save recipe">‚ô°</button>
+      <a class="recipe-card-media" href="{href('/recipes/' + recipe['slug'] + '/')}">
+        <img src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" loading="lazy" decoding="async" width="800" height="600">
+        <span class="recipe-card-badge">{minutes} min</span>
+      </a>
+      <div class="recipe-card-body">
+        <h3><a href="{href('/recipes/' + recipe['slug'] + '/')}">{esc(recipe.get('title','Recipe'))}</a></h3>
+        <p>{esc(recipe.get('dek',''))}</p>
+        <div class="recipe-card-meta"><span>‚è± {minutes} min</span><span>{esc(recipe.get('cost_per_serving',''))}/serving</span></div>
+      </div>
+    </article>'''
+
+def article_card(article) -> str:
+    return f'''<article class="article-card">
+      <img src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}" loading="lazy" decoding="async" width="800" height="500">
+      <div class="article-card-body">
+        <small>{esc(article.get('category','Guide'))}</small>
+        <h3><a href="{href('/guides/' + article['slug'] + '/')}">{esc(article.get('title','Guide'))}</a></h3>
+        <p>{esc(article.get('dek',''))}</p>
+        <a class="read-link" href="{href('/guides/' + article['slug'] + '/')}">See the guide ‚Üí</a>
+      </div>
+    </article>'''
+
+SHOP_IMAGES = {
+    "6 quart electric pressure cooker": ("https://upload.wikimedia.org/wikipedia/commons/3/31/Instant_Pot_DUO60_pressure_cooker.jpg", "Stainless six-quart electric pressure cooker with a locking lid and digital controls"),
+    "enameled cooking pot with lid": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled cooking pot with a fitted lid and two side handles"),
+    "enameled dutch oven 6 quart": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled Dutch oven on a kitchen work surface"),
+    "immersion blender stainless steel": ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup"),
+    "digital probe meat thermometer": ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Two digital probe cooking thermometers beside prepared ingredients"),
+    "stainless steel pasta pot colander": ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta draining through a stainless-steel colander"),
+    "stainless steel mesh colander strainer": ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta being lifted from a stainless-steel mesh colander"),
+    "microplane zester grater stainless": ("https://images.pexels.com/photos/6287524/pexels-photo-6287524.jpeg?auto=compress&dpr=1&h=750&w=1260", "Cheese being grated on a stainless-steel grater"),
+    "stainless steel kitchen tongs silicone tip": ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Kitchen tongs turning food over a grill"),
+    "long stainless steel kitchen tongs": ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Long stainless-steel kitchen tongs turning food over a grill"),
+    "heavy gauge aluminum half sheet pan": ("https://images.pexels.com/photos/13156063/pexels-photo-13156063.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed metal baking sheet lined with parchment"),
+    "9 by 13 baking dish casserole": ("https://images.pexels.com/photos/19145679/pexels-photo-19145679/free-photo-of-meal-in-glass-box.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rectangular glass baking dish filled with a browned eggplant casserole"),
+    "oven safe baking dish": ("https://images.unsplash.com/photo-1533777324565-a040eb52facd?auto=format&fit=crop&w=900&q=80", "Oven-safe rectangular baking dish holding a finished baked meal"),
+    "silicone oven mitts heat resistant": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-safe oven mitts hanging above kitchen pots and pans"),
+    "heat resistant oven mitts": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-resistant oven mitts hanging above kitchen pots and pans"),
+    "rice cooker family stainless inner pot": ("https://images.unsplash.com/photo-1599182345361-9542815e73f6?auto=format&fit=crop&w=900&h=600&q=80", "Round countertop rice cooker with a metal lid and removable inner pot"),
+    "glass meal prep containers locking lids": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Prepared meals arranged in clear lidded containers"),
+    "digital kitchen scale grams ounces": ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg", "Bowl of vegetables resting on a digital kitchen scale"),
+    "12 inch cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
+    "cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
+    "silicone fish spatula turner": ("https://images.unsplash.com/photo-1673155225557-bee5d2540158?auto=format&fit=crop&w=900&q=80", "Flexible kitchen spatula being used during cooking"),
+    "stainless steel mixing bowls nesting": ("https://images.pexels.com/photos/31109993/pexels-photo-31109993.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stainless-steel mixing bowl and matching strainer bowl"),
+    "stainless steel bowl colander set": ("https://images.pexels.com/photos/31109993/pexels-photo-31109993.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stainless-steel bowl and matching colander set"),
+    "stainless steel measuring scoops set": ("https://images.unsplash.com/photo-1781082580025-407abed1d50f?auto=format&fit=crop&w=900&h=600&crop=entropy&q=80", "Stainless-steel measuring scoops arranged on a work surface"),
+    "8 inch chef knife kitchen": ("https://images.unsplash.com/photo-1711065060638-675df8e8c358?auto=format&fit=crop&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
+    "chef knife kitchen": ("https://images.unsplash.com/photo-1711065060638-675df8e8c358?auto=format&fit=crop&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
+    "large nonslip cutting board": ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Large cutting board with a chef's knife and vegetables"),
+    "family size air fryer wide basket": ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer in a home kitchen"),
+    "heavy gauge aluminum half sheet pan wire rack": ("https://images.pexels.com/photos/7059458/pexels-photo-7059458.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed sheet pan holding roasted potatoes and asparagus"),
+    "glass meal prep containers locking lids stackable": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stackable clear meal-prep containers filled with food"),
+}
+
+DEFAULT_SHOP_IMAGE = (
+    "https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80",
+    "Useful kitchen tools arranged on a food-prep surface",
+)
+
+SHOP_IMAGE_RULES = [
+    (("cut-resistant", "cut resistant"), ("https://images.pexels.com/photos/8093920/pexels-photo-8093920.jpeg?auto=compress&dpr=1&h=750&w=1260", "Gloved hands using kitchen knives on a cutting board")),
+    (("immersion blender",), ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup")),
+    (("baking dish", "casserole dish", "baking pan"), ("https://images.unsplash.com/photo-1533777324565-a040eb52facd?auto=format&fit=crop&w=900&q=80", "Oven-safe baking dishes holding finished food")),
+    (("sheet pan",), ("https://images.pexels.com/photos/7059458/pexels-photo-7059458.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed sheet pan holding roasted vegetables")),
+    (("pantry",), ("https://images.pexels.com/photos/8580727/pexels-photo-8580727.jpeg?auto=compress&dpr=1&h=750&w=1260", "Clear pantry jars arranged on shelves")),
+    (("handle cover", "scraper"), ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron cookware ready for a family meal")),
+    (("lid knob",), ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Enameled Dutch oven with a fitted lid knob")),
+    (("mandoline",), ("https://images.pexels.com/photos/11369848/pexels-photo-11369848.jpeg?auto=compress&dpr=1&h=750&w=1260", "Mandoline slicer beside onions and cabbage")),
+    (("tongs",), ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Kitchen tongs turning food over a grill")),
+    (("utensil", "measuring spoon", "measuring cup"), ("https://images.pexels.com/photos/38848778/pexels-photo-38848778.jpeg?auto=compress&dpr=1&h=750&w=1260", "Assorted measuring tools and kitchen utensils")),
+    (("knife", "cutting board", "spatula"), ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Kitchen prep tools on a cutting board")),
+    (("cookware set", "pot set", "pans set", "saucepan", "saute pan", "saut√© pan"), ("https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=80", "Pots and pans in use in a home kitchen")),
+    (("skillet", "dutch oven", "cookware"), ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Sturdy cookware ready for a family meal")),
+    (("food processor",), ("https://images.pexels.com/photos/5847235/pexels-photo-5847235.jpeg?auto=compress&dpr=1&h=750&w=1260", "Food processor bowl with ingredients around the center blade")),
+    (("stand mixer",), ("https://images.pexels.com/photos/1450907/pexels-photo-1450907.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stand mixer with a stainless-steel bowl")),
+    (("blender",), ("https://images.pexels.com/photos/6802635/pexels-photo-6802635.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop blender mixing ingredients")),
+    (("mixing bowl",), ("https://images.unsplash.com/photo-1540660290370-8aa90e451e8a?auto=format&fit=crop&w=900&q=80", "Mixing bowl and ingredients on a kitchen counter")),
+    (("rice cooker",), ("https://images.pexels.com/photos/11770362/pexels-photo-11770362.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop rice cooker in a home kitchen")),
+    (("slow cooker",), ("https://upload.wikimedia.org/wikipedia/commons/6/65/6_quart_Crock_Pot_slow_cooker.jpg", "Six-quart oval slow cooker with its glass lid closed")),
+    (("air fryer", "toaster oven"), ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer and toaster oven")),
+    (("thermometer",), ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Two digital probe cooking thermometers beside prepared ingredients")),
+    (("scale",), ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg", "Bowl resting on a digital kitchen scale")),
+    (("refrigerator",), ("https://images.pexels.com/photos/5418583/pexels-photo-5418583.jpeg?auto=compress&dpr=1&h=750&w=1260", "Food and containers organized on refrigerator shelves")),
+    (("container", "storage", "labels"), ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Organized food in clear storage containers")),
+    (("colander", "strainer", "pasta"), ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta draining through a stainless-steel colander")),
+    (("grater", "microplane"), ("https://images.pexels.com/photos/6287524/pexels-photo-6287524.jpeg?auto=compress&dpr=1&h=750&w=1260", "Cheese being grated on a stainless-steel grater")),
+]
+
+def shop_image(query: str):
+    normalized = clean_text(query).lower()
+    if normalized in SHOP_IMAGES:
+        return SHOP_IMAGES[normalized]
+    for terms, image in SHOP_IMAGE_RULES:
+        if any(term in normalized for term in terms):
+            return image
+    return DEFAULT_SHOP_IMAGE
+
+def amazon_link(query: str, label: str, note: str = "") -> str:
+    url = f"https://www.amazon.com/s?k={quote_plus(query)}&amp;tag={quote_plus(AMAZON_TAG)}"
+    image_url, image_alt = shop_image(query)
+    return f"""<a class="shop-card" href="{url}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-commercial-link="true" data-affiliate-active="true" data-affiliate-network="amazon" data-affiliate-tag="{esc(AMAZON_TAG)}">
+      <span class="shop-card-media" style="background-image:url('{esc(image_url)}')"><img src="{esc(image_url)}" alt="{esc(image_alt)}" loading="lazy" decoding="async" width="900" height="600"></span>
+      <span class="shop-card-copy"><small>Compare on Amazon</small><strong>{esc(label)}</strong>{f'<span>{esc(note)}</span>' if note else ''}<b>See current options ‚Üí</b></span>
+    </a>"""
+
+def recipe_shop(recipe) -> str:
+    haystack = " ".join([
+        recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
+        " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
+    ]).lower()
+    if "instant pot filipino-style chicken arroz caldo" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The six-cup thin-broth base, half-full grain limit and staged release are written for this common family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken pieces for 165¬∞F before shredding instead of relying on pressure time alone."),
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "Fine mesh keeps jasmine rice contained while you rinse away excess surface starch before pressure cooking."),
+        ]
+    elif "instant pot polish-style bigos" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, 30-minute cycle and staged release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Temperature plus easy fork tenderness confirms that pork shoulder is both safe and ready to eat."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp all-purpose blade handles pork cubes, cabbage ribbons, mushrooms and sausage with consistent cuts."),
+        ]
+    elif "instant pot cuban-style ropa vieja" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, 50-minute cycle and staged release are written for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Chuck becomes safe before it becomes shreddable; temperature plus an easy-pulling texture confirms the intended finish."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach makes browning large pieces and lifting hot pressure-braised beef safer and more controlled."),
+        ]
+    elif "instant pot ukrainian-style beet borscht" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The six-cup thin-liquid base, vegetable load and staged release are calibrated for this common capacity."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp controllable blade makes the beet, potato, carrot and cabbage prep faster and more even."),
+            ("glass meal prep containers locking lids", "Glass meal-prep containers", "Shallow lidded containers help the soup cool promptly and make refrigerator or freezer portions practical."),
+        ]
+    elif "instant pot korean galbijjim" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The thin-broth base, 35-minute cycle and staged release are written for this common family size."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Short ribs become safe before they become tender; temperature plus an easy-piercing texture confirms the intended finish."),
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "A fine strainer catches bone fragments during a quick rinse and helps skim the finished pear-soy braising sauce cleanly."),
+        ]
+    elif "instant pot lowcountry shrimp boil" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-liquid base and four-minute potato cycle are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several shrimp for 145¬∞F during their brief post-pressure finish instead of guessing from color alone."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach moves hot corn, sausage and shrimp from the seasoned broth without crowding the platter."),
+        ]
+    elif "instant pot qu√©bec-style yellow split pea soup" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The liquid, half-full limit, pressurizing allowance and natural release are written for this common family size."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh contains small split peas while you rinse away dust and sort out any debris before pressure cooking."),
+            ("glass meal prep containers locking lids", "Glass meal-prep containers", "Shallow lidded containers help the thick soup cool promptly and make portioned refrigerator or freezer storage practical."),
+        ]
+    elif "instant pot saffron shrimp risotto" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four-cup thin-liquid ratio, five-minute cycle and controlled release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several shrimp for 145¬∞F during the brief Saut√© finish instead of pressure-cooking them until rubbery."),
+            ("microplane zester grater stainless", "Fine zester and grater", "One fine tool handles the lemon zest and Parmesan that brighten and finish the creamy rice."),
+        ]
+    elif "instant pot smoky black bean soup" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The six-cup thin-liquid ratio, half-full limit and long natural release are written for this common family size."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh keeps dry black beans contained while you rinse away dust and check carefully for small stones."),
+            ("immersion blender stainless steel", "Immersion blender", "A few controlled pulses thicken the soup while leaving plenty of whole beans for texture."),
+        ]
+    elif "instant pot chicken cacciatore" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The deglazed wine-and-broth base, ten-minute cycle and staged release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check every bone-in chicken piece away from bone for at least 165¬∞F before serving."),
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "Boiling the egg noodles separately keeps them springy while the chicken and tomato sauce pressure-cook."),
+        ]
+    elif recipe.get("collection") == "instant-pot":
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The recipe timing, minimum liquid, and family-size yield are written around this common capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken, pork, meatballs, and meatloaf safely instead of relying only on programmed pressure time."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Dry, secure grip matters when lifting a hot pot-in-pot bowl, trivet, or foil sling."),
+        ]
+    elif "mumbai-style pav bhaji" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface reduces the vegetable mash and then griddles the buttered rolls in uncrowded batches."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp controllable blade makes the onion, pepper, cauliflower and garnish prep faster and more even."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep cooked vegetables, chopped garnishes and split rolls organized before the final mash and toast."),
+        ]
+    elif "tunisian-style brik" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A wide heavy skillet holds a shallow, temperature-stable layer of oil for crisping one filled pastry at a time."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "Track frying oil near 350¬∞F and verify 160¬∞F when a fully set egg center is needed."),
+            ("silicone fish spatula turner", "Thin flexible spatula", "A broad flexible turner supports the delicate filled wrapper when it enters, flips in and leaves the hot oil."),
+        ]
+    elif "thai mango sticky rice" in haystack:
+        products = [
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "Fine mesh contains small glutinous-rice grains through repeated rinsing and the long soak."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "A quick check around 170¬∞F prevents the sweet coconut syrup from boiling and separating."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp controllable blade peels and slices ripe mangoes cleanly without crushing their soft flesh."),
+        ]
+    elif "mexican chiles en nogada" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed surface contains poblano juices while the skins blister evenly under the broiler."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the ground pork at 160¬∞F and the reheated stuffed chiles at 165¬∞F instead of judging only by color."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep the walnut soak, roasted poblanos and cooling picadillo organized without absorbing odors."),
+        ]
+    elif "burmese-style tea leaf salad" in haystack:
+        products = [
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A wide nonreactive bowl gives cabbage, fermented tea dressing and crunchy toppings room to combine without bruising."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp blade produces the very fine cabbage, onion and garlic slices that make the salad easy to toss and eat."),
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "Fine mesh catches the garlic chips cleanly while preserving the aromatic oil used in the dressing."),
+        ]
+    elif "dutch stroopwafels" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Equal dough portions press to a consistent thickness, cook evenly and match the recipe's yield."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "A 225 to 230¬∞F syrup target helps the cinnamon caramel stay chewy instead of becoming brittle."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Sturdy bowls handle the yeasted dough, proofing and small-batch ingredient prep without retaining aromas."),
+        ]
+    elif "senegalese-style chicken yassa" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed pan gives bone-in chicken room to brown while containing its lemon-mustard juices."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check every thigh and drumstick away from bone for at least 165¬∞F before arranging the family platter."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A nonreactive bowl safely holds the citrus marinade and sliced onions without absorbing flavors."),
+        ]
+    elif "turkish imam bayildi" in haystack or "turkish iÃámam bayƒ±ldƒ±" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "A snug, deep-sided dish holds four filled eggplants upright and contains their olive-oil tomato braising juices."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp controllable blade stripes and slits the eggplants while handling onions, tomatoes and herbs cleanly."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "It frees the stovetop and keeps the parsley rice warm while the filled eggplants finish braising and rest."),
+        ]
+    elif "brazilian brigadeiros" in haystack:
+        products = [
+            ("heavy bottom 2 quart saucepan", "Heavy 2-quart saucepan", "Even heat and visible corners make it easier to scrape condensed milk continuously and spot the clean-path stage."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Portioning about 18 grams per candy produces 24 even brigadeiros with consistent chilling and serving estimates."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "The 220 to 225¬∞F reference gives a second doneness check while the visual clean-path cue remains primary."),
+        ]
+    elif "novi pazar-style ƒáevapi" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad, heavy surface holds steady high heat for a browned crust when outdoor grilling is not practical."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check the compact ground-meat centers for 160¬∞F instead of judging doneness only from the browned exterior."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "Frequent, secure turns brown all sides without piercing or breaking the short sausages."),
+        ]
+    elif "georgian beet pkhali" in haystack:
+        products = [
+            ("food processor 8 cup", "8-cup food processor", "Short pulses grind the walnuts and beets to a shapeable texture without turning the mixture oily or smooth."),
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "Even retained heat gives the mchadi corn cakes a crisp golden crust while their centers set."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp blade handles roasted beets, herbs and garnish cleanly while preserving the composed presentation."),
+        ]
+    elif "norwegian kv√¶fjordkake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "The weighed sponge, sugar and almonds make the delicate cake-and-meringue layers repeatable."),
+            ("stand mixer balloon whisk", "Stand mixer with whisk", "Steady whipping builds glossy meringue and medium-peak cream without warming either mixture."),
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "The 13-by-18-inch surface keeps the sponge thin enough to bake through beneath its almond meringue."),
+        ]
+    elif "south african-style lamb bobotie" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "The broad dish keeps the lamb layer even so the egg custard sets into a distinct golden cap."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the ground lamb and the finished custard reach 160¬∞F without guessing from color alone."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "It frees the stovetop and keeps the turmeric-raisin rice warm while the bobotie rests after baking."),
+        ]
+    elif "jamaican ackee & saltfish" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide cooking surface softens the peppers and lets saltfish heat evenly before delicate ackee is folded in."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Drain tender canned ackee without losing small pieces, and rinse the slaw vegetables cleanly."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp controllable blade makes even pepper, cabbage, scallion and tomato cuts for the composed platter."),
+        ]
+    elif "classic passionfruit & berry pavlova" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Exact egg-white and sugar weights give the meringue a repeatable structure and balanced sweetness."),
+            ("stand mixer balloon whisk", "Stand mixer with whisk", "Steady medium-high whipping builds a glossy foam while the sugar is added gradually over several minutes."),
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A flat, rigid pan supports the nine-inch meringue through its long low bake and gentle oven cooling."),
+        ]
+    elif "palestinian-style musakhan" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A sturdy rimmed pan gives six chicken pieces room to brown while containing the sumac-spiced juices used to finish the flatbread."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check every thigh and drumstick away from bone for at least 165¬∞F; dark meat is most tender around 175 to 185¬∞F."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach moves hot chicken between the roasting pan and flatbread platter without piercing the crisp skin."),
+        ]
+    elif "flaky chinese scallion pancakes" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface browns each eight-inch pancake evenly while leaving enough room to turn it cleanly."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "A heat-safe bowl handles the boiling-water dough, with enough room to stir safely as the hot water meets the flour."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and water ratio consistent so the dough rolls thin without becoming sticky or stiff."),
+        ]
+    elif "classic canadian butter tarts" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Precise pastry and filling weights keep twelve shells flaky and prevent the fluid brown-sugar custard from overflowing."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "A broad bowl gives the cold pastry mixture space for cutting in butter and later holds the gently whisked maple filling."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when moving a hot metal muffin pan on its supporting sheet pan at 400¬∞F."),
+        ]
+    elif "indonesian beef rendang" in haystack:
+        products = [
+            ("enameled cooking pot with lid", "Enameled cooking pot", "A broad heavy pot holds a gentle uncovered braise, then gives the coconut sauce room to reduce and fry without spilling."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp all-purpose blade handles the chuck, shallots, chiles, ginger, galangal and garnishes with consistent, controllable cuts."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the chuck has reached the 195 to 205¬∞F range where collagen-rich cubes become fork-tender."),
+        ]
+    elif "crispy sicilian arancini" in haystack:
+        products = [
+            ("enameled cooking pot with lid", "Enameled cooking pot", "High sides contain three inches of frying oil and help its temperature recover steadily between batches."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Track the oil near 350¬∞F and verify a test arancino reaches 165¬∞F at its molten center."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "Separate bowls keep the flour, egg wash and panko breading station orderly and complete."),
+        ]
+    elif "austrian kaiserschmarrn" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady skillet browns one tall pancake evenly and provides room to tear and caramelize the pieces."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "Separate clean bowls make it easier to whisk the yolk batter and whip stable egg-white peaks."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and fruit balanced so the pancake stays fluffy and the compote remains spoonable."),
+        ]
+    elif "classic new england clam chowder" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot renders the bacon evenly and keeps the flour-thickened dairy chowder at a gentle, steady heat."),
+            ("immersion blender stainless steel", "Stainless immersion blender", "A few short pulses can thicken the chowder by breaking down part of the cooked potatoes without pur√©eing every clam and vegetable."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp all-purpose blade makes uniform potato, onion, celery and bacon pieces that cook at the same rate."),
+        ]
+    elif "peruvian lomo saltado" in haystack:
+        products = [
+            ("cast iron skillet", "12-inch cast-iron skillet", "A wide, thoroughly heated skillet sears the sirloin in uncrowded batches and chars the onion and tomato without steaming them."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "A rice cooker handles the fluffy white rice while the fries roast and the fast beef stir-fry comes together."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach makes it easy to turn the steak strips quickly and toss the vegetables through the glossy sauce."),
+        ]
+    elif "irish brown soda bread" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the whole-wheat flour, bran and buttermilk balanced so the quick loaf is hearty without becoming dry."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate roomy bowls keep the dry mixture and buttermilk mixture organized before the brief final fold."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when reducing the oven temperature and removing a hot metal loaf pan and sheet pan."),
+        ]
+    elif "cottage cheese frittata" in haystack:
+        products = [
+            ("cast iron skillet", "Oven-safe cast-iron skillet", "A well-seasoned oven-safe skillet softens the vegetables, sets the egg edges and moves directly into a 375¬∞F oven."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check the center for 160¬∞F so the eggs are safely set while the cottage-cheese frittata remains tender."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A roomy nonreactive bowl makes it easy to whisk ten eggs and cottage cheese without splashing."),
+        ]
+    elif "moroccan-style vegetarian harira" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot gives lentils room to simmer and keeps the flour-thickened tomato broth at steady heat."),
+            ("stainless steel mesh colander strainer", "Stainless mesh colander", "Fine mesh keeps small lentils contained while you rinse away dust and inspect them before cooking."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp all-purpose blade makes the fine onion, celery and herb cuts that melt evenly into the soup."),
+        ]
+    elif "nepali-style spinach vegetable momos" in haystack:
+        products = [
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep the green wrapper dough, cooled vegetable filling and tomato-sesame achar organized."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp blade makes the finely shredded cabbage and tiny mushroom pieces that fit without puncturing thin wrappers."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable roomy surface supports vegetable prep, dough portioning and pleating twenty-four dumplings."),
+        ]
+    elif "hungarian chicken paprikash" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide heavy pot browns the chicken in batches and holds a gentle, even braise without crowding the bone-in pieces."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check the thickest chicken away from bone and confirm every piece reaches at least 165¬∞F before it returns to the finished sauce."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach makes it easier to turn browned chicken and move cooked pieces without piercing the meat or splashing hot sauce."),
+        ]
+    elif "sicilian pasta alla norma" in haystack:
+        products = [
+            ("stainless steel mesh colander strainer", "Stainless mesh colander", "A roomy mesh colander drains the rigatoni quickly while you preserve the starchy cooking water that gives the sauce its cling."),
+            ("chef knife kitchen", "Chef‚Äôs knife", "A sharp all-purpose blade makes even eggplant half-moons and thin garlic slices that brown and soften at the same rate."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface keeps the broad eggplant slices organized and gives you space to chop the roasted pieces safely."),
+        ]
+    elif "honey-pistachio baklava" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Straight sides support thirty delicate phyllo layers, while a clear glass dish makes it easy to monitor browning at the edges."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate pistachio, butter and syrup weights keep the filling generous without making the finished diamonds greasy or heavy."),
+            ("heat resistant oven mitts", "Heat-resistant oven mitts", "Secure hand protection is essential when moving a hot glass dish and pouring syrup around a freshly baked 350¬∞F pastry."),
+        ]
+    elif "british beer-battered fish & chips" in haystack:
+        products = [
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check that the thickest fish reaches 145¬∞F and monitor the frying oil between batches so the coating stays crisp instead of greasy."),
+            ("stainless steel bowl colander set", "Stainless bowl-and-colander set", "The bowl mixes cold beer batter while the fitted colander rinses potatoes and helps drain them thoroughly before frying."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface makes it easier to cut the potatoes into even chips; sanitize it before using it for cooked food."),
+        ]
+    elif "korean beef japchae" in haystack:
+        products = [
+            ("stainless steel mesh colander strainer", "Stainless mesh colander", "A roomy mesh colander drains the slippery sweet-potato noodles quickly so they stay springy and do not dilute the sesame dressing."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "Tongs toss the noodles, beef and separately cooked vegetables evenly without chopping the long glass noodles."),
+            ("chef knife kitchen", "Chef‚Äôs knife", "A sharp all-purpose blade makes uniform carrot, onion, mushroom and beef strips that cook quickly and evenly."),
+        ]
+    elif "french cherry clafoutis" in haystack:
+        products = [
+            ("oven safe baking dish", "Oven-safe baking dish", "A shallow three-quart dish gives the custard room to brown at the rim while keeping the cherries visible across the surface."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and cherries precise so the batter sets softly instead of turning cakey or watery."),
+            ("heat resistant oven mitts", "Heat-resistant oven mitts", "Secure hand protection is essential when moving a heavy ceramic baking dish and its sheet pan into and out of a 350¬∞F oven."),
+        ]
+    elif "jamaican-style whole jerk chicken" in haystack:
+        products = [
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "A secure grip lets you rotate and brown the whole bird while keeping your hands clear of direct heat and flare-ups."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several spots and confirm the breast reaches 165¬∞F and the inner thigh at least 165¬∞F without touching bone."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A nonreactive bowl contains the citrus-and-chile marinade and keeps raw poultry separate from clean carving and serving tools."),
+        ]
+    elif "egyptian koshari" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide, heavy pot holds a steady 350¬∞F for crisp onion batches and provides room to combine the finished pantry components."),
+            ("stainless steel pasta pot colander", "Pasta pot with colander", "A fitted colander makes draining the macaroni and parcooked lentils fast and thorough, which protects the layered dish from excess water."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp all-purpose blade turns three onions into even thin slices that fry at the same rate instead of burning at the edges."),
+        ]
+    elif "classic black forest cake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Equal gram weights produce level chocolate layers, while precise flour and cocoa measurements keep the sponge moist enough for cherry syrup."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate heat-safe bowls keep the cocoa batter, cold stabilized cream and thick cherry filling organized for clean assembly."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when rotating and removing three hot metal cake pans from a 350¬∞F oven."),
+        ]
+    elif "polish go≈ÇƒÖbki" in haystack or "polish golabki" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Close-fitting rows keep the cabbage rolls seam-side down while the covered dish traps the steam that tenderizes every leaf."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp blade cores the cabbage, shaves the thick leaf ribs and makes the fine, even onion pieces needed for the filling and sauce."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check a roll in the middle of the dish and confirm the ground-beef filling reaches 160¬∞F without guessing from color."),
+        ]
+    elif "vietnamese b√°nh x√®o" in haystack or "vietnamese banh xeo" in haystack:
+        products = [
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Tongs move the thin pork and shrimp safely between the hot pan and clean plates without piercing or tearing either filling."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep the rested rice batter, raw seafood and clean cooked filling organized without cross-contamination."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the pork reaches 145¬∞F and the shrimp 145¬∞F before either filling goes into the fast-cooking cr√™pes."),
+        ]
+    elif "bakery-style lemon bars" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour-to-butter ratio and thick lemon filling consistent for clean, sturdy layers."),
+            ("microplane zester grater stainless", "Fine citrus zester", "A fine zester removes the fragrant yellow peel while leaving the bitter white pith on the lemon."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when pouring filling into a hot metal pan and moving it from a 350¬∞F oven."),
+        ]
+    elif "san francisco-style cioppino" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot gives the tomato broth room to simmer and the shellfish space to open without crowding."),
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Use a secure grip to turn crab clusters, transfer opened shellfish and keep hands clear of the steaming broth."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest fish and shrimp reach 145¬∞F before the seafood becomes dry or rubbery."),
+        ]
+    elif "proven√ßal ratatouille" in haystack or "provencal ratatouille" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot reduces the tomatoes evenly and holds all the vegetables without crushing their distinct pieces."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp all-purpose blade makes consistent eggplant, zucchini, pepper and onion pieces that finish at the same rate."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface keeps four kinds of chopped vegetables organized and makes batch prep safer."),
+        ]
+    elif "molten dark chocolate cakes" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the chocolate, butter and small flour quantity precise so the cakes set outside while staying molten inside."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "Separate bowls simplify melting chocolate, whipping the batter and tempering the vanilla custard without cross-contamination."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when removing four small, very hot ramekins from a 425¬∞F oven and turning out the cakes."),
+        ]
+    elif "taiwanese-style red-braised beef noodle soup" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot browns the beef evenly and holds a steady low simmer while the chuck becomes fork-tender."),
+            ("stainless steel pasta pot colander", "Pasta pot with colander", "Cooking and draining the wheat noodles separately keeps the red-braised broth clear and prevents leftover noodles from swelling."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the beef is safely above 145¬∞F and near the 195 to 205¬∞F range where collagen-rich chuck turns tender."),
+        ]
+    elif "greek spanakorizo" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot gives the spinach room to wilt and keeps the rice at a gentle, even simmer."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp all-purpose knife makes quick work of the onion, scallions, spinach and generous handful of fresh dill."),
+            ("microplane zester grater stainless", "Fine citrus zester", "A fine zester captures fragrant lemon peel without the bitter white pith before the juice brightens the finished rice."),
+        ]
+    elif "past√©is de nata" in haystack or "pasteis de nata" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour slurry, sugar syrup and twelve portions of puff pastry consistent."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "Heat-safe bowls make it easier to temper and strain the warm custard without spills or scrambled yolk."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when rotating and removing a metal muffin pan from a fully preheated 500¬∞F oven."),
+        ]
+    elif "green chicken pozole" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot holds the chicken, hominy and green broth comfortably while maintaining a gentle, even simmer."),
+            ("immersion blender stainless steel", "Immersion blender", "Blend the roasted tomatillos, chiles, herbs and pepitas into a cohesive green sauce with less transfer and cleanup."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest chicken pieces reach 165¬∞F before shredding without cutting every piece open."),
+        ]
+    elif "adjarian khachapuri" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A sturdy inverted pan preheated to 500¬∞F gives both cheese-filled bread boats a strongly browned, crisp underside."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the supple dough and two equal cheese fillings consistent without adding excess flour."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand and forearm protection matters when working around a preheated metal pan at 500¬∞F."),
+        ]
+    elif "lemon posset" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate cream, sugar and lemon measurements protect the acid-to-dairy balance that lets posset set without gelatin."),
+            ("microplane zester grater stainless", "Fine citrus zester", "A fine zester removes fragrant yellow peel while leaving the bitter white pith behind."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "A stable bowl makes straining and portioning the hot lemon cream into six ramekins cleaner and safer."),
+        ]
+    elif "shrimp √©touff√©e" in haystack or "shrimp etouffee" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot cooks the roux and Cajun trinity evenly, then holds the shrimp in a shallow layer for gentle, even poaching."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "A rice cooker can handle the long-grain and wild-rice pilaf hands-off while the √©touff√©e gravy develops."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest shrimp reach 145¬∞F, then stop cooking before their texture turns firm and rubbery."),
+        ]
+    elif "okonomiyaki" in haystack and "pork" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad, heat-steady surface builds crisp golden bases on two cabbage pancakes without crowding."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A broad bowl gives five packed cups of cabbage room to fold into the light batter without crushing the shreds."),
+            ("stainless steel mandoline slicer", "Mandoline slicer", "Uniform fine cabbage shreds steam tender on schedule; always use the slicer's included hand guard near the blade."),
+        ]
+    elif "panna cotta" in haystack and "vanilla" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Precise dairy, sugar and gelatin measurements protect the delicate balance between a clean unmold and a tender wobble."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "A quick temperature check makes it easy to stop heating the vanilla dairy at 170 to 180¬∞F, safely below a boil."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "A medium bowl gives the gelatin room to bloom evenly before the hot vanilla cream is whisked in."),
+        ]
+    elif "beef stew" in haystack and "mushroom" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot holds steady heat through the long 325¬∞F braise and gives two pounds of beef room to brown in batches."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp all-purpose blade makes consistent beef, potato, carrot, celery and mushroom pieces that become tender at the same rate."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check that the chuck is safely above 145¬∞F and near the 195 to 205¬∞F range where collagen-rich cubes become fork-tender."),
+        ]
+    elif "halloumi" in haystack and "crispy chickpea" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "Direct contact with a rigid preheated surface dries and browns two cans of chickpeas without crowding."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A broad bowl leaves enough room to dress delicate greens and tomatoes without crushing them beneath the warm toppings."),
+            ("stainless steel kitchen tongs silicone tip", "Silicone-tip kitchen tongs", "Tongs turn the halloumi cubes neatly so multiple sides brown before the cheese firms."),
+        ]
+    elif "chia pudding" in haystack and "almond butter" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing chia seeds and toppings keeps four meal-prep portions equally creamy and satisfying."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A medium bowl gives the chia mixture enough surface area for the essential second whisk that prevents clumps."),
+            ("glass meal prep containers locking lids", "Lidded meal-prep containers", "Individual covered containers keep the pudding safely chilled and make the four breakfasts genuinely grab-and-go."),
+        ]
+    elif "butter chicken" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed pan carries the yogurt-marinated chicken safely beneath the broiler without warping or spilling hot drips."),
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot softens the onion evenly and keeps the tomato-cream sauce at a gentle, steady simmer."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the thickest chicken pieces reach 165¬∞F without cutting through the browned yogurt coating."),
+        ]
+    elif "spinach" in haystack and "feta lattice pie" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate spinach, feta and pastry weights keep the filling substantial without overwhelming the crisp lattice crust."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A roomy bowl makes it easier to distribute feta, herbs and eggs through four packed cups of dry spinach without crushing the cheese."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection helps when rotating and lifting the hot, deep pan without damaging its crisp lattice top."),
+        ]
+    elif "sticky toffee pudding" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing the sticky dates and flour keeps eight individual puddings moist and consistent."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "Separate bowls keep the date soak and dry ingredients organized before the quick batter is folded together."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip matters when moving a sheet pan filled with eight hot ramekins and turning out the warm puddings."),
+        ]
+    elif "salmon piccata" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad, heat-steady surface browns four salmon portions cleanly and leaves room to emulsify the lemon-caper sauce."),
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "Drain linguine quickly while reserving the starchy water needed to bind the pan sauce."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest part of each salmon fillet reaches 145¬∞F without cutting open its golden surface."),
+        ]
+    elif "sweet potato" in haystack and "mushroom" in haystack and "fajita" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pans", "Two preheated rimmed pans give sweet potatoes and mushrooms enough hot surface to brown instead of steam."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp, controllable blade makes even sweet-potato sticks, mushroom slices and pepper strips that roast at the same rate."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage matter when loading and rotating sheet pans preheated to 450¬∞F."),
+        ]
+    elif "pumpkin mini muffins" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and sugar accurate for a tender mini-muffin crumb."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "Separate bowls keep the dry mix, pumpkin batter, melted butter and cinnamon sugar organized."),
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "A small scoop portions 24 wells evenly so the mini muffins bake and brown together."),
+        ]
+    elif "chicken pho" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy pot holds the chicken and aromatics comfortably while maintaining the gentle simmer needed for clear broth."),
+            ("stainless steel pasta pot colander", "Stainless-steel colander", "Drain rice noodles thoroughly and keep their excess starch out of the finished broth."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp blade handles ginger, onions, herbs and chile cleanly without bruising the garnishes."),
+        ]
+    elif "french onion soup" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide heavy pot gives three pounds of onions room to caramelize evenly and holds the finished broth."),
+            ("microplane zester grater stainless", "Fine cheese grater", "Finely grated Gruy√®re and Parmesan melt into an even bubbling cap instead of heavy clumps."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection is essential when moving a sheet pan loaded with extremely hot soup crocks."),
+        ]
+    elif "coconut-lemon meringue pie" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate crumb and coconut weights keep the crust cohesive without becoming greasy."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "A clean heat-safe bowl is necessary for warming and whipping the Swiss meringue over simmering water."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip helps when handling the hot crust, toasted coconut and saucepan during assembly."),
+        ]
+    elif "margherita pizza" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "Preheating a sturdy inverted pan gives the pizza a broad, intensely hot surface for a crisper underside."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when transferring the pizza around a sheet pan held at 500¬∞F."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing the dough and cheese keeps the topping ratio balanced and the center from becoming overloaded."),
+        ]
+    elif "kimchi fried rice" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface lets cold rice fry in a thin layer instead of steaming into clumps."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "Cook and cool the rice ahead, then use the cooker again when doubling the batch for meal prep."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable board contains kimchi brine while leaving room to separate scallion whites from their green garnish."),
+        ]
+    elif "pear frangipane tart" in haystack:
+        products = [
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip helps when lifting the hot tart pan without pressing against its removable base."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep both flours and the frangipane ratio precise for a crisp shell and tender filling."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep the frangipane, sliced pears and warm glaze organized without crowding the counter."),
+        ]
+    elif "thai basil beef" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A wide, heat-steady skillet browns the beef quickly and leaves room to fry crisp-edged eggs."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "Hands-off jasmine rice can cook while the sauce is mixed and the basil beef comes together."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the ground beef reaches 160¬∞F without cooking away all of its moisture."),
+        ]
+    elif "eggplant parmesan" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pans", "Two broad rimmed pans let the breaded eggplant bake in one uncrowded layer for a crisper crust."),
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Straight sides hold the layered eggplant, tomato sauce, and cheese neatly for clean square portions."),
+            ("microplane zester grater stainless", "Fine cheese grater", "Finely grated Parmesan distributes evenly through the breading and over the finished casserole."),
+        ]
+    elif "orange-almond cake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weights keep the almond-flour and orange-pur√©e ratios precise in this flourless batter."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls make it easy to whisk the dry ingredients, eggs, and citrus syrup without crowding."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip helps when moving the hot springform pan and its supporting sheet pan."),
+        ]
+    elif "pork adobo" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot browns the pork evenly and holds the gentle simmer needed for tender shoulder and belly."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "Reliable steamed rice can finish hands-off while the adobo braises and its sauce reduces."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn browned pork and glaze the braised pieces without crushing the tender meat."),
+        ]
+    elif "herb falafel" in haystack:
+        products = [
+            ("food processor 12 cup", "12-cup food processor", "Short pulses create the coarse chickpea-and-herb texture that holds together without becoming dense."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep the soaked chickpeas, falafel mixture, and lemon-tahini sauce organized."),
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "A long, secure grip helps manage pita and the draining rack while keeping hands clear of hot oil."),
+        ]
+    elif "cinnamon rolls" in haystack:
+        products = [
+            ("stand mixer tilt head", "Stand mixer", "A mixer fitted with its dough hook provides steady kneading while the butter is added gradually."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the high-hydration dough soft instead of accidentally flour-heavy."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip matters when rotating and lifting the hot 9-by-13-inch pan."),
+        ]
+    elif "lamb tagine" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot maintains the gentle, even simmer that turns lamb shoulder fork-tender."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check that the largest lamb pieces reach the collagen-melting braising range without repeatedly cutting them."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn and transfer browned lamb cleanly while keeping hands clear of hot oil."),
+        ]
+    elif "shrimp summer rolls" in haystack:
+        products = [
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp, controllable blade makes even vegetable matchsticks and cleanly halves poached shrimp."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface keeps herbs, vegetables, noodles, and cooked shrimp organized for rolling."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls simplify cooling shrimp, holding noodles, and mixing the peanut-hoisin sauce."),
+        ]
+    elif "tiramisu cups" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the yolk, sugar, mascarpone, and ladyfinger ratios precise."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "Separate bowls are useful for the cooked yolk base, mascarpone, and whipped cream."),
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "Consistent small measures keep the espresso, vanilla, and cocoa balanced across six cups."),
+        ]
+    elif "seafood paella" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "Wide 12-inch skillet", "A broad, heat-steady cooking surface keeps the rice shallow enough to cook evenly and form socarrat."),
+            ("stainless steel kitchen tongs", "Stainless-steel kitchen tongs", "Lift and place hot shellfish without crushing shells or disturbing the rice bed."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip matters when rotating and carrying a heavy skillet filled with hot rice and seafood."),
+        ]
+    elif "croque madame" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad, heat-steady skillet crisps two sandwiches at a time and then fries the eggs evenly."),
+            ("8 inch chef knife kitchen", "8-inch chef‚Äôs knife", "A sharp, controllable knife handles the shallot, trims bread, and halves crisp sandwiches cleanly."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep grated cheese, salad greens, and vinaigrette organized for fast assembly."),
+        ]
+    elif "chocolate-walnut layer cake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the cocoa batter even and divide it accurately among three pans."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowls", "Use separate heat-safe bowls for the batter, ganache, and whipped walnut filling."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when rotating three hot cake pans."),
+        ]
+    elif "katsu" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A heavy skillet holds steady heat for crisp, even shallow-frying."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Verify the chicken reaches 165¬∞F without cutting through the crust."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn breaded cutlets with control while keeping hands clear of hot oil."),
+        ]
+    elif "red lentil soup" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "Dutch oven", "A wide, heavy pot gives vegetables room to soften and lentils a steady simmer."),
+            ("immersion blender stainless steel", "Immersion blender", "Pur√©e the soup in its pot with less transfer and cleanup."),
+            ("8 inch chef knife kitchen", "Chef‚Äôs knife", "A sharp, comfortable knife makes quick work of the onion, carrot, and potato."),
+        ]
+    elif "pad thai-style" in haystack:
+        products = [
+            ("stainless steel pasta pot colander", "Stainless colander", "Drain soaked rice noodles completely so the sauce clings instead of turning watery."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Lift and turn delicate rice noodles without chopping or crushing them."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify shrimp reach 145¬∞F and the egg reaches 160¬∞F without overcooking the seafood."),
+        ]
+    elif "butter beans" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide cooking surface reduces the tomato sauce quickly while giving large beans room to stay whole."),
+            ("8 inch chef knife kitchen", "Chef‚Äôs knife", "A sharp, controllable knife handles the fine onion dice and thin garlic slices cleanly."),
+            ("large nonslip cutting board", "Large cutting board", "A stable prep surface keeps the onion, garlic, and toasted bread organized."),
+        ]
+    elif "carrot snacking cake" in haystack:
+        products = [
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "Measure flour, spices, sugar, vanilla, and lemon consistently for a reliable crumb and frosting."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "Extra room makes it easier to fold in finely grated carrots without overmixing the batter."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when turning out a hot 9-inch cake pan."),
+        ]
+    elif "palak paneer" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide, heat-steady skillet browns paneer without crowding and gives the tomato masala room to reduce."),
+            ("immersion blender stainless steel", "Immersion blender", "Pur√©e the cooled spinach in a tall container with less transfer and cleanup."),
+            ("8 inch chef knife kitchen", "Chef‚Äôs knife", "A sharp, controllable knife handles the fine aromatics and uniform paneer cubes cleanly."),
+        ]
+    elif "shish tawook" in haystack:
+        products = [
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the largest chicken pieces reach 165¬∞F without cutting every skewer open."),
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Turn hot skewers and oil the grill grate while keeping hands clear of direct heat."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Use separate bowls for raw-chicken marinade and the finished garlic yogurt to avoid cross-contamination."),
+        ]
+    elif "cinnamon-apple tart" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the shortcrust flour and sugar ratio precise and repeatable."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "A broad bowl makes cutting cold butter into flour and tossing delicate apple slices easier."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip helps when moving the hot removable-bottom tart pan on its supporting sheet pan."),
+        ]
+    elif "shrimp" in haystack and "grits" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide, heat-steady skillet sears the shrimp quickly and reduces the smoky tomato sauce without crowding."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the shrimp reach 145¬∞F before they turn firm and rubbery."),
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "Keep the grits-to-liquid ratio and small seasoning quantities consistent."),
+        ]
+    elif "mushroom risotto" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "Wide Dutch oven", "A heavy, broad pot gives mushrooms room to brown and Arborio rice a steady simmer."),
+            ("microplane zester grater stainless", "Fine grater", "Finely grated Parmesan melts smoothly into the risotto instead of clumping."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn and transfer browned mushroom slices without crushing them."),
+        ]
+    elif "basque cheesecake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the sugar and flour ratio precise for a custardy set."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "A large, stable bowl gives the dairy and eggs space to blend smoothly without splashing."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip matters when moving a tall parchment-lined pan on a hot sheet pan."),
+        ]
+    elif "sheet pan" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
+        ]
+    elif any(term in haystack for term in ["soup", "chili", "stew"]):
+        products = [
+            ("enameled dutch oven 6 quart", "Dutch oven", "A wide, heavy pot for browning and steady simmering."),
+            ("immersion blender stainless steel", "Immersion blender", "Blend soups in the pot with less transfer and cleanup."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Verify doneness instead of guessing."),
+        ]
+    elif any(term in haystack for term in ["pasta", "orzo", "noodle"]):
+        products = [
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "Choose stable handles and a size that fits the dinners you actually cook."),
+            ("microplane zester grater stainless", "Fine grater", "Useful for citrus, hard cheese, garlic and finishing details."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "A dependable tool for tossing, turning and serving."),
+        ]
+    elif any(term in haystack for term in ["eggplant", "aubergine"]):
+        products = [
+            ("8 inch chef knife kitchen", "Chef‚Äôs knife", "A sharp, comfortable knife makes scoring eggplant and chopping herbs easier."),
+            ("large nonslip cutting board", "Nonslip cutting board", "A roomy, stable prep surface keeps large vegetables under control."),
+            ("stainless steel mixing bowls nesting", "Mixing bowls", "Useful for salting vegetables, whisking glaze, and holding toppings."),
+        ]
+    elif any(term in haystack for term in ["salad", "slaw"]):
+        products = [
+            ("8 inch chef knife kitchen", "Chef‚Äôs knife", "A sharp, comfortable knife makes quick work of vegetables and herbs."),
+            ("large nonslip cutting board", "Nonslip cutting board", "A roomy, stable prep surface keeps chopping organized."),
+            ("stainless steel mixing bowls nesting", "Mixing bowls", "A large bowl gives salads room to toss without bruising the ingredients."),
+        ]
+    elif any(term in haystack for term in ["pie", "cobbler", "pastry", "dessert"]):
+        products = [
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "A nested set keeps flour, cornmeal and sugar measurements consistent."),
+            ("stainless steel mixing bowls nesting", "Mixing bowls", "Use separate bowls for fillings and pastry or cobbler topping."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when moving hot bakeware."),
+        ]
+    elif any(term in haystack for term in ["roast", "baked", "oven"]):
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
+        ]
+    elif any(term in haystack for term in ["rice", "bowl", "meal prep"]):
+        products = [
+            ("rice cooker family stainless inner pot", "Rice cooker", "Compare capacity, cleanup and a simple keep-warm function."),
+            ("glass meal prep containers locking lids", "Glass storage containers", "A small matching system stacks better than forty mystery lids."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Fast, repeatable portions and better baking accuracy."),
+        ]
+    elif any(term in haystack for term in ["skillet", "frittata", "egg", "breakfast"]):
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A versatile size for browning, baking and family portions."),
+            ("silicone fish spatula turner", "Thin flexible spatula", "Slides under eggs and delicate food without a wrestling match."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "One sturdy set handles prep without multiplying cabinet clutter."),
+        ]
+    else:
+        products = [
+            ("digital probe meat thermometer", "Digital probe thermometer", "Replace doneness guesses with a clear temperature reading."),
+            ("8 inch chef knife kitchen", "8-inch chef's knife", "Prioritize comfortable grip, controllable weight and easy maintenance."),
+            ("large nonslip cutting board", "Large cutting board", "Enough stable workspace makes prep faster and safer."),
+        ]
+    cards = "".join(amazon_link(*product) for product in products)
+    return f'''<div class="recipe-panel recipe-shop"><p class="eyebrow">Useful kitchen gear</p><h2>Tools that make this easier.</h2>
+      <p>Compare the function and specifications first; skip anything your kitchen already handles well.</p>
+      <div class="disclosure-box"><strong>Paid links:</strong> As an Amazon Associate I earn from qualifying purchases. You pay no additional cost.</div>
+      <div class="shop-grid">{cards}</div>
+    </div>'''
+
+def newsletter_block() -> str:
+    return f'''<section class="section-tight">
+      <div class="wrap">
+        <div class="newsletter">
+          <div class="newsletter-grid">
+            <div><p class="eyebrow">The useful email</p><h2>Dinner ideas worth opening.</h2><p>New recipes, a five-night shortcut, and one useful kitchen idea. No daily inbox ambush.</p></div>
+            <form class="newsletter-form" action="https://formsubmit.co/{esc(FORM_EMAIL)}" method="POST">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+              <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="_subject" value="DishGal newsletter signup">
+              <button class="btn btn-primary" type="submit">Join free</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>'''
+
+def recipe_schema(recipe) -> dict:
+    instructions = [
+        {"@type": "HowToStep", "name": step.get("name", f"Step {i+1}"), "text": step.get("text", "")}
+        for i, step in enumerate(recipe.get("instructions", []))
+    ]
+    total = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
+    tags = [str(tag) for tag in recipe.get("tags", [])]
+    diet_map = {
+        "vegetarian": "https://schema.org/VegetarianDiet",
+        "vegan": "https://schema.org/VeganDiet",
+        "gluten-free": "https://schema.org/GlutenFreeDiet",
+    }
+    suitable_diets = [diet_map[tag] for tag in tags if tag in diet_map]
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": recipe.get("title", ""),
+        "description": recipe.get("dek", ""),
+        "image": [recipe.get("image", "")],
+        "author": {"@type": "Organization", "name": "DishGal"},
+        "datePublished": recipe.get("date_published", "2026-08-17"),
+        "dateModified": recipe.get("date_modified", recipe.get("date_published", "2026-08-17")),
+        "prepTime": f"PT{int(recipe.get('prep_minutes',0))}M",
+        "cookTime": f"PT{int(recipe.get('cook_minutes',0))}M",
+        "totalTime": f"PT{total}M",
+        "recipeYield": f"{recipe.get('servings',4)} servings",
+        "recipeCategory": COLLECTION_META.get(
+            recipe.get("collection", ""),
+            (pretty_slug(recipe.get("collection", "recipe")), "", ""),
+        )[0],
+        "keywords": ", ".join(tags),
+        "recipeIngredient": recipe.get("ingredients", []),
+        "recipeInstructions": instructions,
+        "nutrition": {"@type": "NutritionInformation", "calories": f"{recipe.get('calories','')} calories"},
+        "url": canonical("/recipes/" + recipe["slug"] + "/"),
+        "mainEntityOfPage": canonical("/recipes/" + recipe["slug"] + "/"),
+        "isPartOf": {"@type": "WebSite", "name": "DishGal", "url": SITE_URL},
+    }
+    if suitable_diets:
+        schema["suitableForDiet"] = suitable_diets
+    return schema
+
+def collection_schema(title: str, description: str, path: str, recipes) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": title,
+        "description": description,
+        "url": canonical(path),
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": len(recipes),
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "url": canonical("/recipes/" + recipe["slug"] + "/"),
+                    "name": recipe.get("title", "Recipe"),
+                }
+                for index, recipe in enumerate(recipes)
+            ],
+        },
+    }
+
+def related_recipes(recipe, limit=4):
+    recipe_tags = {str(tag).lower() for tag in recipe.get("tags", [])}
+    recipe_protein_set = set(recipe_proteins(recipe))
+    scored = []
+    for candidate in RECIPES:
+        if candidate["slug"] == recipe["slug"]:
+            continue
+        candidate_tags = {str(tag).lower() for tag in candidate.get("tags", [])}
+        score = 0
+        if candidate.get("collection") == recipe.get("collection"):
+            score += 5
+        score += 2 * len(recipe_tags.intersection(candidate_tags))
+        score += 3 * len(recipe_protein_set.intersection(recipe_proteins(candidate)))
+        tie_break = hashlib.sha256(candidate["slug"].encode("utf-8")).hexdigest()
+        scored.append((-score, tie_break, candidate))
+    return [candidate for _, _, candidate in sorted(scored)[:limit]]
+
+def build_home():
+    mixed_recipes = stable_recipe_mix(RECIPES)
+    featured = mixed_recipes[:8]
+    hero = mixed_recipes[0]
+    collections = sorted({r.get("collection", "") for r in RECIPES if r.get("collection")})
+    collection_html = []
+    for slug in collections:
+        title, _, icon = COLLECTION_META.get(slug, (pretty_slug(slug), "Browse this dinner collection.", "üç¥"))
+        count = sum(1 for r in RECIPES if r.get("collection") == slug)
+        collection_html.append(f'''<a class="collection-pill" href="{href('/collections/' + slug + '/')}"><span class="collection-icon">{icon}</span><strong>{esc(title)}</strong><small>{count} recipes</small></a>''')
+    body = f'''
+    <div class="home-brand" aria-label="DishGal ‚Äî Dinner, decided">
+      <img src="{href('/assets/dishgal-brand.webp')}" alt="DishGal.com ‚Äî Dinner, decided." width="1536" height="1024" fetchpriority="high" decoding="async">
+    </div>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Dinner, decided.</p>
+          <h1>Good food for <span>real nights.</span></h1>
+          <p class="lede">DishGal gives you practical weeknight recipes, a dinner picker, pantry rescue, and a five-night planner‚Äîwithout turning dinner into a personality test.</p>
+          <div class="button-row"><a class="btn btn-primary" href="{href('/dinner-decider/')}">Decide dinner</a><a class="btn btn-outline" href="{href('/recipes/')}">Browse recipes</a></div>
+          <div class="hero-proof"><span>{len(RECIPES)} complete recipes</span><span>Real prep + cook times</span><span>Cost per serving</span></div>
+        </div>
+        <div class="hero-media"><img class="hero-image" src="{esc(hero.get('image',''))}" alt="{esc(hero.get('image_alt','Weeknight dinner'))}" width="800" height="1000" fetchpriority="high" decoding="async"><div class="hero-sticker">No-scroll-before-the-recipe energy.</div></div>
+      </div>
+    </section>
+    <section class="section section-paper">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Pick your lane</p><h2>Dinner collections</h2></div><p>Start with the kind of night you are having, not a 2,000-word food memoir.</p></div>
+        <div class="collection-grid">{''.join(collection_html)}</div>
+        <div class="topic-links" aria-label="Browse recipes by main ingredient">
+          <strong>Cook by ingredient:</strong>
+          {''.join(f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])}</a>' for slug, meta in active_ingredient_hubs())}
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Start here</p><h2>Weeknight winners</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">See all recipes</a></div>
+        <div class="recipe-grid">{''.join(recipe_card(r) for r in featured)}</div>
+      </div>
+    </section>
+    <section class="section section-plum">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Use the tools</p><h2>Less deciding. More eating.</h2></div><p>Three tiny tools for the three most annoying dinner questions.</p></div>
+        <div class="tool-strip"><div class="tool-grid">
+          <a class="tool-card" href="{href('/dinner-decider/')}"><span class="icon">üéØ</span><h3>Dinner Decider</h3><p>Choose your time and vibe. Get one answer.</p></a>
+          <a class="tool-card" href="{href('/pantry-rescue/')}"><span class="icon">üß∫</span><h3>Pantry Rescue</h3><p>Tell us what you have. We rank the best recipe matches.</p></a>
+          <a class="tool-card" href="{href('/meal-planner/')}"><span class="icon">üóì</span><h3>5-Night Planner</h3><p>Build a varied week and turn it into a grocery checklist.</p></a>
+        </div></div>
+      </div>
+    </section>
+    <section class="section section-paper">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Kitchen brain</p><h2>Kitchen picks</h2></div><a class="btn btn-outline" href="{href('/guides/')}">All {len(ARTICLES)} guides</a></div>
+        <div class="article-grid">{''.join(article_card(a) for a in ARTICLES[:6])}</div>
+      </div>
+    </section>
+    {newsletter_block()}
+    '''
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "DishGal",
+        "url": SITE_URL,
+        "description": "Practical recipes, dinner-planning tools, and kitchen guides for real weeknights."
+    }
+    write_page("/", page("Dinner, Decided", "Practical weeknight recipes, dinner-planning tools, and useful kitchen guides built to answer the question: what are we eating tonight?", "/", body, schema=schema))
+
+def build_recipe_index():
+    display_recipes = stable_recipe_mix(RECIPES)
+    collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
+    options = "".join(f'<option value="{esc(c)}">{esc(COLLECTION_META.get(c,(pretty_slug(c),"",""))[0])}</option>' for c in collections)
+    proteins = sorted({protein for recipe in RECIPES for protein in recipe_proteins(recipe)}, key=lambda item: PROTEIN_META.get(item, pretty_slug(item)))
+    protein_options = "".join(f'<option value="{esc(protein)}">{esc(PROTEIN_META.get(protein, pretty_slug(protein)))}</option>' for protein in proteins)
+    ingredient_links = "".join(
+        f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])} <span>{len(recipes_for_ingredient(slug))}</span></a>'
+        for slug, meta in active_ingredient_hubs()
+    )
+    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Recipe library</p><h1>Find tonight‚Äôs dinner.</h1><p class="lede">Filter by time, meat or protein, collection, or diet. Every recipe includes full directions, substitutions, storage notes, FAQs, and realistic timing.</p></div></section>
+    <section class="ingredient-nav"><div class="wrap"><p class="eyebrow">Browse by ingredient</p><div class="ingredient-links">{ingredient_links}</div></div></section>
+    <section class="section-tight"><div class="wrap">
+      <form class="filter-panel" data-recipe-filters>
+        <div class="filter-row">
+          <div class="field"><label for="q">Search</label><input id="q" name="q" placeholder="chicken, ribeye, pasta‚Ä¶"></div>
+          <div class="field"><label for="time">Max time</label><select id="time" name="time"><option value="">Any</option><option value="25">25 min</option><option value="30">30 min</option><option value="45">45 min</option><option value="60">60 min</option></select></div>
+          <div class="field"><label for="protein">Meat / protein</label><select id="protein" name="protein"><option value="">All</option>{protein_options}</select></div>
+          <div class="field"><label for="collection">Collection</label><select id="collection" name="collection"><option value="">All</option>{options}</select></div>
+          <div class="field"><label for="diet">Diet</label><select id="diet" name="diet"><option value="">Any</option><option value="vegetarian">Vegetarian</option><option value="vegan">Vegan</option><option value="gluten-free">Gluten-free</option></select></div>
+          <button class="btn btn-outline" type="button" data-reset-filters>Reset</button>
+        </div>
+      </form>
+      <p class="result-count" data-result-count>{len(display_recipes)} recipes</p>
+      <div class="recipe-grid">{''.join(recipe_card(r) for r in display_recipes)}</div>
+      <div class="empty-state" data-empty-state><h3>No matching dinners</h3><p>Try fewer filters or a broader search.</p></div>
+    </div></section>'''
+    schema = collection_schema(
+        "DishGal Recipe Library",
+        "Practical recipes with complete ingredients, directions, timing, substitutions, and storage notes.",
+        "/recipes/",
+        display_recipes,
+    )
+    write_page("/recipes/", page("Easy Dinner Recipes", "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps.", "/recipes/", body, schema=schema))
+
+CURATED_RECIPE_CLUSTERS = {
+    "palestinian-style-musakhan-sumac-chicken-onion-flatbread": {
+        "slugs": ["lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "crispy-herb-falafel-pita-lemon-tahini-sauce", "creamy-stovetop-butter-chicken-garlic-naan"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "lebanese-style-chicken-shish-tawook-pita-garlic-yogurt": {
+        "slugs": ["palestinian-style-musakhan-sumac-chicken-onion-flatbread", "crispy-herb-falafel-pita-lemon-tahini-sauce", "creamy-stovetop-butter-chicken-garlic-naan"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "crispy-herb-falafel-pita-lemon-tahini-sauce": {
+        "slugs": ["palestinian-style-musakhan-sumac-chicken-onion-flatbread", "lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "creamy-stovetop-butter-chicken-garlic-naan"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "creamy-stovetop-butter-chicken-garlic-naan": {
+        "slugs": ["palestinian-style-musakhan-sumac-chicken-onion-flatbread", "lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "crispy-herb-falafel-pita-lemon-tahini-sauce"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "indonesian-beef-rendang-coconut-toasted-spices": {
+        "slugs": ["moroccan-lamb-tagine-prunes-almonds-quail-eggs", "filipino-style-pork-adobo-eggs-steamed-rice", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "moroccan-lamb-tagine-prunes-almonds-quail-eggs": {
+        "slugs": ["indonesian-beef-rendang-coconut-toasted-spices", "filipino-style-pork-adobo-eggs-steamed-rice", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "filipino-style-pork-adobo-eggs-steamed-rice": {
+        "slugs": ["indonesian-beef-rendang-coconut-toasted-spices", "moroccan-lamb-tagine-prunes-almonds-quail-eggs", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "oven-braised-beef-stew-potatoes-mushrooms-peas": {
+        "slugs": ["indonesian-beef-rendang-coconut-toasted-spices", "moroccan-lamb-tagine-prunes-almonds-quail-eggs", "filipino-style-pork-adobo-eggs-steamed-rice"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "classic-new-england-clam-chowder-potatoes-saltines": {
+        "slugs": ["moroccan-style-vegetarian-harira-lentils-chickpeas", "classic-french-onion-soup-gruyere-toasts", "turkish-red-lentil-soup-aleppo-butter"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "moroccan-style-vegetarian-harira-lentils-chickpeas": {
+        "slugs": ["classic-new-england-clam-chowder-potatoes-saltines", "classic-french-onion-soup-gruyere-toasts", "turkish-red-lentil-soup-aleppo-butter"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "classic-french-onion-soup-gruyere-toasts": {
+        "slugs": ["classic-new-england-clam-chowder-potatoes-saltines", "moroccan-style-vegetarian-harira-lentils-chickpeas", "turkish-red-lentil-soup-aleppo-butter"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "turkish-red-lentil-soup-aleppo-butter": {
+        "slugs": ["classic-new-england-clam-chowder-potatoes-saltines", "moroccan-style-vegetarian-harira-lentils-chickpeas", "classic-french-onion-soup-gruyere-toasts"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "cottage-cheese-protein-pancakes": {
+        "slugs": ["cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a make-ahead breakfast rotation",
+        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+    },
+    "cottage-cheese-frittata-tomatoes-green-peppers": {
+        "slugs": ["cottage-cheese-protein-pancakes", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a make-ahead breakfast rotation",
+        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+    },
+    "freezer-breakfast-burritos": {
+        "slugs": ["cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a make-ahead breakfast rotation",
+        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+    },
+    "berry-almond-chia-pudding-toasted-seeds": {
+        "slugs": ["cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a make-ahead breakfast rotation",
+        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+    },
+}
+
+def recipe_topic_cluster(recipe) -> str:
+    cluster = CURATED_RECIPE_CLUSTERS.get(recipe.get("slug", ""))
+    if not cluster:
+        return ""
+    recipes_by_slug = {candidate["slug"]: candidate for candidate in RECIPES}
+    linked = [recipes_by_slug[slug] for slug in cluster["slugs"] if slug in recipes_by_slug]
+    if not linked:
+        return ""
+    return f'''<section class="section-tight section-paper related-section" aria-labelledby="recipe-cluster-heading"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow">{esc(cluster["eyebrow"])}</p><h2 id="recipe-cluster-heading">{esc(cluster["title"])}</h2></div><p>{esc(cluster["copy"])}</p></div>
+      <div class="recipe-grid">{''.join(recipe_card(candidate) for candidate in linked)}</div>
+    </div></section>'''
+
+def build_recipe_pages():
+    for recipe in RECIPES:
+        slug = recipe["slug"]
+        minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes",0)) + int(recipe.get("cook_minutes",0))))
+        ingredients = "".join(f'''<li><label><input type="checkbox"><span data-ingredient data-original="{esc(item)}">{esc(item)}</span></label></li>''' for item in recipe.get("ingredients",[]))
+        steps = "".join(f'''<li><div><h3>{esc(step.get("name", f"Step {i+1}"))}</h3><p>{esc(step.get("text",""))}</p></div></li>''' for i, step in enumerate(recipe.get("instructions",[])))
+        tips = "".join(f'<div class="tip-card"><strong>Why it works</strong>{esc(t)}</div>' for t in recipe.get("why_it_works",[]))
+        swaps = "".join(f"<li>{esc(x)}</li>" for x in recipe.get("swaps",[]))
+        notes = "".join(f"<li>{esc(x)}</li>" for x in recipe.get("notes",[]))
+        faqs = "".join(f'''<details><summary>{esc(x.get("q","Question"))}</summary><p>{esc(x.get("a",""))}</p></details>''' for x in recipe.get("faqs",[]))
+        cook_steps = "".join(f'''<div class="cook-step"><strong>{i+1}. {esc(step.get("name", "Step"))}</strong>{esc(step.get("text",""))}</div>''' for i, step in enumerate(recipe.get("instructions",[])))
+        collection_slug = recipe.get("collection", "")
+        collection_title = COLLECTION_META.get(collection_slug, (pretty_slug(collection_slug or "recipe"), "", ""))[0]
+        topic_links = []
+        if collection_slug:
+            topic_links.append(f'<a href="{href("/collections/" + collection_slug + "/")}">{esc(collection_title)}</a>')
+        for hub_slug in ingredient_hubs_for_recipe(recipe)[:2]:
+            topic_links.append(f'<a href="{href("/ingredients/" + hub_slug + "/")}">{esc(INGREDIENT_HUBS[hub_slug]["title"])}</a>')
+        related = related_recipes(recipe)
+        photo_credit = ""
+        if recipe.get("image_credit") and recipe.get("image_credit_url") and recipe.get("image_license") and recipe.get("image_license_url"):
+            photo_credit = f'''<p class="recipe-photo-credit" style="margin:.55rem .15rem 0;font-size:.75rem;color:var(--ink-soft)">Photo: <a href="{esc(recipe['image_credit_url'])}" target="_blank" rel="noopener noreferrer">{esc(recipe['image_credit'])}</a> ¬∑ <a href="{esc(recipe['image_license_url'])}" target="_blank" rel="noopener noreferrer">{esc(recipe['image_license'])}</a></p>'''
+        related_html = f'''<section class="section-tight section-paper related-section"><div class="wrap">
+          <div class="section-heading"><div><p class="eyebrow">Cook next</p><h2>More recipes you‚Äôll like</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">All recipes</a></div>
+          <div class="recipe-grid">{''.join(recipe_card(candidate) for candidate in related)}</div>
+        </div></section>'''
+        cluster_html = recipe_topic_cluster(recipe)
+        body = f'''<section class="recipe-hero" data-recipe-page data-servings="{int(recipe.get('servings',4))}">
+          <div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(recipe.get("title","Recipe"),None)])}
+          <div class="recipe-hero-grid">
+            <div><img class="recipe-hero-image" src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" width="900" height="968" fetchpriority="high" decoding="async">{photo_credit}</div>
+            <div><p class="eyebrow">{esc(collection_title)}</p>
+              <h1>{esc(recipe.get('title','Recipe'))}</h1><p class="lede">{esc(recipe.get('dek',''))}</p>
+              <p class="recipe-byline">Developed for DishGal ¬∑ Updated {esc(recipe.get('date_modified','2026-08-17'))}</p>
+              <div class="recipe-topic-links" aria-label="Recipe topics">{''.join(topic_links)}</div>
+              <div class="recipe-meta-grid">
+                <div class="recipe-meta-item"><small>Prep</small><strong>{int(recipe.get('prep_minutes',0))} min</strong></div>
+                <div class="recipe-meta-item"><small>Cook</small><strong>{int(recipe.get('cook_minutes',0))} min</strong></div>
+                <div class="recipe-meta-item"><small>Total</small><strong>{minutes} min</strong></div>
+                <div class="recipe-meta-item"><small>Cost</small><strong>{esc(recipe.get('cost_per_serving','‚Äî'))}</strong></div>
+              </div>
+              <div class="button-row">
+                <button class="btn btn-primary" type="button" data-open-cook>Start cook mode</button>
+                <button class="btn btn-outline" type="button" data-print>Print</button>
+                <button class="btn btn-outline" type="button" data-save-recipe="{esc(slug)}"><span data-save-label>Save recipe</span></button>
+              </div>
+            </div>
+          </div></div>
+        </section>
+        <section class="section-tight"><div class="wrap recipe-main">
+          <aside>
+            <div class="recipe-panel sticky-panel"><div class="serving-control"><strong>Ingredients</strong><div class="serving-buttons"><button type="button" data-serving-minus>‚àí</button><span><span data-servings-output>{int(recipe.get('servings',4))}</span> servings</span><button type="button" data-serving-plus>+</button></div></div><ul class="ingredient-list">{ingredients}</ul></div>
+          </aside>
+          <div>
+            <div class="recipe-panel"><h2>Directions</h2><ol class="step-list">{steps}</ol></div>
+            <div class="recipe-panel"><h2>Why this works</h2><div class="tip-grid">{tips}</div></div>
+            {recipe_shop(recipe)}
+            <div class="recipe-panel"><h2>Swaps & notes</h2><h3>Easy swaps</h3><ul class="dot-list">{swaps}</ul><h3>Cook notes</h3><ul class="dot-list">{notes}</ul><h3>Storage</h3><p>{esc(recipe.get('storage','Store covered in the refrigerator and reheat until hot.'))}</p></div>
+            <div class="recipe-panel"><h2>Questions</h2><div class="faq-list">{faqs}</div></div>
+          </div>
+        </div></section>
+        {cluster_html}
+        {related_html}
+        <div class="cook-mode" data-cook-mode><div class="cook-mode-inner"><div class="cook-mode-head"><div><strong>{esc(recipe.get('title','Recipe'))}</strong><div class="muted">Screen stays awake when supported.</div></div><button class="btn btn-dark" type="button" data-close-cook>Exit cook mode</button></div>{cook_steps}</div></div>'''
+        schema = [
+            recipe_schema(recipe),
+            breadcrumb_schema([("Recipes", "/recipes/"), (recipe.get("title", "Recipe"), None)]),
+        ]
+        write_page(f"/recipes/{slug}/", page(
+            recipe_seo_title(recipe),
+            recipe_meta_description(recipe),
+            f"/recipes/{slug}/",
+            body,
+            schema=schema,
+            image=recipe.get("image"),
+            page_type="article",
+            published=recipe.get("date_published"),
+            modified=recipe.get("date_modified", recipe.get("date_published")),
+        ))
+
+def build_collections():
+    collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
+    for slug in collections:
+        recipes = stable_recipe_mix([r for r in RECIPES if r.get("collection") == slug])
+        title, desc, _ = COLLECTION_META.get(slug, (pretty_slug(slug), f"Browse DishGal's {pretty_slug(slug).lower()} recipes.", "üç¥"))
+        seo_title = title if "recipe" in title.lower() else f"{title} Recipes"
+        full_description = f"{desc} Browse {len(recipes)} complete recipes with timing, cost, substitutions, and storage notes."
+        collection_intro = ""
+        collection_faq = ""
+        if slug == "instant-pot":
+            collection_intro = f'''<section class="section-tight section-paper"><div class="wrap">
+              <div class="section-heading"><div><p class="eyebrow">Built for the 6-quart pot</p><h2>Pressure-cooker recipes that tell the whole truth about time.</h2></div><p>Every total includes a realistic allowance for coming to pressure and releasing pressure‚Äînot just the programmed cook time on the display.</p></div>
+              <div class="tip-grid">
+                <div class="tip-card"><strong>Protect against the burn warning</strong>Thin liquid goes in first. Tomato sauce, salsa, and other thick ingredients stay on top unless the directions specifically say to stir.</div>
+                <div class="tip-card"><strong>Keep family dinner mild</strong>The base recipes are kid-manageable. Hot sauce, jalape√±os, and crushed pepper are finishing options for the adults who want them.</div>
+                <div class="tip-card"><strong>Use the right release</strong>Each recipe states natural, quick, or controlled release. Never force the lid; wait until the float valve drops completely.</div>
+              </div>
+              <div class="recipe-panel" style="margin-top:1.5rem">
+                <p class="eyebrow">DishGal quick reference</p><h3>Match the pressure release to the food‚Äînot the clock.</h3>
+                <div class="tip-grid">
+                  <div class="tip-card"><strong>Natural release</strong>Best for beans, split peas, large roasts and other foods that foam or keep cooking as pressure falls. Wait the recipe's full time; do not force the lid.</div>
+                  <div class="tip-card"><strong>Controlled release</strong>Use short venting pulses for rice, pasta and starchy dishes. Pause immediately if liquid or foam sputters, and resume only when the vent is quiet.</div>
+                  <div class="tip-card"><strong>Quick release</strong>Useful for delicate vegetables and seafood when the recipe calls for it. Keep hands and face away from steam and never cover the valve with a towel.</div>
+                  <div class="tip-card"><strong>Fill-limit check</strong>Stay below the half-full line for beans, grains, pasta and foods that expand or foam. Other foods must remain below the model's maximum-fill line.</div>
+                </div>
+                <h3 style="margin-top:1.5rem">Busy-night pressure-cooker chooser</h3>
+                <p>Compare total time, release style and the work left after pressure falls. The programmed cycle is only one part of the clock.</p>
+                <div style="overflow-x:auto">
+                  <table style="width:100%;border-collapse:collapse;text-align:left">
+                    <thead><tr><th style="padding:.65rem;border-bottom:2px solid var(--line)">Recipe</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Total</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Release</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">After pressure</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Best fit</th></tr></thead>
+                    <tbody>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-filipino-chicken-arroz-caldo-ginger-calamansi/')}">Chicken arroz caldo</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred chicken; loosen porridge</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Gentle breakfast or supper</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-polish-bigos-pork-kielbasa-sauerkraut/')}">Polish-style bigos</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Reduce; reheat kielbasa</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead freezer braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-cuban-ropa-vieja-yellow-rice-plantains/')}">Cuban-style ropa vieja</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred and reduce; finish sides</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Complete family platter</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ukrainian-beet-borscht-white-beans-dill/')}">Beet borscht with white beans</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Simmer cabbage and beans</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget meatless meal prep</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-lowcountry-shrimp-boil-corn-potatoes/')}">Lowcountry shrimp boil</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Saut√© shrimp 3‚Äì5 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fast shareable seafood</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-korean-galbijjim-pear-chestnuts/')}">Korean galbijjim</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Defat and reduce 8‚Äì10 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Special family braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-smoky-black-bean-soup-lime-crema/')}">Smoky black bean soup</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">90 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Partially blend</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Vegetarian meal prep</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-chicken-cacciatore-mushrooms-egg-noodles/')}">Chicken cacciatore</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Reduce sauce; add noodles</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Saucy family dinner</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-quebec-yellow-split-pea-soup-ham/')}">Yellow split pea soup</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred ham; adjust body</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget freezer meal</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-saffron-shrimp-risotto-lemon-chives/')}">Saffron shrimp risotto</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Saut√© shrimp; enrich rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fast seafood dinner</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-teriyaki-chicken-rice-bowls/')}">Teriyaki chicken rice bowls</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Glaze chicken; fluff rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">All-in-one rice bowl</td></tr>
+                      <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed September 26, 2026.</p>
+              </div>
+              <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
+            </div></section>'''
+            collection_faq = f'''<section class="section-tight"><div class="narrow recipe-panel"><p class="eyebrow">Before you start</p><h2>Three rules for safer, better pressure cooking</h2><div class="faq-list">
+              <details><summary>Can I double these recipes?</summary><p>Do not automatically double the liquid or exceed your cooker's maximum-fill line. Beans, grains, pasta, and other expanding foods should remain below the half-full line. Keep the programmed cook time the same only when piece size stays the same, and allow more time for the fuller pot to reach pressure.</p></details>
+              <details><summary>Why does the total time exceed the pressure-cook time?</summary><p>The display countdown begins only after the cooker reaches pressure. A full family meal commonly needs 10 to 20 minutes to pressurize, plus the stated release time, so DishGal includes those stages in the total.</p></details>
+              <details><summary>Which Instant Pot size are these written for?</summary><p>These recipes are developed around a 6-quart electric pressure cooker. An 8-quart model may need additional thin liquid according to its manual. Always follow the minimum-liquid, fill-limit, and release instructions for your exact model.</p></details>
+            </div></div></section>'''
+        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(title,None)])}<p class="eyebrow">Dinner collection</p><h1>{esc(seo_title)}</h1><p class="lede">{esc(full_description)}</p></div></section>
+        {collection_intro}
+        <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(r) for r in recipes)}</div></div></section>
+        {collection_faq}'''
+        path = f"/collections/{slug}/"
+        schema = [
+            collection_schema(seo_title, full_description, path, recipes),
+            breadcrumb_schema([("Recipes", "/recipes/"), (title, None)]),
+        ]
+        write_page(path, page(seo_title, truncate_description(full_description), path, body, schema=schema))
+
+def build_ingredient_hubs():
+    for slug, meta in INGREDIENT_HUBS.items():
+        recipes = recipes_for_ingredient(slug)
+        if len(recipes) < 3:
+            continue
+        title = meta["title"]
+        description = f'{meta["description"]} Browse {len(recipes)} complete DishGal recipes with realistic timing, substitutions, and storage notes.'
+        path = f"/ingredients/{slug}/"
+        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes", "/recipes/"), (title, None)])}<p class="eyebrow">Recipes by ingredient</p><h1>{esc(title)}</h1><p class="lede">{esc(description)}</p></div></section>
+        <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(recipe) for recipe in recipes)}</div></div></section>'''
+        schema = [
+            collection_schema(title, description, path, recipes),
+            breadcrumb_schema([("Recipes", "/recipes/"), (title, None)]),
+        ]
+        write_page(path, page(title, truncate_description(description), path, body, schema=schema))
+
+def build_saved():
+    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Your shortlist</p><h1>Saved recipes</h1><p class="lede">Recipes you heart are stored in this browser on this device. No account required.</p></div></section>
+    <section class="section-tight"><div class="wrap"><div class="recipe-grid" data-saved-grid></div></div></section>'''
+    write_page("/saved/", page("Saved Recipes", "Keep a browser-based shortlist of DishGal recipes without creating an account or sharing personal information.", "/saved/", body, noindex=True, needs_recipe_data=True))
+
+def build_decider():
+    collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
+    coll_chips = "".join(f'<button class="option-chip" type="button" data-choice="collection" data-value="{esc(c)}">{esc(COLLECTION_META.get(c,(pretty_slug(c),"",""))[0])}</button>' for c in collections)
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Decision tool</p><h1>Tell us the night. Get one dinner.</h1><p class="lede">Pick what matters. DishGal chooses a recipe. You can reroll if the first answer gets vetoed.</p></div></section>
+    <section class="tool-page"><div class="narrow"><div class="tool-shell" data-decider>
+      <div class="option-group"><h3>How much time?</h3><div class="option-chips"><button class="option-chip" type="button" data-choice="time" data-value="25">25 minutes</button><button class="option-chip" type="button" data-choice="time" data-value="30">30 minutes</button><button class="option-chip" type="button" data-choice="time" data-value="45">45 minutes</button><button class="option-chip" type="button" data-choice="time" data-value="60">An hour</button></div></div>
+      <div class="option-group"><h3>What kind of dinner?</h3><div class="option-chips">{coll_chips}</div></div>
+      <div class="option-group"><h3>Any preference?</h3><div class="option-chips"><button class="option-chip" type="button" data-choice="tag" data-value="vegetarian">Vegetarian</button><button class="option-chip" type="button" data-choice="tag" data-value="family">Family-friendly</button><button class="option-chip" type="button" data-choice="tag" data-value="budget">Budget</button><button class="option-chip" type="button" data-choice="tag" data-value="high-protein">High protein</button></div></div>
+      <button class="btn btn-primary" type="button" data-decide>Decide dinner</button>
+      <div class="tool-results" data-decider-result></div>
+    </div></div></section>'''
+    write_page("/dinner-decider/", page("Dinner Decider", "Choose your available time and dinner preferences, then let DishGal pick one practical recipe for tonight.", "/dinner-decider/", body, needs_recipe_data=True))
+
+def build_pantry():
+    pantry_terms = ["chicken","beef","pork","eggs","pasta","rice","potatoes","beans","tomatoes","broccoli","spinach","cheese","tortillas","lemon","onion"]
+    items = "".join(f'<label class="pantry-item"><input type="checkbox" value="{esc(x)}"> {esc(x.title())}</label>' for x in pantry_terms)
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Use what you have</p><h1>Pantry Rescue</h1><p class="lede">Check a few ingredients. We rank DishGal recipes by overlap so you can start with what is already in the kitchen.</p></div></section>
+    <section class="tool-page"><div class="wrap"><div class="tool-shell" data-pantry-tool>
+      <div class="pantry-grid">{items}</div>
+      <div class="field" style="margin-top:1rem"><label for="extras">Anything else?</label><input id="extras" name="extras" placeholder="mushrooms, feta, zucchini"></div>
+      <div class="button-row" style="margin-top:1rem"><button class="btn btn-primary" type="button" data-match-pantry>Find matches</button></div>
+      <div class="tool-results" data-pantry-results></div>
+    </div></div></section>'''
+    write_page("/pantry-rescue/", page("Pantry Rescue", "Select ingredients you already have and DishGal will rank recipes by ingredient overlap to help reduce waste and dinner indecision.", "/pantry-rescue/", body, needs_recipe_data=True))
+
+def build_planner():
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Five nights, handled</p><h1>Weeknight meal planner</h1><p class="lede">Build five varied dinners, then turn them into a checkable grocery list. Reroll until the week feels right.</p></div></section>
+    <section class="tool-page"><div class="wrap"><div class="tool-shell" data-planner>
+      <div class="filter-row" style="grid-template-columns:1fr 1fr auto">
+        <div class="field"><label for="planner-time">Max weeknight time</label><select id="planner-time" name="planner-time"><option value="30">30 minutes</option><option value="45" selected>45 minutes</option><option value="60">60 minutes</option><option value="999">No limit</option></select></div>
+        <label class="pantry-item" style="align-self:end;min-height:45px"><input type="checkbox" name="planner-vegetarian"> Vegetarian week</label>
+        <button class="btn btn-primary" type="button" data-build-plan>Build my week</button>
+      </div>
+      <div class="planner-grid" data-plan-grid></div>
+      <div class="button-row" style="margin-top:1.25rem"><button class="btn btn-outline" type="button" data-build-plan>Reroll week</button><button class="btn btn-dark" type="button" data-build-list>Make grocery list</button></div>
+      <div data-shopping-wrap hidden style="margin-top:2rem"><h2>Grocery checklist</h2><ul class="shopping-list" data-shopping-list></ul></div>
+    </div></div></section>'''
+    write_page("/meal-planner/", page("5-Night Meal Planner", "Build a five-night DishGal dinner plan based on your available cooking time, then generate a practical grocery checklist.", "/meal-planner/", body, needs_recipe_data=True))
+
+def build_guides():
+    category_cards = []
+    for slug, (name, desc, icon) in GUIDE_CATEGORY_META.items():
+        count = sum(1 for article in ARTICLES if article.get("category", "").lower().replace(" ", "-") == slug)
+        if count:
+            category_cards.append(f'''<a class="collection-pill" href="{href('/guides/category/' + slug + '/')}"><span class="collection-icon">{icon}</span><strong>{esc(name)}</strong><small>{count} guides</small></a>''')
+    affiliate_count = sum(1 for article in ARTICLES if article.get("affiliate"))
+    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">DishGal Kitchen Picks</p><h1>Buy less. Choose better. Cook more.</h1><p class="lede">{len(ARTICLES)} practical guides‚Äîincluding {affiliate_count} product-focused picks‚Äîbuilt around capacity, materials, cleanup, storage, and the jobs your kitchen actually needs done.</p></div></section>
+    <section class="section-tight section-paper"><div class="wrap"><div class="collection-grid">{''.join(category_cards)}</div></div></section>
+    <section class="section-tight"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">The complete library</p><h2>Kitchen picks & planning guides</h2></div><p>No invented tests, star ratings, or universal winners‚Äîjust clear criteria and tradeoffs.</p></div><div class="article-grid">{''.join(article_card(a) for a in ARTICLES)}</div></div></section>'''
+    hub_schema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "DishGal Kitchen Picks",
+        "description": "Practical kitchen gear and meal-planning guides based on function, capacity, materials, cleanup, and storage.",
+        "url": canonical("/guides/"),
+        "mainEntity": {"@type": "ItemList", "numberOfItems": len(ARTICLES), "itemListElement": [
+            {"@type": "ListItem", "position": index + 1, "url": canonical('/guides/' + article['slug'] + '/'), "name": article.get("title", "Guide")}
+            for index, article in enumerate(ARTICLES)
+        ]},
+    }
+    write_page("/guides/", page("Kitchen Picks & Buying Guides", "Practical DishGal kitchen buying guides covering cookware, appliances, prep tools, storage, and meal-planning systems.", "/guides/", body, schema=hub_schema))
+    for article in ARTICLES:
+        sections = "".join(f"<h2>{esc(sec[0])}</h2><p>{esc(sec[1])}</p>" for sec in article.get("sections",[]))
+        disclosure = '<div class="disclosure-box"><strong>Paid links:</strong> As an Amazon Associate I earn from qualifying purchases. You pay no additional cost.</div>' if article.get("affiliate") else ""
+        shop = ""
+        if article.get("affiliate"):
+            shop_items = article.get("shop_items", [])
+            if not shop_items and article.get("shop_query"):
+                shop_items = [[article["shop_query"], "Compare current options", "Use the guide criteria before choosing."]]
+            if shop_items:
+                cards = "".join(amazon_link(*item) for item in shop_items)
+                shop = f'''<div class="shop-box"><h3>Compare the useful options</h3><p>Use the criteria above first. These links open current Amazon category results, so you can compare specifications, availability, and price.</p><div class="shop-grid">{cards}</div></div>'''
+        related = [candidate for candidate in ARTICLES if candidate["slug"] != article["slug"] and candidate.get("category") == article.get("category")][:3]
+        if len(related) < 3:
+            related_slugs = {candidate["slug"] for candidate in related}
+            related.extend(candidate for candidate in ARTICLES if candidate["slug"] != article["slug"] and candidate["slug"] not in related_slugs) 
+            related = related[:3]
+        related_html = f'''<section class="section section-paper"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Keep choosing well</p><h2>Related kitchen guides</h2></div><a class="btn btn-outline" href="{href('/guides/')}">All Kitchen Picks</a></div><div class="article-grid">{''.join(article_card(candidate) for candidate in related)}</div></div></section>'''
+        body = f'''<section class="page-hero"><div class="narrow">{breadcrumbs([("Kitchen Picks","/guides/"),(article.get("title","Guide"),None)])}<p class="eyebrow">{esc(article.get("category","Guide"))}</p><h1>{esc(article.get("title","Guide"))}</h1><p class="lede">{esc(article.get("dek",""))}</p><p class="muted">{int(article.get("read_minutes",5))} minute read ¬∑ Updated August 24, 2026</p></div></section>
+        <div class="wrap"><img class="article-hero-image" src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}" width="1080" height="675" fetchpriority="high" decoding="async"></div>
+        <section class="section-tight"><article class="narrow prose">{disclosure}<p>{esc(article.get("dek",""))}</p>{sections}{shop}</article></section>
+        {related_html}
+        {newsletter_block()}'''
+        article_schema = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": article.get("title", "Guide"),
+            "description": article.get("dek", ""),
+            "image": [article.get("image", "")],
+            "datePublished": "2026-08-24",
+            "dateModified": "2026-08-24",
+            "author": {"@type": "Organization", "name": "DishGal"},
+            "publisher": {"@type": "Organization", "name": "DishGal"},
+            "mainEntityOfPage": canonical('/guides/' + article['slug'] + '/'),
+        }
+        path = f"/guides/{article['slug']}/"
+        schema = [
+            article_schema,
+            breadcrumb_schema([("Kitchen Picks", "/guides/"), (article.get("title", "Guide"), None)]),
+        ]
+        write_page(path, page(
+            article.get("title", "Guide"),
+            article.get("dek", "Practical kitchen and meal-planning guidance from DishGal."),
+            path,
+            body,
+            schema=schema,
+            image=article.get("image"),
+            page_type="article",
+            published="2026-08-24",
+            modified="2026-08-24",
+        ))
+
+def build_category_indexes():
+    for slug, (name, desc, _) in GUIDE_CATEGORY_META.items():
+        matches = [a for a in ARTICLES if a.get("category","").lower().replace(" ","-") == slug]
+        path = f"/guides/category/{slug}/"
+        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Kitchen Picks", "/guides/"), (name, None)])}<p class="eyebrow">DishGal guides</p><h1>{esc(name)}</h1><p class="lede">{esc(desc)}</p></div></section>
+        <section class="section-tight"><div class="wrap"><div class="article-grid">{''.join(article_card(a) for a in matches) if matches else '<div class="empty-state is-visible"><h3>More guides coming</h3><p>Browse all current guides while this section grows.</p></div>'}</div></div></section>'''
+        schema = [
+            {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": name,
+                "description": desc,
+                "url": canonical(path),
+                "mainEntity": {
+                    "@type": "ItemList",
+                    "numberOfItems": len(matches),
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": index + 1, "url": canonical('/guides/' + article['slug'] + '/'), "name": article.get("title", "Guide")}
+                        for index, article in enumerate(matches)
+                    ],
+                },
+            },
+            breadcrumb_schema([("Kitchen Picks", "/guides/"), (name, None)]),
+        ]
+        write_page(path, page(name, f"{desc} Browse DishGal's current {name.lower()} guides.", path, body, schema=schema))
+
+def simple_page(path, title, eyebrow, lede, sections):
+    content = "".join(f"<h2>{esc(h)}</h2><p>{esc(p)}</p>" for h,p in sections)
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">{esc(eyebrow)}</p><h1>{esc(title)}</h1><p class="lede">{esc(lede)}</p></div></section><section class="section-tight"><article class="narrow prose"><p>{esc(lede)}</p>{content}</article></section>'''
+    write_page(path, page(title, lede, path, body))
+
+def build_utility_pages():
+    simple_page("/about/","About DishGal","Why this exists","DishGal is built for the nightly question, not the food-influencer audition.",[
+        ("Dinner first","Useful information comes before storytelling. Recipes show timing, cost, substitutions, storage, and common questions."),
+        ("Tools, not pressure","The Dinner Decider, Pantry Rescue, saved recipes, and meal planner are designed to reduce decisions without requiring an account."),
+        ("Editorial independence","Commercial relationships are disclosed. DishGal does not invent testing claims, ratings, or personal experience.")
+    ])
+    simple_page("/editorial-policy/","Editorial Policy","How DishGal publishes","Our standard is useful, specific, transparent cooking information that a reader can actually act on.",[
+        ("Recipe standard","Recipes include full ingredient lists, numbered directions, timing, serving size, substitutions, storage guidance, and FAQs."),
+        ("Corrections","Material errors are corrected when found. Dates may be updated when a page is substantially revised."),
+        ("Commercial content","Affiliate relationships do not determine editorial conclusions. Buying guides explain criteria and tradeoffs.")
+    ])
+    simple_page("/affiliate-disclosure/","Affiliate Disclosure","Commercial transparency","As an Amazon Associate I earn from qualifying purchases. DishGal may earn commissions from qualifying purchases made through clearly labeled outbound product links.",[
+        ("No extra cost","Affiliate commissions do not increase the price you pay."),
+        ("No invented testing","A commercial link does not mean DishGal personally tested a product unless a page explicitly and truthfully says so."),
+        ("Editorial separation","Product recommendations should be grounded in the criteria discussed on the page, not commission rate.")
+    ])
+    simple_page("/privacy/","Privacy Policy","Plain-language privacy","DishGal is designed to work with very little personal data and no account requirement.",[
+        ("Saved recipes","Saved recipes are stored in your browser's local storage unless and until a future account feature is explicitly introduced."),
+        ("Forms","If you submit an email or contact form, the information is used to respond or deliver the requested communication."),
+        ("Analytics and advertising","The site may use privacy-conscious analytics and advertising technology. Those providers may process technical information under their own policies.")
+    ])
+    simple_page("/terms/","Terms of Use","Site terms","DishGal provides general cooking, meal-planning, and kitchen information for personal use.",[
+        ("Food safety","Use appropriate food-safety practices and verify safe internal temperatures for meat, poultry, seafood, and leftovers."),
+        ("No warranty","Recipes, timing, nutrition estimates, and cost estimates vary with ingredients, equipment, location, and technique."),
+        ("Content use","DishGal content may not be republished wholesale without permission.")
+    ])
+    simple_page("/image-credits/","Image Credits","Visual sourcing","DishGal uses properly sourced editorial photography and original site design assets.",[
+        ("Editorial images","Recipe and guide images are sourced from Unsplash, Pexels, Pixabay, and Wikimedia Commons under their applicable licenses."),
+        ("Attribution","Photographers retain rights under the applicable source license and platform terms. Wikimedia recipe pages display the creator and license beside the photograph."),
+        ("Future images","DishGal may replace launch imagery with original photography or licensed assets over time.")
+    ])
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Say hello</p><h1>Contact DishGal</h1><p class="lede">Corrections, recipe questions, partnerships, and useful feedback can all come through here.</p></div></section>
+    <section class="section-tight"><div class="wrap contact-grid"><div><h2>What belongs here</h2><p>Found a recipe issue? Have a substitution question? Want to discuss a relevant partnership? Send it.</p></div>
+    <form class="contact-form" action="https://formsubmit.co/{esc(FORM_EMAIL)}" method="POST">
+      <div class="field"><label for="name">Name</label><input id="name" name="name" required></div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" required></div>
+      <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+      <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off"><button class="btn btn-primary" type="submit">Send message</button>
+    </form></div></section>'''
+    write_page("/contact/", page("Contact", "Contact DishGal with recipe questions, corrections, partnership inquiries, or useful feedback about the site.", "/contact/", body))
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">The useful email</p><h1>Dinner ideas worth opening.</h1><p class="lede">Join for new recipes, planning shortcuts, and useful kitchen guidance without daily inbox clutter.</p></div></section>{newsletter_block()}'''
+    write_page("/newsletter/", page("Newsletter", "Join the DishGal newsletter for practical recipes, meal-planning shortcuts, and useful kitchen guidance.", "/newsletter/", body))
+
+def build_404():
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">404</p><h1>This dinner went missing.</h1><p class="lede">The page is not here, but the recipe library is.</p><div class="button-row" style="justify-content:center;margin-top:1.5rem"><a class="btn btn-primary" href="{href('/recipes/')}">Browse recipes</a><a class="btn btn-outline" href="{href('/')}">Go home</a></div></div></section>'''
+    write_page("/404.html", page("Page Not Found", "The requested DishGal page could not be found. Browse the current recipe library or return to the homepage.", "/404.html", body, noindex=True))
+
+def copy_assets():
+    ensure_dir(PUBLIC / "assets" / "css")
+    ensure_dir(PUBLIC / "assets" / "js")
+    shutil.copy2(ROOT / "assets" / "css" / "styles.css", PUBLIC / "assets" / "css" / "styles.css")
+    shutil.copy2(ROOT / "assets" / "dishgal-brand.webp", PUBLIC / "assets" / "dishgal-brand.webp")
+    source_js = (ROOT / "assets" / "js" / "site.js").read_text(encoding="utf-8")
+    source_js = source_js.replace('href="/recipes/', 'href="${window.DISHGAL_BASE || ""}/recipes/')
+    (PUBLIC / "assets" / "js" / "site.js").write_text(source_js, encoding="utf-8")
+    (PUBLIC / "assets" / "js" / "recipes.js").write_text("window.DISHGAL_RECIPES=" + json_script(RECIPES) + ";", encoding="utf-8")
+    social = ROOT / "assets" / "social-card.png"
+    if social.exists():
+        shutil.copy2(social, PUBLIC / "assets" / "social-card.png")
+
+def build_machine_files():
+    html_paths = []
+    for file in sorted(PUBLIC.rglob("*.html")):
+        rel = file.relative_to(PUBLIC).as_posix()
+        if rel == "404.html":
+            continue
+        if '<meta name="robots" content="noindex' in file.read_text(encoding="utf-8"):
+            continue
+        if rel == "index.html":
+            url_path = "/"
+        elif rel.endswith("/index.html"):
+            url_path = "/" + rel[:-10]
+        else:
+            url_path = "/" + rel
+        html_paths.append(url_path)
+    recipe_dates = {f"/recipes/{recipe['slug']}/": recipe.get("date_modified", recipe.get("date_published", "2026-08-17")) for recipe in RECIPES}
+    latest_recipe_date = max(recipe_dates.values(), default="2026-08-17")
+    sitemap = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for path in html_paths:
+        if path in recipe_dates:
+            lastmod = recipe_dates[path]
+        elif path.startswith("/guides/"):
+            lastmod = "2026-08-24"
+        else:
+            lastmod = latest_recipe_date
+        sitemap.append(f"  <url><loc>{esc(canonical(path))}</loc><lastmod>{esc(lastmod)}</lastmod></url>")
+    sitemap.append("</urlset>")
+    (PUBLIC / "sitemap.xml").write_text("\n".join(sitemap), encoding="utf-8")
+    (PUBLIC / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
+    feed_items = []
+    newest_recipes = sorted(RECIPES, key=lambda recipe: recipe.get("date_published", ""), reverse=True)[:30]
+    for recipe in newest_recipes:
+        recipe_url = canonical('/recipes/' + recipe['slug'] + '/')
+        published = recipe.get("date_published", "2026-08-17")
+        feed_items.append(f"<item><title>{esc(recipe.get('title','Recipe'))}</title><link>{esc(recipe_url)}</link><guid>{esc(recipe_url)}</guid><pubDate>{esc(rss_date(published))}</pubDate><description>{esc(recipe.get('dek',''))}</description></item>")
+    for article in ARTICLES[:10]:
+        article_url = canonical('/guides/' + article['slug'] + '/')
+        feed_items.append(f"<item><title>{esc(article.get('title','Guide'))}</title><link>{esc(article_url)}</link><guid>{esc(article_url)}</guid><description>{esc(article.get('dek',''))}</description></item>")
+    (PUBLIC / "feed.xml").write_text(f'''<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>DishGal</title><link>{SITE_URL}</link><description>Dinner, decided.</description>{''.join(feed_items)}</channel></rss>''', encoding="utf-8")
+    ads = f"google.com, {ADSENSE_PUBLISHER_ID}, DIRECT, f08c47fec0942fa0\n" if ADSENSE_PUBLISHER_ID else "# DishGal.com advertising inventory is not yet configured.\n"
+    (PUBLIC / "ads.txt").write_text(ads, encoding="utf-8")
+    (PUBLIC / "CNAME").write_text("dishgal.com\n", encoding="utf-8")
+    (PUBLIC / ".nojekyll").write_text("", encoding="utf-8")
+    manifest = {
+        "name": "DishGal",
+        "short_name": "DishGal",
+        "start_url": href("/"),
+        "display": "standalone",
+        "background_color": "#fbf6ee",
+        "theme_color": "#e94f37",
+        "description": "Dinner, decided."
+    }
+    (PUBLIC / "site.webmanifest").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+
+def main():
+    if PUBLIC.exists() and os.environ.get("DISHGAL_NO_CLEAN") != "1":
+        shutil.rmtree(PUBLIC)
+    ensure_dir(PUBLIC)
+    copy_assets()
+    build_home()
+    build_recipe_index()
+    build_recipe_pages()
+    build_collections()
+    build_ingredient_hubs()
+    build_saved()
+    build_decider()
+    build_pantry()
+    build_planner()
+    build_guides()
+    build_category_indexes()
+    build_utility_pages()
+    build_404()
+    build_machine_files()
+    count = len(list(PUBLIC.rglob("*.html")))
+    print(f"Built DishGal: {count} HTML pages, {len(RECIPES)} recipes, {len(ARTICLES)} guides, base={BASE or '/'}")
+
+if __name__ == "__main__":
+    main()

@@ -1,1 +1,382 @@
-Y™Áäx-ÆÈ‹j◊ù¢Îi∫⁄+äßj[hëÈ‹¢ÈÌ◊^9Ÿ:-jZ.∂õ≠ñ)ﬁ≥U∞¢∞¢'6«Vr#¢&ñÁ7FÁB◊˜B÷fñ∆óñÊÚ÷6Üñ6∂V‚÷'&˜¢÷6∆FÚ÷vñÊvW"÷6∆÷Á6í"¿¢'FóF∆R#¢$ñÁ7FÁB˜Bfñ∆óñÊÚ’7Gñ∆R6Üñ6∂V‚'&˜¢6∆FÚvóFÇvñÊv]uﬂù≠¢Gß≤⁄Óù∆≠y÷∆≤"¬&w&ÁV∆FVB7Vv""¬&fñÊR6V6«B"¬&6˜&Á7F&6Ç"¬'6W6÷R6VVG2%“¿¢&FFU˜V&∆ó6ÜVB#¢###b”í”#b"¿¢&FFUˆ÷ˆFñfñVB#¢###b”í”#b ¢–•–
+[
+  {
+    "slug": "instant-pot-filipino-chicken-arroz-caldo-ginger-calamansi",
+    "title": "Instant Pot Filipino-Style Chicken Arroz Caldo with Ginger & Calamansi",
+    "dek": "Chicken thighs, jasmine rice and fresh ginger pressure-cook into a soothing savory porridge finished with calamansi, scallions and crisp garlic.",
+    "collection": "instant-pot",
+    "protein": ["chicken"],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 45,
+    "total_minutes": 65,
+    "servings": 6,
+    "calories": 430,
+    "cost_per_serving": "$3.15",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/40/Mom_wanted_lugaw_%28arroz_caldo%29%2C_so_I_freestyled_this_%E2%80%94_rice%2C_leftover_Costco_rotisserie_chicken%2C_ginger%2C_garlic%2C_onion%2C_patis%2C_calamansi_juice%2C_chicharron_%2815698407038%29.jpg",
+    "image_alt": "Bowl of Filipino chicken arroz caldo with visible chicken pieces in thick rice porridge",
+    "image_credit": "Arnold Gatilao / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Mom_wanted_lugaw_(arroz_caldo),_so_I_freestyled_this_%E2%80%94_rice,_leftover_Costco_rotisserie_chicken,_ginger,_garlic,_onion,_patis,_calamansi_juice,_chicharron_(15698407038).jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "tags": ["instant pot", "electric pressure cooker", "arroz caldo", "Filipino-style", "chicken porridge", "ginger", "calamansi", "family breakfast"],
+    "ingredients": [
+      "1 3/4 lb boneless skinless chicken thighs, trimmed and cut into 2-inch pieces",
+      "1 1/2 tsp kosher salt, divided",
+      "1/2 tsp ground black pepper",
+      "2 tbsp neutral oil, divided",
+      "8 garlic cloves, thinly sliced",
+      "1 medium yellow onion, finely diced",
+      "2 tbsp finely grated fresh ginger",
+      "1 cup jasmine rice, rinsed until the water is mostly clear and drained",
+      "6 cups low-sodium chicken broth",
+      "1 tbsp fish sauce, plus more to taste",
+      "2 tsp toasted sesame oil",
+      "4 scallions, thinly sliced",
+      "6 calamansi, halved, or 3 limes cut into wedges",
+      "3 hard-cooked eggs, halved, optional",
+      "Hot sauce or chile oil, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Season the chicken", "text": "Pat the chicken dry and season with 1 teaspoon salt and the black pepper. Keep it refrigerated while you prepare the garlic and aromatics."},
+      {"name": "Make the crisp garlic", "text": "Select Saut√© on Low on a 6-quart electric pressure cooker. Add 1 tablespoon oil and the sliced garlic. Cook for 3 to 5 minutes, stirring constantly, until pale golden. Immediately transfer the garlic to a paper-towel-lined plate; it will darken as it cools."},
+      {"name": "Saut√© and deglaze", "text": "Add the remaining tablespoon oil, onion and ginger to the pot. Cook for 3 minutes, stirring, until fragrant. Cancel Saut√©, pour in 1 cup broth and scrape the base until no browned garlic or onion remains."},
+      {"name": "Layer the porridge", "text": "Add the remaining 5 cups broth, fish sauce and rinsed rice and stir once to distribute the grains. Arrange the chicken in an even layer and press it below the liquid. Do not exceed the half-full line because rice expands and can foam; reduce the batch if your model requires it."},
+      {"name": "Pressure cook and release", "text": "Lock the lid and cook on High Pressure for 10 minutes; allow about 12 minutes for the cooker to reach pressure. Let pressure release naturally for 10 minutes, then vent the remainder in short controlled pulses with hands and face away from steam. Pause if starchy liquid sputters and open only after the float valve drops."},
+      {"name": "Shred and adjust", "text": "Check several chicken pieces: they must reach 165¬∞F. Transfer the chicken to a plate, shred it and return it to the pot. Stir vigorously to break up some rice, then add the sesame oil. If the porridge is thicker than you like, stir in hot broth 1/2 cup at a time; it will continue to thicken as it stands."},
+      {"name": "Finish the bowls", "text": "Taste and add the remaining 1/2 teaspoon salt or more fish sauce only as needed. Divide among bowls and top with scallions, crisp garlic and optional egg. Squeeze calamansi over each bowl and let diners add chile oil at the table."}
+    ],
+    "why_it_works": [
+      "Six cups of thin broth sit against a completely deglazed base, giving the expanding rice enough liquid and reducing burn-warning risk.",
+      "A full 10-minute natural release settles foamy starch before controlled venting, while vigorous stirring creates the creamy body without dairy.",
+      "Cooking the garlic first leaves aromatic oil in the pot and preserves a crisp topping that would otherwise soften under pressure."
+    ],
+    "swaps": [
+      "Use bone-in chicken thighs totaling about 2 pounds; keep the same pressure time, remove the bones after cooking and verify 165¬∞F away from bone.",
+      "Calamansi is traditional and floral, but lime provides the necessary bright acidity when calamansi is unavailable.",
+      "For a gluten-free bowl, confirm the fish sauce and chile oil are certified gluten-free; the remaining core ingredients are naturally gluten-free."
+    ],
+    "storage": "Cool in shallow containers within 2 hours and refrigerate for up to 4 days. Reheat on the stovetop or in the microwave with enough broth or water to loosen it, stirring frequently, until the chicken and porridge reach 165¬∞F. Freeze without egg, scallions or crisp garlic for up to 2 months; thaw overnight and expect to add extra broth.",
+    "notes": [
+      "Total time includes crisping garlic, approximately 12 minutes to pressurize, the 10-minute programmed cycle, a 10-minute natural release and final shredding.",
+      "The base is deliberately mild. Chile oil, sliced fresh chiles and extra black pepper belong at the table.",
+      "Written for a 6-quart electric pressure cooker. Follow your exact model manual's minimum-liquid, half-full limit for grains and venting procedure; never force the lid.",
+      "Rinse the rice well, but do not soak it. Soaked grains can break down too far during the pressure cycle.",
+      "Do not use only chicken breast at this timing; thighs tolerate pressure better and keep the porridge moist."
+    ],
+    "faqs": [
+      {"q": "Why is my arroz caldo much thicker after resting?", "a": "Rice keeps absorbing broth as it cools. Stir in hot broth or water a little at a time until the porridge flows slowly from a spoon, then recheck the seasoning."},
+      {"q": "Can I use brown rice?", "a": "Not as a direct swap. Brown rice needs a longer pressure cycle that can overcook the chicken, so it should be tested as a separate formula rather than substituted here."},
+      {"q": "What if starchy liquid sputters from the valve?", "a": "Immediately close the valve, wait 1 to 2 minutes and resume with very short pulses. Never cover the valve with a towel, and wait for the float valve to drop before opening."}
+    ],
+    "pantry": ["jasmine rice", "low-sodium chicken broth", "fish sauce", "toasted sesame oil", "neutral oil", "kosher salt", "black pepper", "chile oil"],
+    "date_published": "2026-09-26",
+    "date_modified": "2026-09-26"
+  },
+  {
+    "slug": "instant-pot-polish-bigos-pork-kielbasa-sauerkraut",
+    "title": "Instant Pot Polish-Style Bigos with Pork, Kielbasa & Sauerkraut",
+    "dek": "Pork shoulder, smoky kielbasa, sauerkraut, cabbage and mushrooms become a deeply savory hunter's stew with a safe, staged pressure release.",
+    "collection": "instant-pot",
+    "protein": ["pork"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 25,
+    "cook_minutes": 75,
+    "total_minutes": 100,
+    "servings": 8,
+    "calories": 520,
+    "cost_per_serving": "$4.40",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Bigos_polonia.jpg",
+    "image_alt": "Bowl of Polish bigos with sauerkraut, cabbage and pieces of browned meat",
+    "image_credit": "Mario Carvajal / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Bigos_polonia.jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "tags": ["instant pot", "electric pressure cooker", "bigos", "Polish-style", "pork shoulder", "kielbasa", "sauerkraut", "freezer meal"],
+    "ingredients": [
+      "1 1/2 lb boneless pork shoulder, cut into 1 1/2-inch cubes",
+      "1 1/4 tsp kosher salt, divided",
+      "1/2 tsp ground black pepper",
+      "1 tbsp neutral oil",
+      "12 oz fully cooked kielbasa, cut into 1/2-inch rounds",
+      "1 large yellow onion, diced",
+      "8 oz cremini mushrooms, quartered",
+      "3 garlic cloves, minced",
+      "1 1/2 cups low-sodium beef or chicken broth",
+      "1 lb sauerkraut, drained but not rinsed",
+      "12 oz green cabbage, thinly sliced",
+      "1 can (14.5 oz) diced tomatoes",
+      "2 tbsp tomato paste",
+      "1 tsp sweet paprika",
+      "1 tsp dried marjoram",
+      "1/2 tsp caraway seeds, lightly crushed",
+      "6 pitted prunes, quartered",
+      "2 bay leaves",
+      "1 tbsp red wine vinegar, plus more to taste",
+      "2 tbsp chopped flat-leaf parsley",
+      "Rye bread and prepared mustard, optional for serving",
+      "Crushed red pepper or hot mustard, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Season and brown the pork", "text": "Pat the pork dry and season with 1 teaspoon salt and the black pepper. Select Saut√© on High on a 6-quart electric pressure cooker, add the oil and brown the pork in two batches for 3 to 4 minutes per batch. Transfer to a plate."},
+      {"name": "Brown the sausage and vegetables", "text": "Add the kielbasa and cook for 2 minutes, until lightly browned; transfer it to the pork plate. Add the onion and mushrooms and cook for 4 minutes. Add the garlic and cook for 30 seconds."},
+      {"name": "Deglaze completely", "text": "Cancel Saut√©. Pour in the broth and scrape the base until every browned bit releases. Return the pork and any juices, then add the sauerkraut, cabbage, paprika, marjoram, caraway, prunes and bay leaves. Spoon the diced tomatoes and tomato paste over the top without stirring them into the base. Do not pack food above your model's maximum-fill line."},
+      {"name": "Pressure cook and release", "text": "Lock the lid and cook on High Pressure for 30 minutes; allow about 15 minutes to reach pressure. Let pressure release naturally for 15 minutes, then vent the remainder in short controlled pulses. Pause if liquid sputters and open only after the float valve drops."},
+      {"name": "Check tenderness and reduce", "text": "Discard the bay leaves. Pork is safe at 145¬∞F with a 3-minute rest, but shoulder for bigos should be about 190 to 200¬∞F and yield easily to a fork. If it is still firm, pressure-cook for 5 minutes more with a 10-minute natural release. Otherwise, select Saut√© on High and simmer uncovered for 8 to 10 minutes, stirring, until the stew is rich rather than soupy."},
+      {"name": "Finish with kielbasa", "text": "Stir in the browned kielbasa and simmer for 3 to 4 minutes, until it and the stew reach 165¬∞F. Add the vinegar and remaining 1/4 teaspoon salt only if needed. Cancel Saut√©, rest 10 minutes, sprinkle with parsley and serve with rye bread and mustard; offer extra heat at the table."}
+    ],
+    "why_it_works": [
+      "Broth touches a fully deglazed base while tomato solids remain on top, helping prevent the burn warning during the long pressure cycle.",
+      "Pork shoulder pressure-cooks until its collagen softens, while fully cooked kielbasa is browned first and returned after pressure so it stays juicy.",
+      "Fresh cabbage tempers the sauerkraut's acidity, and prunes add quiet sweetness without turning the stew sugary."
+    ],
+    "swaps": [
+      "Use smoked turkey sausage for the kielbasa; add it after pressure exactly as written and check the package for its reheating guidance.",
+      "Dried porcini can replace cremini mushrooms: soak 1 ounce in hot water, strain the liquid through fine mesh and count up to 1 cup of it toward the broth.",
+      "For a less tangy stew, rinse half‚Äînot all‚Äîof the sauerkraut and add another teaspoon of vinegar only after tasting the finished pot."
+    ],
+    "storage": "Cool in shallow containers within 2 hours. Refrigerate for up to 4 days; the flavor deepens overnight. Reheat on the stovetop or in the microwave, stirring occasionally, until every portion reaches 165¬∞F. Freeze for up to 3 months, thaw overnight and add a splash of broth before reheating.",
+    "notes": [
+      "Total time includes two browning batches, approximately 15 minutes to pressurize, the 30-minute programmed cycle, a 15-minute natural release, reduction and a brief rest.",
+      "The base is family-mild. Hot mustard, horseradish or crushed red pepper can be offered individually.",
+      "Written for a 6-quart electric pressure cooker. Follow your model's minimum-liquid, maximum-fill and venting rules and never force the lid.",
+      "Sauerkraut salinity varies. Drain it and postpone the final salt adjustment until after the kielbasa has heated through.",
+      "If the pot is crowded above the fill line before cooking, reduce the cabbage rather than compressing it."
+    ],
+    "faqs": [
+      {"q": "Does bigos need wine?", "a": "No. This version uses broth for dependable pressure-cooker liquid and red wine vinegar for a controlled acidic finish. If desired, replace 1/2 cup broth with dry red wine and boil it for 2 minutes before deglazing with the remaining broth."},
+      {"q": "Why is my bigos watery?", "a": "Cabbage and mushrooms release moisture under pressure. Use Saut√© after opening and reduce uncovered until a spoon dragged across the base leaves a brief trail."},
+      {"q": "Can I make bigos a day ahead?", "a": "Yes. Cool it promptly, refrigerate overnight and remove any firm surface fat before reheating to 165¬∞F. Taste after reheating because the sauerkraut and smoke become more pronounced."
+      }
+    ],
+    "pantry": ["low-sodium broth", "sauerkraut", "diced tomatoes", "tomato paste", "dried prunes", "sweet paprika", "dried marjoram", "caraway seeds", "red wine vinegar", "bay leaves", "neutral oil"],
+    "date_published": "2026-09-26",
+    "date_modified": "2026-09-26"
+  },
+  {
+    "slug": "mumbai-style-pav-bhaji-buttered-rolls-lime",
+    "title": "Mumbai-Style Pav Bhaji with Buttered Rolls, Onions & Lime",
+    "dek": "A buttery, warmly spiced mash of potatoes, cauliflower, peas and tomatoes meets griddled rolls, sharp onions and lime for a complete vegetarian street-food dinner.",
+    "collection": "vegetarian",
+    "protein": ["meatless"],
+    "difficulty": "Easy",
+    "prep_minutes": 25,
+    "cook_minutes": 40,
+    "total_minutes": 65,
+    "servings": 6,
+    "calories": 510,
+    "cost_per_serving": "$2.75",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Pav_bhaji_2.jpg",
+    "image_alt": "Mumbai-style pav bhaji vegetable mash with two buttered rolls, chopped onions, cilantro and lime",
+    "image_credit": "Hegde Neha / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Pav_bhaji_2.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["pav bhaji", "Mumbai-style", "Indian street food", "vegetarian dinner", "potato cauliflower", "buttered rolls", "budget meal", "griddle recipe"],
+    "ingredients": [
+      "1 1/2 lb Yukon Gold potatoes, peeled and cut into 1-inch chunks",
+      "12 oz cauliflower florets, cut small",
+      "1 cup frozen green peas",
+      "1 1/2 tsp kosher salt, divided",
+      "4 tbsp unsalted butter, divided, plus more for serving",
+      "1 tbsp neutral oil",
+      "1 large yellow onion, finely diced",
+      "1 green bell pepper, finely diced",
+      "1 tbsp finely grated fresh ginger",
+      "4 garlic cloves, finely grated",
+      "1 jalape√±o, seeded and minced, optional",
+      "2 tbsp tomato paste",
+      "1 can (14.5 oz) crushed tomatoes",
+      "2 1/2 tbsp pav bhaji masala",
+      "1 tsp Kashmiri chile powder or sweet paprika",
+      "1/2 tsp ground turmeric",
+      "1 1/2 cups water, plus more as needed",
+      "12 soft dinner rolls or pav, split",
+      "1/2 small red onion, finely chopped",
+      "1/2 cup chopped cilantro",
+      "3 limes, cut into wedges",
+      "Hot sauce or extra minced chile, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Cook the vegetables", "text": "Put the potatoes and cauliflower in a large saucepan, cover with cool water by 1 inch and add 1 teaspoon salt. Bring to a boil, reduce to a steady simmer and cook for 12 to 15 minutes, until very tender. Add the peas for the final 2 minutes, then drain well and mash coarsely."},
+      {"name": "Build the masala base", "text": "Melt 2 tablespoons butter with the oil in a wide, heavy skillet or Dutch oven over medium. Add the yellow onion and bell pepper and cook for 7 to 8 minutes, until soft. Add the ginger, garlic and optional jalape√±o and cook for 1 minute."},
+      {"name": "Concentrate the tomatoes", "text": "Stir in the tomato paste, pav bhaji masala, chile powder and turmeric and cook for 1 minute. Add the crushed tomatoes and cook for 6 to 8 minutes, stirring often, until the mixture darkens slightly and a spoon leaves a trail across the base."},
+      {"name": "Mash and simmer the bhaji", "text": "Add the mashed vegetables, remaining 1/2 teaspoon salt and 1 cup water. Mash and fold with a potato masher for 5 minutes, then simmer for 8 to 10 minutes, stirring often. Add the remaining 1/2 cup water as needed for a spoonable mash. Stir in 1 tablespoon butter and half the cilantro."},
+      {"name": "Griddle the pav", "text": "Melt the remaining tablespoon butter on a large skillet or griddle over medium. Place the rolls cut-side down and toast for 2 to 3 minutes, until golden and crisp at the edges. Work in batches without crowding."},
+      {"name": "Plate with fresh contrast", "text": "Taste the bhaji and adjust salt and lime. Spoon it into shallow bowls, top with a small knob of butter and the remaining cilantro, and serve with the hot rolls, chopped red onion and lime wedges. Put any extra chile at the table."}
+    ],
+    "why_it_works": [
+      "Boiling the potatoes and cauliflower until fully tender lets them merge into the creamy, cohesive texture that defines bhaji.",
+      "Cooking the spice blend briefly in butter and reducing the tomato base before adding vegetables prevents a raw, watery sauce.",
+      "Buttered griddled rolls, raw onion and lime supply crispness, richness and acidity against the soft vegetable mash."
+    ],
+    "swaps": [
+      "Use a 12-ounce bag of frozen cauliflower florets; add them with the potatoes and begin checking tenderness after 10 minutes.",
+      "For vegan pav bhaji, use vegan butter and verify the soft rolls contain no dairy; the method and quantities stay the same.",
+      "If pav bhaji masala is unavailable, combine 1 tablespoon garam masala, 2 teaspoons ground coriander, 1 teaspoon ground cumin, 1 teaspoon amchur and 1/4 teaspoon ground fennel."
+    ],
+    "storage": "Cool the bhaji within 2 hours and refrigerate it separately from the rolls and garnishes for up to 4 days. Reheat with a splash of water until steaming hot and 165¬∞F, stirring often. Freeze the bhaji for up to 3 months; thaw overnight and toast fresh rolls for serving.",
+    "notes": [
+      "Pav bhaji masala brands vary in heat and salt. Start with the listed amount, then adjust only after the vegetables have simmered.",
+      "A potato masher gives better texture than a blender, which can make potatoes gluey.",
+      "The optional jalape√±o is omitted from the mild base when cooking for children; add hot sauce or chopped chile at the table.",
+      "Choose soft, pull-apart rolls rather than crusty bread so the toasted halves can scoop up the bhaji.",
+      "The finished mash should mound softly, not stand stiffly or run like soup."
+    ],
+    "faqs": [
+      {"q": "Can I prepare the vegetables ahead?", "a": "Yes. Boil, drain and mash them up to 2 days ahead, chill promptly and add them cold to the reduced tomato base. Allow 3 to 5 extra minutes for the bhaji to heat through."},
+      {"q": "Why does my bhaji taste flat?", "a": "It usually needs one of three things: enough salt, a longer tomato reduction or fresh lime. Adjust in that order so acidity does not mask underseasoning."},
+      {"q": "Can I use a food processor to mash the bhaji?", "a": "Avoid it. Fast blades can make the potatoes gummy and the mixture overly smooth. A handheld masher keeps a few small vegetable pieces and gives you better control."
+      }
+    ],
+    "pantry": ["crushed tomatoes", "tomato paste", "pav bhaji masala", "Kashmiri chile powder", "ground turmeric", "neutral oil", "kosher salt"],
+    "date_published": "2026-09-26",
+    "date_modified": "2026-09-26"
+  },
+  {
+    "slug": "tunisian-style-brik-tuna-egg-harissa-salad",
+    "title": "Tunisian-Style Brik with Tuna, Egg & Harissa Salad",
+    "dek": "Crisp golden pastry encloses tuna, potato, capers and egg, with a chopped cucumber-tomato salad and harissa for a bright, satisfying lunch.",
+    "collection": "family",
+    "protein": ["seafood", "eggs"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 25,
+    "cook_minutes": 25,
+    "total_minutes": 50,
+    "servings": 6,
+    "calories": 460,
+    "cost_per_serving": "$3.60",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Brik_photo_1_%D8%A8%D8%B1%D9%8A%D9%83.jpg",
+    "image_alt": "Golden folded Tunisian brik pastry served with chopped cucumber-tomato salad, harissa relish and lime",
+    "image_credit": "Sami Mlouhi / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Brik_photo_1_%D8%A8%D8%B1%D9%8A%D9%83.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["Tunisian brik", "tuna pastry", "egg pastry", "harissa", "North African", "crispy lunch", "handheld meal", "shallow-fried"],
+    "ingredients": [
+      "12 oz Yukon Gold potatoes, peeled and cut into 1-inch chunks",
+      "1 tsp kosher salt, divided",
+      "2 cans (5 oz each) tuna packed in olive oil, drained and flaked",
+      "3 tbsp chopped flat-leaf parsley",
+      "2 tbsp capers, drained and chopped",
+      "2 scallions, thinly sliced",
+      "1 tsp ground coriander",
+      "1/2 tsp ground cumin",
+      "1 tbsp harissa paste, plus more for serving",
+      "6 large round brik or malsouka pastry sheets, or 6 large square spring-roll wrappers",
+      "6 large eggs, preferably pasteurized if serving soft yolks",
+      "2 cups neutral oil, for shallow-frying",
+      "1 English cucumber, cut into 1/4-inch dice",
+      "2 ripe plum tomatoes, seeded and cut into 1/4-inch dice",
+      "1/4 small red onion, finely diced",
+      "2 tbsp extra-virgin olive oil",
+      "1 tbsp lemon juice",
+      "2 lemons, cut into wedges"
+    ],
+    "instructions": [
+      {"name": "Cook and mash the potato", "text": "Put the potatoes in a saucepan, cover with cool water by 1 inch and add 1/2 teaspoon salt. Simmer for 12 to 15 minutes, until completely tender. Drain well, mash and cool for 10 minutes."},
+      {"name": "Mix the tuna filling", "text": "Fold the tuna, parsley, capers, scallions, coriander, cumin and harissa into the potato. Taste and add up to 1/4 teaspoon salt if needed; tuna and capers may already be salty. Divide into 6 equal portions."},
+      {"name": "Make the salad", "text": "Combine the cucumber, tomatoes and red onion with the olive oil, lemon juice and remaining 1/4 teaspoon salt. Set aside so the flavors mingle while you fry the brik."},
+      {"name": "Heat the oil safely", "text": "Pour 1/2 inch neutral oil into a wide, heavy skillet and heat over medium to 350¬∞F. Set a wire rack over a sheet pan. Keep unused pastry covered with a barely damp towel so it does not crack."},
+      {"name": "Fill one brik at a time", "text": "Lay one pastry sheet on a plate. Mound one portion of tuna filling just off center and make a deep well. Crack one egg into the well, fold the pastry over into a half-moon or triangle and press out excess air. If using spring-roll wrappers, brush the edges lightly with water to seal."},
+      {"name": "Fry until crisp", "text": "Slide the brik carefully into the 350¬∞F oil and fry for 60 to 90 seconds per side, spooning hot oil over the top, until deep golden and the egg white is opaque. Drain on the rack and return the oil to 350¬∞F before filling and frying the next brik. For fully set eggs or higher-risk diners, cook until the center reaches 160¬∞F; use pasteurized eggs if keeping the yolk soft."},
+      {"name": "Serve immediately", "text": "Plate each crisp brik with the drained chopped salad, lemon wedges and extra harissa. Warn diners that the filling is hot and serve within minutes so the pastry stays crisp."}
+    ],
+    "why_it_works": [
+      "Mashed potato anchors the tuna and keeps the raw egg centered instead of letting it run toward the pastry seam.",
+      "Filling each brik immediately before frying prevents the thin wrapper from becoming soggy or tearing.",
+      "A 350¬∞F oil target crisps the exterior quickly while the spooned oil sets the top and the egg cooks inside."
+    ],
+    "swaps": [
+      "Use well-drained canned salmon in place of tuna; remove any skin or large bones and keep the filling quantity the same.",
+      "If brik pastry is unavailable, large spring-roll wrappers give a slightly thicker but reliable shell; do not substitute dry phyllo sheets one-for-one.",
+      "For a milder filling, use 1 teaspoon harissa inside and serve the remainder at the table."
+    ],
+    "storage": "Brik is best immediately. Refrigerate leftover cooked pastries within 2 hours for up to 2 days, then reheat on a rack in a 400¬∞F oven for 8 to 10 minutes until the center reaches 165¬∞F. Do not microwave if you want a crisp shell. The tuna-potato filling can be refrigerated before eggs are added for up to 2 days; do not freeze assembled raw brik.",
+    "notes": [
+      "Set up every component before cracking an egg; the filled pastry must go directly into hot oil.",
+      "Keep a lid nearby for grease-fire safety, but never pour water on hot oil and never leave the pan unattended.",
+      "The filling is mild at one tablespoon harissa. Offer extra harissa separately rather than increasing the shared batch.",
+      "A wire rack preserves the crisp underside better than paper towels, which trap steam.",
+      "Seed the tomatoes so their juices do not flood the salad or soften the brik on the plate."
+    ],
+    "faqs": [
+      {"q": "How do I keep the egg from leaking?", "a": "Cool the potato mixture, make a deep well, keep the wrapper flat and fold immediately after cracking. Practice with one brik at a time rather than assembling all six in advance."},
+      {"q": "Can I bake brik instead of frying it?", "a": "You can brush the sealed pastries with oil and bake at 425¬∞F for about 10 to 14 minutes, but the wrapper will be drier and the egg timing less predictable. Use pasteurized eggs and verify 160¬∞F if a fully set center is required."},
+      {"q": "How do I know the oil is ready without a thermometer?", "a": "A small wrapper corner should bubble briskly without darkening at once, but a thermometer is more reliable. Oil below 340¬∞F makes greasy pastry; oil much above 365¬∞F browns the shell before the egg white sets."
+      }
+    ],
+    "pantry": ["canned tuna", "capers", "harissa paste", "ground coriander", "ground cumin", "neutral oil", "extra-virgin olive oil", "kosher salt"],
+    "date_published": "2026-09-26",
+    "date_modified": "2026-09-26"
+  },
+  {
+    "slug": "thai-mango-sticky-rice-coconut-cream-sesame",
+    "title": "Thai Mango Sticky Rice with Salted Coconut Cream & Sesame",
+    "dek": "Steamed glutinous rice absorbs warm coconut syrup, then meets ripe mango, a lightly salted coconut topping and toasted sesame seeds.",
+    "collection": "dessert",
+    "protein": ["meatless"],
+    "difficulty": "Easy",
+    "prep_minutes": 15,
+    "cook_minutes": 35,
+    "total_minutes": 300,
+    "servings": 6,
+    "calories": 440,
+    "cost_per_serving": "$2.65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Mango_sticky_rice.jpg",
+    "image_alt": "Thai mango sticky rice with sliced ripe mango, white coconut cream and sesame seeds on a banana leaf",
+    "image_credit": "Muzirian / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Mango_sticky_rice.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["mango sticky rice", "Thai dessert", "glutinous rice", "coconut cream", "ripe mango", "sesame", "dairy-free dessert", "make-ahead"],
+    "ingredients": [
+      "2 cups Thai glutinous rice, also labeled sweet rice",
+      "1 can (13.5 oz) full-fat coconut milk, well shaken and divided",
+      "1/2 cup granulated sugar",
+      "3/4 tsp fine sea salt, divided",
+      "1 pandan leaf, knotted, optional",
+      "1 tsp cornstarch",
+      "1 tbsp water",
+      "3 ripe Ataulfo mangoes or 2 large ripe mangoes",
+      "1 tbsp toasted white sesame seeds",
+      "Banana leaf pieces, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Soak the sticky rice", "text": "Rinse the glutinous rice in several changes of cool water until the water is mostly clear. Cover with at least 3 inches of cool water and soak for 4 hours at room temperature, or refrigerate for up to 12 hours."},
+      {"name": "Prepare the steamer", "text": "Drain the rice thoroughly. Line a bamboo steamer, metal steamer insert or fine-mesh splatter guard with damp cheesecloth. Spread the rice no more than 1 inch deep and set it over 2 inches of simmering water, making sure the water does not touch the rice."},
+      {"name": "Steam until tender", "text": "Cover and steam for 25 to 30 minutes, turning the rice over once after 15 minutes, until the grains are translucent, tender and chewy with no chalky center. Replenish the pan with boiling water if needed so it never runs dry."},
+      {"name": "Make the coconut syrup", "text": "While the rice steams, combine 1 cup coconut milk, the sugar, 1/2 teaspoon salt and optional pandan in a small saucepan. Heat over medium-low, stirring, just until the sugar dissolves and the mixture reaches about 170¬∞F; do not boil. Remove the pandan."},
+      {"name": "Season and rest the rice", "text": "Transfer the hot rice to a heatproof bowl and pour over the warm coconut syrup. Fold gently until evenly moistened, cover and rest for 25 minutes. Fold once more after 10 minutes so the syrup absorbs evenly."},
+      {"name": "Thicken the salted coconut cream", "text": "Whisk the remaining coconut milk with the remaining 1/4 teaspoon salt. Bring to a gentle simmer. Stir together the cornstarch and water, whisk it in and cook for 45 to 60 seconds, until lightly thickened. Remove from the heat; the sauce should still pour easily."},
+      {"name": "Slice and assemble", "text": "Peel the mangoes and cut the flesh from each pit into broad cheeks, then slice crosswise. Spoon warm or room-temperature sticky rice onto plates, arrange the mango alongside, drizzle with salted coconut cream and scatter with sesame seeds. Serve the same day."
+      }
+    ],
+    "why_it_works": [
+      "A four-hour soak hydrates the dense glutinous grains so steam can cook them evenly without a hard center.",
+      "Warm rice absorbs warm coconut syrup gradually during the covered rest, staying glossy and distinct rather than swimming in liquid.",
+      "A lightly salted, barely thickened coconut topping balances the sweet rice and ripe fruit without turning into pudding."
+    ],
+    "swaps": [
+      "Black Thai glutinous rice needs a longer soak and a different water ratio, so do not substitute it one-for-one in this timing.",
+      "Toasted mung beans are a traditional-style crunchy topping and can replace sesame seeds; cook or buy them specifically for dessert use.",
+      "Ataulfo mangoes are silky and floral, but any ripe, fragrant mango that yields slightly near the stem works."
+    ],
+    "storage": "Mango sticky rice is best within a few hours. Refrigerate rice, coconut cream and cut mango separately for up to 2 days. Reheat the rice gently with 1 to 2 tablespoons coconut milk until warm and soft, then serve with cool mango. Do not freeze; thawed mango becomes watery and chilled glutinous rice hardens.",
+    "notes": [
+      "Total time includes the essential 4-hour soak, 25 to 30 minutes of steaming and a 25-minute absorption rest; active prep is about 15 minutes.",
+      "Thai glutinous rice is not regular jasmine rice and not sushi rice. Look for opaque short-to-medium grains labeled glutinous or sweet rice.",
+      "Keep the steaming water below the rice. Boiling water touching the grains creates a wet bottom and uneven texture.",
+      "Do not hard-boil coconut milk; high heat can make it separate and taste oily.",
+      "Cut mango shortly before serving and discard fruit that smells fermented or shows mold."
+    ],
+    "faqs": [
+      {"q": "Can I cook sticky rice directly in water?", "a": "Steaming is more reliable for this dessert because soaked glutinous rice can become waterlogged or scorch when boiled. A lined metal steamer works if you do not own a bamboo basket."},
+      {"q": "Why is my sticky rice still hard?", "a": "It was likely under-soaked, spread too deeply or exposed to weak steam. Return it to the steamer for 5-minute intervals and keep the water at a steady simmer."},
+      {"q": "Can I make mango sticky rice the day before?", "a": "You can prepare the rice and coconut cream a day ahead, but the texture is best fresh. Chill separately, rewarm the rice gently with extra coconut milk and slice the mango just before serving."
+      }
+    ],
+    "pantry": ["Thai glutinous rice", "full-fat coconut milk", "granulated sugar", "fine sea salt", "cornstarch", "sesame seeds"],
+    "date_published": "2026-09-26",
+    "date_modified": "2026-09-26"
+  }
+]
