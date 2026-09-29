@@ -158,11 +158,19 @@ def recipe_search_text(recipe) -> str:
 
 def recipes_for_ingredient(slug: str):
     terms = INGREDIENT_HUBS[slug]["terms"]
+    protein_hub_groups = {
+        "chicken": {"chicken"},
+        "beef": {"beef"},
+        "ground-beef": {"beef"},
+        "ribeye": {"beef"},
+        "pork": {"pork", "sausage"},
+        "seafood": {"seafood", "fish", "salmon", "tuna", "shrimp", "cod", "tilapia", "trout", "calamari"},
+    }
     matches = []
     for recipe in RECIPES:
         tags = {str(tag).lower() for tag in recipe.get("tags", [])}
         proteins = set(recipe_proteins(recipe))
-        if "meatless" in proteins and slug in {"chicken", "beef", "ground-beef", "ribeye", "pork", "seafood"}:
+        if slug in protein_hub_groups and proteins and not proteins.intersection(protein_hub_groups[slug]):
             continue
         haystack = " ".join([
             recipe.get("title", ""),
