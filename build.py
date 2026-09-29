@@ -523,6 +523,18 @@ def recipe_shop(recipe) -> str:
             ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken thighs for 165°F before building the thick walnut-pomegranate sauce."),
             ("food processor 8 cup", "8-cup food processor", "Short pulses grind toasted walnuts finely enough to thicken the sauce without turning them into nut butter."),
         ]
+    elif "instant pot taiwanese-style lu rou fan" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, 18-minute cycle and staged release are calibrated for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check pork from different parts of the pot for 145°F followed by the specified three-minute rest."),
+            ("stainless steel rice cooker family", "Family-size rice cooker", "It cooks and holds the separate short-grain rice while the pork browns, pressure-cooks and reduces."),
+        ]
+    elif "instant pot swedish-style meatballs" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, two loose meatball layers and staged release are written for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check beef-and-pork meatballs from both layers through the center for the required 160°F."),
+            ("stainless steel potato masher", "Stainless-steel potato masher", "Mash the separately simmered Yukon Golds while the pressure-cooked meatballs rest before their gravy finish."),
+        ]
     elif "instant pot japanese-style beef curry" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The short sirloin-and-vegetable cycle, thin-broth base and fill-limit guidance are written for this family-size capacity."),
@@ -600,6 +612,24 @@ def recipe_shop(recipe) -> str:
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The recipe timing, minimum liquid, and family-size yield are written around this common capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken, pork, meatballs, and meatloaf safely instead of relying only on programmed pressure time."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Dry, secure grip matters when lifting a hot pot-in-pot bowl, trivet, or foil sling."),
+        ]
+    elif "chilean-style pastel de choclo" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "High sides contain the juicy beef filling beneath the thick basil-corn topping as it bubbles."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken at 165°F, ground beef at 160°F and the assembled casserole at 165°F."),
+            ("heavy gauge aluminum half sheet pan", "Rimmed half sheet pan", "Set the filled casserole on a rimmed pan to catch any bubbling juices before they reach the oven floor."),
+        ]
+    elif "gujarati khaman dhokla" in haystack:
+        products = [
+            ("stainless steel steamer pot rack", "Steamer pot with rack", "An elevated rack keeps the cake pan above simmering water while steam circulates around it."),
+            ("8 inch round cake pan", "8-inch round cake pan", "This diameter gives the chickpea batter the intended depth and fits inside many covered steamers."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Dry secure mitts protect your hands when lifting the hot pan and rack out of the steamer."),
+        ]
+    elif "indonesian-style gado-gado" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad hot surface browns pressed tofu in one layer instead of steaming crowded cubes."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Drain cabbage, sprouts and beans thoroughly so residual blanching water cannot thin the peanut sauce."),
+            ("stainless steel saucepan 2 quart", "2-quart saucepan", "Gentle, even heat makes it easier to whisk the peanut-coconut sauce smooth without boiling or splitting it."),
         ]
     elif "malaysian-style char kway teow" in haystack:
         products = [
@@ -1678,11 +1708,13 @@ def build_collections():
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-japanese-beef-curry-potatoes-carrots/')}">Japanese-style beef curry</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">80 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">5-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk in curry roux; add rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mild family comfort food</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-rajma-masala-warm-roti/')}">Rajma masala</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash and reduce; warm roti</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget vegetarian busy night</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-teriyaki-chicken-rice-bowls/')}">Teriyaki chicken rice bowls</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Glaze chicken; fluff rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">All-in-one rice bowl</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-taiwanese-lu-rou-fan-braised-pork-rice/')}">Taiwanese-style lu rou fan</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">80 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Reduce gravy; add rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Savory pork rice bowls</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-swedish-meatballs-mashed-potatoes-lingonberries/')}">Swedish-style meatballs</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">85 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">5-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Thicken gravy; finish mash</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Classic family comfort food</td></tr>
                       <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed September 28, 2026.</p>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed September 29, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
