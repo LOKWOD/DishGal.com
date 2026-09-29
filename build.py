@@ -162,6 +162,8 @@ def recipes_for_ingredient(slug: str):
     for recipe in RECIPES:
         tags = {str(tag).lower() for tag in recipe.get("tags", [])}
         proteins = set(recipe_proteins(recipe))
+        if "meatless" in proteins and slug in {"chicken", "beef", "ground-beef", "ribeye", "pork", "seafood"}:
+            continue
         haystack = " ".join([
             recipe.get("title", ""),
             " ".join(recipe.get("tags", [])),
