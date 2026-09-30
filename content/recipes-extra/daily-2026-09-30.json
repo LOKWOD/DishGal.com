@@ -1,0 +1,359 @@
+[
+  {
+    "slug": "instant-pot-dal-makhani-garlic-naan",
+    "title": "Instant Pot Dal Makhani with Garlic Naan",
+    "dek": "Whole black gram and kidney beans turn velvety in a mild tomato-butter sauce, with garlic naan ready for scooping up every creamy spoonful.",
+    "collection": "instant-pot",
+    "protein": ["meatless"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 20,
+    "cook_minutes": 75,
+    "total_minutes": 95,
+    "servings": 6,
+    "calories": 510,
+    "cost_per_serving": "$2.35",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Dal_Makhani_along_with_Naan.jpg",
+    "image_alt": "Creamy brown dal makhani swirled with cream in a bowl beside blistered garlic naan, cucumber and tomato",
+    "image_credit": "Barry Pousman / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Dal_Makhani_along_with_Naan.jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "tags": ["instant pot", "electric pressure cooker", "dal makhani", "whole black gram", "vegetarian dinner", "garlic naan", "Indian-style", "family dinner"],
+    "ingredients": [
+      "1 1/4 cups whole black gram (sabut urad), picked over",
+      "1/4 cup dried red kidney beans, picked over",
+      "5 cups water, plus more for soaking",
+      "1 1/2 tsp kosher salt, divided",
+      "2 tbsp unsalted butter, divided",
+      "1 tbsp neutral oil",
+      "1 medium yellow onion, finely diced",
+      "1 tbsp finely grated fresh ginger",
+      "4 garlic cloves, minced",
+      "1 tsp ground cumin",
+      "1 tsp garam masala, divided",
+      "1/2 tsp sweet paprika",
+      "1 can (14.5 oz) crushed tomatoes",
+      "1/2 cup heavy cream",
+      "1 tsp kasuri methi (dried fenugreek leaves), crushed, optional",
+      "1 tbsp fresh lemon juice",
+      "6 small garlic naan, warmed",
+      "2 tbsp chopped cilantro",
+      "Sliced green chile or chile crisp, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Soak and rinse the beans", "text": "Cover the black gram and kidney beans with at least 3 inches of cool water and soak 8 to 12 hours. Drain, rinse until the water runs clear and inspect once more for stones. Soaking time is not included in the active recipe time."},
+      {"name": "Sauté the aromatics", "text": "Select Sauté on Normal on a 6-quart electric pressure cooker. Melt 1 tablespoon butter with the oil, then cook the onion for 6 minutes until soft. Add ginger, garlic, cumin, 1/2 teaspoon garam masala and paprika and stir for 30 seconds. Cancel Sauté before the garlic darkens."},
+      {"name": "Deglaze and add thin liquid", "text": "Pour in the 5 cups water and scrape the base until it is completely smooth. Add the drained beans and 1 teaspoon salt. Stir once and confirm the cooker is no more than half full because beans expand and foam; do not add tomatoes, cream or remaining butter yet."},
+      {"name": "Pressure-cook and release naturally", "text": "Lock the lid and cook on High Pressure for 35 minutes; allow about 15 minutes for pressure to build. Let pressure release naturally for 20 minutes, then vent any remainder in short controlled pulses. Pause if foam sputters and open only after the float valve drops."},
+      {"name": "Check the beans", "text": "Taste one kidney bean and several black gram beans. They should crush easily between the tongue and roof of the mouth with no chalky center. If firm, add 1/2 cup hot water, lock the lid and pressure-cook 5 minutes more with a 10-minute natural release."},
+      {"name": "Finish the makhani sauce", "text": "Select Sauté on Low. Stir in crushed tomatoes, the remaining 1/2 teaspoon salt and 1/2 teaspoon garam masala. Simmer 10 to 12 minutes, stirring and scraping often, until creamy. Stir in cream, remaining butter, optional fenugreek and lemon juice; simmer 2 minutes without boiling hard."},
+      {"name": "Serve with naan", "text": "Spoon the thick brown dal into bowls and make a small cream swirl on each, matching the photographed finish. Scatter with cilantro and serve warm garlic naan, cucumber and tomato alongside. Keep the shared pot mild and offer green chile or chile crisp at the table."}
+    ],
+    "why_it_works": [
+      "Soaking hydrates the dense whole black gram and kidney beans evenly, while a long natural release lets foaming subside and continues tenderizing without an aggressive vent.",
+      "Five cups of water reach a completely deglazed base before the beans go in; tomatoes and dairy wait until after pressure so thick ingredients cannot settle and scorch.",
+      "A short open-lid tomato reduction concentrates flavor while frequent stirring develops the naturally creamy body associated with dal makhani."
+    ],
+    "swaps": [
+      "For a lighter finish, use half-and-half instead of heavy cream; add it off heat and do not boil after adding.",
+      "Use vegan butter and unsweetened cashew cream for a dairy-free version, checking that the naan is also dairy-free.",
+      "If garlic naan is unavailable, warm plain naan or roti; keep all bread outside the cooker so the bean-to-liquid ratio stays unchanged."
+    ],
+    "storage": "Cool the dal promptly in shallow containers within 2 hours and refrigerate for up to 4 days; store naan separately. Reheat the dal with water as needed, stirring often, until it reaches 165°F. Freeze dal for up to 3 months and thaw overnight in the refrigerator; warm naan fresh for serving.",
+    "notes": [
+      "Total time includes about 15 minutes to pressurize, the 35-minute cycle, a 20-minute natural release and the tomato-cream finish; the unattended overnight soak is additional.",
+      "Written for a 6-quart electric pressure cooker. Beans and other expanding foods must stay below the half-full line, and your exact model manual controls minimum liquid, fill limits and venting.",
+      "Never quick-release a foamy bean pot. If liquid sputters during the final controlled vent, close the valve and wait several more minutes.",
+      "Kidney beans must be fully cooked; pressure time is not a substitute for checking that every sampled bean is completely creamy with no firm center.",
+      "The base is deliberately mild. Add cayenne, green chile or chile crisp only at the table for diners who want heat."
+    ],
+    "faqs": [
+      {"q": "Can I skip soaking the beans?", "a": "Not in this tested timing. Unsoaked whole black gram and kidney beans need substantially more water and pressure time, increasing foaming and making total time less predictable. Soak overnight or from breakfast until dinner."},
+      {"q": "Why are the tomatoes added after pressure?", "a": "Acid can slow bean softening, and thick tomato purée may settle on the hot base before full pressure develops. Adding it after the beans are tender improves consistency and reduces burn-warning risk."},
+      {"q": "Why did the dal thicken in the refrigerator?", "a": "The beans continue absorbing liquid as they cool. Reheat gently with 1/4 to 3/4 cup water, adding it in small splashes until the dal is creamy and spoonable again."}
+    ],
+    "pantry": ["whole black gram", "dried kidney beans", "crushed tomatoes", "garam masala", "ground cumin", "sweet paprika", "kasuri methi", "kosher salt", "neutral oil", "naan"],
+    "date_published": "2026-09-30",
+    "date_modified": "2026-09-30"
+  },
+  {
+    "slug": "instant-pot-hawaiian-style-kalua-pork-cabbage-rice",
+    "title": "Instant Pot Hawaiian-Style Kālua Pork with Cabbage & Rice",
+    "dek": "Smoky, salt-seasoned pork shoulder pressure-cooks until shreddable, then shares its savory juices with tender cabbage and hot white rice.",
+    "collection": "instant-pot",
+    "protein": ["pork"],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 90,
+    "total_minutes": 110,
+    "servings": 8,
+    "calories": 610,
+    "cost_per_serving": "$3.60",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/MyPlate_gov_Cultural_Food_%2820241025-USDA-FNS-UNK-0042%29.jpg",
+    "image_alt": "Shredded Hawaiian-style kālua pork served with pale sautéed cabbage and white rice on a brown plate",
+    "image_credit": "USDA Food and Nutrition Service / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:MyPlate_gov_Cultural_Food_(20241025-USDA-FNS-UNK-0042).jpg",
+    "image_license": "Public domain (U.S. Department of Agriculture)",
+    "image_license_url": "https://commons.wikimedia.org/wiki/Template:PD-USGov-USDA",
+    "tags": ["instant pot", "electric pressure cooker", "kalua pork", "Hawaiian-style", "pork shoulder", "cabbage", "rice plate", "family dinner"],
+    "ingredients": [
+      "4 lb boneless pork shoulder, cut into 4 equal chunks",
+      "1 1/2 tbsp Hawaiian sea salt or coarse kosher salt",
+      "2 tsp hickory liquid smoke",
+      "1 tbsp neutral oil",
+      "1 1/4 cups low-sodium chicken broth or water",
+      "1 small green cabbage (about 2 lb), cored and cut into 1/2-inch ribbons",
+      "1/2 tsp ground black pepper",
+      "6 cups hot cooked medium-grain white rice",
+      "2 scallions, thinly sliced, optional",
+      "Hot sauce, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Season the pork", "text": "Pat the pork dry. Rub all surfaces with the sea salt and liquid smoke, then let stand 10 minutes while the cooker heats. Cutting four similar chunks keeps the pressure timing predictable."},
+      {"name": "Brown in two batches", "text": "Select Sauté on High on a 6-quart electric pressure cooker and add the oil. Brown two pork pieces for 3 to 4 minutes per broad side; transfer to a clean plate and repeat with the remaining pieces. Cancel Sauté."},
+      {"name": "Deglaze completely", "text": "Pour in the broth and scrape the base until no browned residue remains. Return the pork and any juices in a loose layer. The thin liquid must remain underneath the meat, and the contents must stay below the model's maximum-fill line."},
+      {"name": "Pressure-cook and release", "text": "Lock the lid and cook on High Pressure for 60 minutes; allow about 15 minutes to reach pressure. Let pressure release naturally for 20 minutes, then vent the remainder in short controlled pulses with hands and face away from steam. Open only after the float valve drops."},
+      {"name": "Verify tenderness and safety", "text": "Move the pork to a clean rimmed pan. Check the thickest part of every chunk with an instant-read thermometer; each must reach at least 145°F followed by a 3-minute rest. For pull-apart texture, a fork should twist with almost no resistance; if not, pressure-cook 10 minutes more with a 10-minute natural release."},
+      {"name": "Cook the cabbage in the juices", "text": "Skim excess fat from the cooker, leaving about 1 1/2 cups liquid. Select Sauté on Normal, add cabbage and pepper and cook 6 to 8 minutes, folding often, until tender but still pale and distinct. Add 1/2 cup water if the base becomes dry."},
+      {"name": "Shred and plate", "text": "Shred the rested pork, discarding large fat pockets, and toss it with 1/2 cup hot cooking liquid. Plate with white rice and the cabbage in distinct sections to match the photograph. Add optional scallions and pass hot sauce separately so the family platter stays mild."}
+    ],
+    "why_it_works": [
+      "Four equal pork chunks develop browned flavor yet cook far faster and more evenly than one whole shoulder.",
+      "A measured 1 1/4 cups of thin broth on a fully scraped base supplies steam before the salty, smoky pork is returned, limiting burn-warning risk.",
+      "Cooking cabbage after pressure preserves its pale color and texture while letting it absorb the concentrated pork juices visible in the complete plate."
+    ],
+    "swaps": [
+      "Use bone-in pork shoulder if preferred, increasing the raw weight to about 4 1/2 pounds and checking each section away from bone for tenderness.",
+      "Applewood liquid smoke can replace hickory; do not add extra before tasting because brands differ greatly in intensity.",
+      "Brown rice can replace white rice, but cook it separately according to its package so the pork's pressure liquid remains unchanged."
+    ],
+    "storage": "Cool pork, cabbage and rice in separate shallow containers within 2 hours. Refrigerate for up to 4 days. Reheat pork with a splash of cooking liquid, cabbage and rice separately to 165°F. Freeze the pork with some juices for up to 3 months; cabbage and rice are best refreshed separately.",
+    "notes": [
+      "Total time includes two browning batches, about 15 minutes to pressurize, the 60-minute cycle, a 20-minute natural release, shredding and cabbage cooking.",
+      "Written for a 6-quart electric pressure cooker. Follow the exact minimum-liquid, maximum-fill and venting rules in your model manual and never force the lid.",
+      "Pork is safe at 145°F with a 3-minute rest, but shoulder needs additional collagen conversion to shred; both temperature and easy fork-twisting matter here.",
+      "Liquid smoke supplies an indoor smoky note but does not duplicate an underground imu; the title accurately identifies this as a pressure-cooker Hawaiian-style adaptation.",
+      "Salt brands vary by crystal size. Start with the listed amount and adjust only after the pork has been mixed with its cooking juices."
+    ],
+    "faqs": [
+      {"q": "Can I put the cabbage in for the full pressure cycle?", "a": "No. It would collapse into the pork and lose the distinct pale ribbons shown in the finished plate. Cooking it in the broth after pressure takes only a few minutes and gives better control."},
+      {"q": "Why is my pork cooked but not shreddable?", "a": "Safety temperature and tenderness are different targets. Shoulder can exceed 145°F before its collagen softens. Lock the lid again for 10 minutes at High Pressure, use a 10-minute natural release and retest."},
+      {"q": "Can I omit liquid smoke?", "a": "Yes. The pork will still be tender and savory, though less smoky. Do not replace it with thick barbecue sauce under pressure; sauce changes the dish and can scorch on the base."}
+    ],
+    "pantry": ["Hawaiian sea salt", "liquid smoke", "low-sodium chicken broth", "medium-grain white rice", "neutral oil", "black pepper", "hot sauce"],
+    "date_published": "2026-09-30",
+    "date_modified": "2026-09-30"
+  },
+  {
+    "slug": "ecuadorian-style-shrimp-ceviche-avocado-lime-broth",
+    "title": "Ecuadorian-Style Shrimp Ceviche with Avocado & Lime Broth",
+    "dek": "Poached shrimp chill in a bright tomato-lime broth with red onion and cilantro, then finish with creamy avocado and crisp plantain chips.",
+    "collection": "seafood",
+    "protein": ["shrimp"],
+    "difficulty": "Easy",
+    "prep_minutes": 30,
+    "cook_minutes": 10,
+    "total_minutes": 100,
+    "servings": 6,
+    "calories": 300,
+    "cost_per_serving": "$4.20",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Ceviche_de_camar%C3%B3n_ecuatoriano.jpg",
+    "image_alt": "Ecuadorian-style shrimp ceviche in a pale pink tomato-lime broth with red onion, herbs and avocado slices",
+    "image_credit": "Ceibos / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Ceviche_de_camar%C3%B3n_ecuatoriano.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["shrimp ceviche", "Ecuadorian-style", "cooked shrimp", "tomato lime broth", "avocado", "make ahead", "seafood appetizer", "plantain chips"],
+    "ingredients": [
+      "2 lb large raw shrimp, peeled and deveined, tails removed",
+      "2 tsp kosher salt, divided",
+      "6 cups water",
+      "1 small red onion, very thinly sliced",
+      "3/4 cup fresh lime juice",
+      "1/2 cup fresh orange juice",
+      "2 cups tomato juice",
+      "1 cup reserved shrimp-poaching liquid, chilled",
+      "2 medium ripe tomatoes, seeded and finely diced",
+      "1/2 cup chopped cilantro",
+      "1 tbsp extra-virgin olive oil",
+      "1 tsp granulated sugar, optional",
+      "2 ripe avocados, sliced",
+      "6 oz plantain chips or popcorn, for serving",
+      "Hot sauce, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Mellow the onion", "text": "Toss the sliced onion with 1/2 teaspoon salt and 1/4 cup lime juice. Cover with cold water, rest 10 minutes, then drain and rinse. This softens the raw edge while preserving crunch."},
+      {"name": "Poach the shrimp safely", "text": "Bring the 6 cups water and 1 teaspoon salt to a gentle simmer in a wide saucepan. Add shrimp and cook 2 to 4 minutes, stirring once, until opaque and several pieces reach 145°F in their centers. Transfer immediately to a clean bowl of ice water."},
+      {"name": "Save and chill the broth", "text": "Measure 1 cup clear poaching liquid into a heat-safe container and cool it over the ice bath. Drain the shrimp thoroughly once cold; cut half into two pieces and leave the rest whole for a generous photographed presentation."},
+      {"name": "Mix the lime-tomato broth", "text": "Whisk the remaining 1/2 cup lime juice, orange juice, tomato juice, chilled poaching liquid, olive oil, remaining 1/2 teaspoon salt and optional sugar. Taste for a bright balance; add water by the tablespoon only if aggressively tart."},
+      {"name": "Chill the ceviche", "text": "Combine shrimp, onion, diced tomato, cilantro and broth in a nonreactive bowl. Cover and refrigerate for 45 to 60 minutes. Keep the mixture at 40°F or colder and do not leave it at room temperature to marinate."},
+      {"name": "Finish with avocado", "text": "Ladle ceviche and plenty of pale pink broth into chilled shallow bowls, keeping several shrimp visible. Add avocado slices on top to match the photograph. Serve plantain chips or popcorn alongside and pass hot sauce separately."}
+    ],
+    "why_it_works": [
+      "Brief poaching to a verified 145°F makes the shrimp safe before they enter the acidic marinade; lime is used for flavor, not as a substitute for cooking.",
+      "Chilled poaching liquid carries shrimp flavor into the tomato-citrus broth without diluting it with plain water.",
+      "Avocado is added only at serving so it remains green, intact and visually distinct above the brothy ceviche."
+    ],
+    "swaps": [
+      "Use thawed frozen shrimp, patting them dry before poaching; do not use pre-cooked shrimp because a second cook can make them rubbery.",
+      "For a thinner, brighter broth, replace up to 1 cup tomato juice with additional chilled poaching liquid.",
+      "Saltine crackers can replace plantain chips or popcorn when you want a neutral, crisp accompaniment."
+    ],
+    "storage": "Refrigerate the ceviche without avocado in a covered nonreactive container at 40°F or colder for up to 2 days. Add fresh avocado only when serving. Do not freeze the assembled dish; the vegetables and citrus broth lose their texture. Discard portions left out more than 2 hours, or 1 hour above 90°F.",
+    "notes": [
+      "Total time includes about 60 minutes of chilling; active work is roughly 40 minutes.",
+      "Use a glass, stainless-steel or food-safe plastic bowl. Reactive aluminum or unlined copper can give acidic ceviche a metallic flavor.",
+      "Shrimp must reach 145°F before chilling. Check several of the thickest pieces rather than relying only on color or curl.",
+      "Tomato juice salt levels vary widely. Taste the finished broth before adding more salt.",
+      "Keep the communal bowl mild and let each diner add hot sauce at the table."
+    ],
+    "faqs": [
+      {"q": "Does lime juice cook raw shrimp safely?", "a": "Acid changes the texture and color of seafood but does not provide the same reliable pathogen reduction as heat. This recipe poaches shrimp to 145°F first, then chills it in citrus for flavor."},
+      {"q": "Can I make the ceviche the night before?", "a": "Yes. Prepare it without avocado, cover and refrigerate overnight. The onion softens more with time, so add half the cilantro and all avocado just before serving for fresher texture."},
+      {"q": "Why is Ecuadorian ceviche so brothy?", "a": "This style is served with a generous tomato-citrus liquid rather than as a mostly dry chopped salad. Chilled poaching liquid reinforces the shrimp flavor while keeping the broth light."}
+    ],
+    "pantry": ["tomato juice", "granulated sugar", "kosher salt", "extra-virgin olive oil", "plantain chips", "hot sauce"],
+    "date_published": "2026-09-30",
+    "date_modified": "2026-09-30"
+  },
+  {
+    "slug": "afghan-style-potato-scallion-bolani-yogurt",
+    "title": "Afghan-Style Potato & Scallion Bolani with Garlic Yogurt",
+    "dek": "Thin homemade flatbreads fold around a cumin-scented potato and scallion filling, then crisp in a skillet beside cool garlic yogurt.",
+    "collection": "vegetarian",
+    "protein": ["meatless"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 45,
+    "cook_minutes": 35,
+    "total_minutes": 110,
+    "servings": 8,
+    "calories": 360,
+    "cost_per_serving": "$1.45",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Bolani_Afghan_bread_01.jpg",
+    "image_alt": "Golden triangular pieces of Afghan-style bolani stacked on a white plate beside a bowl of plain yogurt",
+    "image_credit": "arnold | inuyaki / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Bolani_Afghan_bread_01.jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "tags": ["bolani", "Afghan-style", "stuffed flatbread", "potato scallion", "garlic yogurt", "vegetarian", "skillet bread", "budget dinner"],
+    "ingredients": [
+      "3 cups all-purpose flour, plus more for rolling",
+      "1 1/4 tsp kosher salt, divided",
+      "1 cup warm water, plus 1 to 2 tbsp if needed",
+      "1 tbsp neutral oil, plus 1/3 cup for skillet cooking",
+      "1 1/2 lb Yukon Gold potatoes, peeled and cut into 1-inch pieces",
+      "1 bunch scallions, white and green parts thinly sliced",
+      "1/2 cup chopped cilantro",
+      "1 tsp ground cumin",
+      "1/2 tsp ground coriander",
+      "1/4 tsp ground black pepper",
+      "1 cup plain whole-milk yogurt",
+      "1 small garlic clove, finely grated",
+      "1 tbsp fresh lemon juice",
+      "1 tbsp chopped fresh mint, optional",
+      "Crushed red pepper, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Mix and rest the dough", "text": "Combine flour and 3/4 teaspoon salt. Add warm water and 1 tablespoon oil and mix into a shaggy dough. Knead 8 minutes until smooth and elastic, adding up to 2 tablespoons water only if dry. Cover and rest 30 minutes."},
+      {"name": "Cook and dry the potatoes", "text": "Cover potatoes with cold salted water, bring to a boil and simmer 12 to 15 minutes until completely tender. Drain, return to the hot pan and shake over low heat for 1 minute so excess moisture evaporates."},
+      {"name": "Season the filling", "text": "Mash the potatoes coarsely, leaving small pieces. Fold in scallions, cilantro, cumin, coriander, pepper and the remaining 1/2 teaspoon salt. Spread on a tray and cool fully; warm filling would soften the rolled dough."},
+      {"name": "Make the garlic yogurt", "text": "Stir yogurt with garlic, lemon juice and optional mint. Cover and refrigerate while shaping the breads so the flavors mellow."},
+      {"name": "Roll and fill", "text": "Divide dough into 8 equal balls. On a lightly floured surface, roll one into a 10-inch circle. Spread one eighth of the filling thinly over half, leaving a 1/2-inch rim. Fold over, press out air and seal firmly; trim only ragged edges. Repeat."},
+      {"name": "Skillet-cook in batches", "text": "Heat a large heavy skillet over medium. Brush with about 2 teaspoons oil and cook one bolani 3 to 4 minutes per side until deeply golden with scattered brown spots and the center is steaming. Adjust heat to prevent scorching and repeat with the remaining breads."},
+      {"name": "Cut and serve", "text": "Rest each bolani 3 minutes, then cut into triangles and stack on a platter beside the garlic yogurt, matching the photograph. Serve immediately; pass crushed red pepper at the table for optional heat."}
+    ],
+    "why_it_works": [
+      "Rested, well-kneaded dough rolls very thin without springing back, giving the filling a crisp wrapper instead of a thick bread shell.",
+      "Drying the boiled potatoes and cooling the filling protect the seal and keep steam from making the flatbread gummy.",
+      "Moderate skillet heat browns the exterior while giving the layered center enough time to become hot and tender."
+    ],
+    "swaps": [
+      "Replace up to half the scallions with finely chopped cooked leeks, cooling them completely before filling.",
+      "Use russet potatoes for a fluffier, drier filling; mash gently so they do not become gluey.",
+      "For dairy-free serving, use an unsweetened plant-based yogurt with enough body to cling to the crisp flatbread."
+    ],
+    "storage": "Cool cooked bolani on a rack, then refrigerate with parchment between pieces for up to 4 days; store yogurt separately. Reheat bolani in a dry skillet over medium-low until crisp and 165°F in the center. Freeze cooled bolani for up to 2 months and reheat from thawed; do not freeze the yogurt.",
+    "notes": [
+      "Total time includes the 30-minute dough rest and time to cool the filling; those stages overlap with sauce preparation.",
+      "Roll from the center outward and lift the dough often. Excess bench flour prevents sealing, so brush it from the rim before folding.",
+      "A few small potato lumps make a more interesting filling, but large chunks can tear the thin dough.",
+      "Keep shaped pieces under a clean towel and cook them soon after filling so salt does not draw moisture from the scallions.",
+      "The family filling is aromatic rather than hot; crushed red pepper stays optional at the table."
+    ],
+    "faqs": [
+      {"q": "Why did my bolani split in the skillet?", "a": "The filling may have been warm, wet or spread too thickly. Cool it fully, keep the layer thin and press out trapped air before sealing the rim."},
+      {"q": "Can I prepare bolani ahead?", "a": "Cooked bolani reheat better than raw filled ones. Cook them completely, cool on a rack and recrisp in a dry skillet shortly before serving."},
+      {"q": "Can I bake the flatbreads instead?", "a": "You can brush them with oil and bake on a preheated sheet at 450°F for about 8 minutes per side, but the crust will be drier and less blistered than the photographed skillet version."}
+    ],
+    "pantry": ["all-purpose flour", "neutral oil", "ground cumin", "ground coriander", "kosher salt", "black pepper", "crushed red pepper"],
+    "date_published": "2026-09-30",
+    "date_modified": "2026-09-30"
+  },
+  {
+    "slug": "nagasaki-style-honey-castella-cake",
+    "title": "Nagasaki-Style Honey Castella Cake with Dark Caramel Crust",
+    "dek": "A tall, fine-grained honey sponge bakes beneath castella's signature dark top, then rests overnight for clean slices and a supple crumb.",
+    "collection": "baking",
+    "protein": ["meatless"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 30,
+    "cook_minutes": 60,
+    "total_minutes": 630,
+    "servings": 10,
+    "calories": 240,
+    "cost_per_serving": "$0.85",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Castella%2Cmade_in_nagasaki-city%2Cjapan.JPG",
+    "image_alt": "Tall rectangular slice of Nagasaki-style castella with a dark brown top and fine golden honey sponge crumb",
+    "image_credit": "katorisi / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Castella,made_in_nagasaki-city,japan.JPG",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "tags": ["castella cake", "Nagasaki-style", "Japanese honey sponge", "dark caramel crust", "make ahead cake", "bread flour", "tea cake", "baking project"],
+    "ingredients": [
+      "6 large eggs, at room temperature",
+      "1 cup plus 2 tbsp granulated sugar (225 g)",
+      "1/4 cup mild honey (85 g)",
+      "3 tbsp warm whole milk",
+      "1 1/3 cups bread flour (170 g), sifted twice",
+      "1/4 tsp fine sea salt",
+      "1 tbsp coarse sparkling sugar, optional for the pan bottom",
+      "1 tsp neutral oil, for the pan"
+    ],
+    "instructions": [
+      {"name": "Prepare the tall pan", "text": "Heat the oven to 325°F with a rack in the lower third. Lightly oil an 8 1/2-by-4 1/2-inch metal loaf pan and line the base and sides with parchment extending 2 inches above the rim. Sprinkle optional coarse sugar evenly over the base."},
+      {"name": "Warm the honey milk", "text": "Whisk honey into the warm milk until completely fluid, then let it cool to lukewarm. Whisk bread flour and salt together after sifting so no dense pockets remain."},
+      {"name": "Build a stable egg foam", "text": "Combine eggs and granulated sugar in a stand-mixer bowl. Set over barely simmering water and whisk constantly until the mixture reaches 100°F and sugar feels dissolved. Beat on high 6 to 8 minutes until very pale and ribbons hold for several seconds; beat on low 1 minute to refine the bubbles."},
+      {"name": "Fold in honey and flour", "text": "Fold the honey milk into the foam in three additions. Sift one third of the flour over the bowl and fold gently but thoroughly; repeat twice, scraping from the bottom until no dry streaks remain. Do not stir in circles or deflate the foam."},
+      {"name": "Fill and release large bubbles", "text": "Pour batter into the lined pan from about 8 inches above it in a thin stream. Run a skewer through the batter in a zigzag several times, then tap the pan twice. The batter should sit below the parchment collar."},
+      {"name": "Bake to a dark top", "text": "Bake 50 to 60 minutes, tenting loosely with foil only if the top approaches black before 45 minutes. The center should spring back, a skewer should emerge clean and an instant-read thermometer should register 200 to 205°F."},
+      {"name": "Wrap warm and rest", "text": "Cool in the pan 8 minutes, then lift out and peel parchment from the sides. While still warm, wrap the cake tightly in plastic and place it upside down on a flat board for 8 hours or overnight. This redistributes moisture and flattens the top."},
+      {"name": "Trim and slice", "text": "Unwrap, turn right-side up and trim the side and bottom crusts only if desired, leaving the dark top intact. Use a long serrated knife to cut thick rectangular slices that display the fine yellow crumb and brown cap shown in the photograph."}
+    ],
+    "why_it_works": [
+      "Gently warming whole eggs dissolves sugar and improves their foaming capacity, while a final low-speed mix creates the even, fine pores associated with castella.",
+      "Bread flour provides enough structure for the tall egg foam without butter or chemical leavening.",
+      "Wrapping the cake while warm and resting it overnight allows honey moisture to equalize, producing supple slices rather than a dry fresh-from-the-oven crumb."
+    ],
+    "swaps": [
+      "Use a mild clover or acacia honey; strongly flavored buckwheat honey will dominate the delicate sponge.",
+      "If whole milk is unavailable, use water; the cake will be slightly less rounded in flavor but the foam ratio remains stable.",
+      "Two 7-by-3-inch loaf pans can replace one standard pan; begin checking after 38 minutes and verify 200 to 205°F centers."
+    ],
+    "storage": "Keep the rested cake tightly wrapped at cool room temperature for up to 3 days or refrigerate for up to 5 days, returning slices to room temperature before serving. Freeze double-wrapped slices for up to 1 month and thaw while wrapped. Do not leave the egg-rich batter unbaked.",
+    "notes": [
+      "Total time includes 30 minutes prep, about 60 minutes baking, brief cooling and an 8-hour wrapped rest; plan to bake the day before serving.",
+      "Weigh flour and sugar when possible. Small volume errors are amplified in a foam-leavened cake with no baking powder.",
+      "The 200 to 205°F center confirms the egg-rich crumb is set; do not pull the cake while wet batter clings to a skewer.",
+      "A metal pan conducts enough heat to produce the photographed dark top and straight sides. Glass changes the timing and browning.",
+      "Open the oven only near the end; an early rush of cool air can collapse the unsupported foam."
+    ],
+    "faqs": [
+      {"q": "Why did my castella collapse?", "a": "The egg foam may have been underwhipped, deflated during folding or underbaked. Beat until ribbons hold, fold from the bottom and verify a 200 to 205°F center before removing the cake."},
+      {"q": "Why wrap the cake while it is still warm?", "a": "Trapped steam redistributes through the crumb during the long rest, which gives castella its characteristic moist, close texture. Wrap after the brief pan rest, not immediately from the oven."},
+      {"q": "Can I serve castella the same day?", "a": "It is safe once fully baked and cooled, but texture and slicing improve dramatically after at least 8 wrapped hours. For the intended result, bake it the evening before."}
+    ],
+    "pantry": ["granulated sugar", "mild honey", "bread flour", "fine sea salt", "coarse sparkling sugar", "neutral oil"],
+    "date_published": "2026-09-30",
+    "date_modified": "2026-09-30"
+  }
+]
