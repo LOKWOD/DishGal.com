@@ -1,0 +1,367 @@
+[
+  {
+    "slug": "instant-pot-thai-style-massaman-chicken-potatoes",
+    "title": "Instant Pot Thai-Style Massaman Chicken with Potatoes",
+    "dek": "Tender chicken thighs and golden potatoes pressure-cook in a mild aromatic broth, then finish in a coconut-tamarind sauce with roasted peanuts.",
+    "collection": "instant-pot",
+    "protein": ["chicken"],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 35,
+    "total_minutes": 65,
+    "servings": 6,
+    "calories": 560,
+    "cost_per_serving": "$3.45",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Kaeng_matsaman_kai.JPG",
+    "image_alt": "Thai-style Massaman chicken curry with large chicken pieces and golden potato chunks in a reddish-brown sauce",
+    "image_credit": "Takeaway / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Kaeng_matsaman_kai.JPG",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "tags": ["instant pot", "electric pressure cooker", "Massaman chicken", "Thai-style curry", "coconut curry", "potatoes", "family dinner", "mild curry"],
+    "ingredients": [
+      "2 lb boneless skinless chicken thighs, trimmed and cut into 2-inch pieces",
+      "1 1/2 tsp kosher salt, divided",
+      "1 tbsp neutral oil",
+      "3 tbsp mild Massaman curry paste, plus more to taste",
+      "1 1/2 cups low-sodium chicken broth",
+      "1 tbsp fish sauce",
+      "1 tbsp packed light brown sugar",
+      "1 tbsp tamarind concentrate",
+      "1 1/2 lb Yukon Gold potatoes, cut into 1 1/2-inch chunks",
+      "1 medium yellow onion, cut into 8 wedges",
+      "1 can (13.5 oz) full-fat coconut milk, well shaken",
+      "1/3 cup roasted unsalted peanuts, divided",
+      "1 tbsp fresh lime juice",
+      "6 cups hot cooked jasmine rice",
+      "Sliced Thai chile or chile crisp, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Season the chicken", "text": "Pat the chicken dry and season with 1 teaspoon salt. Keep the pieces close to 2 inches so they cook at the same rate without drying."},
+      {"name": "Bloom the curry paste", "text": "Select Sauté on Normal on a 6-quart electric pressure cooker. Add oil and curry paste and cook for 45 seconds, stirring constantly, just until fragrant. Cancel Sauté before the paste darkens."},
+      {"name": "Deglaze with thin liquid", "text": "Pour in the broth and scrape the base until completely smooth with no stuck paste. Stir in fish sauce, brown sugar, tamarind and the remaining 1/2 teaspoon salt. Add chicken in an even layer, then place potatoes and onion on top without packing them down. Keep everything below the model's maximum-fill line."},
+      {"name": "Pressure-cook and release", "text": "Lock the lid and cook on High Pressure for 6 minutes; allow about 12 minutes to come to pressure. Let pressure release naturally for 10 minutes, then vent the remainder in short controlled pulses. Pause if liquid sputters and open only after the float valve drops."},
+      {"name": "Verify doneness", "text": "Check several chicken pieces from different parts of the pot with an instant-read thermometer; each must reach 165°F. A knife should slide easily through the potatoes. If needed, return undercooked pieces to the simmering sauce until they reach the target."},
+      {"name": "Finish with coconut milk", "text": "Select Sauté on Low. Stir in the coconut milk and 1/4 cup peanuts and simmer gently for 5 to 7 minutes, stirring from the base, until the sauce lightly coats a spoon. Do not boil hard. Cancel Sauté and add lime juice."},
+      {"name": "Plate the curry", "text": "Spoon the reddish-brown curry into bowls with large chicken and potato pieces visible, matching the photograph. Scatter with the remaining peanuts and serve with jasmine rice. Keep the shared curry mild and offer sliced chile or chile crisp at the table."}
+    ],
+    "why_it_works": [
+      "Blooming the paste develops its spices, while a full deglaze and 1 1/2 cups of thin broth provide a clean steam path before food is layered in.",
+      "Coconut milk waits until after pressure, preventing its rich solids from settling on the hot base and reducing burn-warning risk.",
+      "A 10-minute natural release gently finishes the chicken and potatoes; the open-lid coconut simmer then adjusts body without overcooking either one."
+    ],
+    "swaps": [
+      "Use boneless chicken breast cut into 2-inch pieces, but pressure-cook for 4 minutes and still verify 165°F to reduce drying.",
+      "For a fish-free curry, replace fish sauce with 2 teaspoons low-sodium soy sauce plus salt to taste.",
+      "Sweet potatoes can replace half the Yukon Golds; cut them into 2-inch chunks because they soften faster."
+    ],
+    "storage": "Cool curry and rice in separate shallow containers within 2 hours. Refrigerate for up to 4 days. Reheat the curry gently, stirring and adding broth if thick, until the chicken reaches 165°F; reheat rice separately to 165°F. Freeze the curry without rice for up to 2 months and thaw overnight in the refrigerator.",
+    "notes": [
+      "Total time includes about 12 minutes to pressurize, the 6-minute cycle, a 10-minute natural release and the coconut-milk finish.",
+      "Written for a 6-quart electric pressure cooker. Follow your model manual for minimum liquid, maximum fill and venting, and never force the lid.",
+      "Curry paste strength varies. Three tablespoons gives a mild family base; add more only during the open-lid finish or offer heat at the table.",
+      "Chicken must reach 165°F in several sampled pieces; color alone is not a reliable doneness test.",
+      "Do not stir coconut milk into the pot before pressure. The measured thin broth must stay at the base to generate steam cleanly."
+    ],
+    "faqs": [
+      {"q": "Why is the coconut milk added after pressure?", "a": "Its fat and coconut solids can concentrate against the hot base while the cooker heats. Adding it after pressure preserves a fresh coconut flavor and makes a burn warning less likely."},
+      {"q": "Can I use bone-in thighs?", "a": "Yes. Use similarly sized pieces, increase the pressure cycle to 9 minutes and check every piece away from bone for 165°F before serving."},
+      {"q": "Why is my sauce thinner than restaurant curry?", "a": "Pressure cooking retains moisture. Simmer uncovered on Sauté Low for several minutes after adding coconut milk; the sauce will also thicken slightly as it stands."}
+    ],
+    "pantry": ["Massaman curry paste", "coconut milk", "chicken broth", "fish sauce", "tamarind concentrate", "brown sugar", "roasted peanuts", "jasmine rice", "neutral oil"],
+    "date_published": "2026-10-01",
+    "date_modified": "2026-10-01"
+  },
+  {
+    "slug": "instant-pot-lebanese-style-mujaddara-caramelized-onions",
+    "title": "Instant Pot Lebanese-Style Mujaddara with Caramelized Onions",
+    "dek": "Brown lentils and basmati rice pressure-cook in two reliable stages while deeply caramelized onions and cool cucumber yogurt turn pantry staples into a complete meal.",
+    "collection": "instant-pot",
+    "protein": ["meatless"],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 55,
+    "total_minutes": 90,
+    "servings": 6,
+    "calories": 480,
+    "cost_per_serving": "$1.75",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Liat_Portal_for_Foodie_Disorder_-_Mujaddara.jpg",
+    "image_alt": "Lebanese-style mujaddara made with distinct brown lentils and long-grain rice threaded with caramelized onion",
+    "image_credit": "HaJunkiyada / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Mujaddara.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["instant pot", "electric pressure cooker", "mujaddara", "lentils and rice", "Lebanese-style", "vegetarian dinner", "caramelized onions", "budget meal"],
+    "ingredients": [
+      "3 large yellow onions, halved and thinly sliced",
+      "3 tbsp extra-virgin olive oil, divided",
+      "1 3/4 tsp kosher salt, divided",
+      "1 cup dried brown or green lentils, picked over and rinsed",
+      "1 cup white basmati rice, rinsed until the water is mostly clear",
+      "3 3/4 cups low-sodium vegetable broth, divided",
+      "1 tsp ground cumin",
+      "1/2 tsp ground coriander",
+      "1/4 tsp ground cinnamon",
+      "1 bay leaf",
+      "1 cup plain Greek yogurt",
+      "1 small cucumber, seeded and finely diced",
+      "1 tbsp fresh lemon juice",
+      "2 tbsp chopped parsley",
+      "Aleppo pepper or hot sauce, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Start the onions", "text": "Heat 2 tablespoons olive oil in a wide skillet over medium. Add onions and 1/2 teaspoon salt. Cook 30 to 35 minutes, stirring more often near the end, until deep golden brown but not black. Lower the heat and add a splash of water if the fond threatens to burn."},
+      {"name": "Start the lentils under pressure", "text": "While the onions cook, add 2 1/2 cups broth to a 6-quart electric pressure cooker. Stir in lentils, cumin, coriander, cinnamon, bay leaf, 1 tablespoon oil and 1 teaspoon salt. Keep the expanding lentils below the half-full line. Lock the lid and cook on High Pressure for 6 minutes; allow about 10 minutes to pressurize."},
+      {"name": "Release, then add the rice", "text": "Let pressure release naturally for 10 minutes, then vent the remainder in short controlled pulses. Stop if foam sputters and open only after the float valve drops. Remove the bay leaf. Stir in rinsed basmati and the remaining 1 1/4 cups broth, scraping the clean base once and making sure the rice is submerged."},
+      {"name": "Cook the rice and release again", "text": "Lock the lid and cook on High Pressure for 4 minutes; allow about 8 minutes to return to pressure. Let pressure release naturally for 10 minutes, then vent any remainder in controlled pulses. Open only after the float valve drops."},
+      {"name": "Make cucumber yogurt", "text": "Stir yogurt, cucumber, lemon juice and the remaining 1/4 teaspoon salt together. Refrigerate until serving; keep it separate from the hot pressure cooker."},
+      {"name": "Check texture", "text": "Taste several lentils and rice grains; both should be tender with no chalky centers. If firm, stir in 1/4 cup hot water, cover loosely and rest 5 minutes on Keep Warm before checking again."},
+      {"name": "Fold in the onions", "text": "Reserve one third of the onions for the top. Fold the rest and any flavorful skillet oil gently through the lentil-rice mixture. Let stand uncovered 5 minutes so excess steam escapes and the grains become more distinct."},
+      {"name": "Serve", "text": "Spoon the mujaddara into a warm shallow serving dish, showing the separate lentils, rice and caramelized onion strands visible in the photograph. Top with reserved onions and parsley and serve cucumber yogurt alongside. Pass Aleppo pepper or hot sauce separately."}
+    ],
+    "why_it_works": [
+      "A short lentil head start followed by a separate four-minute basmati cycle respects the different cooking rates and preserves the distinct white grains shown in the photograph.",
+      "A full 3 3/4 cups of thin broth is divided between two clean pressure stages, while the half-full rule and natural releases manage expansion and foam.",
+      "Cooking onions separately creates true caramelization and keeps sugary onion solids away from the pressure cooker's heating plate."
+    ],
+    "swaps": [
+      "Use French green lentils for a firmer result; avoid red lentils, which break down too quickly for this timing.",
+      "For dairy-free serving, use a thick unsweetened plant yogurt or replace the yogurt with lemon-dressed cucumber and tomato.",
+      "If using water instead of broth, add another 1/4 teaspoon salt after cooking only if needed."
+    ],
+    "storage": "Cool mujaddara in shallow containers within 2 hours and refrigerate for up to 4 days; store cucumber yogurt separately. Reheat the lentil-rice mixture with 1 to 2 tablespoons water per serving until 165°F. Freeze mujaddara without yogurt for up to 3 months and thaw overnight in the refrigerator.",
+    "notes": [
+      "Total time includes two pressure-building periods, 10-minute natural releases after both cycles and onion caramelization, which runs concurrently.",
+      "Written for a 6-quart electric pressure cooker. Grains and lentils expand, so stay below the half-full line and follow your exact model's liquid and release rules.",
+      "Never quick-release a foamy grain-and-lentil pot. If the valve sputters during the final controlled vent, close it and wait several more minutes.",
+      "Do not add basmati for the lentils' first cycle; the two-stage method prevents the white rice from overcooking while the lentils soften.",
+      "The base is earthy rather than hot; Aleppo pepper and hot sauce remain optional at the table."
+    ],
+    "faqs": [
+      {"q": "Can I use canned lentils?", "a": "Not in the pressure stage. They are already tender and would collapse. For canned lentils, cook brown rice separately and fold in drained lentils and onions afterward."},
+      {"q": "Why did my mujaddara turn wet?", "a": "Different rice and lentil ages absorb at different rates. Let it stand uncovered for 5 to 10 minutes, then fluff gently; the remaining liquid usually absorbs as steam escapes."},
+      {"q": "Can I caramelize the onions in the pressure cooker first?", "a": "A skillet is faster, allows broad evaporation and keeps browned sugary residue off the pressure-cooker base. That clean base is an important safeguard against a burn warning."}
+    ],
+    "pantry": ["brown lentils", "white basmati rice", "vegetable broth", "ground cumin", "ground coriander", "ground cinnamon", "olive oil", "kosher salt", "Aleppo pepper"],
+    "date_published": "2026-10-01",
+    "date_modified": "2026-10-01"
+  },
+  {
+    "slug": "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja",
+    "title": "Salvadoran-Style Bean & Cheese Pupusas with Curtido & Salsa Roja",
+    "dek": "Hand-patted masa cakes hold creamy refried beans and melting cheese, with a crisp vinegar slaw and smooth tomato salsa to cut every rich bite.",
+    "collection": "vegetarian",
+    "protein": ["meatless"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 45,
+    "cook_minutes": 45,
+    "total_minutes": 180,
+    "servings": 6,
+    "calories": 620,
+    "cost_per_serving": "$2.20",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Pupusas_con_curtido_y_salsa_El_Salvador.JPG",
+    "image_alt": "Three thick Salvadoran-style pupusas with browned griddle marks, refried bean and cheese filling, curtido and red salsa",
+    "image_credit": "JMRAFFi / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Pupusas_con_curtido_y_salsa_El_Salvador.JPG",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["pupusas", "Salvadoran-style", "bean and cheese", "curtido", "salsa roja", "masa harina", "vegetarian dinner", "griddle cakes"],
+    "ingredients": [
+      "4 cups finely shredded green cabbage",
+      "1 medium carrot, coarsely grated",
+      "1/2 small white onion, very thinly sliced",
+      "1 tsp dried oregano",
+      "1 1/2 tsp kosher salt, divided",
+      "1/2 cup boiling water",
+      "3/4 cup distilled white vinegar",
+      "1 tsp granulated sugar",
+      "1 can (14.5 oz) diced tomatoes, drained",
+      "1/4 small white onion, chopped",
+      "1 garlic clove",
+      "1/2 cup water",
+      "3 cups instant corn masa flour for tortillas",
+      "2 3/4 cups warm water, plus more as needed",
+      "1 tbsp neutral oil, plus more for hands and griddle",
+      "1 1/2 cups smooth vegetarian refried red or pinto beans",
+      "2 cups grated low-moisture mozzarella or quesillo",
+      "Hot sauce, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Make the curtido", "text": "Combine cabbage, carrot, sliced onion, oregano and 1 teaspoon salt in a heat-safe bowl. Pour over boiling water, toss for 1 minute, then drain well. Stir in vinegar and sugar, cover and refrigerate at least 2 hours, tossing once."},
+      {"name": "Cook the salsa roja", "text": "Blend tomatoes, chopped onion, garlic, 1/2 cup water and 1/4 teaspoon salt until smooth. Simmer in a small saucepan for 12 to 15 minutes, stirring occasionally, until spoonable but still pourable. Cool to warm."},
+      {"name": "Mix the masa", "text": "Stir masa flour and the remaining 1/4 teaspoon salt together. Add 2 3/4 cups warm water and 1 tablespoon oil and knead by hand for 2 minutes. The dough should feel like soft modeling clay with no dry cracks; add water 1 tablespoon at a time if needed. Cover 10 minutes."},
+      {"name": "Combine the filling", "text": "Mix refried beans and cheese until evenly marbled. Divide into 12 compact portions. Divide the rested masa into 12 balls and keep them covered with a damp towel."},
+      {"name": "Fill and pat", "text": "Lightly oil your hands. Cup one masa ball into a 4-inch round with a shallow well. Add one filling portion, draw the edges over it and pinch closed. Gently pat and rotate into a 5-inch disk about 1/2 inch thick. Seal small cracks with damp fingers."},
+      {"name": "Griddle in batches", "text": "Heat a lightly oiled cast-iron skillet or griddle over medium. Cook 2 or 3 pupusas at a time for 4 to 5 minutes per side until the masa is set and both faces have golden-brown patches. Adjust heat if they darken before the centers are hot."},
+      {"name": "Verify and serve", "text": "Check one pupusa from the first batch; its filling should reach 165°F and the masa should have no raw center. Plate three with a mound of curtido and a generous pool of salsa roja, matching the photograph. Pass hot sauce only for diners who want it."}
+    ],
+    "why_it_works": [
+      "A brief hot-water wilt softens the cabbage just enough for vinegar to penetrate while retaining the curtido's essential crunch.",
+      "Soft, rested masa seals around a cohesive bean-cheese filling without splitting, and oiled hands prevent sticking without adding excess flour.",
+      "Moderate griddle heat gives the thick cakes time to set through before their surfaces develop the photographed brown patches."
+    ],
+    "swaps": [
+      "Use a thick homemade refried bean purée, cooling it completely before mixing with cheese; loose whole beans make shaping difficult.",
+      "Monterey Jack can replace mozzarella or quesillo, but avoid very wet fresh cheese that may leak.",
+      "For pupusas de queso, omit beans and use 2 1/2 cups grated melting cheese, sealing especially carefully."
+    ],
+    "storage": "Refrigerate cooled pupusas, curtido and salsa in separate covered containers for up to 4 days. Reheat pupusas in a lightly oiled skillet over medium-low until crisp and 165°F in the center. Freeze cooked pupusas with parchment between them for up to 2 months; thaw overnight before reheating.",
+    "notes": [
+      "Total time includes a 2-hour curtido pickle; make it first or refrigerate it overnight. Active work is about 90 minutes.",
+      "Use instant masa harina intended for tortillas, not cornmeal or cornstarch. Brands absorb water differently, so judge the soft, crack-free texture.",
+      "Keep filling about 1/2 inch from the edge before sealing. Overfilling is the main cause of tears and cheese loss.",
+      "Cooked bean filling is reheated inside the cakes; verify 165°F in the center of a representative first-batch pupusa.",
+      "The salsa is deliberately mild. Add jalapeño to the blender or hot sauce at the table only if desired."
+    ],
+    "faqs": [
+      {"q": "Why does my masa crack around the filling?", "a": "It is probably too dry. Knead in warm water one tablespoon at a time until a flattened ball has smooth edges, then keep unused dough under a damp towel."},
+      {"q": "Can I shape pupusas ahead?", "a": "They are best cooked soon after shaping because the filling slowly hydrates the masa. For advance work, prepare the curtido, salsa and filling separately, then shape just before griddling."},
+      {"q": "How do I stop the filling from leaking?", "a": "Use a thick, cool filling, leave enough masa around it and pinch the top seam fully closed before flattening gently from the center outward."}
+    ],
+    "pantry": ["instant masa harina", "vegetarian refried beans", "distilled white vinegar", "diced tomatoes", "dried oregano", "granulated sugar", "kosher salt", "neutral oil", "hot sauce"],
+    "date_published": "2026-10-01",
+    "date_modified": "2026-10-01"
+  },
+  {
+    "slug": "austrian-wiener-schnitzel-parsley-potatoes-lemon",
+    "title": "Austrian Wiener Schnitzel with Parsley Potatoes & Lemon",
+    "dek": "Thin veal cutlets fry inside a light, rippled breadcrumb crust and arrive with buttered parsley potatoes and fresh lemon wedges.",
+    "collection": "family",
+    "protein": ["beef"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 30,
+    "cook_minutes": 35,
+    "total_minutes": 70,
+    "servings": 4,
+    "calories": 710,
+    "cost_per_serving": "$7.40",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Wiener_Schnitzel_in_Vienna.jpg",
+    "image_alt": "Golden rippled veal Wiener schnitzel cutlets served with parsley potatoes and a lemon half on a white plate",
+    "image_credit": "JIP / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Wiener_Schnitzel_in_Vienna.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["Wiener schnitzel", "Austrian", "veal cutlet", "breaded cutlet", "parsley potatoes", "pan fried", "special dinner", "lemon"],
+    "ingredients": [
+      "1 1/2 lb small Yukon Gold potatoes, scrubbed",
+      "2 tbsp unsalted butter",
+      "1/3 cup chopped flat-leaf parsley, divided",
+      "4 veal cutlets (about 5 oz each)",
+      "1 1/2 tsp kosher salt, divided",
+      "1/2 tsp ground black pepper",
+      "1/2 cup all-purpose flour",
+      "2 large eggs",
+      "1 tbsp whole milk",
+      "1 1/2 cups fine plain dry breadcrumbs",
+      "2 cups neutral oil or clarified butter, plus more as needed",
+      "1 lemon, cut into wedges or halves",
+      "Lingonberry preserves, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Cook the potatoes", "text": "Cover potatoes with cold salted water, bring to a gentle boil and simmer 15 to 20 minutes until a knife meets little resistance. Drain, steam-dry 3 minutes and halve any large potatoes."},
+      {"name": "Pound the veal", "text": "Place one cutlet between sheets of parchment. Pound from the center outward to an even 1/8-inch thickness without tearing. Repeat, then season both sides with 1 teaspoon salt and the pepper."},
+      {"name": "Build a loose breading station", "text": "Put flour in one wide dish. Beat eggs with milk in a second. Put breadcrumbs in a third. Dredge each cutlet in flour and shake well, coat in egg, then lay in crumbs and turn without pressing. Loose crumbs help the crust puff away from the meat."},
+      {"name": "Heat the frying fat", "text": "Pour oil or clarified butter 1/2 inch deep into a wide heavy skillet and heat to 350°F. Line a rack over a sheet pan. The cutlets should float rather than sit directly on the pan base."},
+      {"name": "Fry in batches", "text": "Fry one cutlet at a time for about 2 minutes on the first side and 1 to 2 minutes on the second. Gently swirl the pan so hot fat washes over the top and creates a rippled crust. Maintain 340 to 355°F and transfer to the rack."},
+      {"name": "Verify doneness and rest", "text": "Check the center of each veal cutlet from the side with an instant-read thermometer. It must reach at least 145°F, followed by a 3-minute rest. Return any under-temperature cutlet to the oil briefly, then recheck with a clean probe."},
+      {"name": "Finish the potatoes and plate", "text": "Melt butter in the empty potato pot, add potatoes, 1/2 teaspoon salt and half the parsley and toss gently. Plate the broad golden schnitzel with parsley potatoes, lemon and remaining parsley to match the photograph; serve optional lingonberry preserves separately."}
+    ],
+    "why_it_works": [
+      "Pounding veal uniformly thin makes the center reach its safe temperature during the same brief fry that turns crumbs golden.",
+      "Fine crumbs applied without pressure leave tiny air spaces, while swirling hot fat over the surface produces Wiener schnitzel's characteristic loose, souffléed crust.",
+      "A rack drains excess fat without trapping steam, preserving crispness through the required three-minute rest."
+    ],
+    "swaps": [
+      "Pork loin cutlets can replace veal for a pork schnitzel; label the dish accordingly and cook whole pork to 145°F plus a 3-minute rest.",
+      "Clarified butter gives a rich flavor and higher smoke point; neutral canola or sunflower oil is more economical.",
+      "Small red potatoes can replace Yukon Golds, with the same knife-tender test."
+    ],
+    "storage": "Refrigerate schnitzel and potatoes in separate shallow containers within 2 hours for up to 3 days. Reheat cutlets on a rack in a 375°F oven until crisp and 165°F; reheat potatoes separately to 165°F. Freeze breaded cooked cutlets for up to 1 month, but the fresh crust is best the day it is fried.",
+    "notes": [
+      "Total time includes potato cooking, breading in batches, frying and the required 3-minute veal rest.",
+      "Traditional Wiener schnitzel is veal. If you use pork or chicken, call it schnitzel rather than Wiener schnitzel.",
+      "Keep oil between 340 and 355°F. Cooler oil makes a greasy crust; hotter oil browns crumbs before the meat reaches 145°F.",
+      "USDA guidance for whole veal cuts is 145°F followed by a 3-minute rest. Check from the cutlet's edge because the meat is thin.",
+      "Never leave frying oil unattended. Cool it completely before straining or discarding according to local guidance."
+    ],
+    "faqs": [
+      {"q": "Why did the breading stick tightly to the veal?", "a": "The breadcrumbs may have been pressed on or the cutlet may have rested too long before frying. Set crumbs on lightly and move each breaded cutlet promptly into properly heated fat."},
+      {"q": "Can I shallow-fry with less oil?", "a": "You can, but the cutlet is less likely to float and develop the classic wavy crust. Keep at least 1/2 inch of fat and add more between batches if the level drops."},
+      {"q": "How do I keep the first cutlet crisp?", "a": "Hold it on a wire rack in a 200°F oven while frying the rest. Do not stack cutlets or cover them, because trapped steam softens the crust."}
+    ],
+    "pantry": ["all-purpose flour", "plain dry breadcrumbs", "neutral frying oil", "kosher salt", "black pepper", "lingonberry preserves"],
+    "date_published": "2026-10-01",
+    "date_modified": "2026-10-01"
+  },
+  {
+    "slug": "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts",
+    "title": "Egyptian-Style Basbousa with Yogurt, Lemon Syrup & Pine Nuts",
+    "dek": "A buttery coarse-semolina cake bakes around toasted pine nuts, then drinks in a bright lemon syrup for crisp edges and a tender center.",
+    "collection": "baking",
+    "protein": ["meatless"],
+    "difficulty": "Easy",
+    "prep_minutes": 25,
+    "cook_minutes": 40,
+    "total_minutes": 150,
+    "servings": 16,
+    "calories": 310,
+    "cost_per_serving": "$1.05",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Basboussa_-_harisa_-_%D8%A8%D8%B3%D8%A8%D9%88%D8%B3%D8%A9_photo2.jpg",
+    "image_alt": "Three golden-brown squares of syrup-soaked basbousa semolina cake topped with toasted pine nuts on a white plate",
+    "image_credit": "Sami Mlouhi / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Basboussa_-_harisa_-_%D8%A8%D8%B3%D8%A8%D9%88%D8%B3%D8%A9_photo2.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["basbousa", "Egyptian-style", "semolina cake", "yogurt cake", "lemon syrup", "pine nuts", "make ahead dessert", "Middle Eastern dessert"],
+    "ingredients": [
+      "1 1/2 cups granulated sugar, divided",
+      "1 cup water",
+      "2 tbsp fresh lemon juice",
+      "1 tsp orange blossom water, optional",
+      "2 cups coarse semolina (360 g)",
+      "1/2 cup unsweetened shredded coconut",
+      "2 tsp baking powder",
+      "1/2 tsp fine sea salt",
+      "3/4 cup unsalted butter, melted and cooled slightly, plus more for the pan",
+      "1 cup plain whole-milk yogurt",
+      "1/2 cup whole milk",
+      "1 tsp vanilla extract",
+      "1/3 cup pine nuts"
+    ],
+    "instructions": [
+      {"name": "Cook and cool the syrup", "text": "Combine 1 cup sugar and the water in a small saucepan. Bring to a boil, stirring only until dissolved, then simmer 8 minutes. Add lemon juice and simmer 2 minutes more. Remove from heat, stir in optional orange blossom water and cool completely."},
+      {"name": "Prepare the pan", "text": "Heat the oven to 350°F with a rack in the center. Butter a 9-by-13-inch metal pan thoroughly, including the corners."},
+      {"name": "Mix the semolina batter", "text": "Whisk semolina, coconut, baking powder, salt and the remaining 1/2 cup sugar. Stir in melted butter until every grain is coated, then fold in yogurt, milk and vanilla just until evenly moistened. Do not beat."},
+      {"name": "Rest and score", "text": "Spread batter evenly in the pan and smooth without compacting. Rest 15 minutes so semolina begins hydrating. Score into 16 squares, cutting about halfway down, and press 2 or 3 pine nuts into the center of each square."},
+      {"name": "Bake until deeply golden", "text": "Bake 35 to 40 minutes until the top is an even deep gold, the edges pull slightly from the pan and the center reaches about 205°F. If needed, broil 30 to 60 seconds for color while watching continuously."},
+      {"name": "Soak hot cake with cool syrup", "text": "Set the hot pan on a rack. Slowly pour the cool syrup over the entire surface, including the edges and score lines. It should sizzle and absorb; pause between additions rather than flooding one spot."},
+      {"name": "Rest and serve", "text": "Cool at least 60 minutes, then recut the squares fully. Lift three golden pieces onto a white plate with the pine nuts visible, matching the photograph. Serve at room temperature so the syrup is evenly distributed."}
+    ],
+    "why_it_works": [
+      "Coating coarse semolina in butter before adding dairy limits gluten-like clumping and produces distinct tender grains rather than a pasty crumb.",
+      "A 15-minute rest hydrates the semolina evenly, and pre-scoring gives syrup channels while making clean final portions easier.",
+      "Cool syrup over hot cake creates a strong temperature contrast that encourages absorption without turning the top soggy."
+    ],
+    "swaps": [
+      "Use blanched almonds instead of pine nuts, placing one in the center of each square before baking.",
+      "Rose water can replace orange blossom water; use only 1/2 teaspoon because its aroma is stronger.",
+      "For a less coconut-forward cake, replace shredded coconut with an equal weight of additional coarse semolina."
+    ],
+    "storage": "Cover the cooled cake tightly and keep at cool room temperature for up to 2 days or refrigerate for up to 5 days. Bring chilled pieces to room temperature before serving. Freeze individual squares for up to 2 months, thaw wrapped in the refrigerator and then uncover at room temperature.",
+    "notes": [
+      "Total time includes the batter rest, 35 to 40 minutes baking and at least 60 minutes for syrup absorption and cooling.",
+      "Use coarse semolina, not fine durum flour; the visible grain is central to basbousa's texture.",
+      "A metal pan promotes the dark golden edges shown in the photograph. Glass may need extra time and can brown unevenly.",
+      "The 205°F center and deep golden top are more reliable than time alone because yogurt thickness and pan material vary.",
+      "Pine nuts are expensive but visually match this version; almonds are the most practical substitution."
+    ],
+    "faqs": [
+      {"q": "Why is my basbousa dry?", "a": "It may have been overbaked, made with fine semolina or given too little syrup. Pull it near 205°F and pour the full cooled syrup slowly over the cake while it is hot."},
+      {"q": "Why did the cake turn gummy?", "a": "Overmixing, using fine semolina or pouring hot syrup over hot cake can make the center heavy. Stir only until combined and cool the syrup before baking."},
+      {"q": "Can I make basbousa the day before?", "a": "Yes. Its flavor and syrup distribution improve after several hours. Cool fully, cover the pan and cut along the score lines just before serving."}
+    ],
+    "pantry": ["coarse semolina", "granulated sugar", "baking powder", "shredded coconut", "fine sea salt", "vanilla extract", "orange blossom water", "pine nuts"],
+    "date_published": "2026-10-01",
+    "date_modified": "2026-10-01"
+  }
+]
