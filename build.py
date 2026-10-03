@@ -521,7 +521,37 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot vietnamese-style bò kho" in haystack or "instant pot vietnamese-style bo kho" in haystack:
+    if "instant pot dominican-style sancocho" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-stage pork, chicken and root-vegetable method, four-cup thin-broth base and controlled releases are written for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check chicken pieces for 165°F and pork for at least 145°F plus fork-tender texture before serving the family bowls."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade makes consistent cuts through plantain, yuca, squash, corn and both meats."),
+        ]
+    elif "instant pot italian-style creamy polenta" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The trivet, base-water amount, ten-minute cycle and natural release are calibrated for this common family capacity."),
+            ("stainless steel pressure cooker insert bowl 3 quart", "Pressure-cooker-safe inner bowl", "A 2½- to 3-quart uncovered metal bowl keeps expanding cornmeal off the heating element for pot-in-pot cooking."),
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad hot surface browns sliced mushrooms in batches while the polenta cooks hands-off."),
+        ]
+    elif "finnish lohikeitto" in haystack:
+        products = [
+            ("heavy bottom dutch oven 5 quart", "Heavy 5-quart soup pot", "Steady heat brings potatoes to tenderness, then holds the salmon and cream at a bare simmer."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several thick salmon pieces for 145°F without overcooking the entire pot."),
+            ("stainless steel fish bone tweezers", "Fish-bone tweezers", "A precise grip removes hidden pin bones cleanly before the salmon is cut into soup-size pieces."),
+        ]
+    elif "south indian-style masala dosa" in haystack:
+        products = [
+            ("countertop blender glass jar", "High-speed countertop blender", "Separate smooth rice and urad-dal batters combine into a reliably aerated base for overnight fermentation."),
+            ("cast iron dosa tawa griddle 12 inch", "12-inch dosa griddle", "A broad, moderately hot surface gives the ladle room to spread thin spirals and crisp their undersides."),
+            ("stainless steel offset spatula wide", "Wide offset spatula", "A slim broad edge releases each lacy dosa without tearing before the potato filling is added."),
+        ]
+    elif "german bienenstich" in haystack:
+        products = [
+            ("9 inch springform pan", "9-inch springform pan", "Tall removable sides support the yeast cake, almond crown and substantial vanilla-cream layer."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighed flour keeps the enriched dough soft enough to rise while still holding the filling."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "Check warm milk, pastry cream and the cake center at their different target temperatures instead of guessing."),
+        ]
+    elif "instant pot vietnamese-style bò kho" in haystack or "instant pot vietnamese-style bo kho" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-stage meat-and-root-vegetable method, measured thin broth and controlled releases are written for this family-size capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check beef for at least 145°F and honeycomb tripe for 160°F before serving the aromatic noodle bowls."),
@@ -1816,11 +1846,13 @@ def build_collections():
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-lebanese-style-mujaddara-caramelized-onions/')}">Lebanese-style mujaddara</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">90 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Two 10-min natural releases</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fold in onions; rest grains</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget meatless pantry meal</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-vietnamese-style-bo-kho-carrots-noodles/')}">Vietnamese-style bò kho</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">95 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled; second controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Cook noodles; garnish bowls</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Aromatic beef noodle supper</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-egyptian-style-ful-medames-breakfast-platter/')}">Egyptian-style ful medames</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash; season; build platter</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Vegan breakfast meal prep</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-dominican-style-sancocho-chicken-pork-root-vegetables/')}">Dominican-style sancocho</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">115 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Two 10-min natural releases, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Check meats; mash vegetables</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Weekend family stew</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-italian-creamy-polenta-mushrooms-parmesan/')}">Creamy polenta with mushrooms</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk polenta; add mushrooms</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless pot-in-pot supper</td></tr>
                       <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 2, 2026.</p>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 3, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
