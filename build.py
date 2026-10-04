@@ -140,7 +140,11 @@ def recipe_proteins(recipe) -> list[str]:
         "sausage": ("sausage", "kielbasa", "chorizo"),
         "seafood": ("seafood", "fish", "salmon", "tuna", "shrimp", "cod", "tilapia"),
     }
-    matches = [\n        protein\n        for protein, terms in rules.items()\n        if any(re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", haystack) for term in terms)\n    ]
+    matches = [
+        protein
+        for protein, terms in rules.items()
+        if any(re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", haystack) for term in terms)
+    ]
     tags = {str(tag).lower() for tag in recipe.get("tags", [])}
     if not matches and tags.intersection({"vegetarian", "vegan"}):
         matches.append("meatless")
