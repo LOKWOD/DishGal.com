@@ -521,7 +521,37 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot dominican-style sancocho" in haystack:
+    if "instant pot hainanese-style chicken rice" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-cup thin-broth base, five-minute cycle, half-full grain safeguard and ten-minute natural release are written for this family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken thighs beside, but not touching, the bone for 165°F before slicing or serving."),
+            ("fine mesh rice strainer", "Fine-mesh rice strainer", "Rinse jasmine rice until the water is nearly clear, then drain it thoroughly so the measured pressure-cooker ratio stays accurate."),
+        ]
+    elif "instant pot greek beef stifado" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The wine-and-broth base, layered tomato, 35-minute cycle and 15-minute natural release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm beef clears 145°F with its three-minute rest, then use fork texture to judge the additional collagen breakdown needed for a braise."),
+            ("silicone tipped kitchen tongs", "Silicone-tipped kitchen tongs", "Turn pearl onions and beef batches cleanly without scratching the inner pot or crowding the browning surface."),
+        ]
+    elif "thai-style shrimp som tam" in haystack:
+        products = [
+            ("large granite mortar pestle thai", "Large mortar and pestle", "A roomy sturdy mortar bruises green papaya and beans while leaving their centers crisp."),
+            ("julienne peeler hand guard", "Julienne peeler with hand guard", "Uniform green-papaya strands absorb dressing evenly; use the guard and stop before the piece becomes unsafe to hold."),
+            ("stainless steel citrus press", "Handheld citrus press", "Press enough fresh lime juice quickly for the sharp-salty-sweet dressing without seeds."),
+        ]
+    elif "syrian-style muhammara" in haystack:
+        products = [
+            ("food processor 8 cup", "8-cup food processor", "Short controlled pulses combine roasted peppers, walnuts and breadcrumbs while preserving the dip's characteristic texture."),
+            ("rimmed baking sheet heavy duty", "Rimmed baking sheet", "Toast walnuts evenly, then reuse the same pan for zaatar-dusted pita wedges."),
+            ("silicone spatula heat resistant", "Flexible silicone spatula", "Scrape the processor bowl thoroughly and shape the finished dip into a clean serving swirl."),
+        ]
+    elif "belgian liège waffles" in haystack or "belgian liege waffles" in haystack:
+        products = [
+            ("belgian waffle maker adjustable temperature", "Adjustable Belgian waffle maker", "Medium heat gives the enriched dough time to cook through while pearl sugar caramelizes instead of scorching."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weigh flour, butter, pearl sugar and each dough portion for eight evenly cooking waffles."),
+            ("digital probe cooking thermometer", "Digital cooking thermometer", "Check 105–110°F milk for yeast and a minimum 190°F in each waffle's bready center."),
+        ]
+    elif "instant pot dominican-style sancocho" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-stage pork, chicken and root-vegetable method, four-cup thin-broth base and controlled releases are written for this family-size capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check chicken pieces for 165°F and pork for at least 145°F plus fork-tender texture before serving the family bowls."),
@@ -1848,11 +1878,13 @@ def build_collections():
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-egyptian-style-ful-medames-breakfast-platter/')}">Egyptian-style ful medames</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash; season; build platter</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Vegan breakfast meal prep</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-dominican-style-sancocho-chicken-pork-root-vegetables/')}">Dominican-style sancocho</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">115 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Two 10-min natural releases, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Check meats; mash vegetables</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Weekend family stew</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-italian-creamy-polenta-mushrooms-parmesan/')}">Creamy polenta with mushrooms</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk polenta; add mushrooms</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless pot-in-pot supper</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce/')}">Hainanese-style chicken rice</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; crisp skin; mix sauces</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">All-in-one mild family bowl</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-greek-beef-stifado-pearl-onions/')}">Greek beef stifado</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">110 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Simmer onions; balance sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead beef braise</td></tr>
                       <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 3, 2026.</p>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 4, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
