@@ -525,7 +525,37 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot hainanese-style chicken rice" in haystack:
+    if "instant pot jamaican-style oxtail" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-cup thin-broth base, 45-minute cycle and 20-minute natural release are written for this family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check oxtail for safe temperature, then use the 195–205°F tenderness range and fork texture to judge collagen breakdown."),
+            ("gravy fat separator heat resistant", "Heat-safe fat separator", "Separate the rendered oxtail fat from the cooking liquid before reducing the glossy butter-bean gravy."),
+        ]
+    elif "instant pot ghanaian-style chicken peanut stew" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-cup thin-broth base, six-minute cycle and ten-minute natural release are calibrated for this family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken-thigh pieces at their centers for 165°F before finishing the peanut sauce."),
+            ("silicone whisk heat resistant", "Heat-safe silicone whisk", "Whisk hot broth into peanut butter smoothly without scratching the pressure cooker's inner pot."),
+        ]
+    elif "balkan-style meat burek" in haystack:
+        products = [
+            ("12 inch round metal baking pan", "12-inch round baking pan", "A shallow metal pan supports the coiled phyllo and encourages a crisp, evenly browned base."),
+            ("silicone pastry brush", "Silicone pastry brush", "A flexible brush spreads a thin, even layer of butter without tearing delicate phyllo sheets."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the beef filling reaches 160°F and the assembled burek is hot through at the center."),
+        ]
+    elif "armenian-style ghapama" in haystack:
+        products = [
+            ("8 inch chef knife kitchen", "Chef's knife", "A sharp, controllable blade cuts the pumpkin lid cleanly; angle it inward so the lid cannot fall through."),
+            ("enameled dutch oven 6 quart", "Snug Dutch oven", "A heavy, close-fitting vessel steadies the whole pumpkin and catches any syrup as the shell softens."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage matter when moving a heavy, softened stuffed pumpkin from the oven."),
+        ]
+    elif "eastern european syrniki" in haystack:
+        products = [
+            ("12 inch nonstick skillet", "12-inch skillet", "A broad, even surface cooks four delicate cheese patties at a time without crowding."),
+            ("silicone fish spatula turner", "Thin flexible spatula", "A slim edge slides beneath tender syrniki so their golden crusts stay intact when turned."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the egg-based centers reach 160°F without overbrowning the cheese cakes."),
+        ]
+    elif "instant pot hainanese-style chicken rice" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-cup thin-broth base, five-minute cycle, half-full grain safeguard and ten-minute natural release are written for this family capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken thighs beside, but not touching, the bone for 165°F before slicing or serving."),
@@ -1708,28 +1738,34 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
     },
     "cottage-cheese-protein-pancakes": {
-        "slugs": ["cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
         "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
     },
     "cottage-cheese-frittata-tomatoes-green-peppers": {
-        "slugs": ["cottage-cheese-protein-pancakes", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
         "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
     },
     "freezer-breakfast-burritos": {
-        "slugs": ["cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
         "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
     },
     "berry-almond-chia-pudding-toasted-seeds": {
-        "slugs": ["cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos"],
+        "slugs": ["cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos"],
         "eyebrow": "Breakfast planning",
         "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare hot protein pancakes, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+    },
+    "eastern-european-syrniki-sour-cream-fruit": {
+        "slugs": ["cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a make-ahead breakfast rotation",
+        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
     },
 }
 
@@ -1884,11 +1920,13 @@ def build_collections():
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-italian-creamy-polenta-mushrooms-parmesan/')}">Creamy polenta with mushrooms</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk polenta; add mushrooms</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless pot-in-pot supper</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce/')}">Hainanese-style chicken rice</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; crisp skin; mix sauces</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">All-in-one mild family bowl</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-greek-beef-stifado-pearl-onions/')}">Greek beef stifado</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">110 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Simmer onions; balance sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead beef braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-jamaican-style-oxtail-butter-beans/')}">Jamaican-style oxtail</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">120 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Defat; add beans; reduce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Special make-ahead beef braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ghanaian-style-chicken-peanut-stew-sweet-potatoes/')}">Ghanaian-style chicken peanut stew</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk in peanut butter; wilt spinach</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Weeknight chicken one-bowl stew</td></tr>
                       <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 4, 2026.</p>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 5, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
