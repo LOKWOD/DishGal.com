@@ -525,7 +525,37 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot jamaican-style oxtail" in haystack:
+    if "instant pot brazilian-style feijoada" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The soaked-bean volume, four-cup thin-broth base and 20-minute natural release are written for this family capacity."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Rinse and inspect black beans before soaking, then drain them thoroughly before pressure cooking."),
+            ("stainless steel potato masher", "Stainless-steel bean masher", "Mash a measured scoop of tender beans against the pot wall to thicken the stew naturally."),
+        ]
+    elif "instant pot uzbek-style lamb plov" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-stage lamb-and-rice method, half-full grain limit and controlled releases are calibrated for this family capacity."),
+            ("fine mesh rice strainer", "Fine-mesh rice strainer", "Rinse basmati until nearly clear and drain it for 15 minutes so the measured liquid ratio remains accurate."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify lamb reaches at least 145°F with a three-minute rest, then use tenderness to judge shoulder collagen."),
+        ]
+    elif "turkish mercimek köftesi" in haystack or "turkish mercimek koftesi" in haystack:
+        products = [
+            ("heavy bottom saucepan 3 quart", "Heavy 3-quart saucepan", "Even heat lets red lentils collapse without scorching as the last cooking liquid reduces."),
+            ("stainless steel measuring cups spoons", "Measuring cup and spoon set", "Accurate lentil, water and fine-bulgur proportions determine whether the mixture shapes cleanly."),
+            ("large rectangular serving platter", "Large serving platter", "A broad platter keeps the ridged kofta in neat rows with lemon and lettuce at the edges."),
+        ]
+    elif "peruvian causa rellena" in haystack:
+        products = [
+            ("stainless steel potato ricer", "Stainless-steel potato ricer", "Rice hot potatoes into a smooth, non-gluey base that holds a clean molded edge."),
+            ("3 inch food ring molds set", "3-inch ring molds", "Straight-sided molds build six compact potato, tuna and avocado stacks with tidy layers."),
+            ("offset spatula small stainless", "Small offset spatula", "Level each potato layer and lift filling cleanly without dragging it up the mold walls."),
+        ]
+    elif "south african-style malva puddings" in haystack:
+        products = [
+            ("8 ounce ceramic ramekins set of 6", "Six 8-ounce ramekins", "Individual dishes create the rounded presentation and give every serving caramelized edges."),
+            ("rimmed baking sheet heavy duty", "Rimmed baking sheet", "A sturdy sheet keeps the six ramekins stable and contains any sauce that bubbles over."),
+            ("digital probe cooking thermometer", "Digital cooking thermometer", "Check the egg-flour sponge for a 200–205°F center before adding the hot cream sauce."),
+        ]
+    elif "instant pot jamaican-style oxtail" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-cup thin-broth base, 45-minute cycle and 20-minute natural release are written for this family capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check oxtail for safe temperature, then use the 195–205°F tenderness range and fork texture to judge collagen breakdown."),
@@ -1665,6 +1695,24 @@ def build_recipe_index():
     write_page("/recipes/", page("Easy Dinner Recipes", "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps.", "/recipes/", body, schema=schema))
 
 CURATED_RECIPE_CLUSTERS = {
+    "turkish-mercimek-koftesi-lemon-fresh-herbs": {
+        "slugs": ["syrian-style-muhammara-roasted-pepper-walnut-dip", "crispy-herb-falafel-pita-lemon-tahini-sauce", "georgian-beet-pkhali-mchadi-pomegranate"],
+        "eyebrow": "Plant-based mezze",
+        "title": "Build a varied plant-based sharing table",
+        "copy": "Pair no-fry lentil-and-bulgur kofta with roasted-pepper walnut dip, crisp chickpea falafel, and beet-walnut pkhali to compare four distinct bases, textures, and make-ahead strategies.",
+    },
+    "syrian-style-muhammara-roasted-pepper-walnut-dip": {
+        "slugs": ["turkish-mercimek-koftesi-lemon-fresh-herbs", "crispy-herb-falafel-pita-lemon-tahini-sauce", "georgian-beet-pkhali-mchadi-pomegranate"],
+        "eyebrow": "Plant-based mezze",
+        "title": "Build a varied plant-based sharing table",
+        "copy": "Pair roasted-pepper walnut dip with no-fry lentil-and-bulgur kofta, crisp chickpea falafel, and beet-walnut pkhali to compare four distinct bases, textures, and make-ahead strategies.",
+    },
+    "georgian-beet-pkhali-mchadi-pomegranate": {
+        "slugs": ["turkish-mercimek-koftesi-lemon-fresh-herbs", "syrian-style-muhammara-roasted-pepper-walnut-dip", "crispy-herb-falafel-pita-lemon-tahini-sauce"],
+        "eyebrow": "Plant-based mezze",
+        "title": "Build a varied plant-based sharing table",
+        "copy": "Pair beet-walnut pkhali with no-fry lentil-and-bulgur kofta, roasted-pepper walnut dip, and crisp chickpea falafel to compare four distinct bases, textures, and make-ahead strategies.",
+    },
     "palestinian-style-musakhan-sumac-chicken-onion-flatbread": {
         "slugs": ["lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "crispy-herb-falafel-pita-lemon-tahini-sauce", "creamy-stovetop-butter-chicken-garlic-naan"],
         "eyebrow": "Flatbread dinners",
@@ -1922,11 +1970,13 @@ def build_collections():
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-greek-beef-stifado-pearl-onions/')}">Greek beef stifado</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">110 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Simmer onions; balance sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead beef braise</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-jamaican-style-oxtail-butter-beans/')}">Jamaican-style oxtail</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">120 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Defat; add beans; reduce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Special make-ahead beef braise</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ghanaian-style-chicken-peanut-stew-sweet-potatoes/')}">Ghanaian-style chicken peanut stew</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk in peanut butter; wilt spinach</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Weeknight chicken one-bowl stew</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-brazilian-style-feijoada-collards-farofa/')}">Brazilian-style feijoada</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">125 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Add sausage; mash beans; cook collards</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Complete pork-and-bean platter</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-uzbek-style-lamb-plov-carrots/')}">Uzbek-style lamb plov</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Two 10-min natural releases, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fold in garlic; fluff and rest rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Celebration-style one-pot rice</td></tr>
                       <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 5, 2026.</p>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 6, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''

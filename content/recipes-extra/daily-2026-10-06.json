@@ -1,0 +1,370 @@
+[
+  {
+    "slug": "instant-pot-brazilian-style-feijoada-collards-farofa",
+    "title": "Instant Pot Brazilian-Style Feijoada with Collards & Farofa",
+    "dek": "Soaked black beans and pork pressure-cook into a deeply savory stew while garlicky collards, rice, orange and toasted cassava flour make the bowl feel complete.",
+    "collection": "instant-pot",
+    "protein": ["pork"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 25,
+    "cook_minutes": 70,
+    "total_minutes": 125,
+    "servings": 8,
+    "calories": 710,
+    "cost_per_serving": "$4.25",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/70/Feijoada_%C3%A0_brasileira_-02.jpg",
+    "image_alt": "Brazilian-style feijoada with black beans, pork and sliced sausage served with white rice, collard greens and farofa",
+    "image_credit": "Bradleyzm / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Feijoada_%C3%A0_brasileira_-02.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["instant pot", "electric pressure cooker", "Brazilian-style feijoada", "black beans", "pork shoulder", "smoked sausage", "collard greens", "family dinner"],
+    "ingredients": [
+      "1 lb dried black beans, picked over and rinsed",
+      "Water for an 8- to 12-hour soak",
+      "1 1/2 lb boneless pork shoulder, cut into 1 1/2-inch cubes",
+      "12 oz smoked pork sausage, sliced 1/2 inch thick",
+      "2 tsp kosher salt, divided",
+      "1/2 tsp black pepper",
+      "1 tbsp neutral oil",
+      "1 large yellow onion, chopped",
+      "6 garlic cloves, minced and divided",
+      "1 tsp ground cumin",
+      "2 bay leaves",
+      "4 cups low-sodium chicken broth",
+      "1 bunch collard greens, stems removed and leaves thinly sliced",
+      "1 tbsp olive oil",
+      "2 cups cooked white rice, for serving",
+      "1 cup toasted cassava flour or prepared farofa, for serving",
+      "2 oranges, cut into wedges",
+      "Hot sauce, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Soak and measure safely", "text": "Cover beans by 3 inches with cool water and soak 8 to 12 hours. Drain and rinse. This recipe is written for a 6-quart electric pressure cooker; soaked beans, meat and liquid must remain below the half-full line because beans expand and foam."},
+      {"name": "Brown the sausage and pork", "text": "Season pork with 1 teaspoon salt and pepper. Select Sauté High, add neutral oil and brown sausage for 4 minutes; transfer to a clean plate. Brown pork in two uncrowded batches for about 4 minutes each, coloring two sides without cooking it through."},
+      {"name": "Deglaze the base", "text": "Reduce Sauté to Normal. Cook onion for 4 minutes, then add four minced garlic cloves and cumin for 30 seconds. Pour in 1 cup broth and scrape until the base is completely smooth. Add the remaining 3 cups broth, drained beans, bay leaves and browned pork; stir once."},
+      {"name": "Pressure-cook and release", "text": "Lock the lid and cook on High Pressure for 35 minutes; allow about 15 minutes to reach pressure. Let pressure release naturally for 20 minutes, then vent any remainder in short controlled pulses. Open only after the float valve drops, keeping hands and face clear of steam."},
+      {"name": "Verify beans and pork", "text": "The beans should crush creamy between two fingers and the pork should pull apart with a fork. Pork is safe at 145°F followed by a 3-minute rest, but shoulder is most tender around 195 to 205°F. If either remains firm, cook 5 minutes more at High Pressure with a 10-minute natural release."},
+      {"name": "Finish the feijoada", "text": "Discard bay leaves. Return sausage and simmer on Sauté Low for 8 to 12 minutes, stirring often, until hot and lightly thickened. Mash about 1/2 cup beans against the pot wall for body, then season with up to 1/2 teaspoon of the remaining salt."},
+      {"name": "Cook the collards", "text": "While the stew reduces, heat olive oil in a large skillet over medium. Add the remaining two garlic cloves for 20 seconds, then collards and 1/2 teaspoon salt. Cook 6 to 8 minutes until bright and tender, splashing in water if the pan dries."},
+      {"name": "Build the plates", "text": "Spoon feijoada beside rice and collards. Add farofa and orange wedges, and keep hot sauce at the table so the shared pot stays mild-first."}
+    ],
+    "why_it_works": [
+      "A full four cups of thin broth and a thoroughly deglazed base give soaked beans enough liquid while reducing burn-warning risk.",
+      "Holding the already-cooked sausage until after pressure preserves distinct slices and prevents excess fat from clouding the bean broth.",
+      "Rice, bitter greens, citrus and crunchy farofa balance the rich pork-and-bean stew instead of treating it as an isolated bowl."
+    ],
+    "swaps": [
+      "Use 1 1/2 pounds meaty pork ribs in place of shoulder; keep the same pressure timing and verify tenderness around the bones.",
+      "Use smoked turkey sausage for a lighter variation, understanding that the finished flavor will be less pork-forward.",
+      "If cassava flour is unavailable, serve toasted coarse breadcrumbs for crunch; they are not traditional farofa but fulfill the same textural role."
+    ],
+    "storage": "Cool the feijoada in shallow containers within 2 hours. Refrigerate up to 4 days or freeze up to 3 months. Store rice, collards and farofa separately. Reheat the stew to 165°F with a splash of broth; reheat rice to 165°F and discard any rice left at room temperature longer than 2 hours.",
+    "notes": [
+      "Total time excludes the unattended overnight soak but includes browning, about 15 minutes to pressurize, the 35-minute cycle, a 20-minute natural release and finishing time.",
+      "Follow the exact model manual for minimum liquid, half-full guidance for beans, locking and venting. Never force the lid.",
+      "Do not double this recipe in a 6-quart cooker; beans and foamy liquid need the specified headroom.",
+      "Salt levels vary widely in sausage and broth, so most of the seasoning happens after reduction."
+    ],
+    "faqs": [
+      {"q": "Can I skip soaking the black beans?", "a": "Not with these timings and liquid amounts. Unsoaked beans need a longer cycle and more liquid, which changes both the half-full calculation and the pork texture."},
+      {"q": "Why are the sausage slices added after pressure?", "a": "They are already cooked. Browning develops flavor, while returning them during the finishing simmer keeps them juicy and visually distinct."},
+      {"q": "What if the beans are tender but the stew looks thin?", "a": "Mash a scoop of beans and simmer uncovered on Sauté Low, stirring frequently. The natural bean starch thickens the broth without flour."}
+    ],
+    "pantry": ["dried black beans", "low-sodium chicken broth", "ground cumin", "bay leaves", "neutral oil", "olive oil", "white rice", "cassava flour", "kosher salt"],
+    "date_published": "2026-10-06",
+    "date_modified": "2026-10-06"
+  },
+  {
+    "slug": "instant-pot-uzbek-style-lamb-plov-carrots",
+    "title": "Instant Pot Uzbek-Style Lamb Plov with Carrots",
+    "dek": "A two-stage pressure method tenderizes lamb shoulder first, then cooks fragrant rice and carrots just long enough to keep the grains separate and the meat succulent.",
+    "collection": "instant-pot",
+    "protein": ["lamb"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 25,
+    "cook_minutes": 45,
+    "total_minutes": 100,
+    "servings": 6,
+    "calories": 645,
+    "cost_per_serving": "$5.60",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Plov_with_lamb_and_carrots_in_ceramic_bowl.jpg",
+    "image_alt": "Uzbek-style plov with separate rice grains, julienned orange carrots and browned lamb shoulder pieces in a ceramic bowl",
+    "image_credit": "Postovalov / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Plov_with_lamb_and_carrots_in_ceramic_bowl.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["instant pot", "electric pressure cooker", "Uzbek-style plov", "lamb shoulder", "rice pilaf", "carrots", "family dinner", "Central Asian-inspired"],
+    "ingredients": [
+      "1 1/2 cups basmati rice",
+      "1 1/2 lb boneless lamb shoulder, cut into 1 1/4-inch cubes",
+      "1 3/4 tsp kosher salt, divided",
+      "1/2 tsp black pepper",
+      "2 tbsp neutral oil, divided",
+      "1 large yellow onion, thinly sliced",
+      "3 large carrots, cut into 2-inch matchsticks",
+      "1 1/2 tsp whole cumin seeds, lightly crushed",
+      "1 tsp ground coriander",
+      "1 whole garlic head, loose papery skin removed and top trimmed",
+      "2 1/4 cups low-sodium beef broth, divided",
+      "1/3 cup golden raisins, optional",
+      "2 tbsp chopped flat-leaf parsley",
+      "Lemon wedges, for serving",
+      "Crushed red pepper, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Rinse and drain the rice", "text": "Rinse rice in several changes of cool water until nearly clear, then drain in a fine-mesh strainer for at least 15 minutes. Thorough draining keeps the measured pressure-cooker ratio accurate."},
+      {"name": "Brown the lamb", "text": "Season lamb with 1 teaspoon salt and pepper. Select Sauté High on a 6-quart electric pressure cooker, add 1 tablespoon oil and brown lamb in two batches for 4 to 5 minutes each. Transfer to a clean plate."},
+      {"name": "Build the thin first stage", "text": "Reduce Sauté to Normal. Add remaining oil and onion; cook 5 minutes. Stir in half the carrots, cumin and coriander for 1 minute. Pour in 1 1/2 cups broth and scrape the base completely smooth. Return lamb and its juices, nestle in the garlic head and confirm the pot remains below the maximum-fill line."},
+      {"name": "Pressure-cook the lamb", "text": "Lock the lid and cook on High Pressure for 15 minutes; allow 12 to 15 minutes to reach pressure. Let pressure release naturally for 10 minutes, then vent the remainder in short controlled pulses. Open only after the float valve drops."},
+      {"name": "Check the first stage", "text": "Lamb must reach at least 145°F followed by a 3-minute rest and should be beginning to tenderize. Remove the garlic head. If the lamb is still very firm, pressure-cook 5 minutes more with another 10-minute natural release before adding rice."},
+      {"name": "Layer rice and carrots", "text": "Stir in the remaining 3/4 teaspoon salt. Level the lamb mixture, scatter drained rice evenly over it and add remaining carrots and raisins. Pour the remaining 3/4 cup broth over the rice without stirring it into the lamb. Keep grains and liquid below the half-full line."},
+      {"name": "Pressure-cook the rice", "text": "Lock the lid and cook on High Pressure for 4 minutes; allow about 8 minutes to reach pressure. Let pressure release naturally for 10 minutes, then use short controlled venting pulses, pausing if starch sputters."},
+      {"name": "Rest, fluff and serve", "text": "Squeeze the softened garlic cloves from their skins and fold them through the rice. Fluff from the edges inward, rest uncovered 5 minutes and finish with parsley. Serve lemon and crushed red pepper at the table so the family pot remains mild."}
+    ],
+    "why_it_works": [
+      "Two pressure stages solve the timing mismatch between collagen-rich lamb shoulder and quick-cooking rice.",
+      "Thin broth touches the fully deglazed heating plate in both stages, while rice stays layered on top to reduce sticking.",
+      "A full 10-minute natural release after the rice cycle finishes steaming the grains without a violent starchy vent."
+    ],
+    "swaps": [
+      "Use boneless beef chuck cut into 1 1/4-inch cubes and keep the same two-stage timing.",
+      "Replace basmati with another long-grain white rice only if its package timing is similar; do not use quick-cooking or brown rice.",
+      "Omit raisins for a fully savory plov or replace them with dried barberries added after pressure."
+    ],
+    "storage": "Cool in shallow containers within 2 hours and refrigerate up to 4 days. Freeze portions up to 2 months. Reheat to 165°F with a spoonful of water, covered, so the rice steams rather than dries. Do not repeatedly cool and reheat cooked rice.",
+    "notes": [
+      "Total time includes two pressurizing periods, both programmed cycles, two 10-minute natural releases and a 5-minute final rest.",
+      "Written for a 6-quart electric pressure cooker. Follow your exact model manual for liquid minimums, the half-full grain limit and safe venting.",
+      "Do not double this recipe in a 6-quart cooker; expanding rice requires generous headroom.",
+      "The mild base relies on cumin, coriander and lamb. Add chile only at the table."
+    ],
+    "faqs": [
+      {"q": "Why not cook the lamb and rice together from the start?", "a": "Lamb shoulder needs far longer under pressure than white rice. A single long cycle would turn the rice pasty before the meat became tender."},
+      {"q": "Why is my plov wet after opening?", "a": "Fluff gently and leave it uncovered for 5 to 10 minutes. If excess liquid remains, use Sauté Low for 1 to 2 minutes while folding from the bottom."},
+      {"q": "Can I use lamb leg instead of shoulder?", "a": "Yes, but leg is leaner. Cut it into slightly larger pieces and check at the end of the first stage so it does not become dry during the rice cycle."}
+    ],
+    "pantry": ["basmati rice", "low-sodium beef broth", "cumin seeds", "ground coriander", "golden raisins", "neutral oil", "kosher salt", "black pepper"],
+    "date_published": "2026-10-06",
+    "date_modified": "2026-10-06"
+  },
+  {
+    "slug": "turkish-mercimek-koftesi-lemon-fresh-herbs",
+    "title": "Turkish Mercimek Köftesi with Lemon & Fresh Herbs",
+    "dek": "Red lentils and fine bulgur become tender, hand-shaped vegan kofta brightened with lemon, scallions and parsley—an economical make-ahead mezze with no frying required.",
+    "collection": "vegan",
+    "protein": [],
+    "difficulty": "Easy",
+    "prep_minutes": 25,
+    "cook_minutes": 20,
+    "total_minutes": 65,
+    "servings": 8,
+    "calories": 245,
+    "cost_per_serving": "$1.10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Izmir_mercimek_k%C3%B6ftesi.jpg",
+    "image_alt": "Rows of orange Turkish mercimek köftesi shaped by hand, flecked with parsley and arranged with lemon wedges",
+    "image_credit": "Samizambak / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Izmir_mercimek_k%C3%B6ftesi.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["mercimek köftesi", "Turkish vegan recipe", "red lentils", "fine bulgur", "make-ahead mezze", "no-fry kofta", "budget appetizer", "lemon and herbs"],
+    "ingredients": [
+      "1 cup red lentils, rinsed",
+      "3 cups water",
+      "1 tsp kosher salt, divided",
+      "1 cup fine bulgur",
+      "1/4 cup extra-virgin olive oil",
+      "1 medium yellow onion, finely chopped",
+      "2 tbsp tomato paste",
+      "1 tbsp mild red pepper paste or additional tomato paste",
+      "1 tsp sweet paprika",
+      "1/2 tsp ground cumin",
+      "1/4 tsp black pepper",
+      "4 scallions, thinly sliced",
+      "1 packed cup finely chopped flat-leaf parsley",
+      "3 tbsp fresh lemon juice, plus wedges for serving",
+      "1 tbsp pomegranate molasses, optional",
+      "Romaine or butter lettuce leaves, for serving"
+    ],
+    "instructions": [
+      {"name": "Cook the lentils", "text": "Combine lentils, water and 1/2 teaspoon salt in a medium saucepan. Bring to a boil, reduce to a gentle simmer and cook uncovered for 14 to 18 minutes, stirring near the end, until the lentils collapse and about 1/2 cup thick liquid remains."},
+      {"name": "Hydrate the bulgur", "text": "Remove the pan from heat, stir in bulgur, cover and rest 20 minutes. The bulgur should absorb the remaining liquid and the mixture should be soft but moundable."},
+      {"name": "Cook the tomato-onion base", "text": "Meanwhile heat olive oil in a skillet over medium-low. Cook onion for 8 minutes until soft. Stir in tomato paste, pepper paste, paprika, cumin and black pepper for 1 minute, then remove from heat."},
+      {"name": "Mix while warm", "text": "Scrape the onion mixture into the lentils and bulgur. Stir vigorously with a sturdy spoon until evenly orange and cohesive. Cool 10 minutes so it is comfortable to handle."},
+      {"name": "Add fresh flavors", "text": "Fold in scallions, parsley, lemon juice, pomegranate molasses if using and remaining 1/2 teaspoon salt. Taste after the herbs are mixed through; the finished kofta should be savory and distinctly lemony."},
+      {"name": "Shape the ridges", "text": "With damp hands, squeeze heaping tablespoons into 24 short oval logs, allowing finger marks to form the traditional ridged surface. Arrange in rows with lemon wedges."},
+      {"name": "Rest and serve", "text": "Rest 15 minutes at room temperature or chill up to 24 hours. Serve tucked into lettuce leaves, with extra lemon and optional Aleppo pepper at the table."}
+    ],
+    "why_it_works": [
+      "Collapsing red lentils supply moisture and binding power, so the kofta need neither egg nor frying.",
+      "Fine bulgur hydrates in residual heat and absorbs the last cooking liquid without becoming waterlogged.",
+      "Cooling briefly before adding parsley and scallions preserves their fresh color and aroma."
+    ],
+    "swaps": [
+      "Use quinoa flakes in place of fine bulgur for a gluten-free variation, adding only enough to make the lentils shapeable.",
+      "Replace red pepper paste with tomato paste plus 1/4 teaspoon smoked paprika.",
+      "Use cilantro or a mixture of mint and parsley if flat-leaf parsley is unavailable."
+    ],
+    "storage": "Refrigerate the shaped kofta in a covered container for up to 4 days. Layer parchment between rows and store lettuce and lemon separately. Serve chilled or let stand 20 minutes at room temperature; these are not intended to be reheated.",
+    "notes": [
+      "Fine bulgur is essential; coarse bulgur will remain chewy and may not bind in the stated resting time.",
+      "If the mixture feels loose, cool it fully before adding more bulgur; it firms considerably as it rests.",
+      "Pomegranate molasses is optional and should taste tart rather than sweet.",
+      "Aleppo pepper can be offered separately to keep the shared platter gentle."
+    ],
+    "faqs": [
+      {"q": "Why won't my mercimek köftesi hold its shape?", "a": "The lentils may have retained too much water or the mixture may still be hot. Cool it first; if needed, knead in 1 to 2 tablespoons fine bulgur and rest 10 minutes."},
+      {"q": "Are these cooked after shaping?", "a": "No. The lentils cook on the stove and the bulgur hydrates in their residual heat. Shaping creates the serving form; no frying or baking is required."},
+      {"q": "Can I make them the day before?", "a": "Yes. Shape and refrigerate them covered, then add fresh lettuce and lemon just before serving so the presentation stays crisp."}
+    ],
+    "pantry": ["red lentils", "fine bulgur", "tomato paste", "red pepper paste", "sweet paprika", "ground cumin", "olive oil", "pomegranate molasses", "kosher salt"],
+    "date_published": "2026-10-06",
+    "date_modified": "2026-10-06"
+  },
+  {
+    "slug": "peruvian-causa-rellena-tuna-aji-amarillo",
+    "title": "Peruvian Causa Rellena with Tuna & Ají Amarillo",
+    "dek": "Lime-and-chile yellow potatoes sandwich a cool tuna, avocado and roasted-pepper filling in neat individual stacks built for a make-ahead lunch or starter.",
+    "collection": "seafood",
+    "protein": ["fish"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 35,
+    "cook_minutes": 20,
+    "total_minutes": 85,
+    "servings": 6,
+    "calories": 410,
+    "cost_per_serving": "$2.85",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Causa_Rellena.jpg",
+    "image_alt": "Individual Peruvian causa rellena stacks with bright yellow potato layers, creamy tuna filling, red pepper, lettuce and black-olive garnish",
+    "image_credit": "spersper / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Causa_Rellena.jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "tags": ["causa rellena", "Peruvian potato dish", "tuna and avocado", "ají amarillo", "chilled appetizer", "make-ahead lunch", "seafood starter", "individual stacks"],
+    "ingredients": [
+      "2 1/2 lb Yukon Gold potatoes, peeled and cut into 2-inch chunks",
+      "2 tsp kosher salt, divided",
+      "3 tbsp extra-virgin olive oil",
+      "3 tbsp fresh lime juice, divided",
+      "2 to 3 tbsp ají amarillo paste, to taste",
+      "2 cans (5 oz each) tuna in olive oil, drained",
+      "1/3 cup mayonnaise",
+      "1 celery rib, finely diced",
+      "1/3 cup finely diced roasted red pepper",
+      "2 tbsp finely chopped red onion, rinsed and drained",
+      "2 tbsp chopped cilantro",
+      "1 ripe but firm avocado, thinly sliced",
+      "6 butter-lettuce leaves",
+      "6 pitted black olives, halved",
+      "2 hard-boiled eggs, quartered, optional"
+    ],
+    "instructions": [
+      {"name": "Cook the potatoes", "text": "Put potatoes in a pot, cover with cold water by 1 inch and add 1 teaspoon salt. Bring to a simmer and cook 15 to 18 minutes until completely tender but not waterlogged. Drain well and return to the warm dry pot for 2 minutes."},
+      {"name": "Make the yellow-potato dough", "text": "Pass hot potatoes through a ricer or mash until perfectly smooth. Mix in olive oil, 2 tablespoons lime juice, ají amarillo paste and 1/2 teaspoon salt. Spread on a tray and cool 20 minutes; do not refrigerate until rock-hard."},
+      {"name": "Mix the tuna filling", "text": "Combine tuna, mayonnaise, celery, roasted pepper, rinsed onion, cilantro, remaining lime juice and remaining 1/2 teaspoon salt. Fold rather than mash so flakes of tuna remain visible. Keep chilled until assembly."},
+      {"name": "Prepare the molds", "text": "Lightly oil six 3-inch ring molds or straight-sided ramekins and set each on a lettuce-lined plate. Divide half the potato mixture among them and press into level 1/2-inch layers."},
+      {"name": "Layer tuna and avocado", "text": "Add a compact layer of tuna filling, then overlap avocado slices over it. Top with the remaining potato mixture and smooth with a lightly oiled spoon."},
+      {"name": "Chill safely", "text": "Cover and refrigerate the assembled causas for at least 30 minutes and no more than 24 hours. Keep the tuna mixture at 40°F or colder and do not leave the finished stacks at room temperature longer than 2 hours."},
+      {"name": "Unmold and garnish", "text": "Run a thin knife around each edge and lift off the rings. Garnish with black olives and optional egg quarters. Serve cool, not refrigerator-hard, with extra lime at the table."}
+    ],
+    "why_it_works": [
+      "Drying cooked potatoes in the warm pot prevents a loose mash that slumps when unmolded.",
+      "Oil, lime and ají amarillo season the potato itself, so every layer tastes lively rather than relying on the filling alone.",
+      "Individual molds create clean portions without the risk of compressing a large chilled loaf during slicing."
+    ],
+    "swaps": [
+      "Use cooked shredded chicken breast in place of tuna and keep it refrigerated at 40°F or colder.",
+      "If ají amarillo paste is unavailable, blend one roasted yellow bell pepper with 1/4 teaspoon mild chile powder; the flavor will differ but remain gentle.",
+      "For an egg-free version, use egg-free mayonnaise and omit the hard-boiled-egg garnish."
+    ],
+    "storage": "Cover and refrigerate assembled causa for up to 2 days. The avocado may darken slightly but remains safe when kept cold. Do not freeze; thawed potato and mayonnaise filling become watery. Discard portions held above 40°F for more than 2 hours.",
+    "notes": [
+      "Ají amarillo pastes vary in heat. Start with 2 tablespoons and offer extra sauce at the table.",
+      "A potato ricer gives the smoothest structure; avoid a food processor, which makes potatoes gluey.",
+      "Oil-packed tuna gives a richer filling, but well-drained water-packed tuna also works.",
+      "The total time includes a 30-minute refrigerator set."
+    ],
+    "faqs": [
+      {"q": "Can I make one large causa instead of individual stacks?", "a": "Yes. Line an 8-by-4-inch loaf pan with plastic wrap, layer the components, chill at least 1 hour and invert onto a platter before slicing."},
+      {"q": "Why did my potato layer turn gummy?", "a": "Overworking potatoes—especially in a food processor—releases too much starch. Rice or mash them while hot and mix only until the seasonings disappear."},
+      {"q": "Is causa served hot?", "a": "No. It is a chilled or cool composed dish. Let it stand 10 minutes after refrigeration so the potato softens slightly, while still observing the 2-hour food-safety limit."}
+    ],
+    "pantry": ["canned tuna", "mayonnaise", "ají amarillo paste", "olive oil", "black olives", "roasted red pepper", "kosher salt"],
+    "date_published": "2026-10-06",
+    "date_modified": "2026-10-06"
+  },
+  {
+    "slug": "south-african-style-malva-puddings-cream-sauce-ice-cream",
+    "title": "South African-Style Malva Puddings with Cream Sauce & Vanilla Ice Cream",
+    "dek": "Six apricot-jam sponge puddings bake in ramekins, then drink in a hot vanilla cream sauce for tender caramelized edges and an easy dinner-party finish.",
+    "collection": "dessert",
+    "protein": [],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 30,
+    "total_minutes": 70,
+    "servings": 6,
+    "calories": 560,
+    "cost_per_serving": "$1.65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Malva_pudding_Nairobi.jpg",
+    "image_alt": "Individual round malva pudding with a glossy brown top served beside a scoop of vanilla ice cream and strawberry halves",
+    "image_credit": "Superchilum / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Malva_pudding_Nairobi.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["malva pudding", "South African-style dessert", "apricot jam cake", "cream sauce", "individual puddings", "vanilla ice cream", "make-ahead dessert", "ramekin baking"],
+    "ingredients": [
+      "Unsalted butter, for greasing the ramekins",
+      "1 cup (125 g) all-purpose flour",
+      "1 tsp baking soda",
+      "1/4 tsp kosher salt",
+      "1 large egg",
+      "3/4 cup (150 g) granulated sugar",
+      "2 tbsp smooth apricot jam",
+      "1 tbsp unsalted butter, melted",
+      "1 tsp apple cider vinegar",
+      "1/2 cup whole milk",
+      "3/4 cup heavy cream",
+      "1/3 cup (67 g) granulated sugar",
+      "4 tbsp unsalted butter",
+      "1/4 cup hot water",
+      "1 tsp vanilla extract",
+      "Vanilla ice cream and fresh strawberry halves, for serving"
+    ],
+    "instructions": [
+      {"name": "Prepare the ramekins", "text": "Heat the oven to 350°F. Butter six 8-ounce ramekins and arrange them on a rimmed baking sheet with at least 1 inch between them."},
+      {"name": "Combine the dry ingredients", "text": "Whisk flour, baking soda and salt in a small bowl, breaking up every soda lump so the puddings rise evenly without alkaline pockets."},
+      {"name": "Whip the wet base", "text": "Beat egg and 3/4 cup sugar for 2 to 3 minutes until pale and thick enough to leave a ribbon. Beat in apricot jam, melted butter and vinegar."},
+      {"name": "Finish the batter", "text": "Fold in half the flour mixture, then the milk, then the remaining flour just until smooth. Divide among ramekins, filling each about halfway so the puddings have room to dome."},
+      {"name": "Bake to a springy center", "text": "Bake 25 to 30 minutes until deeply golden, the centers spring back and a probe reads 200 to 205°F. Rotate the pan once if the oven browns unevenly."},
+      {"name": "Cook the cream sauce", "text": "During the final 10 minutes, combine cream, 1/3 cup sugar, butter and hot water in a saucepan. Bring just to a simmer while stirring, cook 2 minutes and remove from heat; stir in vanilla."},
+      {"name": "Soak the hot puddings", "text": "Set the baked ramekins on a heatproof surface. Poke each pudding six times with a skewer and slowly spoon the hot sauce over them, pausing so it absorbs. Reserve about 1/3 cup sauce for serving."},
+      {"name": "Rest and serve", "text": "Rest 15 minutes. Serve in the ramekins or loosen and invert into shallow bowls. Add vanilla ice cream, strawberry halves and the warm reserved sauce."}
+    ],
+    "why_it_works": [
+      "Whipping egg and sugar provides lift while baking soda and vinegar reinforce the sponge's open, sauce-absorbing crumb.",
+      "Adding hot sauce to hot puddings lets the liquid travel through the crumb instead of pooling on a cooled surface.",
+      "Individual ramekins create the rounded presentation and maximize caramelized edge in every serving."
+    ],
+    "swaps": [
+      "Bake the batter in a buttered 8-inch square pan for 30 to 35 minutes and cut six portions after the sauce rests.",
+      "Use peach jam if apricot jam is unavailable; choose a smooth preserve without large fruit pieces.",
+      "Replace vanilla ice cream with softly whipped cream or plain pouring custard."
+    ],
+    "storage": "Cool leftovers within 2 hours, cover and refrigerate up to 4 days. Reheat each pudding with a spoonful of reserved sauce at 325°F for 10 to 12 minutes or in the microwave until steaming. Freeze without ice cream for up to 2 months.",
+    "notes": [
+      "Set ramekins on a rimmed sheet before filling; sauce may bubble over slightly as it absorbs.",
+      "The 200 to 205°F center target confirms the egg-flour sponge is set without relying on color alone.",
+      "Pour the sauce gradually. Rushing can overflow the ramekins before the crumb absorbs it.",
+      "The 15-minute rest is included in total time and is essential for the characteristic moist texture."
+    ],
+    "faqs": [
+      {"q": "Why is it called a pudding if it looks like cake?", "a": "In this style of baked dessert, pudding refers to a warm sponge enriched after baking with sauce. The crumb should be tender and saturated rather than custard-like."},
+      {"q": "Can I bake the puddings ahead?", "a": "Yes. Bake and sauce them up to a day ahead, refrigerate after cooling and reheat covered. Add ice cream and fresh fruit only when serving."},
+      {"q": "What if the sauce will not absorb?", "a": "Both components should be hot, and the puddings need several deep skewer holes. Add sauce in small rounds, waiting 30 seconds between each pour."}
+    ],
+    "pantry": ["all-purpose flour", "baking soda", "granulated sugar", "apricot jam", "apple cider vinegar", "vanilla extract", "kosher salt"],
+    "date_published": "2026-10-06",
+    "date_modified": "2026-10-06"
+  }
+]
