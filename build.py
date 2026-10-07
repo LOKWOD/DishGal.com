@@ -795,6 +795,36 @@ def recipe_shop(recipe) -> str:
             ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad surface gives three onions room to lose moisture and caramelize while the lentils and rice cook."),
             ("stainless steel mesh colander strainer", "Fine-mesh strainer", "Fine mesh contains lentils and brown rice while you rinse away dust and excess surface starch."),
         ]
+    elif "instant pot southern chicken & flat dumplings" in haystack or "instant pot southern chicken and flat dumplings" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four-cup thin-broth base, eight-minute cycle and staged release are calibrated for this common family capacity."),
+            ("wood rolling pin 18 inch", "Wooden rolling pin", "A smooth pin rolls the rested dumpling dough evenly to the thin one-eighth-inch sheet needed for flat strips."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several thigh pieces for 165°F and the finished creamy soup for a safe 165°F reheat."),
+        ]
+    elif "instant pot ecuadorian-style locro de queso" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four-cup thin-broth base, potato load and controlled release are written for this capacity."),
+            ("stainless steel potato masher", "Stainless-steel potato masher", "Coarse mashing thickens the locro naturally while leaving enough visible potato pieces for texture."),
+            ("stainless steel ladle soup", "Stainless-steel soup ladle", "A deep ladle portions the thick potato soup cleanly before avocado, cheese and cilantro are added."),
+        ]
+    elif "polish potato & cheese pierogi" in haystack or "polish potato and cheese pierogi" in haystack:
+        products = [
+            ("wood rolling pin 18 inch", "Wooden rolling pin", "A long smooth pin rolls rested dough into an even thin sheet for clean three-inch rounds."),
+            ("3 inch round cookie cutter", "3-inch round cutter", "A consistent cutter makes wrappers that take the stated tablespoon of filling and seal at the same rate."),
+            ("stainless steel spider strainer", "Spider strainer", "A broad wire basket lifts delicate boiled pierogi without piercing their sealed edges."),
+        ]
+    elif "sichuan-style mapo tofu" in haystack:
+        products = [
+            ("14 inch carbon steel wok flat bottom", "Flat-bottom carbon-steel wok", "A broad responsive pan browns pork, blooms chile-bean paste and simmers tofu with minimal stirring."),
+            ("silicone wok spatula wide", "Wide silicone wok spatula", "A broad edge folds the sauce around soft tofu cubes with less breakage than a narrow spoon."),
+            ("stainless steel rice cooker family", "Family-size rice cooker", "It cooks and holds jasmine rice while the quick tofu-and-pork sauce comes together on the stove."),
+        ]
+    elif "mexican-style tres leches cake" in haystack:
+        products = [
+            ("9 by 13 metal baking pan", "9-by-13-inch metal baking pan", "Straight sides support the foam sponge and contain the full three-milk soak during its long chill."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "A 200 to 205°F center confirms the egg-rich sponge is set and ready to absorb milk."),
+            ("electric hand mixer stainless beaters", "Electric hand mixer", "Clean beaters build stable egg-white foam for the sponge and medium peaks for the whipped topping."),
+        ]
     elif recipe.get("collection") == "instant-pot":
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The recipe timing, minimum liquid, and family-size yield are written around this common capacity."),
@@ -1972,11 +2002,13 @@ def build_collections():
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ghanaian-style-chicken-peanut-stew-sweet-potatoes/')}">Ghanaian-style chicken peanut stew</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk in peanut butter; wilt spinach</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Weeknight chicken one-bowl stew</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-brazilian-style-feijoada-collards-farofa/')}">Brazilian-style feijoada</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">125 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Add sausage; mash beans; cook collards</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Complete pork-and-bean platter</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-uzbek-style-lamb-plov-carrots/')}">Uzbek-style lamb plov</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Two 10-min natural releases, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fold in garlic; fluff and rest rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Celebration-style one-pot rice</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-southern-chicken-flat-dumplings/')}">Southern chicken &amp; flat dumplings</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">70 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred chicken; simmer dumplings; add dairy</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Comfort-food family supper</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ecuadorian-locro-de-queso-avocado/')}">Ecuadorian-style locro de queso</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">50 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash potatoes; add dairy and garnishes</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless potato-soup night</td></tr>
                       <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 6, 2026.</p>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 7, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''

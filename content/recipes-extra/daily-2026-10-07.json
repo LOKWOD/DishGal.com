@@ -1,0 +1,359 @@
+[
+  {
+    "slug": "instant-pot-southern-chicken-flat-dumplings",
+    "title": "Instant Pot Southern Chicken & Flat Dumplings",
+    "dek": "Tender chicken and hand-cut flat dumplings simmer in a creamy thyme broth, with pressure cooking handling the chicken before the dumplings finish uncovered.",
+    "collection": "instant-pot",
+    "protein": ["chicken"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 25,
+    "cook_minutes": 30,
+    "total_minutes": 70,
+    "servings": 6,
+    "calories": 465,
+    "cost_per_serving": "$2.75",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/30/Chicken_%26_dumplings_953.jpg",
+    "image_alt": "Southern chicken and flat dumplings in a pale creamy broth served in a wide white bowl",
+    "image_credit": "Chris Light / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Chicken_%26_dumplings_953.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["instant pot", "electric pressure cooker", "chicken and dumplings", "flat dumplings", "Southern comfort food", "family dinner", "busy night"],
+    "ingredients": [
+      "1 3/4 lb boneless skinless chicken thighs",
+      "1 3/4 tsp kosher salt, divided",
+      "1/2 tsp black pepper",
+      "1 tbsp neutral oil",
+      "1 medium yellow onion, diced",
+      "2 celery ribs, diced",
+      "2 medium carrots, diced",
+      "3 garlic cloves, minced",
+      "1 tsp dried thyme",
+      "1 bay leaf",
+      "4 cups low-sodium chicken broth, divided",
+      "1 cup all-purpose flour, plus more for rolling",
+      "1/2 tsp baking powder",
+      "2 tbsp cold unsalted butter, cubed",
+      "1/3 cup whole milk, plus 1/2 cup for finishing",
+      "1/3 cup heavy cream",
+      "2 tbsp chopped parsley",
+      "Hot sauce, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Mix and rest the dough", "text": "Whisk flour, baking powder and 1/2 teaspoon salt. Cut in cold butter until pea-size crumbs form, stir in 1/3 cup milk, and knead just until smooth. Cover and rest 20 minutes while the chicken cooks."},
+      {"name": "Brown the chicken", "text": "Season chicken with 1 teaspoon salt and pepper. Select Sauté High on a 6-quart electric pressure cooker, add oil and brown chicken in two batches for about 3 minutes per side. Transfer to a clean plate."},
+      {"name": "Build a thin, clean base", "text": "Reduce Sauté to Normal. Cook onion, celery and carrots for 4 minutes; add garlic and thyme for 30 seconds. Pour in 1 cup broth and scrape until the heating plate is completely smooth. Add the remaining 3 cups broth and bay leaf, then return chicken without adding milk or cream."},
+      {"name": "Pressure-cook and release", "text": "Lock the lid and cook on High Pressure for 8 minutes; allow about 12 minutes to reach pressure. Let pressure release naturally for 10 minutes, then vent the remainder in short controlled pulses. Open only after the float valve drops."},
+      {"name": "Verify and shred", "text": "Check several thigh pieces in the thickest part for at least 165°F. Transfer chicken to a clean board, shred it and discard the bay leaf. If any piece is below 165°F, return it to the simmering broth until it reaches the safe temperature."},
+      {"name": "Roll and cut flat dumplings", "text": "On a lightly floured surface roll dough about 1/8 inch thick and cut into 1-by-2-inch strips. Select Sauté Low and bring the broth to a gentle simmer. Drop in dumplings one at a time, stirring carefully so they do not clump."},
+      {"name": "Simmer and finish", "text": "Simmer uncovered 8 to 10 minutes, stirring along the base often, until dumplings are tender with no raw flour center. Return chicken, stir in 1/2 cup milk and cream, and heat gently to 165°F without a hard boil. Finish with parsley."},
+      {"name": "Serve mild-first", "text": "Taste and add up to the remaining 1/4 teaspoon salt. Ladle into bowls and offer hot sauce separately so the shared pot stays family-friendly."}
+    ],
+    "why_it_works": [
+      "Four cups of thin broth contact a fully deglazed base, while dairy stays out until after pressure to reduce scorching risk.",
+      "Pressure cooking makes the chicken tender quickly, but uncovered simmering preserves the flat dumplings' distinct, noodle-like texture.",
+      "A short dough rest hydrates the flour so thin dumplings roll cleanly without becoming tough from extra kneading."
+    ],
+    "swaps": [
+      "Use bone-in thighs and pressure-cook 10 minutes, then remove bones and verify 165°F before shredding.",
+      "Replace heavy cream with additional whole milk for a lighter broth; do not add either dairy ingredient before pressure cooking.",
+      "Use 12 ounces refrigerated flat egg noodles for a shortcut, simmering according to package timing instead of making dumplings."
+    ],
+    "storage": "Cool in shallow containers within 2 hours and refrigerate up to 4 days. Freeze up to 2 months, although dumplings soften after thawing. Reheat gently to 165°F with extra broth or milk; stir often so the thickened soup does not scorch.",
+    "notes": [
+      "Total time includes about 12 minutes to pressurize, the 8-minute cycle, a 10-minute natural release and the post-pressure dumpling simmer.",
+      "Follow the exact model manual for minimum liquid, maximum fill, locking and venting; never force the lid.",
+      "Do not pressure-cook the flour dumplings or dairy in this version; both are added after the lid comes off.",
+      "Keep the pot below the maximum-fill line and do not double this recipe in a 6-quart cooker."
+    ],
+    "faqs": [
+      {"q": "Why are the dumplings cooked after pressure releases?", "a": "Thin flour strips need only a gentle simmer. Adding them afterward prevents them from dissolving or sticking to the heating plate during pressure cooking."},
+      {"q": "How do I know flat dumplings are done?", "a": "Cut the thickest strip: it should be tender and opaque throughout, without a chalky or gummy flour center."},
+      {"q": "Can I use chicken breasts?", "a": "Yes. Use breasts of similar thickness, keep the 8-minute cycle, and check every piece for 165°F before shredding so lean meat is not overcooked."}
+    ],
+    "pantry": ["all-purpose flour", "baking powder", "low-sodium chicken broth", "dried thyme", "bay leaf", "neutral oil", "kosher salt", "black pepper"],
+    "date_published": "2026-10-07",
+    "date_modified": "2026-10-07"
+  },
+  {
+    "slug": "instant-pot-ecuadorian-locro-de-queso-avocado",
+    "title": "Instant Pot Ecuadorian-Style Locro de Queso with Avocado",
+    "dek": "Starchy potatoes create their own silky body in this mild Ecuadorian cheese soup, finished after pressure with queso fresco, milk, avocado and cilantro.",
+    "collection": "instant-pot",
+    "protein": [],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 20,
+    "total_minutes": 50,
+    "servings": 6,
+    "calories": 385,
+    "cost_per_serving": "$2.10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Locro_de_queso_%28gastronom%C3%ADa_Ecuatoriana%29.jpg",
+    "image_alt": "Golden Ecuadorian locro de queso potato soup topped with avocado, white cheese and cilantro in a rustic bowl",
+    "image_credit": "Kevinmero / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Locro_de_queso_(gastronom%C3%ADa_Ecuatoriana).jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["instant pot", "electric pressure cooker", "locro de queso", "Ecuadorian-style", "potato soup", "vegetarian dinner", "queso fresco", "family busy night"],
+    "ingredients": [
+      "2 tbsp unsalted butter",
+      "1 medium yellow onion, finely chopped",
+      "3 garlic cloves, minced",
+      "1 tsp ground cumin",
+      "1 tsp ground annatto or sweet paprika",
+      "3 lb Yukon Gold potatoes, peeled and cut into 1-inch chunks",
+      "4 cups low-sodium vegetable broth",
+      "1 1/4 tsp kosher salt, divided",
+      "1 cup whole milk",
+      "8 oz queso fresco, crumbled and divided",
+      "2 medium avocados, diced",
+      "1/2 cup chopped cilantro",
+      "1 lime, cut into wedges",
+      "Sliced jalapeño or ají sauce, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Sweat the aromatics", "text": "Select Sauté Normal on a 6-quart electric pressure cooker. Melt butter and cook onion 5 minutes until soft. Add garlic, cumin and annatto for 30 seconds without browning."},
+      {"name": "Deglaze and layer", "text": "Pour in 1 cup broth and scrape until the heating plate is completely smooth. Add remaining broth, potatoes and 1 teaspoon salt. Stir once and keep the contents below the maximum-fill line; do not add milk or cheese before pressure."},
+      {"name": "Pressure-cook", "text": "Lock the lid and cook on High Pressure for 7 minutes; allow about 12 minutes to reach pressure. Use a controlled quick release in short pulses, pausing immediately if starchy liquid sputters. Open only after the float valve drops."},
+      {"name": "Create the creamy body", "text": "Mash roughly one-third of the potatoes against the pot wall, leaving the rest chunky. Select Sauté Low and stir often across the base for 2 to 3 minutes."},
+      {"name": "Add dairy safely", "text": "Stir in milk and 6 ounces queso fresco. Heat gently, stirring, until the soup reaches 165°F and the cheese softens; do not boil hard. Add up to the remaining 1/4 teaspoon salt after tasting the cheese."},
+      {"name": "Finish the bowls", "text": "Ladle into warm bowls and top with the remaining queso fresco, avocado and cilantro. Serve lime, jalapeño and ají sauce at the table so the shared soup remains mild."}
+    ],
+    "why_it_works": [
+      "A full four cups of thin broth sit against a deglazed base, while burn-prone milk and cheese wait until pressure has fallen.",
+      "Yukon Gold potatoes both hold tender chunks and release enough starch when mashed to thicken the soup without flour.",
+      "Cool avocado, fresh cilantro and lime balance the rich potato-and-cheese base and mirror the visible finished presentation."
+    ],
+    "swaps": [
+      "Use russet potatoes for an even thicker soup, mashing less because they release more starch.",
+      "Replace queso fresco with farmer cheese or a mild feta; reduce added salt if the substitute is briny.",
+      "Use lactose-free whole milk and a suitable mild cheese if needed; plant milk changes the traditional dairy flavor."
+    ],
+    "storage": "Refrigerate the soup without avocado in shallow containers for up to 4 days; freeze up to 2 months before adding dairy for the smoothest texture. Reheat gently to 165°F, stirring often and thinning with broth. Add fresh avocado only when serving.",
+    "notes": [
+      "Total time includes about 12 minutes to pressurize, the 7-minute cycle, controlled release and post-pressure finishing.",
+      "Follow the exact model manual for minimum liquid, maximum fill and venting; an 8-quart cooker may require more thin liquid.",
+      "Potatoes are starchy, so vent in brief pulses and stop if foam or liquid emerges from the valve.",
+      "The optional chile is intentionally served at the table rather than cooked into the family pot."
+    ],
+    "faqs": [
+      {"q": "Why is dairy added after pressure cooking?", "a": "Milk and cheese can scorch on the hot base or separate under pressure. Adding them during the gentle finishing stage gives a smoother soup."},
+      {"q": "Can I make locro de queso ahead?", "a": "Yes. Prepare through the dairy finish, cool promptly and refrigerate. Reheat slowly and add avocado, cilantro and lime just before serving."},
+      {"q": "What if the soup is thinner than I want?", "a": "Mash more potatoes and simmer on Sauté Low for a few minutes, stirring across the base. Avoid adding raw flour directly to the pot."}
+    ],
+    "pantry": ["vegetable broth", "ground cumin", "ground annatto", "sweet paprika", "kosher salt", "black pepper"],
+    "date_published": "2026-10-07",
+    "date_modified": "2026-10-07"
+  },
+  {
+    "slug": "polish-potato-cheese-pierogi",
+    "title": "Polish Potato & Cheese Pierogi",
+    "dek": "Tender handmade pierogi wrap a savory potato, farmer-cheese and onion filling, with reliable dough cues, freezer directions and two finishing options.",
+    "collection": "vegetarian",
+    "protein": [],
+    "difficulty": "Intermediate",
+    "prep_minutes": 55,
+    "cook_minutes": 35,
+    "total_minutes": 120,
+    "servings": 6,
+    "calories": 430,
+    "cost_per_serving": "$1.65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Cheese%2C_potato%2C_and_onion_pierogi.jpg",
+    "image_alt": "Bowl of boiled Polish pierogi filled with potato, cheese and onion",
+    "image_credit": "Mike Peel / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Cheese,_potato,_and_onion_pierogi.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["Polish pierogi", "potato and cheese pierogi", "farmer cheese", "handmade dumplings", "freezer meal", "vegetarian comfort food"],
+    "ingredients": [
+      "2 1/2 cups all-purpose flour, plus more for rolling",
+      "1 tsp kosher salt, divided",
+      "1 large egg",
+      "3/4 cup warm water",
+      "2 tbsp neutral oil",
+      "1 lb russet potatoes, peeled and cut into chunks",
+      "8 oz farmer cheese or well-drained twaróg",
+      "1 large yellow onion, finely chopped",
+      "3 tbsp unsalted butter, divided",
+      "1/2 tsp black pepper",
+      "Sour cream and chopped chives, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Make the supple dough", "text": "Whisk flour with 1/2 teaspoon salt. Add egg, warm water and oil; mix, then knead 6 to 8 minutes until smooth and elastic. Cover and rest 30 minutes so rolling requires less force."},
+      {"name": "Cook and dry the potatoes", "text": "Cover potatoes with cold salted water, bring to a boil and simmer 12 to 15 minutes until easily pierced. Drain thoroughly, return to the warm pan for 1 minute and mash smooth."},
+      {"name": "Build the filling", "text": "Melt 1 tablespoon butter in a skillet over medium and cook half the onion 8 to 10 minutes until golden. Mix with warm potato, farmer cheese, remaining 1/2 teaspoon salt and pepper. Cool completely."},
+      {"name": "Roll and fill", "text": "Divide dough in two, keeping one half covered. Roll the other 1/16 inch thick and cut 3-inch rounds. Place 1 tablespoon filling in each, fold into half-moons and firmly pinch out air. Keep finished pierogi covered and repeat."},
+      {"name": "Boil in batches", "text": "Bring a wide pot of salted water to a gentle boil. Cook 8 to 10 pierogi at a time; once they float, simmer 2 minutes more. Lift with a slotted spoon and coat lightly with 1 tablespoon butter."},
+      {"name": "Choose the finish", "text": "Serve the boiled pierogi as pictured, or melt the remaining butter in a skillet and cook the remaining onion until golden, then sear pierogi 2 minutes per side. Serve sour cream and chives separately."}
+    ],
+    "why_it_works": [
+      "Drying the drained potatoes prevents a wet filling that would weaken the dough seams.",
+      "A full 30-minute dough rest relaxes gluten, allowing thin wrappers without spring-back.",
+      "Cooking at a gentle boil protects sealed edges while the two-minute float time heats the filling through."
+    ],
+    "swaps": [
+      "Use ricotta only after draining it overnight and mixing with a little crumbled feta to approximate farmer cheese's dry tang.",
+      "Replace half the onion with finely sliced leek for a sweeter filling.",
+      "Freeze shaped pierogi on a tray, then bag them and boil from frozen, adding 2 to 3 minutes."
+    ],
+    "storage": "Refrigerate cooked pierogi up to 4 days or freeze uncooked pierogi in a single layer before transferring to a freezer bag for up to 3 months. Reheat refrigerated pierogi in a buttered skillet until the filling reaches 165°F.",
+    "notes": [
+      "Keep filling cool and wrappers covered; warm filling or dry edges make seals unreliable.",
+      "Do not overfill. A clean 1/4-inch rim is easier to seal than a stretched, floury edge.",
+      "Farmer cheese varies in salt, so taste the cooled filling before adding the final seasoning.",
+      "Total time includes the dough rest and filling cool-down."
+    ],
+    "faqs": [
+      {"q": "Why do my pierogi open in the water?", "a": "Trapped air, filling on the rim or dried dough can break the seam. Press out air, keep the edge clean and pinch firmly before boiling."},
+      {"q": "Can I make the dough without egg?", "a": "Yes. Replace the egg with about 3 tablespoons additional warm water, adding it gradually until the dough is supple but not sticky."},
+      {"q": "Should pierogi be boiled or fried?", "a": "They must be boiled to cook the dough. Pan-frying afterward is optional and adds browned edges; the licensed hero image shows the boiled version."}
+    ],
+    "pantry": ["all-purpose flour", "neutral oil", "kosher salt", "black pepper"],
+    "date_published": "2026-10-07",
+    "date_modified": "2026-10-07"
+  },
+  {
+    "slug": "sichuan-style-mapo-tofu-pork-rice",
+    "title": "Sichuan-Style Mapo Tofu with Pork & Steamed Rice",
+    "dek": "Silken tofu and a modest amount of pork simmer in a glossy chile-bean sauce, with Sichuan pepper and extra heat added to taste at the table.",
+    "collection": "pork",
+    "protein": ["pork"],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 20,
+    "total_minutes": 40,
+    "servings": 4,
+    "calories": 495,
+    "cost_per_serving": "$2.90",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Authentic_Mapo_Tofu.jpg",
+    "image_alt": "Sichuan-style mapo tofu with cubes of tofu, ground pork, chile oil, scallions and Sichuan pepper",
+    "image_credit": "Sichuanfoodlover / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Authentic_Mapo_Tofu.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["mapo tofu", "Sichuan-style recipe", "tofu and pork", "doubanjiang", "quick dinner", "steamed rice", "mild-first"],
+    "ingredients": [
+      "1 1/2 cups jasmine rice, rinsed",
+      "2 1/4 cups water",
+      "14 oz soft tofu, cut into 1-inch cubes",
+      "8 oz ground pork",
+      "1 tbsp neutral oil",
+      "2 tbsp mild doubanjiang, finely chopped",
+      "1 tbsp fermented black beans, rinsed and chopped",
+      "3 garlic cloves, minced",
+      "1 tbsp minced fresh ginger",
+      "1 1/2 cups low-sodium chicken broth",
+      "1 tsp light soy sauce",
+      "1 tsp sugar",
+      "2 tsp cornstarch mixed with 2 tbsp cool water",
+      "1 tsp toasted sesame oil",
+      "3 scallions, thinly sliced",
+      "1/2 tsp toasted ground Sichuan pepper, plus more for serving",
+      "Chile oil, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Steam the rice", "text": "Combine rinsed rice and water in a saucepan. Bring to a boil, cover, reduce to low and cook 15 minutes. Remove from heat and rest covered 10 minutes."},
+      {"name": "Warm the tofu", "text": "Slide tofu into barely simmering salted water for 2 minutes, then drain carefully. This warms and firms the cubes so they are less likely to break in the sauce."},
+      {"name": "Brown the pork", "text": "Heat a wok or wide skillet over medium-high. Add oil and pork; cook 4 to 5 minutes, breaking it into small pieces, until no pink remains and it reaches 160°F."},
+      {"name": "Bloom the seasonings", "text": "Reduce heat to medium. Stir in doubanjiang and black beans for 1 minute until the oil turns red, then add garlic and ginger for 30 seconds. Keep this base mild; chile oil stays at the table."},
+      {"name": "Simmer the tofu", "text": "Add broth, soy sauce and sugar and bring to a gentle simmer. Slide in tofu and simmer 5 minutes, nudging rather than stirring so the cubes remain distinct."},
+      {"name": "Thicken in two stages", "text": "Stir the cornstarch slurry again. Drizzle in half, gently shake the pan and simmer 30 seconds; add only enough of the remainder for a sauce that lightly clings to the tofu."},
+      {"name": "Finish and serve", "text": "Remove from heat and add sesame oil, scallions and 1/2 teaspoon Sichuan pepper. Spoon over rice and offer extra pepper and chile oil separately."}
+    ],
+    "why_it_works": [
+      "Briefly warming soft tofu firms its surface and reduces breakage without changing its custardy center.",
+      "Cooking doubanjiang in oil releases its red color and savory aroma before thin broth dilutes the base.",
+      "Adding slurry gradually avoids the heavy, gluey sauce that can result from using all the starch at once."
+    ],
+    "swaps": [
+      "Use medium tofu for easier handling; the finished dish will be slightly firmer.",
+      "Replace pork with ground turkey and verify 165°F, or minced mushrooms for a meatless variation.",
+      "If fermented black beans are unavailable, omit them and add 1 teaspoon additional doubanjiang after tasting."
+    ],
+    "storage": "Refrigerate mapo tofu and rice separately within 2 hours for up to 3 days. Reheat the tofu gently to 165°F, adding broth if the sauce tightens. Reheat rice to 165°F and discard rice left at room temperature longer than 2 hours.",
+    "notes": [
+      "Doubanjiang brands vary in heat and salt; choose a mild version and taste before adding soy sauce.",
+      "Sichuan pepper creates citrusy tingling rather than chile heat; serve extra at the table for individual control.",
+      "Do not vigorously stir once tofu enters the pan. Shake or fold with a broad spatula.",
+      "The licensed image clearly shows cubed tofu, red chile-bean oil, pork and scallion."
+    ],
+    "faqs": [
+      {"q": "Is mapo tofu always very spicy?", "a": "It is traditionally bold, but heat varies. This family-oriented version uses mild doubanjiang and moves additional chile oil to the table."},
+      {"q": "Why did my tofu crumble?", "a": "Very soft tofu breaks if stirred. Warm it briefly, drain carefully and move the pan rather than repeatedly running a spoon through the cubes."},
+      {"q": "Can I make it without pork?", "a": "Yes. Finely chopped shiitakes provide savory texture; use vegetable broth and confirm your doubanjiang is vegetarian."}
+    ],
+    "pantry": ["jasmine rice", "doubanjiang", "fermented black beans", "chicken broth", "soy sauce", "cornstarch", "sesame oil", "neutral oil", "Sichuan pepper"],
+    "date_published": "2026-10-07",
+    "date_modified": "2026-10-07"
+  },
+  {
+    "slug": "mexican-style-tres-leches-cake-whipped-cream",
+    "title": "Mexican-Style Tres Leches Cake with Whipped Cream",
+    "dek": "An airy sponge absorbs a balanced three-milk soak without collapsing, then chills overnight beneath a light whipped-cream finish.",
+    "collection": "desserts",
+    "protein": [],
+    "difficulty": "Intermediate",
+    "prep_minutes": 30,
+    "cook_minutes": 28,
+    "total_minutes": 300,
+    "servings": 12,
+    "calories": 420,
+    "cost_per_serving": "$1.25",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/TresLechesCake.jpg",
+    "image_alt": "Square slice of pale golden tres leches cake with a thick white whipped-cream topping on a plate",
+    "image_credit": "Lorelei Norman / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:TresLechesCake.jpg",
+    "image_license": "CC0 1.0",
+    "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "tags": ["tres leches cake", "Mexican-style dessert", "milk-soaked sponge", "whipped cream", "make-ahead cake", "celebration dessert"],
+    "ingredients": [
+      "1 cup all-purpose flour",
+      "1 1/2 tsp baking powder",
+      "1/4 tsp kosher salt",
+      "5 large eggs, separated",
+      "1 cup granulated sugar, divided",
+      "1/3 cup whole milk",
+      "2 tsp vanilla extract, divided",
+      "12 oz evaporated milk",
+      "14 oz sweetened condensed milk",
+      "3/4 cup heavy cream for the soak",
+      "1 1/2 cups cold heavy cream for topping",
+      "3 tbsp confectioners' sugar",
+      "1/2 tsp ground cinnamon, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Prepare the pan", "text": "Heat oven to 350°F. Butter the bottom of a 9-by-13-inch metal pan and line it with parchment, leaving the sides ungreased so the sponge can climb."},
+      {"name": "Whip the yolk batter", "text": "Whisk flour, baking powder and salt. Beat yolks with 3/4 cup sugar for 3 minutes until thick and pale; mix in 1/3 cup milk and 1 teaspoon vanilla, then fold in the dry ingredients."},
+      {"name": "Fold in the whites", "text": "With clean beaters, whip egg whites to soft peaks. Gradually add remaining 1/4 cup sugar and beat to glossy medium peaks. Fold into yolk batter in three additions without deflating it."},
+      {"name": "Bake to a dry crumb", "text": "Spread batter evenly and bake 25 to 28 minutes until golden, springy and 200 to 205°F in the center. Cool in the pan 20 minutes, remove parchment and return cake to the pan."},
+      {"name": "Soak gradually", "text": "Whisk evaporated milk, condensed milk, 3/4 cup cream and remaining vanilla. Poke the warm cake every inch with a skewer. Pour the soak over in three passes, waiting 5 minutes between additions."},
+      {"name": "Chill thoroughly", "text": "Cover and refrigerate at least 4 hours, preferably overnight, until the milk is evenly absorbed and the cake is cold throughout."},
+      {"name": "Top and serve", "text": "Whip 1 1/2 cups cold cream with confectioners' sugar to medium peaks. Spread over the cake, dust lightly with cinnamon if desired and cut into 12 cold squares."}
+    ],
+    "why_it_works": [
+      "Separately whipped whites create an open sponge able to absorb substantial liquid without turning leaden.",
+      "Pouring the milk mixture in stages distributes it more evenly than flooding the center all at once.",
+      "A long cold rest lets the crumb hydrate completely and gives the whipped topping a stable base."
+    ],
+    "swaps": [
+      "Use lactose-free evaporated milk, condensed milk and cream in the same quantities if available.",
+      "Add 1 teaspoon finely grated orange zest to the milk soak for a citrus variation.",
+      "Top servings with fresh strawberries, but store the berries separately so they do not weep into the cream."
+    ],
+    "storage": "Keep the covered cake refrigerated and serve within 4 days. Return it to the refrigerator within 2 hours because the milk soak and whipped cream are perishable. Freezing is not recommended after soaking because the dairy can separate.",
+    "notes": [
+      "Total time includes a four-hour minimum chill; overnight chilling gives the cleanest slices.",
+      "Use clean, grease-free equipment for the egg whites or they may not whip to full volume.",
+      "The cake should be moist with a little milk at the plate, not floating in an unabsorbed pool.",
+      "Eggs are fully cooked when the center of the sponge reaches 200 to 205°F."
+    ],
+    "faqs": [
+      {"q": "Why did my tres leches cake become soggy?", "a": "An underbaked or deflated sponge cannot hold the soak. Bake to at least 200°F and fold the whites gently so the crumb remains open."},
+      {"q": "Can I serve it the same day?", "a": "Yes after at least four hours of chilling, but an overnight rest distributes the milk more evenly and makes neater slices."},
+      {"q": "Why leave the pan sides ungreased?", "a": "The foam-based batter grips the sides as it rises. Greasing only the lined bottom supports a taller, more absorbent sponge."}
+    ],
+    "pantry": ["all-purpose flour", "baking powder", "granulated sugar", "confectioners' sugar", "vanilla extract", "ground cinnamon", "kosher salt"],
+    "date_published": "2026-10-07",
+    "date_modified": "2026-10-07"
+  }
+]
