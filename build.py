@@ -525,7 +525,37 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot mexican-style beef birria" in haystack:
+    if "instant pot french-style coq au vin" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The wine-and-broth base, ten-minute cycle and two-stage release are calibrated for this common family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken thighs beside, but not touching, the bone and confirm each reaches 165°F."),
+            ("silicone tipped kitchen tongs", "Silicone-tipped kitchen tongs", "Turn chicken and vegetables cleanly without scratching the inner pot during the two browning stages."),
+        ]
+    elif "instant pot vegan corn & potato chowder" in haystack or "instant pot vegan corn and potato chowder" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four-cup thin-broth base, five-minute cycle and controlled release are written for this capacity."),
+            ("immersion blender stainless steel", "Immersion blender", "Short pulses thicken part of the chowder while leaving visible potato pieces and corn kernels."),
+            ("stainless steel soup ladle", "Stainless-steel soup ladle", "A deep ladle portions the chunky finished chowder without crushing its reserved corn and potatoes."),
+        ]
+    elif "spanish tortilla española" in haystack or "spanish tortilla espanola" in haystack:
+        products = [
+            ("10 inch nonstick skillet oven safe", "10-inch nonstick skillet", "A predictable release makes the thick potato-and-egg round safer to invert and slide back into the pan."),
+            ("stainless steel mandoline slicer hand guard", "Mandoline with hand guard", "Uniform 1/8-inch potato slices soften at the same pace; always use the guard and stop early."),
+            ("digital probe cooking thermometer", "Instant-read thermometer", "Check the thick center for the 160°F egg-safety target without overcooking the outer layers."),
+        ]
+    elif "sheet-pan chicken shawarma stuffed pitas" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy rimmed sheet pan", "Preheating a broad metal pan gives marinated thighs room to brown instead of steam."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify multiple thighs reach 165°F before resting, chopping or broiling their edges."),
+            ("microplane zester grater stainless", "Fine zester", "Finely grate garlic for the marinade and sauce, then take clean zest from the lemon."),
+        ]
+    elif "argentine alfajores de maicena" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighed cornstarch and flour prevent compacted cups from making the delicate cookies chalky."),
+            ("2.5 inch round cookie cutter", "2½-inch round cutter", "One consistent diameter produces 28 matching rounds and 14 tidy sandwich cookies."),
+            ("heavy rimmed baking sheet set", "Rimmed sheet pans", "Flat, light-colored pans help the cornstarch cookies set while their tops remain characteristically pale."),
+        ]
+    elif "instant pot mexican-style beef birria" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The three-cup thin-broth base, 45-minute cycle and 20-minute natural release are written for this family capacity."),
             ("fine mesh stainless steel strainer", "Fine-mesh strainer", "Strain the blended chile broth for a smoother consommé and fewer solids that can settle against the cooker base."),
@@ -2036,6 +2066,8 @@ def build_collections():
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ecuadorian-locro-de-queso-avocado/')}">Ecuadorian-style locro de queso</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">50 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash potatoes; add dairy and garnishes</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless potato-soup night</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-mexican-beef-birria-tacos-consomme/')}">Mexican-style beef birria tacos</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">115 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred beef; skim broth; crisp tacos</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Freezer-friendly taco night</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-indian-vegetable-biryani-pomegranate-raita/')}">Indian-style vegetable biryani</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">70 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Steam peas; fluff rice; mix raita</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless celebration-style rice</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-french-style-coq-au-vin-mushrooms/')}">French-style coq au vin</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">80 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; finish vegetables and sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead chicken braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-vegan-corn-potato-chowder-chives/')}">Vegan corn &amp; potato chowder</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">50 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">5-min rest, then controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Partially blend; add oat milk</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget vegan freezer meal</td></tr>
                       <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
                     </tbody>
                   </table>
@@ -2048,7 +2080,13 @@ def build_collections():
                   <li>Measure the stated thin liquid and stay below the half-full line for grains, beans, pasta and other expanding foods.</li>
                   <li>Match the valve position and release method to the exact recipe, keeping hands and face away from escaping steam.</li>
                 </ol>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits, pre-use inspection and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 8, 2026.</p>
+                <h3 style="margin-top:1.5rem">Stop-and-check signals during release</h3>
+                <ul class="dot-list">
+                  <li><strong>Liquid sputters from the valve:</strong> close it, wait 2 minutes and resume in shorter controlled pulses; never cover the vent with a towel.</li>
+                  <li><strong>The float valve is still raised:</strong> pressure remains inside. Keep the lid locked and wait—never twist or force it open.</li>
+                  <li><strong>The recipe contains beans, grains or other foaming food:</strong> respect the half-full limit and the specified natural-release interval before any venting.</li>
+                </ul>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits, pre-use inspection and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 9, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
