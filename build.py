@@ -525,7 +525,37 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot french-style coq au vin" in haystack:
+    if "instant pot korean-style dakbokkeumtang" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1½-cup thin-broth base, eight-minute cycle and two-stage release are calibrated for this common family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several bone-in chicken pieces at their thickest points without touching bone and confirm each reaches 165°F."),
+            ("silicone tipped kitchen tongs", "Silicone-tipped kitchen tongs", "Turn chicken and lift tender potatoes without scratching the inner pot or breaking the finished stew apart."),
+        ]
+    elif "instant pot romanian-style sarmale" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The half-full grain safeguard, 1½-cup broth base and 15-minute natural release are written for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Probe through the cabbage into several roll centers and verify every ground-meat filling reaches 160°F."),
+            ("stainless steel slotted spoon", "Wide slotted spoon", "Lift the tender cabbage rolls from their broth with less tearing after the pressure release."),
+        ]
+    elif "dutch boerenkool stamppot" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "Large Dutch oven", "One roomy pot simmers potatoes, steams kale and reheats the intact smoked sausage."),
+            ("stainless steel potato masher", "Hand potato masher", "A hand masher combines the drained vegetables without releasing the excess starch a food processor would."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the fully cooked smoked sausage is reheated to 165°F at its center."),
+        ]
+    elif "puerto rican mofongo with garlic shrimp" in haystack:
+        products = [
+            ("wooden pilon mortar pestle large", "Large pilón or mortar", "Pound hot fried plantains with garlic and measured broth into four cohesive, rustic portions."),
+            ("deep fry thermometer clip on", "Clip-on frying thermometer", "Hold the oil between 300°F and 325°F so the thick plantain rounds cook through without hardening."),
+            ("digital probe cooking thermometer", "Instant-read thermometer", "Remove the shrimp from the simmering broth as soon as their thickest parts reach 145°F."),
+        ]
+    elif "australian lamingtons" in haystack:
+        products = [
+            ("8 inch square metal cake pan", "8-inch square metal cake pan", "The recipe's bake time and sixteen 2-inch portions are calibrated for this pan size."),
+            ("wire cooling rack rimmed sheet pan", "Wire rack and rimmed sheet pan", "The rack catches excess chocolate and coconut while air reaches every coated side."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the sponge light and the confectioners' sugar-to-cocoa coating consistent."),
+        ]
+    elif "instant pot french-style coq au vin" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The wine-and-broth base, ten-minute cycle and two-stage release are calibrated for this common family capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken thighs beside, but not touching, the bone and confirm each reaches 165°F."),
@@ -2068,6 +2098,8 @@ def build_collections():
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-indian-vegetable-biryani-pomegranate-raita/')}">Indian-style vegetable biryani</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">70 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Steam peas; fluff rice; mix raita</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless celebration-style rice</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-french-style-coq-au-vin-mushrooms/')}">French-style coq au vin</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">80 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; finish vegetables and sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead chicken braise</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-vegan-corn-potato-chowder-chives/')}">Vegan corn &amp; potato chowder</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">50 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">5-min rest, then controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Partially blend; add oat milk</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget vegan freezer meal</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-korean-dakbokkeumtang-chicken-potatoes/')}">Korean-style dakbokkeumtang</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">70 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; finish glass noodles</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mild-first chicken stew</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-romanian-sarmale-beef-pork-rice/')}">Romanian-style sarmale</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">110 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify roll centers; finish polenta</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead stuffed-cabbage platter</td></tr>
                       <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
                     </tbody>
                   </table>
@@ -2086,7 +2118,14 @@ def build_collections():
                   <li><strong>The float valve is still raised:</strong> pressure remains inside. Keep the lid locked and wait—never twist or force it open.</li>
                   <li><strong>The recipe contains beans, grains or other foaming food:</strong> respect the half-full limit and the specified natural-release interval before any venting.</li>
                 </ul>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits, pre-use inspection and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 9, 2026.</p>
+                <h3 style="margin-top:1.5rem">Where to measure doneness after pressure</h3>
+                <div class="tip-grid">
+                  <div class="tip-card"><strong>Bone-in poultry: 165°F</strong>Probe the thickest meat beside—but not touching—the bone. Check more than one piece because sizes and positions in the pot vary.</div>
+                  <div class="tip-card"><strong>Ground-meat rolls: 160°F</strong>Insert the probe through the wrapper into the very center of several rolls. Hot broth or tender cabbage does not prove the filling is done.</div>
+                  <div class="tip-card"><strong>Whole pork or beef: 145°F + rest</strong>Use the recipe's stated rest and target; do not substitute this rule for ground meat, poultry or a recipe that intentionally cooks a tough cut further for tenderness.</div>
+                  <div class="tip-card"><strong>Below target?</strong>Return the food to hot liquid and use Sauté or the recipe's finishing step until every checked portion reaches its safe temperature; never rely on color alone.</div>
+                </div>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits, pre-use inspection and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 10, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
