@@ -1,0 +1,370 @@
+[
+  {
+    "slug": "instant-pot-turkish-kuru-fasulye-white-bean-stew",
+    "title": "Instant Pot Turkish Kuru Fasulye (White Bean Stew)",
+    "dek": "Creamy white beans simmer in a gently seasoned tomato broth for a thrifty Turkish-style supper that starts with dried beans and finishes without dairy.",
+    "collection": "instant-pot",
+    "protein": ["beans"],
+    "difficulty": "Easy",
+    "prep_minutes": 15,
+    "cook_minutes": 35,
+    "total_minutes": 95,
+    "servings": 6,
+    "calories": 310,
+    "cost_per_serving": "$1.15",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Kuru_fasulye_%28etsiz%29.jpg",
+    "image_alt": "Turkish meatless kuru fasulye with tender white beans in a red tomato broth",
+    "image_credit": "E4024 / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Kuru_fasulye_(etsiz).jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["instant pot", "electric pressure cooker", "kuru fasulye", "Turkish-style white beans", "meatless dinner", "budget pantry meal", "dried beans", "freezer friendly"],
+    "ingredients": [
+      "1 lb dried cannellini or Great Northern beans, picked over",
+      "1 tbsp olive oil",
+      "1 medium yellow onion, finely diced",
+      "1 small green bell pepper, finely diced",
+      "5 garlic cloves, divided",
+      "5 cups low-sodium vegetable broth or water",
+      "2 tbsp tomato paste",
+      "1 tbsp mild Turkish red pepper paste, optional",
+      "1 tsp sweet paprika",
+      "1 tsp dried mint",
+      "1 bay leaf",
+      "1 1/2 tsp kosher salt, divided",
+      "1/2 tsp black pepper",
+      "1 tsp granulated sugar",
+      "1 tbsp fresh lemon juice",
+      "Chopped parsley, lemon wedges and Aleppo pepper, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Soak the beans", "text": "Cover the beans with at least 3 inches of cool water and soak 8 to 12 hours. Drain, rinse and discard the soaking water; do not count it as the cooker liquid."},
+      {"name": "Soften the vegetables", "text": "Select Sauté Normal on a 6-quart electric pressure cooker. Add oil, onion and green pepper and cook for 5 minutes. Stir in garlic for 30 seconds."},
+      {"name": "Deglaze to a clean base", "text": "Pour in 1 cup broth and scrape the heating plate until completely smooth. Cancel Sauté, then add the remaining 4 cups broth, soaked beans, paprika, mint, bay leaf, 1 teaspoon salt and black pepper."},
+      {"name": "Float the tomato seasonings", "text": "Whisk tomato paste, red pepper paste if using, sugar and 1/2 cup of the liquid from the pot in a small bowl. Spoon the mixture over the beans and do not stir it down onto the heating plate."},
+      {"name": "Pressure-cook below half full", "text": "Confirm beans and liquid remain below the cooker's half-full line because beans foam and expand. Lock the lid and cook on High Pressure for 25 minutes; allow about 15 minutes for the cooker to reach pressure."},
+      {"name": "Release naturally, then vent", "text": "Let pressure release naturally for 20 minutes. Vent any remainder in short controlled pulses, keeping hands and face away from steam. If foam or liquid sputters, close the valve, wait 2 minutes and resume slowly. Open only after the float valve drops."},
+      {"name": "Check and finish the beans", "text": "Discard the bay leaf and taste several beans; they should be creamy through with no chalky center. If firm, simmer on Sauté with the lid off for 5 to 10 minutes, adding hot water as needed. Stir in lemon juice and the remaining 1/2 teaspoon salt."},
+      {"name": "Serve mild-first", "text": "Ladle into warm bowls and add parsley and lemon if desired. Keep the family pot gentle and offer Aleppo pepper at the table for diners who want heat."}
+    ],
+    "why_it_works": [
+      "Overnight soaking promotes even cooking and keeps this expanding-food batch comfortably below the conservative half-full line.",
+      "Five cups of thin liquid sit against a completely deglazed base; concentrated tomato and pepper pastes are diluted and floated above the beans to reduce burn-warning risk.",
+      "A full natural-release interval lets the bean interiors finish softening while minimizing foamy spray from the valve."
+    ],
+    "swaps": [
+      "Use navy beans for a smaller, creamier result; keep the same soak, liquid and pressure time, then judge doneness before serving.",
+      "If Turkish red pepper paste is unavailable, omit it and add another 1/2 teaspoon sweet paprika; do not replace it with undiluted hot sauce before pressure cooking.",
+      "For a meatier variation, brown 8 ounces diced beef before the onion, drain excess fat and verify the beef reaches at least 145°F with a 3-minute rest; continue cooking until fork-tender."
+    ],
+    "storage": "Cool in shallow containers within 2 hours and refrigerate up to 4 days. Reheat to 165°F on the stove or in the microwave, loosening with water because the beans thicken as they stand. Freeze up to 3 months and thaw overnight before reheating.",
+    "notes": [
+      "Total time excludes the 8-to-12-hour soak but includes about 15 minutes to reach pressure, the 25-minute cook, a 20-minute natural release and up to 10 minutes of finishing.",
+      "Follow your exact model manual for minimum liquid, locking and venting. Do not exceed the half-full line or double this bean recipe in a 6-quart cooker.",
+      "Older beans may need extra simmering after pressure. Texture—not color—is the reliable doneness cue.",
+      "Never force the lid or cover the steam valve with a towel."
+    ],
+    "faqs": [
+      {"q": "Can I skip soaking the dried beans?", "a": "Not in this tested timing. Unsoaked beans need a different liquid ratio and longer pressure cycle, which would change the fill and burn-warning safeguards. Soak overnight or use the quick-soak method in your model manual, then drain."},
+      {"q": "Can I make kuru fasulye with canned beans?", "a": "Yes, but use the stovetop instead of pressurizing already-tender beans. Sauté the vegetables, add three drained 15-ounce cans of beans with 2 cups broth and the seasonings, then simmer 20 minutes."},
+      {"q": "Why is the tomato mixture floated on top?", "a": "Tomato and pepper pastes are thick and can settle against the hottest part of the pot. Diluting and floating them preserves the thin broth at the base until pressure cooking is complete."}
+    ],
+    "pantry": ["dried white beans", "vegetable broth", "tomato paste", "sweet paprika", "dried mint", "bay leaf", "sugar"],
+    "date_published": "2026-10-11",
+    "date_modified": "2026-10-11"
+  },
+  {
+    "slug": "instant-pot-norwegian-farikal-lamb-cabbage-potatoes",
+    "title": "Instant Pot Norwegian Fårikål with Lamb, Cabbage & Potatoes",
+    "dek": "Peppery lamb and cabbage pressure-braise until spoon-tender while buttery potatoes cook separately for a simple Norwegian-inspired autumn dinner.",
+    "collection": "instant-pot",
+    "protein": ["lamb"],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 35,
+    "total_minutes": 90,
+    "servings": 6,
+    "calories": 525,
+    "cost_per_serving": "$5.10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/40/F%C3%A5r_i_k%C3%A5l.jpg",
+    "image_alt": "Norwegian fårikål with tender lamb, cabbage and boiled potatoes in a light broth",
+    "image_credit": "Jarle Vines / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:F%C3%A5r_i_k%C3%A5l.jpg",
+    "image_license": "CC BY 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "tags": ["instant pot", "electric pressure cooker", "fårikål", "Norwegian-style lamb stew", "lamb and cabbage", "autumn dinner", "family comfort food", "boiled potatoes"],
+    "ingredients": [
+      "2 3/4 lb bone-in lamb shoulder chops, cut into serving pieces",
+      "1 3/4 tsp kosher salt, divided",
+      "1 tbsp neutral oil",
+      "1 large green cabbage (about 2 1/2 lb), cored and cut into 8 wedges",
+      "1 1/2 cups low-sodium beef or lamb broth",
+      "1 tbsp whole black peppercorns, lightly crushed",
+      "2 bay leaves",
+      "1 1/2 lb baby Yukon Gold potatoes",
+      "2 tbsp unsalted butter",
+      "2 tbsp chopped fresh parsley",
+      "1 tbsp cornstarch plus 1 tbsp cold water, optional",
+      "Crushed red pepper, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Season and brown the lamb", "text": "Pat the lamb dry and season with 1 teaspoon salt. Select Sauté High on a 6-quart electric pressure cooker, heat the oil and brown the lamb in three uncrowded batches, about 3 minutes per batch. Transfer each batch to a clean plate."},
+      {"name": "Deglaze completely", "text": "Pour in 1 cup broth and scrape every browned bit from the heating plate. Cancel Sauté and add the remaining 1/2 cup broth."},
+      {"name": "Layer lamb and cabbage", "text": "Arrange half the cabbage above the thin broth, followed by half the lamb, half the peppercorns and one bay leaf. Repeat the layers with the remaining cabbage, lamb, peppercorns and bay leaf. Do not pack the cabbage tightly or stir it down onto the base."},
+      {"name": "Pressure-cook", "text": "Check that the contents remain below the two-thirds line. Lock the lid and cook on High Pressure for 20 minutes; allow about 15 minutes for the cooker to reach pressure."},
+      {"name": "Cook the potatoes separately", "text": "While the cooker runs, cover the potatoes with cool water in a saucepan and add 1/2 teaspoon salt. Bring to a boil, then simmer 15 to 18 minutes until a knife slides in easily. Drain and toss with butter and parsley."},
+      {"name": "Release in two stages", "text": "Let pressure release naturally for 15 minutes. Vent the remainder in short controlled pulses, keeping hands and face away from steam. Pause if liquid sputters. Open only after the float valve drops."},
+      {"name": "Check safety and tenderness", "text": "Check several lamb pieces in their thickest meat without touching bone. Whole-cut lamb is safe at 145°F with a 3-minute rest, but shoulder should be closer to 190°F and fork-tender for this braise. If tough, simmer on Sauté in the broth until tender."},
+      {"name": "Finish the broth and serve", "text": "Discard bay leaves. Taste and add the remaining 1/4 teaspoon salt if needed. For a slightly fuller broth, select Sauté and stir in the cornstarch slurry after pressure cooking; simmer 2 minutes. Divide lamb, cabbage, broth and potatoes among bowls and offer crushed red pepper only at the table."}
+    ],
+    "why_it_works": [
+      "Lamb shoulder benefits from moist pressure heat, while large cabbage wedges retain enough structure to frame the finished bowl.",
+      "A measured 1 1/2 cups of thin broth reaches the clean base before the solids, supporting pressure without a flour-thickened layer that could scorch.",
+      "Cooking potatoes separately preserves their clean shape and prevents them from dissolving during the longer lamb-tenderizing cycle."
+    ],
+    "swaps": [
+      "Use 2 1/2 pounds boneless lamb shoulder cut into 2-inch pieces; keep the timing the same and check several pieces for tenderness.",
+      "Replace up to half the green cabbage with Savoy cabbage, keeping the wedges large so the leaves do not disappear into the broth.",
+      "For a thinner traditional-style broth, omit the optional cornstarch slurry entirely."
+    ],
+    "storage": "Cool the stew and potatoes in separate shallow containers within 2 hours. Refrigerate up to 4 days and reheat the lamb, cabbage and broth to 165°F; warm potatoes separately so they do not break apart. Freeze the stew without potatoes for up to 3 months.",
+    "notes": [
+      "Total time includes three lamb-browning batches, about 15 minutes to reach pressure, the 20-minute cook, a 15-minute natural release and finishing time; the potatoes cook concurrently.",
+      "Follow your exact model manual for minimum liquid, locking and venting, and keep the pot below the two-thirds line. Do not double this recipe in a 6-quart cooker.",
+      "Traditional fårikål is deliberately restrained. Crushed pepper at the table adds heat without changing the mild family pot.",
+      "Never force the lid; wait for the float valve to drop completely."
+    ],
+    "faqs": [
+      {"q": "Why not put the potatoes in the pressure cooker?", "a": "The lamb needs a longer cycle than small potatoes. Cooking the potatoes separately keeps them intact, makes doneness easy to control and matches the plated presentation."},
+      {"q": "Do I have to brown the lamb?", "a": "No, but browning adds roasted flavor to a dish with very few seasonings. If you skip it, add the full broth to the clean pot before layering and expect a lighter-tasting stew."},
+      {"q": "Can I use lamb leg instead of shoulder?", "a": "Shoulder is preferred because its connective tissue becomes succulent during pressure cooking. Leg is leaner and can dry out before it becomes as tender, so it is not a direct swap for this timing."}
+    ],
+    "pantry": ["beef broth", "kosher salt", "black peppercorns", "bay leaves", "cornstarch"],
+    "date_published": "2026-10-11",
+    "date_modified": "2026-10-11"
+  },
+  {
+    "slug": "cantonese-style-char-siu-pork-belly-rice-gai-lan",
+    "title": "Cantonese-Style Char Siu Pork Belly with Rice & Gai Lan",
+    "dek": "Oven-roasted pork belly takes on a glossy honey-soy char while jasmine rice and crisp-tender gai lan turn it into a complete takeout-style dinner at home.",
+    "collection": "family",
+    "protein": ["pork"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 25,
+    "cook_minutes": 50,
+    "total_minutes": 330,
+    "servings": 6,
+    "calories": 720,
+    "cost_per_serving": "$4.65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Pork_Belly_Char_Siu_with_Rice.jpg",
+    "image_alt": "Sliced lacquered char siu pork belly served with white rice and cooked Chinese greens",
+    "image_credit": "Ceeseven / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Pork_Belly_Char_Siu_with_Rice.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["char siu", "Cantonese-style pork", "pork belly", "oven roasted", "rice bowl", "gai lan", "weekend meal prep", "takeout at home"],
+    "ingredients": [
+      "2 lb skinless pork belly, cut lengthwise into 2-inch-wide strips",
+      "3 tbsp hoisin sauce",
+      "2 tbsp light soy sauce",
+      "1 tbsp Shaoxing wine or dry sherry",
+      "2 tbsp honey, divided",
+      "1 tbsp packed brown sugar",
+      "2 tbsp red fermented bean curd plus 1 tbsp liquid from the jar",
+      "4 garlic cloves, finely grated",
+      "1 tsp Chinese five-spice powder",
+      "1/2 tsp white pepper",
+      "1 tsp toasted sesame oil",
+      "2 cups jasmine rice, rinsed",
+      "3 cups water",
+      "1 1/2 lb gai lan, ends trimmed",
+      "1 tbsp neutral oil",
+      "1 tbsp oyster sauce",
+      "2 scallions, thinly sliced"
+    ],
+    "instructions": [
+      {"name": "Marinate the pork safely", "text": "Whisk hoisin, soy sauce, Shaoxing wine, 1 tablespoon honey, brown sugar, fermented bean curd and liquid, garlic, five-spice, white pepper and sesame oil. Reserve 1/3 cup marinade in a clean covered container. Coat the pork with the rest, cover and refrigerate for 4 hours. Do not reuse marinade that touched raw pork."},
+      {"name": "Prepare the oven", "text": "Heat the oven to 400°F with a rack in the upper third. Line a rimmed sheet pan with foil and set an oven-safe wire rack on top. Arrange pork strips with space between them and discard their used marinade."},
+      {"name": "Roast and turn", "text": "Roast for 20 minutes. Turn the strips, brush with half the clean reserved marinade and roast for 15 minutes more."},
+      {"name": "Build the lacquer", "text": "Mix the remaining clean reserved marinade with the remaining 1 tablespoon honey. Brush the pork all over, then roast 8 to 12 minutes until glossy and the thickest pieces reach at least 145°F. For meltingly tender belly, continue until 180°F to 190°F, shielding dark edges with foil if needed."},
+      {"name": "Char and rest", "text": "Broil 1 to 3 minutes, watching continuously, until the glaze bubbles and chars at the edges. Move pork to a clean board and rest at least 3 minutes before slicing across the grain."},
+      {"name": "Cook the rice", "text": "While the pork roasts, combine rinsed rice and 3 cups water in a saucepan. Bring to a boil, cover, reduce heat to low and cook 15 minutes. Remove from heat and rest covered for 10 minutes, then fluff."},
+      {"name": "Blanch and season the gai lan", "text": "Bring a wide pot of water to a boil. Add gai lan and cook 2 to 3 minutes until the stems are crisp-tender and leaves are bright green. Drain well, toss with neutral oil and oyster sauce and cut into serving lengths."},
+      {"name": "Assemble the plates", "text": "Divide rice and gai lan among six plates. Add sliced char siu, spoon over any clean cooked glaze from the pan and scatter with scallions."}
+    ],
+    "why_it_works": [
+      "Wide pork-belly strips expose plenty of surface to the salty-sweet marinade while retaining enough thickness to stay succulent.",
+      "A wire rack circulates hot air and lets rendered fat fall away; staged brushing builds shine without burning all of the honey at the start.",
+      "Reserving marinade before it touches raw meat provides a food-safe glaze for the final roasting stages."
+    ],
+    "swaps": [
+      "Use boneless pork shoulder cut into 2-inch strips for a leaner result; roast to at least 145°F with a 3-minute rest and continue only until tender.",
+      "Replace gai lan with broccolini, blanching or steaming it until the stems are crisp-tender.",
+      "If fermented bean curd is unavailable, use 1 additional tablespoon hoisin and 1 teaspoon red miso; the flavor and color will be different but still balanced."
+    ],
+    "storage": "Refrigerate sliced pork, rice and gai lan in separate shallow containers within 2 hours for up to 4 days. Reheat pork and rice to 165°F, covering the pork so its glaze does not dry out. Freeze sliced pork for up to 2 months; rice may be frozen separately.",
+    "notes": [
+      "Total time includes a 4-hour refrigerated marinade, 25 minutes of active prep, about 50 minutes of roasting and broiling, and the 3-minute rest.",
+      "Whole-cut pork is safe at 145°F followed by a 3-minute rest, but pork belly is more tender when its collagen has softened around 180°F to 190°F.",
+      "Fermented red bean curd is salty and vivid; measure it rather than adding food coloring, then taste the cooked glaze before seasoning anything else.",
+      "Foil catches rendered fat, but keep it below the rack so the pork roasts rather than fries in drippings."
+    ],
+    "faqs": [
+      {"q": "Can I marinate char siu overnight?", "a": "Yes. Marinate covered in the refrigerator for up to 12 hours. Longer contact can make thin pieces too salty, so keep the strips about 2 inches wide."},
+      {"q": "Why is my char siu not shiny?", "a": "The gloss comes from thin, repeated coats of clean honey marinade near the end. Brush rather than pour, and let each coat bubble before adding the next."},
+      {"q": "Can I cook this on a grill?", "a": "Yes, over two-zone medium heat with the lid closed, turning often and glazing only near the end. Rendered belly fat can flare, so keep a cool zone available and verify the final temperature."}
+    ],
+    "pantry": ["hoisin sauce", "soy sauce", "honey", "brown sugar", "Chinese five-spice", "sesame oil", "jasmine rice", "oyster sauce"],
+    "date_published": "2026-10-11",
+    "date_modified": "2026-10-11"
+  },
+  {
+    "slug": "filipino-lumpiang-sariwa-garlic-peanut-sauce",
+    "title": "Filipino Lumpiang Sariwa with Garlic-Peanut Sauce",
+    "dek": "Soft homemade wrappers cradle a colorful crisp-tender vegetable filling, then get a savory-sweet garlic sauce and a crunchy shower of peanuts.",
+    "collection": "vegetarian",
+    "protein": ["tofu", "peanuts"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 30,
+    "cook_minutes": 30,
+    "total_minutes": 60,
+    "servings": 6,
+    "calories": 365,
+    "cost_per_serving": "$2.05",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Lumpiang_Sariwa%2C_Jul_2024.jpg",
+    "image_alt": "Fresh Filipino lumpiang sariwa with lettuce, brown garlic sauce and crushed peanuts",
+    "image_credit": "Ralff Nestor Nacor / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Lumpiang_Sariwa,_Jul_2024.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["lumpiang sariwa", "Filipino-style fresh lumpia", "vegetable wrap", "tofu", "garlic peanut sauce", "meatless lunch", "party platter", "fresh spring rolls"],
+    "ingredients": [
+      "14 oz extra-firm tofu, pressed and cut into 1/2-inch cubes",
+      "2 tbsp neutral oil, divided",
+      "1 small yellow onion, thinly sliced",
+      "3 garlic cloves, minced",
+      "1 medium sweet potato, peeled and cut into thin matchsticks",
+      "1 large carrot, cut into thin matchsticks",
+      "6 oz green beans, trimmed and thinly sliced on the diagonal",
+      "3 cups finely shredded green cabbage",
+      "2 tbsp soy sauce, divided",
+      "1/2 tsp black pepper",
+      "1 cup all-purpose flour",
+      "2 tbsp cornstarch",
+      "1/4 tsp kosher salt",
+      "2 large eggs",
+      "1 1/2 cups water",
+      "1 tsp neutral oil, plus more for the pan",
+      "2 cups low-sodium vegetable broth",
+      "1/3 cup packed brown sugar",
+      "1 tbsp peanut butter",
+      "2 tbsp cornstarch mixed with 3 tbsp cold water",
+      "12 butter-lettuce leaves",
+      "1/2 cup roasted unsalted peanuts, finely chopped",
+      "2 tbsp crisp fried garlic, optional"
+    ],
+    "instructions": [
+      {"name": "Brown the tofu", "text": "Heat 1 tablespoon oil in a large skillet over medium-high. Add tofu in one layer and cook 6 to 8 minutes, turning until golden on several sides. Transfer to a plate."},
+      {"name": "Cook the filling in stages", "text": "Add the remaining 1 tablespoon oil, onion and 3 minced garlic cloves to the skillet and cook 2 minutes. Add sweet potato with 2 tablespoons water, cover and cook 4 minutes. Add carrot and green beans for 3 minutes, then cabbage, 1 tablespoon soy sauce and pepper for 2 to 3 minutes. Return tofu and cook until the vegetables are tender but not wet. Spread on a tray to cool."},
+      {"name": "Mix the wrappers", "text": "Whisk flour, 2 tablespoons cornstarch and salt. In another bowl whisk eggs, 1 1/2 cups water and 1 teaspoon oil. Gradually whisk wet into dry until smooth, then rest 10 minutes."},
+      {"name": "Cook twelve soft wrappers", "text": "Lightly oil an 8-inch nonstick skillet over medium-low heat. Pour in a scant 1/4 cup batter and swirl into a thin round. Cook 60 to 90 seconds until the top is dry and the edges release; do not brown or flip. Slide onto parchment and repeat, separating wrappers with parchment."},
+      {"name": "Make the garlic-peanut sauce", "text": "In a saucepan whisk broth, brown sugar, peanut butter, the remaining 1 tablespoon soy sauce and the remaining 2 finely grated garlic cloves. Bring to a simmer. Whisk in the cornstarch slurry and cook 2 minutes until glossy and thick enough to coat a spoon."},
+      {"name": "Roll the lumpia", "text": "Lay a wrapper on a board, set one lettuce leaf across the lower third and add about 1/2 cup filling. Fold the bottom over the filling, tuck in both sides and roll snugly, leaving the lettuce edge visible if desired. Repeat to make 12 rolls."},
+      {"name": "Sauce and garnish", "text": "Arrange two rolls per serving. Spoon warm garlic-peanut sauce over the center and finish with chopped peanuts and crisp garlic."}
+    ],
+    "why_it_works": [
+      "Staggering the vegetables by density keeps the sweet potato tender while the cabbage and green beans retain color and bite.",
+      "A thin egg-and-flour batter cooks on one side into flexible crêpe-like wrappers that bend without the chew of raw rice paper.",
+      "Cooling and drying the filling before rolling prevents steam and excess liquid from tearing the soft wrappers."
+    ],
+    "swaps": [
+      "Replace tofu with 2 cups drained cooked chickpeas, lightly crushed, for another meatless filling.",
+      "Use jicama in place of the sweet potato; add it with the carrot because it needs less cooking time.",
+      "For a nut-free sauce, replace peanut butter with sunflower-seed butter and garnish with toasted pumpkin seeds."
+    ],
+    "storage": "Refrigerate wrappers, filling and sauce separately for up to 3 days; place parchment between wrappers. Reheat filling and sauce to 165°F, then assemble with fresh lettuce. Fully assembled rolls are best within 4 hours and should not be frozen.",
+    "notes": [
+      "Lumpiang sariwa means fresh lumpia: the wrappers stay soft and the assembled rolls are sauced rather than deep-fried.",
+      "The batter should flow like light cream. Whisk in 1 tablespoon water if it thickens while standing.",
+      "The recipe makes 12 rolls, two per serving; keep cooked wrappers covered so their edges stay pliable.",
+      "For safe make-ahead service, cool the filling within 2 hours and keep it refrigerated until assembly."
+    ],
+    "faqs": [
+      {"q": "Can I use store-bought spring-roll wrappers?", "a": "Fresh Filipino lumpia uses a soft crêpe-like wrapper. Some refrigerated fresh lumpia wrappers can substitute, but dry rice paper or frying wrappers create a different texture and may not hold the warm sauce as well."},
+      {"q": "Why are my homemade wrappers tearing?", "a": "A pan that is too hot makes the wrapper crisp, while a thick batter makes it inflexible. Use medium-low heat, swirl a thin layer and remove it as soon as the top loses its wet sheen."},
+      {"q": "Can I prepare lumpiang sariwa for a party?", "a": "Yes. Cook the wrappers, filling and sauce a day ahead and refrigerate separately. Warm the filling and sauce, then roll no more than 4 hours before serving so the wrappers do not become soggy."}
+    ],
+    "pantry": ["all-purpose flour", "cornstarch", "soy sauce", "brown sugar", "peanut butter", "roasted peanuts"],
+    "date_published": "2026-10-11",
+    "date_modified": "2026-10-11"
+  },
+  {
+    "slug": "japanese-dorayaki-sweet-red-bean-filling",
+    "title": "Japanese Dorayaki with Sweet Red Bean Filling",
+    "dek": "Honey-scented pancake rounds sandwich smooth anko for a soft, portable Japanese-style treat made entirely on the stovetop.",
+    "collection": "desserts",
+    "protein": ["eggs", "red beans"],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 25,
+    "total_minutes": 55,
+    "servings": 8,
+    "calories": 245,
+    "cost_per_serving": "$0.90",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Dorayaki_inside.jpg",
+    "image_alt": "Japanese dorayaki pancake halves opened to show their thick sweet red bean filling",
+    "image_credit": "Moja~commonswiki / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Dorayaki_inside.jpg",
+    "image_license": "CC BY-SA 2.5",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "tags": ["dorayaki", "Japanese-style dessert", "sweet red bean", "anko", "stovetop pancakes", "make-ahead snack", "lunchbox treat", "small batch dessert"],
+    "ingredients": [
+      "2 large eggs, at room temperature",
+      "1/2 cup granulated sugar",
+      "2 tbsp honey",
+      "1 tsp vanilla extract, optional",
+      "1 cup all-purpose flour (120 g)",
+      "1 tsp baking powder",
+      "1/4 tsp baking soda",
+      "1/4 tsp kosher salt",
+      "3 to 4 tbsp water",
+      "1 tsp neutral oil, for the pan",
+      "1 1/2 cups smooth or chunky sweet red bean paste (anko)"
+    ],
+    "instructions": [
+      {"name": "Whisk the egg base", "text": "Whisk eggs, sugar, honey and vanilla for 2 minutes until slightly thickened and pale."},
+      {"name": "Make and rest the batter", "text": "Sift flour, baking powder, baking soda and salt over the egg mixture and fold just until no dry streaks remain. Stir in 3 tablespoons water. Cover and rest for 15 minutes."},
+      {"name": "Adjust the consistency", "text": "Lift the batter with a spoon; it should fall in a thick ribbon that levels slowly. Add the remaining 1 tablespoon water a teaspoon at a time if needed."},
+      {"name": "Prepare the skillet", "text": "Heat a nonstick skillet or griddle over medium-low. Rub with a paper towel dipped in the measured oil, leaving only a nearly invisible film so the pancakes color evenly."},
+      {"name": "Cook sixteen rounds", "text": "Drop 2 tablespoons batter per pancake, keeping each round about 3 inches wide. Cook 75 to 90 seconds until bubbles cover the surface and edges look set. Flip and cook 25 to 35 seconds, until the center springs back and no wet batter remains. Repeat, adjusting heat so the rounds stay evenly golden."},
+      {"name": "Keep the cakes soft", "text": "Transfer cooked rounds to a clean towel and cover loosely while warm. Pair rounds by size once cool enough to handle."},
+      {"name": "Fill and shape", "text": "Spread about 3 tablespoons anko in the center of eight rounds, leaving a narrow rim and mounding slightly in the middle. Top with the remaining rounds and gently pinch the edges together."},
+      {"name": "Rest before serving", "text": "Wrap each dorayaki and rest 10 minutes so the pancake and filling settle together, or serve slightly warm."}
+    ],
+    "why_it_works": [
+      "Whipped eggs, honey and two leaveners create supple cakes with enough lift to hold a generous bean-paste center.",
+      "A rested, ribboning batter spreads into consistent circles without becoming thin and crêpe-like.",
+      "Wiping the skillet to an almost dry film prevents mottled oil spots and produces the smooth golden faces associated with dorayaki."
+    ],
+    "swaps": [
+      "Use chunky tsubuan or smooth koshian according to preference; both should be thick enough to hold a mound.",
+      "Replace up to 2 tablespoons anko in each sandwich with sliced strawberries, then refrigerate and eat the dorayaki the same day.",
+      "For a sesame variation, stir 1 tablespoon toasted black sesame seeds into the anko rather than changing the pancake batter."
+    ],
+    "storage": "Wrap dorayaki individually and keep at room temperature up to 1 day or refrigerate up to 3 days. Let chilled cakes stand 15 minutes before eating or microwave 8 to 10 seconds. Freeze individually for up to 1 month and thaw while wrapped.",
+    "notes": [
+      "Weighing 120 grams of flour avoids a packed cup that can make the pancakes dry and thick.",
+      "Medium-low heat gives the honey and sugar time to brown without scorching before the egg-based centers are cooked through.",
+      "Use anko thick enough to sit on a spoon. A runny filling will squeeze out rather than form the characteristic domed sandwich.",
+      "The recipe makes 16 three-inch pancakes and 8 filled dorayaki."
+    ],
+    "faqs": [
+      {"q": "Why are my dorayaki pancakes spotty instead of evenly brown?", "a": "Visible oil beads create pale spots. Wipe the pan to a nearly dry sheen before each batch and keep the heat steady at medium-low."},
+      {"q": "Can I make anko from scratch?", "a": "Yes. Cook sweetened azuki beans until very soft, then reduce while stirring until the paste holds its shape and cool completely. The recipe uses ready-made anko to keep the stovetop dessert practical."},
+      {"q": "Can I make the pancake rounds ahead?", "a": "Yes. Cool them, stack with parchment, wrap airtight and refrigerate for 2 days. Bring to room temperature before filling so they bend without cracking."}
+    ],
+    "pantry": ["granulated sugar", "honey", "all-purpose flour", "baking powder", "baking soda", "sweet red bean paste"],
+    "date_published": "2026-10-11",
+    "date_modified": "2026-10-11"
+  }
+]

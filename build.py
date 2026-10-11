@@ -525,7 +525,37 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot korean-style dakbokkeumtang" in haystack:
+    if "instant pot turkish kuru fasulye" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The soaked-bean volume, five-cup thin-liquid base and 20-minute natural release are written for this family capacity."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Pick over, rinse and drain the white beans cleanly before and after their overnight soak."),
+            ("stainless steel soup ladle", "Stainless-steel soup ladle", "A deep ladle portions the creamy beans with enough tomato broth in every bowl."),
+        ]
+    elif "instant pot norwegian fårikål" in haystack or "instant pot norwegian farikal" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1½-cup thin-broth base, 20-minute cycle and two-stage release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several lamb pieces away from bone for a safe center, then use temperature and fork texture to judge braise tenderness."),
+            ("silicone tipped kitchen tongs", "Silicone-tipped kitchen tongs", "Brown lamb in batches and lift tender cabbage wedges without scratching the inner pot."),
+        ]
+    elif "cantonese-style char siu pork belly" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan wire rack", "Rimmed sheet pan with wire rack", "The rack circulates heat around the pork and keeps it above rendered fat while the glaze lacquers."),
+            ("silicone pastry brush", "Silicone pastry brush", "Apply thin, even layers of the clean reserved honey marinade near the end of roasting."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the pork clears 145°F with a three-minute rest and continue toward the recipe's tender belly range."),
+        ]
+    elif "filipino lumpiang sariwa" in haystack:
+        products = [
+            ("8 inch nonstick skillet", "8-inch nonstick skillet", "A small slick surface turns the thin egg batter into consistently sized, flexible fresh-lumpia wrappers."),
+            ("julienne peeler hand guard", "Julienne peeler with hand guard", "Uniform carrot and sweet-potato matchsticks cook evenly; use the guard and stop before the piece is unsafe to hold."),
+            ("silicone whisk heat resistant", "Heat-safe silicone whisk", "Whisk the peanut sauce and cornstarch slurry smooth as they thicken on the stove."),
+        ]
+    elif "japanese dorayaki" in haystack:
+        products = [
+            ("12 inch nonstick griddle", "Nonstick griddle", "Steady medium-low heat produces several smooth, evenly golden three-inch pancake rounds at once."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing 120 grams of flour prevents a packed cup from making the honey pancakes dry."),
+            ("2 tablespoon cookie scoop", "2-tablespoon scoop", "Equal batter portions make sixteen rounds that pair neatly around the anko filling."),
+        ]
+    elif "instant pot korean-style dakbokkeumtang" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1½-cup thin-broth base, eight-minute cycle and two-stage release are calibrated for this common family capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check several bone-in chicken pieces at their thickest points without touching bone and confirm each reaches 165°F."),
@@ -2100,7 +2130,22 @@ def build_collections():
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-vegan-corn-potato-chowder-chives/')}">Vegan corn &amp; potato chowder</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">50 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">5-min rest, then controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Partially blend; add oat milk</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget vegan freezer meal</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-korean-dakbokkeumtang-chicken-potatoes/')}">Korean-style dakbokkeumtang</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">70 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; finish glass noodles</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mild-first chicken stew</td></tr>
                       <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-romanian-sarmale-beef-pork-rice/')}">Romanian-style sarmale</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">110 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify roll centers; finish polenta</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead stuffed-cabbage platter</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-turkish-kuru-fasulye-white-bean-stew/')}">Turkish kuru fasulye</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">95 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Check bean centers; adjust broth</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget meatless pantry stew</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-norwegian-farikal-lamb-cabbage-potatoes/')}">Norwegian fårikål</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">90 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Check lamb tenderness; finish broth</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Autumn lamb-and-cabbage braise</td></tr>
                       <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <h3 style="margin-top:1.5rem">What belongs near the heating plate?</h3>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Ingredient type</th><th>Where it goes</th><th>Why</th></tr></thead>
+                    <tbody>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Water, broth or another recipe-approved thin liquid</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">First, against a clean deglazed base</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">This is the free-flowing liquid the cooker needs to generate steam.</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meat and water-rich vegetables</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Above the thin liquid; stir only when the recipe directs</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">They release moisture, but should not replace the measured minimum liquid for the model.</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Tomato paste, thick tomato sauce, nut butter or another concentrated sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Diluted and floated on top, or added after pressure, exactly as directed</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Thick or sugary mixtures can settle and scorch before enough steam develops.</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Beans, rice, pasta and other expanding foods</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">In the recipe's measured liquid and below the half-full line</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">They absorb liquid, expand and can foam; improvised ratios change both texture and safety margins.</td></tr>
+                      <tr><td style="padding:.65rem">Dairy, cheese and cornstarch slurry</td><td style="padding:.65rem">Usually after pressure unless a tested recipe specifically says otherwise</td><td style="padding:.65rem">Adding them during the finishing stage reduces scorching, curdling and over-thickening.</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -2125,7 +2170,7 @@ def build_collections():
                   <div class="tip-card"><strong>Whole pork or beef: 145°F + rest</strong>Use the recipe's stated rest and target; do not substitute this rule for ground meat, poultry or a recipe that intentionally cooks a tough cut further for tenderness.</div>
                   <div class="tip-card"><strong>Below target?</strong>Return the food to hot liquid and use Sauté or the recipe's finishing step until every checked portion reaches its safe temperature; never rely on color alone.</div>
                 </div>
-                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits, pre-use inspection and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison reviewed October 10, 2026.</p>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits, pre-use inspection and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison and layering matrix reviewed October 11, 2026.</p>
               </div>
               <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
             </div></section>'''
