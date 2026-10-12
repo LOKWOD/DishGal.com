@@ -263,7 +263,7 @@ def header() -> str:
         <nav class="main-nav" aria-label="Primary">
           <a href="{href('/recipes/')}">Recipes</a>
           <a href="{href('/collections/instant-pot/')}">Instant Pot</a>
-          <a href="{href('/dinner-decider/')}">Dinner Decider</a>
+          <a href="{href('/#browse-recipes')}">Collections</a>
           <a href="{href('/meal-planner/')}">Meal Planner</a>
           <a href="{href('/guides/')}">Kitchen Picks</a>
           <a href="{href('/saved/')}">Saved</a>
@@ -1774,13 +1774,45 @@ def build_home():
     mixed_recipes = stable_recipe_mix(RECIPES)
     featured = mixed_recipes[:8]
     hero = mixed_recipes[0]
-    collections = sorted({r.get("collection", "") for r in RECIPES if r.get("collection")})
+    collections = {r.get("collection", "") for r in RECIPES if r.get("collection")}
+    groups = [
+        ("By time and cooking method", ["30-minute", "quick", "one-pot", "sheet-pan", "instant-pot", "slow-cooker", "air-fryer"]),
+        ("By dinner need", ["budget", "family", "vegetarian", "vegan", "high-protein", "weeknight", "weekend"]),
+        ("Ingredient collections", ["chicken", "beef", "pork", "seafood"]),
+        ("Breakfast, baking and more", ["breakfast", "brunch", "baking", "dessert", "desserts"]),
+    ]
+    grouped = {slug for _, slugs in groups for slug in slugs}
+    remaining = sorted(collections - grouped)
+    if remaining:
+        groups.append(("More recipe collections", remaining))
     collection_html = []
-    for slug in collections:
-        title, _, icon = COLLECTION_META.get(slug, (pretty_slug(slug), "Browse this dinner collection.", "🍴"))
-        count = sum(1 for r in RECIPES if r.get("collection") == slug)
-        collection_html.append(f'''<a class="collection-pill" href="{href('/collections/' + slug + '/')}"><span class="collection-icon">{icon}</span><strong>{esc(title)}</strong><small>{count} recipes</small></a>''')
+    for heading, slugs in groups:
+        cards = []
+        for slug in slugs:
+            if slug not in collections:
+                continue
+            title, _, icon = COLLECTION_META.get(slug, (pretty_slug(slug), "", "🍴"))
+            if slug == "dessert":
+                title = "Dessert recipes"
+            elif slug == "desserts":
+                title = "More dessert recipes"
+            count = sum(1 for r in RECIPES if r.get("collection") == slug)
+            noun = "recipe" if count == 1 else "recipes"
+            cards.append(f'<a class="collection-pill" href="{href("/collections/" + slug + "/")}"><span class="collection-icon">{icon}</span><strong>{esc(title)}</strong><small>{count} {noun}</small></a>')
+        if cards:
+            collection_html.append(f'<div class="browse-group"><h3>{esc(heading)}</h3><div class="collection-grid">{"".join(cards)}</div></div>')
+    newest = sorted(RECIPES, key=lambda r: (r.get("date_published", ""), r["slug"]), reverse=True)[:4]
     body = f'''
+    <style>
+      .home-brand img{{max-height:180px}}
+      .browse-group{{margin-top:1.75rem}}
+      .browse-group h3{{margin-bottom:.75rem}}
+      #browse-recipes .collection-grid{{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}}
+      .home-shortcuts{{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}}
+      .home-shortcuts a{{padding:.55rem .85rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink)}}
+      #browse-recipes{{scroll-margin-top:100px}}
+      @media(max-width:560px){{.home-brand img{{max-height:120px}}#browse-recipes .collection-grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
+    </style>
     <div class="home-brand" aria-label="DishGal — Dinner, decided">
       <img src="{href('/assets/dishgal-brand.webp')}" alt="DishGal.com — Dinner, decided." width="1536" height="1024" fetchpriority="high" decoding="async">
     </div>
@@ -1792,24 +1824,31 @@ def build_home():
           <p class="lede">DishGal gives you practical weeknight recipes, a dinner picker, pantry rescue, and a five-night planner—without turning dinner into a personality test.</p>
           <div class="button-row"><a class="btn btn-primary" href="{href('/dinner-decider/')}">Decide dinner</a><a class="btn btn-outline" href="{href('/recipes/')}">Browse recipes</a></div>
           <div class="hero-proof"><span>{len(RECIPES)} complete recipes</span><span>Real prep + cook times</span><span>Cost per serving</span></div>
+          <div class="home-shortcuts" aria-label="Quick recipe choices"><a href="{href('/collections/30-minute/')}">30-minute dinners</a><a href="{href('/collections/budget/')}">Budget meals</a><a href="{href('/collections/instant-pot/')}">Instant Pot</a><a href="{href('/collections/breakfast/')}">Breakfast</a></div>
         </div>
         <div class="hero-media"><img class="hero-image" src="{esc(hero.get('image',''))}" alt="{esc(hero.get('image_alt','Weeknight dinner'))}" width="800" height="1000" fetchpriority="high" decoding="async"><div class="hero-sticker">No-scroll-before-the-recipe energy.</div></div>
       </div>
     </section>
-    <section class="section section-paper">
+    <section class="section section-paper" id="browse-recipes">
       <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow">Pick your lane</p><h2>Dinner collections</h2></div><p>Start with the kind of night you are having, not a 2,000-word food memoir.</p></div>
-        <div class="collection-grid">{''.join(collection_html)}</div>
+        <div class="section-heading"><div><p class="eyebrow">Pick your lane</p><h2>Find recipes your way</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">Search all recipes</a></div>
         <div class="topic-links" aria-label="Browse recipes by main ingredient">
           <strong>Cook by ingredient:</strong>
           {''.join(f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])}</a>' for slug, meta in active_ingredient_hubs())}
         </div>
+        {''.join(collection_html)}
       </div>
     </section>
     <section class="section">
       <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow">Start here</p><h2>Weeknight winners</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">See all recipes</a></div>
+        <div class="section-heading"><div><p class="eyebrow">Dinner inspiration</p><h2>Recipes to try next</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">See all recipes</a></div>
         <div class="recipe-grid">{''.join(recipe_card(r) for r in featured)}</div>
+      </div>
+    </section>
+    <section class="section section-paper">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Fresh from DishGal</p><h2>Recently added recipes</h2></div><a class="btn btn-outline" href="{href('/feed.xml')}">Follow new recipes</a></div>
+        <div class="recipe-grid">{''.join(recipe_card(r) for r in newest)}</div>
       </div>
     </section>
     <section class="section section-plum">
@@ -2536,3 +2575,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
