@@ -1,0 +1,360 @@
+[
+  {
+    "slug": "instant-pot-ethiopian-doro-wat-eggs-injera",
+    "title": "Instant Pot Ethiopian Doro Wat with Eggs & Injera",
+    "dek": "Tender chicken and hard-cooked eggs meet a deeply oniony, mild-first berbere sauce, with injera ready for scooping up every drop.",
+    "collection": "instant-pot",
+    "protein": ["chicken", "eggs"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 20,
+    "cook_minutes": 35,
+    "total_minutes": 65,
+    "servings": 6,
+    "calories": 495,
+    "cost_per_serving": "$3.70",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Injera_and_doro_wat.jpg",
+    "image_alt": "Ethiopian doro wat with a chicken leg and hard-cooked egg served on injera",
+    "image_credit": "Edsel Little / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Injera_and_doro_wat.jpg",
+    "image_license": "CC BY-SA 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "tags": ["instant pot", "electric pressure cooker", "Ethiopian-style", "doro wat", "chicken stew", "berbere", "injera", "family dinner"],
+    "ingredients": [
+      "2 lb bone-in, skinless chicken drumsticks and thighs, trimmed",
+      "1 tbsp fresh lemon juice",
+      "1 tsp kosher salt, divided",
+      "2 tbsp unsalted butter or ghee",
+      "3 large yellow onions, very finely chopped",
+      "5 garlic cloves, minced",
+      "1 tbsp grated fresh ginger",
+      "1 1/2 cups low-sodium chicken broth",
+      "2 tbsp mild berbere seasoning, plus hot berbere for serving",
+      "1 tsp sweet paprika",
+      "1/2 tsp ground cardamom",
+      "1/4 tsp ground cinnamon",
+      "2 tbsp tomato paste",
+      "6 peeled hard-cooked eggs",
+      "6 store-bought injera or warm flatbreads, for serving"
+    ],
+    "instructions": [
+      {"name": "Season the chicken", "text": "Pat the chicken dry, toss with lemon juice and 1/2 teaspoon salt, and let stand while the onions cook."},
+      {"name": "Build the onion base", "text": "Select Sauté Normal on a 6-quart electric pressure cooker. Melt the butter, add onions and cook 10 minutes, stirring often, until very soft and lightly golden. Add garlic and ginger for 30 seconds."},
+      {"name": "Deglaze completely", "text": "Pour in the broth and scrape the heating plate until no browned or sticky spots remain. Cancel Sauté. Stir mild berbere, paprika, cardamom, cinnamon and the remaining 1/2 teaspoon salt into the thin broth."},
+      {"name": "Layer without scorching", "text": "Nestle chicken in one layer. Whisk tomato paste with 1/2 cup liquid from the pot, spoon it over the chicken and do not stir it down onto the heating plate."},
+      {"name": "Pressure-cook", "text": "Confirm the contents are below the model's maximum-fill line. Lock the lid and cook on High Pressure for 10 minutes; allow about 12 to 15 minutes to reach pressure."},
+      {"name": "Release in stages", "text": "Let pressure release naturally for 10 minutes, then vent the remainder in short controlled pulses. If liquid sputters, close the valve, wait 2 minutes and resume slowly. Open only after the float valve drops."},
+      {"name": "Verify and finish", "text": "Check several chicken pieces beside but not touching bone; each must reach 165°F. Transfer chicken briefly if needed, select Sauté and simmer sauce 5 to 8 minutes until it coats a spoon. Add the hard-cooked eggs and chicken and heat through."},
+      {"name": "Serve mild-first", "text": "Spoon doro wat and one egg per person over injera. Keep the pot gentle and offer hot berbere at the table."}
+    ],
+    "why_it_works": [
+      "Long sautéing concentrates the onions before pressure cooking, creating body without flour or a risky cornstarch thickener.",
+      "A fully scraped base and 1 1/2 cups of thin broth support steam production; diluted tomato paste stays above the heating plate.",
+      "The timed natural release protects the sauce from violent boiling while bone-in chicken stays succulent."
+    ],
+    "swaps": [
+      "Use all drumsticks or all bone-in thighs of similar size; keep the same timing and verify every piece at 165°F.",
+      "For dairy-free doro wat, use refined coconut oil or a neutral oil instead of butter or ghee.",
+      "If injera is unavailable, serve with warm naan or rice, understanding that the flavor and texture will differ."
+    ],
+    "storage": "Cool chicken and sauce in shallow containers within 2 hours and refrigerate up to 4 days; refrigerate eggs separately if practical. Reheat the stew and eggs to 165°F, adding broth if thick. Freeze chicken and sauce without eggs for up to 3 months.",
+    "notes": [
+      "Total time includes about 12 to 15 minutes to reach pressure, the 10-minute cycle, a 10-minute natural release and finishing time.",
+      "Use a 6-quart cooker and follow the exact model manual for minimum liquid, fill limits, locking and venting. Do not double this recipe.",
+      "Berbere brands vary sharply in heat; choose a mild blend for the pot and put hotter seasoning on the table.",
+      "Never force the lid or cover the steam valve with a towel."
+    ],
+    "faqs": [
+      {"q": "Can I pressure-cook raw eggs in the stew?", "a": "Use separately hard-cooked, peeled eggs here. Their predictable texture and post-pressure addition keep the chicken timing and liquid ratio unchanged."},
+      {"q": "Why is my doro wat thinner than expected?", "a": "Pressure cookers retain evaporation. Simmer uncovered on Sauté after the chicken reaches 165°F; the onion-rich sauce will tighten in 5 to 8 minutes."},
+      {"q": "Can I use boneless chicken breasts?", "a": "They are not recommended for this 10-minute pressure cycle because they can dry out. Bone-in thighs and drumsticks better match the timing and photographed dish."}
+    ],
+    "pantry": ["chicken broth", "mild berbere", "sweet paprika", "ground cardamom", "ground cinnamon", "tomato paste"],
+    "date_published": "2026-10-12",
+    "date_modified": "2026-10-12"
+  },
+  {
+    "slug": "instant-pot-portuguese-caldo-verde-chourico-kale",
+    "title": "Instant Pot Portuguese Caldo Verde with Chouriço & Kale",
+    "dek": "Potatoes melt into a silky garlic broth while ribbons of kale and smoky chouriço turn this Portuguese-inspired soup into a practical family supper.",
+    "collection": "instant-pot",
+    "protein": ["sausage"],
+    "difficulty": "Easy",
+    "prep_minutes": 15,
+    "cook_minutes": 25,
+    "total_minutes": 50,
+    "servings": 6,
+    "calories": 335,
+    "cost_per_serving": "$2.35",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Caldo_verde_%2833228722492%29.jpg",
+    "image_alt": "Portuguese caldo verde potato soup with shredded kale and a round slice of sausage",
+    "image_credit": "Pasquale Paolo Cardo / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Caldo_verde_(33228722492).jpg",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "tags": ["instant pot", "electric pressure cooker", "Portuguese-style", "caldo verde", "potato soup", "kale", "chourico", "family dinner"],
+    "ingredients": [
+      "1 tbsp olive oil, plus more for serving",
+      "8 oz fully cooked Portuguese chouriço or linguiça, cut into 1/4-inch coins",
+      "1 medium yellow onion, diced",
+      "4 garlic cloves, minced",
+      "5 cups low-sodium chicken broth",
+      "2 lb Yukon Gold potatoes, peeled and cut into 1-inch chunks",
+      "1 bay leaf",
+      "1 tsp kosher salt, plus more to taste",
+      "1/2 tsp black pepper",
+      "1 large bunch lacinato kale, stems removed and leaves cut into fine ribbons",
+      "1 tbsp sherry vinegar or fresh lemon juice",
+      "Crushed red pepper, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Brown the sausage", "text": "Select Sauté Normal on a 6-quart electric pressure cooker. Heat oil, brown the chouriço coins for 3 minutes and transfer them to a plate, leaving the flavored oil behind."},
+      {"name": "Soften aromatics", "text": "Add onion and cook 4 minutes. Stir in garlic for 30 seconds."},
+      {"name": "Deglaze and load", "text": "Pour in 1 cup broth and scrape the heating plate completely smooth. Cancel Sauté, add remaining broth, potatoes, bay leaf, salt and pepper, and stir. Keep all contents below the maximum-fill line."},
+      {"name": "Pressure-cook", "text": "Lock the lid and cook on High Pressure for 5 minutes; allow about 10 to 12 minutes to reach pressure."},
+      {"name": "Release carefully", "text": "Let pressure release naturally for 10 minutes, then vent any remainder in controlled pulses. If starchy liquid sputters, close the valve, wait 2 minutes and try again. Open only after the float valve drops."},
+      {"name": "Create the creamy broth", "text": "Discard the bay leaf. Mash roughly half the potatoes directly in the pot, leaving some chunks, or blend two cups of soup and return it. Do not blend the sausage."},
+      {"name": "Wilt and reheat", "text": "Select Sauté Low. Stir in kale and browned chouriço; simmer 4 to 6 minutes until kale is tender and sausage reaches 165°F. Stir in vinegar and adjust salt."},
+      {"name": "Serve mild-first", "text": "Ladle into bowls, finish with a small drizzle of olive oil and put crushed red pepper on the table rather than in the family pot."}
+    ],
+    "why_it_works": [
+      "Browning the sausage first seasons the aromatics while holding it out of pressure prevents a rubbery texture.",
+      "Five cups of thin broth over a clean base provide ample steam; potatoes thicken the soup only after pressure falls.",
+      "Fine kale ribbons cook during the finishing simmer, preserving their color and keeping the pressure stage predictable."
+    ],
+    "swaps": [
+      "Use fully cooked kielbasa if Portuguese chouriço is unavailable; the flavor will be less paprika-forward.",
+      "Curly kale works when sliced very thin; allow an extra minute or two to become tender.",
+      "For a meatless soup, omit sausage, use vegetable broth and add 1 teaspoon smoked paprika with the garlic."
+    ],
+    "storage": "Cool in shallow containers within 2 hours and refrigerate up to 4 days. Reheat to 165°F, loosening with broth because potatoes thicken when chilled. Freeze up to 2 months; thaw overnight and whisk well while reheating.",
+    "notes": [
+      "Total time includes about 10 to 12 minutes to reach pressure, the 5-minute cycle, a 10-minute natural release and the kale-finishing stage.",
+      "Use a 6-quart cooker and follow the model manual for minimum liquid, fill limits and valve operation. Do not exceed the maximum-fill line.",
+      "Check the sausage package: this recipe calls for a fully cooked product, not raw fresh sausage.",
+      "Never force the lid or cover the vent with a towel."
+    ],
+    "faqs": [
+      {"q": "Should caldo verde be completely smooth?", "a": "No. Mashing about half the potatoes gives the broth a silky body while leaving rustic pieces. Blend more only if your family prefers it."},
+      {"q": "Why add the kale after pressure cooking?", "a": "Thin kale ribbons need only a short simmer. Adding them later avoids dull color, overcooking and extra foam during release."},
+      {"q": "Can I use russet potatoes?", "a": "Yes. Russets break down more readily, so mash less after pressure and expect a thicker, less chunky soup."}
+    ],
+    "pantry": ["olive oil", "chicken broth", "bay leaf", "black pepper", "sherry vinegar"],
+    "date_published": "2026-10-12",
+    "date_modified": "2026-10-12"
+  },
+  {
+    "slug": "hanoi-style-bun-cha-grilled-pork-noodles-herbs",
+    "title": "Hanoi-Style Bún Chả with Grilled Pork, Rice Noodles & Herbs",
+    "dek": "Caramel-edged pork patties, cool rice noodles and a generous herb platter meet a bright, savory-sweet dipping broth for an interactive dinner.",
+    "collection": "pork",
+    "protein": ["pork"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 30,
+    "cook_minutes": 18,
+    "total_minutes": 55,
+    "servings": 4,
+    "calories": 575,
+    "cost_per_serving": "$3.95",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/B%C3%BAn_Ch%E1%BA%A3_H%C3%A0_N%E1%BB%99i%2C_Vi%E1%BB%87t_Nam.jpg",
+    "image_alt": "Hanoi bún chả with grilled pork patties and slices in dipping broth beside rice noodles and fresh herbs",
+    "image_credit": "Hong.linh27061994 / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_Ch%E1%BA%A3_H%C3%A0_N%E1%BB%99i,_Vi%E1%BB%87t_Nam.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "tags": ["Vietnamese-style", "bun cha", "grilled pork", "rice noodles", "fresh herbs", "interactive dinner", "fish sauce dressing"],
+    "ingredients": [
+      "8 oz thin rice vermicelli",
+      "8 oz ground pork",
+      "8 oz boneless pork shoulder, sliced 1/8 inch thick across the grain",
+      "2 tbsp finely chopped shallot",
+      "2 garlic cloves, grated",
+      "1 tbsp fish sauce",
+      "1 tbsp light brown sugar",
+      "1 tsp neutral oil, plus more for the grill pan",
+      "1/2 tsp black pepper",
+      "1/4 cup fresh lime juice",
+      "3 tbsp fish sauce",
+      "3 tbsp granulated sugar",
+      "3/4 cup warm water",
+      "1 small carrot, cut into fine matchsticks",
+      "1/2 small daikon, cut into fine matchsticks",
+      "1 small garlic clove, thinly sliced",
+      "1 small red chile, thinly sliced, optional",
+      "2 cups mixed mint, cilantro and Thai basil leaves",
+      "1 small head butter lettuce, separated",
+      "1 English cucumber, cut into batons"
+    ],
+    "instructions": [
+      {"name": "Mix the dipping broth", "text": "Whisk lime juice, 3 tablespoons fish sauce, granulated sugar and warm water until dissolved. Add carrot, daikon, sliced garlic and chile if using; rest while the meal is prepared."},
+      {"name": "Season the pork", "text": "Mix shallot, grated garlic, 1 tablespoon fish sauce, brown sugar, 1 teaspoon oil and pepper. Fold half into the ground pork and shape 8 thin patties; toss the other half with the sliced pork. Chill both 10 minutes."},
+      {"name": "Prepare noodles", "text": "Cook or soak vermicelli according to package directions until tender but resilient. Rinse under cool water and drain thoroughly; divide among four plates."},
+      {"name": "Heat the cooking surface", "text": "Heat a lightly oiled grill pan or outdoor grill to medium-high, about 400°F. Arrange herbs, lettuce and cucumber on a platter."},
+      {"name": "Grill safely", "text": "Cook patties in a single layer for 3 to 4 minutes per side until browned and 160°F in the centers. Grill pork slices 2 to 3 minutes per side to at least 145°F, then rest them 3 minutes. Work in batches rather than crowding the pan."},
+      {"name": "Build the bowls", "text": "Divide hot pork patties and slices among shallow bowls and spoon the carrot-daikon dipping broth around them. Serve with noodles, lettuce, cucumber and herbs for dipping and wrapping."}
+    ],
+    "why_it_works": [
+      "Thin patties and shoulder slices create the two grilled-pork textures shown in the finished platter, while a brief chill helps the patties hold together.",
+      "Cool, well-drained noodles stay springy beside the hot pork rather than diluting the dipping broth.",
+      "Serving the components separately preserves their textures and lets every diner balance herbs, noodles and savory-sweet broth."
+    ],
+    "swaps": [
+      "Use regular basil when Thai basil is unavailable; mint and cilantro still supply the dominant fresh contrast.",
+      "For a milder table, omit chile from the communal broth and offer sliced chile separately.",
+      "Jicama can replace daikon for a sweeter crunch, though it is not traditional."
+    ],
+    "storage": "Refrigerate cooked pork, noodles, broth and herbs in separate containers within 2 hours. Keep up to 3 days; reheat pork to 165°F, refresh noodles briefly with warm water and serve the broth cool or room temperature. Do not freeze the assembled meal.",
+    "notes": [
+      "Fish sauce brands differ in salinity; the measured water balances this broth, but taste before serving.",
+      "Ground-pork patties must reach 160°F; insert the thermometer from the side. Whole-muscle shoulder slices need 145°F followed by a 3-minute rest."
+    ],
+    "faqs": [
+      {"q": "Is bún chả a noodle bowl?", "a": "It is usually served as separate plates of noodles and herbs with grilled pork in dipping broth. Diners combine bite-size portions as they eat rather than tossing everything at once."},
+      {"q": "Can I cook the pork under the broiler?", "a": "Yes. Broil on a foil-lined rack about 5 inches from heat, turning once. Cook patties to 160°F and slices to 145°F followed by a 3-minute rest."},
+      {"q": "Can I make the dipping broth ahead?", "a": "Make it up to one day ahead and refrigerate. Add delicate herbs only at serving and let the broth lose its refrigerator chill for the best flavor."}
+    ],
+    "pantry": ["rice vermicelli", "fish sauce", "brown sugar", "granulated sugar", "neutral oil", "black pepper"],
+    "date_published": "2026-10-12",
+    "date_modified": "2026-10-12"
+  },
+  {
+    "slug": "sicilian-caponata-eggplant-olives-capers",
+    "title": "Sicilian Caponata with Eggplant, Olives & Capers",
+    "dek": "Silky browned eggplant, tomatoes, celery, olives and capers settle into a glossy sweet-sour relish that improves as it rests.",
+    "collection": "vegetarian",
+    "protein": ["plant-based"],
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "cook_minutes": 35,
+    "total_minutes": 75,
+    "servings": 6,
+    "calories": 215,
+    "cost_per_serving": "$1.80",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Sicilian_caponata.jpg",
+    "image_alt": "Sicilian caponata with glossy eggplant chunks, tomatoes, green olives and capers",
+    "image_credit": "Massimoweb / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Sicilian_caponata.jpg",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "tags": ["Sicilian-style", "caponata", "eggplant", "vegan appetizer", "make ahead", "sweet and sour", "olive and caper relish"],
+    "ingredients": [
+      "2 medium globe eggplants, cut into 1-inch cubes",
+      "1 1/4 tsp kosher salt, divided",
+      "5 tbsp extra-virgin olive oil, divided",
+      "2 celery ribs, thinly sliced",
+      "1 medium red onion, diced",
+      "2 garlic cloves, thinly sliced",
+      "1 can (14.5 oz) crushed tomatoes",
+      "1/2 cup pitted green olives, halved",
+      "2 tbsp capers, rinsed",
+      "2 tbsp golden raisins",
+      "3 tbsp red wine vinegar",
+      "1 1/2 tbsp granulated sugar",
+      "1/4 tsp black pepper",
+      "2 tbsp toasted pine nuts, optional",
+      "1/4 cup torn fresh basil",
+      "Toasted country bread, optional for serving"
+    ],
+    "instructions": [
+      {"name": "Salt the eggplant", "text": "Toss eggplant with 3/4 teaspoon salt in a colander and stand 20 minutes. Pat very dry; do not rinse."},
+      {"name": "Brown in batches", "text": "Heat 3 tablespoons oil in a wide 12-inch skillet over medium-high. Cook half the eggplant 6 to 8 minutes until browned and tender; transfer to a plate. Repeat with 1 tablespoon oil and remaining eggplant."},
+      {"name": "Build the vegetables", "text": "Reduce heat to medium. Add remaining tablespoon oil, celery and onion; cook 6 minutes. Add garlic for 30 seconds."},
+      {"name": "Simmer the relish", "text": "Add tomatoes, olives, capers, raisins, remaining 1/2 teaspoon salt and pepper. Simmer 8 minutes, then fold in eggplant."},
+      {"name": "Balance the agrodolce", "text": "Stir vinegar and sugar together, add to the skillet and simmer 4 to 5 minutes until glossy but still chunky. Taste and adjust with a splash more vinegar or a pinch of sugar."},
+      {"name": "Rest and serve", "text": "Cool at least 20 minutes so the flavors settle. Fold in basil, top with pine nuts if using and serve warm or room temperature with bread."}
+    ],
+    "why_it_works": [
+      "Salting and drying the eggplant reduces surface moisture so batches brown instead of steaming.",
+      "A wide skillet provides enough evaporation for defined vegetables and a glossy—not watery—tomato coating.",
+      "Adding vinegar and sugar near the end preserves the clean sweet-sour contrast associated with agrodolce."
+    ],
+    "swaps": [
+      "Use oil-cured black olives for a deeper, saltier caponata and reduce added salt after tasting.",
+      "Currants can replace golden raisins in the same amount.",
+      "For a nut-free appetizer, omit pine nuts and finish with toasted breadcrumbs for crunch."
+    ],
+    "storage": "Cool within 2 hours and refrigerate in a nonreactive airtight container up to 5 days. Serve cool, room temperature or gently rewarmed; do not repeatedly leave the batch at room temperature. Freeze up to 2 months, though the eggplant will soften.",
+    "notes": [
+      "Caponata is often better the next day; let chilled caponata stand 20 to 30 minutes before serving for fuller flavor.",
+      "Use a stainless, enameled or well-seasoned skillet because prolonged vinegar contact can react with bare aluminum.",
+      "Eggplant absorbs oil quickly; measured batch cooking keeps the relish rich without becoming greasy."
+    ],
+    "faqs": [
+      {"q": "Is caponata served hot or cold?", "a": "Room temperature best shows its sweet-sour balance, but it is also good gently warm or cool. Avoid serving it ice-cold straight from the refrigerator."},
+      {"q": "Why did my eggplant turn mushy?", "a": "Crowding traps steam. Dry the cubes thoroughly, use a wide hot skillet and brown in two batches before adding them to the sauce."},
+      {"q": "Can I make caponata without raisins?", "a": "Yes. Omit them and taste after adding the vinegar-sugar mixture; add another teaspoon of sugar only if the tomatoes are especially tart."}
+    ],
+    "pantry": ["olive oil", "crushed tomatoes", "green olives", "capers", "golden raisins", "red wine vinegar", "sugar"],
+    "date_published": "2026-10-12",
+    "date_modified": "2026-10-12"
+  },
+  {
+    "slug": "canadian-nanaimo-bars-custard-buttercream-chocolate",
+    "title": "Canadian Nanaimo Bars with Custard Buttercream & Chocolate",
+    "dek": "A chewy cocoa-coconut base, pale custard buttercream and a snappy chocolate top form clean, celebratory squares without turning on the oven.",
+    "collection": "dessert",
+    "protein": ["egg"],
+    "difficulty": "Intermediate",
+    "prep_minutes": 30,
+    "cook_minutes": 10,
+    "total_minutes": 180,
+    "servings": 16,
+    "calories": 315,
+    "cost_per_serving": "$0.95",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Nanaimo_Bars%2C_stacked.jpg",
+    "image_alt": "Stacked Nanaimo bar squares showing a cocoa-coconut base, custard buttercream center and chocolate top",
+    "image_credit": "Craig Dugas / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Nanaimo_Bars,_stacked.jpg",
+    "image_license": "CC BY-SA 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "tags": ["Canadian dessert", "Nanaimo bars", "no bake", "custard buttercream", "chocolate", "make ahead dessert", "holiday bars"],
+    "ingredients": [
+      "1/2 cup unsalted butter",
+      "1/4 cup granulated sugar",
+      "5 tbsp unsweetened cocoa powder",
+      "1 large pasteurized egg, lightly beaten",
+      "1 3/4 cups graham cracker crumbs",
+      "1 cup unsweetened shredded coconut",
+      "1/2 cup finely chopped walnuts",
+      "1/2 cup unsalted butter, softened",
+      "3 tbsp heavy cream",
+      "2 tbsp vanilla custard powder",
+      "2 cups confectioners' sugar, sifted",
+      "4 oz semisweet chocolate, finely chopped",
+      "2 tsp neutral oil"
+    ],
+    "instructions": [
+      {"name": "Prepare the pan", "text": "Line an 8-inch square metal pan with parchment, leaving handles on two sides."},
+      {"name": "Safely cook the cocoa base", "text": "Set a heatproof bowl over barely simmering water. Melt 1/2 cup butter with granulated sugar and cocoa. Slowly whisk in the pasteurized egg and cook, stirring constantly, until thickened and 160°F, 3 to 5 minutes; do not let the bowl touch the water."},
+      {"name": "Press the bottom layer", "text": "Remove from heat and stir in graham crumbs, coconut and walnuts. Press firmly and evenly into the pan. Chill 30 minutes."},
+      {"name": "Whip the custard layer", "text": "Beat softened butter, cream and custard powder until smooth. Add confectioners' sugar in two additions and beat until light. Spread evenly over the cold base and chill 45 minutes until firm."},
+      {"name": "Add the chocolate top", "text": "Melt chocolate with oil over barely simmering water or in 15-second microwave bursts, stirring until smooth. Cool 3 minutes, spread over the firm custard layer and chill 15 minutes."},
+      {"name": "Score before fully set", "text": "When the chocolate is matte but not rock hard, score 16 squares with a warm dry knife. Chill at least 60 minutes more."},
+      {"name": "Cut clean squares", "text": "Lift out by the parchment. Follow the score lines with a thin knife warmed under hot water and wiped dry between cuts. Let bars stand 10 minutes before serving."}
+    ],
+    "why_it_works": [
+      "Cooking the egg mixture to 160°F sets the cocoa binder and provides an explicit safety target for the no-bake base.",
+      "Separate chilling stages prevent the buttercream from smearing into the crumb base or melting under warm chocolate.",
+      "A little oil keeps the chocolate cap sliceable, while scoring it before it fully hardens prevents random cracks."
+    ],
+    "swaps": [
+      "Use finely chopped pecans instead of walnuts in the same amount.",
+      "For a nut-free batch, replace walnuts with an additional 1/2 cup graham crumbs and confirm every packaged ingredient is allergy-safe.",
+      "If vanilla custard powder is unavailable, use instant vanilla pudding mix; the middle will be slightly sweeter and softer."
+    ],
+    "storage": "Refrigerate airtight up to 5 days, separating layers with parchment. For best texture, let bars stand 10 minutes before serving. Freeze tightly wrapped squares up to 2 months and thaw overnight in the refrigerator.",
+    "notes": [
+      "Total time includes about 2 hours 30 minutes of staged chilling; active work is about 40 minutes.",
+      "Use a pasteurized egg and a thermometer; do not rely on visual thickening alone for the 160°F safety target.",
+      "Vanilla custard powder is a flavored starch product, not prepared refrigerated custard.",
+      "A metal pan chills the layers faster and gives the straightest edges."
+    ],
+    "faqs": [
+      {"q": "Why did the chocolate top crack?", "a": "It was probably too cold or cut with a cool knife. Score while the topping is partly set, then use a warm, wiped-dry blade after the final chill."},
+      {"q": "Can I make Nanaimo bars without coconut?", "a": "The coconut is central to the classic chewy base. You can replace it with more crumbs, but the result will be denser and less characteristic."},
+      {"q": "Can I use a 9-inch pan?", "a": "Yes, but all three layers will be thinner and the bars may set sooner. Begin checking each chilling stage about 10 minutes early."}
+    ],
+    "pantry": ["granulated sugar", "cocoa powder", "graham cracker crumbs", "shredded coconut", "walnuts", "custard powder", "confectioners' sugar", "semisweet chocolate"],
+    "date_published": "2026-10-12",
+    "date_modified": "2026-10-12"
+  }
+]
