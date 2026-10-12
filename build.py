@@ -1804,18 +1804,25 @@ def build_home():
     newest = sorted(RECIPES, key=lambda r: (r.get("date_published", ""), r["slug"]), reverse=True)[:4]
     body = f'''
     <style>
-      .home-brand img{{max-height:180px}}
+      .hero{{padding:clamp(2.5rem,5vw,5rem) 0}}
+      .hero::before{{display:none}}
+      .hero-grid{{align-items:center;gap:clamp(2rem,5vw,5rem)}}
+      .hero-media{{overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm)}}
+      .hero .hero-image{{display:block;aspect-ratio:4/3;border:0;border-radius:0;box-shadow:none;width:100%;object-fit:cover}}
+      .hero-caption{{padding:1.25rem 1.5rem}}
+      .hero-caption .eyebrow{{margin-bottom:.5rem}}
+      .hero-caption h2{{font-size:clamp(1.3rem,2vw,1.8rem);line-height:1.2;margin:0 0 .65rem}}
+      .hero-caption a{{color:var(--ink);text-decoration:none}}
+      .hero-caption a:hover{{color:var(--tomato)}}
+      .hero-caption p:last-child{{margin:0;color:var(--ink-soft);font-size:.9rem}}
       .browse-group{{margin-top:1.75rem}}
       .browse-group h3{{margin-bottom:.75rem}}
       #browse-recipes .collection-grid{{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}}
       .home-shortcuts{{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}}
       .home-shortcuts a{{padding:.55rem .85rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink)}}
       #browse-recipes{{scroll-margin-top:100px}}
-      @media(max-width:560px){{.home-brand img{{max-height:120px}}#browse-recipes .collection-grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
+      @media(max-width:560px){{#browse-recipes .collection-grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}.hero-caption{{padding:1rem}}}}
     </style>
-    <div class="home-brand" aria-label="DishGal — Dinner, decided">
-      <img src="{href('/assets/dishgal-brand.webp')}" alt="DishGal.com — Dinner, decided." width="1536" height="1024" fetchpriority="high" decoding="async">
-    </div>
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
@@ -1826,7 +1833,7 @@ def build_home():
           <div class="hero-proof"><span>{len(RECIPES)} complete recipes</span><span>Real prep + cook times</span><span>Cost per serving</span></div>
           <div class="home-shortcuts" aria-label="Quick recipe choices"><a href="{href('/collections/30-minute/')}">30-minute dinners</a><a href="{href('/collections/budget/')}">Budget meals</a><a href="{href('/collections/instant-pot/')}">Instant Pot</a><a href="{href('/collections/breakfast/')}">Breakfast</a></div>
         </div>
-        <div class="hero-media"><img class="hero-image" src="{esc(hero.get('image',''))}" alt="{esc(hero.get('image_alt','Weeknight dinner'))}" width="800" height="1000" fetchpriority="high" decoding="async"><div class="hero-sticker">No-scroll-before-the-recipe energy.</div></div>
+        <div class="hero-media"><a href="{href('/recipes/' + hero['slug'] + '/')}"><img class="hero-image" src="{esc(hero.get('image',''))}" alt="{esc(hero.get('image_alt','Weeknight dinner'))}" width="800" height="600" fetchpriority="high" decoding="async"></a><div class="hero-caption"><p class="eyebrow">From the recipe library</p><h2><a href="{href('/recipes/' + hero['slug'] + '/')}">{esc(hero['title'])}</a></h2><p>Full ingredients, step-by-step directions, and practical cooking notes.</p></div></div>
       </div>
     </section>
     <section class="section section-paper" id="browse-recipes">
