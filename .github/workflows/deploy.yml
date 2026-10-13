@@ -112,8 +112,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .image-cache
-          key: dishgal-images-v1-${{ hashFiles('content/**/*.json') }}
-          restore-keys: dishgal-images-v1-
+          # Every run gets a writable save key, while restore prefixes recover
+          # the newest incremental cache and durable provider cooldown state.
+          key: dishgal-images-v2-${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
+          restore-keys: |
+            dishgal-images-v2-${{ github.sha }}-
+            dishgal-images-v2-
+            dishgal-images-v1-
 
       - name: Optimize editorial images
         run: python scripts/optimize_images.py

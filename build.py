@@ -525,7 +525,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "instant pot turkish kuru fasulye" in haystack:
+    if "no-knead tomato, olive & red onion focaccia" in haystack or "no-knead tomato olive red onion focaccia" in haystack:
+        products = [
+            ("9 by 13 metal baking pan", "9-by-13-inch metal baking pan", "A light-colored metal pan gives the olive-oiled dough crisp, evenly browned edges without scorching the base."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the high-hydration dough consistent and prevent extra flour from closing its open crumb."),
+            ("digital probe cooking thermometer", "Instant-read thermometer", "A center reading of 200 to 205°F confirms the moist bread crumb has set before cooling."),
+        ]
+    elif "instant pot turkish kuru fasulye" in haystack:
         products = [
             ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The soaked-bean volume, five-cup thin-liquid base and 20-minute natural release are written for this family capacity."),
             ("stainless steel mesh colander strainer", "Fine-mesh colander", "Pick over, rinse and drain the white beans cleanly before and after their overnight soak."),
@@ -1951,6 +1957,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "no-knead-tomato-olive-red-onion-focaccia": {
+        "slugs": ["homemade-margherita-pizza-no-cook-tomato-sauce", "irish-brown-soda-bread-buttermilk-oats", "adjarian-khachapuri-feta-mozzarella-jammy-egg"],
+        "eyebrow": "Bread-making techniques",
+        "title": "Choose a homemade bread project by technique",
+        "copy": "Compare high-hydration no-knead focaccia, hand-stretched pizza, quick soda bread and an enriched cheese-filled bread boat by leavening, shaping and total time.",
+    },
+    "homemade-margherita-pizza-no-cook-tomato-sauce": {
+        "slugs": ["no-knead-tomato-olive-red-onion-focaccia", "irish-brown-soda-bread-buttermilk-oats", "adjarian-khachapuri-feta-mozzarella-jammy-egg"],
+        "eyebrow": "Bread-making techniques",
+        "title": "Choose a homemade bread project by technique",
+        "copy": "Compare hand-stretched pizza, high-hydration no-knead focaccia, quick soda bread and an enriched cheese-filled bread boat by leavening, shaping and total time.",
+    },
+    "irish-brown-soda-bread-buttermilk-oats": {
+        "slugs": ["no-knead-tomato-olive-red-onion-focaccia", "homemade-margherita-pizza-no-cook-tomato-sauce", "adjarian-khachapuri-feta-mozzarella-jammy-egg"],
+        "eyebrow": "Bread-making techniques",
+        "title": "Choose a homemade bread project by technique",
+        "copy": "Compare quick soda bread with high-hydration no-knead focaccia, hand-stretched pizza and an enriched cheese-filled bread boat by leavening, shaping and total time.",
+    },
+    "adjarian-khachapuri-feta-mozzarella-jammy-egg": {
+        "slugs": ["no-knead-tomato-olive-red-onion-focaccia", "homemade-margherita-pizza-no-cook-tomato-sauce", "irish-brown-soda-bread-buttermilk-oats"],
+        "eyebrow": "Bread-making techniques",
+        "title": "Choose a homemade bread project by technique",
+        "copy": "Compare an enriched cheese-filled bread boat with high-hydration no-knead focaccia, hand-stretched pizza and quick soda bread by leavening, shaping and total time.",
+    },
     "turkish-mercimek-koftesi-lemon-fresh-herbs": {
         "slugs": ["syrian-style-muhammara-roasted-pepper-walnut-dip", "crispy-herb-falafel-pita-lemon-tahini-sauce", "georgian-beet-pkhali-mchadi-pomegranate"],
         "eyebrow": "Plant-based mezze",
