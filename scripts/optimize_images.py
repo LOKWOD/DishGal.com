@@ -7,6 +7,9 @@ import io
 import json
 import re
 import urllib.request
+import urllib.error
+import threading
+from urllib.parse import urlparse
 from pathlib import Path
 from PIL import Image, ImageOps
 
@@ -18,6 +21,10 @@ CACHE = ROOT / ".image-cache"
 CACHE.mkdir(exist_ok=True)
 records = json.loads((ROOT / "content/recipes.json").read_text()) + json.loads((ROOT / "content/articles.json").read_text())
 urls = sorted({r.get("image") for r in records if r.get("image", "").startswith("https://")})
+provider_locks = {}
+blocked_providers = set()
+for url in urls:
+    provider_locks.setdefault(urlparse(url).netloc, threading.Lock())
 
 def optimize(url):
     try:
@@ -30,8 +37,17 @@ def optimize(url):
                     (DEST / Path(variant["url"]).name).write_bytes((CACHE / Path(variant["url"]).name).read_bytes())
                 return url, result, None
         request = urllib.request.Request(url, headers={"User-Agent": "DishGalImageOptimizer/1.0 (https://dishgal.com/contact/)", "Accept": "image/*"})
-        with urllib.request.urlopen(request, timeout=25) as response:
-            raw = response.read(35 * 1024 * 1024 + 1)
+        provider = urlparse(url).netloc
+        with provider_locks[provider]:
+            if provider in blocked_providers:
+                raise ValueError("Provider rate-limited this run; original retained without another request")
+            try:
+                with urllib.request.urlopen(request, timeout=25) as response:
+                    raw = response.read(35 * 1024 * 1024 + 1)
+            except urllib.error.HTTPError as exc:
+                if exc.code == 429:
+                    blocked_providers.add(provider)
+                raise
         if len(raw) > 35 * 1024 * 1024:
             raise ValueError("Source exceeds 35 MB")
         with Image.open(io.BytesIO(raw)) as source:
