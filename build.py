@@ -1928,13 +1928,27 @@ def build_recipe_index():
       <div class="recipe-grid">{''.join(recipe_card(r) for r in display_recipes)}</div>
       <div class="empty-state" data-empty-state><h3>No matching dinners</h3><p>Try fewer filters or a broader search.</p></div>
     </div></section>'''
-    schema = collection_schema(
-        "DishGal Recipe Library",
-        "Practical recipes with complete ingredients, directions, timing, substitutions, and storage notes.",
-        "/recipes/",
-        display_recipes,
-    )
-    write_page("/recipes/", page("Easy Dinner Recipes", "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps.", "/recipes/", body, schema=schema))
+    page_size = 24
+    page_count = (len(display_recipes) + page_size - 1) // page_size
+    for number in range(1, page_count + 1):
+        path = "/recipes/" if number == 1 else f"/recipes/page/{number}/"
+        subset = display_recipes[(number - 1) * page_size:number * page_size]
+        links = []
+        for target in range(1, page_count + 1):
+            target_path = "/recipes/" if target == 1 else f"/recipes/page/{target}/"
+            current = ' aria-current="page"' if target == number else ""
+            links.append(f'<a class="btn btn-outline btn-sm" href="{href(target_path)}"{current}>{target}</a>')
+        pagination = f'<nav class="button-row" aria-label="Recipe library pages" data-library-pagination style="margin-top:2rem;flex-wrap:wrap">{"".join(links)}</nav>'
+        page_body = body.replace(
+            '<div class="recipe-grid">' + ''.join(recipe_card(r) for r in display_recipes) + '</div>',
+            '<div class="recipe-grid" data-library-grid>' + ''.join(recipe_card(r) for r in subset) + '</div>' + pagination,
+        ).replace('data-recipe-filters', f'data-recipe-filters data-library-page="{number}"')
+        page_body = page_body.replace(f'{len(display_recipes)} recipes</p>', f'{len(display_recipes)} recipes · Page {number} of {page_count}</p>')
+        page_title = "Easy Dinner Recipes" if number == 1 else f"Easy Dinner Recipes — Page {number}"
+        description = "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps."
+        schema = collection_schema("DishGal Recipe Library", "Practical recipes with complete ingredients, directions, timing, substitutions, and storage notes.", path, subset)
+        write_page(path, page(page_title, description, path, page_body, schema=schema))
+
 
 CURATED_RECIPE_CLUSTERS = {
     "turkish-mercimek-koftesi-lemon-fresh-herbs": {
@@ -2521,7 +2535,10 @@ def copy_assets():
     source_js = (ROOT / "assets" / "js" / "site.js").read_text(encoding="utf-8")
     source_js = source_js.replace('href="/recipes/', 'href="${window.DISHGAL_BASE || ""}/recipes/')
     (PUBLIC / "assets" / "js" / "site.js").write_text(source_js, encoding="utf-8")
-    (PUBLIC / "assets" / "js" / "recipes.js").write_text("window.DISHGAL_RECIPES=" + json_script(RECIPES) + ";", encoding="utf-8")
+    tool_fields = ("slug", "title", "dek", "image", "image_alt", "collection", "tags", "prep_minutes", "cook_minutes", "total_minutes", "cost_per_serving", "ingredients", "pantry")
+    tool_recipes = [{**{key: recipe[key] for key in tool_fields if key in recipe}, "protein": recipe_proteins(recipe)} for recipe in stable_recipe_mix(RECIPES)]
+    tool_json = json.dumps(tool_recipes, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    (PUBLIC / "assets" / "js" / "recipes.js").write_text("window.DISHGAL_RECIPES=" + tool_json + ";", encoding="utf-8")
     social = ROOT / "assets" / "social-card.png"
     if social.exists():
         shutil.copy2(social, PUBLIC / "assets" / "social-card.png")

@@ -154,7 +154,7 @@ def main() -> int:
                     found_breadcrumbs = True
                 if obj.get("@type") == "CollectionPage" and isinstance(obj.get("mainEntity"), dict) and obj["mainEntity"].get("@type") == "ItemList":
                     found_item_list = True
-        if rel_posix.startswith("recipes/") and rel.name == "index.html" and rel.parts[-2] != "recipes":
+        if rel_posix.startswith("recipes/") and not rel_posix.startswith("recipes/page/") and rel.name == "index.html" and rel.parts[-2] != "recipes":
             if not found_recipe:
                 errors.append(f"{rel}: recipe page missing Recipe structured data")
             else:
@@ -169,6 +169,11 @@ def main() -> int:
             if not found_breadcrumbs:
                 errors.append(f"{rel}: collection page missing breadcrumb structured data")
         recipe_data_loaded = any(src.endswith("/assets/js/recipes.js") for src in parser.scripts)
+        if rel_posix == "recipes/index.html" or rel_posix.startswith("recipes/page/"):
+            if not found_item_list:
+                errors.append(f"{rel}: recipe library page missing ItemList structured data")
+            if recipe_data_loaded:
+                errors.append(f"{rel}: library must load search data only on demand")
         tool_pages = {"saved/index.html", "dinner-decider/index.html", "pantry-rescue/index.html", "meal-planner/index.html"}
         if recipe_data_loaded and rel_posix not in tool_pages:
             errors.append(f"{rel}: unnecessarily loads the full recipe data bundle")
@@ -204,4 +209,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
 
