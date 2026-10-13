@@ -1778,7 +1778,7 @@ def build_home():
     groups = [
         ("By time and cooking method", ["30-minute", "quick", "one-pot", "sheet-pan", "instant-pot", "slow-cooker", "air-fryer"]),
         ("By dinner need", ["budget", "family", "vegetarian", "vegan", "high-protein", "weeknight", "weekend"]),
-        ("Ingredient collections", ["chicken", "beef", "pork", "seafood"]),
+        ("By main ingredient", ["chicken", "beef", "ground-beef", "ribeye", "pork", "seafood"]),
         ("Breakfast, baking and more", ["breakfast", "brunch", "baking", "dessert", "desserts"]),
     ]
     grouped = {slug for _, slugs in groups for slug in slugs}
@@ -1789,7 +1789,10 @@ def build_home():
     for heading, slugs in groups:
         cards = []
         for slug in slugs:
-            if slug not in collections:
+            ingredient_group = heading == "By main ingredient"
+            if ingredient_group and slug not in dict(active_ingredient_hubs()):
+                continue
+            if not ingredient_group and slug not in collections:
                 continue
             title, _, icon = COLLECTION_META.get(slug, (pretty_slug(slug), "", "🍴"))
             if slug == "dessert":
@@ -1797,8 +1800,13 @@ def build_home():
             elif slug == "desserts":
                 title = "More dessert recipes"
             count = sum(1 for r in RECIPES if r.get("collection") == slug)
+            destination = "/collections/" + slug + "/"
+            if ingredient_group:
+                title = INGREDIENT_HUBS[slug]["title"]
+                count = len(recipes_for_ingredient(slug))
+                destination = "/ingredients/" + slug + "/"
             noun = "recipe" if count == 1 else "recipes"
-            cards.append(f'<a class="collection-pill" href="{href("/collections/" + slug + "/")}"><strong>{esc(title)}</strong><small>{count} {noun}</small><span class="collection-arrow" aria-hidden="true">→</span></a>')
+            cards.append(f'<a class="collection-pill" href="{href(destination)}"><strong>{esc(title)}</strong><small>{count} {noun}</small><span class="collection-arrow" aria-hidden="true">→</span></a>')
         if cards:
             collection_html.append(f'<div class="browse-group"><h3>{esc(heading)}</h3><div class="collection-grid">{"".join(cards)}</div></div>')
     newest = sorted(RECIPES, key=lambda r: (r.get("date_published", ""), r["slug"]), reverse=True)[:4]
@@ -2153,6 +2161,9 @@ def build_collections():
         full_description = f"{desc} Browse {len(recipes)} complete recipes with timing, cost, substitutions, and storage notes."
         collection_intro = ""
         collection_faq = ""
+        if slug in dict(active_ingredient_hubs()):
+            hub_count = len(recipes_for_ingredient(slug))
+            collection_intro = f'''<section class="section-tight section-paper"><div class="wrap"><p>This collection is a smaller selection. <a href="{href('/ingredients/' + slug + '/')}">Browse all {hub_count} {esc(slug)} recipes</a> for the complete ingredient library.</p></div></section>'''
         if slug == "instant-pot":
             collection_intro = f'''<section class="section-tight section-paper"><div class="wrap">
               <div class="section-heading"><div><p class="eyebrow">Built for the 6-quart pot</p><h2>Pressure-cooker recipes that tell the whole truth about time.</h2></div><p>Every total includes a realistic allowance for coming to pressure and releasing pressure—not just the programmed cook time on the display.</p></div>
@@ -2296,8 +2307,11 @@ def build_ingredient_hubs():
         title = meta["title"]
         description = f'{meta["description"]} Browse {len(recipes)} complete DishGal recipes with realistic timing, substitutions, and storage notes.'
         path = f"/ingredients/{slug}/"
+        collection_link = ""
+        if any(recipe.get("collection") == slug for recipe in RECIPES):
+            collection_link = f'<p class="muted">Looking for the smaller original selection? <a href="{href("/collections/" + slug + "/")}">View the {esc(slug)} collection</a>.</p>'
         body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes", "/recipes/"), (title, None)])}<p class="eyebrow">Recipes by ingredient</p><h1>{esc(title)}</h1><p class="lede">{esc(description)}</p></div></section>
-        <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(recipe) for recipe in recipes)}</div></div></section>'''
+        <section class="section-tight"><div class="wrap">{collection_link}<div class="recipe-grid">{''.join(recipe_card(recipe) for recipe in recipes)}</div></div></section>'''
         schema = [
             collection_schema(title, description, path, recipes),
             breadcrumb_schema([("Recipes", "/recipes/"), (title, None)]),
