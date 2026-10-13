@@ -370,7 +370,7 @@ def page(title: str, description: str, path: str, body: str, *, schema=None, noi
   {footer()}
   <script>window.DISHGAL_BASE={json.dumps(BASE)};</script>
   {recipe_data_script}
-  <script defer src="{href('/assets/js/site.js?v=20261012pagination2')}"></script>
+  <script defer src="{href('/assets/js/site.js?v=20261012images1')}"></script>
   {cloudflare}
 </body>
 </html>'''
@@ -2621,4 +2621,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 

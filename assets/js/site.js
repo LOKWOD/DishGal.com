@@ -186,7 +186,7 @@
     const search = [recipe.title, recipe.dek, tags, proteins, ...(recipe.ingredients || []), ...(recipe.pantry || [])].join(' ').toLowerCase();
     return `<article class="recipe-card" data-recipe-card data-search="${escapeHtml(search)}" data-tags="${escapeHtml(tags)}" data-proteins="${escapeHtml(proteins)}" data-collection="${recipe.collection}" data-minutes="${(recipe.total_minutes ?? recipe.prep_minutes + recipe.cook_minutes)}">
       <button class="icon-button recipe-card-save" data-save-recipe="${recipe.slug}" aria-label="Save recipe">♡</button>
-      <a class="recipe-card-media" href="/recipes/${recipe.slug}/"><img src="${recipe.image}" alt="${escapeHtml(recipe.image_alt)}" loading="lazy"><span class="recipe-card-badge">${(recipe.total_minutes ?? recipe.prep_minutes + recipe.cook_minutes)} min</span></a>
+      <a class="recipe-card-media" href="/recipes/${recipe.slug}/"><img src="${recipe.image}" alt="${escapeHtml(recipe.image_alt)}" ${recipe.image_srcset ? `srcset="${recipe.image_srcset}" sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 360px"` : ''} loading="lazy" decoding="async" width="800" height="600"><span class="recipe-card-badge">${(recipe.total_minutes ?? recipe.prep_minutes + recipe.cook_minutes)} min</span></a>
       <div class="recipe-card-body"><h3><a href="/recipes/${recipe.slug}/">${escapeHtml(recipe.title)}</a></h3><p>${escapeHtml(recipe.dek)}</p><div class="recipe-card-meta"><span>⏱ ${(recipe.total_minutes ?? recipe.prep_minutes + recipe.cook_minutes)} min</span><span>${recipe.cost_per_serving}/serving</span></div></div>
     </article>`;
   }
@@ -215,7 +215,7 @@
     });
     const show = recipe => {
       const target = decider.querySelector('[data-decider-result]');
-      target.innerHTML = `<div class="tool-result-feature"><img src="${recipe.image}" alt="${escapeHtml(recipe.image_alt)}"><div><p class="eyebrow">Tonight's move</p><h2>${escapeHtml(recipe.title)}</h2><p class="lede">${escapeHtml(recipe.dek)}</p><div class="recipe-card-meta"><span>⏱ ${(recipe.total_minutes ?? recipe.prep_minutes + recipe.cook_minutes)} min</span><span>${recipe.cost_per_serving}/serving</span></div><div class="button-row" style="margin-top:1rem"><a class="btn btn-primary" href="/recipes/${recipe.slug}/">Make this</a><button class="btn btn-outline" type="button" data-reroll>Try another</button></div></div></div>`;
+      target.innerHTML = `<div class="tool-result-feature"><img src="${recipe.image}" alt="${escapeHtml(recipe.image_alt)}" ${recipe.image_srcset ? `srcset="${recipe.image_srcset}" sizes="(max-width: 700px) 100vw, 600px"` : ''} decoding="async"><div><p class="eyebrow">Tonight's move</p><h2>${escapeHtml(recipe.title)}</h2><p class="lede">${escapeHtml(recipe.dek)}</p><div class="recipe-card-meta"><span>⏱ ${(recipe.total_minutes ?? recipe.prep_minutes + recipe.cook_minutes)} min</span><span>${recipe.cost_per_serving}/serving</span></div><div class="button-row" style="margin-top:1rem"><a class="btn btn-primary" href="/recipes/${recipe.slug}/">Make this</a><button class="btn btn-outline" type="button" data-reroll>Try another</button></div></div></div>`;
       target.querySelector('[data-reroll]').addEventListener('click', choose);
       target.scrollIntoView({behavior:'smooth', block:'center'});
     };
@@ -272,7 +272,7 @@
       }
       current = chosen.slice(0,5);
       const grid = planner.querySelector('[data-plan-grid]');
-      grid.innerHTML = current.map((r, i) => `<div class="plan-day"><img src="${r.image}" alt="${escapeHtml(r.image_alt)}"><small>${dayNames[i]}</small><strong><a href="/recipes/${r.slug}/">${escapeHtml(r.title)}</a></strong><span class="muted">${(r.total_minutes ?? r.prep_minutes + r.cook_minutes)} min</span></div>`).join('');
+      grid.innerHTML = current.map((r, i) => `<div class="plan-day"><img src="${r.image}" alt="${escapeHtml(r.image_alt)}" ${r.image_srcset ? `srcset="${r.image_srcset}" sizes="(max-width: 600px) 100vw, 240px"` : ''} loading="lazy" decoding="async"><small>${dayNames[i]}</small><strong><a href="/recipes/${r.slug}/">${escapeHtml(r.title)}</a></strong><span class="muted">${(r.total_minutes ?? r.prep_minutes + r.cook_minutes)} min</span></div>`).join('');
       planner.querySelector('[data-shopping-wrap]').hidden = true;
     };
     const shopping = () => {
