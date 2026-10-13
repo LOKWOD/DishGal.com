@@ -14,11 +14,21 @@ ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 DEST = PUBLIC / "assets" / "food"
 DEST.mkdir(parents=True, exist_ok=True)
+CACHE = ROOT / ".image-cache"
+CACHE.mkdir(exist_ok=True)
 records = json.loads((ROOT / "content/recipes.json").read_text()) + json.loads((ROOT / "content/articles.json").read_text())
 urls = sorted({r.get("image") for r in records if r.get("image", "").startswith("https://")})
 
 def optimize(url):
     try:
+        key = hashlib.sha256(url.encode()).hexdigest()[:20]
+        cache_record = CACHE / f"{key}.json"
+        if cache_record.exists():
+            result = json.loads(cache_record.read_text())
+            if all((CACHE / Path(v["url"]).name).exists() for v in result["variants"]):
+                for variant in result["variants"]:
+                    (DEST / Path(variant["url"]).name).write_bytes((CACHE / Path(variant["url"]).name).read_bytes())
+                return url, result, None
         request = urllib.request.Request(url, headers={"User-Agent": "DishGalImageOptimizer/1.0 (https://dishgal.com/contact/)", "Accept": "image/*"})
         with urllib.request.urlopen(request, timeout=25) as response:
             raw = response.read(35 * 1024 * 1024 + 1)
@@ -29,7 +39,6 @@ def optimize(url):
             image = ImageOps.exif_transpose(source).convert("RGB")
         if image.width < 200 or image.height < 100:
             raise ValueError("Source resolution too small")
-        key = hashlib.sha256(url.encode()).hexdigest()[:20]
         variants = []
         total_bytes = 0
         widths = sorted({min(width, image.width) for width in (480, 800, 1400)})
@@ -40,9 +49,12 @@ def optimize(url):
             resized.save(target, "WEBP", quality=80, method=5)
             with Image.open(target) as check:
                 check.verify()
+            (CACHE / target.name).write_bytes(target.read_bytes())
             variants.append({"url": "/assets/food/" + target.name, "width": width, "height": height, "bytes": target.stat().st_size})
             total_bytes += target.stat().st_size
-        return url, {"variants": variants, "original_bytes": len(raw), "total_variant_bytes": total_bytes}, None
+        result = {"variants": variants, "original_bytes": len(raw), "total_variant_bytes": total_bytes}
+        cache_record.write_text(json.dumps(result))
+        return url, result, None
     except Exception as exc:
         return url, None, str(exc)
 

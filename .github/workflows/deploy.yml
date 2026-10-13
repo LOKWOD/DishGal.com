@@ -108,6 +108,13 @@ jobs:
       - name: Install image encoder
         run: python -m pip install Pillow==11.3.0
 
+      - name: Restore optimized image cache
+        uses: actions/cache@v4
+        with:
+          path: .image-cache
+          key: dishgal-images-v1-${{ hashFiles('content/**/*.json') }}
+          restore-keys: dishgal-images-v1-
+
       - name: Optimize editorial images
         run: python scripts/optimize_images.py
 
