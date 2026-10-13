@@ -61,7 +61,7 @@
       if (window.DISHGAL_RECIPES) return Promise.resolve(window.DISHGAL_RECIPES);
       if (!dataPromise) dataPromise = new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = `${window.DISHGAL_BASE || ''}/assets/js/recipes.js`;
+        script.src = `${window.DISHGAL_BASE || ''}/assets/js/recipes.js?v=20261012compact`;
         script.onload = () => resolve(window.DISHGAL_RECIPES);
         script.onerror = () => { script.remove(); dataPromise = null; reject(new Error('Recipe search could not load.')); };
         document.head.append(script);

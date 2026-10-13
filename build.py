@@ -332,7 +332,7 @@ def page(title: str, description: str, path: str, body: str, *, schema=None, noi
             article_meta += f'\n  <meta property="article:published_time" content="{esc(published)}">'
         if modified:
             article_meta += f'\n  <meta property="article:modified_time" content="{esc(modified)}">'
-    recipe_data_script = f'<script defer src="{href("/assets/js/recipes.js")}"></script>' if needs_recipe_data else ""
+    recipe_data_script = f'<script defer src="{href("/assets/js/recipes.js?v=20261012compact")}"></script>' if needs_recipe_data else ""
     return f'''<!doctype html>
 <html lang="en" data-base="{esc(BASE)}">
 <head>
@@ -370,7 +370,7 @@ def page(title: str, description: str, path: str, body: str, *, schema=None, noi
   {footer()}
   <script>window.DISHGAL_BASE={json.dumps(BASE)};</script>
   {recipe_data_script}
-  <script defer src="{href('/assets/js/site.js')}"></script>
+  <script defer src="{href('/assets/js/site.js?v=20261012pagination')}"></script>
   {cloudflare}
 </body>
 </html>'''

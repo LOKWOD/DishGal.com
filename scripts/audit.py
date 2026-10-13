@@ -168,7 +168,7 @@ def main() -> int:
                 errors.append(f"{rel}: collection page missing ItemList structured data")
             if not found_breadcrumbs:
                 errors.append(f"{rel}: collection page missing breadcrumb structured data")
-        recipe_data_loaded = any(src.endswith("/assets/js/recipes.js") for src in parser.scripts)
+        recipe_data_loaded = any(urlparse(src).path.endswith("/assets/js/recipes.js") for src in parser.scripts)
         if rel_posix == "recipes/index.html" or rel_posix.startswith("recipes/page/"):
             if not found_item_list:
                 errors.append(f"{rel}: recipe library page missing ItemList structured data")
