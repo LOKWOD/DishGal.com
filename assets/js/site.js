@@ -53,6 +53,7 @@
     let dataPromise;
     let limit = 24;
     const more = document.createElement('button');
+    more.setAttribute('data-library-more', '');
     more.type = 'button'; more.className = 'btn btn-outline';
     more.textContent = 'Show more matches'; more.hidden = true;
     grid.after(more);

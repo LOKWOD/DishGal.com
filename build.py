@@ -370,7 +370,7 @@ def page(title: str, description: str, path: str, body: str, *, schema=None, noi
   {footer()}
   <script>window.DISHGAL_BASE={json.dumps(BASE)};</script>
   {recipe_data_script}
-  <script defer src="{href('/assets/js/site.js?v=20261012pagination')}"></script>
+  <script defer src="{href('/assets/js/site.js?v=20261012pagination2')}"></script>
   {cloudflare}
 </body>
 </html>'''
@@ -1911,7 +1911,7 @@ def build_recipe_index():
         f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])} <span>{len(recipes_for_ingredient(slug))}</span></a>'
         for slug, meta in active_ingredient_hubs()
     )
-    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Recipe library</p><h1>Find tonight’s dinner.</h1><p class="lede">Filter by time, meat or protein, collection, or diet. Every recipe includes full directions, substitutions, storage notes, FAQs, and realistic timing.</p></div></section>
+    body = f'''<style>[data-library-pagination][hidden],[data-library-more][hidden]{{display:none!important}}</style><section class="page-hero"><div class="wrap"><p class="eyebrow">Recipe library</p><h1>Find tonight’s dinner.</h1><p class="lede">Filter by time, meat or protein, collection, or diet. Every recipe includes full directions, substitutions, storage notes, FAQs, and realistic timing.</p></div></section>
     <section class="ingredient-nav"><div class="wrap"><p class="eyebrow">Browse by ingredient</p><div class="ingredient-links">{ingredient_links}</div></div></section>
     <section class="section-tight"><div class="wrap">
       <form class="filter-panel" data-recipe-filters>
