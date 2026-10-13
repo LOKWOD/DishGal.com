@@ -1798,7 +1798,7 @@ def build_home():
                 title = "More dessert recipes"
             count = sum(1 for r in RECIPES if r.get("collection") == slug)
             noun = "recipe" if count == 1 else "recipes"
-            cards.append(f'<a class="collection-pill" href="{href("/collections/" + slug + "/")}"><span class="collection-icon">{icon}</span><strong>{esc(title)}</strong><small>{count} {noun}</small></a>')
+            cards.append(f'<a class="collection-pill" href="{href("/collections/" + slug + "/")}"><strong>{esc(title)}</strong><small>{count} {noun}</small><span class="collection-arrow" aria-hidden="true">→</span></a>')
         if cards:
             collection_html.append(f'<div class="browse-group"><h3>{esc(heading)}</h3><div class="collection-grid">{"".join(cards)}</div></div>')
     newest = sorted(RECIPES, key=lambda r: (r.get("date_published", ""), r["slug"]), reverse=True)[:4]
@@ -1815,13 +1815,21 @@ def build_home():
       .hero-caption a{{color:var(--ink);text-decoration:none}}
       .hero-caption a:hover{{color:var(--tomato)}}
       .hero-caption p:last-child{{margin:0;color:var(--ink-soft);font-size:.9rem}}
-      .browse-group{{margin-top:1.75rem}}
-      .browse-group h3{{margin-bottom:.75rem}}
-      #browse-recipes .collection-grid{{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}}
+      .browse-group{{padding:1.5rem;border:1px solid var(--line);border-radius:16px;background:var(--paper)}}
+      .browse-group h3{{margin:0 0 .75rem;font-size:1.25rem}}
+      #browse-recipes .browse-directory{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.5rem}}
+      #browse-recipes .collection-grid{{display:block}}
+      #browse-recipes .collection-pill{{display:grid;grid-template-columns:minmax(0,1fr) auto 20px;align-items:center;gap:.75rem;padding:.85rem 0;min-height:0;border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;background:transparent}}
+      #browse-recipes .collection-pill:last-child{{border-bottom:0}}
+      #browse-recipes .collection-pill strong{{font-family:inherit;font-size:.95rem;line-height:1.35}}
+      #browse-recipes .collection-pill small{{margin:0;white-space:nowrap;color:var(--ink-soft)}}
+      #browse-recipes .collection-pill:hover{{transform:none;color:var(--tomato);background:transparent}}
+      #browse-recipes .collection-arrow{{color:var(--tomato)}}
+      @media(max-width:700px){{#browse-recipes .browse-directory{{grid-template-columns:1fr}}#browse-recipes .browse-group{{padding:1.1rem}}}}
       .home-shortcuts{{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}}
       .home-shortcuts a{{padding:.55rem .85rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink)}}
       #browse-recipes{{scroll-margin-top:100px}}
-      @media(max-width:560px){{#browse-recipes .collection-grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}.hero-caption{{padding:1rem}}}}
+      @media(max-width:560px){{.hero-caption{{padding:1rem}}}}
     </style>
     <section class="hero">
       <div class="wrap hero-grid">
@@ -1843,7 +1851,7 @@ def build_home():
           <strong>Cook by ingredient:</strong>
           {''.join(f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])}</a>' for slug, meta in active_ingredient_hubs())}
         </div>
-        {''.join(collection_html)}
+        <div class="browse-directory">{''.join(collection_html)}</div>
       </div>
     </section>
     <section class="section">
