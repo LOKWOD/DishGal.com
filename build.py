@@ -525,7 +525,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "no-knead tomato, olive & red onion focaccia" in haystack or "no-knead tomato olive red onion focaccia" in haystack:
+    if "slow cooker apple cider pulled pork sandwiches" in haystack:
+        products = [
+            ("6 quart programmable slow cooker", "6-quart programmable slow cooker", "The four pork portions, onions and measured cider-broth braise are calibrated for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several pork chunks for the 195 to 205°F shredding range instead of relying on the clock alone."),
+            ("stainless steel fat separator 4 cup", "Fat separator", "Separate rendered pork fat from the cider braising liquid before reducing it into a concentrated finishing sauce."),
+        ]
+    elif "no-knead tomato, olive & red onion focaccia" in haystack or "no-knead tomato olive red onion focaccia" in haystack:
         products = [
             ("9 by 13 metal baking pan", "9-by-13-inch metal baking pan", "A light-colored metal pan gives the olive-oiled dough crisp, evenly browned edges without scorching the base."),
             ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the high-hydration dough consistent and prevent extra flour from closing its open crumb."),
@@ -1957,6 +1963,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "slow-cooker-apple-cider-pulled-pork-sandwiches-mustard-slaw": {
+        "slugs": ["slow-cooker-salsa-verde-chicken", "slow-cooker-white-chicken-chili", "slow-cooker-beef-mushroom-ragu"],
+        "eyebrow": "Slow-cooker dinner methods",
+        "title": "Choose a slow-cooker dinner by cut and finish",
+        "copy": "Compare shreddable cider-braised pork sandwiches, bright salsa-verde chicken, creamy white chicken chili and beef-mushroom ragu by protein, finishing step and serving style.",
+    },
+    "slow-cooker-salsa-verde-chicken": {
+        "slugs": ["slow-cooker-apple-cider-pulled-pork-sandwiches-mustard-slaw", "slow-cooker-white-chicken-chili", "slow-cooker-beef-mushroom-ragu"],
+        "eyebrow": "Slow-cooker dinner methods",
+        "title": "Choose a slow-cooker dinner by cut and finish",
+        "copy": "Compare bright salsa-verde chicken with shreddable cider-braised pork sandwiches, creamy white chicken chili and beef-mushroom ragu by protein, finishing step and serving style.",
+    },
+    "slow-cooker-white-chicken-chili": {
+        "slugs": ["slow-cooker-apple-cider-pulled-pork-sandwiches-mustard-slaw", "slow-cooker-salsa-verde-chicken", "slow-cooker-beef-mushroom-ragu"],
+        "eyebrow": "Slow-cooker dinner methods",
+        "title": "Choose a slow-cooker dinner by cut and finish",
+        "copy": "Compare creamy white chicken chili with shreddable cider-braised pork sandwiches, bright salsa-verde chicken and beef-mushroom ragu by protein, finishing step and serving style.",
+    },
+    "slow-cooker-beef-mushroom-ragu": {
+        "slugs": ["slow-cooker-apple-cider-pulled-pork-sandwiches-mustard-slaw", "slow-cooker-salsa-verde-chicken", "slow-cooker-white-chicken-chili"],
+        "eyebrow": "Slow-cooker dinner methods",
+        "title": "Choose a slow-cooker dinner by cut and finish",
+        "copy": "Compare beef-mushroom ragu with shreddable cider-braised pork sandwiches, bright salsa-verde chicken and creamy white chicken chili by protein, finishing step and serving style.",
+    },
     "no-knead-tomato-olive-red-onion-focaccia": {
         "slugs": ["homemade-margherita-pizza-no-cook-tomato-sauce", "irish-brown-soda-bread-buttermilk-oats", "adjarian-khachapuri-feta-mozzarella-jammy-egg"],
         "eyebrow": "Bread-making techniques",
