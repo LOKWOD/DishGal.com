@@ -525,7 +525,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "slow cooker apple cider pulled pork sandwiches" in haystack:
+    if "breton buckwheat galettes with smoked salmon" in haystack:
+        products = [
+            ("10 inch nonstick crepe pan", "10-inch nonstick crepe pan", "A low-sided, evenly heated surface makes it easier to spread, release and turn each thin buckwheat galette."),
+            ("thin flexible silicone crepe spatula", "Thin flexible crepe spatula", "A broad, slim edge slides beneath a fully set galette without tearing its lacy rim."),
+            ("mixing bowl with pouring spout", "Batter bowl with pouring spout", "A handled bowl keeps the rested batter easy to whisk and portion consistently between eight skillet rounds."),
+        ]
+    elif "slow cooker apple cider pulled pork sandwiches" in haystack:
         products = [
             ("6 quart programmable slow cooker", "6-quart programmable slow cooker", "The four pork portions, onions and measured cider-broth braise are calibrated for this family-size capacity."),
             ("digital probe meat thermometer", "Instant-read thermometer", "Check several pork chunks for the 195 to 205°F shredding range instead of relying on the clock alone."),
@@ -1963,6 +1969,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche": {
+        "slugs": ["bistro-croque-madame-gruyere-bechamel-greens", "smoky-roasted-pepper-shakshuka-feta", "spanish-tortilla-espanola-potato-onion"],
+        "eyebrow": "Savory brunch techniques",
+        "title": "Choose a savory brunch by pan method",
+        "copy": "Compare thin buckwheat galettes with cool smoked-salmon toppings, a griddled croque madame, eggs poached in pepper-tomato sauce and a deep potato-onion tortilla by active time, pan technique and make-ahead potential.",
+    },
+    "bistro-croque-madame-gruyere-bechamel-greens": {
+        "slugs": ["breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche", "smoky-roasted-pepper-shakshuka-feta", "spanish-tortilla-espanola-potato-onion"],
+        "eyebrow": "Savory brunch techniques",
+        "title": "Choose a savory brunch by pan method",
+        "copy": "Compare a griddled croque madame with thin buckwheat galettes and cool smoked-salmon toppings, eggs poached in pepper-tomato sauce and a deep potato-onion tortilla by active time, pan technique and make-ahead potential.",
+    },
+    "smoky-roasted-pepper-shakshuka-feta": {
+        "slugs": ["breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche", "bistro-croque-madame-gruyere-bechamel-greens", "spanish-tortilla-espanola-potato-onion"],
+        "eyebrow": "Savory brunch techniques",
+        "title": "Choose a savory brunch by pan method",
+        "copy": "Compare eggs poached in pepper-tomato sauce with thin buckwheat galettes and cool smoked-salmon toppings, a griddled croque madame and a deep potato-onion tortilla by active time, pan technique and make-ahead potential.",
+    },
+    "spanish-tortilla-espanola-potato-onion": {
+        "slugs": ["breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche", "bistro-croque-madame-gruyere-bechamel-greens", "smoky-roasted-pepper-shakshuka-feta"],
+        "eyebrow": "Savory brunch techniques",
+        "title": "Choose a savory brunch by pan method",
+        "copy": "Compare a deep potato-onion tortilla with thin buckwheat galettes and cool smoked-salmon toppings, a griddled croque madame and eggs poached in pepper-tomato sauce by active time, pan technique and make-ahead potential.",
+    },
     "slow-cooker-apple-cider-pulled-pork-sandwiches-mustard-slaw": {
         "slugs": ["slow-cooker-salsa-verde-chicken", "slow-cooker-white-chicken-chili", "slow-cooker-beef-mushroom-ragu"],
         "eyebrow": "Slow-cooker dinner methods",
