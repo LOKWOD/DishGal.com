@@ -525,7 +525,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "breton buckwheat galettes with smoked salmon" in haystack:
+    if "chicken chilaquiles verdes" in haystack:
+        products = [
+            ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A broad broiler-safe surface blisters the tomatillos, peppers, onion and garlic in one uncrowded layer."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "The wide base reduces the salsa evenly and gives sturdy tortilla chips room to fold without crushing."),
+            ("digital probe cooking thermometer", "Instant-read thermometer", "Verify the reheated shredded chicken reaches 165°F before the tortilla chips enter the skillet."),
+        ]
+    elif "breton buckwheat galettes with smoked salmon" in haystack:
         products = [
             ("10 inch nonstick crepe pan", "10-inch nonstick crepe pan", "A low-sided, evenly heated surface makes it easier to spread, release and turn each thin buckwheat galette."),
             ("thin flexible silicone crepe spatula", "Thin flexible crepe spatula", "A broad, slim edge slides beneath a fully set galette without tearing its lacy rim."),
@@ -1969,6 +1975,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "chicken-chilaquiles-verdes-cotija-red-onion": {
+        "slugs": ["rotisserie-chicken-enchilada-casserole", "instant-pot-mexican-beef-birria-tacos-consomme", "weeknight-beef-taco-skillet"],
+        "eyebrow": "Mexican-inspired tortilla formats",
+        "title": "Choose a tortilla dinner by texture and method",
+        "copy": "Compare salsa-folded chilaquiles with a layered enchilada casserole, pressure-braised birria tacos and a one-pan beef-and-rice taco skillet by tortilla format, active time and texture.",
+    },
+    "rotisserie-chicken-enchilada-casserole": {
+        "slugs": ["chicken-chilaquiles-verdes-cotija-red-onion", "instant-pot-mexican-beef-birria-tacos-consomme", "weeknight-beef-taco-skillet"],
+        "eyebrow": "Mexican-inspired tortilla formats",
+        "title": "Choose a tortilla dinner by texture and method",
+        "copy": "Compare a layered enchilada casserole with salsa-folded chilaquiles, pressure-braised birria tacos and a one-pan beef-and-rice taco skillet by tortilla format, active time and texture.",
+    },
+    "instant-pot-mexican-beef-birria-tacos-consomme": {
+        "slugs": ["chicken-chilaquiles-verdes-cotija-red-onion", "rotisserie-chicken-enchilada-casserole", "weeknight-beef-taco-skillet"],
+        "eyebrow": "Mexican-inspired tortilla formats",
+        "title": "Choose a tortilla dinner by texture and method",
+        "copy": "Compare crisp pressure-braised birria tacos with salsa-folded chilaquiles, a layered enchilada casserole and a one-pan beef-and-rice taco skillet by tortilla format, active time and texture.",
+    },
+    "weeknight-beef-taco-skillet": {
+        "slugs": ["chicken-chilaquiles-verdes-cotija-red-onion", "rotisserie-chicken-enchilada-casserole", "instant-pot-mexican-beef-birria-tacos-consomme"],
+        "eyebrow": "Mexican-inspired tortilla formats",
+        "title": "Choose a tortilla dinner by texture and method",
+        "copy": "Compare a one-pan beef-and-rice taco skillet with salsa-folded chilaquiles, a layered enchilada casserole and crisp pressure-braised birria tacos by tortilla format, active time and texture.",
+    },
     "breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche": {
         "slugs": ["bistro-croque-madame-gruyere-bechamel-greens", "smoky-roasted-pepper-shakshuka-feta", "spanish-tortilla-espanola-potato-onion"],
         "eyebrow": "Savory brunch techniques",
