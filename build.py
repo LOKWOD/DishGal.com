@@ -525,7 +525,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "chicken chilaquiles verdes" in haystack:
+    if "roasted pumpkin-cardamom soup" in haystack or "roasted pumpkin cardamom soup" in haystack:
+        products = [
+            ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A broad metal surface roasts the pumpkin wedges in one layer so their cut sides brown instead of steaming."),
+            ("enameled dutch oven 5 quart", "5- to 6-quart Dutch oven", "A heavy pot softens the aromatics evenly and contains the hot soup safely during immersion blending."),
+            ("immersion blender stainless steel", "Immersion blender", "Blend the roasted pumpkin directly in the pot with the head submerged, avoiding the transfer of hot soup to a sealed jar."),
+        ]
+    elif "chicken chilaquiles verdes" in haystack:
         products = [
             ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A broad broiler-safe surface blisters the tomatillos, peppers, onion and garlic in one uncrowded layer."),
             ("12 inch stainless steel skillet", "Wide 12-inch skillet", "The wide base reduces the salsa evenly and gives sturdy tortilla chips room to fold without crushing."),
@@ -1975,6 +1981,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "roasted-pumpkin-cardamom-soup-pepitas-lime-crema": {
+        "slugs": ["roasted-sweet-potato-ginger-soup", "instant-pot-vegan-corn-potato-chowder-chives", "instant-pot-broccoli-cheddar-soup"],
+        "eyebrow": "Blended soup methods",
+        "title": "Choose a cozy soup by base and blending method",
+        "copy": "Compare silky oven-roasted pumpkin with warm spices, roasted sweet potato with ginger, a partially blended vegan corn-potato chowder and pressure-cooked broccoli-cheddar soup by vegetable base, texture and richness.",
+    },
+    "roasted-sweet-potato-ginger-soup": {
+        "slugs": ["roasted-pumpkin-cardamom-soup-pepitas-lime-crema", "instant-pot-vegan-corn-potato-chowder-chives", "instant-pot-broccoli-cheddar-soup"],
+        "eyebrow": "Blended soup methods",
+        "title": "Choose a cozy soup by base and blending method",
+        "copy": "Compare roasted sweet potato with ginger, silky oven-roasted pumpkin with warm spices, a partially blended vegan corn-potato chowder and pressure-cooked broccoli-cheddar soup by vegetable base, texture and richness.",
+    },
+    "instant-pot-vegan-corn-potato-chowder-chives": {
+        "slugs": ["roasted-pumpkin-cardamom-soup-pepitas-lime-crema", "roasted-sweet-potato-ginger-soup", "instant-pot-broccoli-cheddar-soup"],
+        "eyebrow": "Blended soup methods",
+        "title": "Choose a cozy soup by base and blending method",
+        "copy": "Compare a partially blended vegan corn-potato chowder with silky oven-roasted pumpkin and warm spices, roasted sweet potato with ginger and pressure-cooked broccoli-cheddar soup by vegetable base, texture and richness.",
+    },
+    "instant-pot-broccoli-cheddar-soup": {
+        "slugs": ["roasted-pumpkin-cardamom-soup-pepitas-lime-crema", "roasted-sweet-potato-ginger-soup", "instant-pot-vegan-corn-potato-chowder-chives"],
+        "eyebrow": "Blended soup methods",
+        "title": "Choose a cozy soup by base and blending method",
+        "copy": "Compare pressure-cooked broccoli-cheddar soup with silky oven-roasted pumpkin and warm spices, roasted sweet potato with ginger and a partially blended vegan corn-potato chowder by vegetable base, texture and richness.",
+    },
     "chicken-chilaquiles-verdes-cotija-red-onion": {
         "slugs": ["rotisserie-chicken-enchilada-casserole", "instant-pot-mexican-beef-birria-tacos-consomme", "weeknight-beef-taco-skillet"],
         "eyebrow": "Mexican-inspired tortilla formats",
