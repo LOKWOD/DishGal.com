@@ -525,7 +525,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "roasted pumpkin-cardamom soup" in haystack or "roasted pumpkin cardamom soup" in haystack:
+    if "air fryer chili-lime shrimp avocado toast" in haystack or "air fryer chili lime shrimp avocado toast" in haystack:
+        products = [
+            ("5 quart basket air fryer", "5- to 6-quart basket air fryer", "A roomy basket keeps one pound of shrimp in an uncrowded layer and then crisps the sourdough with the appliance already hot."),
+            ("instant read digital food thermometer", "Instant-read thermometer", "Check the thickest shrimp for 145°F without extending the short cook until every piece curls tightly."),
+            ("fine citrus zester microplane", "Fine citrus zester", "Remove fragrant lime zest for the shrimp while leaving the bitter white pith behind."),
+        ]
+    elif "roasted pumpkin-cardamom soup" in haystack or "roasted pumpkin cardamom soup" in haystack:
         products = [
             ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A broad metal surface roasts the pumpkin wedges in one layer so their cut sides brown instead of steaming."),
             ("enameled dutch oven 5 quart", "5- to 6-quart Dutch oven", "A heavy pot softens the aromatics evenly and contains the hot soup safely during immersion blending."),
@@ -1981,6 +1987,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "air-fryer-chili-lime-shrimp-avocado-toasts": {
+        "slugs": ["air-fryer-salmon-bites", "air-fryer-chicken-parmesan", "air-fryer-crispy-potato-wedges"],
+        "eyebrow": "Air-fryer technique",
+        "title": "Choose an air-fryer recipe by coating and doneness cue",
+        "copy": "Compare uncoated chili-lime shrimp, salmon cubes, breaded chicken cutlets and soaked potato wedges by food type, basket temperature, turning point and reliable doneness cue.",
+    },
+    "air-fryer-salmon-bites": {
+        "slugs": ["air-fryer-chili-lime-shrimp-avocado-toasts", "air-fryer-chicken-parmesan", "air-fryer-crispy-potato-wedges"],
+        "eyebrow": "Air-fryer technique",
+        "title": "Choose an air-fryer recipe by coating and doneness cue",
+        "copy": "Compare salmon cubes with uncoated chili-lime shrimp, breaded chicken cutlets and soaked potato wedges by food type, basket temperature, turning point and reliable doneness cue.",
+    },
+    "air-fryer-chicken-parmesan": {
+        "slugs": ["air-fryer-chili-lime-shrimp-avocado-toasts", "air-fryer-salmon-bites", "air-fryer-crispy-potato-wedges"],
+        "eyebrow": "Air-fryer technique",
+        "title": "Choose an air-fryer recipe by coating and doneness cue",
+        "copy": "Compare breaded chicken cutlets with uncoated chili-lime shrimp, salmon cubes and soaked potato wedges by food type, basket temperature, turning point and reliable doneness cue.",
+    },
+    "air-fryer-crispy-potato-wedges": {
+        "slugs": ["air-fryer-chili-lime-shrimp-avocado-toasts", "air-fryer-salmon-bites", "air-fryer-chicken-parmesan"],
+        "eyebrow": "Air-fryer technique",
+        "title": "Choose an air-fryer recipe by coating and doneness cue",
+        "copy": "Compare soaked potato wedges with uncoated chili-lime shrimp, salmon cubes and breaded chicken cutlets by food type, basket temperature, turning point and reliable doneness cue.",
+    },
     "roasted-pumpkin-cardamom-soup-pepitas-lime-crema": {
         "slugs": ["roasted-sweet-potato-ginger-soup", "instant-pot-vegan-corn-potato-chowder-chives", "instant-pot-broccoli-cheddar-soup"],
         "eyebrow": "Blended soup methods",
