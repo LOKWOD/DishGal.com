@@ -525,7 +525,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "air fryer chili-lime shrimp avocado toast" in haystack or "air fryer chili lime shrimp avocado toast" in haystack:
+    if "spinach-feta stuffed portobellos" in haystack or "spinach feta stuffed portobellos" in haystack:
+        products = [
+            ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A broad metal pan gives four large mushroom caps room to shed moisture during the first roast without crowding."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "The broad surface evaporates liquid from the chopped stems and spinach before the creamy filling is assembled."),
+            ("medium saucepan with lid 3 quart", "3-quart saucepan with lid", "A close-fitting lid and steady base cook pearl couscous evenly in the measured vegetable broth."),
+        ]
+    elif "air fryer chili-lime shrimp avocado toast" in haystack or "air fryer chili lime shrimp avocado toast" in haystack:
         products = [
             ("5 quart basket air fryer", "5- to 6-quart basket air fryer", "A roomy basket keeps one pound of shrimp in an uncrowded layer and then crisps the sourdough with the appliance already hot."),
             ("instant read digital food thermometer", "Instant-read thermometer", "Check the thickest shrimp for 145°F without extending the short cook until every piece curls tightly."),
@@ -1987,6 +1993,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "spinach-feta-stuffed-portobellos-lemon-herb-pearl-couscous": {
+        "slugs": ["sheet-pan-sweet-potato-mushroom-fajitas-guacamole", "miso-glazed-eggplant-herby-white-bean-tahini-seed-crunch", "warm-halloumi-crispy-chickpea-salad-herb-toasts"],
+        "eyebrow": "Meatless dinner structure",
+        "title": "Choose a vegetable-forward dinner by moisture-control method",
+        "copy": "Compare pre-roasted stuffed portobellos, spread-out sheet-pan mushrooms, salted glazed eggplant and crisped chickpeas by where moisture is removed, how richness is balanced and which starch completes the plate.",
+    },
+    "sheet-pan-sweet-potato-mushroom-fajitas-guacamole": {
+        "slugs": ["spinach-feta-stuffed-portobellos-lemon-herb-pearl-couscous", "miso-glazed-eggplant-herby-white-bean-tahini-seed-crunch", "warm-halloumi-crispy-chickpea-salad-herb-toasts"],
+        "eyebrow": "Meatless dinner structure",
+        "title": "Choose a vegetable-forward dinner by moisture-control method",
+        "copy": "Compare spread-out sheet-pan mushrooms with pre-roasted stuffed portobellos, salted glazed eggplant and crisped chickpeas by where moisture is removed, how richness is balanced and which starch completes the plate.",
+    },
+    "miso-glazed-eggplant-herby-white-bean-tahini-seed-crunch": {
+        "slugs": ["spinach-feta-stuffed-portobellos-lemon-herb-pearl-couscous", "sheet-pan-sweet-potato-mushroom-fajitas-guacamole", "warm-halloumi-crispy-chickpea-salad-herb-toasts"],
+        "eyebrow": "Meatless dinner structure",
+        "title": "Choose a vegetable-forward dinner by moisture-control method",
+        "copy": "Compare salted glazed eggplant with pre-roasted stuffed portobellos, spread-out sheet-pan mushrooms and crisped chickpeas by where moisture is removed, how richness is balanced and which starch completes the plate.",
+    },
+    "warm-halloumi-crispy-chickpea-salad-herb-toasts": {
+        "slugs": ["spinach-feta-stuffed-portobellos-lemon-herb-pearl-couscous", "sheet-pan-sweet-potato-mushroom-fajitas-guacamole", "miso-glazed-eggplant-herby-white-bean-tahini-seed-crunch"],
+        "eyebrow": "Meatless dinner structure",
+        "title": "Choose a vegetable-forward dinner by moisture-control method",
+        "copy": "Compare crisped chickpeas and seared halloumi with pre-roasted stuffed portobellos, spread-out sheet-pan mushrooms and salted glazed eggplant by where moisture is removed, how richness is balanced and which starch completes the plate.",
+    },
     "air-fryer-chili-lime-shrimp-avocado-toasts": {
         "slugs": ["air-fryer-salmon-bites", "air-fryer-chicken-parmesan", "air-fryer-crispy-potato-wedges"],
         "eyebrow": "Air-fryer technique",
