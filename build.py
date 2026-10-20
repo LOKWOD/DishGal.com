@@ -525,7 +525,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "spinach-feta stuffed portobellos" in haystack or "spinach feta stuffed portobellos" in haystack:
+    if "skillet chicken meatballs in tomato-basil sauce" in haystack or "skillet chicken meatballs in tomato basil sauce" in haystack:
+        products = [
+            ("wide 12 inch heavy skillet", "Wide 12-inch skillet", "A broad heavy pan browns the meatballs in batches, then holds all sixteen in one sauce layer for even simmering."),
+            ("instant read thermometer ground poultry", "Instant-read thermometer", "Check the largest meatball and a cooler edge position for the required 165°F center without relying on color."),
+            ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A sturdy pan gives the garlic bread room to toast at the edges while the meatballs finish in their sauce."),
+        ]
+    elif "spinach-feta stuffed portobellos" in haystack or "spinach feta stuffed portobellos" in haystack:
         products = [
             ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A broad metal pan gives four large mushroom caps room to shed moisture during the first roast without crowding."),
             ("12 inch stainless steel skillet", "Wide 12-inch skillet", "The broad surface evaporates liquid from the chopped stems and spinach before the creamy filling is assembled."),
@@ -1993,6 +1999,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "skillet-chicken-meatballs-tomato-basil-sauce-garlic-toast": {
+        "slugs": ["harissa-lamb-meatballs-herbed-couscous", "thai-chili-turkey-meatball-noodle-bowls", "instant-pot-turkey-meatballs-penne"],
+        "eyebrow": "Meatball method guide",
+        "title": "Choose a meatball dinner by cooking method and texture",
+        "copy": "Compare skillet-browned chicken finished in tomato sauce, oven-roasted lamb with couscous, baked turkey with rice noodles and pressure-cooked turkey with penne by binder, heat source, safe center temperature and sauce timing.",
+    },
+    "harissa-lamb-meatballs-herbed-couscous": {
+        "slugs": ["skillet-chicken-meatballs-tomato-basil-sauce-garlic-toast", "thai-chili-turkey-meatball-noodle-bowls", "instant-pot-turkey-meatballs-penne"],
+        "eyebrow": "Meatball method guide",
+        "title": "Choose a meatball dinner by cooking method and texture",
+        "copy": "Compare high-heat roasted lamb with skillet-browned chicken finished in tomato sauce, baked turkey with rice noodles and pressure-cooked turkey with penne by binder, heat source, safe center temperature and sauce timing.",
+    },
+    "thai-chili-turkey-meatball-noodle-bowls": {
+        "slugs": ["skillet-chicken-meatballs-tomato-basil-sauce-garlic-toast", "harissa-lamb-meatballs-herbed-couscous", "instant-pot-turkey-meatballs-penne"],
+        "eyebrow": "Meatball method guide",
+        "title": "Choose a meatball dinner by cooking method and texture",
+        "copy": "Compare ginger-scallion turkey baked for rice-noodle bowls with skillet-browned chicken finished in tomato sauce, high-heat roasted lamb and pressure-cooked turkey with penne by binder, heat source, safe center temperature and sauce timing.",
+    },
+    "instant-pot-turkey-meatballs-penne": {
+        "slugs": ["skillet-chicken-meatballs-tomato-basil-sauce-garlic-toast", "harissa-lamb-meatballs-herbed-couscous", "thai-chili-turkey-meatball-noodle-bowls"],
+        "eyebrow": "Meatball method guide",
+        "title": "Choose a meatball dinner by cooking method and texture",
+        "copy": "Compare pressure-cooked turkey layered with penne and marinara with skillet-browned chicken finished in tomato sauce, high-heat roasted lamb and ginger-scallion turkey baked for rice noodles by binder, heat source, safe center temperature and sauce timing.",
+    },
     "spinach-feta-stuffed-portobellos-lemon-herb-pearl-couscous": {
         "slugs": ["sheet-pan-sweet-potato-mushroom-fajitas-guacamole", "miso-glazed-eggplant-herby-white-bean-tahini-seed-crunch", "warm-halloumi-crispy-chickpea-salad-herb-toasts"],
         "eyebrow": "Meatless dinner structure",
