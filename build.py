@@ -525,7 +525,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "skillet chicken meatballs in tomato-basil sauce" in haystack or "skillet chicken meatballs in tomato basil sauce" in haystack:
+    if "creamy lemon-parmesan farfalle" in haystack or "creamy lemon parmesan farfalle" in haystack:
+        products = [
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "A roomy pot lets farfalle circulate, while fast draining preserves the starchy water needed to emulsify the cream sauce."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad skillet warms the tomatoes gently and gives the pasta room to toss through the sauce without crushing the bow ties."),
+            ("microplane zester grater stainless", "Fine zester and grater", "A fine tool removes fragrant lemon zest and produces Parmesan thin enough to melt smoothly off the heat."),
+        ]
+    elif "skillet chicken meatballs in tomato-basil sauce" in haystack or "skillet chicken meatballs in tomato basil sauce" in haystack:
         products = [
             ("wide 12 inch heavy skillet", "Wide 12-inch skillet", "A broad heavy pan browns the meatballs in batches, then holds all sixteen in one sauce layer for even simmering."),
             ("instant read thermometer ground poultry", "Instant-read thermometer", "Check the largest meatball and a cooler edge position for the required 165°F center without relying on color."),
@@ -1999,6 +2005,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "creamy-lemon-parmesan-farfalle-cherry-tomatoes-basil": {
+        "slugs": ["garlic-butter-shrimp-pasta", "roasted-garlic-primavera-linguine", "one-pot-creamy-tomato-orzo"],
+        "eyebrow": "Pasta sauce technique",
+        "title": "Choose a weeknight pasta by sauce-building method",
+        "copy": "Compare off-heat Parmesan emulsification for creamy farfalle, garlic-butter pan sauce for shrimp spaghetti, roasted-vegetable purée for primavera linguine and one-pot starch release for tomato orzo by how each sauce gains body and when its finishing ingredients are added.",
+    },
+    "garlic-butter-shrimp-pasta": {
+        "slugs": ["creamy-lemon-parmesan-farfalle-cherry-tomatoes-basil", "roasted-garlic-primavera-linguine", "one-pot-creamy-tomato-orzo"],
+        "eyebrow": "Pasta sauce technique",
+        "title": "Choose a weeknight pasta by sauce-building method",
+        "copy": "Compare garlic-butter pan sauce for shrimp spaghetti, off-heat Parmesan emulsification for creamy farfalle, roasted-vegetable purée for primavera linguine and one-pot starch release for tomato orzo by how each sauce gains body and when its finishing ingredients are added.",
+    },
+    "roasted-garlic-primavera-linguine": {
+        "slugs": ["creamy-lemon-parmesan-farfalle-cherry-tomatoes-basil", "garlic-butter-shrimp-pasta", "one-pot-creamy-tomato-orzo"],
+        "eyebrow": "Pasta sauce technique",
+        "title": "Choose a weeknight pasta by sauce-building method",
+        "copy": "Compare roasted-vegetable purée for primavera linguine, off-heat Parmesan emulsification for creamy farfalle, garlic-butter pan sauce for shrimp spaghetti and one-pot starch release for tomato orzo by how each sauce gains body and when its finishing ingredients are added.",
+    },
+    "one-pot-creamy-tomato-orzo": {
+        "slugs": ["creamy-lemon-parmesan-farfalle-cherry-tomatoes-basil", "garlic-butter-shrimp-pasta", "roasted-garlic-primavera-linguine"],
+        "eyebrow": "Pasta sauce technique",
+        "title": "Choose a weeknight pasta by sauce-building method",
+        "copy": "Compare one-pot starch release for tomato orzo, off-heat Parmesan emulsification for creamy farfalle, garlic-butter pan sauce for shrimp spaghetti and roasted-vegetable purée for primavera linguine by how each sauce gains body and when its finishing ingredients are added.",
+    },
     "skillet-chicken-meatballs-tomato-basil-sauce-garlic-toast": {
         "slugs": ["harissa-lamb-meatballs-herbed-couscous", "thai-chili-turkey-meatball-noodle-bowls", "instant-pot-turkey-meatballs-penne"],
         "eyebrow": "Meatball method guide",
