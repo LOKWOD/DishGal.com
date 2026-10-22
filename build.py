@@ -35,6 +35,7 @@ COLLECTION_META = {
     "sheet-pan": ("Sheet-Pan Dinners", "Hands-off roasting, browned edges, fewer dishes.", "🥘"),
     "slow-cooker": ("Slow-Cooker Dinners", "Set-it-up meals for days when dinner needs to wait for you.", "♨"),
     "budget": ("Budget Dinners", "Good dinners built around useful, repeatable groceries.", "💸"),
+    "breakfast": ("Breakfast Recipes", "Practical breakfasts with clear timing, realistic costs, and options for busy mornings or relaxed brunches.", "☀"),
     "vegetarian": ("Vegetarian Dinners", "Meatless meals that still eat like dinner.", "🥬"),
     "family": ("Family Favorites", "Low-drama dinners designed for the whole table.", "🍽"),
 }
@@ -525,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "creamy lemon-parmesan farfalle" in haystack or "creamy lemon parmesan farfalle" in haystack:
+    if "turkish çılbır" in haystack or "turkish cilbir" in haystack:
+        products = [
+            ("3 quart wide stainless steel saucepan", "Wide 3-quart saucepan", "A broad base gives four eggs room to poach in two calm batches without crowding or colliding."),
+            ("stainless steel slotted spoon egg poacher", "Stainless-steel slotted spoon", "A shallow perforated bowl lifts delicate eggs while leaving excess poaching water behind."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe can verify a firm-cooked egg reaches 160°F without tearing most of the white."),
+        ]
+    elif "creamy lemon-parmesan farfalle" in haystack or "creamy lemon parmesan farfalle" in haystack:
         products = [
             ("stainless steel pasta pot colander", "Pasta pot and colander", "A roomy pot lets farfalle circulate, while fast draining preserves the starchy water needed to emulsify the cream sauce."),
             ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad skillet warms the tomatoes gently and gives the pasta room to toss through the sauce without crushing the bow ties."),
@@ -2005,6 +2012,12 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter": {
+        "slugs": ["cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
+    },
     "creamy-lemon-parmesan-farfalle-cherry-tomatoes-basil": {
         "slugs": ["garlic-butter-shrimp-pasta", "roasted-garlic-primavera-linguine", "one-pot-creamy-tomato-orzo"],
         "eyebrow": "Pasta sauce technique",
@@ -2312,34 +2325,34 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
     },
     "cottage-cheese-protein-pancakes": {
-        "slugs": ["eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
-        "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
     },
     "cottage-cheese-frittata-tomatoes-green-peppers": {
-        "slugs": ["cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
-        "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
     },
     "freezer-breakfast-burritos": {
-        "slugs": ["cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
-        "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
     },
     "berry-almond-chia-pudding-toasted-seeds": {
-        "slugs": ["cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos"],
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos"],
         "eyebrow": "Breakfast planning",
-        "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
     },
     "eastern-european-syrniki-sour-cream-fruit": {
-        "slugs": ["cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
-        "title": "Build a make-ahead breakfast rotation",
-        "copy": "Compare hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos, and no-cook chia cups by prep style, storage, and morning effort.",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
     },
 }
 
@@ -2572,6 +2585,22 @@ def build_collections():
               <details><summary>Why does the total time exceed the pressure-cook time?</summary><p>The display countdown begins only after the cooker reaches pressure. A full family meal commonly needs 10 to 20 minutes to pressurize, plus the stated release time, so DishGal includes those stages in the total.</p></details>
               <details><summary>Which Instant Pot size are these written for?</summary><p>These recipes are developed around a 6-quart electric pressure cooker. An 8-quart model may need additional thin liquid according to its manual. Always follow the minimum-liquid, fill-limit, and release instructions for your exact model.</p></details>
             </div></div></section>'''
+        elif slug == "breakfast":
+            collection_intro = f'''<section class="section-tight section-paper"><div class="wrap">
+              <div class="section-heading"><div><p class="eyebrow">DishGal morning chooser</p><h2>Match breakfast to the time, cost and texture you want.</h2></div><p>These are complete recipes, not serving suggestions. Compare hands-on method, realistic total time, estimated cost and what can be made ahead.</p></div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Breakfast</th><th>Total time</th><th>Est. cost</th><th>Main method</th><th>Make-ahead fit</th></tr></thead>
+                  <tbody>
+                    <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter/')}">Turkish çılbır</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">$2.25/serving</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Quiet poach + warm spiced butter</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Prep yogurt and butter; poach eggs fresh</td></tr>
+                    <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/cottage-cheese-protein-pancakes/')}">Cottage-cheese protein pancakes</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">$1.35/serving</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Blend + griddle</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Freeze cooked pancakes up to 2 months</td></tr>
+                    <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/freezer-breakfast-burritos/')}">Freezer breakfast burritos</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">$1.90/serving</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Skillet + batch assembly</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Purpose-built for freezing</td></tr>
+                    <tr><td style="padding:.65rem"><a href="{href('/recipes/apple-cinnamon-baked-oatmeal/')}">Apple-cinnamon baked oatmeal</a></td><td style="padding:.65rem">50 min</td><td style="padding:.65rem">$1.05/serving</td><td style="padding:.65rem">Mix + bake</td><td style="padding:.65rem">Refrigerate slices 4 days or freeze</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="muted" style="margin-top:1rem">Cost estimates reflect the ingredient quantities used when each recipe was published and vary by store and season. Food-safety timing and temperature guidance appears on each recipe page. Comparison reviewed October 22, 2026.</p>
+            </div></section>'''
         body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(title,None)])}<p class="eyebrow">Dinner collection</p><h1>{esc(seo_title)}</h1><p class="lede">{esc(full_description)}</p></div></section>
         {collection_intro}
         <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(r) for r in recipes)}</div></div></section>
