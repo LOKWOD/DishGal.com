@@ -1318,6 +1318,12 @@ def recipe_shop(recipe) -> str:
             ("stainless steel bowl colander set", "Stainless bowl-and-colander set", "The bowl mixes cold beer batter while the fitted colander rinses potatoes and helps drain them thoroughly before frying."),
             ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface makes it easier to cut the potatoes into even chips; sanitize it before using it for cooked food."),
         ]
+    elif "weeknight beef bibimbap" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface cooks the vegetables in quick separate batches, browns the ground beef and fries four eggs without requiring multiple pans."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "It keeps the short-grain rice hot and ready while the individually seasoned beef, vegetables and eggs move through the skillet."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several pieces of ground beef for 160°F and verify fully cooked eggs reach 160°F when pasteurized eggs are not used for soft yolks."),
+        ]
     elif "korean beef japchae" in haystack:
         products = [
             ("stainless steel mesh colander strainer", "Stainless mesh colander", "A roomy mesh colander drains the slippery sweet-potato noodles quickly so they stay springy and do not dilute the sesame dressing."),
@@ -2012,6 +2018,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "weeknight-beef-bibimbap-sesame-vegetables-fried-egg": {
+        "slugs": ["kimchi-fried-rice-crispy-fried-egg-scallions", "korean-beef-japchae-spinach-shiitakes-sesame", "korean-bbq-ribeye-bowls-crunchy-cucumber"],
+        "eyebrow": "Korean dinner method guide",
+        "title": "Choose a Korean-inspired dinner by component and technique",
+        "copy": "Compare separately seasoned bibimbap components, one-pan kimchi fried rice, separately sautéed japchae vegetables and quick-marinated bulgogi-style ribeye by rice or noodle base, vegetable treatment, beef cut and make-ahead strategy.",
+    },
+    "kimchi-fried-rice-crispy-fried-egg-scallions": {
+        "slugs": ["weeknight-beef-bibimbap-sesame-vegetables-fried-egg", "korean-beef-japchae-spinach-shiitakes-sesame", "korean-bbq-ribeye-bowls-crunchy-cucumber"],
+        "eyebrow": "Korean dinner method guide",
+        "title": "Choose a Korean-inspired dinner by component and technique",
+        "copy": "Compare one-pan kimchi fried rice, separately seasoned bibimbap components, separately sautéed japchae vegetables and quick-marinated bulgogi-style ribeye by rice or noodle base, vegetable treatment, beef cut and make-ahead strategy.",
+    },
+    "korean-beef-japchae-spinach-shiitakes-sesame": {
+        "slugs": ["weeknight-beef-bibimbap-sesame-vegetables-fried-egg", "kimchi-fried-rice-crispy-fried-egg-scallions", "korean-bbq-ribeye-bowls-crunchy-cucumber"],
+        "eyebrow": "Korean dinner method guide",
+        "title": "Choose a Korean-inspired dinner by component and technique",
+        "copy": "Compare separately sautéed japchae vegetables, separately seasoned bibimbap components, one-pan kimchi fried rice and quick-marinated bulgogi-style ribeye by rice or noodle base, vegetable treatment, beef cut and make-ahead strategy.",
+    },
+    "korean-bbq-ribeye-bowls-crunchy-cucumber": {
+        "slugs": ["weeknight-beef-bibimbap-sesame-vegetables-fried-egg", "kimchi-fried-rice-crispy-fried-egg-scallions", "korean-beef-japchae-spinach-shiitakes-sesame"],
+        "eyebrow": "Korean dinner method guide",
+        "title": "Choose a Korean-inspired dinner by component and technique",
+        "copy": "Compare quick-marinated bulgogi-style ribeye, separately seasoned bibimbap components, one-pan kimchi fried rice and separately sautéed japchae vegetables by rice or noodle base, vegetable treatment, beef cut and make-ahead strategy.",
+    },
     "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter": {
         "slugs": ["cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
