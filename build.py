@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "turkish çılbır" in haystack or "turkish cilbir" in haystack:
+    if "weeknight aloo gobi" in haystack:
+        products = [
+            ("12 inch saute pan with lid", "Wide 12-inch sauté pan with lid", "The broad base coats the vegetables evenly, while the lid traps enough steam to tenderize potatoes and cauliflower without turning the curry soupy."),
+            ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade makes even potato cubes and clean cauliflower florets so the vegetables become tender at the same time."),
+            ("digital instant read thermometer kitchen", "Instant-read thermometer", "A thin probe confirms refrigerated leftovers have reheated to 165°F without relying on steam or touch."),
+        ]
+    elif "turkish çılbır" in haystack or "turkish cilbir" in haystack:
         products = [
             ("3 quart wide stainless steel saucepan", "Wide 3-quart saucepan", "A broad base gives four eggs room to poach in two calm batches without crowding or colliding."),
             ("stainless steel slotted spoon egg poacher", "Stainless-steel slotted spoon", "A shallow perforated bowl lifts delicate eggs while leaving excess poaching water behind."),
@@ -2018,6 +2024,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "weeknight-aloo-gobi-tomato-cumin-cilantro": {
+        "slugs": ["weeknight-palak-paneer-toasted-cumin-ginger", "mumbai-style-pav-bhaji-buttered-rolls-lime", "instant-pot-indian-vegetable-biryani-pomegranate-raita"],
+        "eyebrow": "Indian vegetarian method guide",
+        "title": "Choose an Indian-inspired vegetable dinner by technique",
+        "copy": "Compare dry-sautéed aloo gobi, blended spinach paneer, griddled vegetable mash and pressure-steamed vegetable biryani by texture, cookware, hands-on time and make-ahead strategy.",
+    },
+    "weeknight-palak-paneer-toasted-cumin-ginger": {
+        "slugs": ["weeknight-aloo-gobi-tomato-cumin-cilantro", "mumbai-style-pav-bhaji-buttered-rolls-lime", "instant-pot-indian-vegetable-biryani-pomegranate-raita"],
+        "eyebrow": "Indian vegetarian method guide",
+        "title": "Choose an Indian-inspired vegetable dinner by technique",
+        "copy": "Compare blended spinach paneer, dry-sautéed aloo gobi, griddled vegetable mash and pressure-steamed vegetable biryani by texture, cookware, hands-on time and make-ahead strategy.",
+    },
+    "mumbai-style-pav-bhaji-buttered-rolls-lime": {
+        "slugs": ["weeknight-aloo-gobi-tomato-cumin-cilantro", "weeknight-palak-paneer-toasted-cumin-ginger", "instant-pot-indian-vegetable-biryani-pomegranate-raita"],
+        "eyebrow": "Indian vegetarian method guide",
+        "title": "Choose an Indian-inspired vegetable dinner by technique",
+        "copy": "Compare griddled vegetable mash, dry-sautéed aloo gobi, blended spinach paneer and pressure-steamed vegetable biryani by texture, cookware, hands-on time and make-ahead strategy.",
+    },
+    "instant-pot-indian-vegetable-biryani-pomegranate-raita": {
+        "slugs": ["weeknight-aloo-gobi-tomato-cumin-cilantro", "weeknight-palak-paneer-toasted-cumin-ginger", "mumbai-style-pav-bhaji-buttered-rolls-lime"],
+        "eyebrow": "Indian vegetarian method guide",
+        "title": "Choose an Indian-inspired vegetable dinner by technique",
+        "copy": "Compare pressure-steamed vegetable biryani, dry-sautéed aloo gobi, blended spinach paneer and griddled vegetable mash by texture, cookware, hands-on time and make-ahead strategy.",
+    },
     "weeknight-beef-bibimbap-sesame-vegetables-fried-egg": {
         "slugs": ["kimchi-fried-rice-crispy-fried-egg-scallions", "korean-beef-japchae-spinach-shiitakes-sesame", "korean-bbq-ribeye-bowls-crunchy-cucumber"],
         "eyebrow": "Korean dinner method guide",
