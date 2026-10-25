@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "weeknight aloo gobi" in haystack:
+    if "soupy sichuan-style dan dan noodles" in haystack or "soupy sichuan style dan dan noodles" in haystack:
+        products = [
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "A roomy pot lets the wheat noodles move freely, while fast draining keeps them springy before they enter the hot sesame broth."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad skillet gives the pork room to brown before the aromatics, chile-bean paste and preserved mustard greens are added."),
+            ("large ramen bowls set", "Deep ramen-style bowls", "Deep heat-safe bowls leave enough room to whisk the sesame base with broth, then add noodles and toppings without spilling."),
+        ]
+    elif "weeknight aloo gobi" in haystack:
         products = [
             ("12 inch saute pan with lid", "Wide 12-inch sauté pan with lid", "The broad base coats the vegetables evenly, while the lid traps enough steam to tenderize potatoes and cauliflower without turning the curry soupy."),
             ("8 inch chef knife kitchen", "8-inch chef’s knife", "A sharp all-purpose blade makes even potato cubes and clean cauliflower florets so the vegetables become tender at the same time."),
@@ -2024,6 +2030,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "soupy-sichuan-style-dan-dan-noodles-pork-sesame": {
+        "slugs": ["sichuan-style-mapo-tofu-pork-rice", "taiwanese-style-red-braised-beef-noodle-soup", "flaky-chinese-scallion-pancakes"],
+        "eyebrow": "Chinese pantry and texture guide",
+        "title": "Choose a Chinese-inspired dinner by sauce and texture",
+        "copy": "Compare broth-loosened sesame dan dan noodles, glossy chile-bean mapo tofu, long-simmered red-braised beef noodle soup and pan-fried layered scallion pancakes by sauce structure, pantry ingredients, texture and hands-on time.",
+    },
+    "sichuan-style-mapo-tofu-pork-rice": {
+        "slugs": ["soupy-sichuan-style-dan-dan-noodles-pork-sesame", "taiwanese-style-red-braised-beef-noodle-soup", "flaky-chinese-scallion-pancakes"],
+        "eyebrow": "Chinese pantry and texture guide",
+        "title": "Choose a Chinese-inspired dinner by sauce and texture",
+        "copy": "Compare glossy chile-bean mapo tofu, broth-loosened sesame dan dan noodles, long-simmered red-braised beef noodle soup and pan-fried layered scallion pancakes by sauce structure, pantry ingredients, texture and hands-on time.",
+    },
+    "taiwanese-style-red-braised-beef-noodle-soup": {
+        "slugs": ["soupy-sichuan-style-dan-dan-noodles-pork-sesame", "sichuan-style-mapo-tofu-pork-rice", "flaky-chinese-scallion-pancakes"],
+        "eyebrow": "Chinese pantry and texture guide",
+        "title": "Choose a Chinese-inspired dinner by sauce and texture",
+        "copy": "Compare long-simmered red-braised beef noodle soup, broth-loosened sesame dan dan noodles, glossy chile-bean mapo tofu and pan-fried layered scallion pancakes by sauce structure, pantry ingredients, texture and hands-on time.",
+    },
+    "flaky-chinese-scallion-pancakes": {
+        "slugs": ["soupy-sichuan-style-dan-dan-noodles-pork-sesame", "sichuan-style-mapo-tofu-pork-rice", "taiwanese-style-red-braised-beef-noodle-soup"],
+        "eyebrow": "Chinese pantry and texture guide",
+        "title": "Choose a Chinese-inspired dinner by sauce and texture",
+        "copy": "Compare pan-fried layered scallion pancakes, broth-loosened sesame dan dan noodles, glossy chile-bean mapo tofu and long-simmered red-braised beef noodle soup by sauce structure, pantry ingredients, texture and hands-on time.",
+    },
     "weeknight-aloo-gobi-tomato-cumin-cilantro": {
         "slugs": ["weeknight-palak-paneer-toasted-cumin-ginger", "mumbai-style-pav-bhaji-buttered-rolls-lime", "instant-pot-indian-vegetable-biryani-pomegranate-raita"],
         "eyebrow": "Indian vegetarian method guide",
