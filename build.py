@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "soupy sichuan-style dan dan noodles" in haystack or "soupy sichuan style dan dan noodles" in haystack:
+    if "crispy fried beef empanadas" in haystack:
+        products = [
+            ("6 quart enameled cast iron dutch oven", "5- to 6-quart Dutch oven", "High sides contain the two-inch oil layer and give it room to bubble safely without approaching the rim."),
+            ("deep fry thermometer clip pot", "Clip-on deep-fry thermometer", "Continuous temperature readings keep each batch in the 340°F to 360°F crisping range."),
+            ("half sheet pan wire rack set", "Sheet pan with wire rack", "A rack lets excess oil drain without trapping steam against the crisp underside of the empanadas."),
+        ]
+    elif "soupy sichuan-style dan dan noodles" in haystack or "soupy sichuan style dan dan noodles" in haystack:
         products = [
             ("stainless steel pasta pot colander", "Pasta pot and colander", "A roomy pot lets the wheat noodles move freely, while fast draining keeps them springy before they enter the hot sesame broth."),
             ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad skillet gives the pork room to brown before the aromatics, chile-bean paste and preserved mustard greens are added."),
@@ -2030,6 +2036,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "crispy-fried-beef-empanadas-paprika-cumin": {
+        "slugs": ["polish-potato-cheese-pierogi", "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
+        "eyebrow": "Filled-dough method guide",
+        "title": "Choose a filled-dough dinner by wrapper and cooking method",
+        "copy": "Compare fried fork-sealed wheat empanadas, boiled-and-seared pierogi, griddled masa pupusas and soft fresh lumpia by wrapper, filling moisture, sealing method and make-ahead strategy.",
+    },
+    "polish-potato-cheese-pierogi": {
+        "slugs": ["crispy-fried-beef-empanadas-paprika-cumin", "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
+        "eyebrow": "Filled-dough method guide",
+        "title": "Choose a filled-dough dinner by wrapper and cooking method",
+        "copy": "Compare boiled-and-seared pierogi, fried fork-sealed wheat empanadas, griddled masa pupusas and soft fresh lumpia by wrapper, filling moisture, sealing method and make-ahead strategy.",
+    },
+    "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja": {
+        "slugs": ["crispy-fried-beef-empanadas-paprika-cumin", "polish-potato-cheese-pierogi", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
+        "eyebrow": "Filled-dough method guide",
+        "title": "Choose a filled-dough dinner by wrapper and cooking method",
+        "copy": "Compare griddled masa pupusas, fried fork-sealed wheat empanadas, boiled-and-seared pierogi and soft fresh lumpia by wrapper, filling moisture, sealing method and make-ahead strategy.",
+    },
+    "filipino-lumpiang-sariwa-garlic-peanut-sauce": {
+        "slugs": ["crispy-fried-beef-empanadas-paprika-cumin", "polish-potato-cheese-pierogi", "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja"],
+        "eyebrow": "Filled-dough method guide",
+        "title": "Choose a filled-dough dinner by wrapper and cooking method",
+        "copy": "Compare soft fresh lumpia, fried fork-sealed wheat empanadas, boiled-and-seared pierogi and griddled masa pupusas by wrapper, filling moisture, sealing method and make-ahead strategy.",
+    },
     "soupy-sichuan-style-dan-dan-noodles-pork-sesame": {
         "slugs": ["sichuan-style-mapo-tofu-pork-rice", "taiwanese-style-red-braised-beef-noodle-soup", "flaky-chinese-scallion-pancakes"],
         "eyebrow": "Chinese pantry and texture guide",
