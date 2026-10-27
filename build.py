@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "crispy fried beef empanadas" in haystack:
+    if "smoky warm lentils" in haystack:
+        products = [
+            ("3 quart stainless steel saucepan with lid", "3-quart saucepan", "A medium saucepan gives lentils enough water to move freely while keeping the simmer easy to control."),
+            ("fine mesh strainer stainless steel large", "Large fine-mesh strainer", "Small lentils drain cleanly without escaping, and a broad basket sheds the cooking water quickly."),
+            ("8 inch chef knife kitchen", "8-inch chef's knife", "A sharp, controllable blade makes uniform pepper and onion dice for even cooking."),
+        ]
+    elif "crispy fried beef empanadas" in haystack:
         products = [
             ("6 quart enameled cast iron dutch oven", "5- to 6-quart Dutch oven", "High sides contain the two-inch oil layer and give it room to bubble safely without approaching the rim."),
             ("deep fry thermometer clip pot", "Clip-on deep-fry thermometer", "Continuous temperature readings keep each batch in the 340°F to 360°F crisping range."),
@@ -2036,6 +2042,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "smoky-warm-lentils-red-pepper-parsley-lemon": {
+        "slugs": ["spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry"],
+        "eyebrow": "Budget pulse method guide",
+        "title": "Choose a budget bean or lentil meal by texture and method",
+        "copy": "Compare glossy skillet lentils with red pepper, saucy tomato butter beans, pressure-cooked white-bean stew and a simmered coconut chickpea curry by pulse, texture, cookware and make-ahead strategy.",
+    },
+    "spanish-style-tomato-butter-beans-smoked-paprika": {
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry"],
+        "eyebrow": "Budget pulse method guide",
+        "title": "Choose a budget bean or lentil meal by texture and method",
+        "copy": "Compare saucy tomato butter beans with glossy skillet lentils and red pepper, pressure-cooked white-bean stew and a simmered coconut chickpea curry by pulse, texture, cookware and make-ahead strategy.",
+    },
+    "instant-pot-turkish-kuru-fasulye-white-bean-stew": {
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "spanish-style-tomato-butter-beans-smoked-paprika", "pantry-chickpea-coconut-curry"],
+        "eyebrow": "Budget pulse method guide",
+        "title": "Choose a budget bean or lentil meal by texture and method",
+        "copy": "Compare pressure-cooked white-bean stew with glossy skillet lentils and red pepper, saucy tomato butter beans and a simmered coconut chickpea curry by pulse, texture, cookware and make-ahead strategy.",
+    },
+    "pantry-chickpea-coconut-curry": {
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew"],
+        "eyebrow": "Budget pulse method guide",
+        "title": "Choose a budget bean or lentil meal by texture and method",
+        "copy": "Compare a simmered coconut chickpea curry with glossy skillet lentils and red pepper, saucy tomato butter beans and pressure-cooked white-bean stew by pulse, texture, cookware and make-ahead strategy.",
+    },
     "crispy-fried-beef-empanadas-paprika-cumin": {
         "slugs": ["polish-potato-cheese-pierogi", "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
         "eyebrow": "Filled-dough method guide",
