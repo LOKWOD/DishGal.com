@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "smoky warm lentils" in haystack:
+    if "skillet-roasted whole fish" in haystack or "skillet roasted whole fish" in haystack:
+        products = [
+            ("12 inch cast iron skillet oven safe", "12-inch ovenproof skillet", "A broad oven-safe skillet blisters the tomatoes on the stove, then carries the whole fish through roasting and serving."),
+            ("instant read meat thermometer waterproof", "Instant-read thermometer", "A thin probe checks the thick flesh behind the head for 145°F without relying on skin color or guesswork."),
+            ("fish spatula stainless steel slotted", "Flexible fish spatula", "A thin flexible blade lifts the top fillet cleanly from the backbone and supports tender portions during serving."),
+        ]
+    elif "smoky warm lentils" in haystack:
         products = [
             ("3 quart stainless steel saucepan with lid", "3-quart saucepan", "A medium saucepan gives lentils enough water to move freely while keeping the simmer easy to control."),
             ("fine mesh strainer stainless steel large", "Large fine-mesh strainer", "Small lentils drain cleanly without escaping, and a broad basket sheds the cooking water quickly."),
@@ -2042,6 +2048,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "skillet-roasted-whole-fish-burst-tomatoes-olives-garlic-crostini": {
+        "slugs": ["crispy-coconut-lime-fish-tacos-pineapple-slaw", "british-beer-battered-fish-chips-mushy-peas", "finnish-lohikeitto-salmon-potatoes-dill"],
+        "eyebrow": "Fish cut and heat guide",
+        "title": "Choose a fish method by cut, coating and moisture",
+        "copy": "Compare a whole fish roasted over burst tomatoes with sheet-pan coconut-crusted strips, battered fried fillets and gently simmered salmon soup by cut, heat, coating, doneness cue and make-ahead limits.",
+    },
+    "crispy-coconut-lime-fish-tacos-pineapple-slaw": {
+        "slugs": ["skillet-roasted-whole-fish-burst-tomatoes-olives-garlic-crostini", "british-beer-battered-fish-chips-mushy-peas", "finnish-lohikeitto-salmon-potatoes-dill"],
+        "eyebrow": "Fish cut and heat guide",
+        "title": "Choose a fish method by cut, coating and moisture",
+        "copy": "Compare sheet-pan coconut-crusted fish strips with a whole fish roasted over burst tomatoes, battered fried fillets and gently simmered salmon soup by cut, heat, coating, doneness cue and make-ahead limits.",
+    },
+    "british-beer-battered-fish-chips-mushy-peas": {
+        "slugs": ["skillet-roasted-whole-fish-burst-tomatoes-olives-garlic-crostini", "crispy-coconut-lime-fish-tacos-pineapple-slaw", "finnish-lohikeitto-salmon-potatoes-dill"],
+        "eyebrow": "Fish cut and heat guide",
+        "title": "Choose a fish method by cut, coating and moisture",
+        "copy": "Compare battered fried fish fillets with a whole fish roasted over burst tomatoes, sheet-pan coconut-crusted strips and gently simmered salmon soup by cut, heat, coating, doneness cue and make-ahead limits.",
+    },
+    "finnish-lohikeitto-salmon-potatoes-dill": {
+        "slugs": ["skillet-roasted-whole-fish-burst-tomatoes-olives-garlic-crostini", "crispy-coconut-lime-fish-tacos-pineapple-slaw", "british-beer-battered-fish-chips-mushy-peas"],
+        "eyebrow": "Fish cut and heat guide",
+        "title": "Choose a fish method by cut, coating and moisture",
+        "copy": "Compare salmon gently simmered in soup with a whole fish roasted over burst tomatoes, sheet-pan coconut-crusted strips and battered fried fillets by cut, heat, coating, doneness cue and make-ahead limits.",
+    },
     "smoky-warm-lentils-red-pepper-parsley-lemon": {
         "slugs": ["spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry"],
         "eyebrow": "Budget pulse method guide",
