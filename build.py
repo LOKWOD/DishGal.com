@@ -526,11 +526,11 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "skillet-roasted whole fish" in haystack or "skillet roasted whole fish" in haystack:
+    if "miso savory oats" in haystack:
         products = [
-            ("12 inch cast iron skillet oven safe", "12-inch ovenproof skillet", "A broad oven-safe skillet blisters the tomatoes on the stove, then carries the whole fish through roasting and serving."),
-            ("instant read meat thermometer waterproof", "Instant-read thermometer", "A thin probe checks the thick flesh behind the head for 145°F without relying on skin color or guesswork."),
-            ("fish spatula stainless steel slotted", "Flexible fish spatula", "A thin flexible blade lifts the top fillet cleanly from the backbone and supports tender portions during serving."),
+            ("2 quart stainless steel saucepan with lid", "2-quart saucepan", "A small heavy saucepan keeps the oats at a controlled simmer and leaves enough room to stir without splashing."),
+            ("fine mesh skimmer spoon stainless steel", "Fine-mesh skimmer", "A shallow mesh skimmer lifts poached eggs gently while draining their cooking water."),
+            ("small nonstick skillet 8 inch", "Small skillet", "A compact skillet toasts the sesame-panko topping evenly without needing extra oil."),
         ]
     elif "smoky warm lentils" in haystack:
         products = [
@@ -2048,29 +2048,29 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
-    "skillet-roasted-whole-fish-burst-tomatoes-olives-garlic-crostini": {
-        "slugs": ["crispy-coconut-lime-fish-tacos-pineapple-slaw", "british-beer-battered-fish-chips-mushy-peas", "finnish-lohikeitto-salmon-potatoes-dill"],
-        "eyebrow": "Fish cut and heat guide",
-        "title": "Choose a fish method by cut, coating and moisture",
-        "copy": "Compare a whole fish roasted over burst tomatoes with sheet-pan coconut-crusted strips, battered fried fillets and gently simmered salmon soup by cut, heat, coating, doneness cue and make-ahead limits.",
+    "miso-savory-oats-poached-eggs-sesame-chive-crunch": {
+        "slugs": ["apple-cinnamon-baked-oatmeal", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "eyebrow": "Breakfast base and egg guide",
+        "title": "Choose a savory or sweet breakfast by base and method",
+        "copy": "Compare creamy stovetop miso oats with sweet baked oatmeal, pressure-cooked fava beans and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
     },
-    "crispy-coconut-lime-fish-tacos-pineapple-slaw": {
-        "slugs": ["skillet-roasted-whole-fish-burst-tomatoes-olives-garlic-crostini", "british-beer-battered-fish-chips-mushy-peas", "finnish-lohikeitto-salmon-potatoes-dill"],
-        "eyebrow": "Fish cut and heat guide",
-        "title": "Choose a fish method by cut, coating and moisture",
-        "copy": "Compare sheet-pan coconut-crusted fish strips with a whole fish roasted over burst tomatoes, battered fried fillets and gently simmered salmon soup by cut, heat, coating, doneness cue and make-ahead limits.",
+    "apple-cinnamon-baked-oatmeal": {
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "eyebrow": "Breakfast base and egg guide",
+        "title": "Choose a savory or sweet breakfast by base and method",
+        "copy": "Compare sweet baked apple oatmeal with creamy stovetop miso oats, pressure-cooked fava beans and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
     },
-    "british-beer-battered-fish-chips-mushy-peas": {
-        "slugs": ["skillet-roasted-whole-fish-burst-tomatoes-olives-garlic-crostini", "crispy-coconut-lime-fish-tacos-pineapple-slaw", "finnish-lohikeitto-salmon-potatoes-dill"],
-        "eyebrow": "Fish cut and heat guide",
-        "title": "Choose a fish method by cut, coating and moisture",
-        "copy": "Compare battered fried fish fillets with a whole fish roasted over burst tomatoes, sheet-pan coconut-crusted strips and gently simmered salmon soup by cut, heat, coating, doneness cue and make-ahead limits.",
+    "instant-pot-egyptian-style-ful-medames-breakfast-platter": {
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "apple-cinnamon-baked-oatmeal", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "eyebrow": "Breakfast base and egg guide",
+        "title": "Choose a savory or sweet breakfast by base and method",
+        "copy": "Compare pressure-cooked fava beans with creamy stovetop miso oats, sweet baked oatmeal and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
     },
-    "finnish-lohikeitto-salmon-potatoes-dill": {
-        "slugs": ["skillet-roasted-whole-fish-burst-tomatoes-olives-garlic-crostini", "crispy-coconut-lime-fish-tacos-pineapple-slaw", "british-beer-battered-fish-chips-mushy-peas"],
-        "eyebrow": "Fish cut and heat guide",
-        "title": "Choose a fish method by cut, coating and moisture",
-        "copy": "Compare salmon gently simmered in soup with a whole fish roasted over burst tomatoes, sheet-pan coconut-crusted strips and battered fried fillets by cut, heat, coating, doneness cue and make-ahead limits.",
+    "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter": {
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "apple-cinnamon-baked-oatmeal", "instant-pot-egyptian-style-ful-medames-breakfast-platter"],
+        "eyebrow": "Breakfast base and egg guide",
+        "title": "Choose a savory or sweet breakfast by base and method",
+        "copy": "Compare poached eggs over garlicky yogurt with creamy stovetop miso oats, sweet baked oatmeal and pressure-cooked fava beans by base, texture, active time and make-ahead limits.",
     },
     "smoky-warm-lentils-red-pepper-parsley-lemon": {
         "slugs": ["spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry"],

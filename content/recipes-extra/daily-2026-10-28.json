@@ -1,119 +1,121 @@
 [
   {
-    "slug": "skillet-roasted-whole-fish-burst-tomatoes-olives-garlic-crostini",
-    "title": "Skillet-Roasted Whole Fish with Burst Tomatoes, Olives & Garlic Crostini",
-    "dek": "A whole Mediterranean-style fish roasts over blistered cherry tomatoes and olives, then comes to the table with lemon, fresh herbs and crisp garlic-rubbed bread.",
-    "collection": "seafood",
-    "protein": ["fish"],
-    "difficulty": "Intermediate",
-    "prep_minutes": 25,
-    "cook_minutes": 30,
-    "total_minutes": 55,
-    "servings": 4,
-    "calories": 430,
-    "cost_per_serving": "$5.25",
-    "image": "https://images.pexels.com/photos/27294732/pexels-photo-27294732/free-photo-of-a-fish-is-in-a-pan-with-tomatoes-and-herbs.jpeg?auto=compress&dpr=1&h=750&w=1260",
-    "image_alt": "Whole roasted fish in a black skillet with blistered cherry tomatoes, black olives, lemon, basil, thyme and two garlic crostini",
-    "image_credit": "Valeria Boltneva / Pexels",
-    "image_credit_url": "https://www.pexels.com/photo/a-fish-is-in-a-pan-with-tomatoes-and-herbs-27294732/",
+    "slug": "miso-savory-oats-poached-eggs-sesame-chive-crunch",
+    "title": "Miso Savory Oats with Poached Eggs & Sesame-Chive Crunch",
+    "dek": "Creamy rolled oats take a savory turn with white miso and ginger, then finish with gently poached eggs and a crisp sesame-chive crumb for a practical 30-minute breakfast.",
+    "collection": "breakfast",
+    "protein": ["eggs"],
+    "difficulty": "Easy",
+    "prep_minutes": 10,
+    "cook_minutes": 20,
+    "total_minutes": 30,
+    "servings": 2,
+    "calories": 410,
+    "cost_per_serving": "$1.90",
+    "image": "https://images.pexels.com/photos/9606134/pexels-photo-9606134.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    "image_alt": "Creamy savory oat porridge topped with two poached eggs, chopped chives and a toasted sesame crumb in a dark bowl",
+    "image_credit": "Airam Dato-on / Pexels",
+    "image_credit_url": "https://www.pexels.com/photo/close-up-shot-of-food-in-a-bowl-9606134/",
     "image_license": "Pexels License",
     "image_license_url": "https://www.pexels.com/license/",
     "tags": [
-      "whole roasted fish",
-      "Mediterranean fish dinner",
-      "cast iron fish",
-      "branzino alternative",
-      "cherry tomatoes and olives",
-      "garlic crostini",
-      "seafood dinner"
+      "savory oatmeal",
+      "miso oats",
+      "poached egg breakfast",
+      "30-minute breakfast",
+      "high-protein oatmeal",
+      "sesame chive crunch",
+      "vegetarian breakfast"
     ],
     "ingredients": [
-      "1 whole cleaned and scaled round fish, 2 to 2 1/2 lb (branzino, sea bream or red snapper), fins trimmed",
-      "1 1/2 tsp kosher salt, divided",
-      "1/2 tsp freshly ground black pepper, divided",
-      "4 tbsp extra-virgin olive oil, divided",
-      "1 medium lemon",
-      "6 fresh thyme sprigs, plus more for serving",
-      "3 garlic cloves, divided",
-      "2 cups cherry tomatoes",
-      "1/2 cup pitted Kalamata or other black olives",
-      "1/4 tsp red pepper flakes, optional",
-      "1/4 cup dry white wine or low-sodium vegetable broth",
-      "4 slices baguette, each about 1/2 inch thick",
-      "1/3 cup loosely packed fresh basil leaves"
+      "1 tsp toasted sesame oil",
+      "1/4 cup panko breadcrumbs",
+      "1 tsp sesame seeds",
+      "1/8 tsp kosher salt, plus more for the poaching water",
+      "2 tbsp finely chopped fresh chives, divided",
+      "1 tsp neutral oil",
+      "1 tsp finely grated fresh ginger",
+      "1 cup old-fashioned rolled oats",
+      "2 cups water",
+      "1 cup unsweetened soy milk or whole milk",
+      "2 tbsp white miso",
+      "1 tsp low-sodium soy sauce",
+      "1 tsp unseasoned rice vinegar",
+      "1 tbsp distilled white vinegar",
+      "2 large eggs, preferably pasteurized if serving with soft yolks",
+      "1/4 tsp freshly ground black pepper"
     ],
     "instructions": [
       {
-        "name": "Heat the oven and dry the fish",
-        "text": "Set a rack in the middle of the oven and heat to 450°F. Confirm that the fish is gutted, scaled and has no sharp fins. Pat the cavity and skin very dry with paper towels; do not rinse raw fish. Cut three shallow diagonal slashes through the skin on each side without cutting to the bone."
+        "name": "Toast the sesame-chive crunch",
+        "text": "Heat a small skillet over medium-low. Add the sesame oil, panko, sesame seeds and 1/8 teaspoon salt. Cook for 3 to 4 minutes, stirring often, until evenly golden. Transfer to a plate, cool for 2 minutes, then stir in 1 tablespoon chives so they stay bright."
       },
       {
-        "name": "Season the fish inside and out",
-        "text": "Season the cavity and both sides with 1 teaspoon salt and 1/4 teaspoon black pepper. Cut half the lemon into thin rounds and tuck them into the cavity with four thyme sprigs and one thinly sliced garlic clove. Rub the skin with 1 tablespoon olive oil."
+        "name": "Bloom the ginger",
+        "text": "Heat the neutral oil in a 2-quart saucepan over medium. Add the ginger and cook for 30 seconds, stirring, until fragrant but not browned. Stir in the rolled oats and toast for 1 minute so every flake is lightly coated."
       },
       {
-        "name": "Blister the tomatoes and olives",
-        "text": "Heat a 12-inch ovenproof cast-iron or stainless-steel skillet over medium-high heat. Add 1 tablespoon olive oil, the tomatoes, olives, remaining two thyme sprigs, optional red pepper flakes, remaining 1/2 teaspoon salt and remaining 1/4 teaspoon black pepper. Cook for 4 to 5 minutes, shaking the pan twice, until several tomatoes blister but most remain whole."
+        "name": "Simmer the oats until creamy",
+        "text": "Add 2 cups water and bring to a lively simmer. Reduce the heat to medium-low and cook for 8 minutes, stirring every 2 minutes. Add the milk and simmer 3 to 5 minutes more, stirring frequently, until the oats are tender and flow slowly from a spoon. Remove from the heat."
       },
       {
-        "name": "Roast to a safe center",
-        "text": "Push the tomatoes and olives toward the skillet edges and lay the fish in the center. Pour the wine or broth around, not over, the fish. Transfer the skillet to the oven and roast for 18 to 25 minutes. Begin checking at 18 minutes: the thickest flesh just behind the head should reach 145°F without the thermometer touching bone, look opaque and lift cleanly from the backbone."
+        "name": "Poach the eggs gently",
+        "text": "While the oats cook, fill a wide saucepan with 2 inches of water, add the white vinegar and bring to a bare simmer; small bubbles should rise without a rolling boil. Crack each egg into a separate cup. Slide in the eggs one at a time and cook for 3 1/2 to 4 1/2 minutes, until the whites are completely opaque and set and the yolks are as firm as desired. For people at higher risk from foodborne illness, use pasteurized eggs or continue cooking until each egg reaches 160°F. Lift with a slotted spoon and blot underneath with a clean towel."
       },
       {
-        "name": "Make the garlic crostini",
-        "text": "While the fish roasts, arrange the baguette slices on a small sheet pan. Brush both sides with 1 tablespoon olive oil. Bake on a lower rack for 5 to 7 minutes, turning once, until crisp and golden at the edges. Halve one garlic clove and rub its cut side lightly over each hot toast."
+        "name": "Season without boiling the miso",
+        "text": "Whisk the miso with 1/4 cup hot oats in a small bowl until smooth. Stir the mixture back into the saucepan with the soy sauce and rice vinegar. Keep the pan off the heat so the miso stays smooth. Taste before adding any salt; miso and soy sauce supply most of the seasoning."
       },
       {
-        "name": "Rest and finish",
-        "text": "Remove the skillet carefully and rest the fish for 5 minutes; the handle will be extremely hot. Squeeze the unused lemon half over the tomatoes, then scatter the basil and extra thyme around the fish. Drizzle with the remaining 1 tablespoon olive oil."
-      },
-      {
-        "name": "Serve from the skillet",
-        "text": "Set two crostini beside the fish in the skillet to match the photograph and serve the other two separately. Lift off the top fillet, remove the backbone in one piece, then portion the bottom fillet, checking each serving for small bones. Spoon the burst tomatoes, olives and pan juices over the fish."
+        "name": "Build the two bowls",
+        "text": "Divide the oats between two dark, shallow bowls. Set one poached egg on each serving, then scatter with the sesame-chive crunch, remaining 1 tablespoon chives and black pepper. Serve immediately while the crumb is crisp."
       }
     ],
     "why_it_works": [
-      "Drying and lightly scoring the skin helps it tighten without tearing as the thick center cooks through.",
-      "Blistering the tomatoes before the fish enters the oven starts their sauce while preserving the whole red tomatoes visible around the finished fish.",
-      "A small amount of wine or broth creates savory pan juices without submerging the fish or softening all of its skin.",
-      "Measuring the flesh beside the head targets the slowest-cooking area; avoiding the bone prevents a falsely high thermometer reading.",
-      "Garlic-rubbed crostini provide a crisp tool for the tomato-olive juices and reproduce the two toasted bread slices visible in the photograph."
+      "Toasting the oats briefly in ginger-scented oil adds a nutty base without requiring a long cooking time.",
+      "Adding milk only after the water has softened the oat centers keeps the porridge creamy without scorching the pan bottom.",
+      "Whisking miso with a small portion of hot oats prevents salty clumps and seasons the whole pot evenly.",
+      "A bare simmer keeps the egg whites compact and tender; a rolling boil can feather the whites before they set.",
+      "Cooling the toasted crumb before adding chives preserves the green garnish and the distinct crisp topping visible in the photograph."
     ],
     "swaps": [
-      "Use any cleaned round fish in the 2 to 2 1/2 pound range, such as branzino, sea bream or red snapper. A thicker fish may need several extra minutes; temperature and texture, not species, determine doneness.",
-      "For fillets, use four 5- to 6-ounce skin-on white-fish fillets. Blister the tomatoes first, nestle in the fillets and roast 8 to 12 minutes to 145°F; the presentation will differ from the whole-fish photograph.",
-      "Use low-sodium vegetable broth instead of wine. Add 1 teaspoon white-wine vinegar with the final lemon to replace some of the wine's acidity.",
-      "Castelvetrano olives can replace black olives for a milder flavor, though the garnish color will not match the photograph."
+      "Use certified gluten-free rolled oats, gluten-free panko and tamari if avoiding gluten; check the miso label as well.",
+      "For dairy-free oats, choose unsweetened soy milk for a creamy body and neutral flavor. Oat milk also works but produces a softer oat-on-oat texture.",
+      "Fried or seven-minute boiled eggs can replace poached eggs. Keep the sesame-chive topping and place one egg on each bowl to preserve the finished composition.",
+      "For a vegan version, omit the eggs and top each bowl with 3 ounces of crisp pan-seared tofu; calories and cooking time will change."
     ],
-    "storage": "Remove leftover flesh from the bones within 2 hours and refrigerate it with the tomato-olive mixture in a shallow airtight container for up to 2 days. Refrigerate crostini separately and re-crisp them at 350°F for 4 to 6 minutes. Reheat fish and vegetables covered at 300°F with 1 tablespoon broth until the center reaches 165°F. Freezing is not recommended because whole roasted fish becomes dry and the tomatoes turn watery.",
+    "storage": "Refrigerate the cooked oats in a shallow airtight container for up to 4 days and the sesame-chive crunch at room temperature for up to 2 days. Refrigerate cooked eggs separately for no more than 2 days. Reheat oats with 2 to 3 tablespoons water or milk per serving, stirring on the stovetop or halfway through microwaving, until they reach 165°F. Reheat fully cooked eggs in barely simmering water for 1 minute; for best texture, poach fresh eggs and add the crunch only after reheating. Freeze the plain seasoned oats for up to 1 month, but do not freeze the eggs or crumb.",
     "notes": [
-      "Ask the fish counter to gut, scale and trim the fins. A 2- to 2 1/2-pound fish fits a typical 12-inch skillet and yields four modest servings after bones and head are removed.",
-      "Fish thickness matters more than its total weight. Start checking early and insert the thermometer horizontally into the thickest flesh just behind the gill plate.",
-      "Keep a dry oven mitt over or beside the skillet handle after it leaves the oven so nobody mistakes the handle for a cool stovetop handle.",
-      "Calories and cost include one crostini per serving. Fish prices vary widely by species and region, so the cost estimate assumes a moderately priced whole farmed fish."
+      "Old-fashioned rolled oats give defined flakes and a creamy spoonable texture. Quick oats turn softer, while steel-cut oats require substantially more liquid and time.",
+      "Keep the poaching water below a boil. If the surface is heaving, lower the heat and wait before adding the eggs.",
+      "White miso varies in saltiness, so taste the finished oats before adding extra salt. The measured soy sauce is intentionally modest.",
+      "Calories and cost include one egg and half the sesame crumb per serving; prices assume pantry quantities of miso, soy sauce and sesame oil."
     ],
     "faqs": [
       {
-        "q": "How do I know when a whole roasted fish is done?",
-        "a": "Check the thickest flesh just behind the head. It should register 145°F without the probe touching bone, turn opaque and release from the backbone with gentle pressure. Clear eyes or browned skin alone are not reliable doneness tests."
+        "q": "Will savory oatmeal taste like breakfast cereal?",
+        "a": "The texture is familiar, but ginger, miso, soy sauce and rice vinegar move the flavor firmly toward a savory grain bowl. Toasting the oats also adds a nuttier flavor than simply boiling them in milk."
       },
       {
-        "q": "Do I need to flip the fish while it roasts?",
-        "a": "No. The hot skillet conducts heat into the underside while the 450°F oven cooks the top. Flipping a tender whole fish risks tearing its skin and breaking the fillets before serving."
+        "q": "How do I keep poached egg whites from spreading?",
+        "a": "Use fresh eggs, crack each into a cup, keep the water at a bare simmer and lower the cup close to the surface before sliding the egg in. Vinegar helps the white set, but a rolling boil will still pull it apart."
       },
       {
-        "q": "Can I prepare this whole fish ahead?",
-        "a": "You can clean, dry and season the fish up to 4 hours ahead and keep it uncovered on a tray in the refrigerator. Slice the garlic and prepare the tomatoes and olives separately. Cook only when ready to serve, because reheated whole fish loses moisture quickly."
+        "q": "Can I make miso savory oats ahead for workday breakfasts?",
+        "a": "Yes. Portion the cooked oats and crumb separately for up to 4 days, then reheat the oats to 165°F with a splash of water or milk. Poach an egg fresh when possible, or substitute a peeled hard-cooked egg for easier transport."
       }
     ],
     "pantry": [
+      "old-fashioned rolled oats",
+      "panko breadcrumbs",
+      "sesame seeds",
+      "toasted sesame oil",
+      "white miso",
+      "low-sodium soy sauce",
+      "rice vinegar",
+      "distilled white vinegar",
       "kosher salt",
-      "black pepper",
-      "extra-virgin olive oil",
-      "Kalamata olives",
-      "red pepper flakes",
-      "dry white wine",
-      "low-sodium vegetable broth"
+      "black pepper"
     ],
     "date_published": "2026-10-28",
     "date_modified": "2026-10-28"
