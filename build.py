@@ -1,928 +1,3134 @@
-YªçŠx-®éÜj×¢ëiºÚ+Š§j[h‘éÜ¢éí×M·ó”èµ©hºÚn¶X§zÍHÈKİ\Ü‹Øš[‹Ù[ˆ]ÛŒÂ™œ›ÛH×Ù]\™W×È[\Ü[››İ][ÛœÂ‚š[\Ü[š[\Ü\ÚX‚š[\ÜœÛÛ‚š[\ÜÜÂš[\Ü™Bš[\ÜÚ][™œ›ÛH]][YH[\Ü]][YK[Y^›Û™B™œ›ÛH[XZ[][È[\Ü›Ü›X]Ù]][YB™œ›ÛH]Xˆ[\Ü]™œ›ÛH\›X‹œ\œÙH[\Ü][İWÜ\Â‚”“ÓÕH]
-×Ùš[W×ÊKœ™\ÛÛ™J
-Kœ\™[”P“PÈH“ÓÕÈÜË™[š\›Û‹™Ù]
-”P“P×ÑTˆ‹œX›XÈŠB”‘PÒTTÈHœÛÛ‹›ØYÊ
-“ÓÕÈ˜ÛÛ[ˆÈœ™XÚ\\ËšœÛÛˆŠKœ™XYİ^
-[˜ÛÙ[™ÏH]‹NŠJBT•PÓTÈHœÛÛ‹›ØYÊ
-“ÓÕÈ˜ÛÛ[ˆÈ˜\XÛ\ËšœÛÛˆŠKœ™XYİ^
-[˜ÛÙ[™ÏH]‹NŠJB‚”ÒUWÓSQHH‘\ÚØ[‚”ÒUWÕT“HšÎ‹ËÙ\ÚØ[˜ÛÛH‚TÑHHÜË™[š\›Û‹™Ù]
-”ÒUWĞTÑH‹‹Ñ\ÚØ[˜ÛÛHŠKœœİš\
-‹ÈŠBšYˆTÑHOH‹È‚ˆTÑHHˆ‚‘“Ô“WÑSPRSHÜË™[š\›Û‹™Ù]
-‘“Ô“WÑSPRSŠHÜˆš[Ğ\ÚØ[˜ÛÛH‚SPV“Ó—ÕQÈH
-ÜË™[š\›Û‹™Ù]
-SPV“Ó—ÕQÈŠHÜˆ™\ÚØ[LŒŠKœİš\
+#!/usr/bin/env python3
+from __future__ import annotations
 
-BQÑS”ÑWĞÓQS•H
-ÜË™[š\›Û‹™Ù]
-QÑS”ÑWĞÓQS•ŠHÜˆˆŠKœİš\
+import html
+import hashlib
+import json
+import os
+import re
+import shutil
+from datetime import datetime, timezone
+from email.utils import format_datetime
+from pathlib import Path
+from urllib.parse import quote_plus
 
-BQÑS”ÑWÔP“TÒT—ÒQH
-ÜË™[š\›Û‹™Ù]
-QÑS”ÑWÔP“TÒT—ÒQŠHÜˆˆŠKœİš\
+ROOT = Path(__file__).resolve().parent
+PUBLIC = ROOT / os.environ.get("PUBLIC_DIR", "public")
+RECIPES = json.loads((ROOT / "content" / "recipes.json").read_text(encoding="utf-8"))
+ARTICLES = json.loads((ROOT / "content" / "articles.json").read_text(encoding="utf-8"))
 
-BÓÕQ“T‘WÕÒÑSˆH
-ÜË™[š\›Û‹™Ù]
-ÓÕQ“T‘WÕÒÑSˆŠHÜˆˆŠKœİš\
+SITE_NAME = "DishGal"
+SITE_URL = "https://dishgal.com"
+BASE = os.environ.get("SITE_BASE", "/DishGal.com").rstrip("/")
+if BASE == "/":
+    BASE = ""
+FORM_EMAIL = os.environ.get("FORM_EMAIL") or "hello@dishgal.com"
+AMAZON_TAG = (os.environ.get("AMAZON_TAG") or "dishgal-20").strip()
+ADSENSE_CLIENT = (os.environ.get("ADSENSE_CLIENT") or "").strip()
+ADSENSE_PUBLISHER_ID = (os.environ.get("ADSENSE_PUBLISHER_ID") or "").strip()
+CLOUDFLARE_TOKEN = (os.environ.get("CLOUDFLARE_TOKEN") or "").strip()
 
-B‚ÓÓPÕSÓ—ÓQUHHÂˆŒÌ[Z[]Hˆ
-ŒÌSZ[]H[›™\œÈ‹‘˜\İ[›™\œÈÚ][›İYÚİXİ\™HÈ™Y[ZÙHH™X[YX[ˆ‹¸£ìHŠKˆš[œİ[\İˆ
-’[œİ[İ˜[Z[H[›™\œÈ‹”™\Üİ\™KXÛÛÚÙ\ˆ[›™\œÈÚ]™X[\İXÈİ[[Y\ËZ[Yš\œİÙX\ÛÛš[™Ë[™™]Ù\ˆ\Ú\È›Üˆ\ŞH˜[Z[HšYÚËˆ‹¸¦¨HŠKˆ›Û™K\İˆ
-“Û™KTİ[›™\œÈ‹“\ÜÈÛX[\[[›™\ˆ[™\™ŞKÛ™HXZ[ˆİˆ‹¼'ãlˆŠKˆœÚY]\[ˆˆ
-”ÚY]T[ˆ[›™\œÈ‹’[™Ë[Ù™ˆ›Ø\İ[™Ëœ›İÛ™YYÙ\Ë™]Ù\ˆ\Ú\Ëˆ‹¼'éfŠKˆœÛİËXÛÛÚÙ\ˆˆ
-”ÛİËPÛÛÚÙ\ˆ[›™\œÈ‹”Ù]Z]]\YX[È›Üˆ^\ÈÚ[ˆ[›™\ˆ™YYÈÈØZ]›Üˆ[İKˆ‹¸¦jŠKˆ˜YÙ]ˆ
-YÙ][›™\œÈ‹‘ÛÛÙ[›™\œÈZ[\›İ[™\ÙY[™\X]X›HÜ›ØÙ\šY\Ëˆ‹¼'ä®ŠKˆ˜œ™XZÙ˜\İˆ
-œ™XZÙ˜\İ™XÚ\\È‹”˜XİXØ[œ™XZÙ˜\İÈÚ]ÛX\ˆ[Z[™Ë™X[\İXÈÛÜİË[™Ü[ÛœÈ›Üˆ\ŞH[Ü›š[™ÜÈÜˆ™[^Yœ[˜Ú\Ëˆ‹¸¦ ŠKˆ™YÙ]\šX[ˆˆ
-•™YÙ]\šX[ˆ[›™\œÈ‹“YX]\ÜÈYX[È]İ[X]ZÙH[›™\‹ˆ‹¼'ékŠKˆ™˜[Z[Hˆ
-‘˜[Z[H˜]›Üš]\È‹“İËY˜[XH[›™\œÈ\ÚYÛ™Y›ÜˆHÚÛHX›Kˆ‹¼'ãoHŠKŸB‚’S‘Ô‘QQS•ÒP”ÈHÂˆ˜ÚXÚÙ[ˆˆÂˆ]Hˆ‘X\ŞHÚXÚÙ[ˆ™XÚ\\È‹ˆ™\ØÜš\[Ûˆˆ”˜XİXØ[ÚXÚÙ[ˆ[›™\œÈ›Üˆ\ŞHšYÚËœ›ÛH˜\İÚÚ[]È[™šXÙH›İÛÈÈÚY]\[ˆYX[È[™˜[Z[HØ\ÜÙ\›Û\Ëˆ‹ˆ\›\ÈˆÈ˜ÚXÚÙ[ˆŸKˆKˆ˜™YYˆˆÂˆ]Hˆ‘X\ŞH™YYˆ™XÚ\\È‹ˆ™\ØÜš\[Ûˆˆ•ÙYZÛšYÚ™YYˆ™XÚ\\ÈÚ]ÛX\ˆ[Z[™Ë\ÙY[İØ\Ë[™Ü[ÛœÈ˜[™Ú[™Èœ›ÛHÜ›İ[™X™YYˆ[›™\œÈÈİXZË[šYÚ˜]›Üš]\Ëˆ‹ˆ\›\ÈˆÈ˜™YYˆ‹œİXZÈ‹œšX™^YH‹˜œš\ÚÙ]‹™Ü›İ[™X™YYˆŸKˆKˆ™Ü›İ[™X™YYˆˆÂˆ]Hˆ‘X\ŞHÜ›İ[™™YYˆ™XÚ\\È‹ˆ™\ØÜš\[Ûˆˆ”™[XX›HÜ›İ[™™YYˆ[›™\œÈ›ÜˆXÛÜËÚÚ[]ËØ\ÜÙ\›Û\Ë\İK[™İ\ˆ˜[Z[KYœšY[™HYX[È]X\›ˆH™\X]ˆ‹ˆ\›\ÈˆÈ™Ü›İ[™X™YYˆ‹™Ü›İ[™™YYˆ‹™Ü›İ[™ÚXÚÈŸKˆKˆœšX™^YHˆÂˆ]Hˆ”šX™^YHİXZÈ™XÚ\\È‹ˆ™\ØÜš\[Ûˆˆ”šX™^YH™XÚ\\È›ÜˆÚÚ[]ËÜš[ËØ[™ÚXÚ\ËXÛÜË[™İXZÚİ\ÙK\İ[H[›™\œËÚ]˜XİXØ[Û™[™\ÜÈ[™ÛXÚ[™È›İ\Ëˆ‹ˆ\›\ÈˆÈœšX™^YHŸKˆKˆœÜšÈˆÂˆ]Hˆ‘X\ŞHÜšÈ™XÚ\\È‹ˆ™\ØÜš\[Ûˆˆ”İ˜ZYÚ›ÜØ\™ÜšÈ[›™\œÈZ[\›İ[™ÚÜË[™\›Ú[‹Ø]\ØYÙK[™İ\ˆÙYZÛšYÚYœšY[™Hİ]È[™›]›ÜœËˆ‹ˆ\›\ÈˆÈœÜšÈ‹˜˜XÛÛˆ‹š[H‹œ›ÜØÚ]]È‹œØ]\ØYÙH‹šÚY[˜\ØH‹˜ÚÜš^›ÈŸKˆKˆœÙXY›ÛÙˆÂˆ]Hˆ‘X\ŞHÙXY›ÛÙ™XÚ\\È‹ˆ™\ØÜš\[Ûˆˆ\›ØXÚX›HÙXY›ÛÙ[›™\œÈ™X]\š[™ÈÚš[\Ø[[Û‹š\Ú[˜K[™[Ü™KÚ]™X[\İXÈÛÛÚÈ[Y\È[™›ÈİY\ÜİÛÜšËˆ‹ˆ\›\ÈˆÈœÙXY›ÛÙ‹™š\Ú‹œØ[[Ûˆ‹œÚš[\‹[˜H‹›İ]‹˜ÛÙ‹[\XH‹˜Ø[[X\šHŸKˆKŸB‚”“ÕRS—ÓQUHHÂˆ˜™YYˆˆ™YYˆ‹ˆ˜ÚXÚÙ[ˆˆÚXÚÙ[ˆ‹ˆœÜšÈˆ”ÜšÈ‹ˆ\šÙ^Hˆ•\šÙ^H‹ˆ›[Xˆˆ“[Xˆ‹ˆœØ]\ØYÙHˆ”Ø]\ØYÙH‹ˆœÙXY›ÛÙˆ”ÙXY›ÛÙ‹ˆ›YX]\ÜÈˆ“YX]\ÜÈ‹ŸB‚‘ÕRQWĞĞUQÓÔ–WÓQUHHÂˆ›YX[\[›š[™Èˆ
-“YX[[›š[™È‹”ÛX\\ˆÙYZÛH[œÈÚ]\ÜÈØ\İH[™™]Ù\ˆÛ™K]\ÙHÜ›ØÙ\šY\Ëˆ‹¼'åäÈŠKˆšÚ]Ú[‹\Ş\İ[\Èˆ
-’Ú]Ú[ˆŞ\İ[\È‹”˜XİXØ[›İ][™\È]™YXÙHÙYZÛšYÚXÚ\Ú[Ûˆ˜]YİYKˆ‹¸§$ÈŠKˆšÚ]Ú[‹YÙX\ˆˆ
-’Ú]Ú[ˆÙX\ˆ‹’Û™\İ^Z[™ÈİZY[˜ÙH˜\ÙYÛˆ[˜İ[Û‹š][™˜Y[Ù™œËˆ‹¼'ãlÈŠKŸB‚”ÒÔĞĞT‘ĞÔÔÈHˆˆİ[O‚‹œÚÜYÜšYÙ\Ü^N™ÜšYÙÜšY][\]KXÛÛ[[œÎœ™\X]
-ËZ[›X^
-YœŠJNÙØ\Œ\™[NÛX\™Ú[‹]ÜŒKŒ\™[_B‹œÚÜXØ\™Ù\Ü^N™›^ÛZ[‹]ÚYŒÙ›^Y\™Xİ[Û˜ÛÛ[[Ûİ™\™›İÎšY[ØÛÛÜ˜\ŠKZ[šÊNØ˜XÚÙÜ›İ[™˜\ŠK\\\ŠNØ›Ü™\Œ\ÛÛY˜\ŠK[[™JNØ›Ü™\‹\˜Y]\ÎŒNØ›Ş\ÚYİÎ˜\ŠK\ÚYİË\ÛJNİ^YXÛÜ˜][Û››Û™Nİ˜[œÚ][Û˜[œÙ›Ü›HŒœÈX\ÙK›Ş\ÚYİÈŒœÈX\ÙK›Ü™\‹XÛÛÜˆŒœÈX\Ù_B‹œÚÜXØ\™šİ™\İ˜[œÙ›Ü›N˜[œÛ]VJLÜ
-NØ›Ü™\‹XÛÛÜ˜\ŠK]ÛX]ÊNØ›Ş\ÚYİÎŒM\Í™Ø˜JŒKÎ‹ŒM
-_B‹œÚÜXØ\™™›Øİ\Ë]š\ÚX›^Ûİ][™NŒÜÛÛY˜\ŠK[]\İ\™
-NÛİ][™K[Ù™œÙ]ŒÜB‹œÚÜXØ\™[YYX^Ù\Ü^N˜›ØÚÎÜÜÚ][Ûœ™[]]™NÛİ™\™›İÎšY[Ø\ÜXİ\˜][ÎŒËÌØ˜XÚÙÜ›İ[™XÛÛÜˆÙYYMÙØ˜XÚÙÜ›İ[™\ÜÚ][Û˜Ù[\Ø˜XÚÙÜ›İ[™\™\X]››Ë\™\X]Ø˜XÚÙÜ›İ[™\Ú^™N˜Ûİ™\ŸB‹œÚÜXØ\™[YYXN˜Y\ØÛÛ[ˆ’Ú]Ú[ˆXÚÈÜÜÚ][Û˜XœÛÛ]NÜšYÚ‹Ü™[NØ›İÛN‹Ü™[NÜY[™Î‹Œ™[HM\™[NØÛÛÜˆÙ™™Ø˜XÚÙÜ›İ[™œ™Ø˜JÌ‹KÎ
-NØ›Ü™\‹\˜Y]\ÎNN\Ù›Û\Ú^™N‹\™[NÙ›Û]ÙZYÚÛ]\‹\ÜXÚ[™Î‹Œ[Nİ^]˜[œÙ›Ü›N\\˜Ø\Ù_B‹œÚÜXØ\™[YYXH[YŞİÚYŒL	NÚZYÚŒL	NÛØš™XİYš]˜Ûİ™\İ˜[œÚ][Û˜[œÙ›Ü›HŒÜÈX\Ù_B‹œÚÜXØ\™šİ™\ˆœÚÜXØ\™[YYXH[YŞİ˜[œÙ›Ü›NœØØ[JKŒÍJ_B‹œÚÜXØ\™XÛÜ^Ù\Ü^N™›^Ù›^ŒNÛZ[‹]ÚYŒÙ›^Y\™Xİ[Û˜ÛÛ[[Ø[YÛ‹Z][\Î™›^\İ\ÜY[™ÎŒ\™[HKŒ\™[HKŒ\™[_W‹œÚÜXØ\™K]^[Û›HœÚÜXØ\™XÛÜ^ÛZ[‹ZZYÚŒNLÚ\İYKXÛÛ[™›^\İ\B‹œÚÜXØ\™XÛÜHÛX[ÛX\™Ú[‹X›İÛN‹Œ™[NØÛÛÜ˜\ŠK]ÛX]ËY\šÊNÙ›Û\Ú^™N‹Ì\™[NÙ›Û]ÙZYÚLÛ]\‹\ÜXÚ[™Î‹ŒY[Nİ^]˜[œÙ›Ü›N\\˜Ø\Ù_B‹œÚÜXØ\™XÛÜHİ›Û™ŞÙ›ÛY˜[Z[N‘Ù[Ü™ÚXK•[Y\È™]È›ÛX[ˆ‹Ù\šYÙ›Û\Ú^™NŒKŒN™[NÛ[™KZZYÚŒKŒŸB‹œÚÜXØ\™XÛÜHÜ[ÛX\™Ú[‹]Ü‹\™[NØÛÛÜ˜\ŠKZ[šË\ÛÙ
-NÙ›Û\Ú^™N‹\™[NÛ[™KZZYÚŒK_B‹œÚÜXØ\™XÛÜHÛX\™Ú[‹]Ü˜]]ÎÜY[™Ë]Ü‹™[NØÛÛÜ˜\ŠK\[JNÙ›Û\Ú^™N‹™[_BYYXJX^]ÚYŒ
-^ËœÚÜYÜšYÙÜšY][\]KXÛÛ[[œÎœ™\X]
-‹Z[›X^
-YœŠJ__BYYXJX^]ÚYMŒ
-^ËœÚÜYÜšYÙÜšY][\]KXÛÛ[[œÎŒYœŸKœÚÜXØ\™Ù\Ü^N™ÜšYÙÜšY][\]KXÛÛ[[œÎŒLZ[›X^
-YœŠ_KœÚÜXØ\™[YYX^ÚZYÚŒL	NÛZ[‹ZZYÚŒMØ\ÜXİ\˜][Î˜]]ßKœÚÜXØ\™XÛÜ^ÜY[™Î‹\™[_KœÚÜXØ\™[YYXN˜Y\Ù\Ü^N››Û™__BÜİ[Oˆˆˆ‚‚™Yˆ\ØÊ˜[YJHOˆİ‚ˆ™]\›ˆ[™\ØØ\JİŠ˜[YJK][İOUYJB‚™YˆÛX[—İ^
-˜[YJHOˆİ‚ˆ™]\›ˆ™KœİXŠˆ—ÊÈ‹ˆ‹İŠ˜[YJJKœİš\
+COLLECTION_META = {
+    "30-minute": ("30-Minute Dinners", "Fast dinners with enough structure to feel like a real meal.", "â±"),
+    "instant-pot": ("Instant Pot Family Dinners", "Pressure-cooker dinners with realistic total times, mild-first seasoning, and fewer dishes for busy family nights.", "âš¡"),
+    "one-pot": ("One-Pot Dinners", "Less cleanup, full dinner energy, one main pot.", "ğŸ²"),
+    "sheet-pan": ("Sheet-Pan Dinners", "Hands-off roasting, browned edges, fewer dishes.", "ğŸ¥˜"),
+    "slow-cooker": ("Slow-Cooker Dinners", "Set-it-up meals for days when dinner needs to wait for you.", "â™¨"),
+    "budget": ("Budget Dinners", "Good dinners built around useful, repeatable groceries.", "ğŸ’¸"),
+    "breakfast": ("Breakfast Recipes", "Practical breakfasts with clear timing, realistic costs, and options for busy mornings or relaxed brunches.", "â˜€"),
+    "vegetarian": ("Vegetarian Dinners", "Meatless meals that still eat like dinner.", "ğŸ¥¬"),
+    "family": ("Family Favorites", "Low-drama dinners designed for the whole table.", "ğŸ½"),
+}
 
-B‚™Yˆ™]WÜÛYÊÛYÎˆİŠHOˆİ‚ˆ™]\›ˆÛYËœ™\XÙJ‹H‹ˆŠK]J
-B‚™Yˆ™XÚ\WÜ›İZ[œÊ™XÚ\JHOˆ\İÜİ—N‚ˆ^XÚ]H™XÚ\K™Ù]
-œ›İZ[ˆ‹×JBˆYˆ\Ú[œİ[˜ÙJ^XÚ]İŠN‚ˆ^XÚ]HÙ^XÚ]BˆÛX[™YHÜİŠ˜[YJKœİš\
+INGREDIENT_HUBS = {
+    "chicken": {
+        "title": "Easy Chicken Recipes",
+        "description": "Practical chicken dinners for busy nights, from fast skillets and rice bowls to sheet-pan meals and family casseroles.",
+        "terms": {"chicken"},
+    },
+    "beef": {
+        "title": "Easy Beef Recipes",
+        "description": "Weeknight beef recipes with clear timing, useful swaps, and options ranging from ground-beef dinners to steak-night favorites.",
+        "terms": {"beef", "steak", "ribeye", "brisket", "ground-beef"},
+    },
+    "ground-beef": {
+        "title": "Easy Ground Beef Recipes",
+        "description": "Reliable ground beef dinners for tacos, skillets, casseroles, pasta, and other family-friendly meals that earn a repeat.",
+        "terms": {"ground-beef", "ground beef", "ground chuck"},
+    },
+    "ribeye": {
+        "title": "Ribeye Steak Recipes",
+        "description": "Ribeye recipes for skillets, grills, sandwiches, tacos, and steakhouse-style dinners, with practical doneness and slicing notes.",
+        "terms": {"ribeye"},
+    },
+    "pork": {
+        "title": "Easy Pork Recipes",
+        "description": "Straightforward pork dinners built around chops, tenderloin, sausage, and other weeknight-friendly cuts and flavors.",
+        "terms": {"pork", "bacon", "ham", "prosciutto", "sausage", "kielbasa", "chorizo"},
+    },
+    "seafood": {
+        "title": "Easy Seafood Recipes",
+        "description": "Approachable seafood dinners featuring shrimp, salmon, fish, tuna, and more, with realistic cook times and no guesswork.",
+        "terms": {"seafood", "fish", "salmon", "shrimp", "tuna", "trout", "cod", "tilapia", "calamari"},
+    },
+}
 
-K›İÙ\Š
-H›Üˆ˜[YH[ˆ^XÚ]YˆİŠ˜[YJKœİš\
+PROTEIN_META = {
+    "beef": "Beef",
+    "chicken": "Chicken",
+    "pork": "Pork",
+    "turkey": "Turkey",
+    "lamb": "Lamb",
+    "sausage": "Sausage",
+    "seafood": "Seafood",
+    "meatless": "Meatless",
+}
 
-WBˆYˆÛX[™Y‚ˆ™]\›ˆ\İ
-Xİ™œ›ÛZÙ^\ÊÛX[™Y
-JB‚ˆ^\İXÚÈHˆ‹š›Ú[ŠÂˆ™XÚ\K™Ù]
-]H‹ˆŠKˆ™XÚ\K™Ù]
-™ZÈ‹ˆŠKˆˆ‹š›Ú[Š™XÚ\K™Ù]
-YÜÈ‹×JJKˆˆ‹š›Ú[Š™XÚ\K™Ù]
-š[™Ü™YY[È‹×JJKˆˆ‹š›Ú[Š™XÚ\K™Ù]
-œ[H‹×JJKˆJK›İÙ\Š
-Bˆ[\ÈHÂˆ˜™YYˆˆ
-˜™YYˆ‹œİXZÈ‹œšX™^YH‹˜œš\ÚÙ]‹˜ÚXÚÈ›Ø\İ‹™Ü›İ[™ÚXÚÈŠKˆ˜ÚXÚÙ[ˆˆ
-˜ÚXÚÙ[ˆ‹
-KˆœÜšÈˆ
-œÜšÈ‹˜˜XÛÛˆ‹š[H‹œ›ÜØÚ]]ÈŠKˆ\šÙ^Hˆ
-\šÙ^H‹
-Kˆ›[Xˆˆ
-›[Xˆ‹
-KˆœØ]\ØYÙHˆ
-œØ]\ØYÙH‹šÚY[˜\ØH‹˜ÚÜš^›ÈŠKˆœÙXY›ÛÙˆ
-œÙXY›ÛÙ‹™š\Ú‹œØ[[Ûˆ‹[˜H‹œÚš[\‹˜ÛÙ‹[\XHŠKˆBˆX]Ú\ÈHÂˆ›İZ[‚ˆ›Üˆ›İZ[‹\›\È[ˆ[\Ëš][\Ê
-BˆYˆ[J™KœÙX\˜Ú
-™ˆŠÏVØK^ŒNWJ^Ü™K™\ØØ\J\›J_JÈVØK^ŒNWJH‹^\İXÚÊH›Üˆ\›H[ˆ\›\ÊBˆBˆYÜÈHÜİŠYÊK›İÙ\Š
-H›ÜˆYÈ[ˆ™XÚ\K™Ù]
-YÜÈ‹×J_BˆYˆ›İX]Ú\È[™YÜËš[\œÙXİ[ÛŠÈ™YÙ]\šX[ˆ‹™YØ[ˆŸJN‚ˆX]Ú\Ë˜\[™
-›YX]\ÜÈŠBˆ™]\›ˆX]Ú\Â‚™Yˆ™XÚ\WÜÙX\˜Úİ^
-™XÚ\JHOˆİ‚ˆ™]\›ˆˆ‹š›Ú[ŠÂˆ™XÚ\K™Ù]
-]H‹ˆŠKˆ™XÚ\K™Ù]
-™ZÈ‹ˆŠKˆˆ‹š›Ú[Š™XÚ\K™Ù]
-YÜÈ‹×JJKˆˆ‹š›Ú[Š™XÚ\K™Ù]
-š[™Ü™YY[È‹×JJKˆˆ‹š›Ú[Š™XÚ\K™Ù]
-œ[H‹×JJKˆˆ‹š›Ú[Š™XÚ\WÜ›İZ[œÊ™XÚ\JJKˆJK›İÙ\Š
-B‚™Yˆ™XÚ\\×Ù›Ü—Ú[™Ü™YY[
-ÛYÎˆİŠN‚ˆ\›\ÈHS‘Ô‘QQS•ÒP”ÖÜÛY×VÈ\›\È—Bˆ›İZ[—ÚX—ÙÜ›İ\ÈHÂˆ˜ÚXÚÙ[ˆˆÈ˜ÚXÚÙ[ˆŸKˆ˜™YYˆˆÈ˜™YYˆŸKˆ™Ü›İ[™X™YYˆˆÈ˜™YYˆŸKˆœšX™^YHˆÈ˜™YYˆŸKˆœÜšÈˆÈœÜšÈ‹œØ]\ØYÙHŸKˆœÙXY›ÛÙˆÈœÙXY›ÛÙ‹™š\Ú‹œØ[[Ûˆ‹[˜H‹œÚš[\‹˜ÛÙ‹[\XH‹›İ]‹˜Ø[[X\šHŸKˆBˆX]Ú\ÈH×Bˆ›Üˆ™XÚ\H[ˆ‘PÒTTÎ‚ˆYÜÈHÜİŠYÊK›İÙ\Š
-H›ÜˆYÈ[ˆ™XÚ\K™Ù]
-YÜÈ‹×J_Bˆ›İZ[œÈHÙ]
-™XÚ\WÜ›İZ[œÊ™XÚ\JJBˆYˆÛYÈ[ˆ›İZ[—ÚX—ÙÜ›İ\È[™›İ›İZ[œËš[\œÙXİ[ÛŠ›İZ[—ÚX—ÙÜ›İ\ÖÜÛY×JN‚ˆÛÛ[YBˆ^\İXÚÈHˆ‹š›Ú[ŠÂˆ™XÚ\K™Ù]
-]H‹ˆŠKˆˆ‹š›Ú[Š™XÚ\K™Ù]
-YÜÈ‹×JJKˆˆ‹š›Ú[Š™XÚ\K™Ù]
-œ[H‹×JJKˆˆ‹š›Ú[Š™XÚ\WÜ›İZ[œÊ™XÚ\JJKˆJK›İÙ\Š
-BˆYˆYÜËš[\œÙXİ[ÛŠ\›\ÊHÜˆ›İZ[œËš[\œÙXİ[ÛŠ\›\ÊHÜˆ[J\›H[ˆ^\İXÚÈ›Üˆ\›H[ˆ\›\ÊN‚ˆX]Ú\Ë˜\[™
-™XÚ\JBˆ™]\›ˆİX›WÜ™XÚ\WÛZ^
-X]Ú\ÊB‚™Yˆ[™Ü™YY[ÚXœ×Ù›Ü—Ü™XÚ\J™XÚ\JN‚ˆXİ]™WÜÛYÜÈHÜÛYÈ›ÜˆÛYËÈ[ˆXİ]™WÚ[™Ü™YY[ÚXœÊ
-_Bˆ™]\›ˆÜÛYÈ›ÜˆÛYÈ[ˆS‘Ô‘QQS•ÒP”ÈYˆÛYÈ[ˆXİ]™WÜÛYÜÈ[™™XÚ\H[ˆ™XÚ\\×Ù›Ü—Ú[™Ü™YY[
-ÛYÊWB‚™YˆXİ]™WÚ[™Ü™YY[ÚXœÊ
-N‚ˆ™]\›ˆÊÛYËY]JH›ÜˆÛYËY]H[ˆS‘Ô‘QQS•ÒP”Ëš][\Ê
-HYˆ[Š™XÚ\\×Ù›Ü—Ú[™Ü™YY[
-ÛYÊJHH×B‚™Yˆ™XÚ\WÜÙ[×İ]J™XÚ\JHOˆİ‚ˆ]HHÛX[—İ^
-™XÚ\K™Ù]
-]H‹”™XÚ\HŠJBˆYˆ[Š]JHˆH[™ˆÚ]ˆ[ˆ]K›İÙ\Š
-N‚ˆ]HH™KœÜ]
-ˆ—ÊİÚ]ÊÈ‹]KX^Ü]LK›YÜÏ\™K’QÓ“Ô‘PĞTÑJVÌBˆYˆœ™XÚ\Hˆ›İ[ˆ]K›İÙ\Š
-N‚ˆ]H
-ÏHˆ™XÚ\H‚ˆ™]\›ˆ]B‚™Yˆ[˜Ø]WÙ\ØÜš\[ÛŠ˜[YNˆİ‹[Z]ˆ[HMN
-HOˆİ‚ˆ˜[YHHÛX[—İ^
-˜[YJBˆYˆ[Š˜[YJHH[Z]‚ˆ™]\›ˆ˜[YBˆÚÜ[™YH˜[YVÎ›[Z]HWKœœÜ]
-ˆ‹JVÌKœœİš\
-ˆÎ‹HŠBˆ™]\›ˆÚÜ[™Y
-È¸ )ˆ‚‚™YˆœÜ×Ù]J˜[YNˆİŠHOˆİ‚ˆ\œÙYH]][YKœİœ[YJ˜[YK‰VKI[KIYŠKœ™\XÙJš[™›Ï][Y^›Û™K]ÊBˆ™]\›ˆ›Ü›X]Ù]][YJ\œÙY
-B‚™Yˆ™XÚ\WÛY]WÙ\ØÜš\[ÛŠ™XÚ\JHOˆİ‚ˆZ[]\ÈH[
-™XÚ\K™Ù]
-İ[ÛZ[]\È‹[
-™XÚ\K™Ù]
-œ™\ÛZ[]\È‹
-JH
-È[
-™XÚ\K™Ù]
-˜ÛÛÚ×ÛZ[]\È‹
-JJJBˆ™]\›ˆ[˜Ø]WÙ\ØÜš\[ÛŠˆ“XZÙHÜ™XÚ\K™Ù]
-	İ]IË	İ\È™XÚ\IÊ_H[ˆÛZ[]\ßHZ[]\ËˆÜ™XÚ\K™Ù]
-	ÙZÉË	ÉÊ_HŠB‚™YˆİX›WÜ™XÚ\WÛZ^
-™XÚ\\ÊN‚ˆˆˆ’ÙY\œ›İÜÚ[™È˜\šYYÚ]İ]Ú[™Ú[™ÈHÜ™\ˆÛˆ]™\HYÙHØYˆˆˆ‚ˆ™]\›ˆÛÜY
-ˆ™XÚ\\ËˆÙ^O[[X™H™XÚ\Nˆ\ÚX‹œÚLMŠ™XÚ\K™Ù]
-œÛYÈ‹ˆŠK™[˜ÛÙJ]‹NŠJKš^YÙ\İ
+GUIDE_CATEGORY_META = {
+    "meal-planning": ("Meal Planning", "Smarter weekly plans with less waste and fewer one-use groceries.", "ğŸ—“"),
+    "kitchen-systems": ("Kitchen Systems", "Practical routines that reduce weeknight decision fatigue.", "âœ“"),
+    "kitchen-gear": ("Kitchen Gear", "Honest buying guidance based on function, fit, and tradeoffs.", "ğŸ³"),
+}
 
-Kˆ
-B‚™Yˆ™YŠ]ˆİˆH‹ÈŠHOˆİ‚ˆYˆ›İ]œİ\İÚ]
-‹ÈŠN‚ˆ]H‹Èˆ
-È]ˆYˆ]OH‹È‚ˆ™]\›ˆˆĞTÑ_KÈˆYˆTÑH[ÙH‹È‚ˆ™]\›ˆˆĞTÑ_^Ü]HˆYˆTÑH[ÙH]‚™YˆØ[›ÛšXØ[
-]ˆİˆH‹ÈŠHOˆİ‚ˆYˆ›İ]œİ\İÚ]
-‹ÈŠN‚ˆ]H‹Èˆ
-È]ˆ™]\›ˆÒUWÕT“œœİš\
-‹ÈŠH
-È]‚™Yˆ[œİ\™WÙ\Š]ˆ]
-HOˆ›Û™N‚ˆ]›ZÙ\Š\™[ÏUYK^\İÛÚÏUYJB‚™YˆÜš]WÜYÙJ]ˆİ‹ÛÛ[ˆİŠHOˆ›Û™N‚ˆYˆ]OH‹È‚ˆ\™Ù]HP“PÈÈš[™^š[‚ˆ[Yˆ]OH‹Íš[‚ˆ\™Ù]HP“PÈÈš[‚ˆ[ÙN‚ˆ\™Ù]HP“PÈÈ]œİš\
-‹ÈŠHÈš[™^š[‚ˆ[œİ\™WÙ\Š\™Ù]œ\™[
-Bˆ\™Ù]Üš]Wİ^
-ÛÛ[[˜ÛÙ[™ÏH]‹NŠB‚™YˆœÛÛ—ÜØÜš\
-]JHOˆİ‚ˆ™]\›ˆœÛÛ‹™[\Ê]K[œİ\™WØ\ØÚZOQ˜[ÙJKœ™\XÙJÈ‹ÈŠB‚™Yˆœ˜[™
+SHOP_CARD_CSS = """<style>
+.shop-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.25rem}
+.shop-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.shop-card:hover{transform:translateY(-3px);border-color:var(--tomato);box-shadow:0 15px 34px rgba(61,38,26,.14)}
+.shop-card:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+.shop-card-media{display:block;position:relative;overflow:hidden;aspect-ratio:3/2;background-color:#eee7dd;background-position:center;background-repeat:no-repeat;background-size:cover}
+.shop-card-media::after{content:"Kitchen pick";position:absolute;right:.7rem;bottom:.7rem;padding:.28rem .55rem;color:#fff;background:rgba(32,28,25,.78);border-radius:999px;font-size:.69rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.shop-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.shop-card:hover .shop-card-media img{transform:scale(1.035)}
+.shop-card-copy{display:flex;flex:1;min-width:0;flex-direction:column;align-items:flex-start;padding:1rem 1.05rem 1.1rem}\n.shop-card--text-only .shop-card-copy{min-height:190px;justify-content:flex-start}
+.shop-card-copy small{margin-bottom:.28rem;color:var(--tomato-dark);font-size:.71rem;font-weight:850;letter-spacing:.065em;text-transform:uppercase}
+.shop-card-copy strong{font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;line-height:1.2}
+.shop-card-copy span{margin-top:.45rem;color:var(--ink-soft);font-size:.9rem;line-height:1.45}
+.shop-card-copy b{margin-top:auto;padding-top:.8rem;color:var(--plum);font-size:.84rem}
+@media(max-width:860px){.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.shop-grid{grid-template-columns:1fr}.shop-card{display:grid;grid-template-columns:124px minmax(0,1fr)}.shop-card-media{height:100%;min-height:168px;aspect-ratio:auto}.shop-card-copy{padding:.9rem}.shop-card-media::after{display:none}}
+</style>"""
 
-HOˆİ‚ˆ™]\›ˆ‰ÉÉÏHÛ\ÜÏH˜œ˜[™ˆ™YHÚ™YŠ	ËÉÊ_H‚ˆÜ[ˆÛ\ÜÏH˜œ˜[™[˜[YH‘\Ú[O‘Ø[Ù[OÜÜ[‚ˆØO‰ÉÉÂ‚™YˆXY\Š
-HOˆİ‚ˆ™]\›ˆ‰ÉÉÏXY\ˆÛ\ÜÏHœÚ]KZXY\ˆ‚ˆ]ˆÛ\ÜÏHÜ˜\XY\‹Z[›™\ˆ‚ˆØœ˜[™
+def esc(value) -> str:
+    return html.escape(str(value), quote=True)
 
-_Bˆ˜]ˆÛ\ÜÏH›XZ[‹[˜]ˆˆ\šXK[X™[H”š[X\H‚ˆH™YHÚ™YŠ	ËÜ™XÚ\\ËÉÊ_H”™XÚ\\ÏØO‚ˆH™YHÚ™YŠ	ËØÛÛXİ[ÛœËÚ[œİ[\İÉÊ_H’[œİ[İØO‚ˆH™YHÚ™YŠ	ËÈØœ›İÜÙK\™XÚ\\ÉÊ_HÛÛXİ[ÛœÏØO‚ˆH™YHÚ™YŠ	ËÛYX[\[›™\‹ÉÊ_H“YX[[›™\ØO‚ˆH™YHÚ™YŠ	ËÙİZY\ËÉÊ_H’Ú]Ú[ˆXÚÜÏØO‚ˆH™YHÚ™YŠ	ËÜØ]™YÉÊ_H”Ø]™YØO‚ˆÛ˜]‚ˆ]ˆÛ\ÜÏHšXY\‹XXİ[ÛœÈ‚ˆHÛ\ÜÏH˜ˆ‹\ÛH‹\š[X\Hˆ™YHÚ™YŠ	ËÜ™XÚ\\ËÉÊ_H‘š[™[›™\ØO‚ˆ]ÛˆÛ\ÜÏHšXÛÛ‹X]ÛˆY[KX]Ûˆˆ\OH˜]Ûˆˆ]K[Y[KX]Ûˆ\šXKY^[™YH™˜[ÙHˆ\šXK[X™[H“Ü[ˆY[H¸¦,Ø]Û‚ˆÙ]‚ˆÙ]‚ˆÚXY\‰ÉÉÂ‚™Yˆ›Ûİ\Š
-HOˆİ‚ˆ™]\›ˆ‰ÉÉÏ›Ûİ\ˆÛ\ÜÏHœÚ]KY›Ûİ\ˆ‚ˆ]ˆÛ\ÜÏHÜ˜\‚ˆ]ˆÛ\ÜÏH™›Ûİ\‹YÜšY‚ˆ]ˆÛ\ÜÏH™›Ûİ\‹Xœ˜[™‚ˆØœ˜[™
+def clean_text(value) -> str:
+    return re.sub(r"\s+", " ", str(value)).strip()
 
-_Bˆ‘[›™\ˆ[›Üˆ™X[šYÚÎˆ˜XİXØ[™XÚ\\Ë\ÙY[[›š[™ÈÛÛË[™Ú]Ú[ˆYšXÙHÚ]İ]H\™›Ü›X[˜ÙKÜ‚ˆÙ]‚ˆ]ˆÛ\ÜÏH™›Ûİ\‹XÛÛ[[ˆÏÛÛÚÏÚÏ‚ˆH™YHÚ™YŠ	ËÜ™XÚ\\ËÉÊ_H[™XÚ\\ÏØO‚ˆH™YHÚ™YŠ	ËØÛÛXİ[ÛœËÚ[œİ[\İÉÊ_H’[œİ[İ[›™\œÏØO‚ˆH™YHÚ™YŠ	ËØÛÛXİ[ÛœËÌÌ[Z[]KÉÊ_HŒÌ[Z[]H[›™\œÏØO‚ˆÉÉËš›Ú[Š‰ÏH™YHÚ™YŠ‹Ú[™Ü™YY[ËÈˆ
-ÈÛYÈ
-È‹ÈŠ_HÙ\ØÊY]VÈ]H—J_OØO‰È›ÜˆÛYËY]H[ˆXİ]™WÚ[™Ü™YY[ÚXœÊ
-VÎŒ×J_BˆH™YHÚ™YŠ	ËÙ[›™\‹YXÚY\‹ÉÊ_H‘[›™\ˆXÚY\ØO‚ˆH™YHÚ™YŠ	ËÜ[K\™\ØİYKÉÊ_H”[H™\ØİYOØO‚ˆÙ]‚ˆ]ˆÛ\ÜÏH™›Ûİ\‹XÛÛ[[ˆÏ”[ÚÏ‚ˆH™YHÚ™YŠ	ËÛYX[\[›™\‹ÉÊ_HK[šYÚ[›™\ØO‚ˆH™YHÚ™YŠ	ËÜØ]™YÉÊ_H”Ø]™Y™XÚ\\ÏØO‚ˆH™YHÚ™YŠ	ËÙİZY\ËÉÊ_H’Ú]Ú[ˆXÚÜÏØO‚ˆH™YHÚ™YŠ	ËÛ™]ÜÛ]\‹ÉÊ_H“™]ÜÛ]\ØO‚ˆÙ]‚ˆ]ˆÛ\ÜÏH™›Ûİ\‹XÛÛ[[ˆÏ‘\ÚØ[ÚÏ‚ˆH™YHÚ™YŠ	ËØX›İ]ÉÊ_HX›İ]ØO‚ˆH™YHÚ™YŠ	ËÙY]ÜšX[\ÛXŞKÉÊ_H‘Y]ÜšX[ÛXŞOØO‚ˆH™YHÚ™YŠ	ËØY™š[X]KY\ØÛÜİ\™KÉÊ_HY™š[X]H\ØÛÜİ\™OØO‚ˆH™YHÚ™YŠ	ËØÛÛXİÉÊ_HÛÛXİØO‚ˆÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÏH™›Ûİ\‹X›İÛH‚ˆÜ[°ªHÜ[ˆ]KXİ\œ™[^YX\ÜÜ[ˆ\ÚØ[˜ÛÛOÜÜ[‚ˆÜ[H™YHÚ™YŠ	ËÜš]˜XŞKÉÊ_H”š]˜XŞOØOˆ0­ÈH™YHÚ™YŠ	Ëİ\›\ËÉÊ_H•\›\ÏØOÜÜ[‚ˆÙ]‚ˆÙ]‚ˆÙ›Ûİ\‰ÉÉÂ‚™YˆYÙJ]Nˆİ‹\ØÜš\[Ûˆİ‹]ˆİ‹›ÙNˆİ‹
-‹ØÚ[XOS›Û™K›Ú[™^Q˜[ÙKˆ[XYÙOS›Û™KYÙWİ\OHÙXœÚ]H‹X›\ÚYS›Û™K[ÙYšYYS›Û™K™YY×Ü™XÚ\WÙ]OQ˜[ÙJHOˆİ‚ˆ]WÙ[H]HYˆ]K™[™İÚ]
-‘\ÚØ[ŠH[ÙHˆİ]_H\ÚØ[‚ˆ\ØÈHÛX[—İ^
-\ØÜš\[ÛŠBˆØÚ[XWÚ[Hˆ‚ˆYˆØÚ[XH\È›İ›Û™N‚ˆØÚ[XWÚ[H‰ÏØÜš\\OH˜\XØ][Û‹Û
-ÚœÛÛˆÚœÛÛ—ÜØÜš\
-ØÚ[XJ_OÜØÜš\‰ÂˆYÙ[œÙHH‰ÏØÜš\\Ş[˜ÈÜ˜ÏHšÎ‹ËÜYÙXY‹™ÛÛÙÛ\Ş[™XØ][Û‹˜ÛÛKÜYÙXYÚœËØYØYÛÛÙÛKšœÏØÛY[^Ù\ØÊQÑS”ÑWĞÓQS•
-_HˆÜ›ÜÜÛÜšYÚ[H˜[›Û[[İ\ÈÜØÜš\‰ÈYˆQÑS”ÑWĞÓQS•[ÙHˆ‚ˆÛİY›\™HH
-ˆ	ÏØÜš\Y™\ˆÜ˜ÏHšÎ‹ËÜİ]XË˜ÛİY›\™Z[œÚYÚË˜ÛÛKØ™XXÛÛ‹›Z[‹šœÈˆ	Âˆ‰Ù]KXÙ‹X™XXÛÛW	ŞŞÈÚÙ[ˆˆÙ\ØÊÓÕQ“T‘WÕÒÑSŠ_HŸ_W	ÏÜØÜš\‰ÂˆYˆÓÕQ“T‘WÕÒÑSˆ[ÙHˆ‚ˆ
-Bˆ›Ø›İÈH	ÏY]H˜[YOHœ›Ø›İÈˆÛÛ[H››Ú[™^›ÛİÈ‰ÈYˆ›Ú[™^[ÙH	ÏY]H˜[YOHœ›Ø›İÈˆÛÛ[Hš[™^›ÛİËX^Z[XYÙK\™]šY]Î›\™ÙH‰ÂˆÛØÚX[Ú[XYÙHH[XYÙHÜˆˆÔÒUWÕT“KØ\ÜÙ]ËÜÛØÚX[XØ\™œ™È‚ˆ\XÛWÛY]HHˆ‚ˆYˆYÙWİ\HOH˜\XÛH‚ˆYˆX›\ÚY‚ˆ\XÛWÛY]H
-ÏH‰×ˆY]H›Ü\OH˜\XÛNœX›\ÚYİ[YHˆÛÛ[HÙ\ØÊX›\ÚY
-_H‰ÂˆYˆ[ÙYšYY‚ˆ\XÛWÛY]H
-ÏH‰×ˆY]H›Ü\OH˜\XÛN›[ÙYšYYİ[YHˆÛÛ[HÙ\ØÊ[ÙYšYY
-_H‰Âˆ™XÚ\WÙ]WÜØÜš\H‰ÏØÜš\Y™\ˆÜ˜ÏHÚ™YŠ‹Ø\ÜÙ]ËÚœËÜ™XÚ\\ËšœÏİLŒŒLL˜ÛÛ\Xİ[XYÙ\ÌHŠ_HÜØÜš\‰ÈYˆ™YY×Ü™XÚ\WÙ]H[ÙHˆ‚ˆ™]\›ˆ‰ÉÉÏYØİ\H[‚[[™ÏH™[ˆˆ]KX˜\ÙOHÙ\ØÊTÑJ_H‚XY‚ˆY]HÚ\œÙ]H]‹N‚ˆY]H˜[YOHšY]ÜÜˆÛÛ[HÚYY]šXÙK]ÚY[š]X[\ØØ[OLH‚ˆ]OÙ\ØÊ]WÙ[
-_Oİ]O‚ˆY]H˜[YOH™\ØÜš\[ÛˆˆÛÛ[HÙ\ØÊ\ØÊ_H‚ˆY]H˜[YOH[YKXÛÛÜˆˆÛÛ[HˆÙNMŒÍÈ‚ˆÜ›Ø›İßBˆ[šÈ™[H˜Ø[›ÛšXØ[ˆ™YHÙ\ØÊØ[›ÛšXØ[
-]
-J_H‚ˆY]H›Ü\OH›ÙÎ\HˆÛÛ[HÙ\ØÊYÙWİ\J_H‚ˆY]H›Ü\OH›ÙÎœÚ]WÛ˜[YHˆÛÛ[H‘\ÚØ[‚ˆY]H›Ü\OH›ÙÎ]HˆÛÛ[HÙ\ØÊ]WÙ[
-_H‚ˆY]H›Ü\OH›ÙÎ™\ØÜš\[ÛˆˆÛÛ[HÙ\ØÊ\ØÊ_H‚ˆY]H›Ü\OH›ÙÎ\›ˆÛÛ[HÙ\ØÊØ[›ÛšXØ[
-]
-J_H‚ˆY]H›Ü\OH›ÙÎš[XYÙHˆÛÛ[HÙ\ØÊÛØÚX[Ú[XYÙJ_H‚ˆY]H›Ü\OH›ÙÎš[XYÙN˜[ˆÛÛ[HÙ\ØÊ]J_H‚ˆØ\XÛWÛY]_BˆY]H˜[YOHÚ]\˜Ø\™ˆÛÛ[Hœİ[[X\WÛ\™ÙWÚ[XYÙH‚ˆY]H˜[YOHÚ]\]HˆÛÛ[HÙ\ØÊ]WÙ[
-_H‚ˆY]H˜[YOHÚ]\™\ØÜš\[ÛˆˆÛÛ[HÙ\ØÊ\ØÊ_H‚ˆY]H˜[YOHÚ]\š[XYÙHˆÛÛ[HÙ\ØÊÛØÚX[Ú[XYÙJ_H‚ˆ[šÈ™[H˜[\›˜]Hˆ\OH˜\XØ][Û‹ÜœÜÊŞ[ˆ]OH‘\ÚØ[™XÚ\\È[™İZY\Èˆ™YHÚ™YŠ	ËÙ™YY[	Ê_H‚ˆ[šÈ™[Hœ™XÛÛ›™Xİˆ™YHšÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛHˆÜ›ÜÜÛÜšYÚ[‚ˆ[šÈ™[Hœ™XÛÛ›™Xİˆ™YHšÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛHˆÜ›ÜÜÛÜšYÚ[‚ˆ[šÈ™[Hœİ[\ÚY]ˆ™YHÚ™YŠ	ËØ\ÜÙ]ËØÜÜËÜİ[\Ë˜ÜÜÉÊ_OİLŒŒLŒ˜ˆ—ˆÔÒÔĞĞT‘ĞÔÔßBˆ[šÈ™[H›X[šY™\İˆ™YHÚ™YŠ	ËÜÚ]KÙX›X[šY™\İ	Ê_H‚ˆØYÙ[œÙ_BˆÜØÚ[XWÚ[BÚXY‚›ÙO‚ˆHÛ\ÜÏHœÚÚ\[[šÈˆ™YHˆÛXZ[ˆ”ÚÚ\ÈÛÛ[ØO‚ˆÚXY\Š
-_BˆXZ[ˆYH›XZ[ˆØ›Ù_OÛXZ[‚ˆÙ›Ûİ\Š
-_BˆØÜš\Ú[™İË‘TÒĞSĞTÑO^ÚœÛÛ‹™[\ÊTÑJ_NÏÜØÜš\‚ˆÜ™XÚ\WÙ]WÜØÜš\BˆØÜš\Y™\ˆÜ˜ÏHÚ™YŠ	ËØ\ÜÙ]ËÚœËÜÚ]KšœÏİLŒŒLLš[XYÙ\ÌIÊ_HÜØÜš\‚ˆØÛİY›\™_BØ›ÙO‚Ú[‰ÉÉÂ‚™Yˆœ™XYÜ[XœÊ][\ÊHOˆİ‚ˆ\ÈHÙ‰ÏH™YHÚ™YŠ‹ÈŠ_H’ÛYOØO‰×Bˆ›ÜˆX™[][ˆ][\Î‚ˆYˆ]‚ˆ\Ë˜\[™
-‰ÏÜ[H™YHÚ™YŠ]
-_HÙ\ØÊX™[
-_OØOÜÜ[‰ÊBˆ[ÙN‚ˆ\Ë˜\[™
-‰ÏÜ[Ù\ØÊX™[
-_OÜÜ[‰ÊBˆ™]\›ˆ‰Ï˜]ˆÛ\ÜÏH˜œ™XYÜ[XœÈˆ\šXK[X™[Hœ™XYÜ[XˆÈˆ‹š›Ú[Š\Ê_OÛ˜]‰Â‚™Yˆœ™XYÜ[X—ÜØÚ[XJ][\ÊHOˆXİ‚ˆ[šY\ÈHÊ’ÛYH‹‹ÈŠWH
-ÈÊX™[]
-H›ÜˆX™[][ˆ][\×Bˆ™]\›ˆÂˆÛÛ^ˆšÎ‹ËÜØÚ[XK›Ü™È‹ˆ\Hˆœ™XYÜ[X“\İ‹ˆš][S\İ[[Y[ˆÂˆÂˆ\Hˆ“\İ][H‹ˆœÜÚ][ÛˆˆÜÚ][Û‹ˆ›˜[YHˆX™[ˆ
-ŠŠÈš][HˆØ[›ÛšXØ[
-]
-_HYˆ][ÙHßJKˆBˆ›ÜˆÜÚ][Û‹
-X™[]
-H[ˆ[[Y\˜]J[šY\Ëİ\LJBˆKˆB‚™Yˆ™XÚ\WØØ\™
-™XÚ\JHOˆİ‚ˆZ[]\ÈH[
-™XÚ\K™Ù]
-İ[ÛZ[]\È‹[
-™XÚ\K™Ù]
-œ™\ÛZ[]\È‹
-JH
-È[
-™XÚ\K™Ù]
-˜ÛÛÚ×ÛZ[]\È‹
-JJJBˆYÜÈHˆ‹š›Ú[Š™XÚ\K™Ù]
-YÜÈ‹×JJBˆ›İZ[œÈHˆ‹š›Ú[Š™XÚ\WÜ›İZ[œÊ™XÚ\JJBˆÙX\˜ÚH™XÚ\WÜÙX\˜Úİ^
-™XÚ\JBˆ™]\›ˆ‰ÉÉÏ\XÛHÛ\ÜÏHœ™XÚ\KXØ\™ˆ]K\™XÚ\KXØ\™]K\ÙX\˜ÚHÙ\ØÊÙX\˜Ú
-_Hˆ]K]YÜÏHÙ\ØÊYÜÊ_Hˆ]K\›İZ[œÏHÙ\ØÊ›İZ[œÊ_Hˆ]KXÛÛXİ[ÛHÙ\ØÊ™XÚ\K™Ù]
-	ØÛÛXİ[Û‰Ë	ÉÊJ_Hˆ]K[Z[]\ÏHÛZ[]\ßH‚ˆ]ÛˆÛ\ÜÏHšXÛÛ‹X]Ûˆ™XÚ\KXØ\™\Ø]™Hˆ]K\Ø]™K\™XÚ\OHÙ\ØÊ™XÚ\VÉÜÛYÉ×J_Hˆ\šXK[X™[H”Ø]™H™XÚ\H¸¦hOØ]Û‚ˆHÛ\ÜÏHœ™XÚ\KXØ\™[YYXHˆ™YHÚ™YŠ	ËÜ™XÚ\\ËÉÈ
-È™XÚ\VÉÜÛYÉ×H
-È	ËÉÊ_H‚ˆ[YÈÜ˜ÏHÙ\ØÊ™XÚ\K™Ù]
-	Ú[XYÙIË	ÉÊJ_Hˆ[HÙ\ØÊ™XÚ\K™Ù]
-	Ú[XYÙWØ[	Ë™XÚ\K™Ù]
-	İ]IË	Ô™XÚ\IÊJJ_HˆØY[™ÏH›^HˆXÛÙ[™ÏH˜\Ş[˜ÈˆÚYHˆZYÚHŒ‚ˆÜ[ˆÛ\ÜÏHœ™XÚ\KXØ\™X˜YÙHÛZ[]\ßHZ[ÜÜ[‚ˆØO‚ˆ]ˆÛ\ÜÏHœ™XÚ\KXØ\™X›ÙH‚ˆÏH™YHÚ™YŠ	ËÜ™XÚ\\ËÉÈ
-È™XÚ\VÉÜÛYÉ×H
-È	ËÉÊ_HÙ\ØÊ™XÚ\K™Ù]
-	İ]IË	Ô™XÚ\IÊJ_OØOÚÏ‚ˆÙ\ØÊ™XÚ\K™Ù]
-	ÙZÉË	ÉÊJ_OÜ‚ˆ]ˆÛ\ÜÏHœ™XÚ\KXØ\™[Y]HÜ[¸£ìHÛZ[]\ßHZ[ÜÜ[Ü[Ù\ØÊ™XÚ\K™Ù]
-	ØÛÜİÜ\—ÜÙ\š[™ÉË	ÉÊJ_KÜÙ\š[™ÏÜÜ[Ù]‚ˆÙ]‚ˆØ\XÛO‰ÉÉÂ‚™Yˆ\XÛWØØ\™
-\XÛJHOˆİ‚ˆ™]\›ˆ‰ÉÉÏ\XÛHÛ\ÜÏH˜\XÛKXØ\™‚ˆ[YÈÜ˜ÏHÙ\ØÊ\XÛK™Ù]
-	Ú[XYÙIË	ÉÊJ_Hˆ[HÙ\ØÊ\XÛK™Ù]
-	Ú[XYÙWØ[	Ë\XÛK™Ù]
-	İ]IË	ÑİZYIÊJJ_HˆØY[™ÏH›^HˆXÛÙ[™ÏH˜\Ş[˜ÈˆÚYHˆZYÚHL‚ˆ]ˆÛ\ÜÏH˜\XÛKXØ\™X›ÙH‚ˆÛX[Ù\ØÊ\XÛK™Ù]
-	ØØ]YÛÜIË	ÑİZYIÊJ_OÜÛX[‚ˆÏH™YHÚ™YŠ	ËÙİZY\ËÉÈ
-È\XÛVÉÜÛYÉ×H
-È	ËÉÊ_HÙ\ØÊ\XÛK™Ù]
-	İ]IË	ÑİZYIÊJ_OØOÚÏ‚ˆÙ\ØÊ\XÛK™Ù]
-	ÙZÉË	ÉÊJ_OÜ‚ˆHÛ\ÜÏHœ™XY[[šÈˆ™YHÚ™YŠ	ËÙİZY\ËÉÈ
-È\XÛVÉÜÛYÉ×H
-È	ËÉÊ_H”ÙYHHİZYH8¡¤ØO‚ˆÙ]‚ˆØ\XÛO‰ÉÉÂ‚”ÒÔÒSPQÑTÈHÂˆˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆˆ
-šÎ‹Ëİ\ØYÚZÚ[YYXK›Ü™ËİÚZÚ\YXKØÛÛ[[ÛœËÌËÌÌKÒ[œİ[ÔİÑSÍŒÜ™\Üİ\™WØÛÛÚÙ\‹šœÈ‹”İZ[›\ÜÈÚ^\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆÚ]HØÚÚ[™ÈY[™YÚ][ÛÛ›ÛÈŠKˆ™[˜[Y[YÛÛÚÚ[™ÈİÚ]Yˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌŒÌKÜ^[Ë\İËLŒÌKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”™Y[˜[Y[YÛÛÚÚ[™ÈİÚ]Hš]YY[™ÛÈÚYH[™\ÈŠKˆ™[˜[Y[Y]Úİ™[ˆˆ]X\ˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌŒÌKÜ^[Ë\İËLŒÌKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”™Y[˜[Y[Y]Úİ™[ˆÛˆHÚ]Ú[ˆÛÜšÈİ\™˜XÙHŠKˆš[[Y\œÚ[Ûˆ›[™\ˆİZ[›\ÜÈİY[ˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍŒLMŒËÜ^[Ë\İËMŒLMŒËšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹ÚYˆ\Ú[™È[ˆ[[Y\œÚ[Ûˆ›[™\ˆ[ˆH[Z^[™Èİ\ŠKˆ™YÚ][›Ø™HYX]\›[ÛY]\ˆˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMŒŒŒMMMÍŒKNX™L˜MXØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹•ÛÈYÚ][›Ø™HÛÛÚÚ[™È\›[ÛY]\œÈ™\ÚYH™\\™Y[™Ü™YY[ÈŠKˆœİZ[›\ÜÈİY[\İHİÛÛ[™\ˆˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍNLÍNMKÜ^[Ë\İËMNLÍNMKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”\İH˜Z[š[™È›İYÚHİZ[›\ÜË\İY[ÛÛ[™\ˆŠKˆœİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍNLÍNMKÜ^[Ë\İËMNLÍNMKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”\İH™Z[™ÈYYœ›ÛHHİZ[›\ÜË\İY[Y\ÚÛÛ[™\ˆŠKˆ›ZXÜ›Ü[™H™\İ\ˆÜ˜]\ˆİZ[›\ÜÈˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍŒÍLÜ^[Ë\İËMŒÍLšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹ÚY\ÙH™Z[™ÈÜ˜]YÛˆHİZ[›\ÜË\İY[Ü˜]\ˆŠKˆœİZ[›\ÜÈİY[Ú]Ú[ˆÛ™ÜÈÚ[XÛÛ™H\ˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌLNMÍ‹Ü^[Ë\İËLLNMÍ‹šœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹’Ú]Ú[ˆÛ™ÜÈ\›š[™È›ÛÙİ™\ˆHÜš[ŠKˆ›Û™ÈİZ[›\ÜÈİY[Ú]Ú[ˆÛ™ÜÈˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌLNMÍ‹Ü^[Ë\İËLLNMÍ‹šœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹“Û™ÈİZ[›\ÜË\İY[Ú]Ú[ˆÛ™ÜÈ\›š[™È›ÛÙİ™\ˆHÜš[ŠKˆšX]HØ]YÙH[[Z[[H[ˆÚY][ˆˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌLÌMMŒŒËÜ^[Ë\İËLLÌMMŒŒËšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”š[[YYY][˜ZÚ[™ÈÚY][™YÚ]\˜ÚY[ŠKˆHHLÈ˜ZÚ[™È\ÚØ\ÜÙ\›ÛHˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌNLMMÎKÜ^[Ë\İËLNLMMÎKÙœ™YK\İË[Ù‹[YX[Z[‹YÛ\ÜËX›ŞšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”™Xİ[™İ[\ˆÛ\ÜÈ˜ZÚ[™È\Úš[YÚ]Hœ›İÛ™YYÙÜ[Ø\ÜÙ\›ÛHŠKˆ›İ™[ˆØY™H˜ZÚ[™È\Úˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMLÌÍÍÍÌÌMKXLXL™˜XÙØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹“İ™[‹\ØY™H™Xİ[™İ[\ˆ˜ZÚ[™È\ÚÛ[™ÈHš[š\ÚY˜ZÙYYX[ŠKˆœÚ[XÛÛ™Hİ™[ˆZ]ÈX]™\Ú\İ[ˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMÍÍMMËXLÙÌ™™Ì™OØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹•ÛÈX]\ØY™Hİ™[ˆZ]È[™Ú[™ÈX›İ™HÚ]Ú[ˆİÈ[™[œÈŠKˆšX]™\Ú\İ[İ™[ˆZ]Èˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMÍÍMMËXLÙÌ™™Ì™OØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹•ÛÈX]\™\Ú\İ[İ™[ˆZ]È[™Ú[™ÈX›İ™HÚ]Ú[ˆİÈ[™[œÈŠKˆœšXÙHÛÛÚÙ\ˆ˜[Z[HİZ[›\ÜÈ[›™\ˆİˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMNNLNŒÍLÍŒKNMMMYMÌÙØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	šMŒ	œON‹”›İ[™Ûİ[\ÜšXÙHÛÛÚÙ\ˆÚ]HY][Y[™™[[İ˜X›H[›™\ˆİŠKˆ™Û\ÜÈYX[™\ÛÛZ[™\œÈØÚÚ[™ÈYÈˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌÌŒÍMÌNKÜ^[Ë\İËLÌŒÍMÌNKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”™\\™YYX[È\œ˜[™ÙY[ˆÛX\ˆYYÛÛZ[™\œÈŠKˆ™YÚ][Ú]Ú[ˆØØ[HÜ˜[\Èİ[˜Ù\Èˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍMŒŒŒNLËÜ^[Ë\İËMMŒŒŒNLËšœYÈ‹›İÛÙˆ™YÙ]X›\È™\İ[™ÈÛˆHYÚ][Ú]Ú[ˆØØ[HŠKˆŒLˆ[˜ÚØ\İ\›ÛˆÚÚ[]ˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMMNLLLLËXÌNLNŒŒÏØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹Ø\İZ\›ÛˆÚÚ[]Ú]Hš[š\ÚY˜ZÙY\İHŠKˆ˜Ø\İ\›ÛˆÚÚ[]ˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMMNLLLLËXÌNLNŒŒÏØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹Ø\İZ\›ÛˆÚÚ[]Ú]Hš[š\ÚY˜ZÙY\İHŠKˆœÚ[XÛÛ™Hš\ÚÜ][H\›™\ˆˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMÌÌMMLŒMMMËX™YMYMMNØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹‘›^X›HÚ]Ú[ˆÜ][H™Z[™È\ÙY\š[™ÈÛÛÚÚ[™ÈŠKˆœİZ[›\ÜÈİY[Z^[™È›İÛÈ™\İ[™Èˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌÌLLNNLËÜ^[Ë\İËLÌLLNNLËšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”İZ[›\ÜË\İY[Z^[™È›İÛ[™X]Ú[™Èİ˜Z[™\ˆ›İÛŠKˆœİZ[›\ÜÈİY[›İÛÛÛ[™\ˆÙ]ˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌÌLLNNLËÜ^[Ë\İËLÌLLNNLËšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”İZ[›\ÜË\İY[›İÛ[™X]Ú[™ÈÛÛ[™\ˆÙ]ŠKˆœİZ[›\ÜÈİY[YX\İ\š[™ÈØÛÛÜÈÙ]ˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMÎLNKMØX™YYLØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	šMŒ	˜Ü›ÜY[›ÜIœON‹”İZ[›\ÜË\İY[YX\İ\š[™ÈØÛÛÜÈ\œ˜[™ÙYÛˆHÛÜšÈİ\™˜XÙHŠKˆ[˜ÚÚYˆÛšY™HÚ]Ú[ˆˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMÌLLLŒŒÎMÍYNÌÍNØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹ÚY‰ÜÈÛšY™H™\İ[™ÈÛˆHÛÛÙ[ˆİ][™È›Ø\™ŠKˆ˜ÚYˆÛšY™HÚ]Ú[ˆˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMÌLLLŒŒÎMÍYNÌÍNØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹ÚY‰ÜÈÛšY™H™\İ[™ÈÛˆHÛÛÙ[ˆİ][™È›Ø\™ŠKˆ›\™ÙH›ÛœÛ\İ][™È›Ø\™ˆ
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMŒÍLÌŒMNLÌŒMËMLYLØÍÍØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹“\™ÙHİ][™È›Ø\™Ú]HÚY‰ÜÈÛšY™H[™™YÙ]X›\ÈŠKˆ™˜[Z[HÚ^™HZ\ˆœY\ˆÚYH˜\ÚÙ]ˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌMŒNLÍKÜ^[Ë\İËLMŒNLÍKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹Ûİ[\ÜZ\ˆœY\ˆ[ˆHÛYHÚ]Ú[ˆŠKˆšX]HØ]YÙH[[Z[[H[ˆÚY][ˆÚ\™H˜XÚÈˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍÌNMNÜ^[Ë\İËMÌNMNšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”š[[YYÚY][ˆÛ[™È›Ø\İYİ]Ù\È[™\Ü\˜Yİ\ÈŠKˆ™Û\ÜÈYX[™\ÛÛZ[™\œÈØÚÚ[™ÈYÈİXÚØX›Hˆ
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌÌŒÍMÌNKÜ^[Ë\İËLÌŒÍMÌNKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”İXÚØX›HÛX\ˆYX[\™\ÛÛZ[™\œÈš[YÚ]›ÛÙŠKŸB‚‘QUSÔÒÔÒSPQÑHH
-ˆšÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMŒÍLÌŒMNLÌŒMËMLYLØÍÍØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹ˆ•\ÙY[Ú]Ú[ˆÛÛÈ\œ˜[™ÙYÛˆH›ÛÙ\™\İ\™˜XÙH‹ŠB‚”ÒÔÒSPQÑWÔ•STÈHÂˆ
+def pretty_slug(slug: str) -> str:
+    return slug.replace("-", " ").title()
 
-˜İ]\™\Ú\İ[‹˜İ]™\Ú\İ[ŠK
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÎLÎLŒÜ^[Ë\İËNLÎLŒšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹‘Ûİ™Y[™È\Ú[™ÈÚ]Ú[ˆÛš]™\ÈÛˆHİ][™È›Ø\™ŠJKˆ
+def recipe_proteins(recipe) -> list[str]:
+    explicit = recipe.get("protein", [])
+    if isinstance(explicit, str):
+        explicit = [explicit]
+    cleaned = [str(value).strip().lower() for value in explicit if str(value).strip()]
+    if cleaned:
+        return list(dict.fromkeys(cleaned))
 
-š[[Y\œÚ[Ûˆ›[™\ˆ‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍŒLMŒËÜ^[Ë\İËMŒLMŒËšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹ÚYˆ\Ú[™È[ˆ[[Y\œÚ[Ûˆ›[™\ˆ[ˆH[Z^[™Èİ\ŠJKˆ
+    haystack = " ".join([
+        recipe.get("title", ""),
+        recipe.get("dek", ""),
+        " ".join(recipe.get("tags", [])),
+        " ".join(recipe.get("ingredients", [])),
+        " ".join(recipe.get("pantry", [])),
+    ]).lower()
+    rules = {
+        "beef": ("beef", "steak", "ribeye", "brisket", "chuck roast", "ground chuck"),
+        "chicken": ("chicken",),
+        "pork": ("pork", "bacon", "ham", "prosciutto"),
+        "turkey": ("turkey",),
+        "lamb": ("lamb",),
+        "sausage": ("sausage", "kielbasa", "chorizo"),
+        "seafood": ("seafood", "fish", "salmon", "tuna", "shrimp", "cod", "tilapia"),
+    }
+    matches = [
+        protein
+        for protein, terms in rules.items()
+        if any(re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", haystack) for term in terms)
+    ]
+    tags = {str(tag).lower() for tag in recipe.get("tags", [])}
+    if not matches and tags.intersection({"vegetarian", "vegan"}):
+        matches.append("meatless")
+    return matches
 
-˜˜ZÚ[™È\Ú‹˜Ø\ÜÙ\›ÛH\Ú‹˜˜ZÚ[™È[ˆŠK
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMLÌÍÍÍÌÌMKXLXL™˜XÙØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹“İ™[‹\ØY™H˜ZÚ[™È\Ú\ÈÛ[™Èš[š\ÚY›ÛÙŠJKˆ
+def recipe_search_text(recipe) -> str:
+    return " ".join([
+        recipe.get("title", ""),
+        recipe.get("dek", ""),
+        " ".join(recipe.get("tags", [])),
+        " ".join(recipe.get("ingredients", [])),
+        " ".join(recipe.get("pantry", [])),
+        " ".join(recipe_proteins(recipe)),
+    ]).lower()
 
-œÚY][ˆ‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍÌNMNÜ^[Ë\İËMÌNMNšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”š[[YYÚY][ˆÛ[™È›Ø\İY™YÙ]X›\ÈŠJKˆ
+def recipes_for_ingredient(slug: str):
+    terms = INGREDIENT_HUBS[slug]["terms"]
+    protein_hub_groups = {
+        "chicken": {"chicken"},
+        "beef": {"beef"},
+        "ground-beef": {"beef"},
+        "ribeye": {"beef"},
+        "pork": {"pork", "sausage"},
+        "seafood": {"seafood", "fish", "salmon", "tuna", "shrimp", "cod", "tilapia", "trout", "calamari"},
+    }
+    matches = []
+    for recipe in RECIPES:
+        tags = {str(tag).lower() for tag in recipe.get("tags", [])}
+        proteins = set(recipe_proteins(recipe))
+        if slug in protein_hub_groups and not proteins.intersection(protein_hub_groups[slug]):
+            continue
+        haystack = " ".join([
+            recipe.get("title", ""),
+            " ".join(recipe.get("tags", [])),
+            " ".join(recipe.get("pantry", [])),
+            " ".join(recipe_proteins(recipe)),
+        ]).lower()
+        if tags.intersection(terms) or proteins.intersection(terms) or any(term in haystack for term in terms):
+            matches.append(recipe)
+    return stable_recipe_mix(matches)
 
-œ[H‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÎNÌËÜ^[Ë\İËNNÌËšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹ÛX\ˆ[H˜\œÈ\œ˜[™ÙYÛˆÚ[™\ÈŠJKˆ
+def ingredient_hubs_for_recipe(recipe):
+    active_slugs = {slug for slug, _ in active_ingredient_hubs()}
+    return [slug for slug in INGREDIENT_HUBS if slug in active_slugs and recipe in recipes_for_ingredient(slug)]
 
-š[™HÛİ™\ˆ‹œØÜ˜\\ˆŠK
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMMNLLLLËXÌNLNŒŒÏØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹Ø\İZ\›ÛˆÛÛÚİØ\™H™XYH›ÜˆH˜[Z[HYX[ŠJKˆ
+def active_ingredient_hubs():
+    return [(slug, meta) for slug, meta in INGREDIENT_HUBS.items() if len(recipes_for_ingredient(slug)) >= 3]
 
-›YÛ›Øˆ‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌŒÌKÜ^[Ë\İËLŒÌKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹‘[˜[Y[Y]Úİ™[ˆÚ]Hš]YYÛ›ØˆŠJKˆ
+def recipe_seo_title(recipe) -> str:
+    title = clean_text(recipe.get("title", "Recipe"))
+    if len(title) > 49 and " with " in title.lower():
+        title = re.split(r"\s+with\s+", title, maxsplit=1, flags=re.IGNORECASE)[0]
+    if "recipe" not in title.lower():
+        title += " Recipe"
+    return title
 
-›X[™Û[™H‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌLLÍNÜ^[Ë\İËLLLÍNšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹“X[™Û[™HÛXÙ\ˆ™\ÚYHÛš[ÛœÈ[™ØX˜˜YÙHŠJKˆ
+def truncate_description(value: str, limit: int = 158) -> str:
+    value = clean_text(value)
+    if len(value) <= limit:
+        return value
+    shortened = value[:limit - 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return shortened + "â€¦"
 
-Û™ÜÈ‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌLNMÍ‹Ü^[Ë\İËLLNMÍ‹šœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹’Ú]Ú[ˆÛ™ÜÈ\›š[™È›ÛÙİ™\ˆHÜš[ŠJKˆ
+def rss_date(value: str) -> str:
+    parsed = datetime.strptime(value, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    return format_datetime(parsed)
 
-][œÚ[‹›YX\İ\š[™ÈÜÛÛˆ‹›YX\İ\š[™Èİ\ŠK
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌÎÍÎÜ^[Ë\İËLÎÍÎšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹\ÜÛÜYYX\İ\š[™ÈÛÛÈ[™Ú]Ú[ˆ][œÚ[ÈŠJKˆ
+def recipe_meta_description(recipe) -> str:
+    minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
+    return truncate_description(f"Make {recipe.get('title', 'this recipe')} in {minutes} minutes. {recipe.get('dek', '')}")
 
-šÛšY™H‹˜İ][™È›Ø\™‹œÜ][HŠK
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMŒÍLÌŒMNLÌŒMËMLYLØÍÍØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹’Ú]Ú[ˆ™\ÛÛÈÛˆHİ][™È›Ø\™ŠJKˆ
+def stable_recipe_mix(recipes):
+    """Keep browsing varied without changing the order on every page load."""
+    return sorted(
+        recipes,
+        key=lambda recipe: hashlib.sha256(recipe.get("slug", "").encode("utf-8")).hexdigest(),
+    )
 
-˜ÛÛÚİØ\™HÙ]‹œİÙ]‹œ[œÈÙ]‹œØ]XÙ\[ˆ‹œØ]]H[ˆ‹œØ]]0êH[ˆŠK
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMMMLLLŒŒYLMXŒX™NÎØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹”İÈ[™[œÈ[ˆ\ÙH[ˆHÛYHÚ]Ú[ˆŠJKˆ
+def href(path: str = "/") -> str:
+    if not path.startswith("/"):
+        path = "/" + path
+    if path == "/":
+        return f"{BASE}/" if BASE else "/"
+    return f"{BASE}{path}" if BASE else path
 
-œÚÚ[]‹™]Úİ™[ˆ‹˜ÛÛÚİØ\™HŠK
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMMNLLLLËXÌNLNŒŒÏØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹”İ\™HÛÛÚİØ\™H™XYH›ÜˆH˜[Z[HYX[ŠJKˆ
+def canonical(path: str = "/") -> str:
+    if not path.startswith("/"):
+        path = "/" + path
+    return SITE_URL.rstrip("/") + path
 
-™›ÛÙ›ØÙ\ÜÛÜˆ‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍNÌŒÍKÜ^[Ë\İËMNÌŒÍKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹‘›ÛÙ›ØÙ\ÜÛÜˆ›İÛÚ][™Ü™YY[È\›İ[™HÙ[\ˆ›YHŠJKˆ
+def ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
 
-œİ[™Z^\ˆ‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌMLLËÜ^[Ë\İËLMLLËšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”İ[™Z^\ˆÚ]HİZ[›\ÜË\İY[›İÛŠJKˆ
+def write_page(path: str, content: str) -> None:
+    if path == "/":
+        target = PUBLIC / "index.html"
+    elif path == "/404.html":
+        target = PUBLIC / "404.html"
+    else:
+        target = PUBLIC / path.strip("/") / "index.html"
+    ensure_dir(target.parent)
+    target.write_text(content, encoding="utf-8")
 
-˜›[™\ˆ‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍŒÍKÜ^[Ë\İËMŒÍKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹Ûİ[\Ü›[™\ˆZ^[™È[™Ü™YY[ÈŠJKˆ
+def json_script(data) -> str:
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 
-›Z^[™È›İÛ‹
-K
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMMŒLÍÌNXNLMLYNOØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹“Z^[™È›İÛ[™[™Ü™YY[ÈÛˆHÚ]Ú[ˆÛİ[\ˆŠJKˆ
+def brand() -> str:
+    return f'''<a class="brand" href="{href('/')}">
+      <span class="brand-name">Dish<em>Gal</em></span>
+    </a>'''
 
-œšXÙHÛÛÚÙ\ˆ‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌLMÍÌÍŒ‹Ü^[Ë\İËLLMÍÌÍŒ‹šœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹Ûİ[\ÜšXÙHÛÛÚÙ\ˆ[ˆHÛYHÚ]Ú[ˆŠJKˆ
+def header() -> str:
+    return f'''<header class="site-header">
+      <div class="wrap header-inner">
+        {brand()}
+        <nav class="main-nav" aria-label="Primary">
+          <a href="{href('/recipes/')}">Recipes</a>
+          <a href="{href('/collections/instant-pot/')}">Instant Pot</a>
+          <a href="{href('/#browse-recipes')}">Collections</a>
+          <a href="{href('/meal-planner/')}">Meal Planner</a>
+          <a href="{href('/guides/')}">Kitchen Picks</a>
+          <a href="{href('/saved/')}">Saved</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-sm btn-primary" href="{href('/recipes/')}">Find dinner</a>
+          <button class="icon-button menu-button" type="button" data-menu-button aria-expanded="false" aria-label="Open menu">â˜°</button>
+        </div>
+      </div>
+    </header>'''
 
-œÛİÈÛÛÚÙ\ˆ‹
-K
-šÎ‹Ëİ\ØYÚZÚ[YYXK›Ü™ËİÚZÚ\YXKØÛÛ[[ÛœËÍ‹ÍKÍ—Ü]X\ĞÜ›ØÚ×ÔİÜÛİ×ØÛÛÚÙ\‹šœÈ‹”Ú^\]X\İ˜[ÛİÈÛÛÚÙ\ˆÚ]]ÈÛ\ÜÈYÛÜÙYŠJKˆ
+def footer() -> str:
+    return f'''<footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            {brand()}
+            <p>Dinner help for real nights: practical recipes, useful planning tools, and kitchen advice without the performance.</p>
+          </div>
+          <div class="footer-column"><h3>Cook</h3>
+            <a href="{href('/recipes/')}">All recipes</a>
+            <a href="{href('/collections/instant-pot/')}">Instant Pot dinners</a>
+            <a href="{href('/collections/30-minute/')}">30-minute dinners</a>
+            {''.join(f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])}</a>' for slug, meta in active_ingredient_hubs()[:3])}
+            <a href="{href('/dinner-decider/')}">Dinner Decider</a>
+            <a href="{href('/pantry-rescue/')}">Pantry Rescue</a>
+          </div>
+          <div class="footer-column"><h3>Plan</h3>
+            <a href="{href('/meal-planner/')}">5-night planner</a>
+            <a href="{href('/saved/')}">Saved recipes</a>
+            <a href="{href('/guides/')}">Kitchen picks</a>
+            <a href="{href('/newsletter/')}">Newsletter</a>
+          </div>
+          <div class="footer-column"><h3>DishGal</h3>
+            <a href="{href('/about/')}">About</a>
+            <a href="{href('/editorial-policy/')}">Editorial policy</a>
+            <a href="{href('/affiliate-disclosure/')}">Affiliate disclosure</a>
+            <a href="{href('/contact/')}">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>Â© <span data-current-year></span> DishGal.com</span>
+          <span><a href="{href('/privacy/')}">Privacy</a> Â· <a href="{href('/terms/')}">Terms</a></span>
+        </div>
+      </div>
+    </footer>'''
 
-˜Z\ˆœY\ˆ‹Ø\İ\ˆİ™[ˆŠK
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌMŒNLÍKÜ^[Ë\İËLMŒNLÍKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹Ûİ[\ÜZ\ˆœY\ˆ[™Ø\İ\ˆİ™[ˆŠJKˆ
+def page(title: str, description: str, path: str, body: str, *, schema=None, noindex=False,
+         image=None, page_type="website", published=None, modified=None, needs_recipe_data=False) -> str:
+    title_full = title if title.endswith("DishGal") else f"{title} | DishGal"
+    desc = clean_text(description)
+    schema_html = ""
+    if schema is not None:
+        schema_html = f'<script type="application/ld+json">{json_script(schema)}</script>'
+    adsense = f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={esc(ADSENSE_CLIENT)}" crossorigin="anonymous"></script>' if ADSENSE_CLIENT else ""
+    cloudflare = (
+        '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+        f'data-cf-beacon=\'{{"token":"{esc(CLOUDFLARE_TOKEN)}"}}\'></script>'
+        if CLOUDFLARE_TOKEN else ""
+    )
+    robots = '<meta name="robots" content="noindex,follow">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">'
+    social_image = image or f"{SITE_URL}/assets/social-card.png"
+    article_meta = ""
+    if page_type == "article":
+        if published:
+            article_meta += f'\n  <meta property="article:published_time" content="{esc(published)}">'
+        if modified:
+            article_meta += f'\n  <meta property="article:modified_time" content="{esc(modified)}">'
+    recipe_data_script = f'<script defer src="{href("/assets/js/recipes.js?v=20261012compactimages1")}"></script>' if needs_recipe_data else ""
+    return f'''<!doctype html>
+<html lang="en" data-base="{esc(BASE)}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{esc(title_full)}</title>
+  <meta name="description" content="{esc(desc)}">
+  <meta name="theme-color" content="#e94f37">
+  {robots}
+  <link rel="canonical" href="{esc(canonical(path))}">
+  <meta property="og:type" content="{esc(page_type)}">
+  <meta property="og:site_name" content="DishGal">
+  <meta property="og:title" content="{esc(title_full)}">
+  <meta property="og:description" content="{esc(desc)}">
+  <meta property="og:url" content="{esc(canonical(path))}">
+  <meta property="og:image" content="{esc(social_image)}">
+  <meta property="og:image:alt" content="{esc(title)}">
+  {article_meta}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{esc(title_full)}">
+  <meta name="twitter:description" content="{esc(desc)}">
+  <meta name="twitter:image" content="{esc(social_image)}">
+  <link rel="alternate" type="application/rss+xml" title="DishGal recipes and guides" href="{href('/feed.xml')}">
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="stylesheet" href="{href('/assets/css/styles.css')}?v=20260922b">\n  {SHOP_CARD_CSS}
+  <link rel="manifest" href="{href('/site.webmanifest')}">
+  {adsense}
+  {schema_html}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {header()}
+  <main id="main">{body}</main>
+  {footer()}
+  <script>window.DISHGAL_BASE={json.dumps(BASE)};</script>
+  {recipe_data_script}
+  <script defer src="{href('/assets/js/site.js?v=20261012images1')}"></script>
+  {cloudflare}
+</body>
+</html>'''
 
-\›[ÛY]\ˆ‹
-K
-šÎ‹ËÚ[XYÙ\Ë[œÜ\Ú˜ÛÛKÜİËLMŒŒŒMMMÍŒKNX™L˜MXØ]]ÏY›Ü›X]	™š]XÜ›Ü	ÏNL	œON‹•ÛÈYÚ][›Ø™HÛÛÚÚ[™È\›[ÛY]\œÈ™\ÚYH™\\™Y[™Ü™YY[ÈŠJKˆ
+def breadcrumbs(items) -> str:
+    parts = [f'<a href="{href("/")}">Home</a>']
+    for label, path in items:
+        if path:
+            parts.append(f'<span><a href="{href(path)}">{esc(label)}</a></span>')
+        else:
+            parts.append(f'<span>{esc(label)}</span>')
+    return f'<nav class="breadcrumbs" aria-label="Breadcrumb">{"".join(parts)}</nav>'
 
-œØØ[H‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍMŒŒŒNLËÜ^[Ë\İËMMŒŒŒNLËšœYÈ‹›İÛ™\İ[™ÈÛˆHYÚ][Ú]Ú[ˆØØ[HŠJKˆ
+def breadcrumb_schema(items) -> dict:
+    entries = [("Home", "/")] + [(label, path) for label, path in items]
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": position,
+                "name": label,
+                **({"item": canonical(path)} if path else {}),
+            }
+            for position, (label, path) in enumerate(entries, start=1)
+        ],
+    }
 
-œ™YœšYÙ\˜]Üˆ‹
-K
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍMNNËÜ^[Ë\İËMMNNËšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹‘›ÛÙ[™ÛÛZ[™\œÈÜ™Ø[š^™YÛˆ™YœšYÙ\˜]ÜˆÚ[™\ÈŠJKˆ
+def recipe_card(recipe) -> str:
+    minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
+    tags = " ".join(recipe.get("tags", []))
+    proteins = " ".join(recipe_proteins(recipe))
+    search = recipe_search_text(recipe)
+    return f'''<article class="recipe-card" data-recipe-card data-search="{esc(search)}" data-tags="{esc(tags)}" data-proteins="{esc(proteins)}" data-collection="{esc(recipe.get('collection',''))}" data-minutes="{minutes}">
+      <button class="icon-button recipe-card-save" data-save-recipe="{esc(recipe['slug'])}" aria-label="Save recipe">â™¡</button>
+      <a class="recipe-card-media" href="{href('/recipes/' + recipe['slug'] + '/')}">
+        <img src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" loading="lazy" decoding="async" width="800" height="600">
+        <span class="recipe-card-badge">{minutes} min</span>
+      </a>
+      <div class="recipe-card-body">
+        <h3><a href="{href('/recipes/' + recipe['slug'] + '/')}">{esc(recipe.get('title','Recipe'))}</a></h3>
+        <p>{esc(recipe.get('dek',''))}</p>
+        <div class="recipe-card-meta"><span>â± {minutes} min</span><span>{esc(recipe.get('cost_per_serving',''))}/serving</span></div>
+      </div>
+    </article>'''
 
-˜ÛÛZ[™\ˆ‹œİÜ˜YÙH‹›X™[ÈŠK
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÌÌŒÍMÌNKÜ^[Ë\İËLÌŒÍMÌNKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹“Ü™Ø[š^™Y›ÛÙ[ˆÛX\ˆİÜ˜YÙHÛÛZ[™\œÈŠJKˆ
+def article_card(article) -> str:
+    return f'''<article class="article-card">
+      <img src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}" loading="lazy" decoding="async" width="800" height="500">
+      <div class="article-card-body">
+        <small>{esc(article.get('category','Guide'))}</small>
+        <h3><a href="{href('/guides/' + article['slug'] + '/')}">{esc(article.get('title','Guide'))}</a></h3>
+        <p>{esc(article.get('dek',''))}</p>
+        <a class="read-link" href="{href('/guides/' + article['slug'] + '/')}">See the guide â†’</a>
+      </div>
+    </article>'''
 
-˜ÛÛ[™\ˆ‹œİ˜Z[™\ˆ‹œ\İHŠK
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍNLÍNMKÜ^[Ë\İËMNLÍNMKšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹”\İH˜Z[š[™È›İYÚHİZ[›\ÜË\İY[ÛÛ[™\ˆŠJKˆ
+SHOP_IMAGES = {
+    "6 quart electric pressure cooker": ("https://upload.wikimedia.org/wikipedia/commons/3/31/Instant_Pot_DUO60_pressure_cooker.jpg", "Stainless six-quart electric pressure cooker with a locking lid and digital controls"),
+    "enameled cooking pot with lid": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled cooking pot with a fitted lid and two side handles"),
+    "enameled dutch oven 6 quart": ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Red enameled Dutch oven on a kitchen work surface"),
+    "immersion blender stainless steel": ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup"),
+    "digital probe meat thermometer": ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Two digital probe cooking thermometers beside prepared ingredients"),
+    "stainless steel pasta pot colander": ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta draining through a stainless-steel colander"),
+    "stainless steel mesh colander strainer": ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta being lifted from a stainless-steel mesh colander"),
+    "microplane zester grater stainless": ("https://images.pexels.com/photos/6287524/pexels-photo-6287524.jpeg?auto=compress&dpr=1&h=750&w=1260", "Cheese being grated on a stainless-steel grater"),
+    "stainless steel kitchen tongs silicone tip": ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Kitchen tongs turning food over a grill"),
+    "long stainless steel kitchen tongs": ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Long stainless-steel kitchen tongs turning food over a grill"),
+    "heavy gauge aluminum half sheet pan": ("https://images.pexels.com/photos/13156063/pexels-photo-13156063.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed metal baking sheet lined with parchment"),
+    "9 by 13 baking dish casserole": ("https://images.pexels.com/photos/19145679/pexels-photo-19145679/free-photo-of-meal-in-glass-box.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rectangular glass baking dish filled with a browned eggplant casserole"),
+    "oven safe baking dish": ("https://images.unsplash.com/photo-1533777324565-a040eb52facd?auto=format&fit=crop&w=900&q=80", "Oven-safe rectangular baking dish holding a finished baked meal"),
+    "silicone oven mitts heat resistant": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-safe oven mitts hanging above kitchen pots and pans"),
+    "heat resistant oven mitts": ("https://images.unsplash.com/photo-1743684456567-a3d32dbf702e?auto=format&fit=crop&w=900&q=80", "Two heat-resistant oven mitts hanging above kitchen pots and pans"),
+    "rice cooker family stainless inner pot": ("https://images.unsplash.com/photo-1599182345361-9542815e73f6?auto=format&fit=crop&w=900&h=600&q=80", "Round countertop rice cooker with a metal lid and removable inner pot"),
+    "glass meal prep containers locking lids": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Prepared meals arranged in clear lidded containers"),
+    "digital kitchen scale grams ounces": ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg", "Bowl of vegetables resting on a digital kitchen scale"),
+    "12 inch cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
+    "cast iron skillet": ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron skillet with a finished baked pasta"),
+    "silicone fish spatula turner": ("https://images.unsplash.com/photo-1673155225557-bee5d2540158?auto=format&fit=crop&w=900&q=80", "Flexible kitchen spatula being used during cooking"),
+    "stainless steel mixing bowls nesting": ("https://images.pexels.com/photos/31109993/pexels-photo-31109993.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stainless-steel mixing bowl and matching strainer bowl"),
+    "stainless steel bowl colander set": ("https://images.pexels.com/photos/31109993/pexels-photo-31109993.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stainless-steel bowl and matching colander set"),
+    "stainless steel measuring scoops set": ("https://images.unsplash.com/photo-1781082580025-407abed1d50f?auto=format&fit=crop&w=900&h=600&crop=entropy&q=80", "Stainless-steel measuring scoops arranged on a work surface"),
+    "8 inch chef knife kitchen": ("https://images.unsplash.com/photo-1711065060638-675df8e8c358?auto=format&fit=crop&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
+    "chef knife kitchen": ("https://images.unsplash.com/photo-1711065060638-675df8e8c358?auto=format&fit=crop&w=900&q=80", "Chef's knife resting on a wooden cutting board"),
+    "large nonslip cutting board": ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Large cutting board with a chef's knife and vegetables"),
+    "family size air fryer wide basket": ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer in a home kitchen"),
+    "heavy gauge aluminum half sheet pan wire rack": ("https://images.pexels.com/photos/7059458/pexels-photo-7059458.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed sheet pan holding roasted potatoes and asparagus"),
+    "glass meal prep containers locking lids stackable": ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stackable clear meal-prep containers filled with food"),
+}
 
-™Ü˜]\ˆ‹›ZXÜ›Ü[™HŠK
-šÎ‹ËÚ[XYÙ\Ëœ^[Ë˜ÛÛKÜİÜËÍŒÍLÜ^[Ë\İËMŒÍLšœYÏØ]]ÏXÛÛ\™\ÜÉ™LIšMÍL	ÏLLŒ‹ÚY\ÙH™Z[™ÈÜ˜]YÛˆHİZ[›\ÜË\İY[Ü˜]\ˆŠJK—B‚™YˆÚÜÚ[XYÙJ]Y\NˆİŠN‚ˆ›Ü›X[^™YHÛX[—İ^
-]Y\JK›İÙ\Š
-BˆYˆ›Ü›X[^™Y[ˆÒÔÒSPQÑTÎ‚ˆ™]\›ˆÒÔÒSPQÑTÖÛ›Ü›X[^™YBˆ›Üˆ\›\Ë[XYÙH[ˆÒÔÒSPQÑWÔ•STÎ‚ˆYˆ[J\›H[ˆ›Ü›X[^™Y›Üˆ\›H[ˆ\›\ÊN‚ˆ™]\›ˆ[XYÙBˆ™]\›ˆQUSÔÒÔÒSPQÑB‚™Yˆ[X^›Û—Û[šÊ]Y\Nˆİ‹X™[ˆİ‹›İNˆİˆHˆŠHOˆİ‚ˆˆˆ”™[™\ˆHÛÛ\X[^Yš\œİ[X^›ÛˆØ]YÛÜHØ\™‚‚ˆ\ÚØ[[[[Û˜[HÙ\È›İ]XÚY]ÜšX[ÜİØÚÈİÙÜ˜\HÈ[‚ˆ[X^›ÛˆÚÜ[™È[šËˆH›ÙXİ[XYÙH™[Û™ÜÈÛˆHÛÛ[Y\˜ÚX[Ø\™Û›BˆÚ[ˆH^Xİ[šÙY›ÙXİØØ]YÛÜH[XYÙH\È™Y[ˆ[™\[™[Bˆ™\šYšYY›İYÚ[ˆ\›İ™Y[X^›ÛˆYXÚ[š\ÛKˆ[[]™\šYšXØ][Ûˆ\Âˆ]˜Z[X›KH^Yš\œİØ\™\È[Ü™HXØİ\˜]H[ˆHXÛÜ˜]]™HİÂˆ]Ûİ[[\HHÜ›Û™È›ÙXİ‚ˆˆˆ‚ˆ\›HˆšÎ‹ËİİİË˜[X^›Û‹˜ÛÛKÜÏÚÏ^Ü][İWÜ\Ê]Y\J_I˜[\İYÏ^Ü][İWÜ\ÊSPV“Ó—ÕQÊ_H‚ˆ™]\›ˆˆˆˆHÛ\ÜÏHœÚÜXØ\™ÚÜXØ\™K]^[Û›Hˆ™YHİ\›Hˆ\™Ù]H—Ø›[šÈˆ™[HœÜÛœÛÜ™Y›Ù›ÛİÈ›ÛÜ[™\ˆ›Ü™Y™\œ™\ˆˆ]KXÛÛ[Y\˜ÚX[[[šÏHYHˆ]KXY™š[X]KXXİ]™OHYHˆ]KXY™š[X]K[™]ÛÜšÏH˜[X^›Ûˆˆ]KXY™š[X]K]YÏHÙ\ØÊSPV“Ó—ÕQÊ_H‚ˆÜ[ˆÛ\ÜÏHœÚÜXØ\™XÛÜHÛX[ÛÛ\\™HÛˆ[X^›ÛÜÛX[İ›Û™ÏÙ\ØÊX™[
-_OÜİ›Û™ÏÙ‰ÏÜ[Ù\ØÊ›İJ_OÜÜ[‰ÈYˆ›İH[ÙH	ÉßO”ÙYHİ\œ™[Ü[ÛœÈ8¡¤ØÜÜ[‚ˆØOˆˆˆ‚‚™Yˆ™XÚ\WÜÚÜ
-™XÚ\JHOˆİ‚ˆ^\İXÚÈHˆ‹š›Ú[ŠÂˆ™XÚ\K™Ù]
-]H‹ˆŠK™XÚ\K™Ù]
-™ZÈ‹ˆŠK™XÚ\K™Ù]
-˜ÛÛXİ[Ûˆ‹ˆŠKˆˆ‹š›Ú[Š™XÚ\K™Ù]
-YÜÈ‹×JJKˆ‹š›Ú[Š™XÚ\K™Ù]
-š[™Ü™YY[È‹×JJKˆJK›İÙ\Š
-BˆYˆšÛ™^K]Ø[]˜ZÙYX\œÈˆ[ˆ^\İXÚÈÜˆšÛ™^HØ[]˜ZÙYX\œÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-Œˆ]X\Ù\˜[ZXÈ˜ZÚ[™È\Ú‹Œ‹\]X\˜ZÚ[™È\Ú‹HÛYÈİ™[‹\ØY™H\ÚÛÈZYÚX\ˆ[™\È[ˆÛ™H^Y\ˆÛÈHYX\İ\™YİX[H[™Û^™Hİ^HÛÜÙHÈHœZ]ˆŠKˆ
-œİZ[›\ÜÈİY[Y[Ûˆ˜[\ˆÛX[‹”ÛX[Y[Ûˆ˜[\ˆ‹HÛÛ\Xİ›İ[™ØÛÛÜ™[[İ™\ÈHšXœ›İ\ÈÙYYÛÜ™HÚ[HX]š[™ÈHXÚÈœZ]Ø[]Ú[›İXZËˆŠKˆ
-œÚ[XÛÛ™H\İHœ\ÚÛX[‹”ÛX[\İHœ\Ú‹HÛÙœ\Ú\İšX]\ÈHÚ[›˜[[Û‹ZÛ™^HZ^\™Hİ™\ˆHİ]œZ][™[È]™\HÛİÈÚ]İ]œZ\Ú[™ÈHX\œËˆŠKˆBˆ[Yˆ›Z\ÛÈØ]›ÜHØ]Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-Œˆ]X\İZ[›\ÜÈİY[Ø]XÙ\[ˆÚ]Y‹Œ‹\]X\Ø]XÙ\[ˆ‹HÛX[X]HØ]XÙ\[ˆÙY\ÈHØ]È]HÛÛ›ÛYÚ[[Y\ˆ[™X]™\È[›İYÚ›ÛÛHÈİ\ˆÚ]İ]Ü\Ú[™ËˆŠKˆ
-™š[™HY\ÚÚÚ[[Y\ˆÜÛÛˆİZ[›\ÜÈİY[‹‘š[™K[Y\ÚÚÚ[[Y\ˆ‹HÚ[İÈY\ÚÚÚ[[Y\ˆYÈØXÚYYÙÜÈÙ[HÚ[H˜Z[š[™ÈZ\ˆÛÛÚÚ[™ÈØ]\‹ˆŠKˆ
-œÛX[›ÛœİXÚÈÚÚ[][˜Ú‹”ÛX[ÚÚ[]‹HÛÛ\XİÚÚ[]Ø\İÈHÙ\Ø[YK\[šÛÈÜ[™È]™[›HÚ]İ]™YY[™È^˜HÚ[ˆŠKˆBˆ[YˆœÛ[ÚŞHØ\›H[[Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒÈ]X\İZ[›\ÜÈİY[Ø]XÙ\[ˆÚ]Y‹ŒË\]X\Ø]XÙ\[ˆ‹HYY][HØ]XÙ\[ˆÚ]™\È[[È[›İYÚØ]\ˆÈ[İ™Hœ™Y[HÚ[HÙY\[™ÈHÚ[[Y\ˆX\ŞHÈÛÛ›ÛˆŠKˆ
-™š[™HY\Úİ˜Z[™\ˆİZ[›\ÜÈİY[\™ÙH‹“\™ÙHš[™K[Y\Úİ˜Z[™\ˆ‹”ÛX[[[È˜Z[ˆÛX[›HÚ]İ]\ØØ\[™Ë[™Hœ›ØY˜\ÚÙ]ÚYÈHÛÛÚÚ[™ÈØ]\ˆ]ZXÚÛKˆŠKˆ
-[˜ÚÚYˆÛšY™HÚ]Ú[ˆ‹Z[˜ÚÚY‰ÜÈÛšY™H‹HÚ\œÛÛ›ÛX›H›YHXZÙ\È[šY›Ü›H\\ˆ[™Ûš[ÛˆXÙH›Üˆ]™[ˆÛÛÚÚ[™ËˆŠKˆBˆ[Yˆ˜Üš\ÜHœšYY™YYˆ[\[˜Y\Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[˜[Y[YØ\İ\›Ûˆ]Úİ™[ˆ‹KHÈ‹\]X\]Úİ™[ˆ‹’YÚÚY\ÈÛÛZ[ˆHÛËZ[˜ÚÚ[^Y\ˆ[™Ú]™H]›ÛÛHÈX˜›HØY™[HÚ]İ]\›ØXÚ[™ÈHš[KˆŠKˆ
-™Y\œH\›[ÛY]\ˆÛ\İ‹Û\[ÛˆY\YœH\›[ÛY]\ˆ‹ÛÛ[[İ\È[\\˜]\™H™XY[™ÜÈÙY\XXÚ˜]Ú[ˆHÍ0¬ˆÈÍŒ0¬ˆÜš\Ü[™È˜[™ÙKˆŠKˆ
-š[ˆÚY][ˆÚ\™H˜XÚÈÙ]‹”ÚY][ˆÚ]Ú\™H˜XÚÈ‹H˜XÚÈ]È^Ù\ÜÈÚ[˜Z[ˆÚ]İ]˜\[™ÈİX[HYØZ[œİHÜš\Ü[™\œÚYHÙˆH[\[˜Y\ËˆŠKˆBˆ[YˆœÛİ\HÚXÚX[‹\İ[H[ˆ[ˆ›ÛÙ\Èˆ[ˆ^\İXÚÈÜˆœÛİ\HÚXÚX[ˆİ[H[ˆ[ˆ›ÛÙ\Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-œİZ[›\ÜÈİY[\İHİÛÛ[™\ˆ‹”\İHİ[™ÛÛ[™\ˆ‹H›ÛÛ^Hİ]ÈHÚX]›ÛÙ\È[İ™Hœ™Y[KÚ[H˜\İ˜Z[š[™ÈÙY\È[HÜš[™ŞH™Y›Ü™H^H[\ˆHİÙ\Ø[YHœ›İˆŠKˆ
-ŒLˆ[˜ÚİZ[›\ÜÈİY[ÚÚ[]‹•ÚYHL‹Z[˜ÚÚÚ[]‹Hœ›ØYÚÚ[]Ú]™\ÈHÜšÈ›ÛÛHÈœ›İÛˆ™Y›Ü™HH\›ÛX]XÜËÚ[KX™X[ˆ\İH[™™\Ù\™Y]\İ\™Ü™Y[œÈ\™HYYˆŠKˆ
-›\™ÙH˜[Y[ˆ›İÛÈÙ]‹‘Y\˜[Y[‹\İ[H›İÛÈ‹‘Y\X]\ØY™H›İÛÈX]™H[›İYÚ›ÛÛHÈÚ\ÚÈHÙ\Ø[YH˜\ÙHÚ]œ›İ[ˆY›ÛÙ\È[™Ü[™ÜÈÚ]İ]Ü[[™ËˆŠKˆBˆ[YˆÙYZÛšYÚ[ÛÈÛØšHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒLˆ[˜ÚØ]]H[ˆÚ]Y‹•ÚYHL‹Z[˜ÚØ]]0êH[ˆÚ]Y‹•Hœ›ØY˜\ÙHÛØ]ÈH™YÙ]X›\È]™[›KÚ[HHY˜\È[›İYÚİX[HÈ[™\š^™Hİ]Ù\È[™Ø][Y›İÙ\ˆÚ]İ]\›š[™ÈHİ\œHÛİ\KˆŠKˆ
-[˜ÚÚYˆÛšY™HÚ]Ú[ˆ‹Z[˜ÚÚY¸ &\ÈÛšY™H‹HÚ\œ[\\œÜÙH›YHXZÙ\È]™[ˆİ]ÈİX™\È[™ÛX[ˆØ][Y›İÙ\ˆ›Ü™]ÈÛÈH™YÙ]X›\È™XÛÛYH[™\ˆ]HØ[YH[YKˆŠKˆ
-™YÚ][[œİ[™XY\›[ÛY]\ˆÚ]Ú[ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹H[ˆ›Ø™HÛÛ™š\›\È™YœšYÙ\˜]YYİ™\œÈ]™H™ZX]YÈMp¬ˆÚ]İ]™[Z[™ÈÛˆİX[HÜˆİXÚˆŠKˆBˆ[Yˆ\šÚ\Ú0éñ,[±,\ˆˆ[ˆ^\İXÚÈÜˆ\šÚ\ÚÚ[š\ˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒÈ]X\ÚYHİZ[›\ÜÈİY[Ø]XÙ\[ˆ‹•ÚYHË\]X\Ø]XÙ\[ˆ‹Hœ›ØY˜\ÙHÚ]™\È›İ\ˆYÙÜÈ›ÛÛHÈØXÚ[ˆÛÈØ[H˜]Ú\ÈÚ]İ]Ü›İÙ[™ÈÜˆÛÛY[™ËˆŠKˆ
-œİZ[›\ÜÈİY[ÛİYÜÛÛˆYÙÈØXÚ\ˆ‹”İZ[›\ÜË\İY[ÛİYÜÛÛˆ‹HÚ[İÈ\™›Ü˜]Y›İÛYÈ[XØ]HYÙÜÈÚ[HX]š[™È^Ù\ÜÈØXÚ[™ÈØ]\ˆ™Z[™ˆŠKˆ
-š[œİ[™XY›ÛÙ\›[ÛY]\ˆ[ˆ›Ø™H‹•[‹\›Ø™H[œİ[\™XY\›[ÛY]\ˆ‹HÛ[H›Ø™HØ[ˆ™\šYHHš\›KXÛÛÚÙYYÙÈ™XXÚ\ÈMŒ0¬ˆÚ]İ]X\š[™È[ÜİÙˆHÚ]KˆŠKˆBˆ[Yˆ˜Ü™X[^H[[Û‹\\›Y\Ø[ˆ˜\™˜[Hˆ[ˆ^\İXÚÈÜˆ˜Ü™X[^H[[Ûˆ\›Y\Ø[ˆ˜\™˜[Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-œİZ[›\ÜÈİY[\İHİÛÛ[™\ˆ‹”\İHİ[™ÛÛ[™\ˆ‹H›ÛÛ^Hİ]È˜\™˜[HÚ\˜İ[]KÚ[H˜\İ˜Z[š[™È™\Ù\™\ÈHİ\˜ÚHØ]\ˆ™YYYÈ[][ÚYHHÜ™X[HØ]XÙKˆŠKˆ
-ŒLˆ[˜ÚİZ[›\ÜÈİY[ÚÚ[]‹•ÚYHL‹Z[˜ÚÚÚ[]‹Hœ›ØYÚÚ[]Ø\›\ÈHÛX]Ù\ÈÙ[H[™Ú]™\ÈH\İH›ÛÛHÈÜÜÈ›İYÚHØ]XÙHÚ]İ]Ü\Ú[™ÈH›İÈY\ËˆŠKˆ
-›ZXÜ›Ü[™H™\İ\ˆÜ˜]\ˆİZ[›\ÜÈ‹‘š[™H™\İ\ˆ[™Ü˜]\ˆ‹Hš[™HÛÛ™[[İ™\Èœ˜YÜ˜[[[Ûˆ™\İ[™›ÙXÙ\È\›Y\Ø[ˆ[ˆ[›İYÚÈY[Û[ÛİHÙ™ˆHX]ˆŠKˆBˆ[YˆœÚÚ[]ÚXÚÙ[ˆYX]˜[È[ˆÛX]ËX˜\Ú[Ø]XÙHˆ[ˆ^\İXÚÈÜˆœÚÚ[]ÚXÚÙ[ˆYX]˜[È[ˆÛX]È˜\Ú[Ø]XÙHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ÚYHLˆ[˜ÚX]HÚÚ[]‹•ÚYHL‹Z[˜ÚÚÚ[]‹Hœ›ØYX]H[ˆœ›İÛœÈHYX]˜[È[ˆ˜]Ú\Ë[ˆÛÈ[Ú^Y[ˆ[ˆÛ™HØ]XÙH^Y\ˆ›Üˆ]™[ˆÚ[[Y\š[™ËˆŠKˆ
-š[œİ[™XY\›[ÛY]\ˆÜ›İ[™İ[H‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈH\™Ù\İYX]˜[[™HÛÛÛ\ˆYÙHÜÚ][Ûˆ›ÜˆH™\]Z\™YMp¬ˆÙ[\ˆÚ]İ]™[Z[™ÈÛˆÛÛÜ‹ˆŠKˆ
-šX]Hš[[YYÚY][ˆ‹’X]Hš[[YYÚY][ˆ‹Hİ\™H[ˆÚ]™\ÈHØ\›XÈœ™XY›ÛÛHÈØ\İ]HYÙ\ÈÚ[HHYX]˜[Èš[š\Ú[ˆZ\ˆØ]XÙKˆŠKˆBˆ[YˆœÜ[˜XÚY™]HİY™™YÜØ™[ÜÈˆ[ˆ^\İXÚÈÜˆœÜ[˜XÚ™]HİY™™YÜØ™[ÜÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-šX]Hš[[YYÚY][ˆ‹’X]Hš[[YYÚY][ˆ‹Hœ›ØYY][[ˆÚ]™\È›İ\ˆ\™ÙH]\Ú›ÛÛHØ\È›ÛÛHÈÚY[Ú\İ\™H\š[™ÈHš\œİ›Ø\İÚ]İ]Ü›İÙ[™ËˆŠKˆ
-ŒLˆ[˜ÚİZ[›\ÜÈİY[ÚÚ[]‹•ÚYHL‹Z[˜ÚÚÚ[]‹•Hœ›ØYİ\™˜XÙH]˜\Ü˜]\È\]ZYœ›ÛHHÚÜYİ[\È[™Ü[˜XÚ™Y›Ü™HHÜ™X[^Hš[[™È\È\ÜÙ[X›YˆŠKˆ
-›YY][HØ]XÙ\[ˆÚ]YÈ]X\‹ŒË\]X\Ø]XÙ\[ˆÚ]Y‹HÛÜÙKYš][™ÈY[™İXYH˜\ÙHÛÛÚÈX\›Ûİ\ØÛİ\È]™[›H[ˆHYX\İ\™Y™YÙ]X›Hœ›İˆŠKˆBˆ[Yˆ˜Z\ˆœY\ˆÚ[K[[YHÚš[\]›ØØYÈØ\İˆ[ˆ^\İXÚÈÜˆ˜Z\ˆœY\ˆÚ[H[YHÚš[\]›ØØYÈØ\İˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-H]X\˜\ÚÙ]Z\ˆœY\ˆ‹KHÈ‹\]X\˜\ÚÙ]Z\ˆœY\ˆ‹H›ÛÛ^H˜\ÚÙ]ÙY\ÈÛ™Hİ[™ÙˆÚš[\[ˆ[ˆ[˜Ü›İÙY^Y\ˆ[™[ˆÜš\ÜÈHÛİ\™İYÚÚ]H\X[˜ÙH[™XYHİˆŠKˆ
-š[œİ[™XYYÚ][›ÛÙ\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈHXÚÙ\İÚš[\›ÜˆMp¬ˆÚ]İ]^[™[™ÈHÚÜÛÛÚÈ[[]™\HYXÙHİ\›ÈYÚKˆŠKˆ
-™š[™HÚ]\È™\İ\ˆZXÜ›Ü[™H‹‘š[™HÚ]\È™\İ\ˆ‹”™[[İ™Hœ˜YÜ˜[[YH™\İ›ÜˆHÚš[\Ú[HX]š[™ÈHš]\ˆÚ]H]™Z[™ˆŠKˆBˆ[Yˆœ›Ø\İY[\Ú[‹XØ\™[[ÛHÛİ\ˆ[ˆ^\İXÚÈÜˆœ›Ø\İY[\Ú[ˆØ\™[[ÛHÛİ\ˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-šX]Hš[[YYÚY][ˆ‹’X]Hš[[YYÚY][ˆ‹Hœ›ØYY][İ\™˜XÙH›Ø\İÈH[\Ú[ˆÙYÙ\È[ˆÛ™H^Y\ˆÛÈZ\ˆİ]ÚY\Èœ›İÛˆ[œİXYÙˆİX[Z[™ËˆŠKˆ
-™[˜[Y[Y]Úİ™[ˆH]X\‹KHÈ‹\]X\]Úİ™[ˆ‹HX]HİÛÙ[œÈH\›ÛX]XÜÈ]™[›H[™ÛÛZ[œÈHİÛİ\ØY™[H\š[™È[[Y\œÚ[Ûˆ›[™[™ËˆŠKˆ
-š[[Y\œÚ[Ûˆ›[™\ˆİZ[›\ÜÈİY[‹’[[Y\œÚ[Ûˆ›[™\ˆ‹›[™H›Ø\İY[\Ú[ˆ\™XİH[ˆHİÚ]HXYİX›Y\™ÙY]›ÚY[™ÈH˜[œÙ™\ˆÙˆİÛİ\ÈHÙX[Y˜\‹ˆŠKˆBˆ[Yˆ˜ÚXÚÙ[ˆÚ[\]Z[\È™\™\Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-šX]Hš[[YYÚY][ˆ‹’X]Hš[[YYÚY][ˆ‹Hœ›ØYœ›Ú[\‹\ØY™Hİ\™˜XÙH›\İ\œÈHÛX][ÜË\\œËÛš[Ûˆ[™Ø\›XÈ[ˆÛ™H[˜Ü›İÙY^Y\‹ˆŠKˆ
-ŒLˆ[˜ÚİZ[›\ÜÈİY[ÚÚ[]‹•ÚYHL‹Z[˜ÚÚÚ[]‹•HÚYH˜\ÙH™YXÙ\ÈHØ[ØH]™[›H[™Ú]™\Èİ\™HÜ[HÚ\È›ÛÛHÈ›ÛÚ]İ]Ü\Ú[™ËˆŠKˆ
-™YÚ][›Ø™HÛÛÚÚ[™È\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹•™\šYHH™ZX]YÚ™YYÚXÚÙ[ˆ™XXÚ\ÈMp¬ˆ™Y›Ü™HHÜ[HÚ\È[\ˆHÚÚ[]ˆŠKˆBˆ[Yˆ˜œ™]ÛˆXÚİÚX]Ø[]\ÈÚ]Û[ÚÙYØ[[Ûˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒL[˜Ú›ÛœİXÚÈÜ™\H[ˆ‹ŒLZ[˜Ú›ÛœİXÚÈÜ™\H[ˆ‹HİË\ÚYY]™[›HX]Yİ\™˜XÙHXZÙ\È]X\ÚY\ˆÈÜ™XY™[X\ÙH[™\›ˆXXÚ[ˆXÚİÚX]Ø[]KˆŠKˆ
-[ˆ›^X›HÚ[XÛÛ™HÜ™\HÜ][H‹•[ˆ›^X›HÜ™\HÜ][H‹Hœ›ØYÛ[HYÙHÛY\È™[™X]H[HÙ]Ø[]HÚ]İ]X\š[™È]ÈXŞHš[KˆŠKˆ
-›Z^[™È›İÛÚ]İ\š[™ÈÜİ]‹˜]\ˆ›İÛÚ]İ\š[™ÈÜİ]‹H[™Y›İÛÙY\ÈH™\İY˜]\ˆX\ŞHÈÚ\ÚÈ[™Ü[ÛˆÛÛœÚ\İ[H™]ÙY[ˆZYÚÚÚ[]›İ[™ËˆŠKˆBˆ[YˆœÛİÈÛÛÚÙ\ˆ\HÚY\ˆ[YÜšÈØ[™ÚXÚ\Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\›ÙÜ˜[[XX›HÛİÈÛÛÚÙ\ˆ‹‹\]X\›ÙÜ˜[[XX›HÛİÈÛÛÚÙ\ˆ‹•H›İ\ˆÜšÈÜ[ÛœËÛš[ÛœÈ[™YX\İ\™YÚY\‹Xœ›İœ˜Z\ÙH\™HØ[Xœ˜]Y›Üˆ\È˜[Z[K\Ú^™HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[ÜšÈÚ[šÜÈ›ÜˆHNMHÈŒp¬ˆÚ™Y[™È˜[™ÙH[œİXYÙˆ™[Z[™ÈÛˆHÛØÚÈ[Û™KˆŠKˆ
-œİZ[›\ÜÈİY[˜]Ù\\˜]Üˆİ\‹‘˜]Ù\\˜]Üˆ‹”Ù\\˜]H™[™\™YÜšÈ˜]œ›ÛHHÚY\ˆœ˜Z\Ú[™È\]ZY™Y›Ü™H™YXÚ[™È][ÈHÛÛ˜Ù[˜]Yš[š\Ú[™ÈØ]XÙKˆŠKˆBˆ[Yˆ››ËZÛ™XYÛX]ËÛ]™H	ˆ™YÛš[Ûˆ›ØØXØÚXHˆ[ˆ^\İXÚÈÜˆ››ËZÛ™XYÛX]ÈÛ]™H™YÛš[Ûˆ›ØØXØÚXHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-HHLÈY][˜ZÚ[™È[ˆ‹KXKLLËZ[˜ÚY][˜ZÚ[™È[ˆ‹HYÚXÛÛÜ™YY][[ˆÚ]™\ÈHÛ]™K[Ú[YİYÚÜš\Ü]™[›Hœ›İÛ™YYÙ\ÈÚ]İ]ØÛÜ˜Ú[™ÈH˜\ÙKˆŠKˆ
-™YÚ][Ú]Ú[ˆØØ[HÜ˜[\Èİ[˜Ù\È‹‘YÚ][Ú]Ú[ˆØØ[H‹‘Ü˜[HÙZYÚÈÙY\HYÚZY˜][ÛˆİYÚÛÛœÚ\İ[[™™]™[^˜H›İ\ˆœ›ÛHÛÜÚ[™È]ÈÜ[ˆÜ[X‹ˆŠKˆ
-™YÚ][›Ø™HÛÛÚÚ[™È\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹HÙ[\ˆ™XY[™ÈÙˆŒÈŒp¬ˆÛÛ™š\›\ÈH[Ú\İœ™XYÜ[Xˆ\ÈÙ]™Y›Ü™HÛÛÛ[™ËˆŠKˆBˆ[Yˆš[œİ[İ\šÚ\Úİ\H˜\İ[YHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛØZÙYX™X[ˆ›Û[YKš]™KXİ\[‹[\]ZY˜\ÙH[™Œ[Z[]H˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\È˜[Z[HØ\XÚ]KˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\ÚÛÛ[™\ˆ‹”XÚÈİ™\‹š[œÙH[™˜Z[ˆHÚ]H™X[œÈÛX[›H™Y›Ü™H[™Y\ˆZ\ˆİ™\›šYÚÛØZËˆŠKˆ
-œİZ[›\ÜÈİY[Ûİ\YH‹”İZ[›\ÜË\İY[Ûİ\YH‹HY\YHÜ[ÛœÈHÜ™X[^H™X[œÈÚ][›İYÚÛX]Èœ›İ[ˆ]™\H›İÛˆŠKˆBˆ[Yˆš[œİ[İ›ÜÙYÚX[ˆ°é\šZğé[ˆ[ˆ^\İXÚÈÜˆš[œİ[İ›ÜÙYÚX[ˆ˜\šZØ[ˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•Hp¯KXİ\[‹Xœ›İ˜\ÙKŒ[Z[]HŞXÛH[™ÛË\İYÙH™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[[XˆYXÙ\È]Ø^Hœ›ÛH›Û™H›ÜˆHØY™HÙ[\‹[ˆ\ÙH[\\˜]\™H[™›ÜšÈ^\™HÈYÙHœ˜Z\ÙH[™\›™\ÜËˆŠKˆ
-œÚ[XÛÛ™H\YÚ]Ú[ˆÛ™ÜÈ‹”Ú[XÛÛ™K]\YÚ]Ú[ˆÛ™ÜÈ‹œ›İÛˆ[Xˆ[ˆ˜]Ú\È[™Y[™\ˆØX˜˜YÙHÙYÙ\ÈÚ]İ]ØÜ˜]Ú[™ÈH[›™\ˆİˆŠKˆBˆ[Yˆ˜Ø[Û™\ÙK\İ[HÚ\ˆÚ]HÜšÈ™[Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-šX]HØ]YÙH[[Z[[H[ˆÚY][ˆÚ\™H˜XÚÈ‹”š[[YYÚY][ˆÚ]Ú\™H˜XÚÈ‹•H˜XÚÈÚ\˜İ[]\ÈX]\›İ[™HÜšÈ[™ÙY\È]X›İ™H™[™\™Y˜]Ú[HHÛ^™HXÜ]Y\œËˆŠKˆ
-œÚ[XÛÛ™H\İHœ\Ú‹”Ú[XÛÛ™H\İHœ\Ú‹\H[‹]™[ˆ^Y\œÈÙˆHÛX[ˆ™\Ù\™YÛ™^HX\š[˜YH™X\ˆH[™Ùˆ›Ø\İ[™ËˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÛÛ™š\›HHÜšÈÛX\œÈMp¬ˆÚ]H™YK[Z[]H™\İ[™ÛÛ[YHİØ\™H™XÚ\IÜÈ[™\ˆ™[H˜[™ÙKˆŠKˆBˆ[Yˆ™š[\[›È[\X[™ÈØ\š]ØHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-[˜Ú›ÛœİXÚÈÚÚ[]‹Z[˜Ú›ÛœİXÚÈÚÚ[]‹HÛX[ÛXÚÈİ\™˜XÙH\›œÈH[ˆYÙÈ˜]\ˆ[ÈÛÛœÚ\İ[HÚ^™Y›^X›Hœ™\Ú[[\XHÜ˜\\œËˆŠKˆ
-š[Y[›™HY[\ˆ[™İX\™‹’[Y[›™HY[\ˆÚ][™İX\™‹•[šY›Ü›HØ\œ›İ[™İÙY]\İ]ÈX]ÚİXÚÜÈÛÛÚÈ]™[›NÈ\ÙHHİX\™[™İÜ™Y›Ü™HHYXÙH\È[œØY™HÈÛˆŠKˆ
-œÚ[XÛÛ™HÚ\ÚÈX]™\Ú\İ[‹’X]\ØY™HÚ[XÛÛ™HÚ\ÚÈ‹•Ú\ÚÈHX[]Ø]XÙH[™ÛÜ›œİ\˜ÚÛ\œHÛ[Ûİ\È^HXÚÙ[ˆÛˆHİİ™KˆŠKˆBˆ[Yˆš˜\[™\ÙHÜ˜^XZÚHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒLˆ[˜Ú›ÛœİXÚÈÜšYH‹“›ÛœİXÚÈÜšYH‹”İXYHYY][K[İÈX]›ÙXÙ\ÈÙ]™\˜[Û[Ûİ]™[›HÛÛ[ˆ™YKZ[˜Ú[˜ØZÙH›İ[™È]Û˜ÙKˆŠKˆ
-™YÚ][Ú]Ú[ˆØØ[HÜ˜[\Èİ[˜Ù\È‹‘YÚ][Ú]Ú[ˆØØ[H‹•ÙZYÚ[™ÈLŒÜ˜[\ÈÙˆ›İ\ˆ™]™[ÈHXÚÙYİ\œ›ÛHXZÚ[™ÈHÛ™^H[˜ØZÙ\ÈKˆŠKˆ
-ŒˆX›\ÜÛÛˆÛÛÚÚYHØÛÛÜ‹Œ‹]X›\ÜÛÛˆØÛÛÜ‹‘\]X[˜]\ˆÜ[ÛœÈXZÙHÚ^Y[ˆ›İ[™È]Z\ˆ™X]H\›İ[™H[šÛÈš[[™ËˆŠKˆBˆ[Yˆš[œİ[İÛÜ™X[‹\İ[HZØ›ÚÚÙ][][™Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•Hp¯KXİ\[‹Xœ›İ˜\ÙKZYÚ[Z[]HŞXÛH[™ÛË\İYÙH™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[›Û™KZ[ˆÚXÚÙ[ˆYXÙ\È]Z\ˆXÚÙ\İÚ[ÈÚ]İ]İXÚ[™È›Û™H[™ÛÛ™š\›HXXÚ™XXÚ\ÈMp¬‹ˆŠKˆ
-œÚ[XÛÛ™H\YÚ]Ú[ˆÛ™ÜÈ‹”Ú[XÛÛ™K]\YÚ]Ú[ˆÛ™ÜÈ‹•\›ˆÚXÚÙ[ˆ[™Y[™\ˆİ]Ù\ÈÚ]İ]ØÜ˜]Ú[™ÈH[›™\ˆİÜˆœ™XZÚ[™ÈHš[š\ÚYİ]È\\ˆŠKˆBˆ[Yˆš[œİ[İ›ÛX[šX[‹\İ[HØ\›X[Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H[‹Y[Ü˜Z[ˆØY™YİX\™p¯KXİ\œ›İ˜\ÙH[™MK[Z[]H˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹”›Ø™H›İYÚHØX˜˜YÙH[ÈÙ]™\˜[›ÛÙ[\œÈ[™™\šYH]™\HÜ›İ[™[YX]š[[™È™XXÚ\ÈMŒ0¬‹ˆŠKˆ
-œİZ[›\ÜÈİY[ÛİYÜÛÛˆ‹•ÚYHÛİYÜÛÛˆ‹“YH[™\ˆØX˜˜YÙH›ÛÈœ›ÛHZ\ˆœ›İÚ]\ÜÈX\š[™ÈY\ˆH™\Üİ\™H™[X\ÙKˆŠKˆBˆ[Yˆ™]Ú›Ù\™[šÛÛÛİ[\İˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-™[˜[Y[Y]Úİ™[ˆˆ]X\‹“\™ÙH]Úİ™[ˆ‹“Û™H›ÛÛ^HİÚ[[Y\œÈİ]Ù\ËİX[\ÈØ[H[™™ZX]ÈH[XİÛ[ÚÙYØ]\ØYÙKˆŠKˆ
-œİZ[›\ÜÈİY[İ]ÈX\Ú\ˆ‹’[™İ]ÈX\Ú\ˆ‹H[™X\Ú\ˆÛÛXš[™\ÈH˜Z[™Y™YÙ]X›\ÈÚ]İ]™[X\Ú[™ÈH^Ù\ÜÈİ\˜ÚH›ÛÙ›ØÙ\ÜÛÜˆÛİ[ˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÛÛ™š\›HH[HÛÛÚÙYÛ[ÚÙYØ]\ØYÙH\È™ZX]YÈMp¬ˆ]]ÈÙ[\‹ˆŠKˆBˆ[YˆœY\ÈšXØ[ˆ[Ù›Û™ÛÈÚ]Ø\›XÈÚš[\ˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ÛÛÙ[ˆ[Ûˆ[Ü\ˆ\İH\™ÙH‹“\™ÙH[0ìÛˆÜˆ[Ü\ˆ‹”İ[™İœšYY[Z[œÈÚ]Ø\›XÈ[™YX\İ\™Yœ›İ[È›İ\ˆÛÚ\Ú]™K\İXÈÜ[ÛœËˆŠKˆ
-™Y\œH\›[ÛY]\ˆÛ\Ûˆ‹Û\[ÛˆœZ[™È\›[ÛY]\ˆ‹’ÛHÚ[™]ÙY[ˆÌ0¬ˆ[™Ìp¬ˆÛÈHXÚÈ[Z[ˆ›İ[™ÈÛÛÚÈ›İYÚÚ]İ]\™[š[™ËˆŠKˆ
-™YÚ][›Ø™HÛÛÚÚ[™È\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹”™[[İ™HHÚš[\œ›ÛHHÚ[[Y\š[™Èœ›İ\ÈÛÛÛˆ\ÈZ\ˆXÚÙ\İ\È™XXÚMp¬‹ˆŠKˆBˆ[Yˆ˜]\İ˜[X[ˆ[Z[™İÛœÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-[˜ÚÜ]X\™HY][ØZÙH[ˆ‹Z[˜ÚÜ]X\™HY][ØZÙH[ˆ‹•H™XÚ\IÜÈ˜ZÙH[YH[™Ú^Y[ˆ‹Z[˜ÚÜ[ÛœÈ\™HØ[Xœ˜]Y›Üˆ\È[ˆÚ^™KˆŠKˆ
-Ú\™HÛÛÛ[™È˜XÚÈš[[YYÚY][ˆ‹•Ú\™H˜XÚÈ[™š[[YYÚY][ˆ‹•H˜XÚÈØ]Ú\È^Ù\ÜÈÚØÛÛ]H[™ÛØÛÛ]Ú[HZ\ˆ™XXÚ\È]™\HÛØ]YÚYKˆŠKˆ
-™YÚ][Ú]Ú[ˆØØ[HÜ˜[\Èİ[˜Ù\È‹‘YÚ][Ú]Ú[ˆØØ[H‹‘Ü˜[HÙZYÚÈÙY\HÜÛ™ÙHYÚ[™HÛÛ™™Xİ[Û™\œÉÈİYØ\‹]ËXÛØÛØHÛØ][™ÈÛÛœÚ\İ[ˆŠKˆBˆ[Yˆš[œİ[İœ™[˜Ú\İ[HÛÜH]Hš[ˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÚ[™KX[™Xœ›İ˜\ÙK[‹[Z[]HŞXÛH[™ÛË\İYÙH™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[ÚXÚÙ[ˆYÚÈ™\ÚYK]›İİXÚ[™ËH›Û™H[™ÛÛ™š\›HXXÚ™XXÚ\ÈMp¬‹ˆŠKˆ
-œÚ[XÛÛ™H\YÚ]Ú[ˆÛ™ÜÈ‹”Ú[XÛÛ™K]\YÚ]Ú[ˆÛ™ÜÈ‹•\›ˆÚXÚÙ[ˆ[™™YÙ]X›\ÈÛX[›HÚ]İ]ØÜ˜]Ú[™ÈH[›™\ˆİ\š[™ÈHÛÈœ›İÛš[™ÈİYÙ\ËˆŠKˆBˆ[Yˆš[œİ[İ™YØ[ˆÛÜ›ˆ	ˆİ]ÈÚİÙ\ˆˆ[ˆ^\İXÚÈÜˆš[œİ[İ™YØ[ˆÛÜ›ˆ[™İ]ÈÚİÙ\ˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H›İ\‹Xİ\[‹Xœ›İ˜\ÙKš]™K[Z[]HŞXÛH[™ÛÛ›ÛY™[X\ÙH\™HÜš][ˆ›Üˆ\ÈØ\XÚ]KˆŠKˆ
-š[[Y\œÚ[Ûˆ›[™\ˆİZ[›\ÜÈİY[‹’[[Y\œÚ[Ûˆ›[™\ˆ‹”ÚÜ[Ù\ÈXÚÙ[ˆ\ÙˆHÚİÙ\ˆÚ[HX]š[™Èš\ÚX›Hİ]ÈYXÙ\È[™ÛÜ›ˆÙ\›™[ËˆŠKˆ
-œİZ[›\ÜÈİY[Ûİ\YH‹”İZ[›\ÜË\İY[Ûİ\YH‹HY\YHÜ[ÛœÈHÚ[šŞHš[š\ÚYÚİÙ\ˆÚ]İ]Ü\Ú[™È]È™\Ù\™YÛÜ›ˆ[™İ]Ù\ËˆŠKˆBˆ[YˆœÜ[š\ÚÜ[H\Üpì[ÛHˆ[ˆ^\İXÚÈÜˆœÜ[š\ÚÜ[H\Ü[›ÛHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒL[˜Ú›ÛœİXÚÈÚÚ[]İ™[ˆØY™H‹ŒLZ[˜Ú›ÛœİXÚÈÚÚ[]‹H™YXİX›H™[X\ÙHXZÙ\ÈHXÚÈİ]ËX[™YYÙÈ›İ[™ØY™\ˆÈ[™\[™ÛYH˜XÚÈ[ÈH[‹ˆŠKˆ
-œİZ[›\ÜÈİY[X[™Û[™HÛXÙ\ˆ[™İX\™‹“X[™Û[™HÚ][™İX\™‹•[šY›Ü›HKÎZ[˜Úİ]ÈÛXÙ\ÈÛÙ[ˆ]HØ[YHXÙNÈ[Ø^\È\ÙHHİX\™[™İÜX\›KˆŠKˆ
-™YÚ][›Ø™HÛÛÚÚ[™È\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈHXÚÈÙ[\ˆ›ÜˆHMŒ0¬ˆYÙË\ØY™]H\™Ù]Ú]İ]İ™\˜ÛÛÚÚ[™ÈHİ]\ˆ^Y\œËˆŠKˆBˆ[YˆœÚY]\[ˆÚXÚÙ[ˆÚ]Ø\›XHİY™™Y]\Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-šX]HØ]YÙH[[Z[[H[ˆÚY][ˆ‹’X]Hš[[YYÚY][ˆ‹”™ZX][™ÈHœ›ØYY][[ˆÚ]™\ÈX\š[˜]YYÚÈ›ÛÛHÈœ›İÛˆ[œİXYÙˆİX[KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹•™\šYH][\HYÚÈ™XXÚMp¬ˆ™Y›Ü™H™\İ[™ËÚÜ[™ÈÜˆœ›Ú[[™ÈZ\ˆYÙ\ËˆŠKˆ
-›ZXÜ›Ü[™H™\İ\ˆÜ˜]\ˆİZ[›\ÜÈ‹‘š[™H™\İ\ˆ‹‘š[™[HÜ˜]HØ\›XÈ›ÜˆHX\š[˜YH[™Ø]XÙK[ˆZÙHÛX[ˆ™\İœ›ÛHH[[Û‹ˆŠKˆBˆ[Yˆ˜\™Ù[[™H[˜Z›Ü™\ÈHXZXÙ[˜Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-™YÚ][Ú]Ú[ˆØØ[HÜ˜[\Èİ[˜Ù\È‹‘YÚ][Ú]Ú[ˆØØ[H‹•ÙZYÚYÛÜ›œİ\˜Ú[™›İ\ˆ™]™[ÛÛ\XİYİ\Èœ›ÛHXZÚ[™ÈH[XØ]HÛÛÚÚY\ÈÚ[ŞKˆŠKˆ
-Œ‹H[˜Ú›İ[™ÛÛÚÚYHİ]\ˆ‹Œ°¯KZ[˜Ú›İ[™İ]\ˆ‹“Û™HÛÛœÚ\İ[X[Y]\ˆ›ÙXÙ\ÈX]Ú[™È›İ[™È[™MYHØ[™ÚXÚÛÛÚÚY\ËˆŠKˆ
-šX]Hš[[YY˜ZÚ[™ÈÚY]Ù]‹”š[[YYÚY][œÈ‹‘›]YÚXÛÛÜ™Y[œÈ[HÛÜ›œİ\˜ÚÛÛÚÚY\ÈÙ]Ú[HZ\ˆÜÈ™[XZ[ˆÚ\˜Xİ\š\İXØ[H[KˆŠKˆBˆ[Yˆš[œİ[İY^XØ[‹\İ[H™YYˆš\œšXHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H™YKXİ\[‹Xœ›İ˜\ÙKK[Z[]HŞXÛH[™Œ[Z[]H˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\È˜[Z[HØ\XÚ]KˆŠKˆ
-™š[™HY\ÚİZ[›\ÜÈİY[İ˜Z[™\ˆ‹‘š[™K[Y\Úİ˜Z[™\ˆ‹”İ˜Z[ˆH›[™YÚ[Hœ›İ›ÜˆHÛ[Ûİ\ˆÛÛœÛÛ[pêH[™™]Ù\ˆÛÛYÈ]Ø[ˆÙ]HYØZ[œİHÛÛÚÙ\ˆ˜\ÙKˆŠKˆ
-˜Ø\İ\›ÛˆÜšYHLˆ[˜Ú‹ŒL‹Z[˜ÚÜšYH‹Hœ›ØYX]\İXYHİ\™˜XÙHÜš\ÜÈÙ]™\˜[š[YÛÜ›ˆÜ[\È]Û˜ÙHÚ]İ]Ü›İÙ[™ËˆŠKˆBˆ[Yˆš[œİ[İ[™X[‹\İ[H™YÙ]X›Hš\X[šHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛËXİ\šXÙH]X[]KYX\İ\™Y[ˆœ›İ[‹Y[ØY™YİX\™[™ÛÛ›ÛY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™š[™HY\ÚšXÙHİ˜Z[™\ˆ‹‘š[™K[Y\ÚšXÙHİ˜Z[™\ˆ‹”š[œÙH˜\ÛX]HÜ›İYÚH[™˜Z[ˆ]›Üˆ[ˆZ[]\ÈÛÈH™\Üİ\™KXÛÛÚÙ\ˆ\]ZY˜][Èİ^\ÈXØİ\˜]KˆŠKˆ
-œİZ[›\ÜÈİY[Ù\š[™È›ÜšÈšXÙH‹•ÚYHÙ\š[™È›ÜšÈ‹Hœ›ØY›ÜšÈYÈ[™Ù\\˜]\ÈHÛÛÚÙYÜ˜Z[œÈÚ]İ]Ü\Ú[™ÈH[™\ˆ™YÙ]X›\ËˆŠKˆBˆ[Yˆ™Ü™YZË\İ[H[Xˆ[İ\ÜØZØHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-HHLÈÙ\˜[ZXÈ˜ZÚ[™È\ÚY\‹‘Y\KXKLLËZ[˜Ú˜ZÚ[™È\Ú‹‘[›İYÚ\İ\ÜÈÛÈYÙÜ[^Y\œËH[Xˆš[[™È[™H[°êXÚ[Y[Ø\ˆŠKˆ
-šX]Hš[[YY˜ZÚ[™ÈÚY]Ù]‹”š[[YYÚY][œÈ‹•ÛÈœ›ØY[œÈ›Ø\İHYÙÜ[[ˆÛ™H^Y\ˆÛÈ]œ›İÛœÈ[œİXYÙˆİX[Z[™ËˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹•™\šYHHÜ›İ[™[Xˆ™XXÚ\ÈMŒ0¬ˆ[™H\ÜÙ[X›YØ\ÜÙ\›ÛH™XXÚ\ÈMp¬ˆ]HÙ[\‹ˆŠKˆBˆ[YˆšÛÜ™X[‹\İ[H[ÚØ›ÚÚÚHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒLˆ[˜ÚİZ[›\ÜÈİY[ÚÚ[]‹•ÚYHL‹Z[˜ÚÚÚ[]‹Hœ›ØYÛÛÚÚ[™Èİ\™˜XÙH™YXÙ\ÈHœ›İ[ÈHÛÜÜŞHØ]XÙHÚ[HHšXÙHØZÙ\Èİ^H[ˆHÚ[İË]™[ˆ^Y\‹ˆŠKˆ
-œÚ[XÛÛ™HÜ][HX]™\Ú\İ[‹’X]\ØY™HÚ[XÛÛ™HÜ][H‹‘œ™\]Y[›İÛK\ØÜ˜\[™ÈÙY\ÈÛÙ[š[™ÈšXÙHØZÙ\Èœ›ÛHİXÚÚ[™ÈÚ]İ]ØÜ˜]Ú[™ÈHÚÚ[]ˆŠKˆ
-™YÚ][›Ø™HÛÛÚÚ[™È\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÛÛ™š\›HHš\ÚØZÙ\È\™H™ZX]YÈMp¬ˆ™Y›Ü™HÙ\š[™ËˆŠKˆBˆ[Yˆ˜œ™]ÛˆÛİZYÛ‹X[X[›ˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-œİ[™\™Y][]Y™š[ˆ[ˆLˆİ\‹ŒL‹Xİ\Y][]Y™š[ˆ[ˆ‹“Y][İ\Èš]™HH\šÈØ\˜[Y[Ú[[™ÛXXÚ›ÛY\İH\šYÚ\È]^[™ËˆŠKˆ
-™YÚ][Ú]Ú[ˆØØ[HÜ˜[\Èİ[˜Ù\È‹‘YÚ][Ú]Ú[ˆØØ[H‹‘Ü˜[HÙZYÚÈÙY\HİYÚ]\ˆ›ØÚÈ[™Ú\[™ÈİYØ\ˆ˜[[˜ÙY›Üˆ\[™X›H[Z[˜][Û‹ˆŠKˆ
-™œ™[˜Ú›Û[™È[ˆ\™ÛÛÙ‹”İ˜ZYÚ›Û[™È[ˆ‹HÛ™ÈÛ[Ûİ[ˆ\Y\È]™[ˆ™\Üİ\™HXÜ›ÜÜÈH]\ˆXÚÙ]Ú]İ]Ü™X][™È[ˆİÜİËˆŠKˆBˆ[Yˆš[œİ[İœ˜^š[X[‹\İ[H™ZZ›ØYHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛØZÙYX™X[ˆ›Û[YK›İ\‹Xİ\[‹Xœ›İ˜\ÙH[™Œ[Z[]H˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\È˜[Z[HØ\XÚ]KˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\ÚÛÛ[™\ˆ‹”š[œÙH[™[œÜXİ›XÚÈ™X[œÈ™Y›Ü™HÛØZÚ[™Ë[ˆ˜Z[ˆ[HÜ›İYÚH™Y›Ü™H™\Üİ\™HÛÛÚÚ[™ËˆŠKˆ
-œİZ[›\ÜÈİY[İ]ÈX\Ú\ˆ‹”İZ[›\ÜË\İY[™X[ˆX\Ú\ˆ‹“X\ÚHYX\İ\™YØÛÛÜÙˆ[™\ˆ™X[œÈYØZ[œİHİØ[ÈXÚÙ[ˆHİ]È˜]\˜[KˆŠKˆBˆ[Yˆš[œİ[İ^˜™ZË\İ[H[Xˆİˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛË\İYÙH[X‹X[™\šXÙHY]Ù[‹Y[Ü˜Z[ˆ[Z][™ÛÛ›ÛY™[X\Ù\È\™HØ[Xœ˜]Y›Üˆ\È˜[Z[HØ\XÚ]KˆŠKˆ
-™š[™HY\ÚšXÙHİ˜Z[™\ˆ‹‘š[™K[Y\ÚšXÙHİ˜Z[™\ˆ‹”š[œÙH˜\ÛX]H[[™X\›HÛX\ˆ[™˜Z[ˆ]›ÜˆMHZ[]\ÈÛÈHYX\İ\™Y\]ZY˜][È™[XZ[œÈXØİ\˜]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹•™\šYH[Xˆ™XXÚ\È]X\İMp¬ˆÚ]H™YK[Z[]H™\İ[ˆ\ÙH[™\›™\ÜÈÈYÙHÚİ[\ˆÛÛYÙ[‹ˆŠKˆBˆ[Yˆ\šÚ\ÚY\˜Ú[YZÈğí™\ÚHˆ[ˆ^\İXÚÈÜˆ\šÚ\ÚY\˜Ú[YZÈÛÙ\ÚHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-šX]H›İÛHØ]XÙ\[ˆÈ]X\‹’X]HË\]X\Ø]XÙ\[ˆ‹‘]™[ˆX]]È™Y[[ÈÛÛ\ÙHÚ]İ]ØÛÜ˜Ú[™È\ÈH\İÛÛÚÚ[™È\]ZY™YXÙ\ËˆŠKˆ
-œİZ[›\ÜÈİY[YX\İ\š[™Èİ\ÈÜÛÛœÈ‹“YX\İ\š[™Èİ\[™ÜÛÛˆÙ]‹XØİ\˜]H[[Ø]\ˆ[™š[™KX[İ\ˆ›ÜÜ[ÛœÈ]\›Z[™HÚ]\ˆHZ^\™HÚ\\ÈÛX[›KˆŠKˆ
-›\™ÙH™Xİ[™İ[\ˆÙ\š[™È]\ˆ‹“\™ÙHÙ\š[™È]\ˆ‹Hœ›ØY]\ˆÙY\ÈHšYÙYÛÙH[ˆ™X]›İÜÈÚ][[Ûˆ[™]XÙH]HYÙ\ËˆŠKˆBˆ[Yˆœ\]šX[ˆØ]\ØH™[[˜Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-œİZ[›\ÜÈİY[İ]ÈšXÙ\ˆ‹”İZ[›\ÜË\İY[İ]ÈšXÙ\ˆ‹”šXÙHİİ]Ù\È[ÈHÛ[Ûİ›Û‹YÛY^H˜\ÙH]ÛÈHÛX[ˆ[ÛYYÙKˆŠKˆ
-ŒÈ[˜Ú›ÛÙš[™È[ÛÈÙ]‹ŒËZ[˜Úš[™È[ÛÈ‹”İ˜ZYÚ\ÚYY[ÛÈZ[Ú^ÛÛ\Xİİ]Ë[˜H[™]›ØØYÈİXÚÜÈÚ]YH^Y\œËˆŠKˆ
-›Ù™œÙ]Ü][HÛX[İZ[›\ÜÈ‹”ÛX[Ù™œÙ]Ü][H‹“]™[XXÚİ]È^Y\ˆ[™Yš[[™ÈÛX[›HÚ]İ]˜YÙÚ[™È]\H[ÛØ[ËˆŠKˆBˆ[YˆœÛİ]YœšXØ[‹\İ[HX[˜HY[™ÜÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-İ[˜ÙHÙ\˜[ZXÈ˜[YZÚ[œÈÙ]Ùˆˆ‹”Ú^[İ[˜ÙH˜[YZÚ[œÈ‹’[™]šYX[\Ú\ÈÜ™X]HH›İ[™Y™\Ù[][Ûˆ[™Ú]™H]™\HÙ\š[™ÈØ\˜[Y[^™YYÙ\ËˆŠKˆ
-œš[[YY˜ZÚ[™ÈÚY]X]H]H‹”š[[YY˜ZÚ[™ÈÚY]‹Hİ\™HÚY]ÙY\ÈHÚ^˜[YZÚ[œÈİX›H[™ÛÛZ[œÈ[HØ]XÙH]X˜›\Èİ™\‹ˆŠKˆ
-™YÚ][›Ø™HÛÛÚÚ[™È\›[ÛY]\ˆ‹‘YÚ][ÛÛÚÚ[™È\›[ÛY]\ˆ‹ÚXÚÈHYÙËY›İ\ˆÜÛ™ÙH›ÜˆHŒ8 $ÌŒp¬ˆÙ[\ˆ™Y›Ü™HY[™ÈHİÜ™X[HØ]XÙKˆŠKˆBˆ[Yˆš[œİ[İ˜[XZXØ[‹\İ[HŞZ[ˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛËXİ\[‹Xœ›İ˜\ÙKK[Z[]HŞXÛH[™Œ[Z[]H˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\È˜[Z[HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈŞZ[›ÜˆØY™H[\\˜]\™K[ˆ\ÙHHNMx $ÌŒp¬ˆ[™\›™\ÜÈ˜[™ÙH[™›ÜšÈ^\™HÈYÙHÛÛYÙ[ˆœ™XZÙİÛ‹ˆŠKˆ
-™Ü˜]H˜]Ù\\˜]ÜˆX]™\Ú\İ[‹’X]\ØY™H˜]Ù\\˜]Üˆ‹”Ù\\˜]HH™[™\™YŞZ[˜]œ›ÛHHÛÛÚÚ[™È\]ZY™Y›Ü™H™YXÚ[™ÈHÛÜÜŞH]\‹X™X[ˆÜ˜]KˆŠKˆBˆ[Yˆš[œİ[İÚ[˜ZX[‹\İ[HÚXÚÙ[ˆX[]İ]Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛËXİ\[‹Xœ›İ˜\ÙKÚ^[Z[]HŞXÛH[™[‹[Z[]H˜]\˜[™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\È˜[Z[HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[ÚXÚÙ[‹]YÚYXÙ\È]Z\ˆÙ[\œÈ›ÜˆMp¬ˆ™Y›Ü™Hš[š\Ú[™ÈHX[]Ø]XÙKˆŠKˆ
-œÚ[XÛÛ™HÚ\ÚÈX]™\Ú\İ[‹’X]\ØY™HÚ[XÛÛ™HÚ\ÚÈ‹•Ú\ÚÈİœ›İ[ÈX[]]\ˆÛ[ÛİHÚ]İ]ØÜ˜]Ú[™ÈH™\Üİ\™HÛÛÚÙ\‰ÜÈ[›™\ˆİˆŠKˆBˆ[Yˆ˜˜[Ø[‹\İ[HYX]\™ZÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒLˆ[˜Ú›İ[™Y][˜ZÚ[™È[ˆ‹ŒL‹Z[˜Ú›İ[™˜ZÚ[™È[ˆ‹HÚ[İÈY][[ˆİ\ÜÈHÛÚ[Y[È[™[˜Ûİ\˜YÙ\ÈHÜš\Ü]™[›Hœ›İÛ™Y˜\ÙKˆŠKˆ
-œÚ[XÛÛ™H\İHœ\Ú‹”Ú[XÛÛ™H\İHœ\Ú‹H›^X›Hœ\ÚÜ™XYÈH[‹]™[ˆ^Y\ˆÙˆ]\ˆÚ]İ]X\š[™È[XØ]H[ÈÚY]ËˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹•™\šYHH™YYˆš[[™È™XXÚ\ÈMŒ0¬ˆ[™H\ÜÙ[X›Y\™ZÈ\Èİ›İYÚ]HÙ[\‹ˆŠKˆBˆ[Yˆ˜\›Y[šX[‹\İ[HÚ\[XHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-[˜ÚÚYˆÛšY™HÚ]Ú[ˆ‹ÚY‰ÜÈÛšY™H‹HÚ\œÛÛ›ÛX›H›YHİ]ÈH[\Ú[ˆYÛX[›NÈ[™ÛH][Ø\™ÛÈHYØ[››İ˜[›İYÚˆŠKˆ
-™[˜[Y[Y]Úİ™[ˆˆ]X\‹”ÛYÈ]Úİ™[ˆ‹HX]KÛÜÙKYš][™È™\ÜÙ[İXYY\ÈHÚÛH[\Ú[ˆ[™Ø]Ú\È[HŞ\\\ÈHÚ[ÛÙ[œËˆŠKˆ
-œÚ[XÛÛ™Hİ™[ˆZ]ÈX]™\Ú\İ[‹’X]\ØY™Hİ™[ˆZ]È‹”ÙXİ\™HÜš\[™›Ü™X\›HÛİ™\˜YÙHX]\ˆÚ[ˆ[İš[™ÈHX]KÛÙ[™YİY™™Y[\Ú[ˆœ›ÛHHİ™[‹ˆŠKˆBˆ[Yˆ™X\İ\›ˆ]\›ÜX[ˆŞ\›šZÚHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒLˆ[˜Ú›ÛœİXÚÈÚÚ[]‹ŒL‹Z[˜ÚÚÚ[]‹Hœ›ØY]™[ˆİ\™˜XÙHÛÛÚÜÈ›İ\ˆ[XØ]HÚY\ÙH]Y\È]H[YHÚ]İ]Ü›İÙ[™ËˆŠKˆ
-œÚ[XÛÛ™Hš\ÚÜ][H\›™\ˆ‹•[ˆ›^X›HÜ][H‹HÛ[HYÙHÛY\È™[™X][™\ˆŞ\›šZÚHÛÈZ\ˆÛÛ[ˆÜ\İÈİ^H[XİÚ[ˆ\›™YˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÛÛ™š\›HHYÙËX˜\ÙYÙ[\œÈ™XXÚMŒ0¬ˆÚ]İ]İ™\˜œ›İÛš[™ÈHÚY\ÙHØZÙ\ËˆŠKˆBˆ[Yˆš[œİ[İZ[˜[™\ÙK\İ[HÚXÚÙ[ˆšXÙHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛËXİ\[‹Xœ›İ˜\ÙKš]™K[Z[]HŞXÛK[‹Y[Ü˜Z[ˆØY™YİX\™[™[‹[Z[]H˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\È˜[Z[HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[ÚXÚÙ[ˆYÚÈ™\ÚYK]›İİXÚ[™ËH›Û™H›ÜˆMp¬ˆ™Y›Ü™HÛXÚ[™ÈÜˆÙ\š[™ËˆŠKˆ
-™š[™HY\ÚšXÙHİ˜Z[™\ˆ‹‘š[™K[Y\ÚšXÙHİ˜Z[™\ˆ‹”š[œÙH˜\ÛZ[™HšXÙH[[HØ]\ˆ\È™X\›HÛX\‹[ˆ˜Z[ˆ]Ü›İYÚHÛÈHYX\İ\™Y™\Üİ\™KXÛÛÚÙ\ˆ˜][Èİ^\ÈXØİ\˜]KˆŠKˆBˆ[Yˆš[œİ[İÜ™YZÈ™YYˆİY˜YÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÚ[™KX[™Xœ›İ˜\ÙK^Y\™YÛX]ËÍK[Z[]HŞXÛH[™MK[Z[]H˜]\˜[™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÛÛ™š\›H™YYˆÛX\œÈMp¬ˆÚ]]È™YK[Z[]H™\İ[ˆ\ÙH›ÜšÈ^\™HÈYÙHHY][Û˜[ÛÛYÙ[ˆœ™XZÙİÛˆ™YYY›ÜˆHœ˜Z\ÙKˆŠKˆ
-œÚ[XÛÛ™H\YÚ]Ú[ˆÛ™ÜÈ‹”Ú[XÛÛ™K]\YÚ]Ú[ˆÛ™ÜÈ‹•\›ˆX\›Ûš[ÛœÈ[™™YYˆ˜]Ú\ÈÛX[›HÚ]İ]ØÜ˜]Ú[™ÈH[›™\ˆİÜˆÜ›İÙ[™ÈHœ›İÛš[™Èİ\™˜XÙKˆŠKˆBˆ[YˆZK\İ[HÚš[\ÛÛH[Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-›\™ÙHÜ˜[š]H[Ü\ˆ\İHZH‹“\™ÙH[Ü\ˆ[™\İH‹H›ÛÛ^Hİ\™H[Ü\ˆœZ\Ù\ÈÜ™Y[ˆ\^XH[™™X[œÈÚ[HX]š[™ÈZ\ˆÙ[\œÈÜš\ÜˆŠKˆ
-š[Y[›™HY[\ˆ[™İX\™‹’[Y[›™HY[\ˆÚ][™İX\™‹•[šY›Ü›HÜ™Y[‹\\^XHİ˜[™ÈXœÛÜ˜ˆ™\ÜÚ[™È]™[›NÈ\ÙHHİX\™[™İÜ™Y›Ü™HHYXÙH™XÛÛY\È[œØY™HÈÛˆŠKˆ
-œİZ[›\ÜÈİY[Ú]\È™\ÜÈ‹’[™[Ú]\È™\ÜÈ‹”™\ÜÈ[›İYÚœ™\Ú[YHZXÙH]ZXÚÛH›ÜˆHÚ\œ\Ø[K\İÙY]™\ÜÚ[™ÈÚ]İ]ÙYYËˆŠKˆBˆ[YˆœŞ\šX[‹\İ[H]Z[[X\˜Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-™›ÛÙ›ØÙ\ÜÛÜˆİ\‹Xİ\›ÛÙ›ØÙ\ÜÛÜˆ‹”ÚÜÛÛ›ÛY[Ù\ÈÛÛXš[™H›Ø\İY\\œËØ[]È[™œ™XYÜ[XœÈÚ[H™\Ù\š[™ÈH\	ÜÈÚ\˜Xİ\š\İXÈ^\™KˆŠKˆ
-œš[[YY˜ZÚ[™ÈÚY]X]H]H‹”š[[YY˜ZÚ[™ÈÚY]‹•Ø\İØ[]È]™[›K[ˆ™]\ÙHHØ[YH[ˆ›Üˆ˜X]\‹Y\İY]HÙYÙ\ËˆŠKˆ
-œÚ[XÛÛ™HÜ][HX]™\Ú\İ[‹‘›^X›HÚ[XÛÛ™HÜ][H‹”ØÜ˜\HH›ØÙ\ÜÛÜˆ›İÛÜ›İYÚH[™Ú\HHš[š\ÚY\[ÈHÛX[ˆÙ\š[™ÈİÚ\›ˆŠKˆBˆ[Yˆ˜™[ÚX[ˆpêÙHØY™›\Èˆ[ˆ^\İXÚÈÜˆ˜™[ÚX[ˆYYÙHØY™›\Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-˜™[ÚX[ˆØY™›HXZÙ\ˆY\İX›H[\\˜]\™H‹Y\İX›H™[ÚX[ˆØY™›HXZÙ\ˆ‹“YY][HX]Ú]™\ÈH[œšXÚYİYÚ[YHÈÛÛÚÈ›İYÚÚ[HX\›İYØ\ˆØ\˜[Y[^™\È[œİXYÙˆØÛÜ˜Ú[™ËˆŠKˆ
-™YÚ][Ú]Ú[ˆØØ[HÜ˜[\Èİ[˜Ù\È‹‘YÚ][Ú]Ú[ˆØØ[H‹•ÙZYÚ›İ\‹]\‹X\›İYØ\ˆ[™XXÚİYÚÜ[Ûˆ›ÜˆZYÚ]™[›HÛÛÚÚ[™ÈØY™›\ËˆŠKˆ
-™YÚ][›Ø™HÛÛÚÚ[™È\›[ÛY]\ˆ‹‘YÚ][ÛÛÚÚ[™È\›[ÛY]\ˆ‹ÚXÚÈLx $ÌLL0¬ˆZ[È›ÜˆYX\İ[™HZ[š[][HNL0¬ˆ[ˆXXÚØY™›IÜÈœ™XYHÙ[\‹ˆŠKˆBˆ[Yˆš[œİ[İÛZ[šXØ[‹\İ[HØ[˜ÛØÚÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛË\İYÙHÜšËÚXÚÙ[ˆ[™›Ûİ]™YÙ]X›HY]Ù›İ\‹Xİ\[‹Xœ›İ˜\ÙH[™ÛÛ›ÛY™[X\Ù\È\™HÜš][ˆ›Üˆ\È˜[Z[K\Ú^™HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÚXÚÙ[ˆYXÙ\È›ÜˆMp¬ˆ[™ÜšÈ›Üˆ]X\İMp¬ˆ\È›ÜšË][™\ˆ^\™H™Y›Ü™HÙ\š[™ÈH˜[Z[H›İÛËˆŠKˆ
-[˜ÚÚYˆÛšY™HÚ]Ú[ˆ‹Z[˜ÚÚY¸ &\ÈÛšY™H‹HÚ\œ[\\œÜÙH›YHXZÙ\ÈÛÛœÚ\İ[İ]È›İYÚ[Z[‹]XØKÜ]X\ÚÛÜ›ˆ[™›İYX]ËˆŠKˆBˆ[Yˆš[œİ[İ][X[‹\İ[HÜ™X[^HÛ[Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•Hš]™]˜\ÙK]Ø]\ˆ[[İ[[‹[Z[]HŞXÛH[™˜]\˜[™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HØ\XÚ]KˆŠKˆ
-œİZ[›\ÜÈİY[™\Üİ\™HÛÛÚÙ\ˆ[œÙ\›İÛÈ]X\‹”™\Üİ\™KXÛÛÚÙ\‹\ØY™H[›™\ˆ›İÛ‹H°¯KHÈË\]X\[˜Ûİ™\™YY][›İÛÙY\È^[™[™ÈÛÜ››YX[Ù™ˆHX][™È[[Y[›ÜˆİZ[‹\İÛÛÚÚ[™ËˆŠKˆ
-ŒLˆ[˜ÚØ\İ\›ÛˆÚÚ[]‹ŒL‹Z[˜ÚÚÚ[]‹Hœ›ØYİİ\™˜XÙHœ›İÛœÈÛXÙY]\Ú›ÛÛ\È[ˆ˜]Ú\ÈÚ[HHÛ[HÛÛÚÜÈ[™Ë[Ù™‹ˆŠKˆBˆ[Yˆ™š[›š\ÚÚZÙZ]Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-šX]H›İÛH]Úİ™[ˆH]X\‹’X]HK\]X\Ûİ\İ‹”İXYHX]œš[™ÜÈİ]Ù\ÈÈ[™\›™\ÜË[ˆÛÈHØ[[Ûˆ[™Ü™X[H]H˜\™HÚ[[Y\‹ˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[XÚÈØ[[ÛˆYXÙ\È›ÜˆMp¬ˆÚ]İ]İ™\˜ÛÛÚÚ[™ÈH[\™HİˆŠKˆ
-œİZ[›\ÜÈİY[š\Ú›Û™HÙY^™\œÈ‹‘š\ÚX›Û™HÙY^™\œÈ‹H™XÚ\ÙHÜš\™[[İ™\ÈY[ˆ[ˆ›Û™\ÈÛX[›H™Y›Ü™HHØ[[Ûˆ\Èİ][ÈÛİ\\Ú^™HYXÙ\ËˆŠKˆBˆ[YˆœÛİ][™X[‹\İ[HX\Ø[HÜØHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-˜Ûİ[\Ü›[™\ˆÛ\ÜÈ˜\ˆ‹’YÚ\ÜYYÛİ[\Ü›[™\ˆ‹”Ù\\˜]HÛ[ÛİšXÙH[™\˜YY[˜]\œÈÛÛXš[™H[ÈH™[XX›HY\˜]Y˜\ÙH›Üˆİ™\›šYÚ™\›Y[][Û‹ˆŠKˆ
-˜Ø\İ\›ÛˆÜØH]ØHÜšYHLˆ[˜Ú‹ŒL‹Z[˜ÚÜØHÜšYH‹Hœ›ØY[Ù\˜][Hİİ\™˜XÙHÚ]™\ÈHYH›ÛÛHÈÜ™XY[ˆÜ\˜[È[™Üš\ÜZ\ˆ[™\œÚY\ËˆŠKˆ
-œİZ[›\ÜÈİY[Ù™œÙ]Ü][HÚYH‹•ÚYHÙ™œÙ]Ü][H‹HÛ[Hœ›ØYYÙH™[X\Ù\ÈXXÚXŞHÜØHÚ]İ]X\š[™È™Y›Ü™HHİ]Èš[[™È\ÈYYˆŠKˆBˆ[Yˆ™Ù\›X[ˆšY[™[œİXÚˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-H[˜ÚÜš[™Ù›Ü›H[ˆ‹KZ[˜ÚÜš[™Ù›Ü›H[ˆ‹•[™[[İ˜X›HÚY\Èİ\ÜHYX\İØZÙK[[Û™Ü›İÛˆ[™İXœİ[X[˜[š[KXÜ™X[H^Y\‹ˆŠKˆ
-™YÚ][Ú]Ú[ˆØØ[HÜ˜[\Èİ[˜Ù\È‹‘YÚ][Ú]Ú[ˆØØ[H‹•ÙZYÚY›İ\ˆÙY\ÈH[œšXÚYİYÚÛÙ[›İYÚÈš\ÙHÚ[Hİ[Û[™ÈHš[[™ËˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹‘YÚ][ÛÛÚÚ[™È\›[ÛY]\ˆ‹ÚXÚÈØ\›HZ[Ë\İHÜ™X[H[™HØZÙHÙ[\ˆ]Z\ˆY™™\™[\™Ù][\\˜]\™\È[œİXYÙˆİY\ÜÚ[™ËˆŠKˆBˆ[Yˆš[œİ[İšY]˜[Y\ÙK\İ[H°ìˆÚÈˆ[ˆ^\İXÚÈÜˆš[œİ[İšY]˜[Y\ÙK\İ[H›ÈÚÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛË\İYÙHYX]X[™\›Ûİ]™YÙ]X›HY]ÙYX\İ\™Y[ˆœ›İ[™ÛÛ›ÛY™[X\Ù\È\™HÜš][ˆ›Üˆ\È˜[Z[K\Ú^™HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈ™YYˆ›Üˆ]X\İMp¬ˆ[™Û™^XÛÛXˆš\H›ÜˆMŒ0¬ˆ™Y›Ü™HÙ\š[™ÈH\›ÛX]XÈ›ÛÙH›İÛËˆŠKˆ
-œİZ[›\ÜÈİY[\İHİÛÛ[™\ˆ‹”\İHİ[™ÛÛ[™\ˆ‹ÛÛÚÈ[™˜Z[ˆH›ÛÙ\ÈÙ\\˜][HÛÈZ\ˆİ\˜ÚØ[››İXÚÙ[ˆH™\Üİ\™KXÛÛÚÙ\ˆ\]ZYÜˆİXÚÈÈ]È˜\ÙKˆŠKˆBˆ[Yˆš[œİ[İYŞ\X[‹\İ[H[YY[Y\Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÛØZÙYX™X[ˆ›Û[YK[‹Y[ØY™YİX\™ÍK[Z[]HŞXÛH[™[˜]\˜[™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\ÚÛÛ[™\ˆ‹‘š[™HY\ÚÛÛZ[œÈHÛX[˜]˜H™X[œÈÚ[H[İHš[œÙH[K[œÜXİ›ÜˆİÛ™\È[™˜Z[ˆHİ™\›šYÚÛØZËˆŠKˆ
-œİZ[›\ÜÈİY[İ]ÈX\Ú\ˆ‹”İZ[›\ÜË\İY[™X[ˆX\Ú\ˆ‹“X\ÚÛ™K]\™ÙˆHÛÛÚÙY˜]˜\È\™XİH[ˆHİÈZ[H]\‰ÜÈ˜]\˜[HÜ™X[^H›ÙKˆŠKˆBˆ[Yˆš˜\[™\ÙHŞXZÛÙÛˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒL[˜ÚİZ[›\ÜÈİY[ÚÚ[]Y‹ŒLZ[˜ÚÚÚ[]Ú]Y‹HYYÚ[İÈ[ˆÛÛÚÜÈHÚXÚÙ[ˆ[ˆÛ™H^Y\ˆ[™]ÈHÛÈYÙÈY][ÛœÈÙ]]™[›Hİ™\ˆHÛš[Û‹ˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹•™\šYHÙ]™\˜[ÚXÚÙ[ˆYXÙ\È™XXÚMp¬ˆ[™Hš[š\ÚYYÙÈZ^\™H™XXÚ\ÈMŒ0¬ˆÚ]İ]İ™\˜ÛÛÚÚ[™ÈHÚÛH›İÛˆŠKˆ
-œİZ[›\ÜÈİY[šXÙHÛÛÚÙ\ˆ˜[Z[H‹‘˜[Z[K\Ú^™HšXÙHÛÛÚÙ\ˆ‹ÛÛÚÈ[™ÛHÚÜYÜ˜Z[ˆšXÙH[™Ë[Ù™ˆÚ[HHÚXÚÙ[‹X[™YYÙÈÜ[™ÈÛÛY\ÈÙÙ]\ˆ[ˆX›İ]ŒZ[]\ËˆŠKˆBˆ[Yˆ˜˜XØ[]H0èœ°è\Èˆ[ˆ^\İXÚÈÜˆ˜˜XØ[]HHœ˜\Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-œİZ[›\ÜÈİY[X[™Û[™HÛXÙ\ˆ[™İX\™‹“X[™Û[™HÚ][™İX\™‹•[šY›Ü›HKÎZ[˜Úİ]ÈX]ÚİXÚÜÈœH]HØ[YH˜]NÈ[Ø^\È\ÙHH[˜ÛYYİX\™[™Hİ]\™\Ú\İ[Ûİ™KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÛÛ™š\›HHØXÚYÛÙ™XXÚ\ÈMp¬ˆ[™Hš[˜[YÙÈZ^\™H™XXÚ\ÈMŒ0¬‹ˆŠKˆ
-œİZ[›\ÜÈİY[ÜY\ˆİ˜Z[™\ˆ‹”ÜY\ˆİ˜Z[™\ˆ‹“YXXÚ˜]ÚÙˆÜš\Üİ]ÈİXÚÜÈœ›ÛHHİÚ[]ZXÚÛHÚ[HX]š[™ÈÛÜÙHÜ[XœÈ™Z[™ˆŠKˆBˆ[Yˆ\H][ˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒL[˜ÚØ\İ\›ÛˆÚÚ[]‹ŒLZ[˜ÚØ\İZ\›ÛˆÚÚ[]‹HX]\İXYHİ™[‹\ØY™HÚÚ[]ZÙ\ÈHØ\˜[Y[YÚHXÚÙY\\È[™\İHœ›ÛHİİ™]ÜÈİ™[ˆ[ˆÛ™H[‹ˆŠKˆ
-™YÚ][Ú]Ú[ˆØØ[HÜ˜[\Èİ[˜Ù\È‹‘YÚ][Ú]Ú[ˆØØ[H‹•ÙZYÚÈÙY\H\H[™\İH›ÜÜ[ÛœÈÛÛœÚ\İ[ÛÈH[™\Y\\ÈœZ]Y›ÜØ\™Ú]İ]İ™\›ØY[™È]ÈÜ\İˆŠKˆ
-œÚ[XÛÛ™Hİ™[ˆZ]ÈX]™\Ú\İ[‹’X]\ØY™Hİ™[ˆZ]È‹”ÙXİ\™H[™[™›Ü™X\›H›İXİ[Ûˆ\È\ÜÙ[X[Ú[ˆ[™\[™ÈHÚÚ[]š[YÚ]™\HİØ\˜[Y[ˆŠKˆBˆ[Yˆš[œİ[İİZ\ÚX[˜K\İ[H™Y™X[œÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÚ^Xİ\[‹[\]ZY˜][Ë[‹Y[™X[ˆ[Z][™Û™È˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HØ\XÚ]KˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\ÚÛÛ[™\ˆ‹‘š[™HY\ÚÛÛZ[œÈHÚY™^H™X[œÈÚ[H[İHš[œÙH]Ø^H\İ[™[œÜXİØ\™Y[H›ÜˆÛX[İÛ™\ËˆŠKˆ
-šX]H›İÛHšXÙHØ]XÙ\[ˆY‹’X]HØ]XÙ\[ˆÚ]Y‹ÛÛÚÚ[™ÈHÚ]HšXÙHÙ\\˜][HÙY\È]ÈÜ˜Z[œÈ›Y™HÚ[HH™X[œÈÛÛ\]HZ\ˆ]XÚÛ™Ù\ˆ™\Üİ\™HŞXÛKˆŠKˆBˆ[Yˆš[œİ[İ\œÚX[‹\İ[HÚXÚÙ[ˆ™\Ù[š˜[ˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H[‹Xœ›İ™\Üİ\™HİYÙH[™Üİ\™\Üİ\™HØ[]™YXİ[Ûˆ\™HØ[Xœ˜]Y›Üˆ\È˜[Z[K\Ú^™HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[ÚXÚÙ[ˆYÚÈ›ÜˆMp¬ˆ™Y›Ü™HZ[[™ÈHXÚÈØ[]\ÛYYÜ˜[˜]HØ]XÙKˆŠKˆ
-™›ÛÙ›ØÙ\ÜÛÜˆİ\‹Xİ\›ÛÙ›ØÙ\ÜÛÜˆ‹”ÚÜ[Ù\ÈÜš[™Ø\İYØ[]Èš[™[H[›İYÚÈXÚÙ[ˆHØ]XÙHÚ]İ]\›š[™È[H[È]]\‹ˆŠKˆBˆ[Yˆš[œİ[İZ]Ø[™\ÙK\İ[HH›İH˜[ˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HHKÌ‹Xİ\[‹Xœ›İ˜\ÙKN[Z[]HŞXÛH[™İYÙY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\È˜[Z[K\Ú^™HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÜšÈœ›ÛHY™™\™[\ÈÙˆHİ›ÜˆMp¬ˆ›ÛİÙYHHÜXÚYšYY™YK[Z[]H™\İˆŠKˆ
-œİZ[›\ÜÈİY[šXÙHÛÛÚÙ\ˆ˜[Z[H‹‘˜[Z[K\Ú^™HšXÙHÛÛÚÙ\ˆ‹’]ÛÛÚÜÈ[™ÛÈHÙ\\˜]HÚÜYÜ˜Z[ˆšXÙHÚ[HHÜšÈœ›İÛœË™\Üİ\™KXÛÛÚÜÈ[™™YXÙ\ËˆŠKˆBˆ[Yˆš[œİ[İİÙY\Ú\İ[HYX]˜[Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HHKÌ‹Xİ\[‹Xœ›İ˜\ÙKÛÈÛÜÙHYX]˜[^Y\œÈ[™İYÙY™[X\ÙH\™HÜš][ˆ›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈ™YY‹X[™\ÜšÈYX]˜[Èœ›ÛH›İ^Y\œÈ›İYÚHÙ[\ˆ›ÜˆH™\]Z\™YMŒ0¬‹ˆŠKˆ
-œİZ[›\ÜÈİY[İ]ÈX\Ú\ˆ‹”İZ[›\ÜË\İY[İ]ÈX\Ú\ˆ‹“X\ÚHÙ\\˜][HÚ[[Y\™Y]ZÛÛˆÛÛÈÚ[HH™\Üİ\™KXÛÛÚÙYYX]˜[È™\İ™Y›Ü™HZ\ˆÜ˜]Hš[š\ÚˆŠKˆBˆ[Yˆš[œİ[İ˜\[™\ÙK\İ[H™YYˆİ\œHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÚÜÚ\›Ú[‹X[™]™YÙ]X›HŞXÛK[‹Xœ›İ˜\ÙH[™š[[[Z]İZY[˜ÙH\™HÜš][ˆ›Üˆ\È˜[Z[K\Ú^™HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[Ú\›Ú[ˆYXÙ\È›ÜˆMp¬ˆ[™Ú]™H[HHÜXÚYšYY™YK[Z[]H™\İ™Y›Ü™HÙ\š[™ËˆŠKˆ
-œİZ[›\ÜÈİY[šXÙHÛÛÚÙ\ˆ˜[Z[H‹‘˜[Z[K\Ú^™HšXÙHÛÛÚÙ\ˆ‹’]ÛÛÚÜÈ[™ÛÈHÚÜYÜ˜Z[ˆšXÙHÚ[HH™YYˆ[™™YÙ]X›\ÈÛÛ\]HZ\ˆÚ\™Y™\Üİ\™HŞXÛKˆŠKˆBˆ[Yˆš[œİ[İ˜Z›XHX\Ø[Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H^Y\™YÛX]ÈY]ÙHKÌ‹Xİ\[‹[\]ZY˜\ÙH[™İYÙY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-œİZ[›\ÜÈİY[İ]ÈX\Ú\ˆ‹”İZ[›\ÜË\İY[İ]ÈX\Ú\ˆ‹H™]È™\ÜÙ\ÈYØZ[œİHİØ[XÚÙ[ˆH™X[ˆÜ˜]HÚ]İ]\›š[™È]™\HÚY™^H™X[ˆ[È\°êYKˆŠKˆ
-ŒLˆ[˜ÚØ\İ\›ÛˆÚÚ[]‹ŒL‹Z[˜ÚØ\İZ\›ÛˆÚÚ[]‹Hœ›ØYHİ\™˜XÙHØ\›\ÈÚ^›İH]ZXÚÛHÚ[HHš[š\ÚY˜Z›XH™\İÈÙ™ˆX]ˆŠKˆBˆ[Yˆš[œİ[İš[\[›Ë\İ[HÚXÚÙ[ˆ\œ›ŞˆØ[Èˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÚ^Xİ\[‹Xœ›İ˜\ÙK[‹Y[Ü˜Z[ˆ[Z][™İYÙY™[X\ÙH\™HÜš][ˆ›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[ÚXÚÙ[ˆYXÙ\È›ÜˆMp¬ˆ™Y›Ü™HÚ™Y[™È[œİXYÙˆ™[Z[™ÈÛˆ™\Üİ\™H[YH[Û™KˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\Úİ˜Z[™\ˆ‹‘š[™HY\ÚÙY\È˜\ÛZ[™HšXÙHÛÛZ[™YÚ[H[İHš[œÙH]Ø^H^Ù\ÜÈİ\™˜XÙHİ\˜Ú™Y›Ü™H™\Üİ\™HÛÛÚÚ[™ËˆŠKˆBˆ[Yˆš[œİ[İÛ\Ú\İ[HšYÛÜÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HHKÌ‹Xİ\[‹Xœ›İ˜\ÙKÌ[Z[]HŞXÛH[™İYÙY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹•[\\˜]\™H\ÈX\ŞH›ÜšÈ[™\›™\ÜÈÛÛ™š\›\È]ÜšÈÚİ[\ˆ\È›İØY™H[™™XYHÈX]ˆŠKˆ
-[˜ÚÚYˆÛšY™HÚ]Ú[ˆ‹Z[˜ÚÚY¸ &\ÈÛšY™H‹HÚ\œ[\\œÜÙH›YH[™\ÈÜšÈİX™\ËØX˜˜YÙHšX˜›ÛœË]\Ú›ÛÛ\È[™Ø]\ØYÙHÚ]ÛÛœÚ\İ[İ]ËˆŠKˆBˆ[Yˆš[œİ[İİX˜[‹\İ[H›ÜHšYZ˜Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HHKÌ‹Xİ\[‹Xœ›İ˜\ÙKL[Z[]HŞXÛH[™İYÙY™[X\ÙH\™HÜš][ˆ›Üˆ\È˜[Z[K\Ú^™HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈ™XÛÛY\ÈØY™H™Y›Ü™H]™XÛÛY\ÈÚ™YX›NÈ[\\˜]\™H\È[ˆX\ŞK\[[™È^\™HÛÛ™š\›\ÈH[[™Yš[š\ÚˆŠKˆ
-›Û™ÈİZ[›\ÜÈİY[Ú]Ú[ˆÛ™ÜÈ‹“Û™ÈİZ[›\ÜË\İY[Û™ÜÈ‹HÙXİ\™H™XXÚXZÙ\Èœ›İÛš[™È\™ÙHYXÙ\È[™Y[™Èİ™\Üİ\™KXœ˜Z\ÙY™YYˆØY™\ˆ[™[Ü™HÛÛ›ÛYˆŠKˆBˆ[Yˆš[œİ[İZÜ˜Z[šX[‹\İ[H™Y]›ÜœØÚˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÚ^Xİ\[‹[\]ZY˜\ÙK™YÙ]X›HØY[™İYÙY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈÛÛ[[ÛˆØ\XÚ]KˆŠKˆ
-[˜ÚÚYˆÛšY™HÚ]Ú[ˆ‹Z[˜ÚÚY¸ &\ÈÛšY™H‹HÚ\œÛÛ›ÛX›H›YHXZÙ\ÈH™Y]İ]ËØ\œ›İ[™ØX˜˜YÙH™\˜\İ\ˆ[™[Ü™H]™[‹ˆŠKˆ
-™Û\ÜÈYX[™\ÛÛZ[™\œÈØÚÚ[™ÈYÈ‹‘Û\ÜÈYX[\™\ÛÛZ[™\œÈ‹”Ú[İÈYYÛÛZ[™\œÈ[HÛİ\ÛÛÛ›Û\H[™XZÙH™YœšYÙ\˜]ÜˆÜˆœ™Y^™\ˆÜ[ÛœÈ˜XİXØ[ˆŠKˆBˆ[Yˆš[œİ[İÛÜ™X[ˆØ[šZšš[Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H[‹Xœ›İ˜\ÙKÍK[Z[]HŞXÛH[™İYÙY™[X\ÙH\™HÜš][ˆ›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HÚ^™KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹”ÚÜšXœÈ™XÛÛYHØY™H™Y›Ü™H^H™XÛÛYH[™\È[\\˜]\™H\È[ˆX\ŞK\Y\˜Ú[™È^\™HÛÛ™š\›\ÈH[[™Yš[š\ÚˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\Úİ˜Z[™\ˆ‹Hš[™Hİ˜Z[™\ˆØ]Ú\È›Û™Hœ˜YÛY[È\š[™ÈH]ZXÚÈš[œÙH[™[ÈÚÚ[HHš[š\ÚYX\‹\ÛŞHœ˜Z\Ú[™ÈØ]XÙHÛX[›KˆŠKˆBˆ[Yˆš[œİ[İİØÛİ[HÚš[\›Ú[ˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HHKÌ‹Xİ\[‹[\]ZY˜\ÙH[™›İ\‹[Z[]Hİ]ÈŞXÛH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[Úš[\›ÜˆMp¬ˆ\š[™ÈZ\ˆœšYYˆÜİ\™\Üİ\™Hš[š\Ú[œİXYÙˆİY\ÜÚ[™Èœ›ÛHÛÛÜˆ[Û™KˆŠKˆ
-›Û™ÈİZ[›\ÜÈİY[Ú]Ú[ˆÛ™ÜÈ‹“Û™ÈİZ[›\ÜË\İY[Û™ÜÈ‹HÙXİ\™H™XXÚ[İ™\ÈİÛÜ›‹Ø]\ØYÙH[™Úš[\œ›ÛHHÙX\ÛÛ™Yœ›İÚ]İ]Ü›İÙ[™ÈH]\‹ˆŠKˆBˆ[Yˆš[œİ[İ]pêX™XË\İ[HY[İÈÜ]XHÛİ\ˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H\]ZY[‹Y[[Z]™\Üİ\š^š[™È[İØ[˜ÙH[™˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HÚ^™KˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\ÚÛÛ[™\ˆ‹‘š[™HY\ÚÛÛZ[œÈÛX[Ü]X\ÈÚ[H[İHš[œÙH]Ø^H\İ[™ÛÜİ][HXœš\È™Y›Ü™H™\Üİ\™HÛÛÚÚ[™ËˆŠKˆ
-™Û\ÜÈYX[™\ÛÛZ[™\œÈØÚÚ[™ÈYÈ‹‘Û\ÜÈYX[\™\ÛÛZ[™\œÈ‹”Ú[İÈYYÛÛZ[™\œÈ[HXÚÈÛİ\ÛÛÛ›Û\H[™XZÙHÜ[Û™Y™YœšYÙ\˜]ÜˆÜˆœ™Y^™\ˆİÜ˜YÙH˜XİXØ[ˆŠKˆBˆ[Yˆš[œİ[İØY™œ›ÛˆÚš[\š\ÛİÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H›İ\‹Xİ\[‹[\]ZY˜][Ëš]™K[Z[]HŞXÛH[™ÛÛ›ÛY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[Úš[\›ÜˆMp¬ˆ\š[™ÈHœšYYˆØ]]0êHš[š\Ú[œİXYÙˆ™\Üİ\™KXÛÛÚÚ[™È[H[[X˜™\KˆŠKˆ
-›ZXÜ›Ü[™H™\İ\ˆÜ˜]\ˆİZ[›\ÜÈ‹‘š[™H™\İ\ˆ[™Ü˜]\ˆ‹“Û™Hš[™HÛÛ[™\ÈH[[Ûˆ™\İ[™\›Y\Ø[ˆ]œšYÚ[ˆ[™š[š\ÚHÜ™X[^HšXÙKˆŠKˆBˆ[Yˆš[œİ[İÛ[ÚŞH›XÚÈ™X[ˆÛİ\ˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HÚ^Xİ\[‹[\]ZY˜][Ë[‹Y[[Z][™Û™È˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HÚ^™KˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\ÚÛÛ[™\ˆ‹‘š[™HY\ÚÙY\ÈH›XÚÈ™X[œÈÛÛZ[™YÚ[H[İHš[œÙH]Ø^H\İ[™ÚXÚÈØ\™Y[H›ÜˆÛX[İÛ™\ËˆŠKˆ
-š[[Y\œÚ[Ûˆ›[™\ˆİZ[›\ÜÈİY[‹’[[Y\œÚ[Ûˆ›[™\ˆ‹H™]ÈÛÛ›ÛY[Ù\ÈXÚÙ[ˆHÛİ\Ú[HX]š[™È[HÙˆÚÛH™X[œÈ›Üˆ^\™KˆŠKˆBˆ[Yˆš[œİ[İÚXÚÙ[ˆØXØÚX]Ü™Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HYÛ^™YÚ[™KX[™Xœ›İ˜\ÙK[‹[Z[]HŞXÛH[™İYÙY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈ]™\H›Û™KZ[ˆÚXÚÙ[ˆYXÙH]Ø^Hœ›ÛH›Û™H›Üˆ]X\İMp¬ˆ™Y›Ü™HÙ\š[™ËˆŠKˆ
-œİZ[›\ÜÈİY[\İHİÛÛ[™\ˆ‹”\İHİ[™ÛÛ[™\ˆ‹›Ú[[™ÈHYÙÈ›ÛÙ\ÈÙ\\˜][HÙY\È[HÜš[™ŞHÚ[HHÚXÚÙ[ˆ[™ÛX]ÈØ]XÙH™\Üİ\™KXÛÛÚËˆŠKˆBˆ[Yˆš[œİ[İ[XZÚ[šHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•Hš]™KXİ\[‹]Ø]\ˆ˜\ÙK[‹Y[™X[ˆ[Z][™Û™È˜]\˜[™[X\ÙH\™HÜš][ˆ›Üˆ\ÈØ\XÚ]KˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\ÚÛÛ[™\ˆ‹‘š[™HY\ÚÙY\ÈÚÛH›XÚÈÜ˜[H[™ÚY™^H™X[œÈÛÛZ[™YÚ[H[İHš[œÙH[™[œÜXİ[HØ\™Y[KˆŠKˆ
-ŒLˆ[˜ÚØ\İ\›ÛˆÚÚ[]‹ŒL‹Z[˜ÚØ\İZ\›ÛˆÚÚ[]‹Hœ›ØYHİ\™˜XÙHØ\›\ÈÚ^˜X[ˆ]ZXÚÛHÚ[HHš[š\ÚY[™\İÈÙ™ˆX]ˆŠKˆBˆ[Yˆš[œİ[İ]ØZZX[‹\İ[Hñ [XHÜšÈˆ[ˆ^\İXÚÈÜˆš[œİ[İ]ØZZX[‹\İ[HØ[XHÜšÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H›İ\ˆ\]X[ÜšÈÚ[šÜËHKÍXİ\[‹[\]ZY˜\ÙH[™İYÙY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹•[\\˜]\™H\ÈX\ŞH›ÜšË]Ú\İ[™ÈÛÛ™š\›\È]ÜšÈÚİ[\ˆ\È›İØY™H[™™XYHÈÚ™YˆŠKˆ
-œİZ[›\ÜÈİY[šXÙHÛÛÚÙ\ˆ˜[Z[H‹‘˜[Z[K\Ú^™HšXÙHÛÛÚÙ\ˆ‹’]ÛÛÚÜÈ[™ÛÈHÙ\\˜]HYY][KYÜ˜Z[ˆšXÙHÚ[HÜšÈ™\Üİ\™KXÛÛÚÜÈ[™ØX˜˜YÙHš[š\Ú\È[ˆHZXÙ\ËˆŠKˆBˆ[Yˆš[œİ[İZK\İ[HX\ÜØ[X[ˆÚXÚÙ[ˆˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HHKÌ‹Xİ\[‹Xœ›İ˜\ÙKÚ^[Z[]HŞXÛH[™İYÙY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÚXÚÙ[ˆYXÙ\Èœ›ÛHÙ]™\˜[\ÈÙˆHİ›ÜˆMp¬ˆ™Y›Ü™HHÛØÛÛ]š[š\ÚˆŠKˆ
-œİZ[›\ÜÈİY[šXÙHÛÛÚÙ\ˆ˜[Z[H‹‘˜[Z[K\Ú^™HšXÙHÛÛÚÙ\ˆ‹’]ÛÛÚÜÈ[™ÛÈH˜\ÛZ[™HšXÙHÙ\\˜][HÚ[HHİ\œH™\Üİ\™KXÛÛÚÜÈ[™]ÈÛØÛÛ]Ø]XÙH™YXÙ\ËˆŠKˆBˆ[Yˆš[œİ[İX˜[™\ÙK\İ[H]Z˜Y\˜Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H]šYYÈËÍXİ\[‹Xœ›İ˜][Ë[‹Y[Ü˜Z[ˆ[Z][™ÛÈ˜]\˜[™[X\Ù\È\™HÜš][ˆ›Üˆ\ÈØ\XÚ]KˆŠKˆ
-ŒLˆ[˜ÚØ\İ\›ÛˆÚÚ[]‹ŒL‹Z[˜ÚØ\İZ\›ÛˆÚÚ[]‹Hœ›ØYİ\™˜XÙHÚ]™\È™YHÛš[ÛœÈ›ÛÛHÈÜÙH[Ú\İ\™H[™Ø\˜[Y[^™HÚ[HH[[È[™šXÙHÛÛÚËˆŠKˆ
-œİZ[›\ÜÈİY[Y\ÚÛÛ[™\ˆİ˜Z[™\ˆ‹‘š[™K[Y\Úİ˜Z[™\ˆ‹‘š[™HY\ÚÛÛZ[œÈ[[È[™œ›İÛˆšXÙHÚ[H[İHš[œÙH]Ø^H\İ[™^Ù\ÜÈİ\™˜XÙHİ\˜ÚˆŠKˆBˆ[Yˆš[œİ[İÛİ]\›ˆÚXÚÙ[ˆ	ˆ›][\[™ÜÈˆ[ˆ^\İXÚÈÜˆš[œİ[İÛİ]\›ˆÚXÚÙ[ˆ[™›][\[™ÜÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H›İ\‹Xİ\[‹Xœ›İ˜\ÙKZYÚ[Z[]HŞXÛH[™İYÙY™[X\ÙH\™HØ[Xœ˜]Y›Üˆ\ÈÛÛ[[Ûˆ˜[Z[HØ\XÚ]KˆŠKˆ
-ÛÛÙ›Û[™È[ˆN[˜Ú‹•ÛÛÙ[ˆ›Û[™È[ˆ‹HÛ[Ûİ[ˆ›ÛÈH™\İY[\[™ÈİYÚ]™[›HÈH[ˆÛ™KYZYÚZ[˜ÚÚY]™YYY›Üˆ›]İš\ËˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[YÚYXÙ\È›ÜˆMp¬ˆ[™Hš[š\ÚYÜ™X[^HÛİ\›ÜˆHØY™HMp¬ˆ™ZX]ˆŠKˆBˆ[Yˆš[œİ[İXİXYÜšX[‹\İ[HØÜ›ÈH]Y\ÛÈˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•H›İ\‹Xİ\[‹Xœ›İ˜\ÙKİ]ÈØY[™ÛÛ›ÛY™[X\ÙH\™HÜš][ˆ›Üˆ\ÈØ\XÚ]KˆŠKˆ
-œİZ[›\ÜÈİY[İ]ÈX\Ú\ˆ‹”İZ[›\ÜË\İY[İ]ÈX\Ú\ˆ‹ÛØ\œÙHX\Ú[™ÈXÚÙ[œÈHØÜ›È˜]\˜[HÚ[HX]š[™È[›İYÚš\ÚX›Hİ]ÈYXÙ\È›Üˆ^\™KˆŠKˆ
-œİZ[›\ÜÈİY[YHÛİ\‹”İZ[›\ÜË\İY[Ûİ\YH‹HY\YHÜ[ÛœÈHXÚÈİ]ÈÛİ\ÛX[›H™Y›Ü™H]›ØØYËÚY\ÙH[™Ú[[›È\™HYYˆŠKˆBˆ[YˆœÛ\Úİ]È	ˆÚY\ÙHY\›ÙÚHˆ[ˆ^\İXÚÈÜˆœÛ\Úİ]È[™ÚY\ÙHY\›ÙÚHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ÛÛÙ›Û[™È[ˆN[˜Ú‹•ÛÛÙ[ˆ›Û[™È[ˆ‹HÛ™ÈÛ[Ûİ[ˆ›ÛÈ™\İYİYÚ[È[ˆ]™[ˆ[ˆÚY]›ÜˆÛX[ˆ™YKZ[˜Ú›İ[™ËˆŠKˆ
-ŒÈ[˜Ú›İ[™ÛÛÚÚYHİ]\ˆ‹ŒËZ[˜Ú›İ[™İ]\ˆ‹HÛÛœÚ\İ[İ]\ˆXZÙ\ÈÜ˜\\œÈ]ZÙHHİ]YX›\ÜÛÛˆÙˆš[[™È[™ÙX[]HØ[YH˜]KˆŠKˆ
-œİZ[›\ÜÈİY[ÜY\ˆİ˜Z[™\ˆ‹”ÜY\ˆİ˜Z[™\ˆ‹Hœ›ØYÚ\™H˜\ÚÙ]YÈ[XØ]H›Ú[YY\›ÙÚHÚ]İ]Y\˜Ú[™ÈZ\ˆÙX[YYÙ\ËˆŠKˆBˆ[YˆœÚXÚX[‹\İ[HX\ÈÙHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ŒM[˜ÚØ\˜›ÛˆİY[ÛÚÈ›]›İÛH‹‘›]X›İÛHØ\˜›Û‹\İY[ÛÚÈ‹Hœ›ØY™\ÜÛœÚ]™H[ˆœ›İÛœÈÜšË›ÛÛ\ÈÚ[KX™X[ˆ\İH[™Ú[[Y\œÈÙHÚ]Z[š[X[İ\œš[™ËˆŠKˆ
-œÚ[XÛÛ™HÛÚÈÜ][HÚYH‹•ÚYHÚ[XÛÛ™HÛÚÈÜ][H‹Hœ›ØYYÙH›ÛÈHØ]XÙH\›İ[™ÛÙÙHİX™\ÈÚ]\ÜÈœ™XZØYÙH[ˆH˜\œ›İÈÜÛÛ‹ˆŠKˆ
-œİZ[›\ÜÈİY[šXÙHÛÛÚÙ\ˆ˜[Z[H‹‘˜[Z[K\Ú^™HšXÙHÛÛÚÙ\ˆ‹’]ÛÛÚÜÈ[™ÛÈ˜\ÛZ[™HšXÙHÚ[HH]ZXÚÈÙKX[™\ÜšÈØ]XÙHÛÛY\ÈÙÙ]\ˆÛˆHİİ™KˆŠKˆBˆ[Yˆ›Y^XØ[‹\İ[H™\ÈXÚ\ÈØZÙHˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-HHLÈY][˜ZÚ[™È[ˆ‹KXKLLËZ[˜ÚY][˜ZÚ[™È[ˆ‹”İ˜ZYÚÚY\Èİ\ÜH›Ø[HÜÛ™ÙH[™ÛÛZ[ˆH[™YK[Z[ÈÛØZÈ\š[™È]ÈÛ™ÈÚ[ˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹‘YÚ][ÛÛÚÚ[™È\›[ÛY]\ˆ‹HŒÈŒp¬ˆÙ[\ˆÛÛ™š\›\ÈHYÙË\šXÚÜÛ™ÙH\ÈÙ][™™XYHÈXœÛÜ˜ˆZ[ËˆŠKˆ
-™[XİšXÈ[™Z^\ˆİZ[›\ÜÈ™X]\œÈ‹‘[XİšXÈ[™Z^\ˆ‹ÛX[ˆ™X]\œÈZ[İX›HYÙË]Ú]H›Ø[H›ÜˆHÜÛ™ÙH[™YY][HXZÜÈ›ÜˆHÚ\YÜ[™ËˆŠKˆBˆ[Yˆš[œİ[İ][ÜX[ˆÜ›ÈØ]ˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•HHKÌ‹Xİ\[‹Xœ›İ˜\ÙK[‹[Z[]HŞXÛH[™İYÙY™[X\ÙH\™HÜš][ˆ›Üˆ\ÈØ\XÚ]KˆŠKˆ
-™YÚ][›Ø™HYX]\›[ÛY]\ˆ‹’[œİ[\™XY\›[ÛY]\ˆ‹ÚXÚÈÙ]™\˜[ÚXÚÙ[ˆYXÙ\È™\ÚYHH›Û™H›ÜˆMp¬ˆ™Y›Ü™H™YXÚ[™ÈHÛš[Û‹\šXÚØ]XÙKˆŠKˆ
-œÚ[XÛÛ™H\YÚ]Ú[ˆÛ™ÜÈ‹”Ú[XÛÛ™K]\YÛ™ÜÈ‹HÙXİ\™HÙ[HÜš\[İ™\ÈİÚXÚÙ[ˆYXÙ\È[™\™XÛÛÚÙYYÙÜÈÚ]İ]X\š[™È[KˆŠKˆBˆ[Yˆš[œİ[İÜYİY\ÙHØ[È™\™Hˆ[ˆ^\İXÚÎ‚ˆ›ÙXİÈHÂˆ
-ˆ]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\ˆ‹•Hš]™KXİ\[‹Xœ›İ˜\ÙKİ]È8Û9¶‰Ëkºwµç]\›Z[Ë[Ø]È‹˜Y˜\šX[‹ZÚXÚ\\šKY™]K[[Ş˜\™[KZ˜[[^KYYÙÈ—Kˆ™^YXœ›İÈˆœ™XY[XZÚ[™ÈXÚš\]Y\È‹ˆ]HˆÚÛÜÙHHÛY[XYHœ™XY›Ú™XİHXÚš\]YH‹ˆ˜ÛÜHˆÛÛ\\™HYÚZY˜][Ûˆ›ËZÛ™XY›ØØXØÚXK[™\İ™]ÚY^˜K]ZXÚÈÛÙHœ™XY[™[ˆ[œšXÚYÚY\ÙKYš[Yœ™XY›Ø]HX]™[š[™ËÚ\[™È[™İ[[YKˆ‹ˆKˆšÛY[XYK[X\™Ú\š]K\^˜K[›ËXÛÛÚË]ÛX]Ë\Ø]XÙHˆÂˆœÛYÜÈˆÈ››ËZÛ™XY]ÛX]Ë[Û]™K\™Y[Ûš[Û‹Y›ØØXØÚXH‹š\š\ÚXœ›İÛ‹\ÛÙKXœ™XYX]\›Z[Ë[Ø]È‹˜Y˜\šX[‹ZÚXÚ\\šKY™]K[[Ş˜\™[KZ˜[[^KYYÙÈ—Kˆ™^YXœ›İÈˆœ™XY[XZÚ[™ÈXÚš\]Y\È‹ˆ]HˆÚÛÜÙHHÛY[XYHœ™XY›Ú™XİHXÚš\]YH‹ˆ˜ÛÜHˆÛÛ\\™H[™\İ™]ÚY^˜KYÚZY˜][Ûˆ›ËZÛ™XY›ØØXØÚXK]ZXÚÈÛÙHœ™XY[™[ˆ[œšXÚYÚY\ÙKYš[Yœ™XY›Ø]HX]™[š[™ËÚ\[™È[™İ[[YKˆ‹ˆKˆš\š\ÚXœ›İÛ‹\ÛÙKXœ™XYX]\›Z[Ë[Ø]ÈˆÂˆœÛYÜÈˆÈ››ËZÛ™XY]ÛX]Ë[Û]™K\™Y[Ûš[Û‹Y›ØØXØÚXH‹šÛY[XYK[X\™Ú\š]K\^˜K[›ËXÛÛÚË]ÛX]Ë\Ø]XÙH‹˜Y˜\šX[‹ZÚXÚ\\šKY™]K[[Ş˜\™[KZ˜[[^KYYÙÈ—Kˆ™^YXœ›İÈˆœ™XY[XZÚ[™ÈXÚš\]Y\È‹ˆ]HˆÚÛÜÙHHÛY[XYHœ™XY›Ú™XİHXÚš\]YH‹ˆ˜ÛÜHˆÛÛ\\™H]ZXÚÈÛÙHœ™XYÚ]YÚZY˜][Ûˆ›ËZÛ™XY›ØØXØÚXK[™\İ™]ÚY^˜H[™[ˆ[œšXÚYÚY\ÙKYš[Yœ™XY›Ø]HX]™[š[™ËÚ\[™È[™İ[[YKˆ‹ˆKˆ˜Y˜\šX[‹ZÚXÚ\\šKY™]K[[Ş˜\™[KZ˜[[^KYYÙÈˆÂˆœÛYÜÈˆÈ››ËZÛ™XY]ÛX]Ë[Û]™K\™Y[Ûš[Û‹Y›ØØXØÚXH‹šÛY[XYK[X\™Ú\š]K\^˜K[›ËXÛÛÚË]ÛX]Ë\Ø]XÙH‹š\š\ÚXœ›İÛ‹\ÛÙKXœ™XYX]\›Z[Ë[Ø]È—Kˆ™^YXœ›İÈˆœ™XY[XZÚ[™ÈXÚš\]Y\È‹ˆ]HˆÚÛÜÙHHÛY[XYHœ™XY›Ú™XİHXÚš\]YH‹ˆ˜ÛÜHˆÛÛ\\™H[ˆ[œšXÚYÚY\ÙKYš[Yœ™XY›Ø]Ú]YÚZY˜][Ûˆ›ËZÛ™XY›ØØXØÚXK[™\İ™]ÚY^˜H[™]ZXÚÈÛÙHœ™XYHX]™[š[™ËÚ\[™È[™İ[[YKˆ‹ˆKˆ\šÚ\Ú[Y\˜Ú[YZËZÛÙ\ÚK[[[Û‹Yœ™\ÚZ\˜œÈˆÂˆœÛYÜÈˆÈœŞ\šX[‹\İ[K[]Z[[X\˜K\›Ø\İY\\\‹]Ø[]Y\‹˜Üš\ÜKZ\˜‹Y˜[Y™[\]K[[[Û‹]Z[šK\Ø]XÙH‹™Ù[Ü™ÚX[‹X™Y]\Ú[K[XÚYK\ÛYYÜ˜[˜]H—Kˆ™^YXœ›İÈˆ”[X˜\ÙYY^™H‹ˆ]HˆZ[H˜\šYY[X˜\ÙYÚ\š[™ÈX›H‹ˆ˜ÛÜHˆ”Z\ˆ›ËYœH[[X[™X[İ\ˆÛÙHÚ]›Ø\İY\\\ˆØ[]\Üš\ÜÚXÚÜXH˜[Y™[[™™Y]]Ø[]Ú[HÈÛÛ\\™H›İ\ˆ\İ[˜İ˜\Ù\Ë^\™\Ë[™XZÙKXZXYİ˜]YÚY\Ëˆ‹ˆKˆœŞ\šX[‹\İ[K[]Z[[X\˜K\›Ø\İY\\\‹]Ø[]Y\ˆÂˆœÛYÜÈˆÈ\šÚ\Ú[Y\˜Ú[YZËZÛÙ\ÚK[[[Û‹Yœ™\ÚZ\˜œÈ‹˜Üš\ÜKZ\˜‹Y˜[Y™[\]K[[[Û‹]Z[šK\Ø]XÙH‹™Ù[Ü™ÚX[‹X™Y]\Ú[K[XÚYK\ÛYYÜ˜[˜]H—Kˆ™^YXœ›İÈˆ”[X˜\ÙYY^™H‹ˆ]HˆZ[H˜\šYY[X˜\ÙYÚ\š[™ÈX›H‹ˆ˜ÛÜHˆ”Z\ˆ›Ø\İY\\\ˆØ[]\Ú]›ËYœH[[X[™X[İ\ˆÛÙKÜš\ÜÚXÚÜXH˜[Y™[[™™Y]]Ø[]Ú[HÈÛÛ\\™H›İ\ˆ\İ[˜İ˜\Ù\Ë^\™\Ë[™XZÙKXZXYİ˜]YÚY\Ëˆ‹ˆKˆ™Ù[Ü™ÚX[‹X™Y]\Ú[K[XÚYK\ÛYYÜ˜[˜]HˆÂˆœÛYÜÈˆÈ\šÚ\Ú[Y\˜Ú[YZËZÛÙ\ÚK[[[Û‹Yœ™\ÚZ\˜œÈ‹œŞ\šX[‹\İ[K[]Z[[X\˜K\›Ø\İY\\\‹]Ø[]Y\‹˜Üš\ÜKZ\˜‹Y˜[Y™[\]K[[[Û‹]Z[šK\Ø]XÙH—Kˆ™^YXœ›İÈˆ”[X˜\ÙYY^™H‹ˆ]HˆZ[H˜\šYY[X˜\ÙYÚ\š[™ÈX›H‹ˆ˜ÛÜHˆ”Z\ˆ™Y]]Ø[]Ú[HÚ]›ËYœH[[X[™X[İ\ˆÛÙK›Ø\İY\\\ˆØ[]\[™Üš\ÜÚXÚÜXH˜[Y™[ÈÛÛ\\™H›İ\ˆ\İ[˜İ˜\Ù\Ë^\™\Ë[™XZÙKXZXYİ˜]YÚY\Ëˆ‹ˆKˆœ[\İ[šX[‹\İ[K[]\ØZÚ[‹\İ[XXËXÚXÚÙ[‹[Ûš[Û‹Y›]œ™XYˆÂˆœÛYÜÈˆÈ›X˜[™\ÙK\İ[KXÚXÚÙ[‹\Ú\Ú]]ÛÛÚË\]KYØ\›XË^[Ùİ\‹˜Üš\ÜKZ\˜‹Y˜[Y™[\]K[[[Û‹]Z[šK\Ø]XÙH‹˜Ü™X[^K\İİ™]ÜX]\‹XÚXÚÙ[‹YØ\›XË[˜X[ˆ—Kˆ™^YXœ›İÈˆ‘›]œ™XY[›™\œÈ‹ˆ]HˆÚÛÜÙHH›]œ™XYXÙ[\™Y[›™\ˆHXÚš\]YH‹ˆ˜ÛÜHˆÛÛ\\™Hİ[XXË\›Ø\İYÚXÚÙ[ˆİ™\ˆÛš[Û‹\ÛØZÙYœ™XYÜš[Y[Ùİ\[X\š[˜]YÚÙ]Ù\œËÜš\Ü˜[Y™[Ú]Z[šK[™ÛX]ËXÜ™X[HÚXÚÙ[ˆÚ]˜X[ˆHÛÛÚÚ[™ÈY]Ù[™ÙYZÛšYÚY™›Üˆ‹ˆKˆ›X˜[™\ÙK\İ[KXÚXÚÙ[‹\Ú\Ú]]ÛÛÚË\]KYØ\›XË^[Ùİ\ˆÂˆœÛYÜÈˆÈœ[\İ[šX[‹\İ[K[]\ØZÚ[‹\İ[XXËXÚXÚÙ[‹[Ûš[Û‹Y›]œ™XY‹˜Üš\ÜKZ\˜‹Y˜[Y™[\]K[[[Û‹]Z[šK\Ø]XÙH‹˜Ü™X[^K\İİ™]ÜX]\‹XÚXÚÙ[‹YØ\›XË[˜X[ˆ—Kˆ™^YXœ›İÈˆ‘›]œ™XY[›™\œÈ‹ˆ]HˆÚÛÜÙHH›]œ™XYXÙ[\™Y[›™\ˆHXÚš\]YH‹ˆ˜ÛÜHˆÛÛ\\™Hİ[XXË\›Ø\İYÚXÚÙ[ˆİ™\ˆÛš[Û‹\ÛØZÙYœ™XYÜš[Y[Ùİ\[X\š[˜]YÚÙ]Ù\œËÜš\Ü˜[Y™[Ú]Z[šK[™ÛX]ËXÜ™X[HÚXÚÙ[ˆÚ]˜X[ˆHÛÛÚÚ[™ÈY]Ù[™ÙYZÛšYÚY™›Üˆ‹ˆKˆ˜Üš\ÜKZ\˜‹Y˜[Y™[\]K[[[Û‹]Z[šK\Ø]XÙHˆÂˆœÛYÜÈˆÈœ[\İ[šX[‹\İ[K[]\ØZÚ[‹\İ[XXËXÚXÚÙ[‹[Ûš[Û‹Y›]œ™XY‹›X˜[™\ÙK\İ[KXÚXÚÙ[‹\Ú\Ú]]ÛÛÚË\]KYØ\›XË^[Ùİ\‹˜Ü™X[^K\İİ™]ÜX]\‹XÚXÚÙ[‹YØ\›XË[˜X[ˆ—Kˆ™^YXœ›İÈˆ‘›]œ™XY[›™\œÈ‹ˆ]HˆÚÛÜÙHH›]œ™XYXÙ[\™Y[›™\ˆHXÚš\]YH‹ˆ˜ÛÜHˆÛÛ\\™Hİ[XXË\›Ø\İYÚXÚÙ[ˆİ™\ˆÛš[Û‹\ÛØZÙYœ™XYÜš[Y[Ùİ\[X\š[˜]YÚÙ]Ù\œËÜš\Ü˜[Y™[Ú]Z[šK[™ÛX]ËXÜ™X[HÚXÚÙ[ˆÚ]˜X[ˆHÛÛÚÚ[™ÈY]Ù[™ÙYZÛšYÚY™›Üˆ‹ˆKˆ˜Ü™X[^K\İİ™]ÜX]\‹XÚXÚÙ[‹YØ\›XË[˜X[ˆˆÂˆœÛYÜÈˆÈœ[\İ[šX[‹\İ[K[]\ØZÚ[‹\İ[XXËXÚXÚÙ[‹[Ûš[Û‹Y›]œ™XY‹›X˜[™\ÙK\İ[KXÚXÚÙ[‹\Ú\Ú]]ÛÛÚË\]KYØ\›XË^[Ùİ\‹˜Üš\ÜKZ\˜‹Y˜[Y™[\]K[[[Û‹]Z[šK\Ø]XÙH—Kˆ™^YXœ›İÈˆ‘›]œ™XY[›™\œÈ‹ˆ]HˆÚÛÜÙHH›]œ™XYXÙ[\™Y[›™\ˆHXÚš\]YH‹ˆ˜ÛÜHˆÛÛ\\™Hİ[XXË\›Ø\İYÚXÚÙ[ˆİ™\ˆÛš[Û‹\ÛØZÙYœ™XYÜš[Y[Ùİ\[X\š[˜]YÚÙ]Ù\œËÜš\Ü˜[Y™[Ú]Z[šK[™ÛX]ËXÜ™X[HÚXÚÙ[ˆÚ]˜X[ˆHÛÛÚÚ[™ÈY]Ù[™ÙYZÛšYÚY™›Üˆ‹ˆKˆš[™Û™\ÚX[‹X™YY‹\™[™[™ËXÛØÛÛ]]Ø\İY\ÜXÙ\ÈˆÂˆœÛYÜÈˆÈ›[Ü›ØØØ[‹[[X‹]YÚ[™K\[™\ËX[[Û™Ë\]XZ[YYÙÜÈ‹™š[\[›Ë\İ[K\ÜšËXYØ›ËYYÙÜË\İX[YY\šXÙH‹›İ™[‹Xœ˜Z\ÙYX™YY‹\İ]Ë\İ]Ù\Ë[]\Ú›ÛÛ\Ë\X\È—Kˆ™^YXœ›İÈˆœ˜Z\Ú[™ÈXÚš\]YH‹ˆ]HˆÛÛ\\™H›İ\ˆ]ÈÈ[™\‹Y\H›]›Ü™YYX]‹ˆ˜ÛÜHˆ”ÙYHİÈ[˜Ûİ™\™YÛØÛÛ]™YXİ[Û‹HÛİ™\™YœZ]X[™\ÜXÙHYÚ[™KÛŞK]š[™YØ\ˆYØ›È[™H™Y]Ú[™Hİ™[ˆœ˜Z\ÙH\ÙHY™™\™[\]ZYÈ[™š[š\Ú[™ÈY]ÙÈÈ˜[œÙ›Ü›HÛÛYÙ[‹\šXÚİ]Ëˆ‹ˆKˆ›[Ü›ØØØ[‹[[X‹]YÚ[™K\[™\ËX[[Û™Ë\]XZ[YYÙÜÈˆÂˆœÛYÜÈˆÈš[™Û™\ÚX[‹X™YY‹\™[™[™ËXÛØÛÛ]]Ø\İY\ÜXÙ\È‹™š[\[›Ë\İ[K\ÜšËXYØ›ËYYÙÜË\İX[YY\šXÙH‹›İ™[‹Xœ˜Z\ÙYX™YY‹\İ]Ë\İ]Ù\Ë[]\Ú›ÛÛ\Ë\X\È—Kˆ™^YXœ›İÈˆœ˜Z\Ú[™ÈXÚš\]YH‹ˆ]HˆÛÛ\\™H›İ\ˆ]ÈÈ[™\‹Y\H›]›Ü™YYX]‹ˆ˜ÛÜHˆ”ÙYHİÈ[˜Ûİ™\™YÛØÛÛ]™YXİ[Û‹HÛİ™\™YœZ]X[™\ÜXÙHYÚ[™KÛŞK]š[™YØ\ˆYØ›È[™H™Y]Ú[™Hİ™[ˆœ˜Z\ÙH\ÙHY™™\™[\]ZYÈ[™š[š\Ú[™ÈY]ÙÈÈ˜[œÙ›Ü›HÛÛYÙ[‹\šXÚİ]Ëˆ‹ˆKˆ™š[\[›Ë\İ[K\ÜšËXYØ›ËYYÙÜË\İX[YY\šXÙHˆÂˆœÛYÜÈˆÈš[™Û™\ÚX[‹X™YY‹\™[™[™ËXÛØÛÛ]]Ø\İY\ÜXÙ\È‹›[Ü›ØØØ[‹[[X‹]YÚ[™K\[™\ËX[[Û™Ë\]XZ[YYÙÜÈ‹›İ™[‹Xœ˜Z\ÙYX™YY‹\İ]Ë\İ]Ù\Ë[]\Ú›ÛÛ\Ë\X\È—Kˆ™^YXœ›İÈˆœ˜Z\Ú[™ÈXÚš\]YH‹ˆ]HˆÛÛ\\™H›İ\ˆ]ÈÈ[™\‹Y\H›]›Ü™YYX]‹ˆ˜ÛÜHˆ”ÙYHİÈ[˜Ûİ™\™YÛØÛÛ]™YXİ[Û‹HÛİ™\™YœZ]X[™\ÜXÙHYÚ[™KÛŞK]š[™YØ\ˆYØ›È[™H™Y]Ú[™Hİ™[ˆœ˜Z\ÙH\ÙHY™™\™[\]ZYÈ[™š[š\Ú[™ÈY]ÙÈÈ˜[œÙ›Ü›HÛÛYÙ[‹\šXÚİ]Ëˆ‹ˆKˆ›İ™[‹Xœ˜Z\ÙYX™YY‹\İ]Ë\İ]Ù\Ë[]\Ú›ÛÛ\Ë\X\ÈˆÂˆœÛYÜÈˆÈš[™Û™\ÚX[‹X™YY‹\™[™[™ËXÛØÛÛ]]Ø\İY\ÜXÙ\È‹›[Ü›ØØØ[‹[[X‹]YÚ[™K\[™\ËX[[Û™Ë\]XZ[YYÙÜÈ‹™š[\[›Ë\İ[K\ÜšËXYØ›ËYYÙÜË\İX[YY\šXÙH—Kˆ™^YXœ›İÈˆœ˜Z\Ú[™ÈXÚš\]YH‹ˆ]HˆÛÛ\\™H›İ\ˆ]ÈÈ[™\‹Y\H›]›Ü™YYX]‹ˆ˜ÛÜHˆ”ÙYHİÈ[˜Ûİ™\™YÛØÛÛ]™YXİ[Û‹HÛİ™\™YœZ]X[™\ÜXÙHYÚ[™KÛŞK]š[™YØ\ˆYØ›È[™H™Y]Ú[™Hİ™[ˆœ˜Z\ÙH\ÙHY™™\™[\]ZYÈ[™š[š\Ú[™ÈY]ÙÈÈ˜[œÙ›Ü›HÛÛYÙ[‹\šXÚİ]Ëˆ‹ˆKˆ˜Û\ÜÚXË[™]ËY[™Û[™XÛ[KXÚİÙ\‹\İ]Ù\Ë\Ø[[™\ÈˆÂˆœÛYÜÈˆÈ›[Ü›ØØØ[‹\İ[K]™YÙ]\šX[‹Z\š\˜K[[[ËXÚXÚÜX\È‹˜Û\ÜÚXËYœ™[˜Ú[Ûš[Û‹\Ûİ\YÜ^Y\™K]Ø\İÈ‹\šÚ\Ú\™Y[[[\Ûİ\X[\ËX]\ˆ—Kˆ™^YXœ›İÈˆ”Ûİ\XÚš\]YH‹ˆ]HˆÛÛ\\™H›İ\ˆØ^\ÈÈZ[HØ]\ÙZ[™ÈÛİ\‹ˆ˜ÛÜHˆ“[İ™H™]ÙY[ˆHÜ™X[^Hİ]Ë]XÚÙ[™YÚİÙ\‹›İ\‹Yš[š\ÚY\š\˜KÛ™ËXØ\˜[Y[^™YÛš[Ûˆœ›İ[™Û[ÛİH›[™Y™Y[[ÈHX]Ú[™ÈHXÚÙ[š[™ÈY]ÙÈH™\İ[[İHØ[ˆ‹ˆKˆ›[Ü›ØØØ[‹\İ[K]™YÙ]\šX[‹Z\š\˜K[[[ËXÚXÚÜX\ÈˆÂˆœÛYÜÈˆÈ˜Û\ÜÚXË[™]ËY[™Û[™XÛ[KXÚİÙ\‹\İ]Ù\Ë\Ø[[™\È‹˜Û\ÜÚXËYœ™[˜Ú[Ûš[Û‹\Ûİ\YÜ^Y\™K]Ø\İÈ‹\šÚ\Ú\™Y[[[\Ûİ\X[\ËX]\ˆ—Kˆ™^YXœ›İÈˆ”Ûİ\XÚš\]YH‹ˆ]HˆÛÛ\\™H›İ\ˆØ^\ÈÈZ[HØ]\ÙZ[™ÈÛİ\‹ˆ˜ÛÜHˆ“[İ™H™]ÙY[ˆHÜ™X[^Hİ]Ë]XÚÙ[™YÚİÙ\‹›İ\‹Yš[š\ÚY\š\˜KÛ™ËXØ\˜[Y[^™YÛš[Ûˆœ›İ[™Û[ÛİH›[™Y™Y[[ÈHX]Ú[™ÈHXÚÙ[š[™ÈY]ÙÈH™\İ[[İHØ[ˆ‹ˆKˆ˜Û\ÜÚXËYœ™[˜Ú[Ûš[Û‹\Ûİ\YÜ^Y\™K]Ø\İÈˆÂˆœÛYÜÈˆÈ˜Û\ÜÚXË[™]ËY[™Û[™XÛ[KXÚİÙ\‹\İ]Ù\Ë\Ø[[™\È‹›[Ü›ØØØ[‹\İ[K]™YÙ]\šX[‹Z\š\˜K[[[ËXÚXÚÜX\È‹\šÚ\Ú\™Y[[[\Ûİ\X[\ËX]\ˆ—Kˆ™^YXœ›İÈˆ”Ûİ\XÚš\]YH‹ˆ]HˆÛÛ\\™H›İ\ˆØ^\ÈÈZ[HØ]\ÙZ[™ÈÛİ\‹ˆ˜ÛÜHˆ“[İ™H™]ÙY[ˆHÜ™X[^Hİ]Ë]XÚÙ[™YÚİÙ\‹›İ\‹Yš[š\ÚY\š\˜KÛ™ËXØ\˜[Y[^™YÛš[Ûˆœ›İ[™Û[ÛİH›[™Y™Y[[ÈHX]Ú[™ÈHXÚÙ[š[™ÈY]ÙÈH™\İ[[İHØ[ˆ‹ˆKˆ\šÚ\Ú\™Y[[[\Ûİ\X[\ËX]\ˆˆÂˆœÛYÜÈˆÈ˜Û\ÜÚXË[™]ËY[™Û[™XÛ[KXÚİÙ\‹\İ]Ù\Ë\Ø[[™\È‹›[Ü›ØØØ[‹\İ[K]™YÙ]\šX[‹Z\š\˜K[[[ËXÚXÚÜX\È‹˜Û\ÜÚXËYœ™[˜Ú[Ûš[Û‹\Ûİ\YÜ^Y\™K]Ø\İÈ—Kˆ™^YXœ›İÈˆ”Ûİ\XÚš\]YH‹ˆ]HˆÛÛ\\™H›İ\ˆØ^\ÈÈZ[HØ]\ÙZ[™ÈÛİ\‹ˆ˜ÛÜHˆ“[İ™H™]ÙY[ˆHÜ™X[^Hİ]Ë]XÚÙ[™YÚİÙ\‹›İ\‹Yš[š\ÚY\š\˜KÛ™ËXØ\˜[Y[^™YÛš[Ûˆœ›İ[™Û[ÛİH›[™Y™Y[[ÈHX]Ú[™ÈHXÚÙ[š[™ÈY]ÙÈH™\İ[[İHØ[ˆ‹ˆKˆ˜ÛİYÙKXÚY\ÙK\›İZ[‹\[˜ØZÙ\ÈˆÂˆœÛYÜÈˆÈ\šÚ\ÚXÚ[š\‹\ØXÚYYYÙÜËYØ\›XÚŞK^[Ùİ\X[\ËX]\ˆ‹™X\İ\›‹Y]\›ÜX[‹\Ş\›šZÚK\Ûİ\‹XÜ™X[KYœZ]‹˜ÛİYÙKXÚY\ÙKYœš]]K]ÛX]Ù\ËYÜ™Y[‹\\\œÈ‹™œ™Y^™\‹Xœ™XZÙ˜\İX\œš]ÜÈ‹˜™\œKX[[Û™XÚXK\Y[™Ë]Ø\İY\ÙYYÈ—Kˆ™^YXœ›İÈˆœ™XZÙ˜\İ[›š[™È‹ˆ]HˆZ[H˜\İ[™XZÙKXZXYœ™XZÙ˜\İ›İ][Ûˆ‹ˆ˜ÛÜHˆÛÛ\\™Hœ™\Ú\ØXÚY0éñ,[±,\‹İ›İZ[ˆ[˜ØZÙ\Ë˜\›Y\‹XÚY\ÙHŞ\›šZÚKH™YÙ]X›K\XÚÙYœš]]Kœ™Y^™\‹\™XYH\œš]ÜÈ[™›ËXÛÛÚÈÚXHİ\ÈHİ[[YKÛÜİİÜ˜YÙH[™[Ü›š[™ÈY™›Üˆ‹ˆKˆ˜ÛİYÙKXÚY\ÙKYœš]]K]ÛX]Ù\ËYÜ™Y[‹\\\œÈˆÂˆœÛYÜÈˆÈ\šÚ\ÚXÚ[š\‹\ØXÚYYYÙÜËYØ\›XÚŞK^[Ùİ\X[\ËX]\ˆ‹˜ÛİYÙKXÚY\ÙK\›İZ[‹\[˜ØZÙ\È‹™X\İ\›‹Y]\›ÜX[‹\Ş\›šZÚK\Ûİ\‹XÜ™X[KYœZ]‹™œ™Y^™\‹Xœ™XZÙ˜\İX\œš]ÜÈ‹˜™\œKX[[Û™XÚXK\Y[™Ë]Ø\İY\ÙYYÈ—Kˆ™^YXœ›İÈˆœ™XZÙ˜\İ[›š[™È‹ˆ]HˆZ[H˜\İ[™XZÙKXZXYœ™XZÙ˜\İ›İ][Ûˆ‹ˆ˜ÛÜHˆÛÛ\\™Hœ™\Ú\ØXÚY0éñ,[±,\‹İ›İZ[ˆ[˜ØZÙ\Ë˜\›Y\‹XÚY\ÙHŞ\›šZÚKH™YÙ]X›K\XÚÙYœš]]Kœ™Y^™\‹\™XYH\œš]ÜÈ[™›ËXÛÛÚÈÚXHİ\ÈHİ[[YKÛÜİİÜ˜YÙH[™[Ü›š[™ÈY™›Üˆ‹ˆKˆ™œ™Y^™\‹Xœ™XZÙ˜\İX\œš]ÜÈˆÂˆœÛYÜÈˆÈ\šÚ\ÚXÚ[š\‹\ØXÚYYYÙÜËYØ\›XÚŞK^[Ùİ\X[\ËX]\ˆ‹˜ÛİYÙKXÚY\ÙK\›İZ[‹\[˜ØZÙ\È‹™X\İ\›‹Y]\›ÜX[‹\Ş\›šZÚK\Ûİ\‹XÜ™X[KYœZ]‹˜ÛİYÙKXÚY\ÙKYœš]]K]ÛX]Ù\ËYÜ™Y[‹\\\œÈ‹˜™\œKX[[Û™XÚXK\Y[™Ë]Ø\İY\ÙYYÈ—Kˆ™^YXœ›İÈˆœ™XZÙ˜\İ[›š[™È‹ˆ]HˆZ[H˜\İ[™XZÙKXZXYœ™XZÙ˜\İ›İ][Ûˆ‹ˆ˜ÛÜHˆÛÛ\\™Hœ™\Ú\ØXÚY0éñ,[±,\‹İ›İZ[ˆ[˜ØZÙ\Ë˜\›Y\‹XÚY\ÙHŞ\›šZÚKH™YÙ]X›K\XÚÙYœš]]Kœ™Y^™\‹\™XYH\œš]ÜÈ[™›ËXÛÛÚÈÚXHİ\ÈHİ[[YKÛÜİİÜ˜YÙH[™[Ü›š[™ÈY™›Üˆ‹ˆKˆ˜™\œKX[[Û™XÚXK\Y[™Ë]Ø\İY\ÙYYÈˆÂˆœÛYÜÈˆÈ\šÚ\ÚXÚ[š\‹\ØXÚYYYÙÜËYØ\›XÚŞK^[Ùİ\X[\ËX]\ˆ‹˜ÛİYÙKXÚY\ÙK\›İZ[‹\[˜ØZÙ\È‹™X\İ\›‹Y]\›ÜX[‹\Ş\›šZÚK\Ûİ\‹XÜ™X[KYœZ]‹˜ÛİYÙKXÚY\ÙKYœš]]K]ÛX]Ù\ËYÜ™Y[‹\\\œÈ‹™œ™Y^™\‹Xœ™XZÙ˜\İX\œš]ÜÈ—Kˆ™^YXœ›İÈˆœ™XZÙ˜\İ[›š[™È‹ˆ]HˆZ[H˜\İ[™XZÙKXZXYœ™XZÙ˜\İ›İ][Ûˆ‹ˆ˜ÛÜHˆÛÛ\\™Hœ™\Ú\ØXÚY0éñ,[±,\‹İ›İZ[ˆ[˜ØZÙ\Ë˜\›Y\‹XÚY\ÙHŞ\›šZÚKH™YÙ]X›K\XÚÙYœš]]Kœ™Y^™\‹\™XYH\œš]ÜÈ[™›ËXÛÛÚÈÚXHİ\ÈHİ[[YKÛÜİİÜ˜YÙH[™[Ü›š[™ÈY™›Üˆ‹ˆKˆ™X\İ\›‹Y]\›ÜX[‹\Ş\›šZÚK\Ûİ\‹XÜ™X[KYœZ]ˆÂˆœÛYÜÈˆÈ\šÚ\ÚXÚ[š\‹\ØXÚYYYÙÜËYØ\›XÚŞK^[Ùİ\X[\ËX]\ˆ‹˜ÛİYÙKXÚY\ÙK\›İZ[‹\[˜ØZÙ\È‹˜ÛİYÙKXÚY\ÙKYœš]]K]ÛX]Ù\ËYÜ™Y[‹\\\œÈ‹™œ™Y^™\‹Xœ™XZÙ˜\İX\œš]ÜÈ‹˜™\œKX[[Û™XÚXK\Y[™Ë]Ø\İY\ÙYYÈ—Kˆ™^YXœ›İÈˆœ™XZÙ˜\İ[›š[™È‹ˆ]HˆZ[H˜\İ[™XZÙKXZXYœ™XZÙ˜\İ›İ][Ûˆ‹ˆ˜ÛÜHˆÛÛ\\™Hœ™\Ú\ØXÚY0éñ,[±,\‹İ›İZ[ˆ[˜ØZÙ\Ë˜\›Y\‹XÚY\ÙHŞ\›šZÚKH™YÙ]X›K\XÚÙYœš]]Kœ™Y^™\‹\™XYH\œš]ÜÈ[™›ËXÛÛÚÈÚXHİ\ÈHİ[[YKÛÜİİÜ˜YÙH[™[Ü›š[™ÈY™›Üˆ‹ˆKŸB‚™Yˆ™XÚ\WİÜX×ØÛ\İ\Š™XÚ\JHOˆİ‚ˆÛ\İ\ˆHÕTUQÔ‘PÒTWĞÓTÕT”Ë™Ù]
-™XÚ\K™Ù]
-œÛYÈ‹ˆŠJBˆYˆ›İÛ\İ\‚ˆ™]\›ˆˆ‚ˆ™XÚ\\×ØWÜÛYÈHØØ[™Y]VÈœÛYÈ—NˆØ[™Y]H›ÜˆØ[™Y]H[ˆ‘PÒTTßBˆ[šÙYHÜ™XÚ\\×ØWÜÛYÖÜÛY×H›ÜˆÛYÈ[ˆÛ\İ\–ÈœÛYÜÈ—HYˆÛYÈ[ˆ™XÚ\\×ØWÜÛY×BˆYˆ›İ[šÙY‚ˆ™]\›ˆˆ‚ˆ™]\›ˆ‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚÙXİ[Û‹\\\ˆ™[]Y\ÙXİ[Ûˆˆ\šXK[X™[YOHœ™XÚ\KXÛ\İ\‹ZXY[™È]ˆÛ\ÜÏHÜ˜\‚ˆ]ˆÛ\ÜÏHœÙXİ[Û‹ZXY[™È]Û\ÜÏH™^YXœ›İÈÙ\ØÊÛ\İ\–È™^YXœ›İÈ—J_OÜˆYHœ™XÚ\KXÛ\İ\‹ZXY[™ÈÙ\ØÊÛ\İ\–È]H—J_OÚÙ]Ù\ØÊÛ\İ\–È˜ÛÜH—J_OÜÙ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\KYÜšYÉÉËš›Ú[Š™XÚ\WØØ\™
-Ø[™Y]JH›ÜˆØ[™Y]H[ˆ[šÙY
-_OÙ]‚ˆÙ]ÜÙXİ[Û‰ÉÉÂ‚™YˆZ[Ü™XÚ\WÜYÙ\Ê
-N‚ˆ›Üˆ™XÚ\H[ˆ‘PÒTTÎ‚ˆÛYÈH™XÚ\VÈœÛYÈ—BˆZ[]\ÈH[
-™XÚ\K™Ù]
-İ[ÛZ[]\È‹[
-™XÚ\K™Ù]
-œ™\ÛZ[]\È‹
-JH
-È[
-™XÚ\K™Ù]
-˜ÛÛÚ×ÛZ[]\È‹
-JJJBˆ[™Ü™YY[ÈHˆ‹š›Ú[Š‰ÉÉÏOX™[[œ]\OH˜ÚXÚØ›ŞÜ[ˆ]KZ[™Ü™YY[]K[ÜšYÚ[˜[HÙ\ØÊ][J_HÙ\ØÊ][J_OÜÜ[ÛX™[ÛO‰ÉÉÈ›Üˆ][H[ˆ™XÚ\K™Ù]
-š[™Ü™YY[È‹×JJBˆİ\ÈHˆ‹š›Ú[Š‰ÉÉÏO]ÏÙ\ØÊİ\™Ù]
-›˜[YH‹ˆ”İ\ÚJÌ_HŠJ_OÚÏÙ\ØÊİ\™Ù]
-^‹ˆŠJ_OÜÙ]ÛO‰ÉÉÈ›ÜˆKİ\[ˆ[[Y\˜]J™XÚ\K™Ù]
-š[œİXİ[ÛœÈ‹×JJJBˆ\ÈHˆ‹š›Ú[Š‰Ï]ˆÛ\ÜÏH\XØ\™İ›Û™Ï•ÚH]ÛÜšÜÏÜİ›Û™ÏÙ\ØÊ
-_OÙ]‰È›Üˆ[ˆ™XÚ\K™Ù]
-ÚWÚ]İÛÜšÜÈ‹×JJBˆİØ\ÈHˆ‹š›Ú[ŠˆOÙ\ØÊ
-_OÛOˆˆ›Üˆ[ˆ™XÚ\K™Ù]
-œİØ\È‹×JJBˆ›İ\ÈHˆ‹š›Ú[ŠˆOÙ\ØÊ
-_OÛOˆˆ›Üˆ[ˆ™XÚ\K™Ù]
-››İ\È‹×JJBˆ˜\\ÈHˆ‹š›Ú[Š‰ÉÉÏ]Z[Ïİ[[X\OÙ\ØÊ™Ù]
-œH‹”]Y\İ[ÛˆŠJ_OÜİ[[X\OÙ\ØÊ™Ù]
-˜H‹ˆŠJ_OÜÙ]Z[Ï‰ÉÉÈ›Üˆ[ˆ™XÚ\K™Ù]
-™˜\\È‹×JJBˆÛÛÚ×Üİ\ÈHˆ‹š›Ú[Š‰ÉÉÏ]ˆÛ\ÜÏH˜ÛÛÚË\İ\İ›Û™ÏÚJÌ_KˆÙ\ØÊİ\™Ù]
-›˜[YH‹”İ\ŠJ_OÜİ›Û™ÏÙ\ØÊİ\™Ù]
-^‹ˆŠJ_OÙ]‰ÉÉÈ›ÜˆKİ\[ˆ[[Y\˜]J™XÚ\K™Ù]
-š[œİXİ[ÛœÈ‹×JJJBˆÛÛXİ[Û—ÜÛYÈH™XÚ\K™Ù]
-˜ÛÛXİ[Ûˆ‹ˆŠBˆÛÛXİ[Û—İ]HHÓÓPÕSÓ—ÓQUK™Ù]
-ÛÛXİ[Û—ÜÛYË
-™]WÜÛYÊÛÛXİ[Û—ÜÛYÈÜˆœ™XÚ\HŠKˆ‹ˆŠJVÌBˆÜX×Û[šÜÈH×BˆYˆÛÛXİ[Û—ÜÛYÎ‚ˆÜX×Û[šÜË˜\[™
-‰ÏH™YHÚ™YŠ‹ØÛÛXİ[ÛœËÈˆ
-ÈÛÛXİ[Û—ÜÛYÈ
-È‹ÈŠ_HÙ\ØÊÛÛXİ[Û—İ]J_OØO‰ÊBˆ›ÜˆX—ÜÛYÈ[ˆ[™Ü™YY[ÚXœ×Ù›Ü—Ü™XÚ\J™XÚ\JVÎŒ—N‚ˆÜX×Û[šÜË˜\[™
-‰ÏH™YHÚ™YŠ‹Ú[™Ü™YY[ËÈˆ
-ÈX—ÜÛYÈ
-È‹ÈŠ_HÙ\ØÊS‘Ô‘QQS•ÒP”ÖÚX—ÜÛY×VÈ]H—J_OØO‰ÊBˆ™[]YH™[]YÜ™XÚ\\Ê™XÚ\JBˆİ×ØÜ™Y]Hˆ‚ˆYˆ™XÚ\K™Ù]
-š[XYÙWØÜ™Y]ŠH[™™XÚ\K™Ù]
-š[XYÙWØÜ™Y]İ\›ŠH[™™XÚ\K™Ù]
-š[XYÙWÛXÙ[œÙHŠH[™™XÚ\K™Ù]
-š[XYÙWÛXÙ[œÙWİ\›ŠN‚ˆİ×ØÜ™Y]H‰ÉÉÏÛ\ÜÏHœ™XÚ\K\İËXÜ™Y]ˆİ[OH›X\™Ú[‹M\™[HŒM\™[HÙ›Û\Ú^™N‹Í\™[NØÛÛÜ˜\ŠKZ[šË\ÛÙ
-H”İÎˆH™YHÙ\ØÊ™XÚ\VÉÚ[XYÙWØÜ™Y]İ\›	×J_Hˆ\™Ù]H—Ø›[šÈˆ™[H››ÛÜ[™\ˆ›Ü™Y™\œ™\ˆÙ\ØÊ™XÚ\VÉÚ[XYÙWØÜ™Y]	×J_OØOˆ0­ÈH™YHÙ\ØÊ™XÚ\VÉÚ[XYÙWÛXÙ[œÙWİ\›	×J_Hˆ\™Ù]H—Ø›[šÈˆ™[H››ÛÜ[™\ˆ›Ü™Y™\œ™\ˆÙ\ØÊ™XÚ\VÉÚ[XYÙWÛXÙ[œÙI×J_OØOÜ‰ÉÉÂˆ™[]YÚ[H‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚÙXİ[Û‹\\\ˆ™[]Y\ÙXİ[Ûˆ]ˆÛ\ÜÏHÜ˜\‚ˆ]ˆÛ\ÜÏHœÙXİ[Û‹ZXY[™È]Û\ÜÏH™^YXœ›İÈÛÛÚÈ™^Ü“[Ü™H™XÚ\\È[İx &[ZÙOÚÙ]HÛ\ÜÏH˜ˆ‹[İ][™Hˆ™YHÚ™YŠ	ËÜ™XÚ\\ËÉÊ_H[™XÚ\\ÏØOÙ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\KYÜšYÉÉËš›Ú[Š™XÚ\WØØ\™
-Ø[™Y]JH›ÜˆØ[™Y]H[ˆ™[]Y
-_OÙ]‚ˆÙ]ÜÙXİ[Û‰ÉÉÂˆÛ\İ\—Ú[H™XÚ\WİÜX×ØÛ\İ\Š™XÚ\JBˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœ™XÚ\KZ\›Èˆ]K\™XÚ\K\YÙH]K\Ù\š[™ÜÏHÚ[
-™XÚ\K™Ù]
-	ÜÙ\š[™ÜÉË
-J_H‚ˆ]ˆÛ\ÜÏHÜ˜\Øœ™XYÜ[XœÊÊ”™XÚ\\È‹‹Ü™XÚ\\ËÈŠK
-™XÚ\K™Ù]
-]H‹”™XÚ\HŠK›Û™JWJ_Bˆ]ˆÛ\ÜÏHœ™XÚ\KZ\›ËYÜšY‚ˆ][YÈÛ\ÜÏHœ™XÚ\KZ\›ËZ[XYÙHˆÜ˜ÏHÙ\ØÊ™XÚ\K™Ù]
-	Ú[XYÙIË	ÉÊJ_Hˆ[HÙ\ØÊ™XÚ\K™Ù]
-	Ú[XYÙWØ[	Ë™XÚ\K™Ù]
-	İ]IË	Ô™XÚ\IÊJJ_HˆÚYHLˆZYÚHMˆ™]Úš[Üš]OHšYÚˆXÛÙ[™ÏH˜\Ş[˜ÈÜİ×ØÜ™Y]OÙ]‚ˆ]Û\ÜÏH™^YXœ›İÈÙ\ØÊÛÛXİ[Û—İ]J_OÜ‚ˆOÙ\ØÊ™XÚ\K™Ù]
-	İ]IË	Ô™XÚ\IÊJ_OÚOÛ\ÜÏH›YHÙ\ØÊ™XÚ\K™Ù]
-	ÙZÉË	ÉÊJ_OÜ‚ˆÛ\ÜÏHœ™XÚ\KX[[™H‘]™[ÜY›Üˆ\ÚØ[0­È\]YÙ\ØÊ™XÚ\K™Ù]
-	Ù]WÛ[ÙYšYY	Ë	ÌŒ‹LLMÉÊJ_OÜ‚ˆ]ˆÛ\ÜÏHœ™XÚ\K]ÜXË[[šÜÈˆ\šXK[X™[H”™XÚ\HÜXÜÈÉÉËš›Ú[ŠÜX×Û[šÜÊ_OÙ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\K[Y]KYÜšY‚ˆ]ˆÛ\ÜÏHœ™XÚ\K[Y]KZ][HÛX[”™\ÜÛX[İ›Û™ÏÚ[
-™XÚ\K™Ù]
-	Ü™\ÛZ[]\ÉË
-J_HZ[Üİ›Û™ÏÙ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\K[Y]KZ][HÛX[ÛÛÚÏÜÛX[İ›Û™ÏÚ[
-™XÚ\K™Ù]
-	ØÛÛÚ×ÛZ[]\ÉË
-J_HZ[Üİ›Û™ÏÙ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\K[Y]KZ][HÛX[•İ[ÜÛX[İ›Û™ÏÛZ[]\ßHZ[Üİ›Û™ÏÙ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\K[Y]KZ][HÛX[ÛÜİÜÛX[İ›Û™ÏÙ\ØÊ™XÚ\K™Ù]
-	ØÛÜİÜ\—ÜÙ\š[™ÉË	ø %	ÊJ_OÜİ›Û™ÏÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÏH˜]Û‹\›İÈ‚ˆ]ÛˆÛ\ÜÏH˜ˆ‹\š[X\Hˆ\OH˜]Ûˆˆ]K[Ü[‹XÛÛÚÏ”İ\ÛÛÚÈ[ÙOØ]Û‚ˆ]ÛˆÛ\ÜÏH˜ˆ‹[İ][™Hˆ\OH˜]Ûˆˆ]K\š[”š[Ø]Û‚ˆ]ÛˆÛ\ÜÏH˜ˆ‹[İ][™Hˆ\OH˜]Ûˆˆ]K\Ø]™K\™XÚ\OHÙ\ØÊÛYÊ_HÜ[ˆ]K\Ø]™K[X™[”Ø]™H™XÚ\OÜÜ[Ø]Û‚ˆÙ]‚ˆÙ]‚ˆÙ]Ù]‚ˆÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ]ˆÛ\ÜÏHÜ˜\™XÚ\K[XZ[ˆ‚ˆ\ÚYO‚ˆ]ˆÛ\ÜÏHœ™XÚ\K\[™[İXÚŞK\[™[]ˆÛ\ÜÏHœÙ\š[™ËXÛÛ›Ûİ›Û™Ï’[™Ü™YY[ÏÜİ›Û™Ï]ˆÛ\ÜÏHœÙ\š[™ËX]ÛœÈ]Ûˆ\OH˜]Ûˆˆ]K\Ù\š[™Ë[Z[\Ï¸¢$Ø]ÛÜ[Ü[ˆ]K\Ù\š[™ÜË[İ]]Ú[
-™XÚ\K™Ù]
-	ÜÙ\š[™ÜÉË
-J_OÜÜ[ˆÙ\š[™ÜÏÜÜ[]Ûˆ\OH˜]Ûˆˆ]K\Ù\š[™Ë\\ÏŠÏØ]ÛÙ]Ù][Û\ÜÏHš[™Ü™YY[[\İÚ[™Ü™YY[ßOİ[Ù]‚ˆØ\ÚYO‚ˆ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\K\[™[‘\™Xİ[ÛœÏÚÛÛ\ÜÏHœİ\[\İÜİ\ßOÛÛÙ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\K\[™[•ÚH\ÈÛÜšÜÏÚ]ˆÛ\ÜÏH\YÜšYİ\ßOÙ]Ù]‚ˆÜ™XÚ\WÜÚÜ
-™XÚ\J_Bˆ]ˆÛ\ÜÏHœ™XÚ\K\[™[”İØ\È	ˆ›İ\ÏÚÏ‘X\ŞHİØ\ÏÚÏ[Û\ÜÏH™İ[\İÜİØ\ßOİ[ÏÛÛÚÈ›İ\ÏÚÏ[Û\ÜÏH™İ[\İÛ›İ\ßOİ[Ï”İÜ˜YÙOÚÏÙ\ØÊ™XÚ\K™Ù]
-	ÜİÜ˜YÙIË	ÔİÜ™HÛİ™\™Y[ˆH™YœšYÙ\˜]Üˆ[™™ZX][[İ‰ÊJ_OÜÙ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\K\[™[”]Y\İ[ÛœÏÚ]ˆÛ\ÜÏH™˜\K[\İÙ˜\\ßOÙ]Ù]‚ˆÙ]‚ˆÙ]ÜÙXİ[Û‚ˆØÛ\İ\—Ú[BˆÜ™[]YÚ[Bˆ]ˆÛ\ÜÏH˜ÛÛÚË[[ÙHˆ]KXÛÛÚË[[ÙO]ˆÛ\ÜÏH˜ÛÛÚË[[ÙKZ[›™\ˆ]ˆÛ\ÜÏH˜ÛÛÚË[[ÙKZXY]İ›Û™ÏÙ\ØÊ™XÚ\K™Ù]
-	İ]IË	Ô™XÚ\IÊJ_OÜİ›Û™Ï]ˆÛ\ÜÏH›]]Y”ØÜ™Y[ˆİ^\È]ØZÙHÚ[ˆİ\ÜYÙ]Ù]]ÛˆÛ\ÜÏH˜ˆ‹Y\šÈˆ\OH˜]Ûˆˆ]KXÛÜÙKXÛÛÚÏ‘^]ÛÛÚÈ[ÙOØ]ÛÙ]ØÛÛÚ×Üİ\ßOÙ]Ù]‰ÉÉÂˆØÚ[XHHÂˆ™XÚ\WÜØÚ[XJ™XÚ\JKˆœ™XYÜ[X—ÜØÚ[XJÊ”™XÚ\\È‹‹Ü™XÚ\\ËÈŠK
-™XÚ\K™Ù]
-]H‹”™XÚ\HŠK›Û™JWJKˆBˆÜš]WÜYÙJˆ‹Ü™XÚ\\ËŞÜÛYßKÈ‹YÙJˆ™XÚ\WÜÙ[×İ]J™XÚ\JKˆ™XÚ\WÛY]WÙ\ØÜš\[ÛŠ™XÚ\JKˆˆ‹Ü™XÚ\\ËŞÜÛYßKÈ‹ˆ›ÙKˆØÚ[XO\ØÚ[XKˆ[XYÙO\™XÚ\K™Ù]
-š[XYÙHŠKˆYÙWİ\OH˜\XÛH‹ˆX›\ÚY\™XÚ\K™Ù]
-™]WÜX›\ÚYŠKˆ[ÙYšYY\™XÚ\K™Ù]
-™]WÛ[ÙYšYY‹™XÚ\K™Ù]
-™]WÜX›\ÚYŠJKˆ
-JB‚™YˆZ[ØÛÛXİ[ÛœÊ
-N‚ˆÛÛXİ[ÛœÈHÛÜY
-Ü‹™Ù]
-˜ÛÛXİ[Ûˆ‹ˆŠH›Üˆˆ[ˆ‘PÒTTÈYˆ‹™Ù]
-˜ÛÛXİ[ÛˆŠ_JBˆ›ÜˆÛYÈ[ˆÛÛXİ[ÛœÎ‚ˆ™XÚ\\ÈHİX›WÜ™XÚ\WÛZ^
-Üˆ›Üˆˆ[ˆ‘PÒTTÈYˆ‹™Ù]
-˜ÛÛXİ[ÛˆŠHOHÛY×JBˆ]K\ØËÈHÓÓPÕSÓ—ÓQUK™Ù]
-ÛYË
-™]WÜÛYÊÛYÊKˆœ›İÜÙH\ÚØ[	ÜÈÜ™]WÜÛYÊÛYÊK›İÙ\Š
-_H™XÚ\\Ëˆ‹¼'ãmŠJBˆÙ[×İ]HH]HYˆœ™XÚ\Hˆ[ˆ]K›İÙ\Š
-H[ÙHˆİ]_H™XÚ\\È‚ˆ[Ù\ØÜš\[ÛˆHˆÙ\ØßHœ›İÜÙHÛ[Š™XÚ\\Ê_HÛÛ\]H™XÚ\\ÈÚ][Z[™ËÛÜİİXœİ]][ÛœË[™İÜ˜YÙH›İ\Ëˆ‚ˆÛÛXİ[Û—Ú[›ÈHˆ‚ˆÛÛXİ[Û—Ù˜\HHˆ‚ˆYˆÛYÈ[ˆXİ
-Xİ]™WÚ[™Ü™YY[ÚXœÊ
-JN‚ˆX—ØÛİ[H[Š™XÚ\\×Ù›Ü—Ú[™Ü™YY[
-ÛYÊJBˆÛÛXİ[Û—Ú[›ÈH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚÙXİ[Û‹\\\ˆ]ˆÛ\ÜÏHÜ˜\•\ÈÛÛXİ[Ûˆ\ÈHÛX[\ˆÙ[Xİ[Û‹ˆH™YHÚ™YŠ	ËÚ[™Ü™YY[ËÉÈ
-ÈÛYÈ
-È	ËÉÊ_Hœ›İÜÙH[ÚX—ØÛİ[HÙ\ØÊÛYÊ_H™XÚ\\ÏØOˆ›ÜˆHÛÛ\]H[™Ü™YY[Xœ˜\KÜÙ]ÜÙXİ[Û‰ÉÉÂˆYˆÛYÈOHš[œİ[\İ‚ˆÛÛXİ[Û—Ú[›ÈH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚÙXİ[Û‹\\\ˆ]ˆÛ\ÜÏHÜ˜\‚ˆ]ˆÛ\ÜÏHœÙXİ[Û‹ZXY[™È]Û\ÜÏH™^YXœ›İÈZ[›ÜˆH‹\]X\İÜ”™\Üİ\™KXÛÛÚÙ\ˆ™XÚ\\È][HÚÛH]X›İ][YKÚÙ]‘]™\Hİ[[˜ÛY\ÈH™X[\İXÈ[İØ[˜ÙH›ÜˆÛÛZ[™ÈÈ™\Üİ\™H[™™[X\Ú[™È™\Üİ\™x %›İ\İH›ÙÜ˜[[YYÛÛÚÈ[YHÛˆH\Ü^KÜÙ]‚ˆ]ˆÛ\ÜÏH\YÜšY‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï”›İXİYØZ[œİH\›ˆØ\›š[™ÏÜİ›Û™Ï•[ˆ\]ZYÛÙ\È[ˆš\œİˆÛX]ÈØ]XÙKØ[ØK[™İ\ˆXÚÈ[™Ü™YY[Èİ^HÛˆÜ[›\ÜÈH\™Xİ[ÛœÈÜXÚYšXØ[HØ^HÈİ\‹Ù]‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï’ÙY\˜[Z[H[›™\ˆZ[Üİ›Û™Ï•H˜\ÙH™XÚ\\È\™HÚY[X[˜YÙXX›KˆİØ]XÙK˜[\pì[ÜË[™Ü\ÚY\\ˆ\™Hš[š\Ú[™ÈÜ[ÛœÈ›ÜˆHY[ÈÚÈØ[[KÙ]‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï•\ÙHHšYÚ™[X\ÙOÜİ›Û™Ï‘XXÚ™XÚ\Hİ]\È˜]\˜[]ZXÚËÜˆÛÛ›ÛY™[X\ÙKˆ™]™\ˆ›Ü˜ÙHHYÈØZ][[H›Ø]˜[™H›ÜÈÛÛ\][KÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÏHœ™XÚ\K\[™[ˆİ[OH›X\™Ú[‹]ÜŒK\™[H‚ˆÛ\ÜÏH™^YXœ›İÈ‘\ÚØ[]ZXÚÈ™Y™\™[˜ÙOÜÏ“X]ÚH™\Üİ\™H™[X\ÙHÈH›ÛÙ8 %›İHÛØÚËÚÏ‚ˆ]ˆÛ\ÜÏH\YÜšY‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï“˜]\˜[™[X\ÙOÜİ›Û™Ï™\İ›Üˆ™X[œËÜ]X\Ë\™ÙH›Ø\İÈ[™İ\ˆ›ÛÙÈ]›Ø[HÜˆÙY\ÛÛÚÚ[™È\È™\Üİ\™H˜[ËˆØZ]H™XÚ\IÜÈ[[YNÈÈ›İ›Ü˜ÙHHYÙ]‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™ÏÛÛ›ÛY™[X\ÙOÜİ›Û™Ï•\ÙHÚÜ™[[™È[Ù\È›ÜˆšXÙK\İH[™İ\˜ÚH\Ú\Ëˆ]\ÙH[[YYX][HYˆ\]ZYÜˆ›Ø[HÜ]\œË[™™\İ[YHÛ›HÚ[ˆH™[\È]ZY]Ù]‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï”]ZXÚÈ™[X\ÙOÜİ›Û™Ï•\ÙY[›Üˆ[XØ]H™YÙ]X›\È[™ÙXY›ÛÙÚ[ˆH™XÚ\HØ[È›Üˆ]ˆÙY\[™È[™˜XÙH]Ø^Hœ›ÛHİX[H[™™]™\ˆÛİ™\ˆH˜[™HÚ]HİÙ[Ù]‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï‘š[[[Z]ÚXÚÏÜİ›Û™Ï”İ^H™[İÈH[‹Y[[™H›Üˆ™X[œËÜ˜Z[œË\İH[™›ÛÙÈ]^[™Üˆ›Ø[Kˆİ\ˆ›ÛÙÈ]\İ™[XZ[ˆ™[İÈH[Ù[	ÜÈX^[][KYš[[™KÙ]‚ˆÙ]‚ˆÈİ[OH›X\™Ú[‹]ÜŒK\™[H\ŞK[šYÚ™\Üİ\™KXÛÛÚÙ\ˆÚÛÜÙ\ÚÏ‚ˆÛÛ\\™Hİ[[YK™[X\ÙHİ[H[™HÛÜšÈYY\ˆ™\Üİ\™H˜[ËˆH›ÙÜ˜[[YYŞXÛH\ÈÛ›HÛ™H\ÙˆHÛØÚËÜ‚ˆ]ˆİ[OH›İ™\™›İË^˜]]È‚ˆX›Hİ[OHÚYŒL	NØ›Ü™\‹XÛÛ\ÙN˜ÛÛ\ÙNİ^X[YÛ›Y‚ˆXYİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒœÛÛY˜\ŠK[[™JH”™XÚ\Oİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒœÛÛY˜\ŠK[[™JH•İ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒœÛÛY˜\ŠK[[™JH”™[X\ÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒœÛÛY˜\ŠK[[™JHY\ˆ™\Üİ\™Oİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒœÛÛY˜\ŠK[[™JH™\İš]İİİXY‚ˆ›ÙO‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İYš[\[›ËXÚXÚÙ[‹X\œ›Ş‹XØ[ËYÚ[™Ù\‹XØ[[X[œÚKÉÊ_HÚXÚÙ[ˆ\œ›ŞˆØ[ÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ú™YÚXÚÙ[ÈÛÜÙ[ˆÜœšYÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘Ù[Hœ™XZÙ˜\İÜˆİ\\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\Û\ÚXšYÛÜË\ÜšËZÚY[˜\ØK\Ø]Y\šÜ˜]]ÉÊ_H”Û\Ú\İ[HšYÛÜÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒMK[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”™YXÙNÈ™ZX]ÚY[˜\ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“XZÙKXZXYœ™Y^™\ˆœ˜Z\ÙOİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İXİX˜[‹\›ÜK]šYZ˜K^Y[İË\šXÙK\[Z[œËÉÊ_HİX˜[‹\İ[H›ÜHšYZ˜OØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒMK[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ú™Y[™™YXÙNÈš[š\ÚÚY\Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛÛ\]H˜[Z[H]\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ]ZÜ˜Z[šX[‹X™Y]X›ÜœØÚ]Ú]KX™X[œËY[ÉÊ_H™Y]›ÜœØÚÚ]Ú]H™X[œÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHMHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ú[[Y\ˆØX˜˜YÙH[™™X[œÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHYÙ]YX]\ÜÈYX[™\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ[İØÛİ[K\Úš[\X›Ú[XÛÜ›‹\İ]Ù\ËÉÊ_H“İØÛİ[HÚš[\›Ú[ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛÛ›ÛY]ZXÚÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ø]]0êHÚš[\ø $ÍHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘˜\İÚ\™XX›HÙXY›ÛÙİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İZÛÜ™X[‹YØ[šZšš[K\X\‹XÚ\İ]ËÉÊ_H’ÛÜ™X[ˆØ[šZšš[OØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒMK[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘Y˜][™™YXÙH8 $ÌLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”ÜXÚX[˜[Z[Hœ˜Z\ÙOİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\Û[ÚŞKX›XÚËX™X[‹\Ûİ\[[YKXÜ™[XKÉÊ_H”Û[ÚŞH›XÚÈ™X[ˆÛİ\ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒ[Z[ˆ˜]\˜[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”\X[H›[™İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•™YÙ]\šX[ˆYX[™\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İXÚXÚÙ[‹XØXØÚX]Ü™K[]\Ú›ÛÛ\ËYYÙË[›ÛÙ\ËÉÊ_HÚXÚÙ[ˆØXØÚX]Ü™OØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆ]ZXÚÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”™YXÙHØ]XÙNÈY›ÛÙ\Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ø]XŞH˜[Z[H[›™\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ[İZ\ÚX[˜K\™YX™X[œË\šXÙKX[™İZ[KÉÊ_H“İZ\ÚX[˜K\İ[H™Y™X[œÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHMHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒ[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“X\ÚÈ™ZX][™İZ[NÈYšXÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Û[ÚŞHYÙ]˜[Z[HYX[İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\\œÚX[‹XÚXÚÙ[‹Y™\Ù[š˜[‹]Ø[]\ÛYYÜ˜[˜]KÉÊ_HÚXÚÙ[ˆ™\Ù[š˜[ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÍHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”™YXÙHØ[]\ÛYYÜ˜[˜]HØ]XÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”İÙY]]\˜[Z[Hœ˜Z\ÙOİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\]YX™XË^Y[İË\Ü]\XK\Ûİ\Z[KÉÊ_H–Y[İÈÜ]XHÛİ\ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒMK[Z[ˆ˜]\˜[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ú™Y[NÈY\İ›ÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHYÙ]œ™Y^™\ˆYX[İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\ØY™œ›Û‹\Úš[\\š\ÛİË[[[Û‹XÚ]™\ËÉÊ_H”ØY™œ›ÛˆÚš[\š\ÛİÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛÛ›ÛY]ZXÚÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ø]]0êHÚš[\È[œšXÚšXÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘˜\İÙXY›ÛÙ[›™\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İZ˜\[™\ÙKX™YY‹Xİ\œK\İ]Ù\ËXØ\œ›İËÉÊ_H’˜\[™\ÙK\İ[H™YYˆİ\œOØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHK[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•Ú\ÚÈ[ˆİ\œH›İ^ÈYšXÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“Z[˜[Z[HÛÛY›Ü›ÛÙİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\˜Z›XK[X\Ø[K]Ø\›K\›İKÉÊ_H”˜Z›XHX\Ø[OØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“X\Ú[™™YXÙNÈØ\›H›İOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHYÙ]™YÙ]\šX[ˆ\ŞHšYÚİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ]\š^XZÚKXÚXÚÙ[‹\šXÙKX›İÛËÉÊ_H•\š^XZÚHÚXÚÙ[ˆšXÙH›İÛÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆ]ZXÚÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘Û^™HÚXÚÙ[È›Y™ˆšXÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH[Z[‹[Û™HšXÙH›İÛİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ]Z]Ø[™\ÙK[K\›İKY˜[‹Xœ˜Z\ÙY\ÜšË\šXÙKÉÊ_H•Z]Ø[™\ÙK\İ[HH›İH˜[ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”™YXÙHÜ˜]NÈYšXÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ø]›ÜHÜšÈšXÙH›İÛÏİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\İÙY\Ú[YX]˜[Ë[X\ÚY\İ]Ù\Ë[[™ÛÛ˜™\œšY\ËÉÊ_H”İÙY\Ú\İ[HYX]˜[ÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHK[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•XÚÙ[ˆÜ˜]NÈš[š\ÚX\Úİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛ\ÜÚXÈ˜[Z[HÛÛY›Ü›ÛÙİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İY[[XZÚ[šKYØ\›XË[˜X[‹ÉÊ_H‘[XZÚ[šHÚ]Ø\›XÈ˜X[ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHMHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒ[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘š[š\ÚÛX]ËXÜ™X[HØ]XÙNÈØ\›H˜X[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“YX]\ÜÈ™X[ˆİ\\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İZ]ØZZX[‹\İ[KZØ[XK\ÜšËXØX˜˜YÙK\šXÙKÉÊ_H’]ØZZX[‹\İ[Hñ [XHÜšÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒ[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ú™YÜšÎÈØ]]0êHØX˜˜YÙNÈYšXÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Û[ÚŞH˜[Z[H]\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ]ZK\İ[K[X\ÜØ[X[‹XÚXÚÙ[‹\İ]Ù\ËÉÊ_H•ZK\İ[HX\ÜØ[X[ˆÚXÚÙ[ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHYÛØÛÛ]Z[ÎÈÚ[[Y\ˆØ]XÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“Z[ÚXÚÙ[ˆİ\œHšYÚİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ[X˜[™\ÙK\İ[K[]Z˜Y\˜KXØ\˜[Y[^™Y[Ûš[ÛœËÉÊ_H“X˜[™\ÙK\İ[H]Z˜Y\˜OØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•ÛÈL[Z[ˆ˜]\˜[™[X\Ù\Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘›Û[ˆÛš[ÛœÎÈ™\İÜ˜Z[œÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHYÙ]YX]\ÜÈ[HYX[İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ]šY]˜[Y\ÙK\İ[KX›ËZÚËXØ\œ›İË[›ÛÙ\ËÉÊ_H•šY]˜[Y\ÙK\İ[H°ìˆÚÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHMHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYÈÙXÛÛ™ÛÛ›ÛY]ZXÚÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛÛÚÈ›ÛÙ\ÎÈØ\›š\Ú›İÛÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH\›ÛX]XÈ™YYˆ›ÛÙHİ\\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İYYŞ\X[‹\İ[KY[[YY[Y\ËXœ™XZÙ˜\İ\]\‹ÉÊ_H‘YŞ\X[‹\İ[H[YY[Y\ÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒ[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“X\ÚÈÙX\ÛÛÈZ[]\İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•™YØ[ˆœ™XZÙ˜\İYX[™\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İYÛZ[šXØ[‹\İ[K\Ø[˜ÛØÚËXÚXÚÙ[‹\ÜšË\›Ûİ]™YÙ]X›\ËÉÊ_H‘ÛZ[šXØ[‹\İ[HØ[˜ÛØÚÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLMHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•ÛÈL[Z[ˆ˜]\˜[™[X\Ù\Ë[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÚXÚÈYX]ÎÈX\Ú™YÙ]X›\Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•ÙYZÙ[™˜[Z[Hİ]Ïİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İZ][X[‹XÜ™X[^K\Û[K[]\Ú›ÛÛ\Ë\\›Y\Ø[‹ÉÊ_HÜ™X[^HÛ[HÚ]]\Ú›ÛÛ\ÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHMHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒMK[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•Ú\ÚÈÛ[NÈY]\Ú›ÛÛ\Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“YX]\ÜÈİZ[‹\İİ\\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İZZ[˜[™\ÙK\İ[KXÚXÚÙ[‹\šXÙKYÚ[™Ù\‹\ØØ[[Û‹\Ø]XÙKÉÊ_H’Z[˜[™\ÙK\İ[HÚXÚÙ[ˆšXÙOØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHMHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•™\šYHÚXÚÙ[ÈÜš\ÜÚÚ[ÈZ^Ø]XÙ\Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH[Z[‹[Û™HZ[˜[Z[H›İÛİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İYÜ™YZËX™YY‹\İY˜YË\X\›[Ûš[ÛœËÉÊ_H‘Ü™YZÈ™YYˆİY˜YÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒMK[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ú[[Y\ˆÛš[ÛœÎÈ˜[[˜ÙHØ]XÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“XZÙKXZXY™YYˆœ˜Z\ÙOİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İZ˜[XZXØ[‹\İ[K[ŞZ[X]\‹X™X[œËÉÊ_H’˜[XZXØ[‹\İ[HŞZ[ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLŒZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒ[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘Y˜]ÈY™X[œÎÈ™YXÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”ÜXÚX[XZÙKXZXY™YYˆœ˜Z\ÙOİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İYÚ[˜ZX[‹\İ[KXÚXÚÙ[‹\X[]\İ]Ë\İÙY]\İ]Ù\ËÉÊ_H‘Ú[˜ZX[‹\İ[HÚXÚÙ[ˆX[]İ]ÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•Ú\ÚÈ[ˆX[]]\ÈÚ[Ü[˜XÚİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•ÙYZÛšYÚÚXÚÙ[ˆÛ™KX›İÛİ]Ïİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İXœ˜^š[X[‹\İ[KY™ZZ›ØYKXÛÛ\™ËY˜\›Ù˜KÉÊ_Hœ˜^š[X[‹\İ[H™ZZ›ØYOØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒ[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHYØ]\ØYÙNÈX\Ú™X[œÎÈÛÛÚÈÛÛ\™Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛÛ\]HÜšËX[™X™X[ˆ]\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ]^˜™ZË\İ[K[[X‹\İ‹XØ\œ›İËÉÊ_H•^˜™ZË\İ[H[XˆİØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•ÛÈL[Z[ˆ˜]\˜[™[X\Ù\Ë[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘›Û[ˆØ\›XÎÈ›Y™ˆ[™™\İšXÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÙ[Xœ˜][Û‹\İ[HÛ™K\İšXÙOİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\Ûİ]\›‹XÚXÚÙ[‹Y›]Y[\[™ÜËÉÊ_H”Ûİ]\›ˆÚXÚÙ[ˆ	˜[\È›][\[™ÜÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÌZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ú™YÚXÚÙ[ÈÚ[[Y\ˆ[\[™ÜÎÈYZ\Oİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛÛY›ÜY›ÛÙ˜[Z[Hİ\\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İYXİXYÜšX[‹[ØÜ›ËYK\]Y\ÛËX]›ØØYËÉÊ_H‘XİXYÜšX[‹\İ[HØÜ›ÈH]Y\ÛÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛÛ›ÛY]ZXÚÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“X\Úİ]Ù\ÎÈYZ\H[™Ø\›š\Ú\Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“YX]\ÜÈİ]Ë\Ûİ\šYÚİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ[Y^XØ[‹X™YY‹Xš\œšXK]XÛÜËXÛÛœÛÛ[YKÉÊ_H“Y^XØ[‹\İ[H™YYˆš\œšXHXÛÜÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLMHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒ[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”Ú™Y™YYÈÚÚ[Hœ›İÈÜš\ÜXÛÜÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘œ™Y^™\‹YœšY[™HXÛÈšYÚİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İZ[™X[‹]™YÙ]X›KXš\X[šK\ÛYYÜ˜[˜]K\˜Z]KÉÊ_H’[™X[‹\İ[H™YÙ]X›Hš\X[šOØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÌZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”İX[HX\ÎÈ›Y™ˆšXÙNÈZ^˜Z]Oİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“YX]\ÜÈÙ[Xœ˜][Û‹\İ[HšXÙOİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İYœ™[˜Ú\İ[KXÛÜKX]K]š[‹[]\Ú›ÛÛ\ËÉÊ_H‘œ™[˜Ú\İ[HÛÜH]Hš[ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•™\šYHÚXÚÙ[Èš[š\Ú™YÙ]X›\È[™Ø]XÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“XZÙKXZXYÚXÚÙ[ˆœ˜Z\ÙOİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ]™YØ[‹XÛÜ›‹\İ]ËXÚİÙ\‹XÚ]™\ËÉÊ_H•™YØ[ˆÛÜ›ˆ	˜[\Èİ]ÈÚİÙ\ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHK[Z[ˆ™\İ[ˆÛÛ›ÛY]ZXÚÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”\X[H›[™ÈYØ]Z[Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHYÙ]™YØ[ˆœ™Y^™\ˆYX[İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İZÛÜ™X[‹YZØ›ÚÚÙ][][™ËXÚXÚÙ[‹\İ]Ù\ËÉÊ_H’ÛÜ™X[‹\İ[HZØ›ÚÚÙ][][™ÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÌZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•™\šYHÚXÚÙ[Èš[š\ÚÛ\ÜÈ›ÛÙ\Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“Z[Yš\œİÚXÚÙ[ˆİ]Ïİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\›ÛX[šX[‹\Ø\›X[KX™YY‹\ÜšË\šXÙKÉÊ_H”›ÛX[šX[‹\İ[HØ\›X[OØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒLLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒMK[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•™\šYH›ÛÙ[\œÎÈš[š\ÚÛ[Oİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“XZÙKXZXYİY™™YXØX˜˜YÙH]\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ]\šÚ\ÚZİ\KY˜\İ[YK]Ú]KX™X[‹\İ]ËÉÊ_H•\šÚ\Úİ\H˜\İ[YOØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHMHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒ[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÚXÚÈ™X[ˆÙ[\œÎÈY\İœ›İİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHYÙ]YX]\ÜÈ[Hİ]Ïİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ[›ÜÙYÚX[‹Y˜\šZØ[[[X‹XØX˜˜YÙK\İ]Ù\ËÉÊ_H“›ÜÙYÚX[ˆ°é\šZğé[ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒMK[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÚXÚÈ[Xˆ[™\›™\ÜÎÈš[š\Úœ›İİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH]][[ˆ[X‹X[™XØX˜˜YÙHœ˜Z\ÙOİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İY][ÜX[‹YÜ›Ë]Ø]YYÙÜËZ[š™\˜KÉÊ_H‘][ÜX[‹\İ[HÜ›ÈØ]ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•™\šYHÚXÚÙ[È™YXÙHØ]XÙNÈØ\›HYÙÜÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÚXÚÙ[‹X[™Z[š™\˜H˜[Z[H]\İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\ÜYİY\ÙKXØ[Ë]™\™KXÚİ\šXÛËZØ[KÉÊ_H”ÜYİY\ÙK\İ[HØ[È™\™OØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHLZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒL[Z[ˆ˜]\˜[[ˆÛÛ›ÛYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“X\Úİ]Ù\ÎÈÚ[Ø[NÈ™ZX]Ø]\ØYÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘˜\İÛİ\X[™Xœ™XYšYÚİİ‚ˆİ[OHœY[™Î‹\™[HH™YHÚ™YŠ	ËÜ™XÚ\\ËÚ[œİ[\İ\ÜšËXØ\›š]\ËÉÊ_H”ÜšÈØ\›š]\ÏØOİİ[OHœY[™Î‹\™[HÍHZ[İİ[OHœY[™Î‹\™[HŒMK[Z[ˆ˜]\˜[[ˆ]ZXÚÏİİ[OHœY[™Î‹\™[H”Ú™Y[™œ›Ú[İİ[OHœY[™Î‹\™[HÛÛÚÈÛ˜ÙK™\\œÜÙHÚXÙOİİ‚ˆİ›ÙO‚ˆİX›O‚ˆÙ]‚ˆÈİ[OH›X\™Ú[‹]ÜŒK\™[H•Ú]™[Û™ÜÈ™X\ˆHX][™È]OÏÚÏ‚ˆ]ˆÛ\ÜÏHX›K]Ü˜\‚ˆX›O‚ˆXY’[™Ü™YY[\Oİ•Ú\™H]ÛÙ\Ïİ•ÚOİİİXY‚ˆ›ÙO‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•Ø]\‹œ›İÜˆ[›İ\ˆ™XÚ\KX\›İ™Y[ˆ\]ZYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘š\œİYØZ[œİHÛX[ˆYÛ^™Y˜\ÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•\È\ÈHœ™YKY›İÚ[™È\]ZYHÛÛÚÙ\ˆ™YYÈÈÙ[™\˜]HİX[Kİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“YX][™Ø]\‹\šXÚ™YÙ]X›\Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHX›İ™HH[ˆ\]ZYÈİ\ˆÛ›HÚ[ˆH™XÚ\H\™XİÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•^H™[X\ÙH[Ú\İ\™K]Úİ[›İ™\XÙHHYX\İ\™YZ[š[][H\]ZY›ÜˆH[Ù[İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•ÛX]È\İKXÚÈÛX]ÈØ]XÙK]]\ˆÜˆ[›İ\ˆÛÛ˜Ù[˜]YØ]XÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘[]Y[™›Ø]YÛˆÜÜˆYYY\ˆ™\Üİ\™K^XİH\È\™XİYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•XÚÈÜˆİYØ\HZ^\™\ÈØ[ˆÙ]H[™ØÛÜ˜Ú™Y›Ü™H[›İYÚİX[H]™[ÜËİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH™X[œËšXÙK\İH[™İ\ˆ^[™[™È›ÛÙÏİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH’[ˆH™XÚ\IÜÈYX\İ\™Y\]ZY[™™[İÈH[‹Y[[™Oİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•^HXœÛÜ˜ˆ\]ZY^[™[™Ø[ˆ›Ø[NÈ[\›İš\ÙY˜][ÜÈÚ[™ÙH›İ^\™H[™ØY™]HX\™Ú[œËİİ‚ˆİ[OHœY[™Î‹\™[H‘Z\KÚY\ÙH[™ÛÜ›œİ\˜ÚÛ\œOİİ[OHœY[™Î‹\™[H•\İX[HY\ˆ™\Üİ\™H[›\ÜÈH\İY™XÚ\HÜXÚYšXØ[HØ^\Èİ\Ú\ÙOİİ[OHœY[™Î‹\™[HY[™È[H\š[™ÈHš[š\Ú[™ÈİYÙH™YXÙ\ÈØÛÜ˜Ú[™Ëİ\™[™È[™İ™\‹]XÚÙ[š[™Ëİİ‚ˆİ›ÙO‚ˆİX›O‚ˆÙ]‚ˆÈİ[OH›X\™Ú[‹]ÜŒK\™[H‘š]™K\Ú[™Y›YÚ™Y›Ü™H[İH™\ÜÈİ\ÚÏ‚ˆÛÛ\ÜÏH™İ[\İ‚ˆOÛÛ™š\›HHÙX[[™Èš[™È\ÈÙX]YH›Ø]˜[™H[™İX[K\™[X\ÙH][İ™Hœ™Y[K[™H[KX›ØÚÈÚY[\ÈÛX[‹ÛO‚ˆOÚXÚÈ]Hİ]ÚYHÙˆH[›™\ˆİ[™HÛÛÚÙ\ˆX][™È]H\™HÛX[ˆ[™H™Y›Ü™H[œÙ\[™ÈHİÛO‚ˆO”ØÜ˜\HH˜\ÙHÛÛ\][HÛ[ÛİY\ˆœ›İÛš[™ÎÈXÚÈØ]XÙKZ\H[™İ\˜Ú™[Û™ÈÚ\™HH™XÚ\H^Y\œÈ[KÛO‚ˆO“YX\İ\™HHİ]Y[ˆ\]ZY[™İ^H™[İÈH[‹Y[[™H›ÜˆÜ˜Z[œË™X[œË\İH[™İ\ˆ^[™[™È›ÛÙËÛO‚ˆO“X]ÚH˜[™HÜÚ][Ûˆ[™™[X\ÙHY]ÙÈH^Xİ™XÚ\KÙY\[™È[™È[™˜XÙH]Ø^Hœ›ÛH\ØØ\[™ÈİX[KÛO‚ˆÛÛ‚ˆÈİ[OH›X\™Ú[‹]ÜŒK\™[H”İÜX[™XÚXÚÈÚYÛ˜[È\š[™È™[X\ÙOÚÏ‚ˆ[Û\ÜÏH™İ[\İ‚ˆOİ›Û™Ï“\]ZYÜ]\œÈœ›ÛHH˜[™NÜİ›Û™ÏˆÛÜÙH]ØZ]ˆZ[]\È[™™\İ[YH[ˆÚÜ\ˆÛÛ›ÛY[Ù\ÎÈ™]™\ˆÛİ™\ˆH™[Ú]HİÙ[ÛO‚ˆOİ›Û™Ï•H›Ø]˜[™H\Èİ[˜Z\ÙYÜİ›Û™Ïˆ™\Üİ\™H™[XZ[œÈ[œÚYKˆÙY\HYØÚÙY[™ØZ]8 %™]™\ˆÚ\İÜˆ›Ü˜ÙH]Ü[‹ÛO‚ˆOİ›Û™Ï•H™XÚ\HÛÛZ[œÈ™X[œËÜ˜Z[œÈÜˆİ\ˆ›Ø[Z[™È›ÛÙÜİ›Û™Ïˆ™\ÜXİH[‹Y[[Z][™HÜXÚYšYY˜]\˜[\™[X\ÙH[\˜[™Y›Ü™H[H™[[™ËÛO‚ˆİ[‚ˆÈİ[OH›X\™Ú[‹]ÜŒK\™[H”™\Üİ\™K\™[X\ÙH™XÛİ™\HİZYOÚÏ‚ˆ]ˆÛ\ÜÏHX›K]Ü˜\‚ˆX›O‚ˆXY•Ú][İHØœÙ\™Oİ”ØY™H™^[İ™Oİ•Ú]›İÈÏİİİXY‚ˆ›ÙO‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“Û›HÛX\ˆİX[H^]È\š[™ÈHÛÛ›ÛY™[X\ÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛÛ[YHH™XÚ\IÜÈÚÜ[Ù\ÈÚ[HÙY\[™È[™È[™˜XÙH]Ø^Oİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘È›İX[ˆİ™\ˆH˜[™HÜˆİXÚ]Ú]˜\™H[™Ïİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘›Ø[Kİ\˜ÚÜˆ›ÛÙÜ]\œÈœ›ÛHH˜[™Oİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHÛÜÙHH˜[™KØZ]]X\İˆZ[]\Ë[ˆ™]H[Ü™HÛİÛNÈ™\X]\È™YYYİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘È›İÛH˜[™HÜ[ˆÜˆÛİ™\ˆ]Ú]HİÙ[İİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•H›Ø]˜[™Hİ^\È˜Z\ÙYY\ˆHİ]Y˜]\˜[™[X\ÙOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH•™X]HÛÛÚÙ\ˆ\È™\Üİ\š^™Y[™›ÛİÈH™XÚ\IÜÈÛÛ›ÛY\™[X\ÙH\™Xİ[Ûİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH“™]™\ˆÚ\İHÜˆ›Ü˜ÙHHYİİ‚ˆİ[OHœY[™Î‹\™[H•HÛÛÚÙ\ˆ\Ü^\ÈH\›ˆØ\›š[™È™Y›Ü™H™\Üİ\™Oİİ[OHœY[™Î‹\™[HØ[˜Ù[]™\Üİ\™H\ÜÚ\]K[ˆ›ÛİÈH[Ù[X[X[™Y›Ü™HÜ[š[™È[™[œÜXİ[™ÈH˜\ÙK\]ZY[™^Y\š[™Ïİİ[OHœY[™Î‹\™[H‘È›İ\\ÜÈHØ\›š[™ËY\]ZY›İYÚH™[Üˆ[İ™HH™\Üİ\š^™YÛÛÚÙ\İİ‚ˆİ›ÙO‚ˆİX›O‚ˆÙ]‚ˆÈİ[OH›X\™Ú[‹]ÜŒK\™[H•Ú\™HÈYX\İ\™HÛ™[™\ÜÈY\ˆ™\Üİ\™OÚÏ‚ˆ]ˆÛ\ÜÏH\YÜšY‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï›Û™KZ[ˆİ[NˆMp¬Üİ›Û™Ï”›Ø™HHXÚÙ\İYX]™\ÚYx %]›İİXÚ[™ø %H›Û™KˆÚXÚÈ[Ü™H[ˆÛ™HYXÙH™XØ]\ÙHÚ^™\È[™ÜÚ][ÛœÈ[ˆHİ˜\KÙ]‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï‘Ü›İ[™[YX]›ÛÎˆMŒ0¬Üİ›Û™Ï’[œÙ\H›Ø™H›İYÚHÜ˜\\ˆ[ÈH™\HÙ[\ˆÙˆÙ]™\˜[›ÛËˆİœ›İÜˆ[™\ˆØX˜˜YÙHÙ\È›İ›İ™HHš[[™È\ÈÛ™KÙ]‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï•ÚÛHÜšÈÜˆ™YYˆMp¬ˆ
-È™\İÜİ›Û™Ï•\ÙHH™XÚ\IÜÈİ]Y™\İ[™\™Ù]ÈÈ›İİXœİ]]H\È[H›ÜˆÜ›İ[™YX]İ[HÜˆH™XÚ\H][[[Û˜[HÛÛÚÜÈHİYÚİ]\\ˆ›Üˆ[™\›™\ÜËÙ]‚ˆ]ˆÛ\ÜÏH\XØ\™İ›Û™Ï™[İÈ\™Ù]ÏÜİ›Û™Ï”™]\›ˆH›ÛÙÈİ\]ZY[™\ÙHØ]]0êHÜˆH™XÚ\IÜÈš[š\Ú[™Èİ\[[]™\HÚXÚÙYÜ[Ûˆ™XXÚ\È]ÈØY™H[\\˜]\™NÈ™]™\ˆ™[HÛˆÛÛÜˆ[Û™KÙ]‚ˆÙ]‚ˆÛ\ÜÏH›]]Yˆİ[OH›X\™Ú[‹]ÜŒ\™[H”ØY™]HY]ÙˆÛÛ™š\›HHZ[š[][H\]ZYš[[Z]Ë™K]\ÙH[œÜXİ[Û‹Ø\›š[™È™\ÜÛœÙH[™™[[™È›ØÙY\™H[ˆHH™YHšÎ‹ËÚ[œİ[İ˜ÛÛKÜYÙ\ËÜ›ÙXİ[X[X[Èˆ\™Ù]H—Ø›[šÈˆ™[H››ÛÜ[™\ˆ›Ü™Y™\œ™\ˆ›X[Y˜Xİ\™\ˆX[X[›Üˆ[İ\ˆ[Ù[ØO‹ˆ\ÚØ[	ÜÈÛ™[™\ÜÈ\™Ù]È›ÛİÈHH™YHšÎ‹ËİİİË™œÚ\Ë\ÙK™Ûİ‹Ù›ÛÙ\ØY™]KÜØY™KY›ÛÙZ[™[™ËX[™\™\\˜][Û‹Ù›ÛÙ\ØY™]KX˜\ÚXÜËÜØY™K][\\˜]\™KXÚ\ˆ\™Ù]H—Ø›[šÈˆ™[H››ÛÜ[™\ˆ›Ü™Y™\œ™\ˆ•TÑHØY™K][\\˜]\™HÚ\ØO‹ˆÛÛ\\š\ÛÛ‹^Y\š[™È[™™\Üİ\™K\™[X\ÙH™XÛİ™\HİZY\È™]šY]ÙYØİØ™\ˆL‹Œ‹Ü‚ˆÙ]‚ˆÛ\ÜÏH›]]Yˆİ[OH›X\™Ú[‹]ÜŒ\™[H’[œİ[İ\ÈH˜Y[X\šÈÙˆ]ÈİÛ™\‹ˆ\ÚØ[\È›İY™š[X]YÚ]Üˆ[™ÜœÙYHHœ˜[™È\ÙH™XÚ\\È[ÛÈÛÜšÈ[ˆÛÛ\\˜X›H‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\œÈÚ[ˆHX[Y˜Xİ\™\ˆ\›Z]ÈHİ]YY]ÙÜ‚ˆÙ]ÜÙXİ[Û‰ÉÉÂˆÛÛXİ[Û—Ù˜\HH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ]ˆÛ\ÜÏH›˜\œ›İÈ™XÚ\K\[™[Û\ÜÏH™^YXœ›İÈ™Y›Ü™H[İHİ\Ü•™YH[\È›ÜˆØY™\‹™]\ˆ™\Üİ\™HÛÛÚÚ[™ÏÚ]ˆÛ\ÜÏH™˜\K[\İ‚ˆ]Z[Ïİ[[X\OØ[ˆHİX›H\ÙH™XÚ\\ÏÏÜİ[[X\O‘È›İ]]ÛX]XØ[HİX›HH\]ZYÜˆ^ÙYY[İ\ˆÛÛÚÙ\‰ÜÈX^[][KYš[[™Kˆ™X[œËÜ˜Z[œË\İK[™İ\ˆ^[™[™È›ÛÙÈÚİ[™[XZ[ˆ™[İÈH[‹Y[[™KˆÙY\H›ÙÜ˜[[YYÛÛÚÈ[YHHØ[YHÛ›HÚ[ˆYXÙHÚ^™Hİ^\ÈHØ[YK[™[İÈ[Ü™H[YH›ÜˆH[\ˆİÈ™XXÚ™\Üİ\™KÜÙ]Z[Ï‚ˆ]Z[Ïİ[[X\O•ÚHÙ\ÈHİ[[YH^ÙYYH™\Üİ\™KXÛÛÚÈ[YOÏÜİ[[X\O•H\Ü^HÛİ[İÛˆ™YÚ[œÈÛ›HY\ˆHÛÛÚÙ\ˆ™XXÚ\È™\Üİ\™KˆH[˜[Z[HYX[ÛÛ[[Û›H™YYÈLÈŒZ[]\ÈÈ™\Üİ\š^™K\ÈHİ]Y™[X\ÙH[YKÛÈ\ÚØ[[˜ÛY\ÈÜÙHİYÙ\È[ˆHİ[ÜÙ]Z[Ï‚ˆ]Z[Ïİ[[X\O•ÚXÚ[œİ[İÚ^™H\™H\ÙHÜš][ˆ›ÜÏÜİ[[X\O•\ÙH™XÚ\\È\™H]™[ÜY\›İ[™H‹\]X\[XİšXÈ™\Üİ\™HÛÛÚÙ\‹ˆ[ˆ\]X\[Ù[X^H™YYY][Û˜[[ˆ\]ZYXØÛÜ™[™ÈÈ]ÈX[X[ˆ[Ø^\È›ÛİÈHZ[š[][K[\]ZYš[[[Z][™™[X\ÙH[œİXİ[ÛœÈ›Üˆ[İ\ˆ^Xİ[Ù[ÜÙ]Z[Ï‚ˆÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆ[YˆÛYÈOH˜œ™XZÙ˜\İ‚ˆÛÛXİ[Û—Ú[›ÈH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚÙXİ[Û‹\\\ˆ]ˆÛ\ÜÏHÜ˜\‚ˆ]ˆÛ\ÜÏHœÙXİ[Û‹ZXY[™È]Û\ÜÏH™^YXœ›İÈ‘\ÚØ[[Ü›š[™ÈÚÛÜÙ\Ü“X]Úœ™XZÙ˜\İÈH[YKÛÜİ[™^\™H[İHØ[ÚÙ]•\ÙH\™HÛÛ\]H™XÚ\\Ë›İÙ\š[™ÈİYÙÙ\İ[ÛœËˆÛÛ\\™H[™Ë[ÛˆY]Ù™X[\İXÈİ[[YK\İ[X]YÛÜİ[™Ú]Ø[ˆ™HXYHZXYÜÙ]‚ˆ]ˆÛ\ÜÏHX›K]Ü˜\‚ˆX›O‚ˆXYœ™XZÙ˜\İİ•İ[[YOİ‘\İˆÛÜİİ“XZ[ˆY]Ùİ“XZÙKXZXYš]İİİXY‚ˆ›ÙO‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\Ëİ\šÚ\ÚXÚ[š\‹\ØXÚYYYÙÜËYØ\›XÚŞK^[Ùİ\X[\ËX]\‹ÉÊ_H•\šÚ\Ú0éñ,[±,\ØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‰‹ŒKÜÙ\š[™Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”]ZY]ØXÚ
-ÈØ\›HÜXÙY]\İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”™\[Ùİ\[™]\ÈØXÚYÙÜÈœ™\Úİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËØÛİYÙKXÚY\ÙK\›İZ[‹\[˜ØZÙ\ËÉÊ_HÛİYÙKXÚY\ÙH›İZ[ˆ[˜ØZÙ\ÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHŒŒZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‰KŒÍKÜÙ\š[™Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH›[™
-ÈÜšYOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‘œ™Y^™HÛÛÚÙY[˜ØZÙ\È\Èˆ[ÛÏİİ‚ˆİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHH™YHÚ™YŠ	ËÜ™XÚ\\ËÙœ™Y^™\‹Xœ™XZÙ˜\İX\œš]ÜËÉÊ_H‘œ™Y^™\ˆœ™XZÙ˜\İ\œš]ÜÏØOİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JHZ[İİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH‰KLÜÙ\š[™Ïİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”ÚÚ[]
-È˜]Ú\ÜÙ[X›Oİİ[OHœY[™Î‹\™[NØ›Ü™\‹X›İÛNŒ\ÛÛY˜\ŠK[[™JH”\œÜÙKXZ[›Üˆœ™Y^š[™Ïİİ‚ˆİ[OHœY[™Î‹\™[HH™YHÚ™YŠ	ËÜ™XÚ\\ËØ\KXÚ[›˜[[Û‹X˜ZÙY[Ø]YX[ÉÊ_H\KXÚ[›˜[[Ûˆ˜ZÙYØ]YX[ØOİİ[OHœY[™Î‹\™[HLZ[İİ[OHœY[™Î‹\™[H‰KŒKÜÙ\š[™Ïİİ[OHœY[™Î‹\™[H“Z^
-È˜ZÙOİİ[OHœY[™Î‹\™[H”™YœšYÙ\˜]HÛXÙ\È^\ÈÜˆœ™Y^™Oİİ‚ˆİ›ÙO‚ˆİX›O‚ˆÙ]‚ˆÛ\ÜÏH›]]Yˆİ[OH›X\™Ú[‹]ÜŒ\™[HÛÜİ\İ[X]\È™Y›XİH[™Ü™YY[]X[]Y\È\ÙYÚ[ˆXXÚ™XÚ\HØ\ÈX›\ÚY[™˜\HHİÜ™H[™ÙX\ÛÛ‹ˆ›ÛÙ\ØY™]H[Z[™È[™[\\˜]\™HİZY[˜ÙH\X\œÈÛˆXXÚ™XÚ\HYÙKˆÛÛ\\š\ÛÛˆ™]šY]ÙYØİØ™\ˆŒ‹Œ‹Ü‚ˆÙ]ÜÙXİ[Û‰ÉÉÂˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏHÜ˜\Øœ™XYÜ[XœÊÊ”™XÚ\\È‹‹Ü™XÚ\\ËÈŠK
-]K›Û™JWJ_OÛ\ÜÏH™^YXœ›İÈ‘[›™\ˆÛÛXİ[ÛÜOÙ\ØÊÙ[×İ]J_OÚOÛ\ÜÏH›YHÙ\ØÊ[Ù\ØÜš\[ÛŠ_OÜÙ]ÜÙXİ[Û‚ˆØÛÛXİ[Û—Ú[›ßBˆÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ]ˆÛ\ÜÏHÜ˜\]ˆÛ\ÜÏHœ™XÚ\KYÜšYÉÉËš›Ú[Š™XÚ\WØØ\™
-ŠH›Üˆˆ[ˆ™XÚ\\Ê_OÙ]Ù]ÜÙXİ[Û‚ˆØÛÛXİ[Û—Ù˜\_IÉÉÂˆ]Hˆ‹ØÛÛXİ[ÛœËŞÜÛYßKÈ‚ˆØÚ[XHHÂˆÛÛXİ[Û—ÜØÚ[XJÙ[×İ]K[Ù\ØÜš\[Û‹]™XÚ\\ÊKˆœ™XYÜ[X—ÜØÚ[XJÊ”™XÚ\\È‹‹Ü™XÚ\\ËÈŠK
-]K›Û™JWJKˆBˆÜš]WÜYÙJ]YÙJÙ[×İ]K[˜Ø]WÙ\ØÜš\[ÛŠ[Ù\ØÜš\[ÛŠK]›ÙKØÚ[XO\ØÚ[XJJB‚™YˆZ[Ú[™Ü™YY[ÚXœÊ
-N‚ˆ›ÜˆÛYËY]H[ˆS‘Ô‘QQS•ÒP”Ëš][\Ê
-N‚ˆ™XÚ\\ÈH™XÚ\\×Ù›Ü—Ú[™Ü™YY[
-ÛYÊBˆYˆ[Š™XÚ\\ÊHÎ‚ˆÛÛ[YBˆ]HHY]VÈ]H—Bˆ\ØÜš\[ÛˆH‰ŞÛY]VÈ™\ØÜš\[Ûˆ—_Hœ›İÜÙHÛ[Š™XÚ\\Ê_HÛÛ\]H\ÚØ[™XÚ\\ÈÚ]™X[\İXÈ[Z[™ËİXœİ]][ÛœË[™İÜ˜YÙH›İ\Ë‰Âˆ]Hˆ‹Ú[™Ü™YY[ËŞÜÛYßKÈ‚ˆÛÛXİ[Û—Û[šÈHˆ‚ˆYˆ[J™XÚ\K™Ù]
-˜ÛÛXİ[ÛˆŠHOHÛYÈ›Üˆ™XÚ\H[ˆ‘PÒTTÊN‚ˆÛÛXİ[Û—Û[šÈH‰ÏÛ\ÜÏH›]]Y“ÛÚÚ[™È›ÜˆHÛX[\ˆÜšYÚ[˜[Ù[Xİ[ÛÈH™YHÚ™YŠ‹ØÛÛXİ[ÛœËÈˆ
-ÈÛYÈ
-È‹ÈŠ_H•šY]ÈHÙ\ØÊÛYÊ_HÛÛXİ[ÛØO‹Ü‰Âˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏHÜ˜\Øœ™XYÜ[XœÊÊ”™XÚ\\È‹‹Ü™XÚ\\ËÈŠK
-]K›Û™JWJ_OÛ\ÜÏH™^YXœ›İÈ”™XÚ\\ÈH[™Ü™YY[ÜOÙ\ØÊ]J_OÚOÛ\ÜÏH›YHÙ\ØÊ\ØÜš\[ÛŠ_OÜÙ]ÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ]ˆÛ\ÜÏHÜ˜\ØÛÛXİ[Û—Û[šßO]ˆÛ\ÜÏHœ™XÚ\KYÜšYÉÉËš›Ú[Š™XÚ\WØØ\™
-™XÚ\JH›Üˆ™XÚ\H[ˆ™XÚ\\Ê_OÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆØÚ[XHHÂˆÛÛXİ[Û—ÜØÚ[XJ]K\ØÜš\[Û‹]™XÚ\\ÊKˆœ™XYÜ[X—ÜØÚ[XJÊ”™XÚ\\È‹‹Ü™XÚ\\ËÈŠK
-]K›Û™JWJKˆBˆÜš]WÜYÙJ]YÙJ]K[˜Ø]WÙ\ØÜš\[ÛŠ\ØÜš\[ÛŠK]›ÙKØÚ[XO\ØÚ[XJJB‚™YˆZ[ÜØ]™Y
+DEFAULT_SHOP_IMAGE = (
+    "https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80",
+    "Useful kitchen tools arranged on a food-prep surface",
+)
 
-N‚ˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏHÜ˜\Û\ÜÏH™^YXœ›İÈ–[İ\ˆÚÜ\İÜO”Ø]™Y™XÚ\\ÏÚOÛ\ÜÏH›YH”™XÚ\\È[İHX\\™HİÜ™Y[ˆ\Èœ›İÜÙ\ˆÛˆ\È]šXÙKˆ›ÈXØÛİ[™\]Z\™YÜÙ]ÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ]ˆÛ\ÜÏHÜ˜\]ˆÛ\ÜÏHœ™XÚ\KYÜšYˆ]K\Ø]™YYÜšYÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆÜš]WÜYÙJ‹ÜØ]™YÈ‹YÙJ”Ø]™Y™XÚ\\È‹’ÙY\Hœ›İÜÙ\‹X˜\ÙYÚÜ\İÙˆ\ÚØ[™XÚ\\ÈÚ]İ]Ü™X][™È[ˆXØÛİ[ÜˆÚ\š[™È\œÛÛ˜[[™›Ü›X][Û‹ˆ‹‹ÜØ]™YÈ‹›ÙK›Ú[™^UYK™YY×Ü™XÚ\WÙ]OUYJJB‚™YˆZ[ÙXÚY\Š
-N‚ˆÛÛXİ[ÛœÈHÛÜY
-Ü‹™Ù]
-˜ÛÛXİ[Ûˆ‹ˆŠH›Üˆˆ[ˆ‘PÒTTÈYˆ‹™Ù]
-˜ÛÛXİ[ÛˆŠ_JBˆÛÛØÚ\ÈHˆ‹š›Ú[Š‰Ï]ÛˆÛ\ÜÏH›Ü[Û‹XÚ\ˆ\OH˜]Ûˆˆ]KXÚÚXÙOH˜ÛÛXİ[Ûˆˆ]K]˜[YOHÙ\ØÊÊ_HÙ\ØÊÓÓPÕSÓ—ÓQUK™Ù]
-Ë
-™]WÜÛYÊÊKˆ‹ˆŠJVÌJ_OØ]Û‰È›ÜˆÈ[ˆÛÛXİ[ÛœÊBˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏH›˜\œ›İÈÛ\ÜÏH™^YXœ›İÈ‘XÚ\Ú[ÛˆÛÛÜO•[\ÈHšYÚˆÙ]Û™H[›™\‹ÚOÛ\ÜÏH›YH”XÚÈÚ]X]\œËˆ\ÚØ[ÚÛÜÙ\ÈH™XÚ\Kˆ[İHØ[ˆ™\›ÛYˆHš\œİ[œİÙ\ˆÙ]È™]ÙYÜÙ]ÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHÛÛ\YÙH]ˆÛ\ÜÏH›˜\œ›İÈ]ˆÛ\ÜÏHÛÛ\Ú[ˆ]KYXÚY\‚ˆ]ˆÛ\ÜÏH›Ü[Û‹YÜ›İ\Ï’İÈ]XÚ[YOÏÚÏ]ˆÛ\ÜÏH›Ü[Û‹XÚ\È]ÛˆÛ\ÜÏH›Ü[Û‹XÚ\ˆ\OH˜]Ûˆˆ]KXÚÚXÙOH[YHˆ]K]˜[YOHŒHŒHZ[]\ÏØ]Û]ÛˆÛ\ÜÏH›Ü[Û‹XÚ\ˆ\OH˜]Ûˆˆ]KXÚÚXÙOH[YHˆ]K]˜[YOHŒÌŒÌZ[]\ÏØ]Û]ÛˆÛ\ÜÏH›Ü[Û‹XÚ\ˆ\OH˜]Ûˆˆ]KXÚÚXÙOH[YHˆ]K]˜[YOHHHZ[]\ÏØ]Û]ÛˆÛ\ÜÏH›Ü[Û‹XÚ\ˆ\OH˜]Ûˆˆ]KXÚÚXÙOH[YHˆ]K]˜[YOHŒ[ˆİ\Ø]ÛÙ]Ù]‚ˆ]ˆÛ\ÜÏH›Ü[Û‹YÜ›İ\Ï•Ú]Ú[™Ùˆ[›™\ÏÚÏ]ˆÛ\ÜÏH›Ü[Û‹XÚ\ÈØÛÛØÚ\ßOÙ]Ù]‚ˆ]ˆÛ\ÜÏH›Ü[Û‹YÜ›İ\Ï[H™Y™\™[˜ÙOÏÚÏ]ˆÛ\ÜÏH›Ü[Û‹XÚ\È]ÛˆÛ\ÜÏH›Ü[Û‹XÚ\ˆ\OH˜]Ûˆˆ]KXÚÚXÙOHYÈˆ]K]˜[YOH™YÙ]\šX[ˆ•™YÙ]\šX[Ø]Û]ÛˆÛ\ÜÏH›Ü[Û‹XÚ\ˆ\OH˜]Ûˆˆ]KXÚÚXÙOHYÈˆ]K]˜[YOH™˜[Z[H‘˜[Z[KYœšY[™OØ]Û]ÛˆÛ\ÜÏH›Ü[Û‹XÚ\ˆ\OH˜]Ûˆˆ]KXÚÚXÙOHYÈˆ]K]˜[YOH˜YÙ]YÙ]Ø]Û]ÛˆÛ\ÜÏH›Ü[Û‹XÚ\ˆ\OH˜]Ûˆˆ]KXÚÚXÙOHYÈˆ]K]˜[YOHšYÚ\›İZ[ˆ’YÚ›İZ[Ø]ÛÙ]Ù]‚ˆ]ÛˆÛ\ÜÏH˜ˆ‹\š[X\Hˆ\OH˜]Ûˆˆ]KYXÚYO‘XÚYH[›™\Ø]Û‚ˆ]ˆÛ\ÜÏHÛÛ\™\İ[Èˆ]KYXÚY\‹\™\İ[Ù]‚ˆÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆÜš]WÜYÙJ‹Ù[›™\‹YXÚY\‹È‹YÙJ‘[›™\ˆXÚY\ˆ‹ÚÛÜÙH[İ\ˆ]˜Z[X›H[YH[™[›™\ˆ™Y™\™[˜Ù\Ë[ˆ]\ÚØ[XÚÈÛ™H˜XİXØ[™XÚ\H›ÜˆÛšYÚˆ‹‹Ù[›™\‹YXÚY\‹È‹›ÙK™YY×Ü™XÚ\WÙ]OUYJJB‚™YˆZ[Ü[J
-N‚ˆ[Wİ\›\ÈHÈ˜ÚXÚÙ[ˆ‹˜™YYˆ‹œÜšÈ‹™YÙÜÈ‹œ\İH‹œšXÙH‹œİ]Ù\È‹˜™X[œÈ‹ÛX]Ù\È‹˜œ›ØØÛÛH‹œÜ[˜XÚ‹˜ÚY\ÙH‹Ü[\È‹›[[Ûˆ‹›Ûš[Ûˆ—Bˆ][\ÈHˆ‹š›Ú[Š‰ÏX™[Û\ÜÏHœ[KZ][H[œ]\OH˜ÚXÚØ›Şˆ˜[YOHÙ\ØÊ
-_HˆÙ\ØÊ]J
-J_OÛX™[‰È›Üˆ[ˆ[Wİ\›\ÊBˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏH›˜\œ›İÈÛ\ÜÏH™^YXœ›İÈ•\ÙHÚ][İH]™OÜO”[H™\ØİYOÚOÛ\ÜÏH›YHÚXÚÈH™]È[™Ü™YY[ËˆÙH˜[šÈ\ÚØ[™XÚ\\ÈHİ™\›\ÛÈ[İHØ[ˆİ\Ú]Ú]\È[™XYH[ˆHÚ]Ú[‹ÜÙ]ÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHÛÛ\YÙH]ˆÛ\ÜÏHÜ˜\]ˆÛ\ÜÏHÛÛ\Ú[ˆ]K\[K]ÛÛ‚ˆ]ˆÛ\ÜÏHœ[KYÜšYÚ][\ßOÙ]‚ˆ]ˆÛ\ÜÏH™šY[ˆİ[OH›X\™Ú[‹]ÜŒ\™[HX™[›ÜH™^˜\È[][™È[ÙOÏÛX™[[œ]YH™^˜\Èˆ˜[YOH™^˜\ÈˆXÙZÛ\H›]\Ú›ÛÛ\Ë™]KXØÚ[šHÙ]‚ˆ]ˆÛ\ÜÏH˜]Û‹\›İÈˆİ[OH›X\™Ú[‹]ÜŒ\™[H]ÛˆÛ\ÜÏH˜ˆ‹\š[X\Hˆ\OH˜]Ûˆˆ]K[X]Ú\[O‘š[™X]Ú\ÏØ]ÛÙ]‚ˆ]ˆÛ\ÜÏHÛÛ\™\İ[Èˆ]K\[K\™\İ[ÏÙ]‚ˆÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆÜš]WÜYÙJ‹Ü[K\™\ØİYKÈ‹YÙJ”[H™\ØİYH‹”Ù[Xİ[™Ü™YY[È[İH[™XYH]™H[™\ÚØ[Ú[˜[šÈ™XÚ\\ÈH[™Ü™YY[İ™\›\È[™YXÙHØ\İH[™[›™\ˆ[™XÚ\Ú[Û‹ˆ‹‹Ü[K\™\ØİYKÈ‹›ÙK™YY×Ü™XÚ\WÙ]OUYJJB‚™YˆZ[Ü[›™\Š
-N‚ˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏH›˜\œ›İÈÛ\ÜÏH™^YXœ›İÈ‘š]™HšYÚË[™YÜO•ÙYZÛšYÚYX[[›™\ÚOÛ\ÜÏH›YHZ[š]™H˜\šYY[›™\œË[ˆ\›ˆ[H[ÈHÚXÚØX›HÜ›ØÙ\H\İˆ™\›Û[[HÙYZÈ™Y[ÈšYÚÜÙ]ÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHÛÛ\YÙH]ˆÛ\ÜÏHÜ˜\]ˆÛ\ÜÏHÛÛ\Ú[ˆ]K\[›™\‚ˆ]ˆÛ\ÜÏH™š[\‹\›İÈˆİ[OH™ÜšY][\]KXÛÛ[[œÎŒYœˆYœˆ]]È‚ˆ]ˆÛ\ÜÏH™šY[X™[›ÜHœ[›™\‹][YH“X^ÙYZÛšYÚ[YOÛX™[Ù[XİYHœ[›™\‹][YHˆ˜[YOHœ[›™\‹][YHÜ[Ûˆ˜[YOHŒÌŒÌZ[]\ÏÛÜ[ÛÜ[Ûˆ˜[YOHHˆÙ[XİYHZ[]\ÏÛÜ[ÛÜ[Ûˆ˜[YOHŒŒZ[]\ÏÛÜ[ÛÜ[Ûˆ˜[YOHNNH“›È[Z]ÛÜ[ÛÜÙ[XİÙ]‚ˆX™[Û\ÜÏHœ[KZ][Hˆİ[OH˜[YÛ‹\Ù[™[™ÛZ[‹ZZYÚ\[œ]\OH˜ÚXÚØ›Şˆ˜[YOHœ[›™\‹]™YÙ]\šX[ˆˆ™YÙ]\šX[ˆÙYZÏÛX™[‚ˆ]ÛˆÛ\ÜÏH˜ˆ‹\š[X\Hˆ\OH˜]Ûˆˆ]KXZ[\[Z[^HÙYZÏØ]Û‚ˆÙ]‚ˆ]ˆÛ\ÜÏHœ[›™\‹YÜšYˆ]K\[‹YÜšYÙ]‚ˆ]ˆÛ\ÜÏH˜]Û‹\›İÈˆİ[OH›X\™Ú[‹]ÜŒKŒ\™[H]ÛˆÛ\ÜÏH˜ˆ‹[İ][™Hˆ\OH˜]Ûˆˆ]KXZ[\[”™\›ÛÙYZÏØ]Û]ÛˆÛ\ÜÏH˜ˆ‹Y\šÈˆ\OH˜]Ûˆˆ]KXZ[[\İ“XZÙHÜ›ØÙ\H\İØ]ÛÙ]‚ˆ]ˆ]K\ÚÜ[™Ë]Ü˜\Y[ˆİ[OH›X\™Ú[‹]ÜŒœ™[H‘Ü›ØÙ\HÚXÚÛ\İÚ[Û\ÜÏHœÚÜ[™Ë[\İˆ]K\ÚÜ[™Ë[\İİ[Ù]‚ˆÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆÜš]WÜYÙJ‹ÛYX[\[›™\‹È‹YÙJKSšYÚYX[[›™\ˆ‹Z[Hš]™K[šYÚ\ÚØ[[›™\ˆ[ˆ˜\ÙYÛˆ[İ\ˆ]˜Z[X›HÛÛÚÚ[™È[YK[ˆÙ[™\˜]HH˜XİXØ[Ü›ØÙ\HÚXÚÛ\İˆ‹‹ÛYX[\[›™\‹È‹›ÙK™YY×Ü™XÚ\WÙ]OUYJJB‚™YˆZ[ÙİZY\Ê
-N‚ˆØ]YÛÜWØØ\™ÈH×Bˆ›ÜˆÛYË
-˜[YK\ØËXÛÛŠH[ˆÕRQWĞĞUQÓÔ–WÓQUKš][\Ê
-N‚ˆÛİ[Hİ[JH›Üˆ\XÛH[ˆT•PÓTÈYˆ\XÛK™Ù]
-˜Ø]YÛÜH‹ˆŠK›İÙ\Š
-Kœ™\XÙJˆ‹‹HŠHOHÛYÊBˆYˆÛİ[‚ˆØ]YÛÜWØØ\™Ë˜\[™
-‰ÉÉÏHÛ\ÜÏH˜ÛÛXİ[Û‹\[ˆ™YHÚ™YŠ	ËÙİZY\ËØØ]YÛÜKÉÈ
-ÈÛYÈ
-È	ËÉÊ_HÜ[ˆÛ\ÜÏH˜ÛÛXİ[Û‹ZXÛÛˆÚXÛÛŸOÜÜ[İ›Û™ÏÙ\ØÊ˜[YJ_OÜİ›Û™ÏÛX[ØÛİ[HİZY\ÏÜÛX[ØO‰ÉÉÊBˆY™š[X]WØÛİ[Hİ[JH›Üˆ\XÛH[ˆT•PÓTÈYˆ\XÛK™Ù]
-˜Y™š[X]HŠJBˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏHÜ˜\Û\ÜÏH™^YXœ›İÈ‘\ÚØ[Ú]Ú[ˆXÚÜÏÜO^H\ÜËˆÚÛÜÙH™]\‹ˆÛÛÚÈ[Ü™KÚOÛ\ÜÏH›YHÛ[ŠT•PÓTÊ_H˜XİXØ[İZY\ø %[˜ÛY[™ÈØY™š[X]WØÛİ[H›ÙXİY›Øİ\ÙYXÚÜø %Z[\›İ[™Ø\XÚ]KX]\šX[ËÛX[\İÜ˜YÙK[™H›ØœÈ[İ\ˆÚ]Ú[ˆXİX[H™YYÈÛ™KÜÙ]ÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚÙXİ[Û‹\\\ˆ]ˆÛ\ÜÏHÜ˜\]ˆÛ\ÜÏH˜ÛÛXİ[Û‹YÜšYÉÉËš›Ú[ŠØ]YÛÜWØØ\™Ê_OÙ]Ù]ÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ]ˆÛ\ÜÏHÜ˜\]ˆÛ\ÜÏHœÙXİ[Û‹ZXY[™È]Û\ÜÏH™^YXœ›İÈ•HÛÛ\]HXœ˜\OÜ’Ú]Ú[ˆXÚÜÈ	ˆ[›š[™ÈİZY\ÏÚÙ]“›È[™[Y\İËİ\ˆ˜][™ÜËÜˆ[š]™\œØ[Ú[›™\œø %\İÛX\ˆÜš]\šXH[™˜Y[Ù™œËÜÙ]]ˆÛ\ÜÏH˜\XÛKYÜšYÉÉËš›Ú[Š\XÛWØØ\™
-JH›ÜˆH[ˆT•PÓTÊ_OÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆX—ÜØÚ[XHHÂˆÛÛ^ˆšÎ‹ËÜØÚ[XK›Ü™È‹ˆ\HˆÛÛXİ[Û”YÙH‹ˆ›˜[YHˆ‘\ÚØ[Ú]Ú[ˆXÚÜÈ‹ˆ™\ØÜš\[Ûˆˆ”˜XİXØ[Ú]Ú[ˆÙX\ˆ[™YX[\[›š[™ÈİZY\È˜\ÙYÛˆ[˜İ[Û‹Ø\XÚ]KX]\šX[ËÛX[\[™İÜ˜YÙKˆ‹ˆ\›ˆØ[›ÛšXØ[
-‹ÙİZY\ËÈŠKˆ›XZ[‘[]HˆÈ\Hˆ’][S\İ‹›[X™\“Ù’][\Èˆ[ŠT•PÓTÊKš][S\İ[[Y[ˆÂˆÈ\Hˆ“\İ][H‹œÜÚ][Ûˆˆ[™^
-ÈK\›ˆØ[›ÛšXØ[
-	ËÙİZY\ËÉÈ
-È\XÛVÉÜÛYÉ×H
-È	ËÉÊK›˜[YHˆ\XÛK™Ù]
-]H‹‘İZYHŠ_Bˆ›Üˆ[™^\XÛH[ˆ[[Y\˜]JT•PÓTÊBˆ_KˆBˆÜš]WÜYÙJ‹ÙİZY\ËÈ‹YÙJ’Ú]Ú[ˆXÚÜÈ	ˆ^Z[™ÈİZY\È‹”˜XİXØ[\ÚØ[Ú]Ú[ˆ^Z[™ÈİZY\ÈÛİ™\š[™ÈÛÛÚİØ\™K\X[˜Ù\Ë™\ÛÛËİÜ˜YÙK[™YX[\[›š[™ÈŞ\İ[\Ëˆ‹‹ÙİZY\ËÈ‹›ÙKØÚ[XOZX—ÜØÚ[XJJBˆ›Üˆ\XÛH[ˆT•PÓTÎ‚ˆÙXİ[ÛœÈHˆ‹š›Ú[ŠˆÙ\ØÊÙXÖÌJ_OÚÙ\ØÊÙXÖÌWJ_OÜˆˆ›ÜˆÙXÈ[ˆ\XÛK™Ù]
-œÙXİ[ÛœÈ‹×JJBˆ\ØÛÜİ\™HH	Ï]ˆÛ\ÜÏH™\ØÛÜİ\™KX›Şİ›Û™Ï”ZY[šÜÎÜİ›Û™Ïˆ\È[ˆ[X^›Ûˆ\ÜÛØÚX]HHX\›ˆœ›ÛH]X[YZ[™È\˜Ú\Ù\Ëˆ[İH^H›ÈY][Û˜[ÛÜİÙ]‰ÈYˆ\XÛK™Ù]
-˜Y™š[X]HŠH[ÙHˆ‚ˆÚÜHˆ‚ˆYˆ\XÛK™Ù]
-˜Y™š[X]HŠN‚ˆÚÜÚ][\ÈH\XÛK™Ù]
-œÚÜÚ][\È‹×JBˆYˆ›İÚÜÚ][\È[™\XÛK™Ù]
-œÚÜÜ]Y\HŠN‚ˆÚÜÚ][\ÈHÖØ\XÛVÈœÚÜÜ]Y\H—KÛÛ\\™Hİ\œ™[Ü[ÛœÈ‹•\ÙHHİZYHÜš]\šXH™Y›Ü™HÚÛÜÚ[™Ëˆ—WBˆYˆÚÜÚ][\Î‚ˆØ\™ÈHˆ‹š›Ú[Š[X^›Û—Û[šÊ
-š][JH›Üˆ][H[ˆÚÜÚ][\ÊBˆÚÜH‰ÉÉÏ]ˆÛ\ÜÏHœÚÜX›ŞÏÛÛ\\™HH\ÙY[Ü[ÛœÏÚÏ•\ÙHHÜš]\šXHX›İ™Hš\œİˆ\ÙH[šÜÈÜ[ˆİ\œ™[[X^›ÛˆØ]YÛÜH™\İ[ËÛÈ[İHØ[ˆÛÛ\\™HÜXÚYšXØ][ÛœË]˜Z[Xš[]K[™šXÙKÜ]ˆÛ\ÜÏHœÚÜYÜšYØØ\™ßOÙ]Ù]‰ÉÉÂˆ™[]YHØØ[™Y]H›ÜˆØ[™Y]H[ˆT•PÓTÈYˆØ[™Y]VÈœÛYÈ—HOH\XÛVÈœÛYÈ—H[™Ø[™Y]K™Ù]
-˜Ø]YÛÜHŠHOH\XÛK™Ù]
-˜Ø]YÛÜHŠWVÎŒ×BˆYˆ[Š™[]Y
-HÎ‚ˆ™[]YÜÛYÜÈHØØ[™Y]VÈœÛYÈ—H›ÜˆØ[™Y]H[ˆ™[]YBˆ™[]Y™^[™
-Ø[™Y]H›ÜˆØ[™Y]H[ˆT•PÓTÈYˆØ[™Y]VÈœÛYÈ—HOH\XÛVÈœÛYÈ—H[™Ø[™Y]VÈœÛYÈ—H›İ[ˆ™[]YÜÛYÜÊHˆ™[]YH™[]YÎŒ×Bˆ™[]YÚ[H‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœÙXİ[ÛˆÙXİ[Û‹\\\ˆ]ˆÛ\ÜÏHÜ˜\]ˆÛ\ÜÏHœÙXİ[Û‹ZXY[™È]Û\ÜÏH™^YXœ›İÈ’ÙY\ÚÛÜÚ[™ÈÙ[Ü”™[]YÚ]Ú[ˆİZY\ÏÚÙ]HÛ\ÜÏH˜ˆ‹[İ][™Hˆ™YHÚ™YŠ	ËÙİZY\ËÉÊ_H[Ú]Ú[ˆXÚÜÏØOÙ]]ˆÛ\ÜÏH˜\XÛKYÜšYÉÉËš›Ú[Š\XÛWØØ\™
-Ø[™Y]JH›ÜˆØ[™Y]H[ˆ™[]Y
-_OÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏH›˜\œ›İÈØœ™XYÜ[XœÊÊ’Ú]Ú[ˆXÚÜÈ‹‹ÙİZY\ËÈŠK
-\XÛK™Ù]
-]H‹‘İZYHŠK›Û™JWJ_OÛ\ÜÏH™^YXœ›İÈÙ\ØÊ\XÛK™Ù]
-˜Ø]YÛÜH‹‘İZYHŠJ_OÜOÙ\ØÊ\XÛK™Ù]
-]H‹‘İZYHŠJ_OÚOÛ\ÜÏH›YHÙ\ØÊ\XÛK™Ù]
-™ZÈ‹ˆŠJ_OÜÛ\ÜÏH›]]YÚ[
-\XÛK™Ù]
-œ™XYÛZ[]\È‹JJ_HZ[]H™XY0­È\]Y]Yİ\İŒÜÙ]ÜÙXİ[Û‚ˆ]ˆÛ\ÜÏHÜ˜\[YÈÛ\ÜÏH˜\XÛKZ\›ËZ[XYÙHˆÜ˜ÏHÙ\ØÊ\XÛK™Ù]
-	Ú[XYÙIË	ÉÊJ_Hˆ[HÙ\ØÊ\XÛK™Ù]
-	Ú[XYÙWØ[	Ë\XÛK™Ù]
-	İ]IË	ÑİZYIÊJJ_HˆÚYHŒLˆZYÚHÍHˆ™]Úš[Üš]OHšYÚˆXÛÙ[™ÏH˜\Ş[˜ÈÙ]‚ˆÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ\XÛHÛ\ÜÏH›˜\œ›İÈ›ÜÙHÙ\ØÛÜİ\™_OÙ\ØÊ\XÛK™Ù]
-™ZÈ‹ˆŠJ_OÜÜÙXİ[Ûœß^ÜÚÜOØ\XÛOÜÙXİ[Û‚ˆÜ™[]YÚ[BˆÛ™]ÜÛ]\—Ø›ØÚÊ
-_IÉÉÂˆ\XÛWÜØÚ[XHHÂˆÛÛ^ˆšÎ‹ËÜØÚ[XK›Ü™È‹ˆ\Hˆ\XÛH‹ˆšXY[™Hˆ\XÛK™Ù]
-]H‹‘İZYHŠKˆ™\ØÜš\[Ûˆˆ\XÛK™Ù]
-™ZÈ‹ˆŠKˆš[XYÙHˆØ\XÛK™Ù]
-š[XYÙH‹ˆŠWKˆ™]TX›\ÚYˆŒŒ‹LL‹ˆ™]S[ÙYšYYˆŒŒ‹LL‹ˆ˜]]ÜˆˆÈ\Hˆ“Ü™Ø[š^˜][Ûˆ‹›˜[YHˆ‘\ÚØ[ŸKˆœX›\Ú\ˆˆÈ\Hˆ“Ü™Ø[š^˜][Ûˆ‹›˜[YHˆ‘\ÚØ[ŸKˆ›XZ[‘[]SÙ”YÙHˆØ[›ÛšXØ[
-	ËÙİZY\ËÉÈ
-È\XÛVÉÜÛYÉ×H
-È	ËÉÊKˆBˆ]Hˆ‹ÙİZY\ËŞØ\XÛVÉÜÛYÉ×_KÈ‚ˆØÚ[XHHÂˆ\XÛWÜØÚ[XKˆœ™XYÜ[X—ÜØÚ[XJÊ’Ú]Ú[ˆXÚÜÈ‹‹ÙİZY\ËÈŠK
-\XÛK™Ù]
-]H‹‘İZYHŠK›Û™JWJKˆBˆÜš]WÜYÙJ]YÙJˆ\XÛK™Ù]
-]H‹‘İZYHŠKˆ\XÛK™Ù]
-™ZÈ‹”˜XİXØ[Ú]Ú[ˆ[™YX[\[›š[™ÈİZY[˜ÙHœ›ÛH\ÚØ[ˆŠKˆ]ˆ›ÙKˆØÚ[XO\ØÚ[XKˆ[XYÙOX\XÛK™Ù]
-š[XYÙHŠKˆYÙWİ\OH˜\XÛH‹ˆX›\ÚYHŒŒ‹LL‹ˆ[ÙYšYYHŒŒ‹LL‹ˆ
-JB‚™YˆZ[ØØ]YÛÜWÚ[™^\Ê
-N‚ˆ›ÜˆÛYË
-˜[YK\ØËÊH[ˆÕRQWĞĞUQÓÔ–WÓQUKš][\Ê
-N‚ˆX]Ú\ÈHØH›ÜˆH[ˆT•PÓTÈYˆK™Ù]
-˜Ø]YÛÜH‹ˆŠK›İÙ\Š
-Kœ™\XÙJˆ‹‹HŠHOHÛY×Bˆ]Hˆ‹ÙİZY\ËØØ]YÛÜKŞÜÛYßKÈ‚ˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏHÜ˜\Øœ™XYÜ[XœÊÊ’Ú]Ú[ˆXÚÜÈ‹‹ÙİZY\ËÈŠK
-˜[YK›Û™JWJ_OÛ\ÜÏH™^YXœ›İÈ‘\ÚØ[İZY\ÏÜOÙ\ØÊ˜[YJ_OÚOÛ\ÜÏH›YHÙ\ØÊ\ØÊ_OÜÙ]ÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ]ˆÛ\ÜÏHÜ˜\]ˆÛ\ÜÏH˜\XÛKYÜšYÉÉËš›Ú[Š\XÛWØØ\™
-JH›ÜˆH[ˆX]Ú\ÊHYˆX]Ú\È[ÙH	Ï]ˆÛ\ÜÏH™[\K\İ]H\Ë]š\ÚX›HÏ“[Ü™HİZY\ÈÛÛZ[™ÏÚÏœ›İÜÙH[İ\œ™[İZY\ÈÚ[H\ÈÙXİ[ÛˆÜ›İÜËÜÙ]‰ßOÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆØÚ[XHHÂˆÂˆÛÛ^ˆšÎ‹ËÜØÚ[XK›Ü™È‹ˆ\HˆÛÛXİ[Û”YÙH‹ˆ›˜[YHˆ˜[YKˆ™\ØÜš\[Ûˆˆ\ØËˆ\›ˆØ[›ÛšXØ[
-]
-Kˆ›XZ[‘[]HˆÂˆ\Hˆ’][S\İ‹ˆ›[X™\“Ù’][\Èˆ[ŠX]Ú\ÊKˆš][S\İ[[Y[ˆÂˆÈ\Hˆ“\İ][H‹œÜÚ][Ûˆˆ[™^
-ÈK\›ˆØ[›ÛšXØ[
-	ËÙİZY\ËÉÈ
-È\XÛVÉÜÛYÉ×H
-È	ËÉÊK›˜[YHˆ\XÛK™Ù]
-]H‹‘İZYHŠ_Bˆ›Üˆ[™^\XÛH[ˆ[[Y\˜]JX]Ú\ÊBˆKˆKˆKˆœ™XYÜ[X—ÜØÚ[XJÊ’Ú]Ú[ˆXÚÜÈ‹‹ÙİZY\ËÈŠK
-˜[YK›Û™JWJKˆBˆÜš]WÜYÙJ]YÙJ˜[YKˆÙ\ØßHœ›İÜÙH\ÚØ[	ÜÈİ\œ™[Û˜[YK›İÙ\Š
-_HİZY\Ëˆ‹]›ÙKØÚ[XO\ØÚ[XJJB‚™YˆÚ[\WÜYÙJ]]K^YXœ›İËYKÙXİ[ÛœÊN‚ˆÛÛ[Hˆ‹š›Ú[ŠˆÙ\ØÊ
-_OÚÙ\ØÊ
-_OÜˆˆ›Üˆ[ˆÙXİ[ÛœÊBˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏH›˜\œ›İÈÛ\ÜÏH™^YXœ›İÈÙ\ØÊ^YXœ›İÊ_OÜOÙ\ØÊ]J_OÚOÛ\ÜÏH›YHÙ\ØÊYJ_OÜÙ]ÜÙXİ[ÛÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ\XÛHÛ\ÜÏH›˜\œ›İÈ›ÜÙHÙ\ØÊYJ_OÜØÛÛ[OØ\XÛOÜÙXİ[Û‰ÉÉÂˆÜš]WÜYÙJ]YÙJ]KYK]›ÙJJB‚™YˆZ[İ][]WÜYÙ\Ê
-N‚ˆÚ[\WÜYÙJ‹ØX›İ]È‹X›İ]\ÚØ[‹•ÚH\È^\İÈ‹‘\ÚØ[\ÈZ[›ÜˆHšYÚH]Y\İ[Û‹›İH›ÛÙZ[™›Y[˜Ù\ˆ]Y][Û‹ˆ‹Âˆ
-‘[›™\ˆš\œİ‹•\ÙY[[™›Ü›X][ÛˆÛÛY\È™Y›Ü™HİÜ][[™Ëˆ™XÚ\\ÈÚİÈ[Z[™ËÛÜİİXœİ]][ÛœËİÜ˜YÙK[™ÛÛ[[Ûˆ]Y\İ[ÛœËˆŠKˆ
-•ÛÛË›İ™\Üİ\™H‹•H[›™\ˆXÚY\‹[H™\ØİYKØ]™Y™XÚ\\Ë[™YX[[›™\ˆ\™H\ÚYÛ™YÈ™YXÙHXÚ\Ú[ÛœÈÚ]İ]™\]Z\š[™È[ˆXØÛİ[ˆŠKˆ
-‘Y]ÜšX[[™\[™[˜ÙH‹ÛÛ[Y\˜ÚX[™[][ÛœÚ\È\™H\ØÛÜÙYˆ\ÚØ[Ù\È›İ[™[\İ[™ÈÛZ[\Ë˜][™ÜËÜˆ\œÛÛ˜[^\šY[˜ÙKˆŠBˆJBˆÚ[\WÜYÙJ‹ÙY]ÜšX[\ÛXŞKÈ‹‘Y]ÜšX[ÛXŞH‹’İÈ\ÚØ[X›\Ú\È‹“İ\ˆİ[™\™\È\ÙY[ÜXÚYšXË˜[œÜ\™[ÛÛÚÚ[™È[™›Ü›X][Ûˆ]H™XY\ˆØ[ˆXİX[HXİÛ‹ˆ‹Âˆ
-”™XÚ\Hİ[™\™‹”™XÚ\\È[˜ÛYH[[™Ü™YY[\İË[X™\™Y\™Xİ[ÛœË[Z[™ËÙ\š[™ÈÚ^™KİXœİ]][ÛœËİÜ˜YÙHİZY[˜ÙK[™T\ËˆŠKˆ
-ÛÜœ™Xİ[ÛœÈ‹“X]\šX[\œ›ÜœÈ\™HÛÜœ™XİYÚ[ˆ›İ[™ˆ]\ÈX^H™H\]YÚ[ˆHYÙH\ÈİXœİ[X[H™]š\ÙYˆŠKˆ
-ÛÛ[Y\˜ÚX[ÛÛ[‹Y™š[X]H™[][ÛœÚ\ÈÈ›İ]\›Z[™HY]ÜšX[ÛÛ˜Û\Ú[ÛœËˆ^Z[™ÈİZY\È^Z[ˆÜš]\šXH[™˜Y[Ù™œËˆŠBˆJBˆÚ[\WÜYÙJ‹ØY™š[X]KY\ØÛÜİ\™KÈ‹Y™š[X]H\ØÛÜİ\™H‹ÛÛ[Y\˜ÚX[˜[œÜ\™[˜ŞH‹\È[ˆ[X^›Ûˆ\ÜÛØÚX]HHX\›ˆœ›ÛH]X[YZ[™È\˜Ú\Ù\Ëˆ\ÚØ[X^HX\›ˆÛÛ[Z\ÜÚ[ÛœÈœ›ÛH]X[YZ[™È\˜Ú\Ù\ÈXYH›İYÚÛX\›HX™[Yİ]›İ[™›ÙXİ[šÜËˆ‹Âˆ
-“›È^˜HÛÜİ‹Y™š[X]HÛÛ[Z\ÜÚ[ÛœÈÈ›İ[˜Ü™X\ÙHHšXÙH[İH^KˆŠKˆ
-“›È[™[Y\İ[™È‹HÛÛ[Y\˜ÚX[[šÈÙ\È›İYX[ˆ\ÚØ[\œÛÛ˜[H\İYH›ÙXİ[›\ÜÈHYÙH^XÚ]H[™][HØ^\ÈÛËˆŠKˆ
-‘Y]ÜšX[Ù\\˜][Ûˆ‹”›ÙXİ™XÛÛ[Y[™][ÛœÈÚİ[™HÜ›İ[™Y[ˆHÜš]\šXH\Øİ\ÜÙYÛˆHYÙK›İÛÛ[Z\ÜÚ[Ûˆ˜]KˆŠBˆJBˆÚ[\WÜYÙJ‹Üš]˜XŞKÈ‹”š]˜XŞHÛXŞH‹”Z[‹[[™İXYÙHš]˜XŞH‹‘\ÚØ[\È\ÚYÛ™YÈÛÜšÈÚ]™\H]H\œÛÛ˜[]H[™›ÈXØÛİ[™\]Z\™[Y[ˆ‹Âˆ
-”Ø]™Y™XÚ\\È‹”Ø]™Y™XÚ\\È\™HİÜ™Y[ˆ[İ\ˆœ›İÜÙ\‰ÜÈØØ[İÜ˜YÙH[›\ÜÈ[™[[H]\™HXØÛİ[™X]\™H\È^XÚ]H[›ÙXÙYˆŠKˆ
-‘›Ü›\È‹’Yˆ[İHİX›Z][ˆ[XZ[ÜˆÛÛXİ›Ü›KH[™›Ü›X][Ûˆ\È\ÙYÈ™\ÜÛ™Üˆ[]™\ˆH™\]Y\İYÛÛ[][šXØ][Û‹ˆŠKˆ
-[˜[]XÜÈ[™Y™\\Ú[™È‹•HÚ]HX^H\ÙHš]˜XŞKXÛÛœØÚ[İ\È[˜[]XÜÈ[™Y™\\Ú[™ÈXÚ›ÛÙŞKˆÜÙH›İšY\œÈX^H›ØÙ\ÜÈXÚšXØ[[™›Ü›X][Ûˆ[™\ˆZ\ˆİÛˆÛXÚY\ËˆŠBˆJBˆÚ[\WÜYÙJ‹İ\›\ËÈ‹•\›\ÈÙˆ\ÙH‹”Ú]H\›\È‹‘\ÚØ[›İšY\ÈÙ[™\˜[ÛÛÚÚ[™ËYX[\[›š[™Ë[™Ú]Ú[ˆ[™›Ü›X][Ûˆ›Üˆ\œÛÛ˜[\ÙKˆ‹Âˆ
-‘›ÛÙØY™]H‹•\ÙH\›ÜšX]H›ÛÙ\ØY™]H˜XİXÙ\È[™™\šYHØY™H[\›˜[[\\˜]\™\È›ÜˆYX]İ[KÙXY›ÛÙ[™Yİ™\œËˆŠKˆ
-“›ÈØ\œ˜[H‹”™XÚ\\Ë[Z[™Ë]š][Ûˆ\İ[X]\Ë[™ÛÜİ\İ[X]\È˜\HÚ][™Ü™YY[Ë\]Z\Y[ØØ][Û‹[™XÚš\]YKˆŠKˆ
-ÛÛ[\ÙH‹‘\ÚØ[ÛÛ[X^H›İ™H™\X›\ÚYÚÛ\Ø[HÚ]İ]\›Z\ÜÚ[Û‹ˆŠBˆJBˆÚ[\WÜYÙJ‹Ú[XYÙKXÜ™Y]ËÈ‹’[XYÙHÜ™Y]È‹•š\İX[Ûİ\˜Ú[™È‹‘\ÚØ[\Ù\È›Ü\›HÛİ\˜ÙYY]ÜšX[İÙÜ˜\H[™ÜšYÚ[˜[Ú]H\ÚYÛˆ\ÜÙ]Ëˆ‹Âˆ
-‘Y]ÜšX[[XYÙ\È‹”™XÚ\H[™İZYH[XYÙ\È\™HÛİ\˜ÙYœ›ÛH[œÜ\Ú^[Ë^X˜^K[™ÚZÚ[YYXHÛÛ[[ÛœÈ[™\ˆZ\ˆ\XØX›HXÙ[œÙ\ËˆŠKˆ
-]šX][Ûˆ‹”İÙÜ˜\\œÈ™]Z[ˆšYÚÈ[™\ˆH\XØX›HÛİ\˜ÙHXÙ[œÙH[™]›Ü›H\›\ËˆÚZÚ[YYXH™XÚ\HYÙ\È\Ü^HHÜ™X]Üˆ[™XÙ[œÙH™\ÚYHHİÙÜ˜\ˆŠKˆ
-‘]\™H[XYÙ\È‹‘\ÚØ[X^H™\XÙH][˜Ú[XYÙ\HÚ]ÜšYÚ[˜[İÙÜ˜\HÜˆXÙ[œÙY\ÜÙ]Èİ™\ˆ[YKˆŠBˆJBˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏH›˜\œ›İÈÛ\ÜÏH™^YXœ›İÈ”Ø^H[ÏÜOÛÛXİ\ÚØ[ÚOÛ\ÜÏH›YHÛÜœ™Xİ[ÛœË™XÚ\H]Y\İ[ÛœË\™\œÚ\Ë[™\ÙY[™YY˜XÚÈØ[ˆ[ÛÛYH›İYÚ\™KÜÙ]ÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÏHœÙXİ[Û‹]YÚ]ˆÛ\ÜÏHÜ˜\ÛÛXİYÜšY]•Ú]™[Û™ÜÈ\™OÚ‘›İ[™H™XÚ\H\ÜİYOÈ]™HHİXœİ]][Ûˆ]Y\İ[ÛÈØ[È\Øİ\ÜÈH™[]˜[\™\œÚ\ÈÙ[™]ÜÙ]‚ˆ›Ü›HÛ\ÜÏH˜ÛÛXİY›Ü›HˆXİ[ÛHšÎ‹ËÙ›Ü›\İX›Z]˜ÛËŞÙ\ØÊ“Ô“WÑSPRS
-_HˆY]ÙH”ÔÕ‚ˆ]ˆÛ\ÜÏH™šY[X™[›ÜH›˜[YH“˜[YOÛX™[[œ]YH›˜[YHˆ˜[YOH›˜[YHˆ™\]Z\™YÙ]‚ˆ]ˆÛ\ÜÏH™šY[X™[›ÜH™[XZ[‘[XZ[ÛX™[[œ]YH™[XZ[ˆ\OH™[XZ[ˆ˜[YOH™[XZ[ˆ™\]Z\™YÙ]‚ˆ]ˆÛ\ÜÏH™šY[X™[›ÜH›Y\ÜØYÙH“Y\ÜØYÙOÛX™[^\™XHYH›Y\ÜØYÙHˆ˜[YOH›Y\ÜØYÙHˆ™\]Z\™Yİ^\™XOÙ]‚ˆ[œ]Û\ÜÏHšÛ™^\İˆ\OH^ˆ˜[YOH—ÚÛ™^HˆXš[™^H‹LHˆ]]ØÛÛ\]OH›Ù™ˆ]ÛˆÛ\ÜÏH˜ˆ‹\š[X\Hˆ\OHœİX›Z]”Ù[™Y\ÜØYÙOØ]Û‚ˆÙ›Ü›OÙ]ÜÙXİ[Û‰ÉÉÂˆÜš]WÜYÙJ‹ØÛÛXİÈ‹YÙJÛÛXİ‹ÛÛXİ\ÚØ[Ú]™XÚ\H]Y\İ[ÛœËÛÜœ™Xİ[ÛœË\™\œÚ\[œ]Z\šY\ËÜˆ\ÙY[™YY˜XÚÈX›İ]HÚ]Kˆ‹‹ØÛÛXİÈ‹›ÙJJBˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏH›˜\œ›İÈÛ\ÜÏH™^YXœ›İÈ•H\ÙY[[XZ[ÜO‘[›™\ˆYX\ÈÛÜÜ[š[™ËÚOÛ\ÜÏH›YH’›Ú[ˆ›Üˆ™]È™XÚ\\Ë[›š[™ÈÚÜİ]Ë[™\ÙY[Ú]Ú[ˆİZY[˜ÙHÚ]İ]Z[H[˜›ŞÛ]\‹ÜÙ]ÜÙXİ[ÛÛ™]ÜÛ]\—Ø›ØÚÊ
-_IÉÉÂˆÜš]WÜYÙJ‹Û™]ÜÛ]\‹È‹YÙJ“™]ÜÛ]\ˆ‹’›Ú[ˆH\ÚØ[™]ÜÛ]\ˆ›Üˆ˜XİXØ[™XÚ\\ËYX[\[›š[™ÈÚÜİ]Ë[™\ÙY[Ú]Ú[ˆİZY[˜ÙKˆ‹‹Û™]ÜÛ]\‹È‹›ÙJJB‚™YˆZ[Í
+SHOP_IMAGE_RULES = [
+    (("cut-resistant", "cut resistant"), ("https://images.pexels.com/photos/8093920/pexels-photo-8093920.jpeg?auto=compress&dpr=1&h=750&w=1260", "Gloved hands using kitchen knives on a cutting board")),
+    (("immersion blender",), ("https://images.pexels.com/photos/6605163/pexels-photo-6605163.jpeg?auto=compress&dpr=1&h=750&w=1260", "Chef using an immersion blender in a tall mixing cup")),
+    (("baking dish", "casserole dish", "baking pan"), ("https://images.unsplash.com/photo-1533777324565-a040eb52facd?auto=format&fit=crop&w=900&q=80", "Oven-safe baking dishes holding finished food")),
+    (("sheet pan",), ("https://images.pexels.com/photos/7059458/pexels-photo-7059458.jpeg?auto=compress&dpr=1&h=750&w=1260", "Rimmed sheet pan holding roasted vegetables")),
+    (("pantry",), ("https://images.pexels.com/photos/8580727/pexels-photo-8580727.jpeg?auto=compress&dpr=1&h=750&w=1260", "Clear pantry jars arranged on shelves")),
+    (("handle cover", "scraper"), ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Cast-iron cookware ready for a family meal")),
+    (("lid knob",), ("https://images.pexels.com/photos/20430669/pexels-photo-20430669.jpeg?auto=compress&dpr=1&h=750&w=1260", "Enameled Dutch oven with a fitted lid knob")),
+    (("mandoline",), ("https://images.pexels.com/photos/11369848/pexels-photo-11369848.jpeg?auto=compress&dpr=1&h=750&w=1260", "Mandoline slicer beside onions and cabbage")),
+    (("tongs",), ("https://images.pexels.com/photos/11968836/pexels-photo-11968836.jpeg?auto=compress&dpr=1&h=750&w=1260", "Kitchen tongs turning food over a grill")),
+    (("utensil", "measuring spoon", "measuring cup"), ("https://images.pexels.com/photos/38848778/pexels-photo-38848778.jpeg?auto=compress&dpr=1&h=750&w=1260", "Assorted measuring tools and kitchen utensils")),
+    (("knife", "cutting board", "spatula"), ("https://images.unsplash.com/photo-1635321593217-40050ad13c74?auto=format&fit=crop&w=900&q=80", "Kitchen prep tools on a cutting board")),
+    (("cookware set", "pot set", "pans set", "saucepan", "saute pan", "sautÃ© pan"), ("https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=80", "Pots and pans in use in a home kitchen")),
+    (("skillet", "dutch oven", "cookware"), ("https://images.unsplash.com/photo-1569810912653-c0e8d1184623?auto=format&fit=crop&w=900&q=80", "Sturdy cookware ready for a family meal")),
+    (("food processor",), ("https://images.pexels.com/photos/5847235/pexels-photo-5847235.jpeg?auto=compress&dpr=1&h=750&w=1260", "Food processor bowl with ingredients around the center blade")),
+    (("stand mixer",), ("https://images.pexels.com/photos/1450907/pexels-photo-1450907.jpeg?auto=compress&dpr=1&h=750&w=1260", "Stand mixer with a stainless-steel bowl")),
+    (("blender",), ("https://images.pexels.com/photos/6802635/pexels-photo-6802635.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop blender mixing ingredients")),
+    (("mixing bowl",), ("https://images.unsplash.com/photo-1540660290370-8aa90e451e8a?auto=format&fit=crop&w=900&q=80", "Mixing bowl and ingredients on a kitchen counter")),
+    (("rice cooker",), ("https://images.pexels.com/photos/11770362/pexels-photo-11770362.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop rice cooker in a home kitchen")),
+    (("slow cooker",), ("https://upload.wikimedia.org/wikipedia/commons/6/65/6_quart_Crock_Pot_slow_cooker.jpg", "Six-quart oval slow cooker with its glass lid closed")),
+    (("air fryer", "toaster oven"), ("https://images.pexels.com/photos/29461935/pexels-photo-29461935.jpeg?auto=compress&dpr=1&h=750&w=1260", "Countertop air fryer and toaster oven")),
+    (("thermometer",), ("https://images.unsplash.com/photo-1622001545761-9bd12a4b465b?auto=format&fit=crop&w=900&q=80", "Two digital probe cooking thermometers beside prepared ingredients")),
+    (("scale",), ("https://images.pexels.com/photos/5622193/pexels-photo-5622193.jpeg", "Bowl resting on a digital kitchen scale")),
+    (("refrigerator",), ("https://images.pexels.com/photos/5418583/pexels-photo-5418583.jpeg?auto=compress&dpr=1&h=750&w=1260", "Food and containers organized on refrigerator shelves")),
+    (("container", "storage", "labels"), ("https://images.pexels.com/photos/30635719/pexels-photo-30635719.jpeg?auto=compress&dpr=1&h=750&w=1260", "Organized food in clear storage containers")),
+    (("colander", "strainer", "pasta"), ("https://images.pexels.com/photos/5907595/pexels-photo-5907595.jpeg?auto=compress&dpr=1&h=750&w=1260", "Pasta draining through a stainless-steel colander")),
+    (("grater", "microplane"), ("https://images.pexels.com/photos/6287524/pexels-photo-6287524.jpeg?auto=compress&dpr=1&h=750&w=1260", "Cheese being grated on a stainless-steel grater")),
+]
 
-N‚ˆ›ÙHH‰ÉÉÏÙXİ[ÛˆÛ\ÜÏHœYÙKZ\›È]ˆÛ\ÜÏH›˜\œ›İÈÛ\ÜÏH™^YXœ›İÈÜO•\È[›™\ˆÙ[Z\ÜÚ[™ËÚOÛ\ÜÏH›YH•HYÙH\È›İ\™K]H™XÚ\HXœ˜\H\ËÜ]ˆÛ\ÜÏH˜]Û‹\›İÈˆİ[OHš\İYKXÛÛ[˜Ù[\ÛX\™Ú[‹]ÜŒK\™[HHÛ\ÜÏH˜ˆ‹\š[X\Hˆ™YHÚ™YŠ	ËÜ™XÚ\\ËÉÊ_Hœ›İÜÙH™XÚ\\ÏØOHÛ\ÜÏH˜ˆ‹[İ][™Hˆ™YHÚ™YŠ	ËÉÊ_H‘ÛÈÛYOØOÙ]Ù]ÜÙXİ[Û‰ÉÉÂˆÜš]WÜYÙJ‹Íš[‹YÙJ”YÙH›İ›İ[™‹•H™\]Y\İY\ÚØ[YÙHÛİ[›İ™H›İ[™ˆœ›İÜÙHHİ\œ™[™XÚ\HXœ˜\HÜˆ™]\›ˆÈHÛY\YÙKˆ‹‹Íš[‹›ÙK›Ú[™^UYJJB‚™YˆÛÜWØ\ÜÙ]Ê
-N‚ˆ[œİ\™WÙ\ŠP“PÈÈ˜\ÜÙ]ÈˆÈ˜ÜÜÈŠBˆ[œİ\™WÙ\ŠP“PÈÈ˜\ÜÙ]ÈˆÈšœÈŠBˆÚ][˜ÛÜLŠ“ÓÕÈ˜\ÜÙ]ÈˆÈ˜ÜÜÈˆÈœİ[\Ë˜ÜÜÈ‹P“PÈÈ˜\ÜÙ]ÈˆÈ˜ÜÜÈˆÈœİ[\Ë˜ÜÜÈŠBˆÚ][˜ÛÜLŠ“ÓÕÈ˜\ÜÙ]ÈˆÈ™\ÚØ[Xœ˜[™ÙXœ‹P“PÈÈ˜\ÜÙ]ÈˆÈ™\ÚØ[Xœ˜[™ÙXœŠBˆÛİ\˜ÙWÚœÈH
-“ÓÕÈ˜\ÜÙ]ÈˆÈšœÈˆÈœÚ]KšœÈŠKœ™XYİ^
-[˜ÛÙ[™ÏH]‹NŠBˆÛİ\˜ÙWÚœÈHÛİ\˜ÙWÚœËœ™\XÙJ	Ú™YH‹Ü™XÚ\\ËÉË	Ú™YH‰İÚ[™İË‘TÒĞSĞTÑHˆŸKÜ™XÚ\\ËÉÊBˆ
-P“PÈÈ˜\ÜÙ]ÈˆÈšœÈˆÈœÚ]KšœÈŠKÜš]Wİ^
-Ûİ\˜ÙWÚœË[˜ÛÙ[™ÏH]‹NŠBˆÛÛÙšY[ÈH
-œÛYÈ‹]H‹™ZÈ‹š[XYÙH‹š[XYÙWØ[‹˜ÛÛXİ[Ûˆ‹YÜÈ‹œ™\ÛZ[]\È‹˜ÛÛÚ×ÛZ[]\È‹İ[ÛZ[]\È‹˜ÛÜİÜ\—ÜÙ\š[™È‹š[™Ü™YY[È‹œ[HŠBˆÛÛÜ™XÚ\\ÈHŞÊŠÚÙ^Nˆ™XÚ\VÚÙ^WH›ÜˆÙ^H[ˆÛÛÙšY[ÈYˆÙ^H[ˆ™XÚ\_Kœ›İZ[ˆˆ™XÚ\WÜ›İZ[œÊ™XÚ\J_H›Üˆ™XÚ\H[ˆİX›WÜ™XÚ\WÛZ^
-‘PÒTTÊWBˆÛÛÚœÛÛˆHœÛÛ‹™[\ÊÛÛÜ™XÚ\\Ë[œİ\™WØ\ØÚZOQ˜[ÙKÙ\\˜]ÜœÏJ‹‹ˆŠJKœ™\XÙJÈ‹ÈŠBˆ
-P“PÈÈ˜\ÜÙ]ÈˆÈšœÈˆÈœ™XÚ\\ËšœÈŠKÜš]Wİ^
-Ú[™İË‘TÒĞSÔ‘PÒTTÏHˆ
-ÈÛÛÚœÛÛˆ
-ÈÈ‹[˜ÛÙ[™ÏH]‹NŠBˆÛØÚX[H“ÓÕÈ˜\ÜÙ]ÈˆÈœÛØÚX[XØ\™œ™È‚ˆYˆÛØÚX[™^\İÊ
-N‚ˆÚ][˜ÛÜLŠÛØÚX[P“PÈÈ˜\ÜÙ]ÈˆÈœÛØÚX[XØ\™œ™ÈŠB‚™YˆZ[ÛXXÚ[™WÙš[\Ê
-N‚ˆ[Ü]ÈH×Bˆ›Üˆš[H[ˆÛÜY
-P“PËœ™ÛØŠŠ‹š[ŠJN‚ˆ™[Hš[Kœ™[]]™WİÊP“PÊK˜\×ÜÜÚ^
+def shop_image(query: str):
+    normalized = clean_text(query).lower()
+    if normalized in SHOP_IMAGES:
+        return SHOP_IMAGES[normalized]
+    for terms, image in SHOP_IMAGE_RULES:
+        if any(term in normalized for term in terms):
+            return image
+    return DEFAULT_SHOP_IMAGE
 
-BˆYˆ™[OHš[‚ˆÛÛ[YBˆYˆ	ÏY]H˜[YOHœ›Ø›İÈˆÛÛ[H››Ú[™^	È[ˆš[Kœ™XYİ^
-[˜ÛÙ[™ÏH]‹NŠN‚ˆÛÛ[YBˆYˆ™[OHš[™^š[‚ˆ\›Ü]H‹È‚ˆ[Yˆ™[™[™İÚ]
-‹Ú[™^š[ŠN‚ˆ\›Ü]H‹Èˆ
-È™[Î‹LLBˆ[ÙN‚ˆ\›Ü]H‹Èˆ
-È™[ˆ[Ü]Ë˜\[™
-\›Ü]
-Bˆ™XÚ\WÙ]\ÈHÙˆ‹Ü™XÚ\\ËŞÜ™XÚ\VÉÜÛYÉ×_KÈˆ™XÚ\K™Ù]
-™]WÛ[ÙYšYY‹™XÚ\K™Ù]
-™]WÜX›\ÚY‹ŒŒ‹LLMÈŠJH›Üˆ™XÚ\H[ˆ‘PÒTTßBˆ]\İÜ™XÚ\WÙ]HHX^
-™XÚ\WÙ]\Ë˜[Y\Ê
-KY˜][HŒŒ‹LLMÈŠBˆÚ][X\HÉÏŞ[™\œÚ[ÛHŒKŒˆ[˜ÛÙ[™ÏH•U‹NÏ‰Ë	Ï\›Ù][œÏHš‹ËİİİËœÚ][X\Ë›Ü™ËÜØÚ[X\ËÜÚ][X\ÌH‰×Bˆ›Üˆ][ˆ[Ü]Î‚ˆYˆ][ˆ™XÚ\WÙ]\Î‚ˆ\İ[ÙH™XÚ\WÙ]\ÖÜ]Bˆ[Yˆ]œİ\İÚ]
-‹ÙİZY\ËÈŠN‚ˆ\İ[ÙHŒŒ‹LL‚ˆ[ÙN‚ˆ\İ[ÙH]\İÜ™XÚ\WÙ]BˆÚ][X\˜\[™
-ˆˆ\›ØÏÙ\ØÊØ[›ÛšXØ[
-]
-J_OÛØÏ\İ[ÙÙ\ØÊ\İ[Ù
-_OÛ\İ[Ùİ\›ˆŠBˆÚ][X\˜\[™
-İ\›Ù]ˆŠBˆ
-P“PÈÈœÚ][X\[ŠKÜš]Wİ^
-—ˆ‹š›Ú[ŠÚ][X\
-K[˜ÛÙ[™ÏH]‹NŠBˆ
-P“PÈÈœ›Ø›İËŠKÜš]Wİ^
-ˆ•\Ù\‹XYÙ[ˆ
-—[İÎˆ×”Ú][X\ˆÔÒUWÕT“KÜÚ][X\[ˆ‹[˜ÛÙ[™ÏH]‹NŠBˆ™YYÚ][\ÈH×Bˆ™]Ù\İÜ™XÚ\\ÈHÛÜY
-‘PÒTTËÙ^O[[X™H™XÚ\Nˆ™XÚ\K™Ù]
-™]WÜX›\ÚY‹ˆŠK™]™\œÙOUYJVÎŒÌBˆ›Üˆ™XÚ\H[ˆ™]Ù\İÜ™XÚ\\Î‚ˆ™XÚ\Wİ\›HØ[›ÛšXØ[
-	ËÜ™XÚ\\ËÉÈ
-È™XÚ\VÉÜÛYÉ×H
-È	ËÉÊBˆX›\ÚYH™XÚ\K™Ù]
-™]WÜX›\ÚY‹ŒŒ‹LLMÈŠBˆ™YYÚ][\Ë˜\[™
-ˆ][O]OÙ\ØÊ™XÚ\K™Ù]
-	İ]IË	Ô™XÚ\IÊJ_Oİ]O[šÏÙ\ØÊ™XÚ\Wİ\›
-_OÛ[šÏİZYÙ\ØÊ™XÚ\Wİ\›
-_OÙİZYX‘]OÙ\ØÊœÜ×Ù]JX›\ÚY
-J_OÜX‘]O\ØÜš\[ÛÙ\ØÊ™XÚ\K™Ù]
-	ÙZÉË	ÉÊJ_OÙ\ØÜš\[ÛÚ][OˆŠBˆ›Üˆ\XÛH[ˆT•PÓTÖÎŒLN‚ˆ\XÛWİ\›HØ[›ÛšXØ[
-	ËÙİZY\ËÉÈ
-È\XÛVÉÜÛYÉ×H
-È	ËÉÊBˆ™YYÚ][\Ë˜\[™
-ˆ][O]OÙ\ØÊ\XÛK™Ù]
-	İ]IË	ÑİZYIÊJ_Oİ]O[šÏÙ\ØÊ\XÛWİ\›
-_OÛ[šÏİZYÙ\ØÊ\XÛWİ\›
-_OÙİZY\ØÜš\[ÛÙ\ØÊ\XÛK™Ù]
-	ÙZÉË	ÉÊJ_OÙ\ØÜš\[ÛÚ][OˆŠBˆ
-P“PÈÈ™™YY[ŠKÜš]Wİ^
-‰ÉÉÏŞ[™\œÚ[ÛHŒKŒˆ[˜ÛÙ[™ÏH•U‹NÏœÜÈ™\œÚ[ÛHŒ‹ŒÚ[›™[]O‘\ÚØ[İ]O[šÏÔÒUWÕT“OÛ[šÏ\ØÜš\[Û‘[›™\‹XÚYYÙ\ØÜš\[ÛÉÉËš›Ú[Š™YYÚ][\Ê_OØÚ[›™[ÜœÜÏ‰ÉÉË[˜ÛÙ[™ÏH]‹NŠBˆYÈHˆ™ÛÛÙÛK˜ÛÛKĞQÑS”ÑWÔP“TÒT—ÒQKT‘PÕŒÍÙ™XÌM™˜LˆˆYˆQÑS”ÑWÔP“TÒT—ÒQ[ÙHˆÈ\ÚØ[˜ÛÛHY™\\Ú[™È[™[ÜH\È›İY]ÛÛ™šYİ\™Y—ˆ‚ˆ
-P“PÈÈ˜YËŠKÜš]Wİ^
-YË[˜ÛÙ[™ÏH]‹NŠBˆ
-P“PÈÈÓSQHŠKÜš]Wİ^
-™\ÚØ[˜ÛÛWˆ‹[˜ÛÙ[™ÏH]‹NŠBˆ
-P“PÈÈ‹››Ú™ZŞ[ŠKÜš]Wİ^
-ˆ‹[˜ÛÙ[™ÏH]‹NŠBˆX[šY™\İHÂˆ›˜[YHˆ‘\ÚØ[‹ˆœÚÜÛ˜[YHˆ‘\ÚØ[‹ˆœİ\İ\›ˆ™YŠ‹ÈŠKˆ™\Ü^Hˆœİ[™[Û™H‹ˆ˜˜XÚÙÜ›İ[™ØÛÛÜˆˆˆÙ˜™™YH‹ˆ[YWØÛÛÜˆˆˆÙNMŒÍÈ‹ˆ™\ØÜš\[Ûˆˆ‘[›™\‹XÚYYˆ‚ˆBˆ
-P“PÈÈœÚ]KÙX›X[šY™\İŠKÜš]Wİ^
-œÛÛ‹™[\ÊX[šY™\İ[™[LŠK[˜ÛÙ[™ÏH]‹NŠB‚™YˆXZ[Š
-N‚ˆYˆP“PË™^\İÊ
-H[™ÜË™[š\›Û‹™Ù]
-‘TÒĞSÓ“×ĞÓPSˆŠHOHŒH‚ˆÚ][œ›]™YJP“PÊBˆ[œİ\™WÙ\ŠP“PÊBˆÛÜWØ\ÜÙ]Ê
-BˆZ[ÚÛYJ
-BˆZ[Ü™XÚ\WÚ[™^
+def amazon_link(query: str, label: str, note: str = "") -> str:
+    """Render a compliant text-first Amazon category card.
 
-BˆZ[Ü™XÚ\WÜYÙ\Ê
-BˆZ[ØÛÛXİ[ÛœÊ
-BˆZ[Ú[™Ü™YY[ÚXœÊ
-BˆZ[ÜØ]™Y
+    DishGal intentionally does not attach editorial/stock photography to an
+    Amazon shopping link. A product image belongs on a commercial card only
+    when the exact linked product/category image has been independently
+    verified through an approved Amazon mechanism. Until that verification is
+    available, the text-first card is more accurate than a decorative photo
+    that could imply the wrong product.
+    """
+    url = f"https://www.amazon.com/s?k={quote_plus(query)}&amp;tag={quote_plus(AMAZON_TAG)}"
+    return f"""<a class="shop-card shop-card--text-only" href="{url}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-commercial-link="true" data-affiliate-active="true" data-affiliate-network="amazon" data-affiliate-tag="{esc(AMAZON_TAG)}">
+      <span class="shop-card-copy"><small>Compare on Amazon</small><strong>{esc(label)}</strong>{f'<span>{esc(note)}</span>' if note else ''}<b>See current options â†’</b></span>
+    </a>"""
 
-BˆZ[ÙXÚY\Š
-BˆZ[Ü[J
-BˆZ[Ü[›™\Š
-BˆZ[ÙİZY\Ê
-BˆZ[ØØ]YÛÜWÚ[™^\Ê
-BˆZ[İ][]WÜYÙ\Ê
-BˆZ[Í
+def recipe_shop(recipe) -> str:
+    haystack = " ".join([
+        recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
+        " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
+    ]).lower()
+    if "honey-walnut baked pears" in haystack or "honey walnut baked pears" in haystack:
+        products = [
+            ("2 quart ceramic baking dish", "2-quart baking dish", "A snug oven-safe dish holds eight pear halves in one layer so the measured steam and glaze stay close to the fruit."),
+            ("stainless steel melon baller small", "Small melon baller", "A compact round scoop removes the fibrous seed core while leaving a thick fruit wall that will not leak."),
+            ("silicone pastry brush small", "Small pastry brush", "A soft brush distributes the cinnamon-honey mixture over the cut fruit and into every hollow without bruising the pears."),
+        ]
+    elif "miso savory oats" in haystack:
+        products = [
+            ("2 quart stainless steel saucepan with lid", "2-quart saucepan", "A small heavy saucepan keeps the oats at a controlled simmer and leaves enough room to stir without splashing."),
+            ("fine mesh skimmer spoon stainless steel", "Fine-mesh skimmer", "A shallow mesh skimmer lifts poached eggs gently while draining their cooking water."),
+            ("small nonstick skillet 8 inch", "Small skillet", "A compact skillet toasts the sesame-panko topping evenly without needing extra oil."),
+        ]
+    elif "smoky warm lentils" in haystack:
+        products = [
+            ("3 quart stainless steel saucepan with lid", "3-quart saucepan", "A medium saucepan gives lentils enough water to move freely while keeping the simmer easy to control."),
+            ("fine mesh strainer stainless steel large", "Large fine-mesh strainer", "Small lentils drain cleanly without escaping, and a broad basket sheds the cooking water quickly."),
+            ("8 inch chef knife kitchen", "8-inch chef's knife", "A sharp, controllable blade makes uniform pepper and onion dice for even cooking."),
+        ]
+    elif "crispy fried beef empanadas" in haystack:
+        products = [
+            ("6 quart enameled cast iron dutch oven", "5- to 6-quart Dutch oven", "High sides contain the two-inch oil layer and give it room to bubble safely without approaching the rim."),
+            ("deep fry thermometer clip pot", "Clip-on deep-fry thermometer", "Continuous temperature readings keep each batch in the 340Â°F to 360Â°F crisping range."),
+            ("half sheet pan wire rack set", "Sheet pan with wire rack", "A rack lets excess oil drain without trapping steam against the crisp underside of the empanadas."),
+        ]
+    elif "soupy sichuan-style dan dan noodles" in haystack or "soupy sichuan style dan dan noodles" in haystack:
+        products = [
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "A roomy pot lets the wheat noodles move freely, while fast draining keeps them springy before they enter the hot sesame broth."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad skillet gives the pork room to brown before the aromatics, chile-bean paste and preserved mustard greens are added."),
+            ("large ramen bowls set", "Deep ramen-style bowls", "Deep heat-safe bowls leave enough room to whisk the sesame base with broth, then add noodles and toppings without spilling."),
+        ]
+    elif "weeknight aloo gobi" in haystack:
+        products = [
+            ("12 inch saute pan with lid", "Wide 12-inch sautÃ© pan with lid", "The broad base coats the vegetables evenly, while the lid traps enough steam to tenderize potatoes and cauliflower without turning the curry soupy."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose blade makes even potato cubes and clean cauliflower florets so the vegetables become tender at the same time."),
+            ("digital instant read thermometer kitchen", "Instant-read thermometer", "A thin probe confirms refrigerated leftovers have reheated to 165Â°F without relying on steam or touch."),
+        ]
+    elif "turkish Ã§Ä±lbÄ±r" in haystack or "turkish cilbir" in haystack:
+        products = [
+            ("3 quart wide stainless steel saucepan", "Wide 3-quart saucepan", "A broad base gives four eggs room to poach in two calm batches without crowding or colliding."),
+            ("stainless steel slotted spoon egg poacher", "Stainless-steel slotted spoon", "A shallow perforated bowl lifts delicate eggs while leaving excess poaching water behind."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe can verify a firm-cooked egg reaches 160Â°F without tearing most of the white."),
+        ]
+    elif "creamy lemon-parmesan farfalle" in haystack or "creamy lemon parmesan farfalle" in haystack:
+        products = [
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "A roomy pot lets farfalle circulate, while fast draining preserves the starchy water needed to emulsify the cream sauce."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad skillet warms the tomatoes gently and gives the pasta room to toss through the sauce without crushing the bow ties."),
+            ("microplane zester grater stainless", "Fine zester and grater", "A fine tool removes fragrant lemon zest and produces Parmesan thin enough to melt smoothly off the heat."),
+        ]
+    elif "skillet chicken meatballs in tomato-basil sauce" in haystack or "skillet chicken meatballs in tomato basil sauce" in haystack:
+        products = [
+            ("wide 12 inch heavy skillet", "Wide 12-inch skillet", "A broad heavy pan browns the meatballs in batches, then holds all sixteen in one sauce layer for even simmering."),
+            ("instant read thermometer ground poultry", "Instant-read thermometer", "Check the largest meatball and a cooler edge position for the required 165Â°F center without relying on color."),
+            ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A sturdy pan gives the garlic bread room to toast at the edges while the meatballs finish in their sauce."),
+        ]
+    elif "spinach-feta stuffed portobellos" in haystack or "spinach feta stuffed portobellos" in haystack:
+        products = [
+            ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A broad metal pan gives four large mushroom caps room to shed moisture during the first roast without crowding."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "The broad surface evaporates liquid from the chopped stems and spinach before the creamy filling is assembled."),
+            ("medium saucepan with lid 3 quart", "3-quart saucepan with lid", "A close-fitting lid and steady base cook pearl couscous evenly in the measured vegetable broth."),
+        ]
+    elif "air fryer chili-lime shrimp avocado toast" in haystack or "air fryer chili lime shrimp avocado toast" in haystack:
+        products = [
+            ("5 quart basket air fryer", "5- to 6-quart basket air fryer", "A roomy basket keeps one pound of shrimp in an uncrowded layer and then crisps the sourdough with the appliance already hot."),
+            ("instant read digital food thermometer", "Instant-read thermometer", "Check the thickest shrimp for 145Â°F without extending the short cook until every piece curls tightly."),
+            ("fine citrus zester microplane", "Fine citrus zester", "Remove fragrant lime zest for the shrimp while leaving the bitter white pith behind."),
+        ]
+    elif "roasted pumpkin-cardamom soup" in haystack or "roasted pumpkin cardamom soup" in haystack:
+        products = [
+            ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A broad metal surface roasts the pumpkin wedges in one layer so their cut sides brown instead of steaming."),
+            ("enameled dutch oven 5 quart", "5- to 6-quart Dutch oven", "A heavy pot softens the aromatics evenly and contains the hot soup safely during immersion blending."),
+            ("immersion blender stainless steel", "Immersion blender", "Blend the roasted pumpkin directly in the pot with the head submerged, avoiding the transfer of hot soup to a sealed jar."),
+        ]
+    elif "chicken chilaquiles verdes" in haystack:
+        products = [
+            ("heavy rimmed sheet pan", "Heavy rimmed sheet pan", "A broad broiler-safe surface blisters the tomatillos, peppers, onion and garlic in one uncrowded layer."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "The wide base reduces the salsa evenly and gives sturdy tortilla chips room to fold without crushing."),
+            ("digital probe cooking thermometer", "Instant-read thermometer", "Verify the reheated shredded chicken reaches 165Â°F before the tortilla chips enter the skillet."),
+        ]
+    elif "breton buckwheat galettes with smoked salmon" in haystack:
+        products = [
+            ("10 inch nonstick crepe pan", "10-inch nonstick crepe pan", "A low-sided, evenly heated surface makes it easier to spread, release and turn each thin buckwheat galette."),
+            ("thin flexible silicone crepe spatula", "Thin flexible crepe spatula", "A broad, slim edge slides beneath a fully set galette without tearing its lacy rim."),
+            ("mixing bowl with pouring spout", "Batter bowl with pouring spout", "A handled bowl keeps the rested batter easy to whisk and portion consistently between eight skillet rounds."),
+        ]
+    elif "slow cooker apple cider pulled pork sandwiches" in haystack:
+        products = [
+            ("6 quart programmable slow cooker", "6-quart programmable slow cooker", "The four pork portions, onions and measured cider-broth braise are calibrated for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several pork chunks for the 195 to 205Â°F shredding range instead of relying on the clock alone."),
+            ("stainless steel fat separator 4 cup", "Fat separator", "Separate rendered pork fat from the cider braising liquid before reducing it into a concentrated finishing sauce."),
+        ]
+    elif "no-knead tomato, olive & red onion focaccia" in haystack or "no-knead tomato olive red onion focaccia" in haystack:
+        products = [
+            ("9 by 13 metal baking pan", "9-by-13-inch metal baking pan", "A light-colored metal pan gives the olive-oiled dough crisp, evenly browned edges without scorching the base."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the high-hydration dough consistent and prevent extra flour from closing its open crumb."),
+            ("digital probe cooking thermometer", "Instant-read thermometer", "A center reading of 200 to 205Â°F confirms the moist bread crumb has set before cooling."),
+        ]
+    elif "instant pot turkish kuru fasulye" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The soaked-bean volume, five-cup thin-liquid base and 20-minute natural release are written for this family capacity."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Pick over, rinse and drain the white beans cleanly before and after their overnight soak."),
+            ("stainless steel soup ladle", "Stainless-steel soup ladle", "A deep ladle portions the creamy beans with enough tomato broth in every bowl."),
+        ]
+    elif "instant pot norwegian fÃ¥rikÃ¥l" in haystack or "instant pot norwegian farikal" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1Â½-cup thin-broth base, 20-minute cycle and two-stage release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several lamb pieces away from bone for a safe center, then use temperature and fork texture to judge braise tenderness."),
+            ("silicone tipped kitchen tongs", "Silicone-tipped kitchen tongs", "Brown lamb in batches and lift tender cabbage wedges without scratching the inner pot."),
+        ]
+    elif "cantonese-style char siu pork belly" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan wire rack", "Rimmed sheet pan with wire rack", "The rack circulates heat around the pork and keeps it above rendered fat while the glaze lacquers."),
+            ("silicone pastry brush", "Silicone pastry brush", "Apply thin, even layers of the clean reserved honey marinade near the end of roasting."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the pork clears 145Â°F with a three-minute rest and continue toward the recipe's tender belly range."),
+        ]
+    elif "filipino lumpiang sariwa" in haystack:
+        products = [
+            ("8 inch nonstick skillet", "8-inch nonstick skillet", "A small slick surface turns the thin egg batter into consistently sized, flexible fresh-lumpia wrappers."),
+            ("julienne peeler hand guard", "Julienne peeler with hand guard", "Uniform carrot and sweet-potato matchsticks cook evenly; use the guard and stop before the piece is unsafe to hold."),
+            ("silicone whisk heat resistant", "Heat-safe silicone whisk", "Whisk the peanut sauce and cornstarch slurry smooth as they thicken on the stove."),
+        ]
+    elif "japanese dorayaki" in haystack:
+        products = [
+            ("12 inch nonstick griddle", "Nonstick griddle", "Steady medium-low heat produces several smooth, evenly golden three-inch pancake rounds at once."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing 120 grams of flour prevents a packed cup from making the honey pancakes dry."),
+            ("2 tablespoon cookie scoop", "2-tablespoon scoop", "Equal batter portions make sixteen rounds that pair neatly around the anko filling."),
+        ]
+    elif "instant pot korean-style dakbokkeumtang" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1Â½-cup thin-broth base, eight-minute cycle and two-stage release are calibrated for this common family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several bone-in chicken pieces at their thickest points without touching bone and confirm each reaches 165Â°F."),
+            ("silicone tipped kitchen tongs", "Silicone-tipped kitchen tongs", "Turn chicken and lift tender potatoes without scratching the inner pot or breaking the finished stew apart."),
+        ]
+    elif "instant pot romanian-style sarmale" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The half-full grain safeguard, 1Â½-cup broth base and 15-minute natural release are written for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Probe through the cabbage into several roll centers and verify every ground-meat filling reaches 160Â°F."),
+            ("stainless steel slotted spoon", "Wide slotted spoon", "Lift the tender cabbage rolls from their broth with less tearing after the pressure release."),
+        ]
+    elif "dutch boerenkool stamppot" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "Large Dutch oven", "One roomy pot simmers potatoes, steams kale and reheats the intact smoked sausage."),
+            ("stainless steel potato masher", "Hand potato masher", "A hand masher combines the drained vegetables without releasing the excess starch a food processor would."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the fully cooked smoked sausage is reheated to 165Â°F at its center."),
+        ]
+    elif "puerto rican mofongo with garlic shrimp" in haystack:
+        products = [
+            ("wooden pilon mortar pestle large", "Large pilÃ³n or mortar", "Pound hot fried plantains with garlic and measured broth into four cohesive, rustic portions."),
+            ("deep fry thermometer clip on", "Clip-on frying thermometer", "Hold the oil between 300Â°F and 325Â°F so the thick plantain rounds cook through without hardening."),
+            ("digital probe cooking thermometer", "Instant-read thermometer", "Remove the shrimp from the simmering broth as soon as their thickest parts reach 145Â°F."),
+        ]
+    elif "australian lamingtons" in haystack:
+        products = [
+            ("8 inch square metal cake pan", "8-inch square metal cake pan", "The recipe's bake time and sixteen 2-inch portions are calibrated for this pan size."),
+            ("wire cooling rack rimmed sheet pan", "Wire rack and rimmed sheet pan", "The rack catches excess chocolate and coconut while air reaches every coated side."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the sponge light and the confectioners' sugar-to-cocoa coating consistent."),
+        ]
+    elif "instant pot french-style coq au vin" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The wine-and-broth base, ten-minute cycle and two-stage release are calibrated for this common family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken thighs beside, but not touching, the bone and confirm each reaches 165Â°F."),
+            ("silicone tipped kitchen tongs", "Silicone-tipped kitchen tongs", "Turn chicken and vegetables cleanly without scratching the inner pot during the two browning stages."),
+        ]
+    elif "instant pot vegan corn & potato chowder" in haystack or "instant pot vegan corn and potato chowder" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four-cup thin-broth base, five-minute cycle and controlled release are written for this capacity."),
+            ("immersion blender stainless steel", "Immersion blender", "Short pulses thicken part of the chowder while leaving visible potato pieces and corn kernels."),
+            ("stainless steel soup ladle", "Stainless-steel soup ladle", "A deep ladle portions the chunky finished chowder without crushing its reserved corn and potatoes."),
+        ]
+    elif "spanish tortilla espaÃ±ola" in haystack or "spanish tortilla espanola" in haystack:
+        products = [
+            ("10 inch nonstick skillet oven safe", "10-inch nonstick skillet", "A predictable release makes the thick potato-and-egg round safer to invert and slide back into the pan."),
+            ("stainless steel mandoline slicer hand guard", "Mandoline with hand guard", "Uniform 1/8-inch potato slices soften at the same pace; always use the guard and stop early."),
+            ("digital probe cooking thermometer", "Instant-read thermometer", "Check the thick center for the 160Â°F egg-safety target without overcooking the outer layers."),
+        ]
+    elif "sheet-pan chicken shawarma stuffed pitas" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy rimmed sheet pan", "Preheating a broad metal pan gives marinated thighs room to brown instead of steam."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify multiple thighs reach 165Â°F before resting, chopping or broiling their edges."),
+            ("microplane zester grater stainless", "Fine zester", "Finely grate garlic for the marinade and sauce, then take clean zest from the lemon."),
+        ]
+    elif "argentine alfajores de maicena" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighed cornstarch and flour prevent compacted cups from making the delicate cookies chalky."),
+            ("2.5 inch round cookie cutter", "2Â½-inch round cutter", "One consistent diameter produces 28 matching rounds and 14 tidy sandwich cookies."),
+            ("heavy rimmed baking sheet set", "Rimmed sheet pans", "Flat, light-colored pans help the cornstarch cookies set while their tops remain characteristically pale."),
+        ]
+    elif "instant pot mexican-style beef birria" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The three-cup thin-broth base, 45-minute cycle and 20-minute natural release are written for this family capacity."),
+            ("fine mesh stainless steel strainer", "Fine-mesh strainer", "Strain the blended chile broth for a smoother consommÃ© and fewer solids that can settle against the cooker base."),
+            ("cast iron griddle 12 inch", "12-inch griddle", "A broad, heat-steady surface crisps several filled corn tortillas at once without crowding."),
+        ]
+    elif "instant pot indian-style vegetable biryani" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-cup rice quantity, measured thin broth, half-full safeguard and controlled release are calibrated for this capacity."),
+            ("fine mesh rice strainer", "Fine-mesh rice strainer", "Rinse basmati thoroughly and drain it for ten minutes so the pressure-cooker liquid ratio stays accurate."),
+            ("stainless steel serving fork rice", "Wide serving fork", "A broad fork lifts and separates the cooked grains without crushing the tender vegetables."),
+        ]
+    elif "greek-style lamb moussaka" in haystack:
+        products = [
+            ("9 by 13 ceramic baking dish deep", "Deep 9-by-13-inch baking dish", "Enough depth supports two eggplant layers, the lamb filling and a tall bÃ©chamel cap."),
+            ("heavy rimmed baking sheet set", "Rimmed sheet pans", "Two broad pans roast the eggplant in one layer so it browns instead of steaming."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the ground lamb reaches 160Â°F and the assembled casserole reaches 165Â°F at the center."),
+        ]
+    elif "korean-style tteokbokki" in haystack:
+        products = [
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad cooking surface reduces the broth into a glossy sauce while the rice cakes stay in a shallow, even layer."),
+            ("silicone spatula heat resistant", "Heat-safe silicone spatula", "Frequent bottom-scraping keeps softening rice cakes from sticking without scratching the skillet."),
+            ("digital probe cooking thermometer", "Instant-read thermometer", "Confirm the fish cakes are reheated to 165Â°F before serving."),
+        ]
+    elif "breton kouign-amann" in haystack:
+        products = [
+            ("standard metal muffin pan 12 cup", "12-cup metal muffin pan", "Metal cups drive the dark caramel shell and hold each folded pastry upright as it expands."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the dough, butter block and shaping sugar balanced for dependable lamination."),
+            ("french rolling pin hardwood", "Straight rolling pin", "A long smooth pin applies even pressure across the butter packet without creating thin hot spots."),
+        ]
+    elif "instant pot brazilian-style feijoada" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The soaked-bean volume, four-cup thin-broth base and 20-minute natural release are written for this family capacity."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Rinse and inspect black beans before soaking, then drain them thoroughly before pressure cooking."),
+            ("stainless steel potato masher", "Stainless-steel bean masher", "Mash a measured scoop of tender beans against the pot wall to thicken the stew naturally."),
+        ]
+    elif "instant pot uzbek-style lamb plov" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-stage lamb-and-rice method, half-full grain limit and controlled releases are calibrated for this family capacity."),
+            ("fine mesh rice strainer", "Fine-mesh rice strainer", "Rinse basmati until nearly clear and drain it for 15 minutes so the measured liquid ratio remains accurate."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify lamb reaches at least 145Â°F with a three-minute rest, then use tenderness to judge shoulder collagen."),
+        ]
+    elif "turkish mercimek kÃ¶ftesi" in haystack or "turkish mercimek koftesi" in haystack:
+        products = [
+            ("heavy bottom saucepan 3 quart", "Heavy 3-quart saucepan", "Even heat lets red lentils collapse without scorching as the last cooking liquid reduces."),
+            ("stainless steel measuring cups spoons", "Measuring cup and spoon set", "Accurate lentil, water and fine-bulgur proportions determine whether the mixture shapes cleanly."),
+            ("large rectangular serving platter", "Large serving platter", "A broad platter keeps the ridged kofta in neat rows with lemon and lettuce at the edges."),
+        ]
+    elif "peruvian causa rellena" in haystack:
+        products = [
+            ("stainless steel potato ricer", "Stainless-steel potato ricer", "Rice hot potatoes into a smooth, non-gluey base that holds a clean molded edge."),
+            ("3 inch food ring molds set", "3-inch ring molds", "Straight-sided molds build six compact potato, tuna and avocado stacks with tidy layers."),
+            ("offset spatula small stainless", "Small offset spatula", "Level each potato layer and lift filling cleanly without dragging it up the mold walls."),
+        ]
+    elif "south african-style malva puddings" in haystack:
+        products = [
+            ("8 ounce ceramic ramekins set of 6", "Six 8-ounce ramekins", "Individual dishes create the rounded presentation and give every serving caramelized edges."),
+            ("rimmed baking sheet heavy duty", "Rimmed baking sheet", "A sturdy sheet keeps the six ramekins stable and contains any sauce that bubbles over."),
+            ("digital probe cooking thermometer", "Digital cooking thermometer", "Check the egg-flour sponge for a 200â€“205Â°F center before adding the hot cream sauce."),
+        ]
+    elif "instant pot jamaican-style oxtail" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-cup thin-broth base, 45-minute cycle and 20-minute natural release are written for this family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check oxtail for safe temperature, then use the 195â€“205Â°F tenderness range and fork texture to judge collagen breakdown."),
+            ("gravy fat separator heat resistant", "Heat-safe fat separator", "Separate the rendered oxtail fat from the cooking liquid before reducing the glossy butter-bean gravy."),
+        ]
+    elif "instant pot ghanaian-style chicken peanut stew" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-cup thin-broth base, six-minute cycle and ten-minute natural release are calibrated for this family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken-thigh pieces at their centers for 165Â°F before finishing the peanut sauce."),
+            ("silicone whisk heat resistant", "Heat-safe silicone whisk", "Whisk hot broth into peanut butter smoothly without scratching the pressure cooker's inner pot."),
+        ]
+    elif "balkan-style meat burek" in haystack:
+        products = [
+            ("12 inch round metal baking pan", "12-inch round baking pan", "A shallow metal pan supports the coiled phyllo and encourages a crisp, evenly browned base."),
+            ("silicone pastry brush", "Silicone pastry brush", "A flexible brush spreads a thin, even layer of butter without tearing delicate phyllo sheets."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the beef filling reaches 160Â°F and the assembled burek is hot through at the center."),
+        ]
+    elif "armenian-style ghapama" in haystack:
+        products = [
+            ("8 inch chef knife kitchen", "Chef's knife", "A sharp, controllable blade cuts the pumpkin lid cleanly; angle it inward so the lid cannot fall through."),
+            ("enameled dutch oven 6 quart", "Snug Dutch oven", "A heavy, close-fitting vessel steadies the whole pumpkin and catches any syrup as the shell softens."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage matter when moving a heavy, softened stuffed pumpkin from the oven."),
+        ]
+    elif "eastern european syrniki" in haystack:
+        products = [
+            ("12 inch nonstick skillet", "12-inch skillet", "A broad, even surface cooks four delicate cheese patties at a time without crowding."),
+            ("silicone fish spatula turner", "Thin flexible spatula", "A slim edge slides beneath tender syrniki so their golden crusts stay intact when turned."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the egg-based centers reach 160Â°F without overbrowning the cheese cakes."),
+        ]
+    elif "instant pot hainanese-style chicken rice" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-cup thin-broth base, five-minute cycle, half-full grain safeguard and ten-minute natural release are written for this family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken thighs beside, but not touching, the bone for 165Â°F before slicing or serving."),
+            ("fine mesh rice strainer", "Fine-mesh rice strainer", "Rinse jasmine rice until the water is nearly clear, then drain it thoroughly so the measured pressure-cooker ratio stays accurate."),
+        ]
+    elif "instant pot greek beef stifado" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The wine-and-broth base, layered tomato, 35-minute cycle and 15-minute natural release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm beef clears 145Â°F with its three-minute rest, then use fork texture to judge the additional collagen breakdown needed for a braise."),
+            ("silicone tipped kitchen tongs", "Silicone-tipped kitchen tongs", "Turn pearl onions and beef batches cleanly without scratching the inner pot or crowding the browning surface."),
+        ]
+    elif "thai-style shrimp som tam" in haystack:
+        products = [
+            ("large granite mortar pestle thai", "Large mortar and pestle", "A roomy sturdy mortar bruises green papaya and beans while leaving their centers crisp."),
+            ("julienne peeler hand guard", "Julienne peeler with hand guard", "Uniform green-papaya strands absorb dressing evenly; use the guard and stop before the piece becomes unsafe to hold."),
+            ("stainless steel citrus press", "Handheld citrus press", "Press enough fresh lime juice quickly for the sharp-salty-sweet dressing without seeds."),
+        ]
+    elif "syrian-style muhammara" in haystack:
+        products = [
+            ("food processor 8 cup", "8-cup food processor", "Short controlled pulses combine roasted peppers, walnuts and breadcrumbs while preserving the dip's characteristic texture."),
+            ("rimmed baking sheet heavy duty", "Rimmed baking sheet", "Toast walnuts evenly, then reuse the same pan for zaatar-dusted pita wedges."),
+            ("silicone spatula heat resistant", "Flexible silicone spatula", "Scrape the processor bowl thoroughly and shape the finished dip into a clean serving swirl."),
+        ]
+    elif "belgian liÃ¨ge waffles" in haystack or "belgian liege waffles" in haystack:
+        products = [
+            ("belgian waffle maker adjustable temperature", "Adjustable Belgian waffle maker", "Medium heat gives the enriched dough time to cook through while pearl sugar caramelizes instead of scorching."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weigh flour, butter, pearl sugar and each dough portion for eight evenly cooking waffles."),
+            ("digital probe cooking thermometer", "Digital cooking thermometer", "Check 105â€“110Â°F milk for yeast and a minimum 190Â°F in each waffle's bready center."),
+        ]
+    elif "instant pot dominican-style sancocho" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-stage pork, chicken and root-vegetable method, four-cup thin-broth base and controlled releases are written for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check chicken pieces for 165Â°F and pork for at least 145Â°F plus fork-tender texture before serving the family bowls."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose blade makes consistent cuts through plantain, yuca, squash, corn and both meats."),
+        ]
+    elif "instant pot italian-style creamy polenta" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The trivet, base-water amount, ten-minute cycle and natural release are calibrated for this common family capacity."),
+            ("stainless steel pressure cooker insert bowl 3 quart", "Pressure-cooker-safe inner bowl", "A 2Â½- to 3-quart uncovered metal bowl keeps expanding cornmeal off the heating element for pot-in-pot cooking."),
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad hot surface browns sliced mushrooms in batches while the polenta cooks hands-off."),
+        ]
+    elif "finnish lohikeitto" in haystack:
+        products = [
+            ("heavy bottom dutch oven 5 quart", "Heavy 5-quart soup pot", "Steady heat brings potatoes to tenderness, then holds the salmon and cream at a bare simmer."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several thick salmon pieces for 145Â°F without overcooking the entire pot."),
+            ("stainless steel fish bone tweezers", "Fish-bone tweezers", "A precise grip removes hidden pin bones cleanly before the salmon is cut into soup-size pieces."),
+        ]
+    elif "south indian-style masala dosa" in haystack:
+        products = [
+            ("countertop blender glass jar", "High-speed countertop blender", "Separate smooth rice and urad-dal batters combine into a reliably aerated base for overnight fermentation."),
+            ("cast iron dosa tawa griddle 12 inch", "12-inch dosa griddle", "A broad, moderately hot surface gives the ladle room to spread thin spirals and crisp their undersides."),
+            ("stainless steel offset spatula wide", "Wide offset spatula", "A slim broad edge releases each lacy dosa without tearing before the potato filling is added."),
+        ]
+    elif "german bienenstich" in haystack:
+        products = [
+            ("9 inch springform pan", "9-inch springform pan", "Tall removable sides support the yeast cake, almond crown and substantial vanilla-cream layer."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighed flour keeps the enriched dough soft enough to rise while still holding the filling."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "Check warm milk, pastry cream and the cake center at their different target temperatures instead of guessing."),
+        ]
+    elif "instant pot vietnamese-style bÃ² kho" in haystack or "instant pot vietnamese-style bo kho" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The two-stage meat-and-root-vegetable method, measured thin broth and controlled releases are written for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check beef for at least 145Â°F and honeycomb tripe for 160Â°F before serving the aromatic noodle bowls."),
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "Cook and drain the noodles separately so their starch cannot thicken the pressure-cooker liquid or stick to its base."),
+        ]
+    elif "instant pot egyptian-style ful medames" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The soaked-bean volume, half-full safeguard, 35-minute cycle and full natural release are calibrated for this capacity."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh contains the small fava beans while you rinse them, inspect for stones and drain the overnight soak."),
+            ("stainless steel potato masher", "Stainless-steel bean masher", "Mash one-third of the cooked favas directly in the pot to build the platter's naturally creamy body."),
+        ]
+    elif "japanese oyakodon" in haystack:
+        products = [
+            ("10 inch stainless steel skillet lid", "10-inch skillet with lid", "A lidded shallow pan cooks the chicken in one layer and lets the two egg additions set evenly over the onion."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify several chicken pieces reach 165Â°F and the finished egg mixture reaches 160Â°F without overcooking the whole bowl."),
+            ("stainless steel rice cooker family", "Family-size rice cooker", "Cook and hold the short-grain rice hands-off while the chicken-and-egg topping comes together in about 20 minutes."),
+        ]
+    elif "bacalhau Ã  brÃ¡s" in haystack or "bacalhau a bras" in haystack:
+        products = [
+            ("stainless steel mandoline slicer hand guard", "Mandoline with hand guard", "Uniform 1/8-inch potato matchsticks fry at the same rate; always use the included guard and a cut-resistant glove."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the poached cod reaches 145Â°F and the final egg mixture reaches 160Â°F."),
+            ("stainless steel spider strainer", "Spider strainer", "Lift each batch of crisp potato sticks from the hot oil quickly while leaving loose crumbs behind."),
+        ]
+    elif "tarte tatin" in haystack:
+        products = [
+            ("10 inch cast iron skillet", "10-inch cast-iron skillet", "A heat-steady oven-safe skillet takes the caramel, tightly packed apples and pastry from stovetop to oven in one pan."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weights keep the apple and pastry proportions consistent so the inverted tart is fruit-forward without overloading its crust."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand and forearm protection is essential when inverting a skillet filled with very hot caramel."),
+        ]
+    elif "instant pot louisiana-style red beans" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The six-cup thin-liquid ratio, half-full bean limit and long natural release are written for this common family capacity."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh contains dry kidney beans while you rinse away dust and inspect carefully for small stones."),
+            ("heavy bottom rice saucepan lid", "Heavy saucepan with lid", "Cooking the white rice separately keeps its grains fluffy while the beans complete their much longer pressure cycle."),
+        ]
+    elif "instant pot persian-style chicken fesenjan" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The thin-broth pressure stage and post-pressure walnut reduction are calibrated for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken thighs for 165Â°F before building the thick walnut-pomegranate sauce."),
+            ("food processor 8 cup", "8-cup food processor", "Short pulses grind toasted walnuts finely enough to thicken the sauce without turning them into nut butter."),
+        ]
+    elif "instant pot taiwanese-style lu rou fan" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, 18-minute cycle and staged release are calibrated for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check pork from different parts of the pot for 145Â°F followed by the specified three-minute rest."),
+            ("stainless steel rice cooker family", "Family-size rice cooker", "It cooks and holds the separate short-grain rice while the pork browns, pressure-cooks and reduces."),
+        ]
+    elif "instant pot swedish-style meatballs" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, two loose meatball layers and staged release are written for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check beef-and-pork meatballs from both layers through the center for the required 160Â°F."),
+            ("stainless steel potato masher", "Stainless-steel potato masher", "Mash the separately simmered Yukon Golds while the pressure-cooked meatballs rest before their gravy finish."),
+        ]
+    elif "instant pot japanese-style beef curry" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The short sirloin-and-vegetable cycle, thin-broth base and fill-limit guidance are written for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several sirloin pieces for 145Â°F and give them the specified three-minute rest before serving."),
+            ("stainless steel rice cooker family", "Family-size rice cooker", "It cooks and holds the short-grain rice while the beef and vegetables complete their shared pressure cycle."),
+        ]
+    elif "instant pot rajma masala" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The layered tomato method, 1 1/2-cup thin-liquid base and staged release are calibrated for this capacity."),
+            ("stainless steel potato masher", "Stainless-steel potato masher", "A few presses against the pot wall thicken the bean gravy without turning every kidney bean into purÃ©e."),
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad dry surface warms six roti quickly while the finished rajma rests off heat."),
+        ]
+    elif "instant pot filipino-style chicken arroz caldo" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The six-cup thin-broth base, half-full grain limit and staged release are written for this common family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken pieces for 165Â°F before shredding instead of relying on pressure time alone."),
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "Fine mesh keeps jasmine rice contained while you rinse away excess surface starch before pressure cooking."),
+        ]
+    elif "instant pot polish-style bigos" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, 30-minute cycle and staged release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Temperature plus easy fork tenderness confirms that pork shoulder is both safe and ready to eat."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose blade handles pork cubes, cabbage ribbons, mushrooms and sausage with consistent cuts."),
+        ]
+    elif "instant pot cuban-style ropa vieja" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, 50-minute cycle and staged release are written for this family-size capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Chuck becomes safe before it becomes shreddable; temperature plus an easy-pulling texture confirms the intended finish."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach makes browning large pieces and lifting hot pressure-braised beef safer and more controlled."),
+        ]
+    elif "instant pot ukrainian-style beet borscht" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The six-cup thin-liquid base, vegetable load and staged release are calibrated for this common capacity."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp controllable blade makes the beet, potato, carrot and cabbage prep faster and more even."),
+            ("glass meal prep containers locking lids", "Glass meal-prep containers", "Shallow lidded containers help the soup cool promptly and make refrigerator or freezer portions practical."),
+        ]
+    elif "instant pot korean galbijjim" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The thin-broth base, 35-minute cycle and staged release are written for this common family size."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Short ribs become safe before they become tender; temperature plus an easy-piercing texture confirms the intended finish."),
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "A fine strainer catches bone fragments during a quick rinse and helps skim the finished pear-soy braising sauce cleanly."),
+        ]
+    elif "instant pot lowcountry shrimp boil" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-liquid base and four-minute potato cycle are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several shrimp for 145Â°F during their brief post-pressure finish instead of guessing from color alone."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach moves hot corn, sausage and shrimp from the seasoned broth without crowding the platter."),
+        ]
+    elif "instant pot quÃ©bec-style yellow split pea soup" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The liquid, half-full limit, pressurizing allowance and natural release are written for this common family size."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh contains small split peas while you rinse away dust and sort out any debris before pressure cooking."),
+            ("glass meal prep containers locking lids", "Glass meal-prep containers", "Shallow lidded containers help the thick soup cool promptly and make portioned refrigerator or freezer storage practical."),
+        ]
+    elif "instant pot saffron shrimp risotto" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four-cup thin-liquid ratio, five-minute cycle and controlled release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several shrimp for 145Â°F during the brief SautÃ© finish instead of pressure-cooking them until rubbery."),
+            ("microplane zester grater stainless", "Fine zester and grater", "One fine tool handles the lemon zest and Parmesan that brighten and finish the creamy rice."),
+        ]
+    elif "instant pot smoky black bean soup" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The six-cup thin-liquid ratio, half-full limit and long natural release are written for this common family size."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh keeps dry black beans contained while you rinse away dust and check carefully for small stones."),
+            ("immersion blender stainless steel", "Immersion blender", "A few controlled pulses thicken the soup while leaving plenty of whole beans for texture."),
+        ]
+    elif "instant pot chicken cacciatore" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The deglazed wine-and-broth base, ten-minute cycle and staged release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check every bone-in chicken piece away from bone for at least 165Â°F before serving."),
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "Boiling the egg noodles separately keeps them springy while the chicken and tomato sauce pressure-cook."),
+        ]
+    elif "instant pot dal makhani" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The five-cup thin-water base, half-full bean limit and long natural release are written for this capacity."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh keeps whole black gram and kidney beans contained while you rinse and inspect them carefully."),
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad dry surface warms six naan quickly while the finished dal rests off heat."),
+        ]
+    elif "instant pot hawaiian-style kÄlua pork" in haystack or "instant pot hawaiian-style kalua pork" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four equal pork chunks, 1 1/4-cup thin-liquid base and staged release are calibrated for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Temperature plus easy fork-twisting confirms that pork shoulder is both safe and ready to shred."),
+            ("stainless steel rice cooker family", "Family-size rice cooker", "It cooks and holds the separate medium-grain rice while pork pressure-cooks and cabbage finishes in the juices."),
+        ]
+    elif "instant pot thai-style massaman chicken" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, six-minute cycle and staged release are calibrated for this common family capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check chicken pieces from several parts of the pot for 165Â°F before the coconut finish."),
+            ("stainless steel rice cooker family", "Family-size rice cooker", "It cooks and holds the jasmine rice separately while the curry pressure-cooks and its coconut sauce reduces."),
+        ]
+    elif "instant pot lebanese-style mujaddara" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The divided 3 3/4-cup thin-broth ratio, half-full grain limit and two natural releases are written for this capacity."),
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad surface gives three onions room to lose moisture and caramelize while the lentils and rice cook."),
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "Fine mesh contains lentils and brown rice while you rinse away dust and excess surface starch."),
+        ]
+    elif "instant pot southern chicken & flat dumplings" in haystack or "instant pot southern chicken and flat dumplings" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four-cup thin-broth base, eight-minute cycle and staged release are calibrated for this common family capacity."),
+            ("wood rolling pin 18 inch", "Wooden rolling pin", "A smooth pin rolls the rested dumpling dough evenly to the thin one-eighth-inch sheet needed for flat strips."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several thigh pieces for 165Â°F and the finished creamy soup for a safe 165Â°F reheat."),
+        ]
+    elif "instant pot ecuadorian-style locro de queso" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The four-cup thin-broth base, potato load and controlled release are written for this capacity."),
+            ("stainless steel potato masher", "Stainless-steel potato masher", "Coarse mashing thickens the locro naturally while leaving enough visible potato pieces for texture."),
+            ("stainless steel ladle soup", "Stainless-steel soup ladle", "A deep ladle portions the thick potato soup cleanly before avocado, cheese and cilantro are added."),
+        ]
+    elif "polish potato & cheese pierogi" in haystack or "polish potato and cheese pierogi" in haystack:
+        products = [
+            ("wood rolling pin 18 inch", "Wooden rolling pin", "A long smooth pin rolls rested dough into an even thin sheet for clean three-inch rounds."),
+            ("3 inch round cookie cutter", "3-inch round cutter", "A consistent cutter makes wrappers that take the stated tablespoon of filling and seal at the same rate."),
+            ("stainless steel spider strainer", "Spider strainer", "A broad wire basket lifts delicate boiled pierogi without piercing their sealed edges."),
+        ]
+    elif "sichuan-style mapo tofu" in haystack:
+        products = [
+            ("14 inch carbon steel wok flat bottom", "Flat-bottom carbon-steel wok", "A broad responsive pan browns pork, blooms chile-bean paste and simmers tofu with minimal stirring."),
+            ("silicone wok spatula wide", "Wide silicone wok spatula", "A broad edge folds the sauce around soft tofu cubes with less breakage than a narrow spoon."),
+            ("stainless steel rice cooker family", "Family-size rice cooker", "It cooks and holds jasmine rice while the quick tofu-and-pork sauce comes together on the stove."),
+        ]
+    elif "mexican-style tres leches cake" in haystack:
+        products = [
+            ("9 by 13 metal baking pan", "9-by-13-inch metal baking pan", "Straight sides support the foam sponge and contain the full three-milk soak during its long chill."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "A 200 to 205Â°F center confirms the egg-rich sponge is set and ready to absorb milk."),
+            ("electric hand mixer stainless beaters", "Electric hand mixer", "Clean beaters build stable egg-white foam for the sponge and medium peaks for the whipped topping."),
+        ]
+    elif "instant pot ethiopian doro wat" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The 1 1/2-cup thin-broth base, ten-minute cycle and staged release are written for this capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several chicken pieces beside the bone for 165Â°F before reducing the onion-rich sauce."),
+            ("silicone tipped kitchen tongs", "Silicone-tipped tongs", "A secure gentle grip moves hot chicken pieces and hard-cooked eggs without tearing them."),
+        ]
+    elif "instant pot portuguese caldo verde" in haystack:
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The five-cup thin-broth base, potato load and staged release are calibrated for this family-size pot."),
+            ("stainless steel potato masher", "Stainless-steel potato masher", "Coarse mashing thickens the soup while preserving the rustic potato pieces that distinguish caldo verde."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the returned fully cooked chouriÃ§o reaches 165Â°F during the kale-finishing simmer."),
+        ]
+    elif "hanoi-style bÃºn cháº£" in haystack or "hanoi-style bun cha" in haystack:
+        products = [
+            ("12 inch cast iron grill pan", "12-inch grill pan", "A broad ridged surface gives the thin pork patties browned edges without crowding them."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Side-entry readings confirm patties reach 160Â°F and pork slices reach 145Â°F before their three-minute rest."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Fine mesh contains thin rice vermicelli while cool water removes excess starch."),
+        ]
+    elif "sicilian caponata" in haystack:
+        products = [
+            ("12 inch enameled cast iron skillet", "12-inch enameled skillet", "A broad nonreactive surface browns eggplant in batches and safely handles the vinegar finish."),
+            ("stainless steel slotted spoon", "Stainless-steel slotted spoon", "It lifts browned eggplant cleanly while leaving measured oil in the skillet for the aromatics."),
+            ("glass food storage containers", "Glass storage containers", "Nonreactive glass suits the acidic make-ahead relish and makes chilled leftovers easy to inspect."),
+        ]
+    elif "canadian nanaimo bars" in haystack:
+        products = [
+            ("8 inch square metal baking pan", "8-inch square metal pan", "Straight metal sides form even layers and chill faster for clean sixteen-square portions."),
+            ("small offset spatula", "Small offset spatula", "A slim blade levels the custard buttercream and chocolate cap into distinct layers."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "The cocoa-egg base has an explicit 160Â°F target before the crumb ingredients are added."),
+        ]
+    elif recipe.get("collection") == "instant-pot":
+        products = [
+            ("6 quart electric pressure cooker", "6-quart electric pressure cooker", "The recipe timing, minimum liquid, and family-size yield are written around this common capacity."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken, pork, meatballs, and meatloaf safely instead of relying only on programmed pressure time."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Dry, secure grip matters when lifting a hot pot-in-pot bowl, trivet, or foil sling."),
+        ]
+    elif "chilean-style pastel de choclo" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "High sides contain the juicy beef filling beneath the thick basil-corn topping as it bubbles."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken at 165Â°F, ground beef at 160Â°F and the assembled casserole at 165Â°F."),
+            ("heavy gauge aluminum half sheet pan", "Rimmed half sheet pan", "Set the filled casserole on a rimmed pan to catch any bubbling juices before they reach the oven floor."),
+        ]
+    elif "gujarati khaman dhokla" in haystack:
+        products = [
+            ("stainless steel steamer pot rack", "Steamer pot with rack", "An elevated rack keeps the cake pan above simmering water while steam circulates around it."),
+            ("8 inch round cake pan", "8-inch round cake pan", "This diameter gives the chickpea batter the intended depth and fits inside many covered steamers."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Dry secure mitts protect your hands when lifting the hot pan and rack out of the steamer."),
+        ]
+    elif "indonesian-style gado-gado" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad hot surface browns pressed tofu in one layer instead of steaming crowded cubes."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Drain cabbage, sprouts and beans thoroughly so residual blanching water cannot thin the peanut sauce."),
+            ("stainless steel saucepan 2 quart", "2-quart saucepan", "Gentle, even heat makes it easier to whisk the peanut-coconut sauce smooth without boiling or splitting it."),
+        ]
+    elif "ecuadorian-style shrimp ceviche" in haystack:
+        products = [
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several shrimp through the thickest part for 145Â°F before chilling them in the citrus broth."),
+            ("stainless steel mixing bowls nesting", "Nonreactive mixing bowls", "Stainless steel safely holds the acidic lime-tomato marinade without absorbing flavors or reacting with citrus."),
+            ("stainless steel citrus juicer press", "Citrus press", "Fresh lime and orange juice form the bright brothy base, and a press speeds the measured quantity."),
+        ]
+    elif "salvadoran-style bean & cheese pupusas" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface cooks several thick pupusas evenly and develops browned griddle patches."),
+            ("countertop blender glass jar", "Countertop blender", "It turns tomato, onion and garlic into the smooth salsa roja served beside the filled masa cakes."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate nonreactive bowls keep vinegary curtido, masa dough and bean-cheese filling organized."),
+        ]
+    elif "austrian wiener schnitzel" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A wide heavy pan holds a stable half-inch layer of frying fat so each thin cutlet can float and ripple."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check each thin veal cutlet from its edge for 145Â°F followed by the required three-minute rest."),
+            ("wire cooling rack half sheet", "Wire rack and sheet pan", "Draining above a rimmed pan preserves the airy crust instead of trapping steam beneath the schnitzel."),
+        ]
+    elif "egyptian-style basbousa" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch metal baking pan", "The broad rectangular pan gives the semolina cake enough surface area for golden edges and sixteen syrup-ready squares."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing coarse semolina keeps the butter, yogurt and syrup ratio repeatable across brands."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "A center reading near 205Â°F confirms the yogurt-semolina crumb is set before syrup is poured."),
+        ]
+    elif "afghan-style potato & scallion bolani" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface crisps each thin filled flatbread without crowding or hot spots."),
+            ("wood rolling pin 18 inch", "Wooden rolling pin", "A long smooth pin rolls each rested dough ball into the thin ten-inch circle needed for a crisp wrapper."),
+            ("stainless steel potato masher", "Stainless-steel potato masher", "Coarse mashing leaves enough texture in the dry potato-scallion filling without large pieces that tear dough."),
+        ]
+    elif "nagasaki-style honey castella" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighed sugar and bread flour keep the foam-leavened sponge repeatable when small errors matter."),
+            ("stand mixer balloon whisk", "Stand mixer with whisk", "Steady high-speed whipping builds the whole-egg ribbon before a low-speed finish refines its bubbles."),
+            ("8.5 x 4.5 metal loaf pan", "8Â½-by-4Â½-inch metal loaf pan", "Straight metal sides support the tall crumb and conduct enough heat for castella's dark caramelized cap."),
+        ]
+    elif "malaysian-style char kway teow" in haystack:
+        products = [
+            ("14 inch carbon steel wok flat bottom", "14-inch flat-bottom wok", "A broad, fast-heating surface gives noodles and proteins room to sear instead of steaming."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify chicken at 165Â°F and prawns at 145Â°F during their separate, brief cooking stages."),
+            ("wide stainless steel wok spatula", "Wide wok spatula", "A broad edge lifts and folds fragile flat noodles without chopping them into short pieces."),
+        ]
+    elif "colombian-style ajiaco" in haystack:
+        products = [
+            ("heavy bottom stockpot 8 quart", "Heavy 8-quart stockpot", "The wide, steady pot gives ten cups of broth, three potato textures and corn room to simmer without boiling over."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several thighs away from bone for 165Â°F before shredding them into the soup."),
+            ("stainless steel fine mesh skimmer", "Fine-mesh skimmer", "A shallow fine mesh removes foam cleanly while leaving the poaching aromatics and chicken in place."),
+        ]
+    elif "filipino-style bibingkang galapong" in haystack:
+        products = [
+            ("jumbo muffin pan 6 cup nonstick", "Jumbo muffin pan", "Deep individual wells support folded banana-leaf liners and reproduce the small wrapped cakes in the photograph."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "A center reading confirms the egg-rich batter is safely set without overbaking the rice-flour crumb."),
+            ("stainless steel kitchen tongs long", "Long stainless-steel tongs", "A secure reach makes briefly softening banana leaves over a skillet or low flame safer and more controlled."),
+        ]
+    elif "nigerian-style party jollof rice" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed pan gives six chicken thighs room to brown while containing their seasoned juices."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check every chicken thigh away from bone for at least 165Â°F instead of relying on color alone."),
+            ("heavy bottom dutch oven 5 quart", "Heavy Dutch oven", "A tight lid and steady low heat help the concentrated pepper base steam parboiled rice evenly."),
+        ]
+    elif "venezuelan cachapas" in haystack:
+        products = [
+            ("electric nonstick griddle large", "Large nonstick griddle", "A broad moderate-temperature surface cooks two tender corn cakes at once without crowding."),
+            ("wide flexible silicone spatula", "Wide flexible spatula", "Full support under each soft cake makes the delicate first turn cleaner and less likely to tear."),
+            ("countertop blender glass jar", "Countertop blender", "Brief pulses release enough corn starch to bind the batter while leaving visible kernels for texture."),
+        ]
+    elif "romanian papanaÈ™i" in haystack:
+        products = [
+            ("5 quart heavy dutch oven", "Heavy 5-quart Dutch oven", "Deep sides and steady heat leave safe headroom while keeping two cheese doughnuts submerged without crowding."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "Track oil near 350Â°F and confirm a test doughnut reaches about 190Â°F through its cheese center."),
+            ("wire cooling rack half sheet", "Wire cooling rack", "Draining above a sheet pan preserves crisp edges better than letting the hot doughnuts sit in absorbed oil."),
+        ]
+    elif "mumbai-style pav bhaji" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface reduces the vegetable mash and then griddles the buttered rolls in uncrowded batches."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp controllable blade makes the onion, pepper, cauliflower and garnish prep faster and more even."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep cooked vegetables, chopped garnishes and split rolls organized before the final mash and toast."),
+        ]
+    elif "tunisian-style brik" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A wide heavy skillet holds a shallow, temperature-stable layer of oil for crisping one filled pastry at a time."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "Track frying oil near 350Â°F and verify 160Â°F when a fully set egg center is needed."),
+            ("silicone fish spatula turner", "Thin flexible spatula", "A broad flexible turner supports the delicate filled wrapper when it enters, flips in and leaves the hot oil."),
+        ]
+    elif "thai mango sticky rice" in haystack:
+        products = [
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "Fine mesh contains small glutinous-rice grains through repeated rinsing and the long soak."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "A quick check around 170Â°F prevents the sweet coconut syrup from boiling and separating."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp controllable blade peels and slices ripe mangoes cleanly without crushing their soft flesh."),
+        ]
+    elif "mexican chiles en nogada" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed surface contains poblano juices while the skins blister evenly under the broiler."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the ground pork at 160Â°F and the reheated stuffed chiles at 165Â°F instead of judging only by color."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep the walnut soak, roasted poblanos and cooling picadillo organized without absorbing odors."),
+        ]
+    elif "burmese-style tea leaf salad" in haystack:
+        products = [
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A wide nonreactive bowl gives cabbage, fermented tea dressing and crunchy toppings room to combine without bruising."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp blade produces the very fine cabbage, onion and garlic slices that make the salad easy to toss and eat."),
+            ("stainless steel mesh colander strainer", "Fine-mesh strainer", "Fine mesh catches the garlic chips cleanly while preserving the aromatic oil used in the dressing."),
+        ]
+    elif "dutch stroopwafels" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Equal dough portions press to a consistent thickness, cook evenly and match the recipe's yield."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "A 225 to 230Â°F syrup target helps the cinnamon caramel stay chewy instead of becoming brittle."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Sturdy bowls handle the yeasted dough, proofing and small-batch ingredient prep without retaining aromas."),
+        ]
+    elif "senegalese-style chicken yassa" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed pan gives bone-in chicken room to brown while containing its lemon-mustard juices."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check every thigh and drumstick away from bone for at least 165Â°F before arranging the family platter."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A nonreactive bowl safely holds the citrus marinade and sliced onions without absorbing flavors."),
+        ]
+    elif "turkish imam bayildi" in haystack or "turkish iÌ‡mam bayÄ±ldÄ±" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "A snug, deep-sided dish holds four filled eggplants upright and contains their olive-oil tomato braising juices."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp controllable blade stripes and slits the eggplants while handling onions, tomatoes and herbs cleanly."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "It frees the stovetop and keeps the parsley rice warm while the filled eggplants finish braising and rest."),
+        ]
+    elif "brazilian brigadeiros" in haystack:
+        products = [
+            ("heavy bottom 2 quart saucepan", "Heavy 2-quart saucepan", "Even heat and visible corners make it easier to scrape condensed milk continuously and spot the clean-path stage."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Portioning about 18 grams per candy produces 24 even brigadeiros with consistent chilling and serving estimates."),
+            ("digital probe meat thermometer", "Digital cooking thermometer", "The 220 to 225Â°F reference gives a second doneness check while the visual clean-path cue remains primary."),
+        ]
+    elif "novi pazar-style Ä‡evapi" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad, heavy surface holds steady high heat for a browned crust when outdoor grilling is not practical."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check the compact ground-meat centers for 160Â°F instead of judging doneness only from the browned exterior."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "Frequent, secure turns brown all sides without piercing or breaking the short sausages."),
+        ]
+    elif "georgian beet pkhali" in haystack:
+        products = [
+            ("food processor 8 cup", "8-cup food processor", "Short pulses grind the walnuts and beets to a shapeable texture without turning the mixture oily or smooth."),
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "Even retained heat gives the mchadi corn cakes a crisp golden crust while their centers set."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp blade handles roasted beets, herbs and garnish cleanly while preserving the composed presentation."),
+        ]
+    elif "norwegian kvÃ¦fjordkake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "The weighed sponge, sugar and almonds make the delicate cake-and-meringue layers repeatable."),
+            ("stand mixer balloon whisk", "Stand mixer with whisk", "Steady whipping builds glossy meringue and medium-peak cream without warming either mixture."),
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "The 13-by-18-inch surface keeps the sponge thin enough to bake through beneath its almond meringue."),
+        ]
+    elif "south african-style lamb bobotie" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "The broad dish keeps the lamb layer even so the egg custard sets into a distinct golden cap."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the ground lamb and the finished custard reach 160Â°F without guessing from color alone."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "It frees the stovetop and keeps the turmeric-raisin rice warm while the bobotie rests after baking."),
+        ]
+    elif "jamaican ackee & saltfish" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide cooking surface softens the peppers and lets saltfish heat evenly before delicate ackee is folded in."),
+            ("stainless steel mesh colander strainer", "Fine-mesh colander", "Drain tender canned ackee without losing small pieces, and rinse the slaw vegetables cleanly."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp controllable blade makes even pepper, cabbage, scallion and tomato cuts for the composed platter."),
+        ]
+    elif "classic passionfruit & berry pavlova" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Exact egg-white and sugar weights give the meringue a repeatable structure and balanced sweetness."),
+            ("stand mixer balloon whisk", "Stand mixer with whisk", "Steady medium-high whipping builds a glossy foam while the sugar is added gradually over several minutes."),
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A flat, rigid pan supports the nine-inch meringue through its long low bake and gentle oven cooling."),
+        ]
+    elif "palestinian-style musakhan" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A sturdy rimmed pan gives six chicken pieces room to brown while containing the sumac-spiced juices used to finish the flatbread."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check every thigh and drumstick away from bone for at least 165Â°F; dark meat is most tender around 175 to 185Â°F."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach moves hot chicken between the roasting pan and flatbread platter without piercing the crisp skin."),
+        ]
+    elif "flaky chinese scallion pancakes" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface browns each eight-inch pancake evenly while leaving enough room to turn it cleanly."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "A heat-safe bowl handles the boiling-water dough, with enough room to stir safely as the hot water meets the flour."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and water ratio consistent so the dough rolls thin without becoming sticky or stiff."),
+        ]
+    elif "classic canadian butter tarts" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Precise pastry and filling weights keep twelve shells flaky and prevent the fluid brown-sugar custard from overflowing."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "A broad bowl gives the cold pastry mixture space for cutting in butter and later holds the gently whisked maple filling."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when moving a hot metal muffin pan on its supporting sheet pan at 400Â°F."),
+        ]
+    elif "indonesian beef rendang" in haystack:
+        products = [
+            ("enameled cooking pot with lid", "Enameled cooking pot", "A broad heavy pot holds a gentle uncovered braise, then gives the coconut sauce room to reduce and fry without spilling."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose blade handles the chuck, shallots, chiles, ginger, galangal and garnishes with consistent, controllable cuts."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the chuck has reached the 195 to 205Â°F range where collagen-rich cubes become fork-tender."),
+        ]
+    elif "crispy sicilian arancini" in haystack:
+        products = [
+            ("enameled cooking pot with lid", "Enameled cooking pot", "High sides contain three inches of frying oil and help its temperature recover steadily between batches."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Track the oil near 350Â°F and verify a test arancino reaches 165Â°F at its molten center."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "Separate bowls keep the flour, egg wash and panko breading station orderly and complete."),
+        ]
+    elif "austrian kaiserschmarrn" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady skillet browns one tall pancake evenly and provides room to tear and caramelize the pieces."),
+            ("roomy ceramic mixing bowl", "Roomy mixing bowl", "Separate clean bowls make it easier to whisk the yolk batter and whip stable egg-white peaks."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and fruit balanced so the pancake stays fluffy and the compote remains spoonable."),
+        ]
+    elif "classic new england clam chowder" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot renders the bacon evenly and keeps the flour-thickened dairy chowder at a gentle, steady heat."),
+            ("immersion blender stainless steel", "Stainless immersion blender", "A few short pulses can thicken the chowder by breaking down part of the cooked potatoes without purÃ©eing every clam and vegetable."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose blade makes uniform potato, onion, celery and bacon pieces that cook at the same rate."),
+        ]
+    elif "peruvian lomo saltado" in haystack:
+        products = [
+            ("cast iron skillet", "12-inch cast-iron skillet", "A wide, thoroughly heated skillet sears the sirloin in uncrowded batches and chars the onion and tomato without steaming them."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "A rice cooker handles the fluffy white rice while the fries roast and the fast beef stir-fry comes together."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach makes it easy to turn the steak strips quickly and toss the vegetables through the glossy sauce."),
+        ]
+    elif "irish brown soda bread" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the whole-wheat flour, bran and buttermilk balanced so the quick loaf is hearty without becoming dry."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate roomy bowls keep the dry mixture and buttermilk mixture organized before the brief final fold."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when reducing the oven temperature and removing a hot metal loaf pan and sheet pan."),
+        ]
+    elif "cottage cheese frittata" in haystack:
+        products = [
+            ("cast iron skillet", "Oven-safe cast-iron skillet", "A well-seasoned oven-safe skillet softens the vegetables, sets the egg edges and moves directly into a 375Â°F oven."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check the center for 160Â°F so the eggs are safely set while the cottage-cheese frittata remains tender."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A roomy nonreactive bowl makes it easy to whisk ten eggs and cottage cheese without splashing."),
+        ]
+    elif "moroccan-style vegetarian harira" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot gives lentils room to simmer and keeps the flour-thickened tomato broth at steady heat."),
+            ("stainless steel mesh colander strainer", "Stainless mesh colander", "Fine mesh keeps small lentils contained while you rinse away dust and inspect them before cooking."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose blade makes the fine onion, celery and herb cuts that melt evenly into the soup."),
+        ]
+    elif "nepali-style spinach vegetable momos" in haystack:
+        products = [
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep the green wrapper dough, cooled vegetable filling and tomato-sesame achar organized."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp blade makes the finely shredded cabbage and tiny mushroom pieces that fit without puncturing thin wrappers."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable roomy surface supports vegetable prep, dough portioning and pleating twenty-four dumplings."),
+        ]
+    elif "hungarian chicken paprikash" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide heavy pot browns the chicken in batches and holds a gentle, even braise without crowding the bone-in pieces."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check the thickest chicken away from bone and confirm every piece reaches at least 165Â°F before it returns to the finished sauce."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "A secure reach makes it easier to turn browned chicken and move cooked pieces without piercing the meat or splashing hot sauce."),
+        ]
+    elif "sicilian pasta alla norma" in haystack:
+        products = [
+            ("stainless steel mesh colander strainer", "Stainless mesh colander", "A roomy mesh colander drains the rigatoni quickly while you preserve the starchy cooking water that gives the sauce its cling."),
+            ("chef knife kitchen", "Chefâ€™s knife", "A sharp all-purpose blade makes even eggplant half-moons and thin garlic slices that brown and soften at the same rate."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface keeps the broad eggplant slices organized and gives you space to chop the roasted pieces safely."),
+        ]
+    elif "honey-pistachio baklava" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Straight sides support thirty delicate phyllo layers, while a clear glass dish makes it easy to monitor browning at the edges."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate pistachio, butter and syrup weights keep the filling generous without making the finished diamonds greasy or heavy."),
+            ("heat resistant oven mitts", "Heat-resistant oven mitts", "Secure hand protection is essential when moving a hot glass dish and pouring syrup around a freshly baked 350Â°F pastry."),
+        ]
+    elif "british beer-battered fish & chips" in haystack:
+        products = [
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check that the thickest fish reaches 145Â°F and monitor the frying oil between batches so the coating stays crisp instead of greasy."),
+            ("stainless steel bowl colander set", "Stainless bowl-and-colander set", "The bowl mixes cold beer batter while the fitted colander rinses potatoes and helps drain them thoroughly before frying."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface makes it easier to cut the potatoes into even chips; sanitize it before using it for cooked food."),
+        ]
+    elif "weeknight beef bibimbap" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface cooks the vegetables in quick separate batches, browns the ground beef and fries four eggs without requiring multiple pans."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "It keeps the short-grain rice hot and ready while the individually seasoned beef, vegetables and eggs move through the skillet."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several pieces of ground beef for 160Â°F and verify fully cooked eggs reach 160Â°F when pasteurized eggs are not used for soft yolks."),
+        ]
+    elif "korean beef japchae" in haystack:
+        products = [
+            ("stainless steel mesh colander strainer", "Stainless mesh colander", "A roomy mesh colander drains the slippery sweet-potato noodles quickly so they stay springy and do not dilute the sesame dressing."),
+            ("long stainless steel kitchen tongs", "Long stainless-steel tongs", "Tongs toss the noodles, beef and separately cooked vegetables evenly without chopping the long glass noodles."),
+            ("chef knife kitchen", "Chefâ€™s knife", "A sharp all-purpose blade makes uniform carrot, onion, mushroom and beef strips that cook quickly and evenly."),
+        ]
+    elif "french cherry clafoutis" in haystack:
+        products = [
+            ("oven safe baking dish", "Oven-safe baking dish", "A shallow three-quart dish gives the custard room to brown at the rim while keeping the cherries visible across the surface."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and cherries precise so the batter sets softly instead of turning cakey or watery."),
+            ("heat resistant oven mitts", "Heat-resistant oven mitts", "Secure hand protection is essential when moving a heavy ceramic baking dish and its sheet pan into and out of a 350Â°F oven."),
+        ]
+    elif "jamaican-style whole jerk chicken" in haystack:
+        products = [
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "A secure grip lets you rotate and brown the whole bird while keeping your hands clear of direct heat and flare-ups."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check several spots and confirm the breast reaches 165Â°F and the inner thigh at least 165Â°F without touching bone."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "A nonreactive bowl contains the citrus-and-chile marinade and keeps raw poultry separate from clean carving and serving tools."),
+        ]
+    elif "egyptian koshari" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide, heavy pot holds a steady 350Â°F for crisp onion batches and provides room to combine the finished pantry components."),
+            ("stainless steel pasta pot colander", "Pasta pot with colander", "A fitted colander makes draining the macaroni and parcooked lentils fast and thorough, which protects the layered dish from excess water."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose blade turns three onions into even thin slices that fry at the same rate instead of burning at the edges."),
+        ]
+    elif "classic black forest cake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Equal gram weights produce level chocolate layers, while precise flour and cocoa measurements keep the sponge moist enough for cherry syrup."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate heat-safe bowls keep the cocoa batter, cold stabilized cream and thick cherry filling organized for clean assembly."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when rotating and removing three hot metal cake pans from a 350Â°F oven."),
+        ]
+    elif "polish goÅ‚Ä…bki" in haystack or "polish golabki" in haystack:
+        products = [
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Close-fitting rows keep the cabbage rolls seam-side down while the covered dish traps the steam that tenderizes every leaf."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp blade cores the cabbage, shaves the thick leaf ribs and makes the fine, even onion pieces needed for the filling and sauce."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check a roll in the middle of the dish and confirm the ground-beef filling reaches 160Â°F without guessing from color."),
+        ]
+    elif "vietnamese bÃ¡nh xÃ¨o" in haystack or "vietnamese banh xeo" in haystack:
+        products = [
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Tongs move the thin pork and shrimp safely between the hot pan and clean plates without piercing or tearing either filling."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowls", "Separate bowls keep the rested rice batter, raw seafood and clean cooked filling organized without cross-contamination."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the pork reaches 145Â°F and the shrimp 145Â°F before either filling goes into the fast-cooking crÃªpes."),
+        ]
+    elif "bakery-style lemon bars" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour-to-butter ratio and thick lemon filling consistent for clean, sturdy layers."),
+            ("microplane zester grater stainless", "Fine citrus zester", "A fine zester removes the fragrant yellow peel while leaving the bitter white pith on the lemon."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when pouring filling into a hot metal pan and moving it from a 350Â°F oven."),
+        ]
+    elif "san francisco-style cioppino" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot gives the tomato broth room to simmer and the shellfish space to open without crowding."),
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Use a secure grip to turn crab clusters, transfer opened shellfish and keep hands clear of the steaming broth."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest fish and shrimp reach 145Â°F before the seafood becomes dry or rubbery."),
+        ]
+    elif "provenÃ§al ratatouille" in haystack or "provencal ratatouille" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot reduces the tomatoes evenly and holds all the vegetables without crushing their distinct pieces."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose blade makes consistent eggplant, zucchini, pepper and onion pieces that finish at the same rate."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface keeps four kinds of chopped vegetables organized and makes batch prep safer."),
+        ]
+    elif "molten dark chocolate cakes" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the chocolate, butter and small flour quantity precise so the cakes set outside while staying molten inside."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "Separate bowls simplify melting chocolate, whipping the batter and tempering the vanilla custard without cross-contamination."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when removing four small, very hot ramekins from a 425Â°F oven and turning out the cakes."),
+        ]
+    elif "taiwanese-style red-braised beef noodle soup" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot browns the beef evenly and holds a steady low simmer while the chuck becomes fork-tender."),
+            ("stainless steel pasta pot colander", "Pasta pot with colander", "Cooking and draining the wheat noodles separately keeps the red-braised broth clear and prevents leftover noodles from swelling."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the beef is safely above 145Â°F and near the 195 to 205Â°F range where collagen-rich chuck turns tender."),
+        ]
+    elif "greek spanakorizo" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad, heavy pot gives the spinach room to wilt and keeps the rice at a gentle, even simmer."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose knife makes quick work of the onion, scallions, spinach and generous handful of fresh dill."),
+            ("microplane zester grater stainless", "Fine citrus zester", "A fine zester captures fragrant lemon peel without the bitter white pith before the juice brightens the finished rice."),
+        ]
+    elif "pastÃ©is de nata" in haystack or "pasteis de nata" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour slurry, sugar syrup and twelve portions of puff pastry consistent."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "Heat-safe bowls make it easier to temper and strain the warm custard without spills or scrambled yolk."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when rotating and removing a metal muffin pan from a fully preheated 500Â°F oven."),
+        ]
+    elif "green chicken pozole" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot holds the chicken, hominy and green broth comfortably while maintaining a gentle, even simmer."),
+            ("immersion blender stainless steel", "Immersion blender", "Blend the roasted tomatillos, chiles, herbs and pepitas into a cohesive green sauce with less transfer and cleanup."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest chicken pieces reach 165Â°F before shredding without cutting every piece open."),
+        ]
+    elif "adjarian khachapuri" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A sturdy inverted pan preheated to 500Â°F gives both cheese-filled bread boats a strongly browned, crisp underside."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the supple dough and two equal cheese fillings consistent without adding excess flour."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand and forearm protection matters when working around a preheated metal pan at 500Â°F."),
+        ]
+    elif "lemon posset" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate cream, sugar and lemon measurements protect the acid-to-dairy balance that lets posset set without gelatin."),
+            ("microplane zester grater stainless", "Fine citrus zester", "A fine zester removes fragrant yellow peel while leaving the bitter white pith behind."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "A stable bowl makes straining and portioning the hot lemon cream into six ramekins cleaner and safer."),
+        ]
+    elif "shrimp Ã©touffÃ©e" in haystack or "shrimp etouffee" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot cooks the roux and Cajun trinity evenly, then holds the shrimp in a shallow layer for gentle, even poaching."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "A rice cooker can handle the long-grain and wild-rice pilaf hands-off while the Ã©touffÃ©e gravy develops."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest shrimp reach 145Â°F, then stop cooking before their texture turns firm and rubbery."),
+        ]
+    elif "okonomiyaki" in haystack and "pork" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad, heat-steady surface builds crisp golden bases on two cabbage pancakes without crowding."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A broad bowl gives five packed cups of cabbage room to fold into the light batter without crushing the shreds."),
+            ("stainless steel mandoline slicer", "Mandoline slicer", "Uniform fine cabbage shreds steam tender on schedule; always use the slicer's included hand guard near the blade."),
+        ]
+    elif "panna cotta" in haystack and "vanilla" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Precise dairy, sugar and gelatin measurements protect the delicate balance between a clean unmold and a tender wobble."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "A quick temperature check makes it easy to stop heating the vanilla dairy at 170 to 180Â°F, safely below a boil."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "A medium bowl gives the gelatin room to bloom evenly before the hot vanilla cream is whisked in."),
+        ]
+    elif "beef stew" in haystack and "mushroom" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot holds steady heat through the long 325Â°F braise and gives two pounds of beef room to brown in batches."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp all-purpose blade makes consistent beef, potato, carrot, celery and mushroom pieces that become tender at the same rate."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Check that the chuck is safely above 145Â°F and near the 195 to 205Â°F range where collagen-rich cubes become fork-tender."),
+        ]
+    elif "halloumi" in haystack and "crispy chickpea" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "Direct contact with a rigid preheated surface dries and browns two cans of chickpeas without crowding."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A broad bowl leaves enough room to dress delicate greens and tomatoes without crushing them beneath the warm toppings."),
+            ("stainless steel kitchen tongs silicone tip", "Silicone-tip kitchen tongs", "Tongs turn the halloumi cubes neatly so multiple sides brown before the cheese firms."),
+        ]
+    elif "chia pudding" in haystack and "almond butter" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing chia seeds and toppings keeps four meal-prep portions equally creamy and satisfying."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A medium bowl gives the chia mixture enough surface area for the essential second whisk that prevents clumps."),
+            ("glass meal prep containers locking lids", "Lidded meal-prep containers", "Individual covered containers keep the pudding safely chilled and make the four breakfasts genuinely grab-and-go."),
+        ]
+    elif "butter chicken" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "A rigid rimmed pan carries the yogurt-marinated chicken safely beneath the broiler without warping or spilling hot drips."),
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A broad heavy pot softens the onion evenly and keeps the tomato-cream sauce at a gentle, steady simmer."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the thickest chicken pieces reach 165Â°F without cutting through the browned yogurt coating."),
+        ]
+    elif "spinach" in haystack and "feta lattice pie" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate spinach, feta and pastry weights keep the filling substantial without overwhelming the crisp lattice crust."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "A roomy bowl makes it easier to distribute feta, herbs and eggs through four packed cups of dry spinach without crushing the cheese."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection helps when rotating and lifting the hot, deep pan without damaging its crisp lattice top."),
+        ]
+    elif "sticky toffee pudding" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing the sticky dates and flour keeps eight individual puddings moist and consistent."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "Separate bowls keep the date soak and dry ingredients organized before the quick batter is folded together."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip matters when moving a sheet pan filled with eight hot ramekins and turning out the warm puddings."),
+        ]
+    elif "salmon piccata" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad, heat-steady surface browns four salmon portions cleanly and leaves room to emulsify the lemon-caper sauce."),
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "Drain linguine quickly while reserving the starchy water needed to bind the pan sauce."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the thickest part of each salmon fillet reaches 145Â°F without cutting open its golden surface."),
+        ]
+    elif "sweet potato" in haystack and "mushroom" in haystack and "fajita" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pans", "Two preheated rimmed pans give sweet potatoes and mushrooms enough hot surface to brown instead of steam."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp, controllable blade makes even sweet-potato sticks, mushroom slices and pepper strips that roast at the same rate."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage matter when loading and rotating sheet pans preheated to 450Â°F."),
+        ]
+    elif "pumpkin mini muffins" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep the flour and sugar accurate for a tender mini-muffin crumb."),
+            ("stainless steel mixing bowls nesting", "Stainless mixing bowl set", "Separate bowls keep the dry mix, pumpkin batter, melted butter and cinnamon sugar organized."),
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "A small scoop portions 24 wells evenly so the mini muffins bake and brown together."),
+        ]
+    elif "chicken pho" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy pot holds the chicken and aromatics comfortably while maintaining the gentle simmer needed for clear broth."),
+            ("stainless steel pasta pot colander", "Stainless-steel colander", "Drain rice noodles thoroughly and keep their excess starch out of the finished broth."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp blade handles ginger, onions, herbs and chile cleanly without bruising the garnishes."),
+        ]
+    elif "french onion soup" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A wide heavy pot gives three pounds of onions room to caramelize evenly and holds the finished broth."),
+            ("microplane zester grater stainless", "Fine cheese grater", "Finely grated GruyÃ¨re and Parmesan melt into an even bubbling cap instead of heavy clumps."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection is essential when moving a sheet pan loaded with extremely hot soup crocks."),
+        ]
+    elif "coconut-lemon meringue pie" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Accurate crumb and coconut weights keep the crust cohesive without becoming greasy."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "A clean heat-safe bowl is necessary for warming and whipping the Swiss meringue over simmering water."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip helps when handling the hot crust, toasted coconut and saucepan during assembly."),
+        ]
+    elif "margherita pizza" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pan", "Preheating a sturdy inverted pan gives the pizza a broad, intensely hot surface for a crisper underside."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure hand protection matters when transferring the pizza around a sheet pan held at 500Â°F."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing the dough and cheese keeps the topping ratio balanced and the center from becoming overloaded."),
+        ]
+    elif "kimchi fried rice" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A broad heat-steady surface lets cold rice fry in a thin layer instead of steaming into clumps."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "Cook and cool the rice ahead, then use the cooker again when doubling the batch for meal prep."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable board contains kimchi brine while leaving room to separate scallion whites from their green garnish."),
+        ]
+    elif "pear frangipane tart" in haystack:
+        products = [
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip helps when lifting the hot tart pan without pressing against its removable base."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Gram weights keep both flours and the frangipane ratio precise for a crisp shell and tender filling."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep the frangipane, sliced pears and warm glaze organized without crowding the counter."),
+        ]
+    elif "thai basil beef" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch cast-iron skillet", "A wide, heat-steady skillet browns the beef quickly and leaves room to fry crisp-edged eggs."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "Hands-off jasmine rice can cook while the sauce is mixed and the basil beef comes together."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Confirm the ground beef reaches 160Â°F without cooking away all of its moisture."),
+        ]
+    elif "eggplant parmesan" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy half-sheet pans", "Two broad rimmed pans let the breaded eggplant bake in one uncrowded layer for a crisper crust."),
+            ("9 by 13 baking dish casserole", "9-by-13-inch baking dish", "Straight sides hold the layered eggplant, tomato sauce, and cheese neatly for clean square portions."),
+            ("microplane zester grater stainless", "Fine cheese grater", "Finely grated Parmesan distributes evenly through the breading and over the finished casserole."),
+        ]
+    elif "orange-almond cake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weights keep the almond-flour and orange-purÃ©e ratios precise in this flourless batter."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls make it easy to whisk the dry ingredients, eggs, and citrus syrup without crowding."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip helps when moving the hot springform pan and its supporting sheet pan."),
+        ]
+    elif "pork adobo" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot browns the pork evenly and holds the gentle simmer needed for tender shoulder and belly."),
+            ("rice cooker family stainless inner pot", "Family-size rice cooker", "Reliable steamed rice can finish hands-off while the adobo braises and its sauce reduces."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn browned pork and glaze the braised pieces without crushing the tender meat."),
+        ]
+    elif "herb falafel" in haystack:
+        products = [
+            ("food processor 12 cup", "12-cup food processor", "Short pulses create the coarse chickpea-and-herb texture that holds together without becoming dense."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep the soaked chickpeas, falafel mixture, and lemon-tahini sauce organized."),
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "A long, secure grip helps manage pita and the draining rack while keeping hands clear of hot oil."),
+        ]
+    elif "cinnamon rolls" in haystack:
+        products = [
+            ("stand mixer tilt head", "Stand mixer", "A mixer fitted with its dough hook provides steady kneading while the butter is added gradually."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the high-hydration dough soft instead of accidentally flour-heavy."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "A secure grip matters when rotating and lifting the hot 9-by-13-inch pan."),
+        ]
+    elif "lamb tagine" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "6-quart Dutch oven", "A heavy, tight-lidded pot maintains the gentle, even simmer that turns lamb shoulder fork-tender."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check that the largest lamb pieces reach the collagen-melting braising range without repeatedly cutting them."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn and transfer browned lamb cleanly while keeping hands clear of hot oil."),
+        ]
+    elif "shrimp summer rolls" in haystack:
+        products = [
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp, controllable blade makes even vegetable matchsticks and cleanly halves poached shrimp."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable, roomy surface keeps herbs, vegetables, noodles, and cooked shrimp organized for rolling."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls simplify cooling shrimp, holding noodles, and mixing the peanut-hoisin sauce."),
+        ]
+    elif "tiramisu cups" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the yolk, sugar, mascarpone, and ladyfinger ratios precise."),
+            ("stainless steel mixing bowls nesting", "Heat-safe mixing bowls", "Separate bowls are useful for the cooked yolk base, mascarpone, and whipped cream."),
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "Consistent small measures keep the espresso, vanilla, and cocoa balanced across six cups."),
+        ]
+    elif "seafood paella" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "Wide 12-inch skillet", "A broad, heat-steady cooking surface keeps the rice shallow enough to cook evenly and form socarrat."),
+            ("stainless steel kitchen tongs", "Stainless-steel kitchen tongs", "Lift and place hot shellfish without crushing shells or disturbing the rice bed."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip matters when rotating and carrying a heavy skillet filled with hot rice and seafood."),
+        ]
+    elif "croque madame" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A broad, heat-steady skillet crisps two sandwiches at a time and then fries the eggs evenly."),
+            ("8 inch chef knife kitchen", "8-inch chefâ€™s knife", "A sharp, controllable knife handles the shallot, trims bread, and halves crisp sandwiches cleanly."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Separate bowls keep grated cheese, salad greens, and vinaigrette organized for fast assembly."),
+        ]
+    elif "chocolate-walnut layer cake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the cocoa batter even and divide it accurately among three pans."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowls", "Use separate heat-safe bowls for the batter, ganache, and whipped walnut filling."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when rotating three hot cake pans."),
+        ]
+    elif "katsu" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A heavy skillet holds steady heat for crisp, even shallow-frying."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Verify the chicken reaches 165Â°F without cutting through the crust."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn breaded cutlets with control while keeping hands clear of hot oil."),
+        ]
+    elif "red lentil soup" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "Dutch oven", "A wide, heavy pot gives vegetables room to soften and lentils a steady simmer."),
+            ("immersion blender stainless steel", "Immersion blender", "PurÃ©e the soup in its pot with less transfer and cleanup."),
+            ("8 inch chef knife kitchen", "Chefâ€™s knife", "A sharp, comfortable knife makes quick work of the onion, carrot, and potato."),
+        ]
+    elif "pad thai-style" in haystack:
+        products = [
+            ("stainless steel pasta pot colander", "Stainless colander", "Drain soaked rice noodles completely so the sauce clings instead of turning watery."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Lift and turn delicate rice noodles without chopping or crushing them."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify shrimp reach 145Â°F and the egg reaches 160Â°F without overcooking the seafood."),
+        ]
+    elif "butter beans" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide cooking surface reduces the tomato sauce quickly while giving large beans room to stay whole."),
+            ("8 inch chef knife kitchen", "Chefâ€™s knife", "A sharp, controllable knife handles the fine onion dice and thin garlic slices cleanly."),
+            ("large nonslip cutting board", "Large cutting board", "A stable prep surface keeps the onion, garlic, and toasted bread organized."),
+        ]
+    elif "carrot snacking cake" in haystack:
+        products = [
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "Measure flour, spices, sugar, vanilla, and lemon consistently for a reliable crumb and frosting."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "Extra room makes it easier to fold in finely grated carrots without overmixing the batter."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when turning out a hot 9-inch cake pan."),
+        ]
+    elif "palak paneer" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide, heat-steady skillet browns paneer without crowding and gives the tomato masala room to reduce."),
+            ("immersion blender stainless steel", "Immersion blender", "PurÃ©e the cooled spinach in a tall container with less transfer and cleanup."),
+            ("8 inch chef knife kitchen", "Chefâ€™s knife", "A sharp, controllable knife handles the fine aromatics and uniform paneer cubes cleanly."),
+        ]
+    elif "shish tawook" in haystack:
+        products = [
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the largest chicken pieces reach 165Â°F without cutting every skewer open."),
+            ("stainless steel kitchen tongs silicone tip", "Long kitchen tongs", "Turn hot skewers and oil the grill grate while keeping hands clear of direct heat."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "Use separate bowls for raw-chicken marinade and the finished garlic yogurt to avoid cross-contamination."),
+        ]
+    elif "cinnamon-apple tart" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the shortcrust flour and sugar ratio precise and repeatable."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "A broad bowl makes cutting cold butter into flour and tossing delicate apple slices easier."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip helps when moving the hot removable-bottom tart pan on its supporting sheet pan."),
+        ]
+    elif "shrimp" in haystack and "grits" in haystack:
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A wide, heat-steady skillet sears the shrimp quickly and reduces the smoky tomato sauce without crowding."),
+            ("digital probe meat thermometer", "Instant-read thermometer", "Verify the shrimp reach 145Â°F before they turn firm and rubbery."),
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "Keep the grits-to-liquid ratio and small seasoning quantities consistent."),
+        ]
+    elif "mushroom risotto" in haystack:
+        products = [
+            ("enameled dutch oven 6 quart", "Wide Dutch oven", "A heavy, broad pot gives mushrooms room to brown and Arborio rice a steady simmer."),
+            ("microplane zester grater stainless", "Fine grater", "Finely grated Parmesan melts smoothly into the risotto instead of clumping."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "Turn and transfer browned mushroom slices without crushing them."),
+        ]
+    elif "basque cheesecake" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weight measurements keep the sugar and flour ratio precise for a custardy set."),
+            ("stainless steel mixing bowls nesting", "Roomy mixing bowl", "A large, stable bowl gives the dairy and eggs space to blend smoothly without splashing."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip matters when moving a tall parchment-lined pan on a hot sheet pan."),
+        ]
+    elif "sheet pan" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
+        ]
+    elif any(term in haystack for term in ["soup", "chili", "stew"]):
+        products = [
+            ("enameled dutch oven 6 quart", "Dutch oven", "A wide, heavy pot for browning and steady simmering."),
+            ("immersion blender stainless steel", "Immersion blender", "Blend soups in the pot with less transfer and cleanup."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Verify doneness instead of guessing."),
+        ]
+    elif any(term in haystack for term in ["pasta", "orzo", "noodle"]):
+        products = [
+            ("stainless steel pasta pot colander", "Pasta pot and colander", "Choose stable handles and a size that fits the dinners you actually cook."),
+            ("microplane zester grater stainless", "Fine grater", "Useful for citrus, hard cheese, garlic and finishing details."),
+            ("stainless steel kitchen tongs silicone tip", "Kitchen tongs", "A dependable tool for tossing, turning and serving."),
+        ]
+    elif any(term in haystack for term in ["eggplant", "aubergine"]):
+        products = [
+            ("8 inch chef knife kitchen", "Chefâ€™s knife", "A sharp, comfortable knife makes scoring eggplant and chopping herbs easier."),
+            ("large nonslip cutting board", "Nonslip cutting board", "A roomy, stable prep surface keeps large vegetables under control."),
+            ("stainless steel mixing bowls nesting", "Mixing bowls", "Useful for salting vegetables, whisking glaze, and holding toppings."),
+        ]
+    elif any(term in haystack for term in ["salad", "slaw"]):
+        products = [
+            ("8 inch chef knife kitchen", "Chefâ€™s knife", "A sharp, comfortable knife makes quick work of vegetables and herbs."),
+            ("large nonslip cutting board", "Nonslip cutting board", "A roomy, stable prep surface keeps chopping organized."),
+            ("stainless steel mixing bowls nesting", "Mixing bowls", "A large bowl gives salads room to toss without bruising the ingredients."),
+        ]
+    elif any(term in haystack for term in ["pie", "cobbler", "pastry", "dessert"]):
+        products = [
+            ("stainless steel measuring scoops set", "Stainless measuring scoops", "A nested set keeps flour, cornmeal and sugar measurements consistent."),
+            ("stainless steel mixing bowls nesting", "Mixing bowls", "Use separate bowls for fillings and pastry or cobbler topping."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Secure grip and forearm coverage help when moving hot bakeware."),
+        ]
+    elif any(term in haystack for term in ["roast", "baked", "oven"]):
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
+            ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
+            ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
+        ]
+    elif any(term in haystack for term in ["rice", "bowl", "meal prep"]):
+        products = [
+            ("rice cooker family stainless inner pot", "Rice cooker", "Compare capacity, cleanup and a simple keep-warm function."),
+            ("glass meal prep containers locking lids", "Glass storage containers", "A small matching system stacks better than forty mystery lids."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Fast, repeatable portions and better baking accuracy."),
+        ]
+    elif any(term in haystack for term in ["skillet", "frittata", "egg", "breakfast"]):
+        products = [
+            ("12 inch cast iron skillet", "12-inch skillet", "A versatile size for browning, baking and family portions."),
+            ("silicone fish spatula turner", "Thin flexible spatula", "Slides under eggs and delicate food without a wrestling match."),
+            ("stainless steel mixing bowls nesting", "Nesting mixing bowls", "One sturdy set handles prep without multiplying cabinet clutter."),
+        ]
+    else:
+        products = [
+            ("digital probe meat thermometer", "Digital probe thermometer", "Replace doneness guesses with a clear temperature reading."),
+            ("8 inch chef knife kitchen", "8-inch chef's knife", "Prioritize comfortable grip, controllable weight and easy maintenance."),
+            ("large nonslip cutting board", "Large cutting board", "Enough stable workspace makes prep faster and safer."),
+        ]
+    cards = "".join(amazon_link(*product) for product in products)
+    return f'''<div class="recipe-panel recipe-shop"><p class="eyebrow">Useful kitchen gear</p><h2>Tools that make this easier.</h2>
+      <p>Compare the function and specifications first; skip anything your kitchen already handles well.</p>
+      <div class="disclosure-box"><strong>Paid links:</strong> As an Amazon Associate I earn from qualifying purchases. You pay no additional cost.</div>
+      <div class="shop-grid">{cards}</div>
+    </div>'''
 
-BˆZ[ÛXXÚ[™WÙš[\Ê
-BˆÛİ[H[Š\İ
-P“PËœ™ÛØŠŠ‹š[ŠJJBˆš[
-ˆZ[\ÚØ[ˆØÛİ[HSYÙ\ËÛ[Š‘PÒTTÊ_H™XÚ\\ËÛ[ŠT•PÓTÊ_HİZY\Ë˜\ÙO^ĞTÑHÜˆ	ËÉßHŠB‚šYˆ×Û˜[YW×ÈOH—×ÛXZ[—×È‚ˆXZ[Š
-B‚‚
+def newsletter_block() -> str:
+    return f'''<section class="section-tight">
+      <div class="wrap">
+        <div class="newsletter">
+          <div class="newsletter-grid">
+            <div><p class="eyebrow">The useful email</p><h2>Dinner ideas worth opening.</h2><p>New recipes, a five-night shortcut, and one useful kitchen idea. No daily inbox ambush.</p></div>
+            <form class="newsletter-form" action="https://formsubmit.co/{esc(FORM_EMAIL)}" method="POST">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+              <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="_subject" value="DishGal newsletter signup">
+              <button class="btn btn-primary" type="submit">Join free</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>'''
+
+def recipe_schema(recipe) -> dict:
+    instructions = [
+        {"@type": "HowToStep", "name": step.get("name", f"Step {i+1}"), "text": step.get("text", "")}
+        for i, step in enumerate(recipe.get("instructions", []))
+    ]
+    total = int(recipe.get("total_minutes", int(recipe.get("prep_minutes", 0)) + int(recipe.get("cook_minutes", 0))))
+    tags = [str(tag) for tag in recipe.get("tags", [])]
+    diet_map = {
+        "vegetarian": "https://schema.org/VegetarianDiet",
+        "vegan": "https://schema.org/VeganDiet",
+        "gluten-free": "https://schema.org/GlutenFreeDiet",
+    }
+    suitable_diets = [diet_map[tag] for tag in tags if tag in diet_map]
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": recipe.get("title", ""),
+        "description": recipe.get("dek", ""),
+        "image": [recipe.get("image", "")],
+        "author": {"@type": "Organization", "name": "DishGal"},
+        "datePublished": recipe.get("date_published", "2026-08-17"),
+        "dateModified": recipe.get("date_modified", recipe.get("date_published", "2026-08-17")),
+        "prepTime": f"PT{int(recipe.get('prep_minutes',0))}M",
+        "cookTime": f"PT{int(recipe.get('cook_minutes',0))}M",
+        "totalTime": f"PT{total}M",
+        "recipeYield": f"{recipe.get('servings',4)} servings",
+        "recipeCategory": COLLECTION_META.get(
+            recipe.get("collection", ""),
+            (pretty_slug(recipe.get("collection", "recipe")), "", ""),
+        )[0],
+        "keywords": ", ".join(tags),
+        "recipeIngredient": recipe.get("ingredients", []),
+        "recipeInstructions": instructions,
+        "nutrition": {"@type": "NutritionInformation", "calories": f"{recipe.get('calories','')} calories"},
+        "url": canonical("/recipes/" + recipe["slug"] + "/"),
+        "mainEntityOfPage": canonical("/recipes/" + recipe["slug"] + "/"),
+        "isPartOf": {"@type": "WebSite", "name": "DishGal", "url": SITE_URL},
+    }
+    if suitable_diets:
+        schema["suitableForDiet"] = suitable_diets
+    return schema
+
+def collection_schema(title: str, description: str, path: str, recipes) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": title,
+        "description": description,
+        "url": canonical(path),
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": len(recipes),
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "url": canonical("/recipes/" + recipe["slug"] + "/"),
+                    "name": recipe.get("title", "Recipe"),
+                }
+                for index, recipe in enumerate(recipes)
+            ],
+        },
+    }
+
+def related_recipes(recipe, limit=4):
+    recipe_tags = {str(tag).lower() for tag in recipe.get("tags", [])}
+    recipe_protein_set = set(recipe_proteins(recipe))
+    scored = []
+    for candidate in RECIPES:
+        if candidate["slug"] == recipe["slug"]:
+            continue
+        candidate_tags = {str(tag).lower() for tag in candidate.get("tags", [])}
+        score = 0
+        if candidate.get("collection") == recipe.get("collection"):
+            score += 5
+        score += 2 * len(recipe_tags.intersection(candidate_tags))
+        score += 3 * len(recipe_protein_set.intersection(recipe_proteins(candidate)))
+        tie_break = hashlib.sha256(candidate["slug"].encode("utf-8")).hexdigest()
+        scored.append((-score, tie_break, candidate))
+    return [candidate for _, _, candidate in sorted(scored)[:limit]]
+
+def build_home():
+    mixed_recipes = stable_recipe_mix(RECIPES)
+    featured = mixed_recipes[:8]
+    hero = mixed_recipes[0]
+    collections = {r.get("collection", "") for r in RECIPES if r.get("collection")}
+    groups = [
+        ("By time and cooking method", ["30-minute", "quick", "one-pot", "sheet-pan", "instant-pot", "slow-cooker", "air-fryer"]),
+        ("By dinner need", ["budget", "family", "vegetarian", "vegan", "high-protein", "weeknight", "weekend"]),
+        ("By main ingredient", ["chicken", "beef", "ground-beef", "ribeye", "pork", "seafood"]),
+        ("Breakfast, baking and more", ["breakfast", "brunch", "baking", "dessert", "desserts"]),
+    ]
+    grouped = {slug for _, slugs in groups for slug in slugs}
+    remaining = sorted(collections - grouped)
+    if remaining:
+        groups.append(("More recipe collections", remaining))
+    collection_html = []
+    for heading, slugs in groups:
+        cards = []
+        for slug in slugs:
+            ingredient_group = heading == "By main ingredient"
+            if ingredient_group and slug not in dict(active_ingredient_hubs()):
+                continue
+            if not ingredient_group and slug not in collections:
+                continue
+            title, _, icon = COLLECTION_META.get(slug, (pretty_slug(slug), "", "ğŸ´"))
+            if slug == "dessert":
+                title = "Dessert recipes"
+            elif slug == "desserts":
+                title = "More dessert recipes"
+            count = sum(1 for r in RECIPES if r.get("collection") == slug)
+            destination = "/collections/" + slug + "/"
+            if ingredient_group:
+                title = INGREDIENT_HUBS[slug]["title"]
+                count = len(recipes_for_ingredient(slug))
+                destination = "/ingredients/" + slug + "/"
+            noun = "recipe" if count == 1 else "recipes"
+            cards.append(f'<a class="collection-pill" href="{href(destination)}"><strong>{esc(title)}</strong><small>{count} {noun}</small><span class="collection-arrow" aria-hidden="true">â†’</span></a>')
+        if cards:
+            collection_html.append(f'<div class="browse-group"><h3>{esc(heading)}</h3><div class="collection-grid">{"".join(cards)}</div></div>')
+    newest = sorted(RECIPES, key=lambda r: (r.get("date_published", ""), r["slug"]), reverse=True)[:4]
+    body = f'''
+    <style>
+      .hero{{padding:clamp(2.5rem,5vw,5rem) 0}}
+      .hero::before{{display:none}}
+      .hero-grid{{align-items:center;gap:clamp(2rem,5vw,5rem)}}
+      .hero-media{{overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm)}}
+      .hero .hero-image{{display:block;aspect-ratio:4/3;border:0;border-radius:0;box-shadow:none;width:100%;object-fit:cover}}
+      .hero-caption{{padding:1.25rem 1.5rem}}
+      .hero-caption .eyebrow{{margin-bottom:.5rem}}
+      .hero-caption h2{{font-size:clamp(1.3rem,2vw,1.8rem);line-height:1.2;margin:0 0 .65rem}}
+      .hero-caption a{{color:var(--ink);text-decoration:none}}
+      .hero-caption a:hover{{color:var(--tomato)}}
+      .hero-caption p:last-child{{margin:0;color:var(--ink-soft);font-size:.9rem}}
+      .browse-group{{padding:1.5rem;border:1px solid var(--line);border-radius:16px;background:var(--paper)}}
+      .browse-group h3{{margin:0 0 .75rem;font-size:1.25rem}}
+      #browse-recipes .browse-directory{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.5rem}}
+      #browse-recipes .collection-grid{{display:block}}
+      #browse-recipes .collection-pill{{display:grid;grid-template-columns:minmax(0,1fr) auto 20px;align-items:center;gap:.75rem;padding:.85rem 0;min-height:0;border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;background:transparent}}
+      #browse-recipes .collection-pill:last-child{{border-bottom:0}}
+      #browse-recipes .collection-pill strong{{font-family:inherit;font-size:.95rem;line-height:1.35}}
+      #browse-recipes .collection-pill small{{margin:0;white-space:nowrap;color:var(--ink-soft)}}
+      #browse-recipes .collection-pill:hover{{transform:none;color:var(--tomato);background:transparent}}
+      #browse-recipes .collection-arrow{{color:var(--tomato)}}
+      @media(max-width:700px){{#browse-recipes .browse-directory{{grid-template-columns:1fr}}#browse-recipes .browse-group{{padding:1.1rem}}}}
+      .home-shortcuts{{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}}
+      .home-shortcuts a{{padding:.55rem .85rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink)}}
+      #browse-recipes{{scroll-margin-top:100px}}
+      @media(max-width:560px){{.hero-caption{{padding:1rem}}}}
+    </style>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Dinner, decided.</p>
+          <h1>Good food for <span>real nights.</span></h1>
+          <p class="lede">DishGal gives you practical weeknight recipes, a dinner picker, pantry rescue, and a five-night plannerâ€”without turning dinner into a personality test.</p>
+          <div class="button-row"><a class="btn btn-primary" href="{href('/dinner-decider/')}">Decide dinner</a><a class="btn btn-outline" href="{href('/recipes/')}">Browse recipes</a></div>
+          <div class="hero-proof"><span>{len(RECIPES)} complete recipes</span><span>Real prep + cook times</span><span>Cost per serving</span></div>
+          <div class="home-shortcuts" aria-label="Quick recipe choices"><a href="{href('/collections/30-minute/')}">30-minute dinners</a><a href="{href('/collections/budget/')}">Budget meals</a><a href="{href('/collections/instant-pot/')}">Instant Pot</a><a href="{href('/collections/breakfast/')}">Breakfast</a></div>
+        </div>
+        <div class="hero-media"><a href="{href('/recipes/' + hero['slug'] + '/')}"><img class="hero-image" src="{esc(hero.get('image',''))}" alt="{esc(hero.get('image_alt','Weeknight dinner'))}" width="800" height="600" fetchpriority="high" decoding="async"></a><div class="hero-caption"><p class="eyebrow">From the recipe library</p><h2><a href="{href('/recipes/' + hero['slug'] + '/')}">{esc(hero['title'])}</a></h2><p>Full ingredients, step-by-step directions, and practical cooking notes.</p></div></div>
+      </div>
+    </section>
+    <section class="section section-paper" id="browse-recipes">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Pick your lane</p><h2>Find recipes your way</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">Search all recipes</a></div>
+        <div class="topic-links" aria-label="Browse recipes by main ingredient">
+          <strong>Cook by ingredient:</strong>
+          {''.join(f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])}</a>' for slug, meta in active_ingredient_hubs())}
+        </div>
+        <div class="browse-directory">{''.join(collection_html)}</div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Dinner inspiration</p><h2>Recipes to try next</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">See all recipes</a></div>
+        <div class="recipe-grid">{''.join(recipe_card(r) for r in featured)}</div>
+      </div>
+    </section>
+    <section class="section section-paper">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Fresh from DishGal</p><h2>Recently added recipes</h2></div><a class="btn btn-outline" href="{href('/feed.xml')}">Follow new recipes</a></div>
+        <div class="recipe-grid">{''.join(recipe_card(r) for r in newest)}</div>
+      </div>
+    </section>
+    <section class="section section-plum">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Use the tools</p><h2>Less deciding. More eating.</h2></div><p>Three tiny tools for the three most annoying dinner questions.</p></div>
+        <div class="tool-strip"><div class="tool-grid">
+          <a class="tool-card" href="{href('/dinner-decider/')}"><span class="icon">ğŸ¯</span><h3>Dinner Decider</h3><p>Choose your time and vibe. Get one answer.</p></a>
+          <a class="tool-card" href="{href('/pantry-rescue/')}"><span class="icon">ğŸ§º</span><h3>Pantry Rescue</h3><p>Tell us what you have. We rank the best recipe matches.</p></a>
+          <a class="tool-card" href="{href('/meal-planner/')}"><span class="icon">ğŸ—“</span><h3>5-Night Planner</h3><p>Build a varied week and turn it into a grocery checklist.</p></a>
+        </div></div>
+      </div>
+    </section>
+    <section class="section section-paper">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">Kitchen brain</p><h2>Kitchen picks</h2></div><a class="btn btn-outline" href="{href('/guides/')}">All {len(ARTICLES)} guides</a></div>
+        <div class="article-grid">{''.join(article_card(a) for a in ARTICLES[:6])}</div>
+      </div>
+    </section>
+    {newsletter_block()}
+    '''
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "DishGal",
+        "url": SITE_URL,
+        "description": "Practical recipes, dinner-planning tools, and kitchen guides for real weeknights."
+    }
+    write_page("/", page("Dinner, Decided", "Practical weeknight recipes, dinner-planning tools, and useful kitchen guides built to answer the question: what are we eating tonight?", "/", body, schema=schema))
+
+def build_recipe_index():
+    display_recipes = stable_recipe_mix(RECIPES)
+    collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
+    options = "".join(f'<option value="{esc(c)}">{esc(COLLECTION_META.get(c,(pretty_slug(c),"",""))[0])}</option>' for c in collections)
+    proteins = sorted({protein for recipe in RECIPES for protein in recipe_proteins(recipe)}, key=lambda item: PROTEIN_META.get(item, pretty_slug(item)))
+    protein_options = "".join(f'<option value="{esc(protein)}">{esc(PROTEIN_META.get(protein, pretty_slug(protein)))}</option>' for protein in proteins)
+    ingredient_links = "".join(
+        f'<a href="{href("/ingredients/" + slug + "/")}">{esc(meta["title"])} <span>{len(recipes_for_ingredient(slug))}</span></a>'
+        for slug, meta in active_ingredient_hubs()
+    )
+    body = f'''<style>[data-library-pagination][hidden],[data-library-more][hidden]{{display:none!important}}</style><section class="page-hero"><div class="wrap"><p class="eyebrow">Recipe library</p><h1>Find tonightâ€™s dinner.</h1><p class="lede">Filter by time, meat or protein, collection, or diet. Every recipe includes full directions, substitutions, storage notes, FAQs, and realistic timing.</p></div></section>
+    <section class="ingredient-nav"><div class="wrap"><p class="eyebrow">Browse by ingredient</p><div class="ingredient-links">{ingredient_links}</div></div></section>
+    <section class="section-tight"><div class="wrap">
+      <form class="filter-panel" data-recipe-filters>
+        <div class="filter-row">
+          <div class="field"><label for="q">Search</label><input id="q" name="q" placeholder="chicken, ribeye, pastaâ€¦"></div>
+          <div class="field"><label for="time">Max time</label><select id="time" name="time"><option value="">Any</option><option value="25">25 min</option><option value="30">30 min</option><option value="45">45 min</option><option value="60">60 min</option></select></div>
+          <div class="field"><label for="protein">Meat / protein</label><select id="protein" name="protein"><option value="">All</option>{protein_options}</select></div>
+          <div class="field"><label for="collection">Collection</label><select id="collection" name="collection"><option value="">All</option>{options}</select></div>
+          <div class="field"><label for="diet">Diet</label><select id="diet" name="diet"><option value="">Any</option><option value="vegetarian">Vegetarian</option><option value="vegan">Vegan</option><option value="gluten-free">Gluten-free</option></select></div>
+          <button class="btn btn-outline" type="button" data-reset-filters>Reset</button>
+        </div>
+      </form>
+      <p class="result-count" data-result-count>{len(display_recipes)} recipes</p>
+      <div class="recipe-grid">{''.join(recipe_card(r) for r in display_recipes)}</div>
+      <div class="empty-state" data-empty-state><h3>No matching dinners</h3><p>Try fewer filters or a broader search.</p></div>
+    </div></section>'''
+    page_size = 24
+    page_count = (len(display_recipes) + page_size - 1) // page_size
+    for number in range(1, page_count + 1):
+        path = "/recipes/" if number == 1 else f"/recipes/page/{number}/"
+        subset = display_recipes[(number - 1) * page_size:number * page_size]
+        links = []
+        for target in range(1, page_count + 1):
+            target_path = "/recipes/" if target == 1 else f"/recipes/page/{target}/"
+            current = ' aria-current="page"' if target == number else ""
+            links.append(f'<a class="btn btn-outline btn-sm" href="{href(target_path)}"{current}>{target}</a>')
+        pagination = f'<nav class="button-row" aria-label="Recipe library pages" data-library-pagination style="margin-top:2rem;flex-wrap:wrap">{"".join(links)}</nav>'
+        page_body = body.replace(
+            '<div class="recipe-grid">' + ''.join(recipe_card(r) for r in display_recipes) + '</div>',
+            '<div class="recipe-grid" data-library-grid>' + ''.join(recipe_card(r) for r in subset) + '</div>' + pagination,
+        ).replace('data-recipe-filters', f'data-recipe-filters data-library-page="{number}"')
+        page_body = page_body.replace(f'{len(display_recipes)} recipes</p>', f'{len(display_recipes)} recipes Â· Page {number} of {page_count}</p>')
+        page_title = "Easy Dinner Recipes" if number == 1 else f"Easy Dinner Recipes â€” Page {number}"
+        description = "Browse complete, practical dinner recipes by time, main ingredient, cooking method, or dietary preference. Every recipe includes clear directions and swaps."
+        schema = collection_schema("DishGal Recipe Library", "Practical recipes with complete ingredients, directions, timing, substitutions, and storage notes.", path, subset)
+        write_page(path, page(page_title, description, path, page_body, schema=schema))
+
+
+CURATED_RECIPE_CLUSTERS = {
+    "honey-walnut-baked-pears-cinnamon": {
+        "slugs": ["pear-frangipane-tart-almond-shortcrust", "french-tarte-tatin-caramelized-apples", "blackberry-blueberry-cornmeal-cobbler"],
+        "eyebrow": "Fruit dessert method guide",
+        "title": "Choose a fruit dessert by structure and baking method",
+        "copy": "Compare stuffed roasted pear halves with a structured pear-almond tart, caramelized upside-down apple tart and juicy berry cobbler by fruit preparation, crust, texture and make-ahead limits.",
+    },
+    "pear-frangipane-tart-almond-shortcrust": {
+        "slugs": ["honey-walnut-baked-pears-cinnamon", "french-tarte-tatin-caramelized-apples", "blackberry-blueberry-cornmeal-cobbler"],
+        "eyebrow": "Fruit dessert method guide",
+        "title": "Choose a fruit dessert by structure and baking method",
+        "copy": "Compare a structured pear-almond tart with stuffed roasted pear halves, caramelized upside-down apple tart and juicy berry cobbler by fruit preparation, crust, texture and make-ahead limits.",
+    },
+    "french-tarte-tatin-caramelized-apples": {
+        "slugs": ["honey-walnut-baked-pears-cinnamon", "pear-frangipane-tart-almond-shortcrust", "blackberry-blueberry-cornmeal-cobbler"],
+        "eyebrow": "Fruit dessert method guide",
+        "title": "Choose a fruit dessert by structure and baking method",
+        "copy": "Compare caramelized upside-down apple tart with stuffed roasted pear halves, a structured pear-almond tart and juicy berry cobbler by fruit preparation, crust, texture and make-ahead limits.",
+    },
+    "blackberry-blueberry-cornmeal-cobbler": {
+        "slugs": ["honey-walnut-baked-pears-cinnamon", "pear-frangipane-tart-almond-shortcrust", "french-tarte-tatin-caramelized-apples"],
+        "eyebrow": "Fruit dessert method guide",
+        "title": "Choose a fruit dessert by structure and baking method",
+        "copy": "Compare juicy berry cobbler with stuffed roasted pear halves, a structured pear-almond tart and caramelized upside-down apple tart by fruit preparation, crust, texture and make-ahead limits.",
+    },
+    "miso-savory-oats-poached-eggs-sesame-chive-crunch": {
+        "slugs": ["apple-cinnamon-baked-oatmeal", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "eyebrow": "Breakfast base and egg guide",
+        "title": "Choose a savory or sweet breakfast by base and method",
+        "copy": "Compare creamy stovetop miso oats with sweet baked oatmeal, pressure-cooked fava beans and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
+    },
+    "apple-cinnamon-baked-oatmeal": {
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "eyebrow": "Breakfast base and egg guide",
+        "title": "Choose a savory or sweet breakfast by base and method",
+        "copy": "Compare sweet baked apple oatmeal with creamy stovetop miso oats, pressure-cooked fava beans and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
+    },
+    "instant-pot-egyptian-style-ful-medames-breakfast-platter": {
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "apple-cinnamon-baked-oatmeal", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "eyebrow": "Breakfast base and egg guide",
+        "title": "Choose a savory or sweet breakfast by base and method",
+        "copy": "Compare pressure-cooked fava beans with creamy stovetop miso oats, sweet baked oatmeal and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
+    },
+    "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter": {
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "apple-cinnamon-baked-oatmeal", "instant-pot-egyptian-style-ful-medames-breakfast-platter"],
+        "eyebrow": "Breakfast base and egg guide",
+        "title": "Choose a savory or sweet breakfast by base and method",
+        "copy": "Compare poached eggs over garlicky yogurt with creamy stovetop miso oats, sweet baked oatmeal and pressure-cooked fava beans by base, texture, active time and make-ahead limits.",
+    },
+    "smoky-warm-lentils-red-pepper-parsley-lemon": {
+        "slugs": ["spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry"],
+        "eyebrow": "Budget pulse method guide",
+        "title": "Choose a budget bean or lentil meal by texture and method",
+        "copy": "Compare glossy skillet lentils with red pepper, saucy tomato butter beans, pressure-cooked white-bean stew and a simmered coconut chickpea curry by pulse, texture, cookware and make-ahead strategy.",
+    },
+    "spanish-style-tomato-butter-beans-smoked-paprika": {
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry"],
+        "eyebrow": "Budget pulse method guide",
+        "title": "Choose a budget bean or lentil meal by texture and method",
+        "copy": "Compare saucy tomato butter beans with glossy skillet lentils and red pepper, pressure-cooked white-bean stew and a simmered coconut chickpea curry by pulse, texture, cookware and make-ahead strategy.",
+    },
+    "instant-pot-turkish-kuru-fasulye-white-bean-stew": {
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "spanish-style-tomato-butter-beans-smoked-paprika", "pantry-chickpea-coconut-curry"],
+        "eyebrow": "Budget pulse method guide",
+        "title": "Choose a budget bean or lentil meal by texture and method",
+        "copy": "Compare pressure-cooked white-bean stew with glossy skillet lentils and red pepper, saucy tomato butter beans and a simmered coconut chickpea curry by pulse, texture, cookware and make-ahead strategy.",
+    },
+    "pantry-chickpea-coconut-curry": {
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew"],
+        "eyebrow": "Budget pulse method guide",
+        "title": "Choose a budget bean or lentil meal by texture and method",
+        "copy": "Compare a simmered coconut chickpea curry with glossy skillet lentils and red pepper, saucy tomato butter beans and pressure-cooked white-bean stew by pulse, texture, cookware and make-ahead strategy.",
+    },
+    "crispy-fried-beef-empanadas-paprika-cumin": {
+        "slugs": ["polish-potato-cheese-pierogi", "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
+        "eyebrow": "Filled-dough method guide",
+        "title": "Choose a filled-dough dinner by wrapper and cooking method",
+        "copy": "Compare fried fork-sealed wheat empanadas, boiled-and-seared pierogi, griddled masa pupusas and soft fresh lumpia by wrapper, filling moisture, sealing method and make-ahead strategy.",
+    },
+    "polish-potato-cheese-pierogi": {
+        "slugs": ["crispy-fried-beef-empanadas-paprika-cumin", "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
+        "eyebrow": "Filled-dough method guide",
+        "title": "Choose a filled-dough dinner by wrapper and cooking method",
+        "copy": "Compare boiled-and-seared pierogi, fried fork-sealed wheat empanadas, griddled masa pupusas and soft fresh lumpia by wrapper, filling moisture, sealing method and make-ahead strategy.",
+    },
+    "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja": {
+        "slugs": ["crispy-fried-beef-empanadas-paprika-cumin", "polish-potato-cheese-pierogi", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
+        "eyebrow": "Filled-dough method guide",
+        "title": "Choose a filled-dough dinner by wrapper and cooking method",
+        "copy": "Compare griddled masa pupusas, fried fork-sealed wheat empanadas, boiled-and-seared pierogi and soft fresh lumpia by wrapper, filling moisture, sealing method and make-ahead strategy.",
+    },
+    "filipino-lumpiang-sariwa-garlic-peanut-sauce": {
+        "slugs": ["crispy-fried-beef-empanadas-paprika-cumin", "polish-potato-cheese-pierogi", "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja"],
+        "eyebrow": "Filled-dough method guide",
+        "title": "Choose a filled-dough dinner by wrapper and cooking method",
+        "copy": "Compare soft fresh lumpia, fried fork-sealed wheat empanadas, boiled-and-seared pierogi and griddled masa pupusas by wrapper, filling moisture, sealing method and make-ahead strategy.",
+    },
+    "soupy-sichuan-style-dan-dan-noodles-pork-sesame": {
+        "slugs": ["sichuan-style-mapo-tofu-pork-rice", "taiwanese-style-red-braised-beef-noodle-soup", "flaky-chinese-scallion-pancakes"],
+        "eyebrow": "Chinese pantry and texture guide",
+        "title": "Choose a Chinese-inspired dinner by sauce and texture",
+        "copy": "Compare broth-loosened sesame dan dan noodles, glossy chile-bean mapo tofu, long-simmered red-braised beef noodle soup and pan-fried layered scallion pancakes by sauce structure, pantry ingredients, texture and hands-on time.",
+    },
+    "sichuan-style-mapo-tofu-pork-rice": {
+        "slugs": ["soupy-sichuan-style-dan-dan-noodles-pork-sesame", "taiwanese-style-red-braised-beef-noodle-soup", "flaky-chinese-scallion-pancakes"],
+        "eyebrow": "Chinese pantry and texture guide",
+        "title": "Choose a Chinese-inspired dinner by sauce and texture",
+        "copy": "Compare glossy chile-bean mapo tofu, broth-loosened sesame dan dan noodles, long-simmered red-braised beef noodle soup and pan-fried layered scallion pancakes by sauce structure, pantry ingredients, texture and hands-on time.",
+    },
+    "taiwanese-style-red-braised-beef-noodle-soup": {
+        "slugs": ["soupy-sichuan-style-dan-dan-noodles-pork-sesame", "sichuan-style-mapo-tofu-pork-rice", "flaky-chinese-scallion-pancakes"],
+        "eyebrow": "Chinese pantry and texture guide",
+        "title": "Choose a Chinese-inspired dinner by sauce and texture",
+        "copy": "Compare long-simmered red-braised beef noodle soup, broth-loosened sesame dan dan noodles, glossy chile-bean mapo tofu and pan-fried layered scallion pancakes by sauce structure, pantry ingredients, texture and hands-on time.",
+    },
+    "flaky-chinese-scallion-pancakes": {
+        "slugs": ["soupy-sichuan-style-dan-dan-noodles-pork-sesame", "sichuan-style-mapo-tofu-pork-rice", "taiwanese-style-red-braised-beef-noodle-soup"],
+        "eyebrow": "Chinese pantry and texture guide",
+        "title": "Choose a Chinese-inspired dinner by sauce and texture",
+        "copy": "Compare pan-fried layered scallion pancakes, broth-loosened sesame dan dan noodles, glossy chile-bean mapo tofu and long-simmered red-braised beef noodle soup by sauce structure, pantry ingredients, texture and hands-on time.",
+    },
+    "weeknight-aloo-gobi-tomato-cumin-cilantro": {
+        "slugs": ["weeknight-palak-paneer-toasted-cumin-ginger", "mumbai-style-pav-bhaji-buttered-rolls-lime", "instant-pot-indian-vegetable-biryani-pomegranate-raita"],
+        "eyebrow": "Indian vegetarian method guide",
+        "title": "Choose an Indian-inspired vegetable dinner by technique",
+        "copy": "Compare dry-sautÃ©ed aloo gobi, blended spinach paneer, griddled vegetable mash and pressure-steamed vegetable biryani by texture, cookware, hands-on time and make-ahead strategy.",
+    },
+    "weeknight-palak-paneer-toasted-cumin-ginger": {
+        "slugs": ["weeknight-aloo-gobi-tomato-cumin-cilantro", "mumbai-style-pav-bhaji-buttered-rolls-lime", "instant-pot-indian-vegetable-biryani-pomegranate-raita"],
+        "eyebrow": "Indian vegetarian method guide",
+        "title": "Choose an Indian-inspired vegetable dinner by technique",
+        "copy": "Compare blended spinach paneer, dry-sautÃ©ed aloo gobi, griddled vegetable mash and pressure-steamed vegetable biryani by texture, cookware, hands-on time and make-ahead strategy.",
+    },
+    "mumbai-style-pav-bhaji-buttered-rolls-lime": {
+        "slugs": ["weeknight-aloo-gobi-tomato-cumin-cilantro", "weeknight-palak-paneer-toasted-cumin-ginger", "instant-pot-indian-vegetable-biryani-pomegranate-raita"],
+        "eyebrow": "Indian vegetarian method guide",
+        "title": "Choose an Indian-inspired vegetable dinner by technique",
+        "copy": "Compare griddled vegetable mash, dry-sautÃ©ed aloo gobi, blended spinach paneer and pressure-steamed vegetable biryani by texture, cookware, hands-on time and make-ahead strategy.",
+    },
+    "instant-pot-indian-vegetable-biryani-pomegranate-raita": {
+        "slugs": ["weeknight-aloo-gobi-tomato-cumin-cilantro", "weeknight-palak-paneer-toasted-cumin-ginger", "mumbai-style-pav-bhaji-buttered-rolls-lime"],
+        "eyebrow": "Indian vegetarian method guide",
+        "title": "Choose an Indian-inspired vegetable dinner by technique",
+        "copy": "Compare pressure-steamed vegetable biryani, dry-sautÃ©ed aloo gobi, blended spinach paneer and griddled vegetable mash by texture, cookware, hands-on time and make-ahead strategy.",
+    },
+    "weeknight-beef-bibimbap-sesame-vegetables-fried-egg": {
+        "slugs": ["kimchi-fried-rice-crispy-fried-egg-scallions", "korean-beef-japchae-spinach-shiitakes-sesame", "korean-bbq-ribeye-bowls-crunchy-cucumber"],
+        "eyebrow": "Korean dinner method guide",
+        "title": "Choose a Korean-inspired dinner by component and technique",
+        "copy": "Compare separately seasoned bibimbap components, one-pan kimchi fried rice, separately sautÃ©ed japchae vegetables and quick-marinated bulgogi-style ribeye by rice or noodle base, vegetable treatment, beef cut and make-ahead strategy.",
+    },
+    "kimchi-fried-rice-crispy-fried-egg-scallions": {
+        "slugs": ["weeknight-beef-bibimbap-sesame-vegetables-fried-egg", "korean-beef-japchae-spinach-shiitakes-sesame", "korean-bbq-ribeye-bowls-crunchy-cucumber"],
+        "eyebrow": "Korean dinner method guide",
+        "title": "Choose a Korean-inspired dinner by component and technique",
+        "copy": "Compare one-pan kimchi fried rice, separately seasoned bibimbap components, separately sautÃ©ed japchae vegetables and quick-marinated bulgogi-style ribeye by rice or noodle base, vegetable treatment, beef cut and make-ahead strategy.",
+    },
+    "korean-beef-japchae-spinach-shiitakes-sesame": {
+        "slugs": ["weeknight-beef-bibimbap-sesame-vegetables-fried-egg", "kimchi-fried-rice-crispy-fried-egg-scallions", "korean-bbq-ribeye-bowls-crunchy-cucumber"],
+        "eyebrow": "Korean dinner method guide",
+        "title": "Choose a Korean-inspired dinner by component and technique",
+        "copy": "Compare separately sautÃ©ed japchae vegetables, separately seasoned bibimbap components, one-pan kimchi fried rice and quick-marinated bulgogi-style ribeye by rice or noodle base, vegetable treatment, beef cut and make-ahead strategy.",
+    },
+    "korean-bbq-ribeye-bowls-crunchy-cucumber": {
+        "slugs": ["weeknight-beef-bibimbap-sesame-vegetables-fried-egg", "kimchi-fried-rice-crispy-fried-egg-scallions", "korean-beef-japchae-spinach-shiitakes-sesame"],
+        "eyebrow": "Korean dinner method guide",
+        "title": "Choose a Korean-inspired dinner by component and technique",
+        "copy": "Compare quick-marinated bulgogi-style ribeye, separately seasoned bibimbap components, one-pan kimchi fried rice and separately sautÃ©ed japchae vegetables by rice or noodle base, vegetable treatment, beef cut and make-ahead strategy.",
+    },
+    "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter": {
+        "slugs": ["cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached Ã§Ä±lbÄ±r, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
+    },
+    "creamy-lemon-parmesan-farfalle-cherry-tomatoes-basil": {
+        "slugs": ["garlic-butter-shrimp-pasta", "roasted-garlic-primavera-linguine", "one-pot-creamy-tomato-orzo"],
+        "eyebrow": "Pasta sauce technique",
+        "title": "Choose a weeknight pasta by sauce-building method",
+        "copy": "Compare off-heat Parmesan emulsification for creamy farfalle, garlic-butter pan sauce for shrimp spaghetti, roasted-vegetable purÃ©e for primavera linguine and one-pot starch release for tomato orzo by how each sauce gains body and when its finishing ingredients are added.",
+    },
+    "garlic-butter-shrimp-pasta": {
+        "slugs": ["creamy-lemon-parmesan-farfalle-cherry-tomatoes-basil", "roasted-garlic-primavera-linguine", "one-pot-creamy-tomato-orzo"],
+        "eyebrow": "Pasta sauce technique",
+        "title": "Choose a weeknight pasta by sauce-building method",
+        "copy": "Compare garlic-butter pan sauce for shrimp spaghetti, off-heat Parmesan emulsification for creamy farfalle, roasted-vegetable purÃ©e for primavera linguine and one-pot starch release for tomato orzo by how each sauce gains body and when its finishing ingredients are added.",
+    },
+    "roasted-garlic-primavera-linguine": {
+        "slugs": ["creamy-lemon-parmesan-farfalle-cherry-tomatoes-basil", "garlic-butter-shrimp-pasta", "one-pot-creamy-tomato-orzo"],
+        "eyebrow": "Pasta sauce technique",
+        "title": "Choose a weeknight pasta by sauce-building method",
+        "copy": "Compare roasted-vegetable purÃ©e for primavera linguine, off-heat Parmesan emulsification for creamy farfalle, garlic-butter pan sauce for shrimp spaghetti and one-pot starch release for tomato orzo by how each sauce gains body and when its finishing ingredients are added.",
+    },
+    "one-pot-creamy-tomato-orzo": {
+        "slugs": ["creamy-lemon-parmesan-farfalle-cherry-tomatoes-basil", "garlic-butter-shrimp-pasta", "roasted-garlic-primavera-linguine"],
+        "eyebrow": "Pasta sauce technique",
+        "title": "Choose a weeknight pasta by sauce-building method",
+        "copy": "Compare one-pot starch release for tomato orzo, off-heat Parmesan emulsification for creamy farfalle, garlic-butter pan sauce for shrimp spaghetti and roasted-vegetable purÃ©e for primavera linguine by how each sauce gains body and when its finishing ingredients are added.",
+    },
+    "skillet-chicken-meatballs-tomato-basil-sauce-garlic-toast": {
+        "slugs": ["harissa-lamb-meatballs-herbed-couscous", "thai-chili-turkey-meatball-noodle-bowls", "instant-pot-turkey-meatballs-penne"],
+        "eyebrow": "Meatball method guide",
+        "title": "Choose a meatball dinner by cooking method and texture",
+        "copy": "Compare skillet-browned chicken finished in tomato sauce, oven-roasted lamb with couscous, baked turkey with rice noodles and pressure-cooked turkey with penne by binder, heat source, safe center temperature and sauce timing.",
+    },
+    "harissa-lamb-meatballs-herbed-couscous": {
+        "slugs": ["skillet-chicken-meatballs-tomato-basil-sauce-garlic-toast", "thai-chili-turkey-meatball-noodle-bowls", "instant-pot-turkey-meatballs-penne"],
+        "eyebrow": "Meatball method guide",
+        "title": "Choose a meatball dinner by cooking method and texture",
+        "copy": "Compare high-heat roasted lamb with skillet-browned chicken finished in tomato sauce, baked turkey with rice noodles and pressure-cooked turkey with penne by binder, heat source, safe center temperature and sauce timing.",
+    },
+    "thai-chili-turkey-meatball-noodle-bowls": {
+        "slugs": ["skillet-chicken-meatballs-tomato-basil-sauce-garlic-toast", "harissa-lamb-meatballs-herbed-couscous", "instant-pot-turkey-meatballs-penne"],
+        "eyebrow": "Meatball method guide",
+        "title": "Choose a meatball dinner by cooking method and texture",
+        "copy": "Compare ginger-scallion turkey baked for rice-noodle bowls with skillet-browned chicken finished in tomato sauce, high-heat roasted lamb and pressure-cooked turkey with penne by binder, heat source, safe center temperature and sauce timing.",
+    },
+    "instant-pot-turkey-meatballs-penne": {
+        "slugs": ["skillet-chicken-meatballs-tomato-basil-sauce-garlic-toast", "harissa-lamb-meatballs-herbed-couscous", "thai-chili-turkey-meatball-noodle-bowls"],
+        "eyebrow": "Meatball method guide",
+        "title": "Choose a meatball dinner by cooking method and texture",
+        "copy": "Compare pressure-cooked turkey layered with penne and marinara with skillet-browned chicken finished in tomato sauce, high-heat roasted lamb and ginger-scallion turkey baked for rice noodles by binder, heat source, safe center temperature and sauce timing.",
+    },
+    "spinach-feta-stuffed-portobellos-lemon-herb-pearl-couscous": {
+        "slugs": ["sheet-pan-sweet-potato-mushroom-fajitas-guacamole", "miso-glazed-eggplant-herby-white-bean-tahini-seed-crunch", "warm-halloumi-crispy-chickpea-salad-herb-toasts"],
+        "eyebrow": "Meatless dinner structure",
+        "title": "Choose a vegetable-forward dinner by moisture-control method",
+        "copy": "Compare pre-roasted stuffed portobellos, spread-out sheet-pan mushrooms, salted glazed eggplant and crisped chickpeas by where moisture is removed, how richness is balanced and which starch completes the plate.",
+    },
+    "sheet-pan-sweet-potato-mushroom-fajitas-guacamole": {
+        "slugs": ["spinach-feta-stuffed-portobellos-lemon-herb-pearl-couscous", "miso-glazed-eggplant-herby-white-bean-tahini-seed-crunch", "warm-halloumi-crispy-chickpea-salad-herb-toasts"],
+        "eyebrow": "Meatless dinner structure",
+        "title": "Choose a vegetable-forward dinner by moisture-control method",
+        "copy": "Compare spread-out sheet-pan mushrooms with pre-roasted stuffed portobellos, salted glazed eggplant and crisped chickpeas by where moisture is removed, how richness is balanced and which starch completes the plate.",
+    },
+    "miso-glazed-eggplant-herby-white-bean-tahini-seed-crunch": {
+        "slugs": ["spinach-feta-stuffed-portobellos-lemon-herb-pearl-couscous", "sheet-pan-sweet-potato-mushroom-fajitas-guacamole", "warm-halloumi-crispy-chickpea-salad-herb-toasts"],
+        "eyebrow": "Meatless dinner structure",
+        "title": "Choose a vegetable-forward dinner by moisture-control method",
+        "copy": "Compare salted glazed eggplant with pre-roasted stuffed portobellos, spread-out sheet-pan mushrooms and crisped chickpeas by where moisture is removed, how richness is balanced and which starch completes the plate.",
+    },
+    "warm-halloumi-crispy-chickpea-salad-herb-toasts": {
+        "slugs": ["spinach-feta-stuffed-portobellos-lemon-herb-pearl-couscous", "sheet-pan-sweet-potato-mushroom-fajitas-guacamole", "miso-glazed-eggplant-herby-white-bean-tahini-seed-crunch"],
+        "eyebrow": "Meatless dinner structure",
+        "title": "Choose a vegetable-forward dinner by moisture-control method",
+        "copy": "Compare crisped chickpeas and seared halloumi with pre-roasted stuffed portobellos, spread-out sheet-pan mushrooms and salted glazed eggplant by where moisture is removed, how richness is balanced and which starch completes the plate.",
+    },
+    "air-fryer-chili-lime-shrimp-avocado-toasts": {
+        "slugs": ["air-fryer-salmon-bites", "air-fryer-chicken-parmesan", "air-fryer-crispy-potato-wedges"],
+        "eyebrow": "Air-fryer technique",
+        "title": "Choose an air-fryer recipe by coating and doneness cue",
+        "copy": "Compare uncoated chili-lime shrimp, salmon cubes, breaded chicken cutlets and soaked potato wedges by food type, basket temperature, turning point and reliable doneness cue.",
+    },
+    "air-fryer-salmon-bites": {
+        "slugs": ["air-fryer-chili-lime-shrimp-avocado-toasts", "air-fryer-chicken-parmesan", "air-fryer-crispy-potato-wedges"],
+        "eyebrow": "Air-fryer technique",
+        "title": "Choose an air-fryer recipe by coating and doneness cue",
+        "copy": "Compare salmon cubes with uncoated chili-lime shrimp, breaded chicken cutlets and soaked potato wedges by food type, basket temperature, turning point and reliable doneness cue.",
+    },
+    "air-fryer-chicken-parmesan": {
+        "slugs": ["air-fryer-chili-lime-shrimp-avocado-toasts", "air-fryer-salmon-bites", "air-fryer-crispy-potato-wedges"],
+        "eyebrow": "Air-fryer technique",
+        "title": "Choose an air-fryer recipe by coating and doneness cue",
+        "copy": "Compare breaded chicken cutlets with uncoated chili-lime shrimp, salmon cubes and soaked potato wedges by food type, basket temperature, turning point and reliable doneness cue.",
+    },
+    "air-fryer-crispy-potato-wedges": {
+        "slugs": ["air-fryer-chili-lime-shrimp-avocado-toasts", "air-fryer-salmon-bites", "air-fryer-chicken-parmesan"],
+        "eyebrow": "Air-fryer technique",
+        "title": "Choose an air-fryer recipe by coating and doneness cue",
+        "copy": "Compare soaked potato wedges with uncoated chili-lime shrimp, salmon cubes and breaded chicken cutlets by food type, basket temperature, turning point and reliable doneness cue.",
+    },
+    "roasted-pumpkin-cardamom-soup-pepitas-lime-crema": {
+        "slugs": ["roasted-sweet-potato-ginger-soup", "instant-pot-vegan-corn-potato-chowder-chives", "instant-pot-broccoli-cheddar-soup"],
+        "eyebrow": "Blended soup methods",
+        "title": "Choose a cozy soup by base and blending method",
+        "copy": "Compare silky oven-roasted pumpkin with warm spices, roasted sweet potato with ginger, a partially blended vegan corn-potato chowder and pressure-cooked broccoli-cheddar soup by vegetable base, texture and richness.",
+    },
+    "roasted-sweet-potato-ginger-soup": {
+        "slugs": ["roasted-pumpkin-cardamom-soup-pepitas-lime-crema", "instant-pot-vegan-corn-potato-chowder-chives", "instant-pot-broccoli-cheddar-soup"],
+        "eyebrow": "Blended soup methods",
+        "title": "Choose a cozy soup by base and blending method",
+        "copy": "Compare roasted sweet potato with ginger, silky oven-roasted pumpkin with warm spices, a partially blended vegan corn-potato chowder and pressure-cooked broccoli-cheddar soup by vegetable base, texture and richness.",
+    },
+    "instant-pot-vegan-corn-potato-chowder-chives": {
+        "slugs": ["roasted-pumpkin-cardamom-soup-pepitas-lime-crema", "roasted-sweet-potato-ginger-soup", "instant-pot-broccoli-cheddar-soup"],
+        "eyebrow": "Blended soup methods",
+        "title": "Choose a cozy soup by base and blending method",
+        "copy": "Compare a partially blended vegan corn-potato chowder with silky oven-roasted pumpkin and warm spices, roasted sweet potato with ginger and pressure-cooked broccoli-cheddar soup by vegetable base, texture and richness.",
+    },
+    "instant-pot-broccoli-cheddar-soup": {
+        "slugs": ["roasted-pumpkin-cardamom-soup-pepitas-lime-crema", "roasted-sweet-potato-ginger-soup", "instant-pot-vegan-corn-potato-chowder-chives"],
+        "eyebrow": "Blended soup methods",
+        "title": "Choose a cozy soup by base and blending method",
+        "copy": "Compare pressure-cooked broccoli-cheddar soup with silky oven-roasted pumpkin and warm spices, roasted sweet potato with ginger and a partially blended vegan corn-potato chowder by vegetable base, texture and richness.",
+    },
+    "chicken-chilaquiles-verdes-cotija-red-onion": {
+        "slugs": ["rotisserie-chicken-enchilada-casserole", "instant-pot-mexican-beef-birria-tacos-consomme", "weeknight-beef-taco-skillet"],
+        "eyebrow": "Mexican-inspired tortilla formats",
+        "title": "Choose a tortilla dinner by texture and method",
+        "copy": "Compare salsa-folded chilaquiles with a layered enchilada casserole, pressure-braised birria tacos and a one-pan beef-and-rice taco skillet by tortilla format, active time and texture.",
+    },
+    "rotisserie-chicken-enchilada-casserole": {
+        "slugs": ["chicken-chilaquiles-verdes-cotija-red-onion", "instant-pot-mexican-beef-birria-tacos-consomme", "weeknight-beef-taco-skillet"],
+        "eyebrow": "Mexican-inspired tortilla formats",
+        "title": "Choose a tortilla dinner by texture and method",
+        "copy": "Compare a layered enchilada casserole with salsa-folded chilaquiles, pressure-braised birria tacos and a one-pan beef-and-rice taco skillet by tortilla format, active time and texture.",
+    },
+    "instant-pot-mexican-beef-birria-tacos-consomme": {
+        "slugs": ["chicken-chilaquiles-verdes-cotija-red-onion", "rotisserie-chicken-enchilada-casserole", "weeknight-beef-taco-skillet"],
+        "eyebrow": "Mexican-inspired tortilla formats",
+        "title": "Choose a tortilla dinner by texture and method",
+        "copy": "Compare crisp pressure-braised birria tacos with salsa-folded chilaquiles, a layered enchilada casserole and a one-pan beef-and-rice taco skillet by tortilla format, active time and texture.",
+    },
+    "weeknight-beef-taco-skillet": {
+        "slugs": ["chicken-chilaquiles-verdes-cotija-red-onion", "rotisserie-chicken-enchilada-casserole", "instant-pot-mexican-beef-birria-tacos-consomme"],
+        "eyebrow": "Mexican-inspired tortilla formats",
+        "title": "Choose a tortilla dinner by texture and method",
+        "copy": "Compare a one-pan beef-and-rice taco skillet with salsa-folded chilaquiles, a layered enchilada casserole and crisp pressure-braised birria tacos by tortilla format, active time and texture.",
+    },
+    "breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche": {
+        "slugs": ["bistro-croque-madame-gruyere-bechamel-greens", "smoky-roasted-pepper-shakshuka-feta", "spanish-tortilla-espanola-potato-onion"],
+        "eyebrow": "Savory brunch techniques",
+        "title": "Choose a savory brunch by pan method",
+        "copy": "Compare thin buckwheat galettes with cool smoked-salmon toppings, a griddled croque madame, eggs poached in pepper-tomato sauce and a deep potato-onion tortilla by active time, pan technique and make-ahead potential.",
+    },
+    "bistro-croque-madame-gruyere-bechamel-greens": {
+        "slugs": ["breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche", "smoky-roasted-pepper-shakshuka-feta", "spanish-tortilla-espanola-potato-onion"],
+        "eyebrow": "Savory brunch techniques",
+        "title": "Choose a savory brunch by pan method",
+        "copy": "Compare a griddled croque madame with thin buckwheat galettes and cool smoked-salmon toppings, eggs poached in pepper-tomato sauce and a deep potato-onion tortilla by active time, pan technique and make-ahead potential.",
+    },
+    "smoky-roasted-pepper-shakshuka-feta": {
+        "slugs": ["breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche", "bistro-croque-madame-gruyere-bechamel-greens", "spanish-tortilla-espanola-potato-onion"],
+        "eyebrow": "Savory brunch techniques",
+        "title": "Choose a savory brunch by pan method",
+        "copy": "Compare eggs poached in pepper-tomato sauce with thin buckwheat galettes and cool smoked-salmon toppings, a griddled croque madame and a deep potato-onion tortilla by active time, pan technique and make-ahead potential.",
+    },
+    "spanish-tortilla-espanola-potato-onion": {
+        "slugs": ["breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche", "bistro-croque-madame-gruyere-bechamel-greens", "smoky-roasted-pepper-shakshuka-feta"],
+        "eyebrow": "Savory brunch techniques",
+        "title": "Choose a savory brunch by pan method",
+        "copy": "Compare a deep potato-onion tortilla with thin buckwheat galettes and cool smoked-salmon toppings, a griddled croque madame and eggs poached in pepper-tomato sauce by active time, pan technique and make-ahead potential.",
+    },
+    "slow-cooker-apple-cider-pulled-pork-sandwiches-mustard-slaw": {
+        "slugs": ["slow-cooker-salsa-verde-chicken", "slow-cooker-white-chicken-chili", "slow-cooker-beef-mushroom-ragu"],
+        "eyebrow": "Slow-cooker dinner methods",
+        "title": "Choose a slow-cooker dinner by cut and finish",
+        "copy": "Compare shreddable cider-braised pork sandwiches, bright salsa-verde chicken, creamy white chicken chili and beef-mushroom ragu by protein, finishing step and serving style.",
+    },
+    "slow-cooker-salsa-verde-chicken": {
+        "slugs": ["slow-cooker-apple-cider-pulled-pork-sandwiches-mustard-slaw", "slow-cooker-white-chicken-chili", "slow-cooker-beef-mushroom-ragu"],
+        "eyebrow": "Slow-cooker dinner methods",
+        "title": "Choose a slow-cooker dinner by cut and finish",
+        "copy": "Compare bright salsa-verde chicken with shreddable cider-braised pork sandwiches, creamy white chicken chili and beef-mushroom ragu by protein, finishing step and serving style.",
+    },
+    "slow-cooker-white-chicken-chili": {
+        "slugs": ["slow-cooker-apple-cider-pulled-pork-sandwiches-mustard-slaw", "slow-cooker-salsa-verde-chicken", "slow-cooker-beef-mushroom-ragu"],
+        "eyebrow": "Slow-cooker dinner methods",
+        "title": "Choose a slow-cooker dinner by cut and finish",
+        "copy": "Compare creamy white chicken chili with shreddable cider-braised pork sandwiches, bright salsa-verde chicken and beef-mushroom ragu by protein, finishing step and serving style.",
+    },
+    "slow-cooker-beef-mushroom-ragu": {
+        "slugs": ["slow-cooker-apple-cider-pulled-pork-sandwiches-mustard-slaw", "slow-cooker-salsa-verde-chicken", "slow-cooker-white-chicken-chili"],
+        "eyebrow": "Slow-cooker dinner methods",
+        "title": "Choose a slow-cooker dinner by cut and finish",
+        "copy": "Compare beef-mushroom ragu with shreddable cider-braised pork sandwiches, bright salsa-verde chicken and creamy white chicken chili by protein, finishing step and serving style.",
+    },
+    "no-knead-tomato-olive-red-onion-focaccia": {
+        "slugs": ["homemade-margherita-pizza-no-cook-tomato-sauce", "irish-brown-soda-bread-buttermilk-oats", "adjarian-khachapuri-feta-mozzarella-jammy-egg"],
+        "eyebrow": "Bread-making techniques",
+        "title": "Choose a homemade bread project by technique",
+        "copy": "Compare high-hydration no-knead focaccia, hand-stretched pizza, quick soda bread and an enriched cheese-filled bread boat by leavening, shaping and total time.",
+    },
+    "homemade-margherita-pizza-no-cook-tomato-sauce": {
+        "slugs": ["no-knead-tomato-olive-red-onion-focaccia", "irish-brown-soda-bread-buttermilk-oats", "adjarian-khachapuri-feta-mozzarella-jammy-egg"],
+        "eyebrow": "Bread-making techniques",
+        "title": "Choose a homemade bread project by technique",
+        "copy": "Compare hand-stretched pizza, high-hydration no-knead focaccia, quick soda bread and an enriched cheese-filled bread boat by leavening, shaping and total time.",
+    },
+    "irish-brown-soda-bread-buttermilk-oats": {
+        "slugs": ["no-knead-tomato-olive-red-onion-focaccia", "homemade-margherita-pizza-no-cook-tomato-sauce", "adjarian-khachapuri-feta-mozzarella-jammy-egg"],
+        "eyebrow": "Bread-making techniques",
+        "title": "Choose a homemade bread project by technique",
+        "copy": "Compare quick soda bread with high-hydration no-knead focaccia, hand-stretched pizza and an enriched cheese-filled bread boat by leavening, shaping and total time.",
+    },
+    "adjarian-khachapuri-feta-mozzarella-jammy-egg": {
+        "slugs": ["no-knead-tomato-olive-red-onion-focaccia", "homemade-margherita-pizza-no-cook-tomato-sauce", "irish-brown-soda-bread-buttermilk-oats"],
+        "eyebrow": "Bread-making techniques",
+        "title": "Choose a homemade bread project by technique",
+        "copy": "Compare an enriched cheese-filled bread boat with high-hydration no-knead focaccia, hand-stretched pizza and quick soda bread by leavening, shaping and total time.",
+    },
+    "turkish-mercimek-koftesi-lemon-fresh-herbs": {
+        "slugs": ["syrian-style-muhammara-roasted-pepper-walnut-dip", "crispy-herb-falafel-pita-lemon-tahini-sauce", "georgian-beet-pkhali-mchadi-pomegranate"],
+        "eyebrow": "Plant-based mezze",
+        "title": "Build a varied plant-based sharing table",
+        "copy": "Pair no-fry lentil-and-bulgur kofta with roasted-pepper walnut dip, crisp chickpea falafel, and beet-walnut pkhali to compare four distinct bases, textures, and make-ahead strategies.",
+    },
+    "syrian-style-muhammara-roasted-pepper-walnut-dip": {
+        "slugs": ["turkish-mercimek-koftesi-lemon-fresh-herbs", "crispy-herb-falafel-pita-lemon-tahini-sauce", "georgian-beet-pkhali-mchadi-pomegranate"],
+        "eyebrow": "Plant-based mezze",
+        "title": "Build a varied plant-based sharing table",
+        "copy": "Pair roasted-pepper walnut dip with no-fry lentil-and-bulgur kofta, crisp chickpea falafel, and beet-walnut pkhali to compare four distinct bases, textures, and make-ahead strategies.",
+    },
+    "georgian-beet-pkhali-mchadi-pomegranate": {
+        "slugs": ["turkish-mercimek-koftesi-lemon-fresh-herbs", "syrian-style-muhammara-roasted-pepper-walnut-dip", "crispy-herb-falafel-pita-lemon-tahini-sauce"],
+        "eyebrow": "Plant-based mezze",
+        "title": "Build a varied plant-based sharing table",
+        "copy": "Pair beet-walnut pkhali with no-fry lentil-and-bulgur kofta, roasted-pepper walnut dip, and crisp chickpea falafel to compare four distinct bases, textures, and make-ahead strategies.",
+    },
+    "palestinian-style-musakhan-sumac-chicken-onion-flatbread": {
+        "slugs": ["lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "crispy-herb-falafel-pita-lemon-tahini-sauce", "creamy-stovetop-butter-chicken-garlic-naan"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "lebanese-style-chicken-shish-tawook-pita-garlic-yogurt": {
+        "slugs": ["palestinian-style-musakhan-sumac-chicken-onion-flatbread", "crispy-herb-falafel-pita-lemon-tahini-sauce", "creamy-stovetop-butter-chicken-garlic-naan"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "crispy-herb-falafel-pita-lemon-tahini-sauce": {
+        "slugs": ["palestinian-style-musakhan-sumac-chicken-onion-flatbread", "lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "creamy-stovetop-butter-chicken-garlic-naan"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "creamy-stovetop-butter-chicken-garlic-naan": {
+        "slugs": ["palestinian-style-musakhan-sumac-chicken-onion-flatbread", "lebanese-style-chicken-shish-tawook-pita-garlic-yogurt", "crispy-herb-falafel-pita-lemon-tahini-sauce"],
+        "eyebrow": "Flatbread dinners",
+        "title": "Choose a flatbread-centered dinner by technique",
+        "copy": "Compare sumac-roasted chicken over onion-soaked bread, grilled yogurt-marinated skewers, crisp falafel with tahini, and tomato-cream chicken with naan by cooking method and weeknight effort.",
+    },
+    "indonesian-beef-rendang-coconut-toasted-spices": {
+        "slugs": ["moroccan-lamb-tagine-prunes-almonds-quail-eggs", "filipino-style-pork-adobo-eggs-steamed-rice", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "moroccan-lamb-tagine-prunes-almonds-quail-eggs": {
+        "slugs": ["indonesian-beef-rendang-coconut-toasted-spices", "filipino-style-pork-adobo-eggs-steamed-rice", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "filipino-style-pork-adobo-eggs-steamed-rice": {
+        "slugs": ["indonesian-beef-rendang-coconut-toasted-spices", "moroccan-lamb-tagine-prunes-almonds-quail-eggs", "oven-braised-beef-stew-potatoes-mushrooms-peas"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "oven-braised-beef-stew-potatoes-mushrooms-peas": {
+        "slugs": ["indonesian-beef-rendang-coconut-toasted-spices", "moroccan-lamb-tagine-prunes-almonds-quail-eggs", "filipino-style-pork-adobo-eggs-steamed-rice"],
+        "eyebrow": "Braising technique",
+        "title": "Compare four paths to tender, deeply flavored meat",
+        "copy": "See how uncovered coconut reduction, a covered fruit-and-spice tagine, soy-vinegar adobo and a red-wine oven braise use different liquids and finishing methods to transform collagen-rich cuts.",
+    },
+    "classic-new-england-clam-chowder-potatoes-saltines": {
+        "slugs": ["moroccan-style-vegetarian-harira-lentils-chickpeas", "classic-french-onion-soup-gruyere-toasts", "turkish-red-lentil-soup-aleppo-butter"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "moroccan-style-vegetarian-harira-lentils-chickpeas": {
+        "slugs": ["classic-new-england-clam-chowder-potatoes-saltines", "classic-french-onion-soup-gruyere-toasts", "turkish-red-lentil-soup-aleppo-butter"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "classic-french-onion-soup-gruyere-toasts": {
+        "slugs": ["classic-new-england-clam-chowder-potatoes-saltines", "moroccan-style-vegetarian-harira-lentils-chickpeas", "turkish-red-lentil-soup-aleppo-butter"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "turkish-red-lentil-soup-aleppo-butter": {
+        "slugs": ["classic-new-england-clam-chowder-potatoes-saltines", "moroccan-style-vegetarian-harira-lentils-chickpeas", "classic-french-onion-soup-gruyere-toasts"],
+        "eyebrow": "Soup technique",
+        "title": "Compare four ways to build a satisfying soup",
+        "copy": "Move between a creamy potato-thickened chowder, flour-finished harira, long-caramelized onion broth, and smoothly blended red lentils by matching the thickening method to the result you want.",
+    },
+    "cottage-cheese-protein-pancakes": {
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached Ã§Ä±lbÄ±r, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
+    },
+    "cottage-cheese-frittata-tomatoes-green-peppers": {
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached Ã§Ä±lbÄ±r, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
+    },
+    "freezer-breakfast-burritos": {
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached Ã§Ä±lbÄ±r, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
+    },
+    "berry-almond-chia-pudding-toasted-seeds": {
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached Ã§Ä±lbÄ±r, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
+    },
+    "eastern-european-syrniki-sour-cream-fruit": {
+        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "cottage-cheese-frittata-tomatoes-green-peppers", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "eyebrow": "Breakfast planning",
+        "title": "Build a fast and make-ahead breakfast rotation",
+        "copy": "Compare fresh-poached Ã§Ä±lbÄ±r, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
+    },
+}
+
+def recipe_topic_cluster(recipe) -> str:
+    cluster = CURATED_RECIPE_CLUSTERS.get(recipe.get("slug", ""))
+    if not cluster:
+        return ""
+    recipes_by_slug = {candidate["slug"]: candidate for candidate in RECIPES}
+    linked = [recipes_by_slug[slug] for slug in cluster["slugs"] if slug in recipes_by_slug]
+    if not linked:
+        return ""
+    return f'''<section class="section-tight section-paper related-section" aria-labelledby="recipe-cluster-heading"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow">{esc(cluster["eyebrow"])}</p><h2 id="recipe-cluster-heading">{esc(cluster["title"])}</h2></div><p>{esc(cluster["copy"])}</p></div>
+      <div class="recipe-grid">{''.join(recipe_card(candidate) for candidate in linked)}</div>
+    </div></section>'''
+
+def build_recipe_pages():
+    for recipe in RECIPES:
+        slug = recipe["slug"]
+        minutes = int(recipe.get("total_minutes", int(recipe.get("prep_minutes",0)) + int(recipe.get("cook_minutes",0))))
+        ingredients = "".join(f'''<li><label><input type="checkbox"><span data-ingredient data-original="{esc(item)}">{esc(item)}</span></label></li>''' for item in recipe.get("ingredients",[]))
+        steps = "".join(f'''<li><div><h3>{esc(step.get("name", f"Step {i+1}"))}</h3><p>{esc(step.get("text",""))}</p></div></li>''' for i, step in enumerate(recipe.get("instructions",[])))
+        tips = "".join(f'<div class="tip-card"><strong>Why it works</strong>{esc(t)}</div>' for t in recipe.get("why_it_works",[]))
+        swaps = "".join(f"<li>{esc(x)}</li>" for x in recipe.get("swaps",[]))
+        notes = "".join(f"<li>{esc(x)}</li>" for x in recipe.get("notes",[]))
+        faqs = "".join(f'''<details><summary>{esc(x.get("q","Question"))}</summary><p>{esc(x.get("a",""))}</p></details>''' for x in recipe.get("faqs",[]))
+        cook_steps = "".join(f'''<div class="cook-step"><strong>{i+1}. {esc(step.get("name", "Step"))}</strong>{esc(step.get("text",""))}</div>''' for i, step in enumerate(recipe.get("instructions",[])))
+        collection_slug = recipe.get("collection", "")
+        collection_title = COLLECTION_META.get(collection_slug, (pretty_slug(collection_slug or "recipe"), "", ""))[0]
+        topic_links = []
+        if collection_slug:
+            topic_links.append(f'<a href="{href("/collections/" + collection_slug + "/")}">{esc(collection_title)}</a>')
+        for hub_slug in ingredient_hubs_for_recipe(recipe)[:2]:
+            topic_links.append(f'<a href="{href("/ingredients/" + hub_slug + "/")}">{esc(INGREDIENT_HUBS[hub_slug]["title"])}</a>')
+        related = related_recipes(recipe)
+        photo_credit = ""
+        if recipe.get("image_credit") and recipe.get("image_credit_url") and recipe.get("image_license") and recipe.get("image_license_url"):
+            photo_credit = f'''<p class="recipe-photo-credit" style="margin:.55rem .15rem 0;font-size:.75rem;color:var(--ink-soft)">Photo: <a href="{esc(recipe['image_credit_url'])}" target="_blank" rel="noopener noreferrer">{esc(recipe['image_credit'])}</a> Â· <a href="{esc(recipe['image_license_url'])}" target="_blank" rel="noopener noreferrer">{esc(recipe['image_license'])}</a></p>'''
+        related_html = f'''<section class="section-tight section-paper related-section"><div class="wrap">
+          <div class="section-heading"><div><p class="eyebrow">Cook next</p><h2>More recipes youâ€™ll like</h2></div><a class="btn btn-outline" href="{href('/recipes/')}">All recipes</a></div>
+          <div class="recipe-grid">{''.join(recipe_card(candidate) for candidate in related)}</div>
+        </div></section>'''
+        cluster_html = recipe_topic_cluster(recipe)
+        body = f'''<section class="recipe-hero" data-recipe-page data-servings="{int(recipe.get('servings',4))}">
+          <div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(recipe.get("title","Recipe"),None)])}
+          <div class="recipe-hero-grid">
+            <div><img class="recipe-hero-image" src="{esc(recipe.get('image',''))}" alt="{esc(recipe.get('image_alt', recipe.get('title','Recipe')))}" width="900" height="968" fetchpriority="high" decoding="async">{photo_credit}</div>
+            <div><p class="eyebrow">{esc(collection_title)}</p>
+              <h1>{esc(recipe.get('title','Recipe'))}</h1><p class="lede">{esc(recipe.get('dek',''))}</p>
+              <p class="recipe-byline">Developed for DishGal Â· Updated {esc(recipe.get('date_modified','2026-08-17'))}</p>
+              <div class="recipe-topic-links" aria-label="Recipe topics">{''.join(topic_links)}</div>
+              <div class="recipe-meta-grid">
+                <div class="recipe-meta-item"><small>Prep</small><strong>{int(recipe.get('prep_minutes',0))} min</strong></div>
+                <div class="recipe-meta-item"><small>Cook</small><strong>{int(recipe.get('cook_minutes',0))} min</strong></div>
+                <div class="recipe-meta-item"><small>Total</small><strong>{minutes} min</strong></div>
+                <div class="recipe-meta-item"><small>Cost</small><strong>{esc(recipe.get('cost_per_serving','â€”'))}</strong></div>
+              </div>
+              <div class="button-row">
+                <button class="btn btn-primary" type="button" data-open-cook>Start cook mode</button>
+                <button class="btn btn-outline" type="button" data-print>Print</button>
+                <button class="btn btn-outline" type="button" data-save-recipe="{esc(slug)}"><span data-save-label>Save recipe</span></button>
+              </div>
+            </div>
+          </div></div>
+        </section>
+        <section class="section-tight"><div class="wrap recipe-main">
+          <aside>
+            <div class="recipe-panel sticky-panel"><div class="serving-control"><strong>Ingredients</strong><div class="serving-buttons"><button type="button" data-serving-minus>âˆ’</button><span><span data-servings-output>{int(recipe.get('servings',4))}</span> servings</span><button type="button" data-serving-plus>+</button></div></div><ul class="ingredient-list">{ingredients}</ul></div>
+          </aside>
+          <div>
+            <div class="recipe-panel"><h2>Directions</h2><ol class="step-list">{steps}</ol></div>
+            <div class="recipe-panel"><h2>Why this works</h2><div class="tip-grid">{tips}</div></div>
+            {recipe_shop(recipe)}
+            <div class="recipe-panel"><h2>Swaps & notes</h2><h3>Easy swaps</h3><ul class="dot-list">{swaps}</ul><h3>Cook notes</h3><ul class="dot-list">{notes}</ul><h3>Storage</h3><p>{esc(recipe.get('storage','Store covered in the refrigerator and reheat until hot.'))}</p></div>
+            <div class="recipe-panel"><h2>Questions</h2><div class="faq-list">{faqs}</div></div>
+          </div>
+        </div></section>
+        {cluster_html}
+        {related_html}
+        <div class="cook-mode" data-cook-mode><div class="cook-mode-inner"><div class="cook-mode-head"><div><strong>{esc(recipe.get('title','Recipe'))}</strong><div class="muted">Screen stays awake when supported.</div></div><button class="btn btn-dark" type="button" data-close-cook>Exit cook mode</button></div>{cook_steps}</div></div>'''
+        schema = [
+            recipe_schema(recipe),
+            breadcrumb_schema([("Recipes", "/recipes/"), (recipe.get("title", "Recipe"), None)]),
+        ]
+        write_page(f"/recipes/{slug}/", page(
+            recipe_seo_title(recipe),
+            recipe_meta_description(recipe),
+            f"/recipes/{slug}/",
+            body,
+            schema=schema,
+            image=recipe.get("image"),
+            page_type="article",
+            published=recipe.get("date_published"),
+            modified=recipe.get("date_modified", recipe.get("date_published")),
+        ))
+
+def build_collections():
+    collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
+    for slug in collections:
+        recipes = stable_recipe_mix([r for r in RECIPES if r.get("collection") == slug])
+        title, desc, _ = COLLECTION_META.get(slug, (pretty_slug(slug), f"Browse DishGal's {pretty_slug(slug).lower()} recipes.", "ğŸ´"))
+        seo_title = title if "recipe" in title.lower() else f"{title} Recipes"
+        full_description = f"{desc} Browse {len(recipes)} complete recipes with timing, cost, substitutions, and storage notes."
+        collection_intro = ""
+        collection_faq = ""
+        if slug in dict(active_ingredient_hubs()):
+            hub_count = len(recipes_for_ingredient(slug))
+            collection_intro = f'''<section class="section-tight section-paper"><div class="wrap"><p>This collection is a smaller selection. <a href="{href('/ingredients/' + slug + '/')}">Browse all {hub_count} {esc(slug)} recipes</a> for the complete ingredient library.</p></div></section>'''
+        if slug == "instant-pot":
+            collection_intro = f'''<section class="section-tight section-paper"><div class="wrap">
+              <div class="section-heading"><div><p class="eyebrow">Built for the 6-quart pot</p><h2>Pressure-cooker recipes that tell the whole truth about time.</h2></div><p>Every total includes a realistic allowance for coming to pressure and releasing pressureâ€”not just the programmed cook time on the display.</p></div>
+              <div class="tip-grid">
+                <div class="tip-card"><strong>Protect against the burn warning</strong>Thin liquid goes in first. Tomato sauce, salsa, and other thick ingredients stay on top unless the directions specifically say to stir.</div>
+                <div class="tip-card"><strong>Keep family dinner mild</strong>The base recipes are kid-manageable. Hot sauce, jalapeÃ±os, and crushed pepper are finishing options for the adults who want them.</div>
+                <div class="tip-card"><strong>Use the right release</strong>Each recipe states natural, quick, or controlled release. Never force the lid; wait until the float valve drops completely.</div>
+              </div>
+              <div class="recipe-panel" style="margin-top:1.5rem">
+                <p class="eyebrow">DishGal quick reference</p><h3>Match the pressure release to the foodâ€”not the clock.</h3>
+                <div class="tip-grid">
+                  <div class="tip-card"><strong>Natural release</strong>Best for beans, split peas, large roasts and other foods that foam or keep cooking as pressure falls. Wait the recipe's full time; do not force the lid.</div>
+                  <div class="tip-card"><strong>Controlled release</strong>Use short venting pulses for rice, pasta and starchy dishes. Pause immediately if liquid or foam sputters, and resume only when the vent is quiet.</div>
+                  <div class="tip-card"><strong>Quick release</strong>Useful for delicate vegetables and seafood when the recipe calls for it. Keep hands and face away from steam and never cover the valve with a towel.</div>
+                  <div class="tip-card"><strong>Fill-limit check</strong>Stay below the half-full line for beans, grains, pasta and foods that expand or foam. Other foods must remain below the model's maximum-fill line.</div>
+                </div>
+                <h3 style="margin-top:1.5rem">Busy-night pressure-cooker chooser</h3>
+                <p>Compare total time, release style and the work left after pressure falls. The programmed cycle is only one part of the clock.</p>
+                <div style="overflow-x:auto">
+                  <table style="width:100%;border-collapse:collapse;text-align:left">
+                    <thead><tr><th style="padding:.65rem;border-bottom:2px solid var(--line)">Recipe</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Total</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Release</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">After pressure</th><th style="padding:.65rem;border-bottom:2px solid var(--line)">Best fit</th></tr></thead>
+                    <tbody>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-filipino-chicken-arroz-caldo-ginger-calamansi/')}">Chicken arroz caldo</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred chicken; loosen porridge</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Gentle breakfast or supper</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-polish-bigos-pork-kielbasa-sauerkraut/')}">Polish-style bigos</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Reduce; reheat kielbasa</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead freezer braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-cuban-ropa-vieja-yellow-rice-plantains/')}">Cuban-style ropa vieja</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred and reduce; finish sides</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Complete family platter</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ukrainian-beet-borscht-white-beans-dill/')}">Beet borscht with white beans</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Simmer cabbage and beans</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget meatless meal prep</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-lowcountry-shrimp-boil-corn-potatoes/')}">Lowcountry shrimp boil</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">SautÃ© shrimp 3â€“5 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fast shareable seafood</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-korean-galbijjim-pear-chestnuts/')}">Korean galbijjim</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Defat and reduce 8â€“10 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Special family braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-smoky-black-bean-soup-lime-crema/')}">Smoky black bean soup</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">90 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Partially blend</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Vegetarian meal prep</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-chicken-cacciatore-mushrooms-egg-noodles/')}">Chicken cacciatore</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Reduce sauce; add noodles</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Saucy family dinner</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-louisiana-red-beans-rice-andouille/')}">Louisiana-style red beans</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">95 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash; reheat andouille; add rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Smoky budget family meal</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-persian-chicken-fesenjan-walnut-pomegranate/')}">Chicken fesenjan</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">75 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Reduce walnut-pomegranate sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Sweet-tart family braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-quebec-yellow-split-pea-soup-ham/')}">Yellow split pea soup</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred ham; adjust body</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget freezer meal</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-saffron-shrimp-risotto-lemon-chives/')}">Saffron shrimp risotto</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">SautÃ© shrimp; enrich rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fast seafood dinner</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-japanese-beef-curry-potatoes-carrots/')}">Japanese-style beef curry</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">80 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">5-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk in curry roux; add rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mild family comfort food</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-rajma-masala-warm-roti/')}">Rajma masala</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash and reduce; warm roti</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget vegetarian busy night</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-teriyaki-chicken-rice-bowls/')}">Teriyaki chicken rice bowls</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Glaze chicken; fluff rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">All-in-one rice bowl</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-taiwanese-lu-rou-fan-braised-pork-rice/')}">Taiwanese-style lu rou fan</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">80 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Reduce gravy; add rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Savory pork rice bowls</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-swedish-meatballs-mashed-potatoes-lingonberries/')}">Swedish-style meatballs</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">85 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">5-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Thicken gravy; finish mash</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Classic family comfort food</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-dal-makhani-garlic-naan/')}">Dal makhani with garlic naan</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">95 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Finish tomato-cream sauce; warm naan</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless bean supper</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-hawaiian-style-kalua-pork-cabbage-rice/')}">Hawaiian-style kÄlua pork</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">110 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred pork; sautÃ© cabbage; add rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Smoky family platter</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-thai-style-massaman-chicken-potatoes/')}">Thai-style Massaman chicken</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Add coconut milk; simmer sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mild chicken curry night</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-lebanese-style-mujaddara-caramelized-onions/')}">Lebanese-style mujaddara</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">90 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Two 10-min natural releases</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fold in onions; rest grains</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget meatless pantry meal</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-vietnamese-style-bo-kho-carrots-noodles/')}">Vietnamese-style bÃ² kho</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">95 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled; second controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Cook noodles; garnish bowls</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Aromatic beef noodle supper</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-egyptian-style-ful-medames-breakfast-platter/')}">Egyptian-style ful medames</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash; season; build platter</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Vegan breakfast meal prep</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-dominican-style-sancocho-chicken-pork-root-vegetables/')}">Dominican-style sancocho</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">115 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Two 10-min natural releases, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Check meats; mash vegetables</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Weekend family stew</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-italian-creamy-polenta-mushrooms-parmesan/')}">Creamy polenta with mushrooms</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk polenta; add mushrooms</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless pot-in-pot supper</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce/')}">Hainanese-style chicken rice</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">55 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; crisp skin; mix sauces</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">All-in-one mild family bowl</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-greek-beef-stifado-pearl-onions/')}">Greek beef stifado</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">110 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Simmer onions; balance sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead beef braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-jamaican-style-oxtail-butter-beans/')}">Jamaican-style oxtail</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">120 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Defat; add beans; reduce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Special make-ahead beef braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ghanaian-style-chicken-peanut-stew-sweet-potatoes/')}">Ghanaian-style chicken peanut stew</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Whisk in peanut butter; wilt spinach</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Weeknight chicken one-bowl stew</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-brazilian-style-feijoada-collards-farofa/')}">Brazilian-style feijoada</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">125 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Add sausage; mash beans; cook collards</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Complete pork-and-bean platter</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-uzbek-style-lamb-plov-carrots/')}">Uzbek-style lamb plov</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">100 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Two 10-min natural releases, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fold in garlic; fluff and rest rice</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Celebration-style one-pot rice</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-southern-chicken-flat-dumplings/')}">Southern chicken &amp; flat dumplings</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">70 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred chicken; simmer dumplings; add dairy</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Comfort-food family supper</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ecuadorian-locro-de-queso-avocado/')}">Ecuadorian-style locro de queso</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">50 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash potatoes; add dairy and garnishes</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless potato-soup night</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-mexican-beef-birria-tacos-consomme/')}">Mexican-style beef birria tacos</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">115 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Shred beef; skim broth; crisp tacos</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Freezer-friendly taco night</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-indian-vegetable-biryani-pomegranate-raita/')}">Indian-style vegetable biryani</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">70 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Steam peas; fluff rice; mix raita</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meatless celebration-style rice</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-french-style-coq-au-vin-mushrooms/')}">French-style coq au vin</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">80 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; finish vegetables and sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead chicken braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-vegan-corn-potato-chowder-chives/')}">Vegan corn &amp; potato chowder</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">50 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">5-min rest, then controlled quick</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Partially blend; add oat milk</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget vegan freezer meal</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-korean-dakbokkeumtang-chicken-potatoes/')}">Korean-style dakbokkeumtang</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">70 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; finish glass noodles</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mild-first chicken stew</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-romanian-sarmale-beef-pork-rice/')}">Romanian-style sarmale</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">110 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify roll centers; finish polenta</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Make-ahead stuffed-cabbage platter</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-turkish-kuru-fasulye-white-bean-stew/')}">Turkish kuru fasulye</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">95 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Check bean centers; adjust broth</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Budget meatless pantry stew</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-norwegian-farikal-lamb-cabbage-potatoes/')}">Norwegian fÃ¥rikÃ¥l</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">90 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">15-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Check lamb tenderness; finish broth</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Autumn lamb-and-cabbage braise</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-ethiopian-doro-wat-eggs-injera/')}">Ethiopian-style doro wat</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">65 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Verify chicken; reduce sauce; warm eggs</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Chicken-and-injera family platter</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/instant-pot-portuguese-caldo-verde-chourico-kale/')}">Portuguese-style caldo verde</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">50 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">10-min natural, then controlled</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Mash potatoes; wilt kale; reheat sausage</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Fast soup-and-bread night</td></tr>
+                      <tr><td style="padding:.65rem"><a href="{href('/recipes/instant-pot-pork-carnitas/')}">Pork carnitas</a></td><td style="padding:.65rem">75 min</td><td style="padding:.65rem">15-min natural, then quick</td><td style="padding:.65rem">Shred and broil</td><td style="padding:.65rem">Cook once, repurpose twice</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <h3 style="margin-top:1.5rem">What belongs near the heating plate?</h3>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Ingredient type</th><th>Where it goes</th><th>Why</th></tr></thead>
+                    <tbody>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Water, broth or another recipe-approved thin liquid</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">First, against a clean deglazed base</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">This is the free-flowing liquid the cooker needs to generate steam.</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Meat and water-rich vegetables</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Above the thin liquid; stir only when the recipe directs</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">They release moisture, but should not replace the measured minimum liquid for the model.</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Tomato paste, thick tomato sauce, nut butter or another concentrated sauce</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Diluted and floated on top, or added after pressure, exactly as directed</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Thick or sugary mixtures can settle and scorch before enough steam develops.</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Beans, rice, pasta and other expanding foods</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">In the recipe's measured liquid and below the half-full line</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">They absorb liquid, expand and can foam; improvised ratios change both texture and safety margins.</td></tr>
+                      <tr><td style="padding:.65rem">Dairy, cheese and cornstarch slurry</td><td style="padding:.65rem">Usually after pressure unless a tested recipe specifically says otherwise</td><td style="padding:.65rem">Adding them during the finishing stage reduces scorching, curdling and over-thickening.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <h3 style="margin-top:1.5rem">Five-point preflight before you press Start</h3>
+                <ol class="dot-list">
+                  <li>Confirm the sealing ring is seated, the float valve and steam-release path move freely, and the anti-block shield is clean.</li>
+                  <li>Check that the outside of the inner pot and the cooker heating plate are clean and dry before inserting the pot.</li>
+                  <li>Scrape the base completely smooth after browning; thick sauce, dairy and starch belong where the recipe layers them.</li>
+                  <li>Measure the stated thin liquid and stay below the half-full line for grains, beans, pasta and other expanding foods.</li>
+                  <li>Match the valve position and release method to the exact recipe, keeping hands and face away from escaping steam.</li>
+                </ol>
+                <h3 style="margin-top:1.5rem">Stop-and-check signals during release</h3>
+                <ul class="dot-list">
+                  <li><strong>Liquid sputters from the valve:</strong> close it, wait 2 minutes and resume in shorter controlled pulses; never cover the vent with a towel.</li>
+                  <li><strong>The float valve is still raised:</strong> pressure remains inside. Keep the lid locked and waitâ€”never twist or force it open.</li>
+                  <li><strong>The recipe contains beans, grains or other foaming food:</strong> respect the half-full limit and the specified natural-release interval before any venting.</li>
+                </ul>
+                <h3 style="margin-top:1.5rem">Pressure-release recovery guide</h3>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>What you observe</th><th>Safe next move</th><th>What not to do</th></tr></thead>
+                    <tbody>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Only clear steam exits during a controlled release</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Continue the recipe's short pulses while keeping hands and face away</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Do not lean over the valve or touch it with bare hands</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">Foam, starch or food sputters from the valve</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Close the valve, wait at least 2 minutes, then retry more slowly; repeat as needed</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Do not hold the valve open or cover it with a towel</td></tr>
+                      <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)">The float valve stays raised after the stated natural release</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Treat the cooker as pressurized and follow the recipe's controlled-release direction</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Never twist, pry or force the lid</td></tr>
+                      <tr><td style="padding:.65rem">The cooker displays a burn warning before pressure</td><td style="padding:.65rem">Cancel, let pressure dissipate, then follow the model manual before opening and inspecting the base, liquid and layering</td><td style="padding:.65rem">Do not bypass the warning, add liquid through the vent or move a pressurized cooker</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <h3 style="margin-top:1.5rem">Where to measure doneness after pressure</h3>
+                <div class="tip-grid">
+                  <div class="tip-card"><strong>Bone-in poultry: 165Â°F</strong>Probe the thickest meat besideâ€”but not touchingâ€”the bone. Check more than one piece because sizes and positions in the pot vary.</div>
+                  <div class="tip-card"><strong>Ground-meat rolls: 160Â°F</strong>Insert the probe through the wrapper into the very center of several rolls. Hot broth or tender cabbage does not prove the filling is done.</div>
+                  <div class="tip-card"><strong>Whole pork or beef: 145Â°F + rest</strong>Use the recipe's stated rest and target; do not substitute this rule for ground meat, poultry or a recipe that intentionally cooks a tough cut further for tenderness.</div>
+                  <div class="tip-card"><strong>Below target?</strong>Return the food to hot liquid and use SautÃ© or the recipe's finishing step until every checked portion reaches its safe temperature; never rely on color alone.</div>
+                </div>
+                <p class="muted" style="margin-top:1rem">Safety method: confirm the minimum liquid, fill limits, pre-use inspection, warning response and venting procedure in the <a href="https://instantpot.com/pages/product-manuals" target="_blank" rel="noopener noreferrer">manufacturer manual for your model</a>. DishGal's doneness targets follow the <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener noreferrer">USDA safe-temperature chart</a>. Comparison, layering and pressure-release recovery guides reviewed October 12, 2026.</p>
+              </div>
+              <p class="muted" style="margin-top:1rem">Instant Pot is a trademark of its owner. DishGal is not affiliated with or endorsed by the brand; these recipes also work in comparable 6-quart electric pressure cookers when the manufacturer permits the stated method.</p>
+            </div></section>'''
+            collection_faq = f'''<section class="section-tight"><div class="narrow recipe-panel"><p class="eyebrow">Before you start</p><h2>Three rules for safer, better pressure cooking</h2><div class="faq-list">
+              <details><summary>Can I double these recipes?</summary><p>Do not automatically double the liquid or exceed your cooker's maximum-fill line. Beans, grains, pasta, and other expanding foods should remain below the half-full line. Keep the programmed cook time the same only when piece size stays the same, and allow more time for the fuller pot to reach pressure.</p></details>
+              <details><summary>Why does the total time exceed the pressure-cook time?</summary><p>The display countdown begins only after the cooker reaches pressure. A full family meal commonly needs 10 to 20 minutes to pressurize, plus the stated release time, so DishGal includes those stages in the total.</p></details>
+              <details><summary>Which Instant Pot size are these written for?</summary><p>These recipes are developed around a 6-quart electric pressure cooker. An 8-quart model may need additional thin liquid according to its manual. Always follow the minimum-liquid, fill-limit, and release instructions for your exact model.</p></details>
+            </div></div></section>'''
+        elif slug == "breakfast":
+            collection_intro = f'''<section class="section-tight section-paper"><div class="wrap">
+              <div class="section-heading"><div><p class="eyebrow">DishGal morning chooser</p><h2>Match breakfast to the time, cost and texture you want.</h2></div><p>These are complete recipes, not serving suggestions. Compare hands-on method, realistic total time, estimated cost and what can be made ahead.</p></div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Breakfast</th><th>Total time</th><th>Est. cost</th><th>Main method</th><th>Make-ahead fit</th></tr></thead>
+                  <tbody>
+                    <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter/')}">Turkish Ã§Ä±lbÄ±r</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">$2.25/serving</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Quiet poach + warm spiced butter</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Prep yogurt and butter; poach eggs fresh</td></tr>
+                    <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/cottage-cheese-protein-pancakes/')}">Cottage-cheese protein pancakes</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">20 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">$1.35/serving</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Blend + griddle</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Freeze cooked pancakes up to 2 months</td></tr>
+                    <tr><td style="padding:.65rem;border-bottom:1px solid var(--line)"><a href="{href('/recipes/freezer-breakfast-burritos/')}">Freezer breakfast burritos</a></td><td style="padding:.65rem;border-bottom:1px solid var(--line)">40 min</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">$1.90/serving</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Skillet + batch assembly</td><td style="padding:.65rem;border-bottom:1px solid var(--line)">Purpose-built for freezing</td></tr>
+                    <tr><td style="padding:.65rem"><a href="{href('/recipes/apple-cinnamon-baked-oatmeal/')}">Apple-cinnamon baked oatmeal</a></td><td style="padding:.65rem">50 min</td><td style="padding:.65rem">$1.05/serving</td><td style="padding:.65rem">Mix + bake</td><td style="padding:.65rem">Refrigerate slices 4 days or freeze</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="muted" style="margin-top:1rem">Cost estimates reflect the ingredient quantities used when each recipe was published and vary by store and season. Food-safety timing and temperature guidance appears on each recipe page. Comparison reviewed October 22, 2026.</p>
+            </div></section>'''
+        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes","/recipes/"),(title,None)])}<p class="eyebrow">Dinner collection</p><h1>{esc(seo_title)}</h1><p class="lede">{esc(full_description)}</p></div></section>
+        {collection_intro}
+        <section class="section-tight"><div class="wrap"><div class="recipe-grid">{''.join(recipe_card(r) for r in recipes)}</div></div></section>
+        {collection_faq}'''
+        path = f"/collections/{slug}/"
+        schema = [
+            collection_schema(seo_title, full_description, path, recipes),
+            breadcrumb_schema([("Recipes", "/recipes/"), (title, None)]),
+        ]
+        write_page(path, page(seo_title, truncate_description(full_description), path, body, schema=schema))
+
+def build_ingredient_hubs():
+    for slug, meta in INGREDIENT_HUBS.items():
+        recipes = recipes_for_ingredient(slug)
+        if len(recipes) < 3:
+            continue
+        title = meta["title"]
+        description = f'{meta["description"]} Browse {len(recipes)} complete DishGal recipes with realistic timing, substitutions, and storage notes.'
+        path = f"/ingredients/{slug}/"
+        collection_link = ""
+        if any(recipe.get("collection") == slug for recipe in RECIPES):
+            collection_link = f'<p class="muted">Looking for the smaller original selection? <a href="{href("/collections/" + slug + "/")}">View the {esc(slug)} collection</a>.</p>'
+        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Recipes", "/recipes/"), (title, None)])}<p class="eyebrow">Recipes by ingredient</p><h1>{esc(title)}</h1><p class="lede">{esc(description)}</p></div></section>
+        <section class="section-tight"><div class="wrap">{collection_link}<div class="recipe-grid">{''.join(recipe_card(recipe) for recipe in recipes)}</div></div></section>'''
+        schema = [
+            collection_schema(title, description, path, recipes),
+            breadcrumb_schema([("Recipes", "/recipes/"), (title, None)]),
+        ]
+        write_page(path, page(title, truncate_description(description), path, body, schema=schema))
+
+def build_saved():
+    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">Your shortlist</p><h1>Saved recipes</h1><p class="lede">Recipes you heart are stored in this browser on this device. No account required.</p></div></section>
+    <section class="section-tight"><div class="wrap"><div class="recipe-grid" data-saved-grid></div></div></section>'''
+    write_page("/saved/", page("Saved Recipes", "Keep a browser-based shortlist of DishGal recipes without creating an account or sharing personal information.", "/saved/", body, noindex=True, needs_recipe_data=True))
+
+def build_decider():
+    collections = sorted({r.get("collection","") for r in RECIPES if r.get("collection")})
+    coll_chips = "".join(f'<button class="option-chip" type="button" data-choice="collection" data-value="{esc(c)}">{esc(COLLECTION_META.get(c,(pretty_slug(c),"",""))[0])}</button>' for c in collections)
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Decision tool</p><h1>Tell us the night. Get one dinner.</h1><p class="lede">Pick what matters. DishGal chooses a recipe. You can reroll if the first answer gets vetoed.</p></div></section>
+    <section class="tool-page"><div class="narrow"><div class="tool-shell" data-decider>
+      <div class="option-group"><h3>How much time?</h3><div class="option-chips"><button class="option-chip" type="button" data-choice="time" data-value="25">25 minutes</button><button class="option-chip" type="button" data-choice="time" data-value="30">30 minutes</button><button class="option-chip" type="button" data-choice="time" data-value="45">45 minutes</button><button class="option-chip" type="button" data-choice="time" data-value="60">An hour</button></div></div>
+      <div class="option-group"><h3>What kind of dinner?</h3><div class="option-chips">{coll_chips}</div></div>
+      <div class="option-group"><h3>Any preference?</h3><div class="option-chips"><button class="option-chip" type="button" data-choice="tag" data-value="vegetarian">Vegetarian</button><button class="option-chip" type="button" data-choice="tag" data-value="family">Family-friendly</button><button class="option-chip" type="button" data-choice="tag" data-value="budget">Budget</button><button class="option-chip" type="button" data-choice="tag" data-value="high-protein">High protein</button></div></div>
+      <button class="btn btn-primary" type="button" data-decide>Decide dinner</button>
+      <div class="tool-results" data-decider-result></div>
+    </div></div></section>'''
+    write_page("/dinner-decider/", page("Dinner Decider", "Choose your available time and dinner preferences, then let DishGal pick one practical recipe for tonight.", "/dinner-decider/", body, needs_recipe_data=True))
+
+def build_pantry():
+    pantry_terms = ["chicken","beef","pork","eggs","pasta","rice","potatoes","beans","tomatoes","broccoli","spinach","cheese","tortillas","lemon","onion"]
+    items = "".join(f'<label class="pantry-item"><input type="checkbox" value="{esc(x)}"> {esc(x.title())}</label>' for x in pantry_terms)
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Use what you have</p><h1>Pantry Rescue</h1><p class="lede">Check a few ingredients. We rank DishGal recipes by overlap so you can start with what is already in the kitchen.</p></div></section>
+    <section class="tool-page"><div class="wrap"><div class="tool-shell" data-pantry-tool>
+      <div class="pantry-grid">{items}</div>
+      <div class="field" style="margin-top:1rem"><label for="extras">Anything else?</label><input id="extras" name="extras" placeholder="mushrooms, feta, zucchini"></div>
+      <div class="button-row" style="margin-top:1rem"><button class="btn btn-primary" type="button" data-match-pantry>Find matches</button></div>
+      <div class="tool-results" data-pantry-results></div>
+    </div></div></section>'''
+    write_page("/pantry-rescue/", page("Pantry Rescue", "Select ingredients you already have and DishGal will rank recipes by ingredient overlap to help reduce waste and dinner indecision.", "/pantry-rescue/", body, needs_recipe_data=True))
+
+def build_planner():
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Five nights, handled</p><h1>Weeknight meal planner</h1><p class="lede">Build five varied dinners, then turn them into a checkable grocery list. Reroll until the week feels right.</p></div></section>
+    <section class="tool-page"><div class="wrap"><div class="tool-shell" data-planner>
+      <div class="filter-row" style="grid-template-columns:1fr 1fr auto">
+        <div class="field"><label for="planner-time">Max weeknight time</label><select id="planner-time" name="planner-time"><option value="30">30 minutes</option><option value="45" selected>45 minutes</option><option value="60">60 minutes</option><option value="999">No limit</option></select></div>
+        <label class="pantry-item" style="align-self:end;min-height:45px"><input type="checkbox" name="planner-vegetarian"> Vegetarian week</label>
+        <button class="btn btn-primary" type="button" data-build-plan>Build my week</button>
+      </div>
+      <div class="planner-grid" data-plan-grid></div>
+      <div class="button-row" style="margin-top:1.25rem"><button class="btn btn-outline" type="button" data-build-plan>Reroll week</button><button class="btn btn-dark" type="button" data-build-list>Make grocery list</button></div>
+      <div data-shopping-wrap hidden style="margin-top:2rem"><h2>Grocery checklist</h2><ul class="shopping-list" data-shopping-list></ul></div>
+    </div></div></section>'''
+    write_page("/meal-planner/", page("5-Night Meal Planner", "Build a five-night DishGal dinner plan based on your available cooking time, then generate a practical grocery checklist.", "/meal-planner/", body, needs_recipe_data=True))
+
+def build_guides():
+    category_cards = []
+    for slug, (name, desc, icon) in GUIDE_CATEGORY_META.items():
+        count = sum(1 for article in ARTICLES if article.get("category", "").lower().replace(" ", "-") == slug)
+        if count:
+            category_cards.append(f'''<a class="collection-pill" href="{href('/guides/category/' + slug + '/')}"><span class="collection-icon">{icon}</span><strong>{esc(name)}</strong><small>{count} guides</small></a>''')
+    affiliate_count = sum(1 for article in ARTICLES if article.get("affiliate"))
+    body = f'''<section class="page-hero"><div class="wrap"><p class="eyebrow">DishGal Kitchen Picks</p><h1>Buy less. Choose better. Cook more.</h1><p class="lede">{len(ARTICLES)} practical guidesâ€”including {affiliate_count} product-focused picksâ€”built around capacity, materials, cleanup, storage, and the jobs your kitchen actually needs done.</p></div></section>
+    <section class="section-tight section-paper"><div class="wrap"><div class="collection-grid">{''.join(category_cards)}</div></div></section>
+    <section class="section-tight"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">The complete library</p><h2>Kitchen picks & planning guides</h2></div><p>No invented tests, star ratings, or universal winnersâ€”just clear criteria and tradeoffs.</p></div><div class="article-grid">{''.join(article_card(a) for a in ARTICLES)}</div></div></section>'''
+    hub_schema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "DishGal Kitchen Picks",
+        "description": "Practical kitchen gear and meal-planning guides based on function, capacity, materials, cleanup, and storage.",
+        "url": canonical("/guides/"),
+        "mainEntity": {"@type": "ItemList", "numberOfItems": len(ARTICLES), "itemListElement": [
+            {"@type": "ListItem", "position": index + 1, "url": canonical('/guides/' + article['slug'] + '/'), "name": article.get("title", "Guide")}
+            for index, article in enumerate(ARTICLES)
+        ]},
+    }
+    write_page("/guides/", page("Kitchen Picks & Buying Guides", "Practical DishGal kitchen buying guides covering cookware, appliances, prep tools, storage, and meal-planning systems.", "/guides/", body, schema=hub_schema))
+    for article in ARTICLES:
+        sections = "".join(f"<h2>{esc(sec[0])}</h2><p>{esc(sec[1])}</p>" for sec in article.get("sections",[]))
+        disclosure = '<div class="disclosure-box"><strong>Paid links:</strong> As an Amazon Associate I earn from qualifying purchases. You pay no additional cost.</div>' if article.get("affiliate") else ""
+        shop = ""
+        if article.get("affiliate"):
+            shop_items = article.get("shop_items", [])
+            if not shop_items and article.get("shop_query"):
+                shop_items = [[article["shop_query"], "Compare current options", "Use the guide criteria before choosing."]]
+            if shop_items:
+                cards = "".join(amazon_link(*item) for item in shop_items)
+                shop = f'''<div class="shop-box"><h3>Compare the useful options</h3><p>Use the criteria above first. These links open current Amazon category results, so you can compare specifications, availability, and price.</p><div class="shop-grid">{cards}</div></div>'''
+        related = [candidate for candidate in ARTICLES if candidate["slug"] != article["slug"] and candidate.get("category") == article.get("category")][:3]
+        if len(related) < 3:
+            related_slugs = {candidate["slug"] for candidate in related}
+            related.extend(candidate for candidate in ARTICLES if candidate["slug"] != article["slug"] and candidate["slug"] not in related_slugs) 
+            related = related[:3]
+        related_html = f'''<section class="section section-paper"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Keep choosing well</p><h2>Related kitchen guides</h2></div><a class="btn btn-outline" href="{href('/guides/')}">All Kitchen Picks</a></div><div class="article-grid">{''.join(article_card(candidate) for candidate in related)}</div></div></section>'''
+        body = f'''<section class="page-hero"><div class="narrow">{breadcrumbs([("Kitchen Picks","/guides/"),(article.get("title","Guide"),None)])}<p class="eyebrow">{esc(article.get("category","Guide"))}</p><h1>{esc(article.get("title","Guide"))}</h1><p class="lede">{esc(article.get("dek",""))}</p><p class="muted">{int(article.get("read_minutes",5))} minute read Â· Updated August 24, 2026</p></div></section>
+        <div class="wrap"><img class="article-hero-image" src="{esc(article.get('image',''))}" alt="{esc(article.get('image_alt', article.get('title','Guide')))}" width="1080" height="675" fetchpriority="high" decoding="async"></div>
+        <section class="section-tight"><article class="narrow prose">{disclosure}<p>{esc(article.get("dek",""))}</p>{sections}{shop}</article></section>
+        {related_html}
+        {newsletter_block()}'''
+        article_schema = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": article.get("title", "Guide"),
+            "description": article.get("dek", ""),
+            "image": [article.get("image", "")],
+            "datePublished": "2026-08-24",
+            "dateModified": "2026-08-24",
+            "author": {"@type": "Organization", "name": "DishGal"},
+            "publisher": {"@type": "Organization", "name": "DishGal"},
+            "mainEntityOfPage": canonical('/guides/' + article['slug'] + '/'),
+        }
+        path = f"/guides/{article['slug']}/"
+        schema = [
+            article_schema,
+            breadcrumb_schema([("Kitchen Picks", "/guides/"), (article.get("title", "Guide"), None)]),
+        ]
+        write_page(path, page(
+            article.get("title", "Guide"),
+            article.get("dek", "Practical kitchen and meal-planning guidance from DishGal."),
+            path,
+            body,
+            schema=schema,
+            image=article.get("image"),
+            page_type="article",
+            published="2026-08-24",
+            modified="2026-08-24",
+        ))
+
+def build_category_indexes():
+    for slug, (name, desc, _) in GUIDE_CATEGORY_META.items():
+        matches = [a for a in ARTICLES if a.get("category","").lower().replace(" ","-") == slug]
+        path = f"/guides/category/{slug}/"
+        body = f'''<section class="page-hero"><div class="wrap">{breadcrumbs([("Kitchen Picks", "/guides/"), (name, None)])}<p class="eyebrow">DishGal guides</p><h1>{esc(name)}</h1><p class="lede">{esc(desc)}</p></div></section>
+        <section class="section-tight"><div class="wrap"><div class="article-grid">{''.join(article_card(a) for a in matches) if matches else '<div class="empty-state is-visible"><h3>More guides coming</h3><p>Browse all current guides while this section grows.</p></div>'}</div></div></section>'''
+        schema = [
+            {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": name,
+                "description": desc,
+                "url": canonical(path),
+                "mainEntity": {
+                    "@type": "ItemList",
+                    "numberOfItems": len(matches),
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": index + 1, "url": canonical('/guides/' + article['slug'] + '/'), "name": article.get("title", "Guide")}
+                        for index, article in enumerate(matches)
+                    ],
+                },
+            },
+            breadcrumb_schema([("Kitchen Picks", "/guides/"), (name, None)]),
+        ]
+        write_page(path, page(name, f"{desc} Browse DishGal's current {name.lower()} guides.", path, body, schema=schema))
+
+def simple_page(path, title, eyebrow, lede, sections):
+    content = "".join(f"<h2>{esc(h)}</h2><p>{esc(p)}</p>" for h,p in sections)
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">{esc(eyebrow)}</p><h1>{esc(title)}</h1><p class="lede">{esc(lede)}</p></div></section><section class="section-tight"><article class="narrow prose"><p>{esc(lede)}</p>{content}</article></section>'''
+    write_page(path, page(title, lede, path, body))
+
+def build_utility_pages():
+    simple_page("/about/","About DishGal","Why this exists","DishGal is built for the nightly question, not the food-influencer audition.",[
+        ("Dinner first","Useful information comes before storytelling. Recipes show timing, cost, substitutions, storage, and common questions."),
+        ("Tools, not pressure","The Dinner Decider, Pantry Rescue, saved recipes, and meal planner are designed to reduce decisions without requiring an account."),
+        ("Editorial independence","Commercial relationships are disclosed. DishGal does not invent testing claims, ratings, or personal experience.")
+    ])
+    simple_page("/editorial-policy/","Editorial Policy","How DishGal publishes","Our standard is useful, specific, transparent cooking information that a reader can actually act on.",[
+        ("Recipe standard","Recipes include full ingredient lists, numbered directions, timing, serving size, substitutions, storage guidance, and FAQs."),
+        ("Corrections","Material errors are corrected when found. Dates may be updated when a page is substantially revised."),
+        ("Commercial content","Affiliate relationships do not determine editorial conclusions. Buying guides explain criteria and tradeoffs.")
+    ])
+    simple_page("/affiliate-disclosure/","Affiliate Disclosure","Commercial transparency","As an Amazon Associate I earn from qualifying purchases. DishGal may earn commissions from qualifying purchases made through clearly labeled outbound product links.",[
+        ("No extra cost","Affiliate commissions do not increase the price you pay."),
+        ("No invented testing","A commercial link does not mean DishGal personally tested a product unless a page explicitly and truthfully says so."),
+        ("Editorial separation","Product recommendations should be grounded in the criteria discussed on the page, not commission rate.")
+    ])
+    simple_page("/privacy/","Privacy Policy","Plain-language privacy","DishGal is designed to work with very little personal data and no account requirement.",[
+        ("Saved recipes","Saved recipes are stored in your browser's local storage unless and until a future account feature is explicitly introduced."),
+        ("Forms","If you submit an email or contact form, the information is used to respond or deliver the requested communication."),
+        ("Analytics and advertising","The site may use privacy-conscious analytics and advertising technology. Those providers may process technical information under their own policies.")
+    ])
+    simple_page("/terms/","Terms of Use","Site terms","DishGal provides general cooking, meal-planning, and kitchen information for personal use.",[
+        ("Food safety","Use appropriate food-safety practices and verify safe internal temperatures for meat, poultry, seafood, and leftovers."),
+        ("No warranty","Recipes, timing, nutrition estimates, and cost estimates vary with ingredients, equipment, location, and technique."),
+        ("Content use","DishGal content may not be republished wholesale without permission.")
+    ])
+    simple_page("/image-credits/","Image Credits","Visual sourcing","DishGal uses properly sourced editorial photography and original site design assets.",[
+        ("Editorial images","Recipe and guide images are sourced from Unsplash, Pexels, Pixabay, and Wikimedia Commons under their applicable licenses."),
+        ("Attribution","Photographers retain rights under the applicable source license and platform terms. Wikimedia recipe pages display the creator and license beside the photograph."),
+        ("Future images","DishGal may replace launch imagery with original photography or licensed assets over time.")
+    ])
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">Say hello</p><h1>Contact DishGal</h1><p class="lede">Corrections, recipe questions, partnerships, and useful feedback can all come through here.</p></div></section>
+    <section class="section-tight"><div class="wrap contact-grid"><div><h2>What belongs here</h2><p>Found a recipe issue? Have a substitution question? Want to discuss a relevant partnership? Send it.</p></div>
+    <form class="contact-form" action="https://formsubmit.co/{esc(FORM_EMAIL)}" method="POST">
+      <div class="field"><label for="name">Name</label><input id="name" name="name" required></div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" required></div>
+      <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+      <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off"><button class="btn btn-primary" type="submit">Send message</button>
+    </form></div></section>'''
+    write_page("/contact/", page("Contact", "Contact DishGal with recipe questions, corrections, partnership inquiries, or useful feedback about the site.", "/contact/", body))
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">The useful email</p><h1>Dinner ideas worth opening.</h1><p class="lede">Join for new recipes, planning shortcuts, and useful kitchen guidance without daily inbox clutter.</p></div></section>{newsletter_block()}'''
+    write_page("/newsletter/", page("Newsletter", "Join the DishGal newsletter for practical recipes, meal-planning shortcuts, and useful kitchen guidance.", "/newsletter/", body))
+
+def build_404():
+    body = f'''<section class="page-hero"><div class="narrow"><p class="eyebrow">404</p><h1>This dinner went missing.</h1><p class="lede">The page is not here, but the recipe library is.</p><div class="button-row" style="justify-content:center;margin-top:1.5rem"><a class="btn btn-primary" href="{href('/recipes/')}">Browse recipes</a><a class="btn btn-outline" href="{href('/')}">Go home</a></div></div></section>'''
+    write_page("/404.html", page("Page Not Found", "The requested DishGal page could not be found. Browse the current recipe library or return to the homepage.", "/404.html", body, noindex=True))
+
+def copy_assets():
+    ensure_dir(PUBLIC / "assets" / "css")
+    ensure_dir(PUBLIC / "assets" / "js")
+    shutil.copy2(ROOT / "assets" / "css" / "styles.css", PUBLIC / "assets" / "css" / "styles.css")
+    shutil.copy2(ROOT / "assets" / "dishgal-brand.webp", PUBLIC / "assets" / "dishgal-brand.webp")
+    source_js = (ROOT / "assets" / "js" / "site.js").read_text(encoding="utf-8")
+    source_js = source_js.replace('href="/recipes/', 'href="${window.DISHGAL_BASE || ""}/recipes/')
+    (PUBLIC / "assets" / "js" / "site.js").write_text(source_js, encoding="utf-8")
+    tool_fields = ("slug", "title", "dek", "image", "image_alt", "collection", "tags", "prep_minutes", "cook_minutes", "total_minutes", "cost_per_serving", "ingredients", "pantry")
+    tool_recipes = [{**{key: recipe[key] for key in tool_fields if key in recipe}, "protein": recipe_proteins(recipe)} for recipe in stable_recipe_mix(RECIPES)]
+    tool_json = json.dumps(tool_recipes, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    (PUBLIC / "assets" / "js" / "recipes.js").write_text("window.DISHGAL_RECIPES=" + tool_json + ";", encoding="utf-8")
+    social = ROOT / "assets" / "social-card.png"
+    if social.exists():
+        shutil.copy2(social, PUBLIC / "assets" / "social-card.png")
+
+def build_machine_files():
+    html_paths = []
+    for file in sorted(PUBLIC.rglob("*.html")):
+        rel = file.relative_to(PUBLIC).as_posix()
+        if rel == "404.html":
+            continue
+        if '<meta name="robots" content="noindex' in file.read_text(encoding="utf-8"):
+            continue
+        if rel == "index.html":
+            url_path = "/"
+        elif rel.endswith("/index.html"):
+            url_path = "/" + rel[:-10]
+        else:
+            url_path = "/" + rel
+        html_paths.append(url_path)
+    recipe_dates = {f"/recipes/{recipe['slug']}/": recipe.get("date_modified", recipe.get("date_published", "2026-08-17")) for recipe in RECIPES}
+    latest_recipe_date = max(recipe_dates.values(), default="2026-08-17")
+    sitemap = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for path in html_paths:
+        if path in recipe_dates:
+            lastmod = recipe_dates[path]
+        elif path.startswith("/guides/"):
+            lastmod = "2026-08-24"
+        else:
+            lastmod = latest_recipe_date
+        sitemap.append(f"  <url><loc>{esc(canonical(path))}</loc><lastmod>{esc(lastmod)}</lastmod></url>")
+    sitemap.append("</urlset>")
+    (PUBLIC / "sitemap.xml").write_text("\n".join(sitemap), encoding="utf-8")
+    (PUBLIC / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
+    feed_items = []
+    newest_recipes = sorted(RECIPES, key=lambda recipe: recipe.get("date_published", ""), reverse=True)[:30]
+    for recipe in newest_recipes:
+        recipe_url = canonical('/recipes/' + recipe['slug'] + '/')
+        published = recipe.get("date_published", "2026-08-17")
+        feed_items.append(f"<item><title>{esc(recipe.get('title','Recipe'))}</title><link>{esc(recipe_url)}</link><guid>{esc(recipe_url)}</guid><pubDate>{esc(rss_date(published))}</pubDate><description>{esc(recipe.get('dek',''))}</description></item>")
+    for article in ARTICLES[:10]:
+        article_url = canonical('/guides/' + article['slug'] + '/')
+        feed_items.append(f"<item><title>{esc(article.get('title','Guide'))}</title><link>{esc(article_url)}</link><guid>{esc(article_url)}</guid><description>{esc(article.get('dek',''))}</description></item>")
+    (PUBLIC / "feed.xml").write_text(f'''<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>DishGal</title><link>{SITE_URL}</link><description>Dinner, decided.</description>{''.join(feed_items)}</channel></rss>''', encoding="utf-8")
+    ads = f"google.com, {ADSENSE_PUBLISHER_ID}, DIRECT, f08c47fec0942fa0\n" if ADSENSE_PUBLISHER_ID else "# DishGal.com advertising inventory is not yet configured.\n"
+    (PUBLIC / "ads.txt").write_text(ads, encoding="utf-8")
+    (PUBLIC / "CNAME").write_text("dishgal.com\n", encoding="utf-8")
+    (PUBLIC / ".nojekyll").write_text("", encoding="utf-8")
+    manifest = {
+        "name": "DishGal",
+        "short_name": "DishGal",
+        "start_url": href("/"),
+        "display": "standalone",
+        "background_color": "#fbf6ee",
+        "theme_color": "#e94f37",
+        "description": "Dinner, decided."
+    }
+    (PUBLIC / "site.webmanifest").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+
+def main():
+    if PUBLIC.exists() and os.environ.get("DISHGAL_NO_CLEAN") != "1":
+        shutil.rmtree(PUBLIC)
+    ensure_dir(PUBLIC)
+    copy_assets()
+    build_home()
+    build_recipe_index()
+    build_recipe_pages()
+    build_collections()
+    build_ingredient_hubs()
+    build_saved()
+    build_decider()
+    build_pantry()
+    build_planner()
+    build_guides()
+    build_category_indexes()
+    build_utility_pages()
+    build_404()
+    build_machine_files()
+    count = len(list(PUBLIC.rglob("*.html")))
+    print(f"Built DishGal: {count} HTML pages, {len(RECIPES)} recipes, {len(ARTICLES)} guides, base={BASE or '/'}")
+
+if __name__ == "__main__":
+    main()
+
+
