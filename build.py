@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "honey-walnut baked pears" in haystack or "honey walnut baked pears" in haystack:
+    if "thai-style red curry fish cakes" in haystack or "thai style red curry fish cakes" in haystack:
+        products = [
+            ("food processor 8 cup", "8-cup food processor", "A chilled processor bowl and short pulses turn the cold fish into a cohesive paste without warming it into a loose puree."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad skillet fits four cakes without crowding, helping the shallow oil stay near the target temperature between batches."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe checks the thickest cake for a 145°F center without relying on exterior color or firmness."),
+        ]
+    elif "honey-walnut baked pears" in haystack or "honey walnut baked pears" in haystack:
         products = [
             ("2 quart ceramic baking dish", "2-quart baking dish", "A snug oven-safe dish holds eight pear halves in one layer so the measured steam and glaze stay close to the fruit."),
             ("stainless steel melon baller small", "Small melon baller", "A compact round scoop removes the fibrous seed core while leaving a thick fruit wall that will not leak."),
@@ -2054,6 +2060,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "thai-style-red-curry-fish-cakes-sweet-chili-dip": {
+        "slugs": ["crispy-corn-zucchini-fritters-jalapeno-lime-yogurt", "korean-tteokbokki-fish-cakes-scallions", "malaysian-char-kway-teow-prawns-chicken-bean-sprouts"],
+        "eyebrow": "Crisp seafood and fritter methods",
+        "title": "Choose a crisp cake or seafood bite by binder and cooking method",
+        "copy": "Compare processed white-fish cakes with a sticky protein binder, flour-bound vegetable fritters, simmered Korean fish-cake sheets and sliced fish cake in smoky noodles by shaping method, heat source and reliable doneness cue.",
+    },
+    "crispy-corn-zucchini-fritters-jalapeno-lime-yogurt": {
+        "slugs": ["thai-style-red-curry-fish-cakes-sweet-chili-dip", "korean-tteokbokki-fish-cakes-scallions", "malaysian-char-kway-teow-prawns-chicken-bean-sprouts"],
+        "eyebrow": "Crisp seafood and fritter methods",
+        "title": "Choose a crisp cake or seafood bite by binder and cooking method",
+        "copy": "Compare flour-bound vegetable fritters with processed white-fish cakes, simmered Korean fish-cake sheets and sliced fish cake in smoky noodles by moisture control, shaping method, heat source and reliable doneness cue.",
+    },
+    "korean-tteokbokki-fish-cakes-scallions": {
+        "slugs": ["thai-style-red-curry-fish-cakes-sweet-chili-dip", "crispy-corn-zucchini-fritters-jalapeno-lime-yogurt", "malaysian-char-kway-teow-prawns-chicken-bean-sprouts"],
+        "eyebrow": "Crisp seafood and fritter methods",
+        "title": "Choose a crisp cake or seafood bite by binder and cooking method",
+        "copy": "Compare simmered Korean fish-cake sheets with processed white-fish cakes, flour-bound vegetable fritters and sliced fish cake in smoky noodles by product form, moisture control, heat source and reliable doneness cue.",
+    },
+    "malaysian-char-kway-teow-prawns-chicken-bean-sprouts": {
+        "slugs": ["thai-style-red-curry-fish-cakes-sweet-chili-dip", "crispy-corn-zucchini-fritters-jalapeno-lime-yogurt", "korean-tteokbokki-fish-cakes-scallions"],
+        "eyebrow": "Crisp seafood and fritter methods",
+        "title": "Choose a crisp cake or seafood bite by binder and cooking method",
+        "copy": "Compare sliced fish cake in smoky noodles with processed white-fish cakes, flour-bound vegetable fritters and simmered Korean fish-cake sheets by product form, heat source and reliable doneness cue.",
+    },
     "honey-walnut-baked-pears-cinnamon": {
         "slugs": ["pear-frangipane-tart-almond-shortcrust", "french-tarte-tatin-caramelized-apples", "blackberry-blueberry-cornmeal-cobbler"],
         "eyebrow": "Fruit dessert method guide",
