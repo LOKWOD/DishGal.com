@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "thai-style red curry fish cakes" in haystack or "thai style red curry fish cakes" in haystack:
+    if "stuffed acorn squash with wheat berries" in haystack:
+        products = [
+            ("heavy rimmed half sheet pan", "Heavy rimmed half-sheet pan", "A broad sturdy pan fits all four squash halves cut-side down so their maple-brushed edges caramelize without crowding."),
+            ("3 quart stainless steel saucepan with lid", "3-quart saucepan with lid", "A medium covered saucepan gives the wheat berries room to simmer until plump while limiting evaporation during their longer cook."),
+            ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad skillet evaporates the mushrooms' moisture, browns the vegetables and holds the grain-lentil filling without steaming."),
+        ]
+    elif "thai-style red curry fish cakes" in haystack or "thai style red curry fish cakes" in haystack:
         products = [
             ("food processor 8 cup", "8-cup food processor", "A chilled processor bowl and short pulses turn the cold fish into a cohesive paste without warming it into a loose puree."),
             ("12 inch stainless steel skillet", "Wide 12-inch skillet", "A broad skillet fits four cakes without crowding, helping the shallow oil stay near the target temperature between batches."),
@@ -2060,6 +2066,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "stuffed-acorn-squash-wheat-berries-lentils-walnuts": {
+        "slugs": ["turkey-taco-stuffed-sweet-potatoes", "saucy-ground-beef-rice-stuffed-peppers", "instant-pot-romanian-sarmale-beef-pork-rice"],
+        "eyebrow": "Filled vegetable dinner methods",
+        "title": "Choose a stuffed vegetable by shell, filling and cooking method",
+        "copy": "Compare roasted acorn squash with a grain-legume filling, sweet potatoes with turkey taco filling, bell peppers with beef and rice, and pressure-cooked cabbage rolls by vessel preparation, moisture control, total time and dependable doneness cue.",
+    },
+    "turkey-taco-stuffed-sweet-potatoes": {
+        "slugs": ["stuffed-acorn-squash-wheat-berries-lentils-walnuts", "saucy-ground-beef-rice-stuffed-peppers", "instant-pot-romanian-sarmale-beef-pork-rice"],
+        "eyebrow": "Filled vegetable dinner methods",
+        "title": "Choose a stuffed vegetable by shell, filling and cooking method",
+        "copy": "Compare baked sweet potatoes with turkey taco filling, roasted acorn squash with grains and lentils, bell peppers with beef and rice, and pressure-cooked cabbage rolls by vessel preparation, moisture control, total time and dependable doneness cue.",
+    },
+    "saucy-ground-beef-rice-stuffed-peppers": {
+        "slugs": ["stuffed-acorn-squash-wheat-berries-lentils-walnuts", "turkey-taco-stuffed-sweet-potatoes", "instant-pot-romanian-sarmale-beef-pork-rice"],
+        "eyebrow": "Filled vegetable dinner methods",
+        "title": "Choose a stuffed vegetable by shell, filling and cooking method",
+        "copy": "Compare bell peppers with beef and rice, roasted acorn squash with grains and lentils, baked sweet potatoes with turkey taco filling, and pressure-cooked cabbage rolls by vessel preparation, moisture control, total time and dependable doneness cue.",
+    },
+    "instant-pot-romanian-sarmale-beef-pork-rice": {
+        "slugs": ["stuffed-acorn-squash-wheat-berries-lentils-walnuts", "turkey-taco-stuffed-sweet-potatoes", "saucy-ground-beef-rice-stuffed-peppers"],
+        "eyebrow": "Filled vegetable dinner methods",
+        "title": "Choose a stuffed vegetable by shell, filling and cooking method",
+        "copy": "Compare pressure-cooked cabbage rolls with beef, pork and rice, roasted acorn squash with grains and lentils, baked sweet potatoes with turkey taco filling, and saucy beef-and-rice peppers by vessel preparation, moisture control, total time and dependable doneness cue.",
+    },
     "thai-style-red-curry-fish-cakes-sweet-chili-dip": {
         "slugs": ["crispy-corn-zucchini-fritters-jalapeno-lime-yogurt", "korean-tteokbokki-fish-cakes-scallions", "malaysian-char-kway-teow-prawns-chicken-bean-sprouts"],
         "eyebrow": "Crisp seafood and fritter methods",
