@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "stuffed acorn squash with wheat berries" in haystack:
+    if "grilled turmeric chicken satay" in haystack:
+        products = [
+            ("flat bamboo skewers 8 inch grilling", "Flat bamboo grilling skewers", "Flat-sided skewers help the thin chicken strips stay facing the heat instead of spinning when they are turned."),
+            ("cast iron grill pan 12 inch", "12-inch cast-iron grill pan", "A broad ridged pan provides a reliable indoor route to charred edges when an outdoor grill is unavailable."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe checks the thickest folded chicken section for 165°F without relying on yellow color or grill marks."),
+        ]
+    elif "stuffed acorn squash with wheat berries" in haystack:
         products = [
             ("heavy rimmed half sheet pan", "Heavy rimmed half-sheet pan", "A broad sturdy pan fits all four squash halves cut-side down so their maple-brushed edges caramelize without crowding."),
             ("3 quart stainless steel saucepan with lid", "3-quart saucepan with lid", "A medium covered saucepan gives the wheat berries room to simmer until plump while limiting evaporation during their longer cook."),
@@ -2066,6 +2072,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "grilled-turmeric-chicken-satay-peanut-sauce-cucumber-salad": {
+        "slugs": ["indonesian-gado-gado-tofu-eggs-peanut-sauce", "vietnamese-shrimp-summer-rolls-peanut-hoisin-sauce", "instant-pot-ghanaian-style-chicken-peanut-stew-sweet-potatoes"],
+        "eyebrow": "Peanut sauce dinner methods",
+        "title": "Choose a peanut-based dinner by texture and cooking method",
+        "copy": "Compare grilled chicken skewers with a warm peanut dip, gado-gado with pourable peanut dressing, fresh shrimp rolls with peanut-hoisin sauce and pressure-cooked chicken stew with peanuts by heat source, sauce consistency, fresh components and make-ahead limits.",
+    },
+    "indonesian-gado-gado-tofu-eggs-peanut-sauce": {
+        "slugs": ["grilled-turmeric-chicken-satay-peanut-sauce-cucumber-salad", "vietnamese-shrimp-summer-rolls-peanut-hoisin-sauce", "instant-pot-ghanaian-style-chicken-peanut-stew-sweet-potatoes"],
+        "eyebrow": "Peanut sauce dinner methods",
+        "title": "Choose a peanut-based dinner by texture and cooking method",
+        "copy": "Compare gado-gado with pourable peanut dressing, grilled chicken skewers with a warm peanut dip, fresh shrimp rolls with peanut-hoisin sauce and pressure-cooked chicken stew with peanuts by heat source, sauce consistency, fresh components and make-ahead limits.",
+    },
+    "vietnamese-shrimp-summer-rolls-peanut-hoisin-sauce": {
+        "slugs": ["grilled-turmeric-chicken-satay-peanut-sauce-cucumber-salad", "indonesian-gado-gado-tofu-eggs-peanut-sauce", "instant-pot-ghanaian-style-chicken-peanut-stew-sweet-potatoes"],
+        "eyebrow": "Peanut sauce dinner methods",
+        "title": "Choose a peanut-based dinner by texture and cooking method",
+        "copy": "Compare fresh shrimp rolls with peanut-hoisin sauce, grilled chicken skewers with a warm peanut dip, gado-gado with pourable peanut dressing and pressure-cooked chicken stew with peanuts by heat source, sauce consistency, fresh components and make-ahead limits.",
+    },
+    "instant-pot-ghanaian-style-chicken-peanut-stew-sweet-potatoes": {
+        "slugs": ["grilled-turmeric-chicken-satay-peanut-sauce-cucumber-salad", "indonesian-gado-gado-tofu-eggs-peanut-sauce", "vietnamese-shrimp-summer-rolls-peanut-hoisin-sauce"],
+        "eyebrow": "Peanut sauce dinner methods",
+        "title": "Choose a peanut-based dinner by texture and cooking method",
+        "copy": "Compare pressure-cooked chicken stew with peanuts, grilled chicken skewers with a warm peanut dip, gado-gado with pourable peanut dressing and fresh shrimp rolls with peanut-hoisin sauce by heat source, sauce consistency, fresh components and make-ahead limits.",
+    },
     "stuffed-acorn-squash-wheat-berries-lentils-walnuts": {
         "slugs": ["turkey-taco-stuffed-sweet-potatoes", "saucy-ground-beef-rice-stuffed-peppers", "instant-pot-romanian-sarmale-beef-pork-rice"],
         "eyebrow": "Filled vegetable dinner methods",
