@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "grilled turmeric chicken satay" in haystack:
+    if "individual beef cottage pies" in haystack:
+        products = [
+            ("4 inch mini pie tins set", "4-inch individual pie tins", "Shallow metal tins conduct heat into the pastry bases and give all six pies the crisp freestanding shape shown in the finished dish."),
+            ("stainless steel potato ricer", "Stainless-steel potato ricer", "Fine, lump-free potatoes pass cleanly through a large piping tip and hold defined ridges as they brown."),
+            ("reusable piping bag large star tip", "Piping bag with large star tip", "A broad star tip builds the overlapping potato swirls that cover the filling and create extra golden edges."),
+        ]
+    elif "grilled turmeric chicken satay" in haystack:
         products = [
             ("flat bamboo skewers 8 inch grilling", "Flat bamboo grilling skewers", "Flat-sided skewers help the thin chicken strips stay facing the heat instead of spinning when they are turned."),
             ("cast iron grill pan 12 inch", "12-inch cast-iron grill pan", "A broad ridged pan provides a reliable indoor route to charred edges when an outdoor grill is unavailable."),
@@ -2072,6 +2078,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "individual-beef-cottage-pies-golden-potato-swirls": {
+        "slugs": ["chilean-pastel-de-choclo-beef-corn-casserole", "greek-style-lamb-moussaka-eggplant-bechamel", "south-african-lamb-bobotie-raisin-rice-chutney"],
+        "eyebrow": "Baked meat pies and casseroles",
+        "title": "Choose a baked meat dinner by topping, shell and make-ahead method",
+        "copy": "Compare individual beef cottage pies with pastry and piped potato, Chilean pastel de choclo with a basil-corn cap, Greek lamb moussaka with eggplant and béchamel, and South African bobotie with a savory egg custard by topping structure, moisture control, portioning and freezer suitability.",
+    },
+    "chilean-pastel-de-choclo-beef-corn-casserole": {
+        "slugs": ["individual-beef-cottage-pies-golden-potato-swirls", "greek-style-lamb-moussaka-eggplant-bechamel", "south-african-lamb-bobotie-raisin-rice-chutney"],
+        "eyebrow": "Baked meat pies and casseroles",
+        "title": "Choose a baked meat dinner by topping, shell and make-ahead method",
+        "copy": "Compare Chilean pastel de choclo with a basil-corn cap, individual beef cottage pies with pastry and piped potato, Greek lamb moussaka with eggplant and béchamel, and South African bobotie with a savory egg custard by topping structure, moisture control, portioning and freezer suitability.",
+    },
+    "greek-style-lamb-moussaka-eggplant-bechamel": {
+        "slugs": ["individual-beef-cottage-pies-golden-potato-swirls", "chilean-pastel-de-choclo-beef-corn-casserole", "south-african-lamb-bobotie-raisin-rice-chutney"],
+        "eyebrow": "Baked meat pies and casseroles",
+        "title": "Choose a baked meat dinner by topping, shell and make-ahead method",
+        "copy": "Compare Greek lamb moussaka with eggplant and béchamel, individual beef cottage pies with pastry and piped potato, Chilean pastel de choclo with a basil-corn cap, and South African bobotie with a savory egg custard by topping structure, moisture control, portioning and freezer suitability.",
+    },
+    "south-african-lamb-bobotie-raisin-rice-chutney": {
+        "slugs": ["individual-beef-cottage-pies-golden-potato-swirls", "chilean-pastel-de-choclo-beef-corn-casserole", "greek-style-lamb-moussaka-eggplant-bechamel"],
+        "eyebrow": "Baked meat pies and casseroles",
+        "title": "Choose a baked meat dinner by topping, shell and make-ahead method",
+        "copy": "Compare South African bobotie with a savory egg custard, individual beef cottage pies with pastry and piped potato, Chilean pastel de choclo with a basil-corn cap, and Greek lamb moussaka with eggplant and béchamel by topping structure, moisture control, portioning and freezer suitability.",
+    },
     "grilled-turmeric-chicken-satay-peanut-sauce-cucumber-salad": {
         "slugs": ["indonesian-gado-gado-tofu-eggs-peanut-sauce", "vietnamese-shrimp-summer-rolls-peanut-hoisin-sauce", "instant-pot-ghanaian-style-chicken-peanut-stew-sweet-potatoes"],
         "eyebrow": "Peanut sauce dinner methods",
