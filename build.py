@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "individual beef cottage pies" in haystack:
+    if "dark-roux shrimp" in haystack or "dark roux shrimp" in haystack:
+        products = [
+            ("heavy bottom 6 quart dutch oven", "Heavy 6-quart Dutch oven", "A broad heavy base spreads the heat under the roux and leaves enough room to whisk in six measured cups of stock without splashing."),
+            ("stainless steel flat roux whisk", "Flat roux whisk", "A flat whisk reaches the pot's bottom and corners during the constant 30-minute stir, where flour is most likely to scorch."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe checks the thickest shrimp for 145°F without relying only on shell color or curl."),
+        ]
+    elif "individual beef cottage pies" in haystack:
         products = [
             ("4 inch mini pie tins set", "4-inch individual pie tins", "Shallow metal tins conduct heat into the pastry bases and give all six pies the crisp freestanding shape shown in the finished dish."),
             ("stainless steel potato ricer", "Stainless-steel potato ricer", "Fine, lump-free potatoes pass cleanly through a large piping tip and hold defined ridges as they brown."),
@@ -2078,6 +2084,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "dark-roux-shrimp-crab-gumbo-steamed-rice": {
+        "slugs": ["louisiana-shrimp-etouffee-wild-rice-pilaf", "san-francisco-cioppino-crab-mussels-sourdough", "skillet-seafood-paella-shrimp-clams-crab"],
+        "eyebrow": "Seafood pots by broth and thickener",
+        "title": "Choose a seafood dinner by roux, broth and rice method",
+        "copy": "Compare dark-roux shrimp and crab gumbo, butter-roux shrimp étouffée, tomato-wine cioppino and saffron seafood paella by thickener, liquid ratio, seafood timing, rice placement and make-ahead limits.",
+    },
+    "louisiana-shrimp-etouffee-wild-rice-pilaf": {
+        "slugs": ["dark-roux-shrimp-crab-gumbo-steamed-rice", "san-francisco-cioppino-crab-mussels-sourdough", "skillet-seafood-paella-shrimp-clams-crab"],
+        "eyebrow": "Seafood pots by broth and thickener",
+        "title": "Choose a seafood dinner by roux, broth and rice method",
+        "copy": "Compare butter-roux shrimp étouffée, dark-roux shrimp and crab gumbo, tomato-wine cioppino and saffron seafood paella by thickener, liquid ratio, seafood timing, rice placement and make-ahead limits.",
+    },
+    "san-francisco-cioppino-crab-mussels-sourdough": {
+        "slugs": ["dark-roux-shrimp-crab-gumbo-steamed-rice", "louisiana-shrimp-etouffee-wild-rice-pilaf", "skillet-seafood-paella-shrimp-clams-crab"],
+        "eyebrow": "Seafood pots by broth and thickener",
+        "title": "Choose a seafood dinner by roux, broth and rice method",
+        "copy": "Compare tomato-wine cioppino, dark-roux shrimp and crab gumbo, butter-roux shrimp étouffée and saffron seafood paella by thickener, liquid ratio, seafood timing, rice placement and make-ahead limits.",
+    },
+    "skillet-seafood-paella-shrimp-clams-crab": {
+        "slugs": ["dark-roux-shrimp-crab-gumbo-steamed-rice", "louisiana-shrimp-etouffee-wild-rice-pilaf", "san-francisco-cioppino-crab-mussels-sourdough"],
+        "eyebrow": "Seafood pots by broth and thickener",
+        "title": "Choose a seafood dinner by roux, broth and rice method",
+        "copy": "Compare saffron seafood paella, dark-roux shrimp and crab gumbo, butter-roux shrimp étouffée and tomato-wine cioppino by thickener, liquid ratio, seafood timing, rice placement and make-ahead limits.",
+    },
     "individual-beef-cottage-pies-golden-potato-swirls": {
         "slugs": ["chilean-pastel-de-choclo-beef-corn-casserole", "greek-style-lamb-moussaka-eggplant-bechamel", "south-african-lamb-bobotie-raisin-rice-chutney"],
         "eyebrow": "Baked meat pies and casseroles",
