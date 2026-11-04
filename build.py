@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "dark-roux shrimp" in haystack or "dark roux shrimp" in haystack:
+    if "brazilian pão de queijo" in haystack or "brazilian pao de queijo" in haystack:
+        products = [
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Thirty-gram portions bake at the same rate, and weighing tapioca starch avoids the compaction errors that make this dough unexpectedly dry."),
+            ("heavy rimmed aluminum half sheet pan", "Heavy rimmed half-sheet pan", "A rigid conductive pan gives all 24 rolls room to puff while browning their bases and scattered cheese patches evenly."),
+            ("stand mixer paddle attachment 5 quart", "Stand mixer with paddle", "The paddle works hot liquid into resistant tapioca starch, then emulsifies the eggs without requiring you to wrestle the sticky dough by hand."),
+        ]
+    elif "dark-roux shrimp" in haystack or "dark roux shrimp" in haystack:
         products = [
             ("heavy bottom 6 quart dutch oven", "Heavy 6-quart Dutch oven", "A broad heavy base spreads the heat under the roux and leaves enough room to whisk in six measured cups of stock without splashing."),
             ("stainless steel flat roux whisk", "Flat roux whisk", "A flat whisk reaches the pot's bottom and corners during the constant 30-minute stir, where flour is most likely to scorch."),
@@ -2084,6 +2090,30 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "brazilian-pao-de-queijo-parmesan-mozzarella": {
+        "slugs": ["venezuelan-cachapas-queso-de-mano", "filipino-bibingkang-galapong-salted-egg-coconut", "gujarati-khaman-dhokla-green-tamarind-chutneys"],
+        "eyebrow": "Naturally gluten-free breads and savory cakes",
+        "title": "Compare cassava, corn, rice and chickpea batters by heat and texture",
+        "copy": "Compare baked tapioca-starch pão de queijo, griddled fresh-corn cachapas, banana-leaf-lined rice-flour bibingka and steamed chickpea-flour khaman dhokla by starch source, hydration, leavener, shaping, cooking heat and make-ahead behavior.",
+    },
+    "venezuelan-cachapas-queso-de-mano": {
+        "slugs": ["brazilian-pao-de-queijo-parmesan-mozzarella", "filipino-bibingkang-galapong-salted-egg-coconut", "gujarati-khaman-dhokla-green-tamarind-chutneys"],
+        "eyebrow": "Naturally gluten-free breads and savory cakes",
+        "title": "Compare cassava, corn, rice and chickpea batters by heat and texture",
+        "copy": "Compare griddled fresh-corn cachapas, baked tapioca-starch pão de queijo, banana-leaf-lined rice-flour bibingka and steamed chickpea-flour khaman dhokla by starch source, hydration, leavener, shaping, cooking heat and make-ahead behavior.",
+    },
+    "filipino-bibingkang-galapong-salted-egg-coconut": {
+        "slugs": ["brazilian-pao-de-queijo-parmesan-mozzarella", "venezuelan-cachapas-queso-de-mano", "gujarati-khaman-dhokla-green-tamarind-chutneys"],
+        "eyebrow": "Naturally gluten-free breads and savory cakes",
+        "title": "Compare cassava, corn, rice and chickpea batters by heat and texture",
+        "copy": "Compare banana-leaf-lined rice-flour bibingka, baked tapioca-starch pão de queijo, griddled fresh-corn cachapas and steamed chickpea-flour khaman dhokla by starch source, hydration, leavener, shaping, cooking heat and make-ahead behavior.",
+    },
+    "gujarati-khaman-dhokla-green-tamarind-chutneys": {
+        "slugs": ["brazilian-pao-de-queijo-parmesan-mozzarella", "venezuelan-cachapas-queso-de-mano", "filipino-bibingkang-galapong-salted-egg-coconut"],
+        "eyebrow": "Naturally gluten-free breads and savory cakes",
+        "title": "Compare cassava, corn, rice and chickpea batters by heat and texture",
+        "copy": "Compare steamed chickpea-flour khaman dhokla, baked tapioca-starch pão de queijo, griddled fresh-corn cachapas and banana-leaf-lined rice-flour bibingka by starch source, hydration, leavener, shaping, cooking heat and make-ahead behavior.",
+    },
     "dark-roux-shrimp-crab-gumbo-steamed-rice": {
         "slugs": ["louisiana-shrimp-etouffee-wild-rice-pilaf", "san-francisco-cioppino-crab-mussels-sourdough", "skillet-seafood-paella-shrimp-clams-crab"],
         "eyebrow": "Seafood pots by broth and thickener",
