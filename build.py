@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "brazilian pão de queijo" in haystack or "brazilian pao de queijo" in haystack:
+    if "afghan-style aushak" in haystack or "afghan style aushak" in haystack:
+        products = [
+            ("wide stock pot 8 quart stainless steel", "Wide 8-quart stockpot", "A broad pot gives delicate dumplings room to rise and circulate in three calm batches without crowding or colliding."),
+            ("wide stainless steel slotted spoon", "Wide slotted spoon", "A broad shallow bowl supports the cooked wrappers while their water drains, avoiding the tearing and pileup caused by tipping them into a colander."),
+            ("large oval serving platter ceramic", "Large oval serving platter", "A broad platter holds the dumplings in one slightly overlapping layer so the tomato sauce, yogurt ribbons and mint stay visible and evenly distributed."),
+        ]
+    elif "brazilian pão de queijo" in haystack or "brazilian pao de queijo" in haystack:
         products = [
             ("digital kitchen scale grams ounces", "Digital kitchen scale", "Thirty-gram portions bake at the same rate, and weighing tapioca starch avoids the compaction errors that make this dough unexpectedly dry."),
             ("heavy rimmed aluminum half sheet pan", "Heavy rimmed half-sheet pan", "A rigid conductive pan gives all 24 rolls room to puff while browning their bases and scattered cheese patches evenly."),
@@ -2090,6 +2096,24 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "afghan-style-aushak-leek-dumplings-tomato-garlic-yogurt": {
+        "slugs": ["afghan-style-potato-scallion-bolani-yogurt", "nepali-style-spinach-vegetable-momos-tomato-sesame-achar", "polish-potato-cheese-pierogi"],
+        "eyebrow": "Filled doughs by cooking method",
+        "title": "Compare boiled, griddled and steamed filled doughs",
+        "copy": "Compare boiled leek-filled aushak with tomato and yogurt, skillet-crisp Afghan bolani with potato and scallion, steamed spinach momos with tomato-sesame achar, and boiled-then-sautéed potato-cheese pierogi by wrapper, moisture control, sealing method and make-ahead strategy.",
+    },
+    "afghan-style-potato-scallion-bolani-yogurt": {
+        "slugs": ["afghan-style-aushak-leek-dumplings-tomato-garlic-yogurt", "nepali-style-spinach-vegetable-momos-tomato-sesame-achar", "polish-potato-cheese-pierogi"],
+        "eyebrow": "Filled doughs by cooking method",
+        "title": "Compare boiled, griddled and steamed filled doughs",
+        "copy": "Compare skillet-crisp Afghan bolani with potato and scallion, boiled leek-filled aushak with tomato and yogurt, steamed spinach momos with tomato-sesame achar, and boiled-then-sautéed potato-cheese pierogi by wrapper, moisture control, sealing method and make-ahead strategy.",
+    },
+    "nepali-style-spinach-vegetable-momos-tomato-sesame-achar": {
+        "slugs": ["afghan-style-aushak-leek-dumplings-tomato-garlic-yogurt", "afghan-style-potato-scallion-bolani-yogurt", "polish-potato-cheese-pierogi"],
+        "eyebrow": "Filled doughs by cooking method",
+        "title": "Compare boiled, griddled and steamed filled doughs",
+        "copy": "Compare steamed spinach momos with tomato-sesame achar, boiled leek-filled aushak with tomato and yogurt, skillet-crisp Afghan bolani with potato and scallion, and boiled-then-sautéed potato-cheese pierogi by wrapper, moisture control, sealing method and make-ahead strategy.",
+    },
     "brazilian-pao-de-queijo-parmesan-mozzarella": {
         "slugs": ["venezuelan-cachapas-queso-de-mano", "filipino-bibingkang-galapong-salted-egg-coconut", "gujarati-khaman-dhokla-green-tamarind-chutneys"],
         "eyebrow": "Naturally gluten-free breads and savory cakes",
@@ -2313,10 +2337,10 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Compare fried fork-sealed wheat empanadas, boiled-and-seared pierogi, griddled masa pupusas and soft fresh lumpia by wrapper, filling moisture, sealing method and make-ahead strategy.",
     },
     "polish-potato-cheese-pierogi": {
-        "slugs": ["crispy-fried-beef-empanadas-paprika-cumin", "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
-        "eyebrow": "Filled-dough method guide",
-        "title": "Choose a filled-dough dinner by wrapper and cooking method",
-        "copy": "Compare boiled-and-seared pierogi, fried fork-sealed wheat empanadas, griddled masa pupusas and soft fresh lumpia by wrapper, filling moisture, sealing method and make-ahead strategy.",
+        "slugs": ["afghan-style-aushak-leek-dumplings-tomato-garlic-yogurt", "afghan-style-potato-scallion-bolani-yogurt", "nepali-style-spinach-vegetable-momos-tomato-sesame-achar"],
+        "eyebrow": "Filled doughs by cooking method",
+        "title": "Compare boiled, griddled and steamed filled doughs",
+        "copy": "Compare boiled-then-sautéed potato-cheese pierogi, boiled leek-filled aushak with tomato and yogurt, skillet-crisp Afghan bolani with potato and scallion, and steamed spinach momos with tomato-sesame achar by wrapper, moisture control, sealing method and make-ahead strategy.",
     },
     "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja": {
         "slugs": ["crispy-fried-beef-empanadas-paprika-cumin", "polish-potato-cheese-pierogi", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
