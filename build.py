@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "afghan-style aushak" in haystack or "afghan style aushak" in haystack:
+    if "singapore-style kaya toast" in haystack or "singapore style kaya toast" in haystack:
+        products = [
+            ("heatproof glass mixing bowl double boiler", "Heatproof double-boiler bowl", "A bowl that sits securely above—not in—barely simmering water protects the coconut-egg custard from direct heat while leaving room for continuous stirring."),
+            ("fine mesh strainer stainless steel medium", "Medium fine-mesh strainer", "Straining before cooking removes egg strands; a second pass can smooth small curds without thinning the finished kaya."),
+            ("instant read digital thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe confirms the kaya has reached 160°F in several spots without relying on pandan-influenced color as a safety cue."),
+        ]
+    elif "afghan-style aushak" in haystack or "afghan style aushak" in haystack:
         products = [
             ("wide stock pot 8 quart stainless steel", "Wide 8-quart stockpot", "A broad pot gives delicate dumplings room to rise and circulate in three calm batches without crowding or colliding."),
             ("wide stainless steel slotted spoon", "Wide slotted spoon", "A broad shallow bowl supports the cooked wrappers while their water drains, avoiding the tearing and pileup caused by tipping them into a colander."),
@@ -2096,6 +2102,18 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "singapore-style-kaya-toast-soft-boiled-eggs": {
+        "slugs": ["instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce"],
+        "eyebrow": "Hainanese-influenced Singapore dishes",
+        "title": "Compare a kopitiam breakfast with a complete chicken-and-rice meal",
+        "copy": "Compare crisp kaya-and-butter toast with safely handled soft eggs against pressure-cooked Hainanese-style chicken rice with ginger-scallion sauce by meal occasion, pandan use, egg or poultry safety cue, active work and make-ahead strategy.",
+    },
+    "instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce": {
+        "slugs": ["singapore-style-kaya-toast-soft-boiled-eggs"],
+        "eyebrow": "Hainanese-influenced Singapore dishes",
+        "title": "Compare a complete chicken-and-rice meal with a kopitiam breakfast",
+        "copy": "Compare pressure-cooked Hainanese-style chicken rice with ginger-scallion sauce against crisp kaya-and-butter toast with safely handled soft eggs by meal occasion, pandan use, poultry or egg safety cue, active work and make-ahead strategy.",
+    },
     "afghan-style-aushak-leek-dumplings-tomato-garlic-yogurt": {
         "slugs": ["afghan-style-potato-scallion-bolani-yogurt", "nepali-style-spinach-vegetable-momos-tomato-sesame-achar", "polish-potato-cheese-pierogi"],
         "eyebrow": "Filled doughs by cooking method",
