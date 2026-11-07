@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "singapore-style kaya toast" in haystack or "singapore style kaya toast" in haystack:
+    if "shrimp bánh xèo" in haystack or "shrimp banh xeo" in haystack:
+        products = [
+            ("10 inch nonstick skillet sloped sides", "10-inch nonstick skillet", "A consistent 10-inch cooking surface fits the scant one-third-cup batter measure, while sloped sides make each thin rice crêpe easier to release and fold."),
+            ("2 ounce stainless steel ladle", "2-ounce batter ladle", "A two-ounce ladle portions the same scant one-third cup for every crêpe, preventing thick late-batch pours that stay soft in the center."),
+            ("instant read digital thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe inserted sideways into the thickest shrimp confirms 145°F without relying only on color or curl."),
+        ]
+    elif "singapore-style kaya toast" in haystack or "singapore style kaya toast" in haystack:
         products = [
             ("heatproof glass mixing bowl double boiler", "Heatproof double-boiler bowl", "A bowl that sits securely above—not in—barely simmering water protects the coconut-egg custard from direct heat while leaving room for continuous stirring."),
             ("fine mesh strainer stainless steel medium", "Medium fine-mesh strainer", "Straining before cooking removes egg strands; a second pass can smooth small curds without thinning the finished kaya."),
@@ -2102,6 +2108,24 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "vietnamese-style-shrimp-banh-xeo-bean-sprouts-herbs": {
+        "slugs": ["south-indian-masala-dosa-potato-filling", "osaka-style-pork-okonomiyaki-cabbage-bonito"],
+        "eyebrow": "Savory skillet batters by structure",
+        "title": "Compare crisp rice crêpes, fermented dosa and cabbage-rich okonomiyaki",
+        "copy": "Compare Vietnamese rice-and-coconut bánh xèo folded around shrimp and sprouts, fermented rice-lentil dosa wrapped around spiced potato, and thick cabbage-forward okonomiyaki griddled with pork by batter structure, pan heat, filling placement, crispness cue and make-ahead limits.",
+    },
+    "south-indian-masala-dosa-potato-filling": {
+        "slugs": ["vietnamese-style-shrimp-banh-xeo-bean-sprouts-herbs", "osaka-style-pork-okonomiyaki-cabbage-bonito"],
+        "eyebrow": "Savory skillet batters by structure",
+        "title": "Compare fermented dosa, crisp rice crêpes and cabbage-rich okonomiyaki",
+        "copy": "Compare fermented rice-lentil dosa wrapped around spiced potato, Vietnamese rice-and-coconut bánh xèo folded around shrimp and sprouts, and thick cabbage-forward okonomiyaki griddled with pork by batter structure, pan heat, filling placement, crispness cue and make-ahead limits.",
+    },
+    "osaka-style-pork-okonomiyaki-cabbage-bonito": {
+        "slugs": ["vietnamese-style-shrimp-banh-xeo-bean-sprouts-herbs", "south-indian-masala-dosa-potato-filling"],
+        "eyebrow": "Savory skillet batters by structure",
+        "title": "Compare cabbage-rich okonomiyaki, crisp rice crêpes and fermented dosa",
+        "copy": "Compare thick cabbage-forward okonomiyaki griddled with pork, Vietnamese rice-and-coconut bánh xèo folded around shrimp and sprouts, and fermented rice-lentil dosa wrapped around spiced potato by batter structure, pan heat, filling placement, crispness cue and make-ahead limits.",
+    },
     "singapore-style-kaya-toast-soft-boiled-eggs": {
         "slugs": ["instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce"],
         "eyebrow": "Hainanese-influenced Singapore dishes",
