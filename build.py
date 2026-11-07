@@ -526,11 +526,11 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "shrimp bánh xèo" in haystack or "shrimp banh xeo" in haystack:
+    if "kuku sabzi" in haystack:
         products = [
-            ("10 inch nonstick skillet sloped sides", "10-inch nonstick skillet", "A consistent 10-inch cooking surface fits the scant one-third-cup batter measure, while sloped sides make each thin rice crêpe easier to release and fold."),
-            ("2 ounce stainless steel ladle", "2-ounce batter ladle", "A two-ounce ladle portions the same scant one-third cup for every crêpe, preventing thick late-batch pours that stay soft in the center."),
-            ("instant read digital thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe inserted sideways into the thickest shrimp confirms 145°F without relying only on color or curl."),
+            ("10 inch oven safe nonstick skillet", "10-inch oven-safe skillet", "A measured 10-inch surface gives the herb-heavy egg mixture enough depth for clean wedges while moving safely from a browned stovetop base to an evenly set oven finish."),
+            ("large salad spinner herb dryer", "Large salad spinner", "Thoroughly dried parsley, cilantro, dill, chives and scallions build a firm green crumb instead of steaming water into the egg cake."),
+            ("instant read digital thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe checks the thick center for the FDA's 160°F egg-dish target without relying on the naturally dark-green surface for doneness."),
         ]
     elif "singapore-style kaya toast" in haystack or "singapore style kaya toast" in haystack:
         products = [
@@ -2108,23 +2108,11 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
-    "vietnamese-style-shrimp-banh-xeo-bean-sprouts-herbs": {
-        "slugs": ["south-indian-masala-dosa-potato-filling", "osaka-style-pork-okonomiyaki-cabbage-bonito"],
-        "eyebrow": "Savory skillet batters by structure",
-        "title": "Compare crisp rice crêpes, fermented dosa and cabbage-rich okonomiyaki",
-        "copy": "Compare Vietnamese rice-and-coconut bánh xèo folded around shrimp and sprouts, fermented rice-lentil dosa wrapped around spiced potato, and thick cabbage-forward okonomiyaki griddled with pork by batter structure, pan heat, filling placement, crispness cue and make-ahead limits.",
-    },
-    "south-indian-masala-dosa-potato-filling": {
-        "slugs": ["vietnamese-style-shrimp-banh-xeo-bean-sprouts-herbs", "osaka-style-pork-okonomiyaki-cabbage-bonito"],
-        "eyebrow": "Savory skillet batters by structure",
-        "title": "Compare fermented dosa, crisp rice crêpes and cabbage-rich okonomiyaki",
-        "copy": "Compare fermented rice-lentil dosa wrapped around spiced potato, Vietnamese rice-and-coconut bánh xèo folded around shrimp and sprouts, and thick cabbage-forward okonomiyaki griddled with pork by batter structure, pan heat, filling placement, crispness cue and make-ahead limits.",
-    },
-    "osaka-style-pork-okonomiyaki-cabbage-bonito": {
-        "slugs": ["vietnamese-style-shrimp-banh-xeo-bean-sprouts-herbs", "south-indian-masala-dosa-potato-filling"],
-        "eyebrow": "Savory skillet batters by structure",
-        "title": "Compare cabbage-rich okonomiyaki, crisp rice crêpes and fermented dosa",
-        "copy": "Compare thick cabbage-forward okonomiyaki griddled with pork, Vietnamese rice-and-coconut bánh xèo folded around shrimp and sprouts, and fermented rice-lentil dosa wrapped around spiced potato by batter structure, pan heat, filling placement, crispness cue and make-ahead limits.",
+    "persian-style-kuku-sabzi-walnuts-barberries": {
+        "slugs": ["spanish-tortilla-espanola-potato-onion", "cottage-cheese-frittata-tomatoes-green-peppers"],
+        "eyebrow": "Egg cakes by structure and pan technique",
+        "title": "Compare herb-packed kuku, potato tortilla and tender cottage-cheese frittata",
+        "copy": "Compare Persian kuku sabzi built from five packed cups of herbs, Spanish tortilla structured with sliced potato and onion, and a cottage-cheese frittata lightened with dairy by egg ratio, moisture control, stovetop-to-oven technique, safe center cue and make-ahead texture.",
     },
     "singapore-style-kaya-toast-soft-boiled-eggs": {
         "slugs": ["instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce"],
@@ -2637,7 +2625,7 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Compare eggs poached in pepper-tomato sauce with thin buckwheat galettes and cool smoked-salmon toppings, a griddled croque madame and a deep potato-onion tortilla by active time, pan technique and make-ahead potential.",
     },
     "spanish-tortilla-espanola-potato-onion": {
-        "slugs": ["breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche", "bistro-croque-madame-gruyere-bechamel-greens", "smoky-roasted-pepper-shakshuka-feta"],
+        "slugs": ["persian-style-kuku-sabzi-walnuts-barberries", "breton-buckwheat-galettes-smoked-salmon-dill-creme-fraiche", "bistro-croque-madame-gruyere-bechamel-greens", "smoky-roasted-pepper-shakshuka-feta"],
         "eyebrow": "Savory brunch techniques",
         "title": "Choose a savory brunch by pan method",
         "copy": "Compare a deep potato-onion tortilla with thin buckwheat galettes and cool smoked-salmon toppings, a griddled croque madame and eggs poached in pepper-tomato sauce by active time, pan technique and make-ahead potential.",
@@ -2787,7 +2775,7 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
     },
     "cottage-cheese-frittata-tomatoes-green-peppers": {
-        "slugs": ["turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
+        "slugs": ["persian-style-kuku-sabzi-walnuts-barberries", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "cottage-cheese-protein-pancakes", "eastern-european-syrniki-sour-cream-fruit", "freezer-breakfast-burritos", "berry-almond-chia-pudding-toasted-seeds"],
         "eyebrow": "Breakfast planning",
         "title": "Build a fast and make-ahead breakfast rotation",
         "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",

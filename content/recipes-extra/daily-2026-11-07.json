@@ -1,141 +1,81 @@
 [
   {
-    "slug": "vietnamese-style-shrimp-banh-xeo-bean-sprouts-herbs",
-    "title": "Vietnamese-Style Shrimp Bánh Xèo with Bean Sprouts & Herbs",
-    "dek": "Lacy, turmeric-gold rice crêpes turn audibly crisp around juicy shrimp and bean sprouts, then tuck into herbs and rice paper with a bright chile-lime dipping sauce.",
+    "slug": "persian-style-kuku-sabzi-walnuts-barberries",
+    "title": "Persian-Style Kuku Sabzi with Walnuts & Barberries",
+    "dek": "A deep-green, herb-packed Persian egg cake bakes up tender beneath a burnished crust, with toasted walnuts and tart barberries adding the exact crunch and jewel-bright finish shown in every wedge.",
     "collection": "dinner",
-    "protein": [
-      "seafood"
-    ],
+    "protein": ["vegetarian"],
     "difficulty": "Intermediate",
-    "prep_minutes": 30,
-    "cook_minutes": 55,
-    "total_minutes": 90,
-    "servings": 4,
-    "calories": 540,
-    "cost_per_serving": "$4.50",
-    "image": "https://images.pexels.com/photos/12386427/pexels-photo-12386427.jpeg",
-    "image_alt": "Turmeric-yellow Vietnamese bánh xèo filled with shrimp and bean sprouts beside herbs, cucumber, rice paper and red chile dipping sauce",
-    "image_credit": "Quang Nguyen Vinh / Pexels",
-    "image_credit_url": "https://www.pexels.com/photo/healthy-meal-with-sauce-on-plate-12386427/",
-    "image_license": "Pexels License",
-    "image_license_url": "https://www.pexels.com/license/",
-    "tags": [
-      "Vietnamese bánh xèo",
-      "shrimp rice crepes",
-      "crispy savory pancakes",
-      "bean sprout recipes",
-      "Vietnamese street food",
-      "gluten-free dinner",
-      "rice paper wraps",
-      "nuoc cham dipping sauce"
-    ],
+    "prep_minutes": 35,
+    "cook_minutes": 28,
+    "total_minutes": 70,
+    "servings": 6,
+    "calories": 310,
+    "cost_per_serving": "$2.65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/46/Kuku_Sabzi_%28Iranian_food%29.jpg",
+    "image_alt": "Triangular wedge of dark-green Persian kuku sabzi topped with walnut halves and red barberries on a white plate",
+    "image_credit": "Sonabona / Wikimedia Commons",
+    "image_credit_url": "https://commons.wikimedia.org/wiki/File:Kuku_Sabzi_(Iranian_food).jpg",
+    "image_license": "CC0 1.0",
+    "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "tags": ["Persian kuku sabzi", "Iranian herb frittata", "walnut barberry recipes", "vegetarian dinner", "Nowruz recipes", "fresh herb recipes", "oven baked egg dish", "make-ahead brunch"],
     "ingredients": [
-      "1 1/2 cups (240 g) white rice flour, not glutinous rice flour",
-      "2 tbsp cornstarch",
+      "1 packed cup flat-leaf parsley leaves and tender stems, washed and dried completely",
+      "1 packed cup cilantro leaves and tender stems, washed and dried completely",
+      "1 packed cup fresh dill fronds, washed and dried completely",
+      "1 packed cup chives, cut into 1-inch lengths",
+      "1 packed cup scallion greens, cut into 1-inch lengths",
+      "8 large eggs",
+      "1 tbsp all-purpose flour",
+      "1 tsp baking powder",
       "1 tsp ground turmeric",
-      "3/4 tsp fine sea salt, divided",
-      "3/4 cup full-fat canned coconut milk, stirred",
-      "1 3/4 cups ice-cold water, plus 1 to 2 tbsp if needed",
-      "4 scallions, thinly sliced, white and green parts separated",
-      "12 oz medium raw shrimp, peeled, deveined and tails removed",
-      "1/4 tsp ground black pepper",
-      "1 small yellow onion, halved and very thinly sliced",
-      "4 cups mung bean sprouts, rinsed and dried well",
-      "6 tbsp neutral high-heat oil, such as avocado or rice bran oil, divided",
-      "1/4 cup warm water, for the dipping sauce",
-      "3 tbsp granulated sugar",
-      "1/4 cup fish sauce",
-      "1/4 cup fresh lime juice",
-      "1 garlic clove, finely grated",
-      "1 small red Thai chile, thinly sliced, seeded for less heat",
-      "1/4 cup finely shredded carrot",
-      "16 small round rice-paper wrappers (about 6 inches), for serving",
-      "1 small head butter lettuce, leaves separated, washed and dried",
-      "1 cup packed mixed mint and cilantro leaves",
-      "1 English cucumber, cut into thin matchsticks"
+      "1 tsp fine sea salt",
+      "1/2 tsp ground black pepper",
+      "1/2 cup walnut pieces, toasted and cooled, divided",
+      "1/3 cup dried barberries, picked over, rinsed and dried, divided",
+      "3 tbsp extra-virgin olive oil, divided",
+      "1 cup plain whole-milk yogurt, for serving",
+      "6 oz warm flatbread, for serving",
+      "1 cup mixed radishes and cucumber slices, for serving"
     ],
     "instructions": [
-      {
-        "name": "Whisk and rest the rice batter",
-        "text": "Whisk the rice flour, cornstarch, turmeric and 1/2 teaspoon salt in a large bowl. Add the coconut milk and ice-cold water gradually, whisking until no dry pockets remain. Stir in the scallion greens. Rest the thin batter for 30 minutes at room temperature so the flour hydrates; whisk again before every crêpe because rice flour settles quickly. It should run from the whisk like light cream, so add 1 to 2 tablespoons water if it has thickened." 
-      },
-      {
-        "name": "Mix the chile-lime dipping sauce",
-        "text": "While the batter rests, stir the warm water and sugar in a small bowl until the sugar dissolves. Stir in the fish sauce, lime juice, garlic, chile and shredded carrot. The sauce should taste bright, salty-sweet and pourable; set it aside so the garlic and chile can infuse while the crêpes cook."
-      },
-      {
-        "name": "Season and organize the filling",
-        "text": "Pat the shrimp very dry, then toss with the remaining 1/4 teaspoon salt, black pepper and scallion whites. Divide the shrimp, sliced onion and bean sprouts mentally into eight portions and arrange them beside the stove. Keep the lettuce, herbs, cucumber and dry rice paper away from the raw-shrimp work area, then wash the board, knife, bowl and your hands with hot soapy water."
-      },
-      {
-        "name": "Cook the shrimp in two batches",
-        "text": "Heat a 10-inch nonstick or well-seasoned carbon-steel skillet over medium-high for 2 minutes. Add 1 teaspoon oil and half the shrimp, spreading them in one layer. Cook 60 to 90 seconds per side, until the thickest shrimp reaches 145°F and the flesh is firm, pearly and opaque. Transfer to a clean plate and repeat with another teaspoon oil and the remaining shrimp. Do not return cooked shrimp to the raw-shrimp bowl."
-      },
-      {
-        "name": "Sizzle the first thin crêpe",
-        "text": "Wipe out loose scallion bits, return the skillet to medium-high and add 2 teaspoons oil. Scatter one-eighth of the onion across the pan. Whisk the batter, measure a scant 1/3 cup and pour it at the skillet's upper edge while immediately tilting and rotating the pan to coat the bottom in the thinnest possible layer. The batter should sizzle on contact and may leave a few lacy gaps; do not patch them with more batter."
-      },
-      {
-        "name": "Steam the sprouts, then crisp uncovered",
-        "text": "Arrange one-eighth of the cooked shrimp and 1/2 cup bean sprouts over one half of the crêpe. Cover, lower the heat to medium and cook for 2 minutes so the sprouts soften but stay crisp. Uncover and cook for 3 to 4 minutes more, rotating the skillet once, until the rim curls away from the pan and the underside is deep golden and rigid enough to lift in one piece. Drizzle 1/2 teaspoon oil around a pale edge if it needs help crisping."
-      },
-      {
-        "name": "Fold and repeat without stacking",
-        "text": "Slip a thin spatula under the empty half and fold it over the filling. Slide the bánh xèo onto a wire rack set over a sheet pan; do not stack or cover it, which traps steam. Repeat with the remaining batter, onion, shrimp and sprouts, whisking the batter before each scant 1/3-cup measure and adding 2 teaspoons oil per crêpe. Hold finished crêpes on the rack in a 225°F oven for no longer than 20 minutes while you finish the batch."
-      },
-      {
-        "name": "Wrap with herbs and serve immediately",
-        "text": "Set out the hot bánh xèo with the dipping sauce, rice paper, lettuce, herbs and cucumber. Dip one rice-paper wrapper briefly in room-temperature water, wait about 30 seconds for it to become flexible, then layer on lettuce, herbs, cucumber and a torn strip of crisp crêpe. Roll snugly and dip into the chile-lime sauce. Alternatively, skip the rice paper and wrap pieces directly in lettuce."
-      }
+      {"name": "Heat the oven and prepare the skillet", "text": "Set a rack in the middle of the oven and heat to 350°F. Brush the bottom and sides of a 10-inch oven-safe nonstick or well-seasoned skillet with 1 tablespoon olive oil. Set the remaining oil beside the stove; the egg mixture should go into a hot, freshly oiled pan as soon as it is mixed."},
+      {"name": "Dry and finely chop the herbs", "text": "Spin the parsley, cilantro, dill, chives and scallion greens completely dry, then blot any damp spots with a clean towel. Working in four batches, pulse the herbs in a food processor 6 to 8 times until finely chopped but not wet or puréed. Measure 5 packed cups; if chopping by hand, use a sharp knife and stop before the herbs release a puddle of green liquid."},
+      {"name": "Whisk the seasoned egg base", "text": "In a large bowl, whisk the eggs until the whites and yolks are fully blended. Sprinkle the flour, baking powder, turmeric, salt and black pepper evenly over the surface and whisk until no flour pockets remain. Fold in the chopped herbs, 1/3 cup walnuts and 1/4 cup barberries. The mixture will look far more like herbs coated with egg than a conventional frittata batter."},
+      {"name": "Set the bottom crust on the stove", "text": "Heat the prepared skillet over medium for 90 seconds. Add the remaining 2 tablespoons olive oil and swirl to coat. Scrape in the herb mixture, spread it level without packing it down and cook undisturbed for 4 minutes, until the edge bubbles gently and a thin set rim appears. Reduce the heat if the oil smokes or the herbs at the edge blacken."},
+      {"name": "Bake until safely set", "text": "Transfer the skillet to the 350°F oven and bake for 18 to 22 minutes. Begin checking at 18 minutes: the center should be firm to a light press, a thin knife should come out without liquid egg and a thermometer inserted into the center should register 160°F. Do not wait for the center to brown; the surface stays deep green while the underside and rim become golden."},
+      {"name": "Broil briefly for a burnished top", "text": "Switch the oven to broil and move the skillet about 6 inches from the element for 1 to 2 minutes, watching continuously, until the high spots are lightly bronzed. Remove the skillet with a dry oven mitt and immediately cover the hot handle with a second mitt or handle sleeve so no one grabs it. Rest for 8 minutes."},
+      {"name": "Release and garnish to match the finished dish", "text": "Run a thin silicone spatula around the edge, invert the kuku onto a plate, then invert again onto a serving platter so the green top faces up. Press the remaining walnut pieces and barberries lightly into the surface while it is warm. Cut into 6 triangular wedges with a serrated knife, wiping the blade between cuts."},
+      {"name": "Serve warm or at room temperature", "text": "Serve one wedge per person with yogurt, warm flatbread, radishes and cucumber. Kuku sabzi is equally useful at room temperature, but do not leave it out longer than 2 hours total. For a smaller appetizer portion, cut each wedge in half after the kuku has cooled enough to hold a clean edge."}
     ],
     "why_it_works": [
-      "Rice flour supplies a brittle, shattering shell without gluten, while a small amount of cornstarch reduces toughness and helps the thin edge turn lacy.",
-      "Cold liquid and a 30-minute rest fully hydrate the flour without warming it; whisking before each pour keeps settled starch from making the last crêpes dense.",
-      "A thoroughly preheated, lightly oiled pan creates the characteristic sizzle, and one quick tilt spreads a scant measure before the batter sets.",
-      "Covering briefly cooks the bean sprouts with trapped steam, then uncovering drives that moisture away so the base can become crisp instead of leathery.",
-      "Cooking the shrimp first gives a reliable 145°F safety check and prevents the crêpe from burning while thick raw shrimp struggle to cook through."
+      "Five packed cups of finely chopped herbs to eight eggs produce kuku sabzi's dense green structure instead of the pale, custardy interior of a standard frittata.",
+      "Thoroughly drying the herbs prevents their surface water from steaming the egg cake and weakening the browned bottom crust.",
+      "Flour absorbs stray herb moisture while baking powder provides just enough lift to keep the tall herb layer tender rather than compressed.",
+      "Starting in a hot, oiled skillet sets a sturdy base for clean wedges; finishing in the oven cooks the thick center evenly without a risky stovetop flip.",
+      "Holding back part of the toasted walnuts and barberries preserves crispness and creates the visible red-and-gold garnish in the licensed finished-dish photograph."
     ],
     "swaps": [
-      "For a pork-and-shrimp version, replace 4 ounces of shrimp with 4 ounces very thinly sliced pork shoulder. Cook the pork to at least 145°F with a 3-minute rest before assembling the crêpes.",
-      "For a vegetarian version, replace the shrimp and fish sauce with 12 ounces pressed firm tofu and vegan fish sauce or light soy sauce. Brown the tofu before making the crêpes and season the sauce to taste because soy sauce is saltier by volume.",
-      "Perilla, Thai basil or mustard greens can join or replace part of the mint and cilantro; keep at least one sturdy leaf for wrapping and one aromatic herb for contrast.",
-      "Use eight large lettuce leaves instead of rice paper for a lighter, fully gluten-free wrap. If gluten matters, verify the fish sauce, cornstarch and rice-paper labels because cross-contact varies by brand.",
-      "A well-seasoned 10-inch carbon-steel skillet can replace nonstick. Preheat it fully and use the listed oil; stainless steel is much less forgiving with this low-fat rice batter."
+      "Use 1 tablespoon rice flour instead of all-purpose flour for a gluten-free kuku, and confirm the baking powder is labeled gluten-free.",
+      "Replace the barberries with unsweetened dried cranberries chopped to barberry size. Soak very dry cranberries in hot water for 5 minutes, drain and blot completely before folding them in.",
+      "Substitute up to 1 cup of the parsley or cilantro with baby spinach, but chop and squeeze the spinach dry so it does not dilute the eggs.",
+      "For a nut-free version, omit the walnuts and add 1/3 cup toasted pumpkin seeds; the flavor changes, but the garnish keeps a useful crunch.",
+      "A 9-inch square metal baking pan can replace the skillet. Oil it with all 3 tablespoons, preheat it in the oven for 5 minutes, carefully add the mixture and bake 22 to 27 minutes; it will make square portions without a stovetop-set crust."
     ],
-    "storage": "Bánh xèo are crispest straight from the skillet. Refrigerate leftover crêpes in a single layer between parchment in an airtight container at 40°F or below for up to 2 days; refrigerate the dipping sauce separately for up to 4 days and the washed herbs and lettuce for up to 2 days. Reheat crêpes uncovered on a wire rack in a 400°F oven for 7 to 9 minutes, or in a lightly oiled skillet over medium heat for 2 to 3 minutes per side, until the shrimp filling reaches 165°F. Do not microwave them unless a soft texture is acceptable. Do not freeze assembled crêpes because the sprouts release water and the shell cracks.",
+    "storage": "Cool leftover kuku within 2 hours, then refrigerate wedges in a shallow airtight container at 40°F or below for up to 4 days. Pack yogurt and vegetables separately. Reheat uncovered on a parchment-lined sheet pan at 325°F for 10 to 12 minutes, until the center reaches 165°F, or enjoy at room temperature after no more than 30 minutes out of the refrigerator. Freeze individually wrapped wedges for up to 2 months; thaw overnight in the refrigerator and reheat in the oven. Microwaving is safe but softens the crust, so use 50% power in 30-second bursts only when speed matters.",
     "notes": [
-      "Vietnam Tourism's official home-recipe booklet pairs a coconut-and-turmeric batter with shrimp, bean sprouts, onion, greens, cucumber, rice paper and dipping sauce. This independently developed version specifies a measured rice-flour batter, separate shrimp safety check and repeatable 10-inch-skillet technique.",
-      "The word xèo evokes the audible sizzle as batter hits a hot pan. If the first pour is quiet, let the empty pan heat another 30 to 60 seconds before continuing; if the batter smokes or blackens, reduce the heat slightly.",
-      "The FDA advises cooking most seafood to 145°F; properly cooked shrimp also becomes firm, pearly and opaque. A thin probe inserted sideways into the thickest shrimp gives the most useful reading.",
-      "Do not soak the rice paper until limp. A quick dip followed by a short wait lets it finish softening on the plate without becoming sticky or tearing around the crisp crêpe.",
-      "Calories and cost estimate two bánh xèo, four rice-paper wrappers, vegetables, herbs and one quarter of the dipping sauce per serving. Exact values vary with oil absorption, shrimp size and local herb prices."
+      "Kuku sabzi is an herb-first Iranian egg dish, not a conventional vegetable frittata. The unusually high herb-to-egg ratio is intentional and gives the cut wedge its dark-green, almost leafy interior.",
+      "The CC0 photograph was independently verified on Wikimedia Commons: it depicts a triangular kuku sabzi wedge topped specifically with walnut halves and red barberries. Those toppings, the deep-green crumb and the wedge presentation all match this recipe and alt text.",
+      "The FDA lists 160°F as the safe minimum internal temperature for egg dishes. Check the center rather than an oily edge, then avoid overbaking once that temperature is reached.",
+      "Barberries can hide tiny stems or grit. Pick them over, rinse in a fine sieve and dry thoroughly; wet berries create gummy pockets in the egg mixture.",
+      "Calories and cost estimate one-sixth of the kuku, yogurt, flatbread and vegetables. Exact values vary with herb bunch size, walnut price and the bread served."
     ],
     "faqs": [
-      {
-        "q": "Why is my bánh xèo soft instead of crisp?",
-        "a": "The skillet may be too cool, the batter may be too thick or the covered stage may have run too long. Preheat until a drop of batter sizzles immediately, use only a scant 1/3 cup in a 10-inch pan, tilt once and uncover after 2 minutes. Keep finished crêpes unstacked on a rack so their steam can escape."
-      },
-      {
-        "q": "Can I prepare the batter or fillings ahead?",
-        "a": "Yes. Refrigerate the batter in a covered container for up to 24 hours and whisk it thoroughly before cooking, adding a spoonful of cold water if it has thickened. The sauce can be made 4 days ahead. Cook and chill the shrimp no more than 1 day ahead, but rinse and dry the sprouts and herbs the day you serve them for the best texture."
-      },
-      {
-        "q": "Do I need a special bánh xèo pan?",
-        "a": "No. A 10-inch nonstick skillet gives the most repeatable home result because its sloped sides help the thin crêpe release and fold. A seasoned carbon-steel pan also works. Use the same pan for every crêpe, keep the batter measure consistent and adjust the burner only if the edges darken before the center sets."
-      }
+      {"q": "Why did my kuku sabzi turn watery or fall apart?", "a": "The herbs were probably wet, chopped into a paste or measured loosely. Spin and blot them dry, pulse only until finely chopped and pack five full cups before mixing. Also let the baked kuku rest 8 minutes so the egg structure firms before you invert and cut it."},
+      {"q": "Can I chop the herbs ahead of time?", "a": "Yes. Wash, dry and chop them up to 1 day ahead, then refrigerate in an airtight container lined with a dry towel. Mix them with the eggs only when the skillet and oven are ready; salted raw egg draws water from the herbs and should not wait on the counter."},
+      {"q": "Do I have to flip kuku sabzi on the stovetop?", "a": "No. Traditional versions may be cut or flipped to brown both sides, but the stovetop-to-oven method gives a stable browned base and a safely set 160°F center without maneuvering a heavy, herb-filled round. A final one- to two-minute broil adds color to the top while preserving clean wedges."}
     ],
-    "pantry": [
-      "white rice flour",
-      "cornstarch",
-      "ground turmeric",
-      "fine sea salt",
-      "canned coconut milk",
-      "neutral high-heat oil",
-      "granulated sugar",
-      "fish sauce",
-      "ground black pepper"
-    ],
+    "pantry": ["large eggs", "all-purpose flour", "baking powder", "ground turmeric", "fine sea salt", "ground black pepper", "walnuts", "dried barberries", "extra-virgin olive oil"],
     "date_published": "2026-11-07",
     "date_modified": "2026-11-07"
   }
