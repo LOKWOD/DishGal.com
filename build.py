@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "kuku sabzi" in haystack:
+    if "egyptian molokhia" in haystack or "egyptian molokheya" in haystack:
+        products = [
+            ("heavy bottom stockpot 8 quart stainless steel", "Heavy 8-quart stockpot", "A roomy heavy pot keeps the whole chicken submerged at a quiet simmer while producing enough clear broth for both the molokhia and rice."),
+            ("fine mesh stainless steel strainer large", "Large fine-mesh strainer", "Straining the poaching broth removes the onion, cardamom and surface particles before the broth is divided between the green soup and vermicelli rice."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe verifies the deepest breast and innermost thigh both reach 165°F before the chicken is browned and carved."),
+        ]
+    elif "kuku sabzi" in haystack:
         products = [
             ("10 inch oven safe nonstick skillet", "10-inch oven-safe skillet", "A measured 10-inch surface gives the herb-heavy egg mixture enough depth for clean wedges while moving safely from a browned stovetop base to an evenly set oven finish."),
             ("large salad spinner herb dryer", "Large salad spinner", "Thoroughly dried parsley, cilantro, dill, chives and scallions build a firm green crumb instead of steaming water into the egg cake."),
@@ -2108,6 +2114,24 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "egyptian-molokhia-golden-chicken-rice": {
+        "slugs": ["egyptian-koshari-crispy-onions-garlic-vinegar-sauce", "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts"],
+        "eyebrow": "Egyptian menu guide by meal role",
+        "title": "Build an Egyptian menu from green soup to street-food bowl and syrup cake",
+        "copy": "Compare chicken-broth molokhia with browned whole chicken and vermicelli rice, pantry-driven vegan koshari with crisp onions and garlic vinegar, and syrup-soaked basbousa by meal role, core starch, active work, serving temperature and make-ahead strategy.",
+    },
+    "egyptian-koshari-crispy-onions-garlic-vinegar-sauce": {
+        "slugs": ["egyptian-molokhia-golden-chicken-rice", "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts"],
+        "eyebrow": "Egyptian menu guide by meal role",
+        "title": "Build an Egyptian menu from street-food bowl to green soup and syrup cake",
+        "copy": "Compare pantry-driven vegan koshari with crisp onions and garlic vinegar, chicken-broth molokhia with browned whole chicken and vermicelli rice, and syrup-soaked basbousa by meal role, core starch, active work, serving temperature and make-ahead strategy.",
+    },
+    "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts": {
+        "slugs": ["egyptian-molokhia-golden-chicken-rice", "egyptian-koshari-crispy-onions-garlic-vinegar-sauce"],
+        "eyebrow": "Egyptian menu guide by meal role",
+        "title": "Build an Egyptian menu from syrup cake to green soup and street-food bowl",
+        "copy": "Compare syrup-soaked basbousa, chicken-broth molokhia with browned whole chicken and vermicelli rice, and pantry-driven vegan koshari with crisp onions and garlic vinegar by meal role, core starch, active work, serving temperature and make-ahead strategy.",
+    },
     "persian-style-kuku-sabzi-walnuts-barberries": {
         "slugs": ["spanish-tortilla-espanola-potato-onion", "cottage-cheese-frittata-tomatoes-green-peppers"],
         "eyebrow": "Egg cakes by structure and pan technique",
