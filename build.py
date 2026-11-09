@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "egyptian molokhia" in haystack or "egyptian molokheya" in haystack:
+    if "meat-filled deruny" in haystack or "meat filled potato pancakes" in haystack:
+        products = [
+            ("stainless steel box grater fine coarse", "Sturdy box grater", "Fine grating releases enough potato starch to bind the crisp shell, while a stable nonslip base keeps the five-potato prep controlled."),
+            ("12 inch heavy cast iron skillet", "12-inch heavy skillet", "A broad heavy pan holds a steady 340–350°F oil temperature through four small batches so the filled pancakes brown evenly instead of soaking up cool oil."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe can enter sideways through the potato edge to confirm the enclosed ground-beef center reaches 160°F without mistaking crust color for doneness."),
+        ]
+    elif "egyptian molokhia" in haystack or "egyptian molokheya" in haystack:
         products = [
             ("heavy bottom stockpot 8 quart stainless steel", "Heavy 8-quart stockpot", "A roomy heavy pot keeps the whole chicken submerged at a quiet simmer while producing enough clear broth for both the molokhia and rice."),
             ("fine mesh stainless steel strainer large", "Large fine-mesh strainer", "Straining the poaching broth removes the onion, cardamom and surface particles before the broth is divided between the green soup and vermicelli rice."),
@@ -2114,6 +2120,18 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "ukrainian-meat-filled-deruny-sour-cream": {
+        "slugs": ["instant-pot-ukrainian-beet-borscht-white-beans-dill"],
+        "eyebrow": "Ukrainian comfort food by technique",
+        "title": "Compare crisp filled deruny with a make-ahead beet borscht",
+        "copy": "Choose skillet-fried grated potato pancakes with a thermometer-checked beef center for a crisp weekend dinner, or pressure-cooked beet borscht with white beans and dill for a budget-friendly soup that improves after chilling; compare active work, primary vegetable, protein, texture and reheating strategy.",
+    },
+    "instant-pot-ukrainian-beet-borscht-white-beans-dill": {
+        "slugs": ["ukrainian-meat-filled-deruny-sour-cream"],
+        "eyebrow": "Ukrainian comfort food by technique",
+        "title": "Compare make-ahead beet borscht with crisp filled deruny",
+        "copy": "Choose pressure-cooked beet borscht with white beans and dill for a budget-friendly soup that improves after chilling, or skillet-fried grated potato pancakes with a thermometer-checked beef center for a crisp weekend dinner; compare active work, primary vegetable, protein, texture and reheating strategy.",
+    },
     "egyptian-molokhia-golden-chicken-rice": {
         "slugs": ["egyptian-koshari-crispy-onions-garlic-vinegar-sauce", "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts"],
         "eyebrow": "Egyptian menu guide by meal role",
