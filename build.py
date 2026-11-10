@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "meat-filled deruny" in haystack or "meat filled potato pancakes" in haystack:
+    if "provençal pissaladière" in haystack or "provencal pissaladiere" in haystack:
+        products = [
+            ("12 inch heavy stainless steel skillet", "Wide 12-inch heavy skillet", "A broad heavy base gives three pounds of sliced onions room to lose moisture slowly without steaming or scorching at the edges."),
+            ("heavy rimmed aluminum half sheet pan", "Heavy rimmed half-sheet pan", "A rigid conductive pan supports the 10-by-14-inch rectangle and crisps its olive-oiled bottom while the substantial onion topping heats through."),
+            ("stainless steel pizza wheel cutter", "Sturdy pizza wheel", "A sharp wheel divides the rested rectangular tart into clean appetizer squares without dragging the whole anchovies or olives through the soft onion layer."),
+        ]
+    elif "meat-filled deruny" in haystack or "meat filled potato pancakes" in haystack:
         products = [
             ("stainless steel box grater fine coarse", "Sturdy box grater", "Fine grating releases enough potato starch to bind the crisp shell, while a stable nonslip base keeps the five-potato prep controlled."),
             ("12 inch heavy cast iron skillet", "12-inch heavy skillet", "A broad heavy pan holds a steady 340–350°F oil temperature through four small batches so the filled pancakes brown evenly instead of soaking up cool oil."),
@@ -2120,6 +2126,18 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "provencal-pissaladiere-caramelized-onions-anchovies-olives": {
+        "slugs": ["provencal-ratatouille-green-olives-basil"],
+        "eyebrow": "Provençal cooking by structure",
+        "title": "Compare a crisp onion tart with a saucy vegetable braise",
+        "copy": "Choose yeast-raised pissaladière for a crisp, anchovy-and-olive appetizer or chunky ratatouille for a vegan stovetop main or side; compare active work, moisture control, olive use, serving temperature and make-ahead texture.",
+    },
+    "provencal-ratatouille-green-olives-basil": {
+        "slugs": ["provencal-pissaladiere-caramelized-onions-anchovies-olives"],
+        "eyebrow": "Provençal cooking by structure",
+        "title": "Compare a saucy vegetable braise with a crisp onion tart",
+        "copy": "Choose chunky ratatouille for a vegan stovetop main or side or yeast-raised pissaladière for a crisp, anchovy-and-olive appetizer; compare active work, moisture control, olive use, serving temperature and make-ahead texture.",
+    },
     "ukrainian-meat-filled-deruny-sour-cream": {
         "slugs": ["instant-pot-ukrainian-beet-borscht-white-beans-dill"],
         "eyebrow": "Ukrainian comfort food by technique",
