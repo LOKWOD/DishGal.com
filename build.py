@@ -532,6 +532,12 @@ def recipe_shop(recipe) -> str:
             ("heavy rimmed aluminum half sheet pan", "Heavy rimmed half-sheet pan", "A rigid conductive pan supports the 10-by-14-inch rectangle and crisps its olive-oiled bottom while the substantial onion topping heats through."),
             ("stainless steel pizza wheel cutter", "Sturdy pizza wheel", "A sharp wheel divides the rested rectangular tart into clean appetizer squares without dragging the whole anchovies or olives through the soft onion layer."),
         ]
+    elif "königsberger klopse" in haystack or "konigsberger klopse" in haystack:
+        products = [
+            ("wide 6 quart enameled dutch oven", "Wide 6-quart Dutch oven", "A broad heavy pot keeps twelve large meatballs in a quiet poach, then gives the roux and strained broth room to become a smooth caper cream sauce."),
+            ("fine mesh stainless steel strainer large", "Large fine-mesh strainer", "Straining removes the poaching onion, bay and peppercorns before the seasoned broth is measured into the pale sauce."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe checks several meatball centers for the USDA-required 160°F without relying on their deliberately pale poached color."),
+        ]
     elif "meat-filled deruny" in haystack or "meat filled potato pancakes" in haystack:
         products = [
             ("stainless steel box grater fine coarse", "Sturdy box grater", "Fine grating releases enough potato starch to bind the crisp shell, while a stable nonslip base keeps the five-potato prep controlled."),
@@ -2126,6 +2132,24 @@ def build_recipe_index():
 
 
 CURATED_RECIPE_CLUSTERS = {
+    "german-konigsberger-klopse-caper-cream-sauce-potatoes-green-beans": {
+        "slugs": ["classic-black-forest-cake-cherries-whipped-cream", "german-bienenstich-vanilla-cream-almond-caramel"],
+        "eyebrow": "German menu guide by meal role",
+        "title": "Build a German menu from poached meatballs to layered cakes",
+        "copy": "Compare broth-poached Königsberger Klopse with caper cream sauce, a cherry-and-chocolate Black Forest celebration cake and yeast-raised Bienenstich with vanilla cream by meal role, defining technique, active work, make-ahead value and serving temperature.",
+    },
+    "classic-black-forest-cake-cherries-whipped-cream": {
+        "slugs": ["german-konigsberger-klopse-caper-cream-sauce-potatoes-green-beans", "german-bienenstich-vanilla-cream-almond-caramel"],
+        "eyebrow": "German menu guide by meal role",
+        "title": "Build a German menu from cherry layer cake to a savory main",
+        "copy": "Compare a cherry-and-chocolate Black Forest celebration cake with broth-poached Königsberger Klopse and yeast-raised Bienenstich by meal role, defining technique, active work, make-ahead value and serving temperature.",
+    },
+    "german-bienenstich-vanilla-cream-almond-caramel": {
+        "slugs": ["german-konigsberger-klopse-caper-cream-sauce-potatoes-green-beans", "classic-black-forest-cake-cherries-whipped-cream"],
+        "eyebrow": "German menu guide by meal role",
+        "title": "Build a German menu from almond yeast cake to a savory main",
+        "copy": "Compare yeast-raised Bienenstich with vanilla cream, broth-poached Königsberger Klopse and a cherry-and-chocolate Black Forest celebration cake by meal role, defining technique, active work, make-ahead value and serving temperature.",
+    },
     "provencal-pissaladiere-caramelized-onions-anchovies-olives": {
         "slugs": ["provencal-ratatouille-green-olives-basil"],
         "eyebrow": "Provençal cooking by structure",
