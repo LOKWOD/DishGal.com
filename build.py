@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "provençal pissaladière" in haystack or "provencal pissaladiere" in haystack:
+    if "georgian lobio" in haystack:
+        products = [
+            ("wide 6 quart enameled dutch oven", "Wide 6-quart Dutch oven", "A roomy heavy pot provides safe headroom for the required vigorous kidney-bean boil, then steady heat for the long tenderizing simmer and final mash."),
+            ("12 inch heavy cast iron skillet", "12-inch heavy skillet", "One broad heat-steady surface toasts the walnuts and coriander, then cooks all six compact mchadi corn cakes in an uncrowded layer."),
+            ("food processor small bowl", "Food processor", "Short pulses turn toasted walnuts, coriander, fenugreek, chile and garlic into a fine pebbly seasoning without releasing enough oil to make walnut butter."),
+        ]
+    elif "provençal pissaladière" in haystack or "provencal pissaladiere" in haystack:
         products = [
             ("12 inch heavy stainless steel skillet", "Wide 12-inch heavy skillet", "A broad heavy base gives three pounds of sliced onions room to lose moisture slowly without steaming or scorching at the edges."),
             ("heavy rimmed aluminum half sheet pan", "Heavy rimmed half-sheet pan", "A rigid conductive pan supports the 10-by-14-inch rectangle and crisps its olive-oiled bottom while the substantial onion topping heats through."),
@@ -2421,28 +2427,34 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Compare poached eggs over garlicky yogurt with creamy stovetop miso oats, sweet baked oatmeal and pressure-cooked fava beans by base, texture, active time and make-ahead limits.",
     },
     "smoky-warm-lentils-red-pepper-parsley-lemon": {
-        "slugs": ["spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry"],
+        "slugs": ["spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry", "georgian-lobio-skillet-mchadi-corn-cakes"],
         "eyebrow": "Budget pulse method guide",
         "title": "Choose a budget bean or lentil meal by texture and method",
-        "copy": "Compare glossy skillet lentils with red pepper, saucy tomato butter beans, pressure-cooked white-bean stew and a simmered coconut chickpea curry by pulse, texture, cookware and make-ahead strategy.",
+        "copy": "Compare glossy skillet lentils, tomato butter beans, pressure-cooked white-bean stew, coconut chickpea curry and partly crushed Georgian lobio with mchadi by pulse, texture, cookware, bean-safety step and make-ahead strategy.",
     },
     "spanish-style-tomato-butter-beans-smoked-paprika": {
-        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry"],
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry", "georgian-lobio-skillet-mchadi-corn-cakes"],
         "eyebrow": "Budget pulse method guide",
         "title": "Choose a budget bean or lentil meal by texture and method",
-        "copy": "Compare saucy tomato butter beans with glossy skillet lentils and red pepper, pressure-cooked white-bean stew and a simmered coconut chickpea curry by pulse, texture, cookware and make-ahead strategy.",
+        "copy": "Compare saucy tomato butter beans with glossy skillet lentils, pressure-cooked white-bean stew, coconut chickpea curry and partly crushed Georgian lobio with mchadi by pulse, texture, cookware, bean-safety step and make-ahead strategy.",
     },
     "instant-pot-turkish-kuru-fasulye-white-bean-stew": {
-        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "spanish-style-tomato-butter-beans-smoked-paprika", "pantry-chickpea-coconut-curry"],
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "spanish-style-tomato-butter-beans-smoked-paprika", "pantry-chickpea-coconut-curry", "georgian-lobio-skillet-mchadi-corn-cakes"],
         "eyebrow": "Budget pulse method guide",
         "title": "Choose a budget bean or lentil meal by texture and method",
-        "copy": "Compare pressure-cooked white-bean stew with glossy skillet lentils and red pepper, saucy tomato butter beans and a simmered coconut chickpea curry by pulse, texture, cookware and make-ahead strategy.",
+        "copy": "Compare pressure-cooked white-bean stew with glossy skillet lentils, tomato butter beans, coconut chickpea curry and partly crushed Georgian lobio with mchadi by pulse, texture, cookware, bean-safety step and make-ahead strategy.",
     },
     "pantry-chickpea-coconut-curry": {
-        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew"],
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "georgian-lobio-skillet-mchadi-corn-cakes"],
         "eyebrow": "Budget pulse method guide",
         "title": "Choose a budget bean or lentil meal by texture and method",
-        "copy": "Compare a simmered coconut chickpea curry with glossy skillet lentils and red pepper, saucy tomato butter beans and pressure-cooked white-bean stew by pulse, texture, cookware and make-ahead strategy.",
+        "copy": "Compare a simmered coconut chickpea curry with glossy skillet lentils, tomato butter beans, pressure-cooked white-bean stew and partly crushed Georgian lobio with mchadi by pulse, texture, cookware, bean-safety step and make-ahead strategy.",
+    },
+    "georgian-lobio-skillet-mchadi-corn-cakes": {
+        "slugs": ["smoky-warm-lentils-red-pepper-parsley-lemon", "spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry"],
+        "eyebrow": "Budget pulse method guide",
+        "title": "Choose a budget bean or lentil meal by texture and method",
+        "copy": "Compare partly crushed Georgian kidney-bean lobio with mchadi against glossy skillet lentils, tomato butter beans, pressure-cooked white-bean stew and coconut chickpea curry by pulse, texture, cookware, bean-safety step and make-ahead strategy.",
     },
     "crispy-fried-beef-empanadas-paprika-cumin": {
         "slugs": ["polish-potato-cheese-pierogi", "salvadoran-style-bean-cheese-pupusas-curtido-salsa-roja", "filipino-lumpiang-sariwa-garlic-peanut-sauce"],
