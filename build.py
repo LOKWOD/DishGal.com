@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "georgian lobio" in haystack:
+    if "costa rican gallo pinto" in haystack:
+        products = [
+            ("12 inch heavy cast iron skillet", "Wide 12-inch skillet", "A broad heat-steady surface reduces the seasoned bean liquid, folds in six portions of rice and creates toasted patches without crowding."),
+            ("3 quart stainless steel saucepan with lid", "3-quart saucepan with lid", "A close-fitting lid and measured capacity cook the long-grain rice evenly before it cools for the skillet."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe verifies the fried eggs reach the USDA 160°F target and refrigerated leftovers reheat to 165°F."),
+        ]
+    elif "georgian lobio" in haystack:
         products = [
             ("wide 6 quart enameled dutch oven", "Wide 6-quart Dutch oven", "A roomy heavy pot provides safe headroom for the required vigorous kidney-bean boil, then steady heat for the long tenderizing simmer and final mash."),
             ("12 inch heavy cast iron skillet", "12-inch heavy skillet", "One broad heat-steady surface toasts the walnuts and coriander, then cooks all six compact mchadi corn cakes in an uncrowded layer."),
@@ -2403,28 +2409,34 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Compare juicy berry cobbler with stuffed roasted pear halves, a structured pear-almond tart and caramelized upside-down apple tart by fruit preparation, crust, texture and make-ahead limits.",
     },
     "miso-savory-oats-poached-eggs-sesame-chive-crunch": {
-        "slugs": ["apple-cinnamon-baked-oatmeal", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "slugs": ["apple-cinnamon-baked-oatmeal", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "costa-rican-gallo-pinto-eggs-cheese-tortillas"],
         "eyebrow": "Breakfast base and egg guide",
         "title": "Choose a savory or sweet breakfast by base and method",
-        "copy": "Compare creamy stovetop miso oats with sweet baked oatmeal, pressure-cooked fava beans and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
+        "copy": "Compare creamy stovetop miso oats with sweet baked oatmeal, pressure-cooked fava beans, poached eggs over garlicky yogurt and skillet-finished gallo pinto by base, texture, active time and make-ahead limits.",
     },
     "apple-cinnamon-baked-oatmeal": {
-        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "costa-rican-gallo-pinto-eggs-cheese-tortillas"],
         "eyebrow": "Breakfast base and egg guide",
         "title": "Choose a savory or sweet breakfast by base and method",
-        "copy": "Compare sweet baked apple oatmeal with creamy stovetop miso oats, pressure-cooked fava beans and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
+        "copy": "Compare sweet baked apple oatmeal with creamy stovetop miso oats, pressure-cooked fava beans, poached eggs over garlicky yogurt and skillet-finished gallo pinto by base, texture, active time and make-ahead limits.",
     },
     "instant-pot-egyptian-style-ful-medames-breakfast-platter": {
-        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "apple-cinnamon-baked-oatmeal", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "apple-cinnamon-baked-oatmeal", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter", "costa-rican-gallo-pinto-eggs-cheese-tortillas"],
         "eyebrow": "Breakfast base and egg guide",
         "title": "Choose a savory or sweet breakfast by base and method",
-        "copy": "Compare pressure-cooked fava beans with creamy stovetop miso oats, sweet baked oatmeal and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
+        "copy": "Compare pressure-cooked fava beans with creamy stovetop miso oats, sweet baked oatmeal, poached eggs over garlicky yogurt and skillet-finished gallo pinto by base, texture, active time and make-ahead limits.",
     },
     "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter": {
-        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "apple-cinnamon-baked-oatmeal", "instant-pot-egyptian-style-ful-medames-breakfast-platter"],
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "apple-cinnamon-baked-oatmeal", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "costa-rican-gallo-pinto-eggs-cheese-tortillas"],
         "eyebrow": "Breakfast base and egg guide",
         "title": "Choose a savory or sweet breakfast by base and method",
-        "copy": "Compare poached eggs over garlicky yogurt with creamy stovetop miso oats, sweet baked oatmeal and pressure-cooked fava beans by base, texture, active time and make-ahead limits.",
+        "copy": "Compare poached eggs over garlicky yogurt with creamy stovetop miso oats, sweet baked oatmeal, pressure-cooked fava beans and skillet-finished gallo pinto by base, texture, active time and make-ahead limits.",
+    },
+    "costa-rican-gallo-pinto-eggs-cheese-tortillas": {
+        "slugs": ["miso-savory-oats-poached-eggs-sesame-chive-crunch", "apple-cinnamon-baked-oatmeal", "instant-pot-egyptian-style-ful-medames-breakfast-platter", "turkish-cilbir-poached-eggs-garlicky-yogurt-aleppo-butter"],
+        "eyebrow": "Breakfast base and egg guide",
+        "title": "Choose a savory or sweet breakfast by base and method",
+        "copy": "Compare skillet-finished gallo pinto with creamy stovetop miso oats, sweet baked oatmeal, pressure-cooked fava beans and poached eggs over garlicky yogurt by base, texture, active time and make-ahead limits.",
     },
     "smoky-warm-lentils-red-pepper-parsley-lemon": {
         "slugs": ["spanish-style-tomato-butter-beans-smoked-paprika", "instant-pot-turkish-kuru-fasulye-white-bean-stew", "pantry-chickpea-coconut-curry", "georgian-lobio-skillet-mchadi-corn-cakes"],
