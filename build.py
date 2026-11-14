@@ -526,7 +526,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "costa rican gallo pinto" in haystack:
+    if "malaysian hainanese chicken chop" in haystack:
+        products = [
+            ("12 inch heavy skillet shallow frying", "Wide 12-inch heavy skillet", "A broad heat-steady surface gives two breaded thighs room to fry without crowding and keeps the measured oil temperature steadier between batches."),
+            ("half sheet pan wire rack oven safe", "Half-sheet pan with oven-safe rack", "The rack drains fried cutlets without trapping steam, holds them for a safe oven finish if needed and reheats leftovers while restoring the crust."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe verifies each thigh reaches 165°F and refrigerated chicken reheats to the same temperature without treating crust color as a safety cue."),
+        ]
+    elif "costa rican gallo pinto" in haystack:
         products = [
             ("12 inch heavy cast iron skillet", "Wide 12-inch skillet", "A broad heat-steady surface reduces the seasoned bean liquid, folds in six portions of rice and creates toasted patches without crowding."),
             ("3 quart stainless steel saucepan with lid", "3-quart saucepan with lid", "A close-fitting lid and measured capacity cook the long-grain rice evenly before it cools for the skillet."),
@@ -2211,16 +2217,22 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Compare Persian kuku sabzi built from five packed cups of herbs, Spanish tortilla structured with sliced potato and onion, and a cottage-cheese frittata lightened with dairy by egg ratio, moisture control, stovetop-to-oven technique, safe center cue and make-ahead texture.",
     },
     "singapore-style-kaya-toast-soft-boiled-eggs": {
-        "slugs": ["instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce"],
-        "eyebrow": "Hainanese-influenced Singapore dishes",
-        "title": "Compare a kopitiam breakfast with a complete chicken-and-rice meal",
-        "copy": "Compare crisp kaya-and-butter toast with safely handled soft eggs against pressure-cooked Hainanese-style chicken rice with ginger-scallion sauce by meal occasion, pandan use, egg or poultry safety cue, active work and make-ahead strategy.",
+        "slugs": ["instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce", "malaysian-hainanese-chicken-chop-brown-gravy-fries"],
+        "eyebrow": "Hainanese-influenced kopitiam and chicken dishes",
+        "title": "Compare kaya toast, chicken rice and Malaysian chicken chop",
+        "copy": "Compare crisp kaya-and-butter toast with safely handled soft eggs, pressure-cooked Hainanese-style chicken rice with ginger-scallion sauce, and Malaysian kopitiam-style breaded chicken chop with brown gravy by meal role, cooking method, egg or poultry safety cue, active work and make-ahead strategy.",
     },
     "instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce": {
-        "slugs": ["singapore-style-kaya-toast-soft-boiled-eggs"],
-        "eyebrow": "Hainanese-influenced Singapore dishes",
-        "title": "Compare a complete chicken-and-rice meal with a kopitiam breakfast",
-        "copy": "Compare pressure-cooked Hainanese-style chicken rice with ginger-scallion sauce against crisp kaya-and-butter toast with safely handled soft eggs by meal occasion, pandan use, poultry or egg safety cue, active work and make-ahead strategy.",
+        "slugs": ["singapore-style-kaya-toast-soft-boiled-eggs", "malaysian-hainanese-chicken-chop-brown-gravy-fries"],
+        "eyebrow": "Hainanese-influenced kopitiam and chicken dishes",
+        "title": "Compare chicken rice, kaya toast and Malaysian chicken chop",
+        "copy": "Compare pressure-cooked Hainanese-style chicken rice with ginger-scallion sauce, crisp kaya-and-butter toast with safely handled soft eggs, and Malaysian kopitiam-style breaded chicken chop with brown gravy by meal role, cooking method, poultry or egg safety cue, active work and make-ahead strategy.",
+    },
+    "malaysian-hainanese-chicken-chop-brown-gravy-fries": {
+        "slugs": ["instant-pot-hainanese-style-chicken-rice-ginger-scallion-sauce", "singapore-style-kaya-toast-soft-boiled-eggs"],
+        "eyebrow": "Hainanese-influenced kopitiam and chicken dishes",
+        "title": "Compare Malaysian chicken chop, chicken rice and kaya toast",
+        "copy": "Compare Malaysian kopitiam-style breaded chicken chop with brown gravy, pressure-cooked Hainanese-style chicken rice with ginger-scallion sauce, and crisp kaya-and-butter toast with safely handled soft eggs by meal role, cooking method, poultry or egg safety cue, active work and make-ahead strategy.",
     },
     "afghan-style-aushak-leek-dumplings-tomato-garlic-yogurt": {
         "slugs": ["afghan-style-potato-scallion-bolani-yogurt", "nepali-style-spinach-vegetable-momos-tomato-sesame-achar", "polish-potato-cheese-pierogi"],
