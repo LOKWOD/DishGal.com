@@ -1810,6 +1810,12 @@ def recipe_shop(recipe) -> str:
             ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
         ]
+    elif "pad see ew" in haystack:
+        products = [
+            ("14 inch flat bottom carbon steel wok", "14-inch flat-bottom wok", "A broad, responsive surface restores heat quickly between batches and gives the wide rice noodles direct contact for caramelized edges."),
+            ("wide stainless steel wok spatula", "Wide wok spatula", "A broad, thin edge lifts fragile noodle ribbons from underneath so they turn without being chopped or stirred into clumps."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe verifies the thickest chicken strip reaches 165°F without relying on browning or cutting every piece."),
+        ]
     elif any(term in haystack for term in ["soup", "chili", "stew"]):
         products = [
             ("enameled dutch oven 6 quart", "Dutch oven", "A wide, heavy pot for browning and steady simmering."),
