@@ -79,6 +79,7 @@ PROTEIN_META = {
     "pork": "Pork",
     "turkey": "Turkey",
     "lamb": "Lamb",
+    "veal": "Veal",
     "sausage": "Sausage",
     "seafood": "Seafood",
     "meatless": "Meatless",
@@ -1809,6 +1810,12 @@ def recipe_shop(recipe) -> str:
             ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
             ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
+        ]
+    elif "osso buco" in haystack or "ossobuco" in haystack:
+        products = [
+            ("wide 6 quart enameled dutch oven braiser", "Wide 6-quart Dutch oven", "A broad, heavy vessel browns four shanks in batches, holds them in one layer and maintains the quiet covered braise that turns connective tissue tender."),
+            ("4 quart heavy saucepan risotto", "Heavy 4-quart risotto saucepan", "A responsive, heavy-bottomed pan gives the rice room to move while keeping hot stock additions at a steady simmer."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe confirms the veal has cleared the 145°F safety minimum while the separate skewer test determines whether collagen has softened."),
         ]
     elif "pad see ew" in haystack:
         products = [
