@@ -80,6 +80,8 @@ PROTEIN_META = {
     "turkey": "Turkey",
     "lamb": "Lamb",
     "veal": "Veal",
+    "beans": "Beans",
+    "vegetarian": "Vegetarian",
     "sausage": "Sausage",
     "seafood": "Seafood",
     "meatless": "Meatless",
@@ -1810,6 +1812,12 @@ def recipe_shop(recipe) -> str:
             ("heavy gauge aluminum half sheet pan", "Half-sheet pans", "Heavy-gauge, rimmed pans give food room to roast."),
             ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
+        ]
+    elif "trinidadian doubles" in haystack or "trini doubles" in haystack:
+        products = [
+            ("4 quart heavy dutch oven deep frying", "Heavy 4-quart frying pot", "A stable heavy pot holds a controlled 1-inch oil depth and recovers heat quickly between the twelve thin bara."),
+            ("clip on deep fry thermometer 400 degrees", "Clip-on frying thermometer", "Continuous temperature feedback keeps the oil in the 350 to 365°F window that cooks bara through while preserving a soft, flexible finish."),
+            ("stainless steel spider strainer frying", "Stainless-steel spider strainer", "A wide wire basket lifts each delicate bara quickly, drains excess oil and keeps hands farther from the hot surface."),
         ]
     elif "osso buco" in haystack or "ossobuco" in haystack:
         products = [
