@@ -1813,6 +1813,12 @@ def recipe_shop(recipe) -> str:
             ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
         ]
+    elif "ukrainian vinegret" in haystack or "vinehret beet" in haystack:
+        products = [
+            ("4 quart stainless steel saucepan with lid", "4-quart covered saucepan", "A measured, lidded saucepan gives whole roots enough water and headroom for an even simmer without crowding or boilover."),
+            ("8 inch chef knife kitchen", "8-inch chef's knife", "A sharp, balanced blade turns fully chilled beets, potatoes and carrots into the clean 3/8-inch dice that define this salad."),
+            ("large nonslip cutting board", "Large nonslip cutting board", "A stable washable surface keeps the root-vegetable prep controlled and provides enough room to cut the beets last without staining the other vegetables."),
+        ]
     elif "trinidadian doubles" in haystack or "trini doubles" in haystack:
         products = [
             ("4 quart heavy dutch oven deep frying", "Heavy 4-quart frying pot", "A stable heavy pot holds a controlled 1-inch oil depth and recovers heat quickly between the twelve thin bara."),
