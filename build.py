@@ -1813,6 +1813,12 @@ def recipe_shop(recipe) -> str:
             ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
         ]
+    elif "sri lankan egg hoppers" in haystack or "bittara appa" in haystack:
+        products = [
+            ("7 inch hopper pan with lid", "7-inch hopper pan with lid", "The small rounded bowl and close lid create the deep center, crisp lacy rim and trapped steam that distinguish a hopper from a flat pancake."),
+            ("large glass mixing bowl with lid", "Large covered mixing bowl", "A transparent, nonreactive bowl makes the one-third rise and fine fermentation bubbles easy to judge without disturbing the batter."),
+            ("thin edge silicone spatula heat resistant", "Thin-edge silicone spatula", "A flexible heat-safe edge releases the fragile crisp rim from two points without scratching a seasoned or nonstick hopper pan."),
+        ]
     elif "ukrainian vinegret" in haystack or "vinehret beet" in haystack:
         products = [
             ("4 quart stainless steel saucepan with lid", "4-quart covered saucepan", "A measured, lidded saucepan gives whole roots enough water and headroom for an even simmer without crowding or boilover."),
