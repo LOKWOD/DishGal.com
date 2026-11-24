@@ -1813,6 +1813,12 @@ def recipe_shop(recipe) -> str:
             ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
         ]
+    elif "afghan firni" in haystack or "firnee" in haystack:
+        products = [
+            ("3 quart heavy bottom saucepan", "3-quart heavy saucepan", "A heavy, pale-interior pan distributes gentle heat and makes scorching or brown flecks easy to spot while the milk thickens."),
+            ("stainless steel balloon whisk", "Balloon whisk", "A full-size whisk reaches the pan corners and keeps the cornstarch slurry moving as it gels."),
+            ("fine mesh sieve 6 inch", "Fine-mesh sieve", "Straining the hot pudding removes any stubborn starch beads before the firni sets in its serving bowls."),
+        ]
     elif "sri lankan egg hoppers" in haystack or "bittara appa" in haystack:
         products = [
             ("7 inch hopper pan with lid", "7-inch hopper pan with lid", "The small rounded bowl and close lid create the deep center, crisp lacy rim and trapped steam that distinguish a hopper from a flat pancake."),
