@@ -1813,6 +1813,12 @@ def recipe_shop(recipe) -> str:
             ("digital probe meat thermometer", "Digital probe thermometer", "Check food safely without cutting into every piece."),
             ("silicone oven mitts heat resistant", "Heat-safe oven mitts", "Grip and forearm coverage matter when moving a loaded pan."),
         ]
+    elif "karelian pies" in haystack or "karjalanpiirakat" in haystack:
+        products = [
+            ("heavy gauge aluminum half sheet pan", "Heavy rimmed sheet pan", "Preheating the pan upside down creates a flat, heat-steady deck that sets the thin rye bottoms before the rice filling dries."),
+            ("french rolling pin tapered", "Tapered rolling pin", "A slim tapered pin gives precise pressure control when rolling twelve small rye ovals to an even 1/16 inch."),
+            ("digital kitchen scale grams ounces", "Digital kitchen scale", "Weighing 25-gram dough portions and 55-gram filling portions keeps every pleated pie on the same baking schedule."),
+        ]
     elif "afghan firni" in haystack or "firnee" in haystack:
         products = [
             ("3 quart heavy bottom saucepan", "3-quart heavy saucepan", "A heavy, pale-interior pan distributes gentle heat and makes scorching or brown flecks easy to spot while the milk thickens."),
