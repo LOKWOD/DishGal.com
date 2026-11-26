@@ -529,7 +529,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "malaysian hainanese chicken chop" in haystack:
+    if "cambodian fish amok" in haystack or "amok trey" in haystack:
+        products = [
+            ("wide stainless steel steamer basket 12 inch", "Wide steamer basket", "A broad stable basket holds four banana-leaf cups level above the water so the custards steam evenly without crowding."),
+            ("small food processor 4 cup", "Small food processor", "A compact bowl keeps the low-volume lemongrass, galangal and lime-leaf paste against the blades until the tough fibers are finely cut."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe reaches the center of the fish-and-egg custard to verify 160°F without tearing the banana-leaf cup or mistaking set edges for a safe center."),
+        ]
+    elif "malaysian hainanese chicken chop" in haystack:
         products = [
             ("12 inch heavy skillet shallow frying", "Wide 12-inch heavy skillet", "A broad heat-steady surface gives two breaded thighs room to fry without crowding and keeps the measured oil temperature steadier between batches."),
             ("half sheet pan wire rack oven safe", "Half-sheet pan with oven-safe rack", "The rack drains fried cutlets without trapping steam, holds them for a safe oven finish if needed and reheats leftovers while restoring the crust."),
