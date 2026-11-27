@@ -529,7 +529,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "cambodian fish amok" in haystack or "amok trey" in haystack:
+    if "egyptian macarona béchamel" in haystack or "egyptian macarona bechamel" in haystack:
+        products = [
+            ("9 x 13 inch baking dish broiler safe", "9-by-13-inch baking dish", "The measured capacity holds the two penne layers, reduced beef center and thick béchamel cap at the intended depth; choose a broiler-safe model if you plan to brown the top."),
+            ("4 quart stainless steel saucepan heavy bottom", "Heavy 4-quart saucepan", "A broad, heavy base gives five cups of milk room to simmer while reducing hot spots that can scorch or lump the béchamel."),
+            ("instant read food thermometer thin probe", "Thin-probe instant-read thermometer", "A slim probe verifies both the crumbled beef at 160°F and the dense casserole center at 165°F, where surface color cannot confirm safety."),
+        ]
+    elif "cambodian fish amok" in haystack or "amok trey" in haystack:
         products = [
             ("wide stainless steel steamer basket 12 inch", "Wide steamer basket", "A broad stable basket holds four banana-leaf cups level above the water so the custards steam evenly without crowding."),
             ("small food processor 4 cup", "Small food processor", "A compact bowl keeps the low-volume lemongrass, galangal and lime-leaf paste against the blades until the tough fibers are finely cut."),
@@ -2244,22 +2250,28 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Choose pressure-cooked beet borscht with white beans and dill for a budget-friendly soup that improves after chilling, or skillet-fried grated potato pancakes with a thermometer-checked beef center for a crisp weekend dinner; compare active work, primary vegetable, protein, texture and reheating strategy.",
     },
     "egyptian-molokhia-golden-chicken-rice": {
-        "slugs": ["egyptian-koshari-crispy-onions-garlic-vinegar-sauce", "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts"],
-        "eyebrow": "Egyptian menu guide by meal role",
-        "title": "Build an Egyptian menu from green soup to street-food bowl and syrup cake",
-        "copy": "Compare chicken-broth molokhia with browned whole chicken and vermicelli rice, pantry-driven vegan koshari with crisp onions and garlic vinegar, and syrup-soaked basbousa by meal role, core starch, active work, serving temperature and make-ahead strategy.",
+        "slugs": ["egyptian-koshari-crispy-onions-garlic-vinegar-sauce", "egyptian-macarona-bechamel-spiced-beef", "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts"],
+        "eyebrow": "Egyptian menu guide by meal role and method",
+        "title": "Build an Egyptian menu from green soup to street-food bowl, pasta bake and syrup cake",
+        "copy": "Compare chicken-broth molokhia with browned whole chicken and rice, pantry-driven vegan koshari, layered macarona béchamel with spiced beef, and syrup-soaked basbousa by meal role, core starch, active work, serving temperature and make-ahead strategy.",
     },
     "egyptian-koshari-crispy-onions-garlic-vinegar-sauce": {
-        "slugs": ["egyptian-molokhia-golden-chicken-rice", "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts"],
-        "eyebrow": "Egyptian menu guide by meal role",
-        "title": "Build an Egyptian menu from street-food bowl to green soup and syrup cake",
-        "copy": "Compare pantry-driven vegan koshari with crisp onions and garlic vinegar, chicken-broth molokhia with browned whole chicken and vermicelli rice, and syrup-soaked basbousa by meal role, core starch, active work, serving temperature and make-ahead strategy.",
+        "slugs": ["egyptian-molokhia-golden-chicken-rice", "egyptian-macarona-bechamel-spiced-beef", "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts"],
+        "eyebrow": "Egyptian menu guide by meal role and method",
+        "title": "Build an Egyptian menu from street-food bowl to green soup, pasta bake and syrup cake",
+        "copy": "Compare pantry-driven vegan koshari with crisp onions and garlic vinegar, chicken-broth molokhia, layered macarona béchamel with spiced beef, and syrup-soaked basbousa by meal role, core starch, active work, serving temperature and make-ahead strategy.",
+    },
+    "egyptian-macarona-bechamel-spiced-beef": {
+        "slugs": ["egyptian-koshari-crispy-onions-garlic-vinegar-sauce", "egyptian-molokhia-golden-chicken-rice", "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts"],
+        "eyebrow": "Egyptian menu guide by meal role and method",
+        "title": "Build an Egyptian menu from family pasta bake to street food, green soup and syrup cake",
+        "copy": "Compare layered macarona béchamel with spiced beef, pantry-driven vegan koshari, chicken-broth molokhia and syrup-soaked basbousa by meal role, core starch, active work, serving temperature and make-ahead strategy.",
     },
     "egyptian-style-basbousa-yogurt-lemon-syrup-pine-nuts": {
-        "slugs": ["egyptian-molokhia-golden-chicken-rice", "egyptian-koshari-crispy-onions-garlic-vinegar-sauce"],
-        "eyebrow": "Egyptian menu guide by meal role",
-        "title": "Build an Egyptian menu from syrup cake to green soup and street-food bowl",
-        "copy": "Compare syrup-soaked basbousa, chicken-broth molokhia with browned whole chicken and vermicelli rice, and pantry-driven vegan koshari with crisp onions and garlic vinegar by meal role, core starch, active work, serving temperature and make-ahead strategy.",
+        "slugs": ["egyptian-molokhia-golden-chicken-rice", "egyptian-koshari-crispy-onions-garlic-vinegar-sauce", "egyptian-macarona-bechamel-spiced-beef"],
+        "eyebrow": "Egyptian menu guide by meal role and method",
+        "title": "Build an Egyptian menu from syrup cake to green soup, street-food bowl and pasta bake",
+        "copy": "Compare syrup-soaked basbousa, chicken-broth molokhia, pantry-driven vegan koshari and layered macarona béchamel with spiced beef by meal role, core starch, active work, serving temperature and make-ahead strategy.",
     },
     "persian-style-kuku-sabzi-walnuts-barberries": {
         "slugs": ["spanish-tortilla-espanola-potato-onion", "cottage-cheese-frittata-tomatoes-green-peppers"],
