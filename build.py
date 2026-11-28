@@ -529,7 +529,13 @@ def recipe_shop(recipe) -> str:
         recipe.get("title", ""), recipe.get("dek", ""), recipe.get("collection", ""),
         " ".join(recipe.get("tags", [])), " ".join(recipe.get("ingredients", [])),
     ]).lower()
-    if "egyptian macarona béchamel" in haystack or "egyptian macarona bechamel" in haystack:
+    if "ghanaian red red" in haystack or "black-eyed pea stew" in haystack:
+        products = [
+            ("wide 5 quart enameled dutch oven", "Wide 5-quart Dutch oven", "A broad heavy base gives the onion and tomato room to reduce without scorching, then holds the three-cup bean simmer at a steady gentle bubble."),
+            ("12 inch heavy skillet shallow frying", "Wide 12-inch heavy skillet", "A broad heat-steady surface keeps the plantain slices in one uncrowded layer and helps the measured oil stay in the 340–350°F frying range."),
+            ("clip on deep fry thermometer 12 inch", "Clip-on frying thermometer", "A long stem tracks the shallow oil temperature between batches so the ripe plantains caramelize before absorbing excess oil."),
+        ]
+    elif "egyptian macarona béchamel" in haystack or "egyptian macarona bechamel" in haystack:
         products = [
             ("9 x 13 inch baking dish broiler safe", "9-by-13-inch baking dish", "The measured capacity holds the two penne layers, reduced beef center and thick béchamel cap at the intended depth; choose a broiler-safe model if you plan to brown the top."),
             ("4 quart stainless steel saucepan heavy bottom", "Heavy 4-quart saucepan", "A broad, heavy base gives five cups of milk room to simmer while reducing hot spots that can scorch or lump the béchamel."),
@@ -2980,6 +2986,18 @@ CURATED_RECIPE_CLUSTERS = {
         "eyebrow": "Breakfast planning",
         "title": "Build a fast and make-ahead breakfast rotation",
         "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
+    },
+    "ghanaian-red-red-black-eyed-pea-stew-fried-plantains": {
+        "slugs": ["nigerian-style-party-jollof-rice-fried-chicken-coleslaw"],
+        "eyebrow": "West African tomato-and-chile meals by structure",
+        "title": "Compare creamy Ghanaian red red with smoky Nigerian party jollof",
+        "copy": "Choose Ghanaian red red for a budget plant-based black-eyed pea stew with fried ripe plantains, or Nigerian party jollof for a celebratory tomato-pepper rice platter with fried chicken; compare primary starch, protein, heat source, texture, active work and make-ahead strategy.",
+    },
+    "nigerian-style-party-jollof-rice-fried-chicken-coleslaw": {
+        "slugs": ["ghanaian-red-red-black-eyed-pea-stew-fried-plantains"],
+        "eyebrow": "West African tomato-and-chile meals by structure",
+        "title": "Compare smoky Nigerian party jollof with creamy Ghanaian red red",
+        "copy": "Choose Nigerian party jollof for a celebratory tomato-pepper rice platter with fried chicken, or Ghanaian red red for a budget plant-based black-eyed pea stew with fried ripe plantains; compare primary starch, protein, heat source, texture, active work and make-ahead strategy.",
     },
 }
 
