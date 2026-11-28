@@ -2988,12 +2988,12 @@ CURATED_RECIPE_CLUSTERS = {
         "copy": "Compare fresh-poached çılbır, hot protein pancakes, farmer-cheese syrniki, a vegetable-packed frittata, freezer-ready burritos and no-cook chia cups by total time, cost, storage and morning effort.",
     },
     "ghanaian-red-red-black-eyed-pea-stew-fried-plantains": {
-        "slugs": ["nigerian-style-party-jollof-rice-fried-chicken-coleslaw"],
+        "slugs": ["nigerian-party-jollof-rice-fried-chicken-coleslaw"],
         "eyebrow": "West African tomato-and-chile meals by structure",
         "title": "Compare creamy Ghanaian red red with smoky Nigerian party jollof",
         "copy": "Choose Ghanaian red red for a budget plant-based black-eyed pea stew with fried ripe plantains, or Nigerian party jollof for a celebratory tomato-pepper rice platter with fried chicken; compare primary starch, protein, heat source, texture, active work and make-ahead strategy.",
     },
-    "nigerian-style-party-jollof-rice-fried-chicken-coleslaw": {
+    "nigerian-party-jollof-rice-fried-chicken-coleslaw": {
         "slugs": ["ghanaian-red-red-black-eyed-pea-stew-fried-plantains"],
         "eyebrow": "West African tomato-and-chile meals by structure",
         "title": "Compare smoky Nigerian party jollof with creamy Ghanaian red red",
